@@ -62,6 +62,6 @@ public:
 };
 
 extern PlayerBase *gPlayer;
-extern Vec3p gPlayerPos;
+extern Vec3p *gPlayerPos;
 extern Vec3p gPlayerVel;
 extern s16 gPlayerAngle;
