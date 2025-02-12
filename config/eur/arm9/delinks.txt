@@ -14,3 +14,10 @@ libs/cpp/src/__register_global_object.cpp:
     complete
     .text       start:0x0204f8d4 end:0x0204f8f4
     .bss        start:0x02076da8 end:0x02076dac
+
+src/Main/Unknown/UnkStruct_0206322c.cpp:
+    .text       start:0x02030354 end:0x020306c0
+
+src/Main/Unknown/UnkStruct_02063220.cpp:
+    .text       start:0x0202f3f0 end:0x0202f8e8
+    .rodata     start:0x020562e2 end:0x02056300

@@ -22,5 +22,6 @@ typedef s32 bool;
 #endif
 
 #define CEIL_DIV(a, b) (((a) + (b) - 1) / (b))
+#define UNK_PTR unk32 *
 
 #endif
