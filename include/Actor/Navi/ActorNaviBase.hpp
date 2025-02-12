@@ -10,17 +10,18 @@
 class ActorNaviBase_Unk1 {};
 
 class ActorNaviBase : public Actor {
+public:
     /* 000 (base) */
     /* 158 */ Vec3p mUnk_158;
     /* 164 */ unk32 mUnk_164;
     /* 168 */ ModelRender mUnk_168;
     /* 1c4 */ unk8 mUnk_1c4[0xc];
     /* 1d0 */ void *mUnk_1d0;
-    /* 1d4 */ unk8 mUnk_1d4[0x30];
+    /* 1d4 */ unk8 mUnk_1d4[0x40];
     /* 214 */ unk16 mUnk_214;
     /* 216 */ unk8 mUnk_216[0xc];
     /* 222 */ unk16 mUnk_222;
-    /* 224 */ unk8 mUnk_224[0x18];
+    /* 224 */ unk8 mUnk_224[0x28];
     /* 24c */ unk32 mUnk_24c;
     /* 250 */ unk32 mUnk_250;
     /* 254 */ unk32 mUnk_254;
@@ -33,22 +34,7 @@ class ActorNaviBase : public Actor {
     /* 288 */ unk8 mUnk_288[0x2];
     /* 28a */ unk16 mUnk_28a;
     /* 28c */ unk8 mUnk_28c[0x8];
-    /* 294 */ ModelRender mUnk_294;
-    /* 2f0 */ void *mUnk_2f0;
-    /* 2f4 */ unk8 mUnk_2f4[0x40];
-    /* 334 */ unk32 mUnk_334;
-    /* 338 */ unk32 mUnk_338;
-    /* 33c */ unk32 mUnk_33c;
-    /* 340 */ unk16 mUnk_340;
-    /* 342 */ unk8 mUnk_342[0x2];
-    /* 344 */ unk32 mUnk_344;
-    /* 348 */ unk32 mUnk_348;
-    /* 34c */ unk8 mUnk_34c[0x68];
-    /* 3b4 */ EquipHammer *mHammer;
-    /* 3b8 */ unk32 mUnk_3b8;
-    /* 3bc */ unk32 mUnk_3bc;
-    /* 3c0 */ unk8 mUnk_3c0[0x8];
-    /* 3c8 */
+    /* 294 */
 
     /* 00 */ virtual ~ActorNaviBase() override;
     /* 08 */ virtual bool vfunc_08() override;
@@ -77,14 +63,14 @@ class ActorNaviBase : public Actor {
     /* d0 */ virtual void vfunc_d0();
     /* d4 */ virtual void vfunc_d4();
     /* d8 */ virtual void vfunc_d8();
-    /* dc */ virtual void SetActive(bool active);
+    /* dc */ virtual void SetActive(unk32 active);
     /* e0 */ virtual void vfunc_e0();
     /* e4 */ virtual void vfunc_e4();
     /* e8 */ virtual void vfunc_e8();
     /* ec */ virtual void vfunc_ec();
     /* f0 */
 
-    void func_ov000_020b8c50();
+    void func_ov000_020b8c50(unk32);
     void func_ov000_020b8c98(unk32 param1, unk32 param2, unk32 param3);
     void TeleportAboveLink();
     void func_ov000_020b9770(s32 param1);
@@ -102,12 +88,4 @@ class ActorNaviBase : public Actor {
     static void func_ov000_020bb0e0();
 
     ActorNaviBase();
-
-    bool func_ov059_0219933c(u32 param1);
-    void func_ov059_0219a0ac();
-    void func_ov059_0219aa08();
-    void func_ov059_0219aba8(u32 param1);
-    bool func_ov059_0219af14();
-    bool func_ov059_0219afc4();
-    void func_ov059_0219b020();
 };
