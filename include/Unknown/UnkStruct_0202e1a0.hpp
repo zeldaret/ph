@@ -3,6 +3,7 @@
 #include "global.h"
 #include "types.h"
 
+// astruct_11
 struct UnkStruct_0202e1a0 {
     /* 00 */ unk16 mUnk_00;
     /* 02 */ unk16 mUnk_02;

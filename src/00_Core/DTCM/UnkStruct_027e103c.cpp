@@ -36,7 +36,7 @@ void UnkStruct_027e103c::func_ov000_020cf3dc() {}
 void UnkStruct_027e103c::func_ov000_020cf3f0() {}
 void UnkStruct_027e103c::func_ov000_020cf404() {}
 void UnkStruct_027e103c::func_ov000_020cf414() {}
-void UnkStruct_027e103c::func_ov000_020cf42c() {}
+bool UnkStruct_027e103c::func_ov000_020cf42c() {}
 bool UnkStruct_027e103c::func_ov000_020cf444() {}
 bool UnkStruct_027e103c::func_ov000_020cf488() {}
 bool UnkStruct_027e103c::func_ov000_020cf4bc() {}
@@ -59,7 +59,7 @@ void UnkStruct_027e103c::func_ov000_020cfa70(s32 param1, s32 param2) {}
 unk8 UnkStruct_027e103c::func_ov000_020cfab0() {}
 void UnkStruct_027e103c::func_ov000_020cfabc(s32 param1, s32 param2) {}
 void UnkStruct_027e103c::func_ov000_020cfae8(s32 param1, s32 param2) {}
-void UnkStruct_027e103c::func_ov000_020cfb20(unk32 param1) {}
+void UnkStruct_027e103c::func_ov000_020cfb20(void *param1) {}
 void UnkStruct_027e103c::func_ov000_020cfb38() {}
 void UnkStruct_027e103c::func_ov000_020cfb48() {}
 void UnkStruct_027e103c::func_ov000_020cfb58() {}
