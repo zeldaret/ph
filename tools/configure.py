@@ -279,7 +279,6 @@ def add_mwld_and_rom_builds(n: ninja_syntax.Writer, game_build: Path, game_confi
     n.newline()
 
     n.build(
-        # inputs="format_exec",
         rule="format_exec",
         outputs="format",
     )
