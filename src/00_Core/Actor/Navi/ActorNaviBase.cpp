@@ -37,7 +37,7 @@ void ActorNaviBase::vfunc_84() {}
 bool ActorNaviBase::vfunc_78() {}
 bool ActorNaviBase::vfunc_bc(unk32 param1, unk8 param2, s32 param3) {}
 void ActorNaviBase::vfunc_74() {}
-void ActorNaviBase::func_ov000_020baca8(Vec3p *param1, unk32 param2) {}
+void ActorNaviBase::func_ov000_020baca8(Cylinder *param1, unk32 param2) {}
 void ActorNaviBase::func_ov000_020bad18() {}
 bool ActorNaviBase::vfunc_90() {}
 void ActorNaviBase::vfunc_94() {}

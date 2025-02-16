@@ -10,8 +10,9 @@
 class ActorNaviBase_Unk1 {};
 
 class ActorNaviBase : public Actor {
+public:
     /* 000 (base) */
-    /* 158 */ Vec3p mUnk_158;
+    /* 158 */ Vec3p mOffsetPos;
     /* 164 */ unk32 mUnk_164;
     /* 168 */ ModelRender mUnk_168;
     /* 1c4 */ unk8 mUnk_1c4[0xc];
@@ -96,7 +97,7 @@ class ActorNaviBase : public Actor {
     bool func_ov000_020ba458();
     void func_ov000_020ba4e4();
     void func_ov000_020ba53c();
-    void func_ov000_020baca8(Vec3p *param1, unk32 param2);
+    void func_ov000_020baca8(Cylinder *param1, unk32 param2);
     void func_ov000_020bad18();
     static void func_ov000_020bb0ac();
     static void func_ov000_020bb0e0();

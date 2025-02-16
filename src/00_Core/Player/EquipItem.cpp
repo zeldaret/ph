@@ -9,7 +9,7 @@ u32 EquipItem::vfunc_2c() {}
 void EquipItem::vfunc_34(unk16 *param1) {}
 unk32 EquipItem::vfunc_40() const {}
 unk32 EquipItem::vfunc_44(unk32 param1) const {}
-unk32 EquipItem::vfunc_48(unk32 param1) const {}
+unk32 EquipItem::vfunc_48() const {}
 s32 EquipItem::vfunc_4c() const {}
 Vec3p *EquipItem::GetPlayerPos() {}
 void EquipItem::func_ov000_020be99c(Vec3p *param1) {}

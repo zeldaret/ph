@@ -34,7 +34,7 @@ public:
     /* 3c */ virtual bool GetHitbox(Cylinder *hitbox) const;
     /* 40 */ virtual unk32 vfunc_40() const;
     /* 44 */ virtual unk32 vfunc_44(unk32 param1) const;
-    /* 48 */ virtual unk32 vfunc_48(unk32 param1) const;
+    /* 48 */ virtual unk32 vfunc_48() const;
     /* 4c */ virtual s32 vfunc_4c() const;
     /* 50 */
 

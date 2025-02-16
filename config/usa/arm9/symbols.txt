@@ -56,7 +56,7 @@ func_020029fc kind:function(arm,size=0x1b0) addr:0x20029fc
 func_02002bac kind:function(arm,size=0xc) addr:0x2002bac
 func_02002bb8 kind:function(arm,size=0x3c) addr:0x2002bb8
 func_02002bf4 kind:function(arm,size=0x20) addr:0x2002bf4
-SoftDivideMod kind:function(arm,size=0x20c) addr:0x2002c14
+_s32_div_f kind:function(arm,size=0x20c) addr:0x2002c14
 SoftDivide kind:function(arm,size=0x1e4) addr:0x2002e20
 _02002e28 kind:label(arm) addr:0x2002e28
 func_0200301c kind:function(arm,size=0x544) addr:0x200301c

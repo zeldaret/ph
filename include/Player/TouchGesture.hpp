@@ -22,7 +22,8 @@ public:
 class TouchGesture : public TouchGestureBase {
 public:
     /* 00 (base) */
-    /* 05 */ unk8 mUnk_05[7];
+    /* 05 */ unk8 mUnk_05[3];
+    /* 08 */ s32 mUnk_08;
     /* 0c */ u16 mIndex;
     /* 0e */ unk16 mUnk_0e;
     /* 10 */ u16 mUnk_10[GESTURE_BUFFER_LENGTH];
