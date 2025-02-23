@@ -5,6 +5,7 @@ extern "C" {
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
 #include "Actor/ActorPlayerDummy.hpp"
+#include "DTCM/UnkStruct_027e077c.hpp"
 #include "Item/ItemManager.hpp"
 #include "Map/MapManager.hpp"
 #include "Player/EquipSword.hpp"
@@ -255,13 +256,6 @@ ARM bool Actor::func_ov00_020c195c() {
     return true;
 }
 
-struct UnkStruct2 {
-    /* 0 */ u32 mUnk_0;
-    /* 4 */ u32 mUnk_4;
-    /* 8 */
-};
-extern UnkStruct2 data_027e077c;
-extern u8 data_02056be4[];
 extern "C" bool func_ov05_02103f4c(s32 param1);
 extern s32 data_027e103c;
 ARM bool Actor::func_ov00_020c198c() {

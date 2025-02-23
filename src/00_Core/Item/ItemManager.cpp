@@ -126,7 +126,7 @@ ARM FairyId ItemManager::GetEquippedFairy() const {
     return fairy;
 }
 
-ARM ActorNavi *ItemManager::GetFairy(FairyId id) const {
+ARM ActorNaviBase *ItemManager::GetFairy(FairyId id) const {
     return mFairies[id];
 }
 
@@ -237,15 +237,11 @@ ARM void ItemManager::GiveAmmo(ItemFlag equipId, u16 amount) {
     (*mAmmo)[equipId] = this->GetMaxAmmo(equipId);
 }
 
-extern "C" unk32 func_ov00_02078b40(UnkStruct_027e0d38 *param1);
 extern void *data_027e10a4;
 extern "C" bool func_ov15_02136670(void *param1);
 extern unk8 data_ov29_0217a4ac[];
-extern "C" bool _ZN14PlayerLinkBase18func_ov00_020bbd80Ei(unk32 param1, unk32 param2);
-extern "C" bool _ZNK11ItemManager7HasItemEi();
-extern "C" void _ZN11ItemManager12GetEquipItemEi();
 ARM bool ItemManager::func_ov00_020ad790(unk32 param1) {
-    unk32 unk1 = func_ov00_02078b40(data_027e0d38);
+    unk32 unk1 = data_027e0d38->func_ov000_02078b40();
     if (unk1 == 2) return func_ov15_02136670(data_027e10a4);
     if (data_027e0d38->mUnk_14 == 1) return false;
     // NONMATCH: OverlayId_29 should be in constant pool

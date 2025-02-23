@@ -8,6 +8,8 @@
 extern "C" {
 #endif
 
+#define ABS(x) ((x) < 0 ? -(x) : (x))
+
 // Q20.12 fixed point number
 typedef s32 q20;
 // Q4.12 fixed point number
@@ -19,6 +21,7 @@ typedef s16 q4;
 #define FLOAT_TO_Q19(n) ((s32) (((n) * 8192 + 1)))
 #define ROUND_Q20(n) (((s32) (n) + 0x800) >> 12)
 #define MUL_Q20(a, b) (q20)((((s64) (a)) * ((s64) (b)) + 0x800) >> 12)
+#define DIV_Q20(a, b) (((a) << 12) / (b))
 
 #define DEG_TO_ANG(n) ((n) * 0x10000 / 360)
 #define SIN(n) (gSinCosTable[2 * ((n) >> 4)])
@@ -49,8 +52,8 @@ bool Approach_thunk(unk32 *src, unk32 dest, unk32 step);
 extern q4 gSinCosTable[];
 
 typedef struct {
-    /* 0 */ s8 x;
-    /* 1 */ s8 y;
+    /* 0 */ u8 x;
+    /* 1 */ u8 y;
     /* 2 */
 } Vec2b;
 

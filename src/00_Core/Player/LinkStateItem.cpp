@@ -1,5 +1,6 @@
 #include "Player/LinkStateItem.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
+#include "DTCM/UnkStruct_027e1098.hpp"
 #include "Item/ItemManager.hpp"
 #include "Player/EquipBomb.hpp"
 #include "Player/EquipHammer.hpp"
@@ -8,12 +9,7 @@
 #include "Player/PlayerControl.hpp"
 #include "Save/AdventureFlags.hpp"
 
-extern void func_ov000_020cf9dc(s32 param1, s32 param2, s32 param3);
-extern void func_ov014_0213ec64(s32 param1);
-extern void func_ov014_0211fd04(s32 *param1);
 extern void func_ov000_020b7e6c(s32 *param1);
-
-extern s32 *data_027e1098;
 
 THUMB void LinkStateItem::vfunc_00() {}
 
@@ -42,7 +38,7 @@ ARM void LinkStateItem::OnStateLeave(s32 param1) {
             if (*(u8 *) (iVar3 + 0xe0) == '\0') {
                 GetEquipBombchu()->func_ov014_0213ec64();
             }
-            func_ov014_0211fd04(data_027e1098);
+            data_027e1098->func_ov014_0211fd04();
             break;
         case ItemFlag_OshusSword: break;
         case ItemFlag_WoodenShield: break;

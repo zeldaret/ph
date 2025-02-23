@@ -1,4 +1,5 @@
 #include "Actor/ActorManager.hpp"
+#include "DTCM/UnkStruct_027e077c.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Map/MapManager.hpp"
 
@@ -8,8 +9,6 @@ extern "C" Cylinder *func_ov000_020c3ef0(void *, u32 index);
 extern "C" bool func_ov000_020c3f08(void *, u32 index);
 extern "C" void func_ov000_020c3f3c(void *, u32 index, Cylinder *cylinder);
 extern "C" void func_ov000_020c3f54(void *, u32 param2);
-extern s32 data_027e077c;
-extern u8 data_02056be4[];
 
 ARM void ActorManager::DeleteActor(u32 index, bool param2) {
     if (!param2) {
@@ -52,7 +51,7 @@ ARM void ActorManager::func_ov00_020c3484(ActorRef *ref, ActorManager *actorMgr,
 
     q20 minDistance       = 0x7fffffff;
     Actor **actorIter     = actorMgr->mActorTable;
-    u8 unkByte            = data_02056be4[data_027e077c];
+    u8 unkByte            = data_02056be4[data_027e077c.mUnk_0];
     bool unk1             = (unkByte & 1) != 0;
     Actor **actorTableEnd = actorIter + actorMgr->mMaxActorIndex;
 
