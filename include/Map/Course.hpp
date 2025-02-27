@@ -27,14 +27,15 @@ struct CourseProgress {
 };
 
 class Course : public SysObject {
-    /* 000 */ unk32 mIndex;
+public:
+    /* 000 */ s32 mIndex;
     /* 004 */ CourseType mType;
     /* 008 */ unk32 mUnk_008;
     /* 00c */ char mName[0x10];
     /* 01c */ Vec2b mCurrMapPos; // position in the map grid
     /* 01e */ unk8 mUnk_01e;
     /* 01f */ unk8 mUnk_01f;
-    /* 020 */ unk8 mMapGrid[10][10];
+    /* 020 */ u8 mMapGrid[10][10];
     /* 084 */ Vec2b mMainGrid; // part of the grid where you can walk off screen to another map
     /* 086 */ Vec2b mMainGridSize;
     /* 088 */ s32 mScreenMapOffsetX;
@@ -42,8 +43,8 @@ class Course : public SysObject {
     /* 090 */ unk32 mUnk_090;
     /* 094 */ unk32 mUnk_094;
     /* 098 */ AABB mBounds;
-    /* 0b0 */ s8 mNumMaps;
-    /* 0b1 */ unk8 mUnk_0b1;
+    /* 0b0 */ u8 mNumMaps;
+    /* 0b1 */ u8 mUnk_0b1;
     /* 0b2 */ unk8 mUnk_0b2;
     /* 0b3 */ unk8 mUnk_0b3;
     /* 0b4 */ unk32 mUnk_0b4;
