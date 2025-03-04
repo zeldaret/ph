@@ -4,3 +4,9 @@
     .data       start:0x0219b140 end:0x0219b1c0 kind:data align:32
     .bss        start:0x0219b1c0 end:0x0219b1c0 kind:bss align:32
 
+
+src/59_Hammer/Player/EquipHammer.cpp:
+    .text        start:0x02198d00 end:0x0219933c
+
+src/59_Hammer/Actor/Navi/ActorNaviBase.cpp:
+    .text        start:0x0219933c end:0x0219b110

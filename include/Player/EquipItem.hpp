@@ -41,5 +41,5 @@ public:
     Vec3p *GetPlayerPos();
     void func_ov000_020be99c(Vec3p *param1);
     void func_ov000_020be9e4(s32 param1, s32 param2, s32 param3, s16 param4);
-    u16 GetAmmo();
+    s16 GetAmmo() const;
 };

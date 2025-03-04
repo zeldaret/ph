@@ -192,7 +192,7 @@ unk8 MapManager::func_ov00_0208527c() {}
 unk8 MapManager::func_ov00_020853fc() {}
 unk8 MapManager::func_ov00_02085594() {}
 void MapManager::func_ov00_0208583c(unk32 param_1, Vec3p *param_2, unk32 param_3) {}
-unk8 MapManager::func_ov00_020858b0() {}
+unk8 MapManager::func_ov00_020858b0(MapManager *param_1, Vec3p *param_2, s32 param_3) {}
 s32 MapManager::func_ov00_02085a34(unk32 param_2, unk32 param_3) {}
 unk8 MapManager::func_ov00_02085c60(unk32 param_2, unk32 param_3, unk32 param_4, unk32 param_5) {}
 unk8 MapManager::func_ov00_02086044(unk32 param_2, unk32 param_3, unk32 param_4) {}

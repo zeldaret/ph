@@ -19,14 +19,12 @@ public:
     /* 20 */ unk16 mUnk_20;
     /* 22 */ unk8 mUnk_22[2];
     /* 24 */ s8 mUnk_24;
-    /* 25 */ unk8 mUnk_25[7];
+    /* 25 */ u8 mUnk_25[7];
     /* 2c */ unk16 mUnk_2c;
     /* 2e */ unk8 mUnk_2e[2];
     /* 30 */ void *mUnk_30;
     /* 34 */ unk32 mUnk_34;
-    /* 38 */ unk32 mUnk_38;
-    /* 3c */ void *mUnk_3c;
-    /* 40 */ unk32 mUnk_40;
+    /* 38 */ Vec3p mUnk_38;
     /* 44 */ unk32 mUnk_44;
     /* 48 */ void *mUnk_48;
     /* 4c */ unk32 mUnk_4c;

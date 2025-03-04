@@ -41,7 +41,7 @@ public:
     /* 10 */
 
     bool func_01ffbe78(Vec3p *param1, Vec3p *param2, Vec3p *param3, Vec4p *param4);
-    bool func_01ffbf5c(s32 param1, Vec3p *param2, Vec3p *param3, s32 length);
+    bool func_01ffbf5c(struct UnkStruct *param1, Vec3p *param2, Vec3p *param3, s32 length);
     bool func_01ffc118(s32 *param1, Vec3p *param2, Vec3p *param3, s32 param4, s32 *param5, u32 param6, s32 *param7);
     bool func_01ffd1e0(s32 *param1, Vec3p *param2, Vec3p *param3, s32 param4, s32 *param5, u32 param6, s32 *param7);
 
@@ -237,7 +237,7 @@ public:
     static unk8 func_ov00_020853fc();
     static unk8 func_ov00_02085594();
     static void func_ov00_0208583c(unk32 param_1, Vec3p *param_2, unk32 param_3);
-    static unk8 func_ov00_020858b0();
+    static unk8 func_ov00_020858b0(MapManager *param_1, Vec3p *param_2, s32 param_3);
     s32 func_ov00_02085a34(unk32 param_2, unk32 param_3);
     unk8 func_ov00_02085c60(unk32 param_2, unk32 param_3, unk32 param_4, unk32 param_5);
     unk8 func_ov00_02086044(unk32 param_2, unk32 param_3, unk32 param_4);
