@@ -128,3 +128,5 @@ public:
     void func_ov000_020b6ba4(s32 param1, s32 param2);
     bool func_ov000_020b6e70();
 };
+
+extern UnkStruct_027e0fd4 *data_027e0fd4;
