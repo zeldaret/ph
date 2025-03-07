@@ -5,7 +5,8 @@
 #define SET_FLAG(arr, pos) ((arr)[((u32) (pos)) >> 5] |= 1 << ((pos) & 0x1f))
 #define RESET_FLAG(arr, pos) ((arr)[((u32) (pos)) >> 5] &= ~(1 << ((pos) & 0x1f)))
 
-#define ARRAY_LEN(arr) ((sizeof(arr) / sizeof(*arr)))
+#define ARRAY_LEN_U(arr) (u32)((sizeof(arr) / sizeof(*arr)))
+#define ARRAY_LEN(arr) (s32)(sizeof(arr) / sizeof(*arr))
 
 // Prevent the IDE from reporting errors that the compiler/linker won't report
 #ifdef __INTELLISENSE__
