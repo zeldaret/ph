@@ -8,7 +8,7 @@ extern "C" {
 #include "nds/math.h"
 #include "types.h"
 
-#include "Actor/Navi/ActorNavi.hpp"
+#include "Actor/Navi/ActorNaviBase.hpp"
 #include "Item/Item.hpp"
 #include "Player/EquipItem.hpp"
 #include "Render/ModelRender.hpp"
@@ -60,13 +60,13 @@ enum DungeonItemModelId_ {
 };
 
 class ItemManager : public SysObject {
-private:
+public:
     /* 000 */ ItemFlag mEquippedItem;
     /* 004 */ ItemFlag mPrevEquippedItem;
     /* 008 */ ItemFlag mForcedItem; // game crashes when any item besides this one is equipped
     /* 00c */ u32 mHourglassSandFrames;
     /* 010 */ FairyId mEquippedFairy;
-    /* 014 */ ActorNavi *mFairies[FairyId_COUNT];
+    /* 014 */ ActorNaviBase *mFairies[FairyId_COUNT];
     /* 020 */ u16 mEquipLoadTimer;
     /* 022 */ u16 mNumRupees;
     /* 024 */ u8 mNumGems[Gem_COUNT];
@@ -101,7 +101,6 @@ private:
     /* 14e */ unk8 mUnk_14e[0x2]; // padding?
     /* 150 */
 
-public:
     static ItemManager *Create();
     static void Destroy();
     ItemManager();
@@ -114,7 +113,7 @@ public:
 
     // Fairy
     FairyId GetEquippedFairy() const;
-    ActorNavi *GetFairy(FairyId id) const;
+    ActorNaviBase *GetFairy(FairyId id) const;
     u32 GetActiveFairyLevel(FairyId id) const;
     u32 GetFairyLevel(FairyId id) const;
     void SpawnFairies();

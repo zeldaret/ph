@@ -10,7 +10,7 @@ void DebugHierarchyBase::vfunc_10() {}
 void DebugHierarchyBase::vfunc_14() {}
 void DebugHierarchyBase::vfunc_18() {}
 void DebugHierarchyBase::vfunc_1c() {}
-void DebugHierarchyBase::vfunc_20() {}
+void DebugHierarchyBase::vfunc_20(unk32 param1, const char *param2, unk32 param3, unk32 param4, unk32 param5, unk32 param6) {}
 void DebugHierarchyBase::vfunc_24() {}
 void DebugHierarchyBase::vfunc_28() {}
 void DebugHierarchyBase::vfunc_2c() {}

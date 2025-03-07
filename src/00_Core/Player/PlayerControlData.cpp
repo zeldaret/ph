@@ -18,8 +18,8 @@ void PlayerControlData::vfunc_2c() {}
 void PlayerControlData::vfunc_30() {}
 void PlayerControlData::vfunc_34() {}
 unk32 PlayerControlData::vfunc_7c() {}
-unk32 PlayerControlData::vfunc_74() {}
-unk32 PlayerControlData::vfunc_78() {}
+unk32 PlayerControlData::vfunc_74(s32 param1) {}
+unk32 PlayerControlData::vfunc_78(s32 param1) {}
 void PlayerControlData::func_ov000_020b484c(s32 param1, s32 param2, s32 param3) {}
 void PlayerControlData::vfunc_6c(s32 param1, Vec3p *param2) {}
 void PlayerControlData::vfunc_5c() {}

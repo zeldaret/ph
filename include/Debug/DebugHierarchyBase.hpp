@@ -19,7 +19,7 @@ public:
     /* 14 */ virtual void vfunc_14();
     /* 18 */ virtual void vfunc_18();
     /* 1c */ virtual void vfunc_1c();
-    /* 20 */ virtual void vfunc_20();
+    /* 20 */ virtual void vfunc_20(unk32 param1, const char *param2, unk32 param3, unk32 param4, unk32 param5, unk32 param6);
     /* 24 */ virtual void vfunc_24();
     /* 28 */ virtual void vfunc_28();
     /* 2c */ virtual void vfunc_2c();
