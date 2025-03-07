@@ -1,7 +1,7 @@
 #include "Player/LinkStateCutscene.hpp"
 
 unk32 UnkStruct_ov004_0210abb8::vfunc_2c(s32 param1) {}
-void UnkStruct_ov004_0210abb8::vfunc_24(unk32 param1) {}
+bool UnkStruct_ov004_0210abb8::vfunc_24(unk32 param1) {}
 void LinkStateCutscene::func_ov005_021089c0() {}
 void LinkStateCutscene::func_ov005_021089f4() {}
 void LinkStateCutscene::func_ov005_02108d08() {}

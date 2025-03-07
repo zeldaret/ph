@@ -57,7 +57,7 @@ struct UnkStruct_027e103c {
     void func_ov000_020cf3f0();
     void func_ov000_020cf404();
     void func_ov000_020cf414();
-    void func_ov000_020cf42c();
+    bool func_ov000_020cf42c();
     bool func_ov000_020cf444();
     bool func_ov000_020cf488();
     bool func_ov000_020cf4bc();
@@ -80,7 +80,10 @@ struct UnkStruct_027e103c {
     unk8 func_ov000_020cfab0();
     void func_ov000_020cfabc(s32 param1, s32 param2);
     void func_ov000_020cfae8(s32 param1, s32 param2);
-    void func_ov000_020cfb20(unk32 param1);
+
+    //! TODO: find out if the type is always `UnkStruct_020397f8*`
+    void func_ov000_020cfb20(void *);
+
     void func_ov000_020cfb38();
     void func_ov000_020cfb48();
     void func_ov000_020cfb58();
