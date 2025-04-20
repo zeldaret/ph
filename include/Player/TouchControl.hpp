@@ -5,6 +5,8 @@
 #include "nds/math.h"
 #include "types.h"
 
+extern u16 *data_0207aecc;
+
 typedef u16 TouchFlags;
 enum TouchFlag_ {
     TouchFlag_TouchedNow   = 0x0001,
@@ -42,9 +44,11 @@ public:
     void Update(TouchState *state, u16 speed);
     bool func_ov00_0207aeac();
     void UpdateConditionally(TouchState *state, u16 speed);
-    void func_ov00_0207af38(u16 speed, bool param2);
+    void func_ov00_0207af38(u16 speedIncrease, bool shouldIncrease);
     ~TouchControl();
 
     static bool func_0202b864(Vec3p *param1, s32 size, unk8 param3);
     static bool func_0202b894(Vec3p *param1, s32 size, unk8 param3);
 };
+
+void Fill16(int value, unsigned short *dst, int size); // TODO: Replace with header file
