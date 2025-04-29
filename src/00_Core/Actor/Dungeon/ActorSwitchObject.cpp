@@ -19,7 +19,16 @@ bool ActorSwitchObject::vfunc_0c() {
 void ActorSwitchObject::vfunc_14(u32 param1) {}
 void ActorSwitchObject::vfunc_18(u32 param1) {}
 bool ActorSwitchObject::func_ov000_0208fc10(s32 param1) {}
-void ActorSwitchObject::func_ov000_0208fc7c() {}
+
+void ActorSwitchObject::func_ov000_0208fc7c() {
+    this->mUnk_158 = this->mUnk_020.mUnk_00[1];
+    this->mUnk_15c = this->mUnk_020.mUnk_00[2];
+    this->mUnk_164 = this->mUnk_020.mUnk_0a[1];
+    this->mUnk_168 = this->mUnk_164 + this->mUnk_020.mUnk_00[0];
+    this->mUnk_16c = this->mUnk_020.mUnk_08[1];
+    this->mUnk_160 = this->mUnk_164;
+}
+
 bool ActorSwitchObject::func_ov000_0208fcb4() {}
 void ActorSwitchObject::func_ov000_0208fef8() {}
 
