@@ -1,4 +1,5 @@
 #include "Actor/Dungeon/ActorSwitchObject.hpp"
+#include "Map/MapManager.hpp"
 
 ActorType ActorSwitchObject::gType = ActorType(ActorTypeId_SwitchObject, (ActorCreateFunc) ActorSwitchObject::Create, NULL);
 
@@ -21,5 +22,12 @@ bool ActorSwitchObject::func_ov000_0208fc10(s32 param1) {}
 void ActorSwitchObject::func_ov000_0208fc7c() {}
 bool ActorSwitchObject::func_ov000_0208fcb4() {}
 void ActorSwitchObject::func_ov000_0208fef8() {}
-void ActorSwitchObject::func_ov000_0209032c() {}
+
+void ActorSwitchObject::func_ov000_0209032c() {
+    unk32 i;
+    for (i = this->mUnk_164; i < this->mUnk_168; i++) {
+        gMapManager->func_ov00_02084b38(i, this->mUnk_16c, 0);
+    }
+}
+
 ActorSwitchObject::~ActorSwitchObject() {}
