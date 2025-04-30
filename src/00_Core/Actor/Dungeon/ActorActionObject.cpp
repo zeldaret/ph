@@ -31,7 +31,7 @@ ARM bool ActorActionObject::vfunc_08() {
     return true;
 }
 
-ARM void ActorActionObject::vfunc_14(u32 param1) {
+ARM unk32 ActorActionObject::vfunc_14(u32 param1) {
     if (!this->func_ov00_020c313c(param1)) {
         return;
     }

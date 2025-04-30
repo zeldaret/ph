@@ -17,7 +17,7 @@ void ActorArrow::func_ov014_021200d4() {}
 void ActorArrow::func_ov014_02120118() {}
 bool ActorArrow::func_ov014_02120180() {}
 EquipRope *ActorArrow::GetEquipRope() {}
-void ActorArrow::vfunc_14(u32 param1) {}
+unk32 ActorArrow::vfunc_14(u32 param1) {}
 void func_ov014_02120774(u32 *param1, s32 param2) {}
 void ActorArrow::vfunc_18(u32 param1) {}
 void ActorArrow::vfunc_10(u32 param1) {}

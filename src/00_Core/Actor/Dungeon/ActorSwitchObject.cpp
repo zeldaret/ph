@@ -16,7 +16,54 @@ bool ActorSwitchObject::vfunc_0c() {
     return this->func_ov00_020c1bfc(0) ? this->func_ov000_0208fc10(1) : this->func_ov000_0208fc10(0);
 }
 
-void ActorSwitchObject::vfunc_14(u32 param1) {}
+unk32 ActorSwitchObject::vfunc_14(u32 param1) {
+    bool bVar1;
+    u32 uVar2;
+    u32 uVar3;
+    s32 iVar4;
+    s32 iVar5;
+
+    bVar1 = this->func_ov00_020c313c(param1);
+    if (bVar1 == NULL) {
+        return bVar1;
+    }
+    uVar2 = this->mUnk_130;
+    switch (uVar2) {
+        default:
+            if (uVar2 == 2) {
+                break;
+            }
+            return uVar2;
+        case 0:
+            uVar3 = this->func_ov000_0208fcb4();
+            switch (uVar3) {
+                case 1: return this->func_ov000_0208fc10(1);
+                case 2: return this->func_ov000_0208fc10(2);
+                default: return uVar3;
+            }
+            bVar1 = this->func_ov000_0208fc10(2);
+            return bVar1;
+        case 1:
+            iVar4 = this->func_ov000_0208fcb4();
+            if (iVar4 == 1) {
+                return iVar4;
+            }
+            bVar1 = this->func_ov000_0208fc10(0);
+            return bVar1;
+    }
+
+    iVar5               = this->mActiveFrames + 1;
+    this->mActiveFrames = iVar5;
+    if (iVar5 < 0x1e) {
+        return iVar5;
+    }
+
+    this->func_ov000_0209032c();
+    bVar1 = this->func_ov000_0208fc10(0);
+
+    return bVar1;
+}
+
 void ActorSwitchObject::vfunc_18(u32 param1) {}
 
 bool ActorSwitchObject::func_ov000_0208fc10(s32 param1) {
