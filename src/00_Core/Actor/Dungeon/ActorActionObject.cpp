@@ -37,28 +37,28 @@ ARM unk32 ActorActionObject::vfunc_14(u32 param1) {
     }
 
     u32 flag = mUnk_020.mUnk_00[2];
-    bool bVar3;
+    unk32 bVar3;
     switch (mUnk_020.mUnk_00[0]) {
-        case 0: bVar3 = true; break;
+        case 0: bVar3 = 1; break;
         case 1:
             if (gPlayerLink->mGrabActor.id != -1 && gPlayerLink->GetStateId() == LinkStateId_Move) {
-                bVar3 = true;
+                bVar3 = 1;
             } else {
-                bVar3 = false;
+                bVar3 = 0;
             }
             break;
         case 2:
             if (gPlayerLink->mGrabActor.id == -1 && gPlayerLink->GetStateId() == LinkStateId_Move) {
-                bVar3 = true;
+                bVar3 = 1;
             } else {
-                bVar3 = false;
+                bVar3 = 0;
             }
             break;
-        default: bVar3 = false; break;
+        default: bVar3 = 0; break;
     }
 
     if (!bVar3) {
-        return;
+        return bVar3;
     }
     if (!gMapManager->func_ov00_020836dc((u32) mUnk_020.mUnk_00[1], 0)) {
         return;
