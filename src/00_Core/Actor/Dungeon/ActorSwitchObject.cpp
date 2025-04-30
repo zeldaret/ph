@@ -18,7 +18,26 @@ bool ActorSwitchObject::vfunc_0c() {
 
 void ActorSwitchObject::vfunc_14(u32 param1) {}
 void ActorSwitchObject::vfunc_18(u32 param1) {}
-bool ActorSwitchObject::func_ov000_0208fc10(s32 param1) {}
+
+bool ActorSwitchObject::func_ov000_0208fc10(s32 param1) {
+    this->mUnk_130 = param1;
+
+    switch (param1) {
+        case 0: this->func_ov00_020c1c20(0, 0); break;
+        case 1:
+            this->func_ov00_020c1c20(0, 1);
+            if (this->mUnk_158 == 0) {
+                this->mAlive = false;
+            }
+            break;
+        case 2:
+            this->func_ov000_0208fef8();
+            this->mActiveFrames = 0;
+            break;
+    }
+
+    return true;
+}
 
 void ActorSwitchObject::func_ov000_0208fc7c() {
     this->mUnk_158 = this->mUnk_020.mUnk_00[1];
