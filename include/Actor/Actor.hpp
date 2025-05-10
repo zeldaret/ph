@@ -173,9 +173,9 @@ public:
 
     /* 00 */ virtual ~Actor();
     /* 08 */ virtual bool vfunc_08();
-    /* 0c */ virtual void vfunc_0c();
+    /* 0c */ virtual bool vfunc_0c();
     /* 10 */ virtual void vfunc_10(u32 param1);
-    /* 14 */ virtual void vfunc_14(u32 param1);
+    /* 14 */ virtual unk32 vfunc_14(u32 param1);
     /* 18 */ virtual void vfunc_18(u32 param1);
     /* 1c */ virtual void vfunc_1c(u16 *param1);
     /* 20 */ virtual void vfunc_20(bool param1);

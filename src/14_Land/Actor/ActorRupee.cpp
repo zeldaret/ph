@@ -5,7 +5,7 @@
 #include "System/Random.hpp"
 
 extern "C" {
-void func_ov000_0207a1c8(bool *param_1, unk32 param_2, Vec3p *param_3);
+unk32 func_ov000_0207a1c8(bool *param_1, unk32 param_2, Vec3p *param_3);
 void func_0202bc38(unk32 param_1, Vec3p *param_2, u32 param_3, Actor_UnkStruct_012 *param_4, bool);
 void func_ov005_02102c2c(u32 *param_1, int param_2, Vec3p *param_3, int param_4, int param_5, u32 param_6, int param_7,
                          char param_8, char param_9, char param_10);
@@ -259,11 +259,11 @@ void ActorRupee::Update(bool param1) {
     KillInBounds();
 }
 
-void ActorRupee::vfunc_14(u32 param1) {
+unk32 ActorRupee::vfunc_14(u32 param1) {
     if (func_ov00_020c313c(param1)) {
         Update(false);
     }
-    func_ov000_0207a1c8(&mUnk_0a4.mUnk_00, param1, &mPos);
+    return func_ov000_0207a1c8(&mUnk_0a4.mUnk_00, param1, &mPos);
 }
 
 void ActorRupee::vfunc_18(u32 param1) {

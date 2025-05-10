@@ -55,7 +55,7 @@ public:
 
     /* 00 */ virtual ~ActorBomb() override;
     /* 08 */ virtual bool vfunc_08() override;
-    /* 14 */ virtual void vfunc_14(u32 param1) override;
+    /* 14 */ virtual unk32 vfunc_14(u32 param1) override;
     /* 18 */ virtual void vfunc_18(u32 param1) override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
     /* 54 */ virtual void vfunc_54() override;
