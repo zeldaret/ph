@@ -22,10 +22,10 @@ s32 MapOverworld::func_ov018_0215c380(u8 *param1) {}
 void MapOverworld::vfunc_bc() {}
 void MapOverworld::vfunc_98() {}
 void MapOverworld::vfunc_c0() {}
-unk32 MapOverworld::vfunc_78() {}
+unk32 *MapOverworld::vfunc_78() {}
 unk32 MapOverworld::vfunc_7c() {}
 unk32 MapOverworld::vfunc_80() {}
-unk8 MapOverworld::vfunc_b0(unk32 param_2, unk32 param_3) {}
+void MapOverworld::vfunc_b0(unk32 param_2, unk32 param_3) {}
 void MapOverworld::func_ov018_0215c650() {}
 void MapOverworld::func_ov018_0215c6ac() {}
 void MapOverworld::func_ov018_0215c6d0() {}
@@ -35,4 +35,4 @@ void MapOverworld::func_ov018_0215c9ac() {}
 void func_ov018_0215ca24(s32 param1) {}
 void func_ov018_0215ca3c(s32 param1, s32 param2, unk32 param3, unk32 param4) {}
 void func_ov018_0215ca8c(s32 param1) {}
-void MapOverworld::vfunc_4c() {}
+s32 MapOverworld::vfunc_4c() {}
