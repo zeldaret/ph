@@ -18,7 +18,7 @@ void ActorNaviBase::vfunc_e0() {}
 void ActorNaviBase::vfunc_e4() {}
 void ActorNaviBase::func_ov000_020b9770(s32 param1) {}
 void ActorNaviBase::vfunc_e8() {}
-void ActorNaviBase::vfunc_14(u32 param1) {}
+unk32 ActorNaviBase::vfunc_14(u32 param1) {}
 void ActorNaviBase::vfunc_18(u32 param1) {}
 void ActorNaviBase::func_ov000_020b9fdc() {}
 void ActorNaviBase::func_ov000_020b9fe8() {}
