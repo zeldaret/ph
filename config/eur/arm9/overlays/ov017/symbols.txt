@@ -1,6 +1,6 @@
-func_ov017_0215b4a0 kind:function(arm,size=0x2c) addr:0x215b4a0
+_Z19func_ov017_0215b4a0P7MapBaseii kind:function(arm,size=0x2c) addr:0x215b4a0
 func_ov017_0215b4cc kind:function(arm,size=0x1c) addr:0x215b4cc
-func_ov017_0215b4e8 kind:function(thumb,size=0xf0) addr:0x215b4e8
+_Z19func_ov017_0215b4e8P7MapBaseii kind:function(thumb,size=0xf0) addr:0x215b4e8
 func_ov017_0215b5d8 kind:function(thumb,size=0x94) addr:0x215b5d8
 func_ov017_0215b66c kind:function(thumb,size=0x9c) addr:0x215b66c
 func_ov017_0215b708 kind:function(thumb,size=0x5c) addr:0x215b708

@@ -4,7 +4,8 @@
 
 struct UnkStruct_0202e894 {
     /* 00 */ u32 mId;
-    /* 04 */ unk8 mUnk_04[0x28];
+    /* 04 */ u32 *mUnk_04;
+    /* 08 */ unk8 mUnk_08[0x24];
     /* 2c */
 };
 

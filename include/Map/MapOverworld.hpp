@@ -46,19 +46,19 @@ public:
     /* 1c */ virtual void vfunc_1c(bool param_2) override;
     /* 20 */ virtual void vfunc_20(s32 param_2) override;
     /* 2c */ virtual void vfunc_2c() override;
-    /* 4c */ virtual void vfunc_4c() override;
+    /* 4c */ virtual s32 vfunc_4c() override;
     /* 54 */ virtual unk32 vfunc_54() override;
     /* 58 */ virtual unk32 vfunc_58() override;
     /* 5c */ virtual unk32 vfunc_5c() override;
     /* 60 */ virtual unk32 vfunc_60() override;
     /* 64 */ virtual unk32 vfunc_64() override;
-    /* 78 */ virtual unk32 vfunc_78() override;
+    /* 78 */ virtual unk32 *vfunc_78() override;
     /* 7c */ virtual unk32 vfunc_7c() override;
     /* 80 */ virtual unk32 vfunc_80() override;
     /* 94 */ virtual void vfunc_94() override;
     /* 98 */ virtual void vfunc_98() override;
     /* a4 */ virtual unk32 vfunc_a4() override;
-    /* b0 */ virtual unk8 vfunc_b0(unk32 param_2, unk32 param_3) override;
+    /* b0 */ virtual void vfunc_b0(unk32 param_2, unk32 param_3) override;
     /* bc */ virtual void vfunc_bc() override;
     /* c0 */ virtual void vfunc_c0() override;
     /* c4 */
