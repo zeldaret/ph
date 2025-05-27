@@ -9,7 +9,7 @@ ActorRope::~ActorRope() {}
 s32 ActorRope::func_ov014_021238f0() {}
 void ActorRope::func_ov014_02123904() {}
 bool ActorRope::func_ov014_02123960() {}
-void ActorRope::vfunc_14(u32 param1) {}
+unk32 ActorRope::vfunc_14(u32 param1) {}
 void ActorRope::vfunc_18(u32 param1) {}
 void ActorRope::func_ov014_02123c54(s32 param1) {}
 bool ActorRope::func_ov014_02123cd0(Vec3p *param1, s32 param2) {}

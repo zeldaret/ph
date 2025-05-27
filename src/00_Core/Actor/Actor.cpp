@@ -117,7 +117,7 @@ ARM bool Actor::vfunc_08() {
     return true;
 }
 
-ARM void Actor::vfunc_0c() {}
+ARM bool Actor::vfunc_0c() {}
 ARM void Actor::vfunc_10(u32 param1) {}
 ARM void Actor::vfunc_24() {}
 ARM void Actor::vfunc_28() {}
@@ -144,7 +144,7 @@ ARM unk32 Actor::vfunc_30() {
     return 0;
 }
 
-ARM void Actor::vfunc_14(u32 param1) {}
+ARM unk32 Actor::vfunc_14(u32 param1) {}
 
 extern "C" void func_ov00_0207a1c8(Actor_UnkStruct_0a4 *param1, u32 param2, Vec3p *param3);
 ARM void Actor::vfunc_18(u32 param1) {
