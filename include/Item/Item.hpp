@@ -50,7 +50,7 @@ enum ItemFlag_ {
 
     /* 0x2d */ ItemFlag_SwordsmansScroll = 45,
     /* 0x2e */ ItemFlag_CycloneSlate     = 46,
-    /* 0x2f */ ItemFlag_Unk_47           = 47,
+    /* 0x2f */ ItemFlag_BigCatchLure     = 47,
 
     /* 0x60 */ ItemFlag_TreasureChart1  = 96,
     /* 0x61 */ ItemFlag_TreasureChart2  = 97,
@@ -224,7 +224,7 @@ enum ItemId_ {
     /* 0x7d */ ItemId_Unk_125      = 125,
     /* 0x7e */ ItemId_Unk_126      = 126,
     /* 0x7f */ ItemId_CycloneSlate = 127,
-    /* 0x80 */ ItemId_Unk_128      = 128,
+    /* 0x80 */ ItemId_BigCatchLure = 128,
     /* 0x81 */ ItemId_Rupoor10     = 129,
     /* 0x82 */ ItemId_Rupoor50     = 130,
     /* 0x83 */ ItemId_Unk_131      = 131,

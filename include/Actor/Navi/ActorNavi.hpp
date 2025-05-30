@@ -40,7 +40,7 @@ public:
     /* 3c8 */
 
     /* 00 */ virtual ~ActorNavi() override;
-    /* 08 */ virtual bool vfunc_08() override;
+    /* 08 */ virtual bool Init() override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
     /* 8c */ virtual bool vfunc_8c() override;
     /* b4 */ virtual FairyId GetFairyId() override;

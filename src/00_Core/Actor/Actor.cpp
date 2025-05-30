@@ -48,8 +48,7 @@ ARM Actor::Actor() :
     mUnk_010(0),
     mUnk_011(0),
     mUnk_012(0),
-    mUnk_034(-1),
-    mUnk_038(-1),
+    mUnk_034(-1, -1),
     mUnk_03c(-1),
     mUnk_040(-1, -1),
     mGravity(FLOAT_TO_Q20(0.0498)),
@@ -113,7 +112,7 @@ ARM Actor::Actor() :
 
 ARM Actor::~Actor() {}
 
-ARM bool Actor::vfunc_08() {
+ARM bool Actor::Init() {
     return true;
 }
 

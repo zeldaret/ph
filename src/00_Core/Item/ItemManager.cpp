@@ -461,7 +461,7 @@ static char *sItemModelNames2[8] = {
     [ItemId_SandOfHours - ItemId_SwordsmanScroll]     = "sand_m",
 };
 static char *sItemModelNames3[9] = {
-    [ItemId_CycloneSlate - ItemId_CycloneSlate] = "compass", [ItemId_Unk_128 - ItemId_CycloneSlate] = "lure",
+    [ItemId_CycloneSlate - ItemId_CycloneSlate] = "compass", [ItemId_BigCatchLure - ItemId_CycloneSlate] = "lure",
     [ItemId_Rupoor10 - ItemId_CycloneSlate] = "rupee_bb",    [ItemId_Rupoor50 - ItemId_CycloneSlate] = "rupee_bb",
     [ItemId_Unk_131 - ItemId_CycloneSlate] = NULL,           [ItemId_Unk_132 - ItemId_CycloneSlate] = NULL,
     [ItemId_Unk_133 - ItemId_CycloneSlate] = NULL,           [ItemId_Unk_134 - ItemId_CycloneSlate] = NULL,
@@ -778,8 +778,8 @@ THUMB void ItemManager::GiveItem(ItemId id) {
             SET_FLAG(mItemFlags.flags, ItemFlag_CycloneSlate);
         } break;
 
-        case ItemId_Unk_128: {
-            SET_FLAG(mItemFlags.flags, ItemFlag_Unk_47);
+        case ItemId_BigCatchLure: {
+            SET_FLAG(mItemFlags.flags, ItemFlag_BigCatchLure);
         } break;
 
         case ItemId_Rupoor10: {

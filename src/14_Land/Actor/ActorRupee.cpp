@@ -36,7 +36,7 @@ ActorRupee::ActorRupee() {
 }
 
 // https://decomp.me/scratch/1qjCc
-bool ActorRupee::vfunc_08() {
+bool ActorRupee::Init() {
     u32 dVar5;
     u32 iVar7;
 

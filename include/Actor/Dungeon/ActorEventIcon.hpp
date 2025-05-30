@@ -17,7 +17,7 @@ public:
     /* 160 */ UnkStruct_02035064 mUnk_160;
 
     /* 00 */ virtual ~ActorEventIcon() override;
-    /* 08 */ virtual bool vfunc_08() override;
+    /* 08 */ virtual bool Init() override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
     /* 18 */ virtual void vfunc_18(u32 param1) override;
     /* 1c */ virtual void vfunc_1c(u16 *param1) override;

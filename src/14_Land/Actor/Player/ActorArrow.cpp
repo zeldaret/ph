@@ -11,7 +11,7 @@ void ActorArrow::func_ov014_0211fd80(unk32 param1) {}
 void ActorArrow::func_ov014_0211fd90() {}
 ActorArrow::ActorArrow() {}
 ActorArrow::~ActorArrow() {}
-bool ActorArrow::vfunc_08() {}
+bool ActorArrow::Init() {}
 bool ActorArrow::CollidesWith(Actor *other) {}
 void ActorArrow::func_ov014_021200d4() {}
 void ActorArrow::func_ov014_02120118() {}

@@ -18,7 +18,7 @@ ARM ActorActionObject::ActorActionObject() {}
 ARM ActorActionObject::~ActorActionObject() {}
 
 // non-matching
-ARM bool ActorActionObject::vfunc_08() {
+ARM bool ActorActionObject::Init() {
     mGravity         = 0;
     mHitbox.pos      = gVec3p_ZERO;
     mHitbox.size     = -1;

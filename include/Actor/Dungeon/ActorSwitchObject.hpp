@@ -21,7 +21,7 @@ public:
     /* 198 */
 
     /* 00 */ virtual ~ActorSwitchObject() override;
-    /* 08 */ virtual bool vfunc_08() override;
+    /* 08 */ virtual bool Init() override;
     /* 0c */ virtual void vfunc_0c() override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
     /* 18 */ virtual void vfunc_18(u32 param1) override;

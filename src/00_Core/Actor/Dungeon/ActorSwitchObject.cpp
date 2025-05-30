@@ -3,7 +3,7 @@
 ActorType ActorSwitchObject::gType = ActorType(ActorTypeId_SwitchObject, (ActorCreateFunc) ActorSwitchObject::Create, NULL);
 
 ActorSwitchObject *ActorSwitchObject::Create() {}
-bool ActorSwitchObject::vfunc_08() {}
+bool ActorSwitchObject::Init() {}
 void ActorSwitchObject::vfunc_0c() {}
 void ActorSwitchObject::vfunc_14(u32 param1) {}
 void ActorSwitchObject::vfunc_18(u32 param1) {}

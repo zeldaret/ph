@@ -46,7 +46,7 @@ public:
     /* 294 */
 
     /* 00 */ virtual ~ActorNaviBase() override;
-    /* 08 */ virtual bool vfunc_08() override;
+    /* 08 */ virtual bool Init() override;
     /* 10 */ virtual void vfunc_10(u32 param1) override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
     /* 18 */ virtual void vfunc_18(u32 param1) override;

@@ -23,6 +23,10 @@ enum AdventureFlag_ {
 
     /* 0x30 */ AdventureFlag_Cannon = 48,
 
+    /* 0x33 */ AdventureFlag_RegalNecklace = 51,
+
+    /* 0x7a */ AdventureFlag_CourageCrest = 122,
+
     /* 0x7d */ AdventureFlag_Azurine    = 125,
     /* 0x7e */ AdventureFlag_Crimsonine = 126,
     /* 0x7f */ AdventureFlag_Aquanine   = 127,
@@ -30,10 +34,25 @@ enum AdventureFlag_ {
 
     /* 0x8c */ AdventureFlag_SalvageArm = 140,
 
+    /* 0xa2 */ AdvantureFlag_HerosNewClothes = 162,
+    /* 0xa3 */ AdvantureFlag_Kaleidoscope    = 163,
+    /* 0xa4 */ AdventureFlag_GuardNotebook   = 164,
+
+    /* 0xa7 */ AdventureFlag_WoodHeart = 167,
+
+    /* 0xb6 */ AdventureFlag_SpawnFinalPhantoms = 182,
+
     /* 0x126 */ AdventureFlag_ReceivedGoldenChimney  = 294,
     /* 0x127 */ AdventureFlag_ReceivedGoldenHandrail = 295,
     /* 0x128 */ AdventureFlag_ReceivedGoldenCannon   = 296,
     /* 0x129 */ AdventureFlag_ReceivedGoldenHull     = 297,
+
+    /* 0x137 */ AdventureFlag_FrogGlyph_MercayIsland = 311,
+    /* 0x138 */ AdventureFlag_FrogGlyph_MolidaIsland = 312,
+    /* 0x139 */ AdventureFlag_FrogGlyph_BannanIsland = 313,
+    /* 0x13a */ AdventureFlag_FrogGlyph_DeeEssIsland = 314,
+    /* 0x13b */ AdventureFlag_FrogGlyph_IsleOfFrost  = 315,
+    /* 0x13c */ AdventureFlag_FrogGlyph_NorthEast    = 316,
 
     /* 0x187 */ AdventureFlag_COUNT = 391,
 };

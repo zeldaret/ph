@@ -35,8 +35,8 @@ struct Actor_UnkStruct_020 {
     /* 08 */ u8 mUnk_08[2];
     /* 0a */ u8 mUnk_0a[2];
     /* 0c */ unk8 mUnk_0c;
-    /* 0d */ unk8 mUnk_0d;
-    /* 0e */ unk8 mUnk_0e;
+    /* 0d */ u8 mUnk_0d;
+    /* 0e */ u8 mUnk_0e;
     /* 0f */ unk8 mUnk_0f;
     /* 10 */ unk32 mUnk_10;
     /* 14 */
@@ -110,8 +110,7 @@ public:
     /* 012 */ unk16 mUnk_012;
     /* 014 */ Vec3p mUnk_014;
     /* 020 */ Actor_UnkStruct_020 mUnk_020;
-    /* 034 */ unk32 mUnk_034;
-    /* 038 */ unk32 mUnk_038;
+    /* 034 */ ActorRef mUnk_034;
     /* 03c */ unk32 mUnk_03c;
     /* 040 */ ActorRef mUnk_040;
     /* 048 */ Vec3p mPos;
@@ -174,7 +173,7 @@ public:
     /* 158 */
 
     /* 00 */ virtual ~Actor();
-    /* 08 */ virtual bool vfunc_08();
+    /* 08 */ virtual bool Init();
     /* 0c */ virtual void vfunc_0c();
     /* 10 */ virtual void vfunc_10(u32 param1);
     /* 14 */ virtual void vfunc_14(u32 param1);

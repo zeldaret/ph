@@ -20,10 +20,10 @@ public:
     ActorRefill(unk32 param1);
 
     /* 00 */ virtual ~ActorRefill() override;
-    /* 08 */ virtual bool vfunc_08() override;
+    /* 08 */ virtual bool Init() override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
-    /* b4 */ virtual ItemFlag vfunc_b4() = 0;
+    /* b4 */ virtual ItemFlag GetAmmoItem() = 0;
     /* b8 */
 
     bool func_ov014_02135364(unk32 param1);
@@ -42,7 +42,7 @@ public:
     static ActorRefillBombs *Create();
 
     /* 00 */ virtual ~ActorRefillBombs() override;
-    /* b4 */ virtual ItemFlag vfunc_b4() override;
+    /* b4 */ virtual ItemFlag GetAmmoItem() override;
     /* b8 */
 };
 
@@ -58,7 +58,7 @@ public:
     static ActorRefillBombchus *Create();
 
     /* 00 */ virtual ~ActorRefillBombchus() override;
-    /* b4 */ virtual ItemFlag vfunc_b4() override;
+    /* b4 */ virtual ItemFlag GetAmmoItem() override;
     /* b8 */
 };
 
@@ -74,7 +74,7 @@ public:
     static ActorRefillArrows *Create();
 
     /* 00 */ virtual ~ActorRefillArrows() override;
-    /* b4 */ virtual ItemFlag vfunc_b4() override;
+    /* b4 */ virtual ItemFlag GetAmmoItem() override;
     /* b8 */
 };
 
@@ -90,8 +90,8 @@ public:
     static ActorRefillTime *Create();
 
     /* 00 */ virtual ~ActorRefillTime() override;
-    /* 08 */ virtual bool vfunc_08() override;
-    /* b4 */ virtual ItemFlag vfunc_b4() override;
+    /* 08 */ virtual bool Init() override;
+    /* b4 */ virtual ItemFlag GetAmmoItem() override;
     /* b8 */
 };
 
@@ -107,7 +107,7 @@ public:
     static ActorLSTM *Create();
 
     /* 00 */ virtual ~ActorLSTM() override;
-    /* 08 */ virtual bool vfunc_08() override;
-    /* b4 */ virtual ItemFlag vfunc_b4() override;
+    /* 08 */ virtual bool Init() override;
+    /* b4 */ virtual ItemFlag GetAmmoItem() override;
     /* b8 */
 };

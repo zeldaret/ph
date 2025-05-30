@@ -33,7 +33,7 @@ public:
     /* 160 */
 
     /* 00 */ virtual ~ActorRupee() override;
-    /* 08 */ virtual bool vfunc_08() override;
+    /* 08 */ virtual bool Init() override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
     /* 18 */ virtual void vfunc_18(u32 param1) override;
     /* 20 */ virtual void vfunc_20(bool param1) override;

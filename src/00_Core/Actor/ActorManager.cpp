@@ -154,7 +154,7 @@ ARM Actor *ActorManager::GetActor(ActorRef *ref) {
 
 ARM bool FilterActor::Filter(Actor *actor) {
     if (mType != actor->mType) return false;
-    if (mUnk_08 != -1 && mUnk_08 != actor->mUnk_034) return false;
+    if (mUnk_08 != -1 && mUnk_08 != actor->mUnk_034.id) return false;
     if (mExcludeRefs != NULL) {
         for (s32 i = 0; mExcludeRefs[i].id != -1; ++i) {
             ActorRef *ref          = &mExcludeRefs[i];

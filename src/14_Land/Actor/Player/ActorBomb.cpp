@@ -9,7 +9,7 @@ ActorBomb::ActorBomb() {}
 ActorBomb_Unk2::~ActorBomb_Unk2() {}
 ActorBomb::~ActorBomb() {}
 ActorBomb_Unk2::ActorBomb_Unk2() {}
-bool ActorBomb::vfunc_08() {}
+bool ActorBomb::Init() {}
 void ActorBomb::vfunc_14(u32 param1) {}
 ActorBomb_Unk1::~ActorBomb_Unk1() {}
 void ActorBomb::vfunc_18(u32 param1) {}

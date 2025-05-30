@@ -6,7 +6,7 @@ ActorBlast *ActorBlast::Create() {}
 void ActorBlast_Unk1::vfunc_10(s32 *param1) {}
 ActorBlast::ActorBlast() {}
 ActorBlast::~ActorBlast() {}
-bool ActorBlast::vfunc_08() {}
+bool ActorBlast::Init() {}
 void ActorBlast::vfunc_14(u32 param1) {}
 ActorBlast_Unk1::~ActorBlast_Unk1() {}
 void ActorBlast::vfunc_18(u32 param1) {}

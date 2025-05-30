@@ -41,16 +41,16 @@ ARM ActorRefill::ActorRefill(unk32 param1) :
 
 ARM ActorRefill::~ActorRefill() {}
 
-ARM bool ActorRefill::vfunc_08() {
+ARM bool ActorRefill::Init() {
     ItemManager *itemManager;
 
-    if (this->vfunc_b4() == ItemFlag_None) {
+    if (this->GetAmmoItem() == ItemFlag_None) {
         if (data_027e0d38->func_ov000_02078b40() != 3) {
             return false;
         }
     } else {
         ItemManager *itemManager = gItemManager;
-        ItemFlag item            = this->vfunc_b4();
+        ItemFlag item            = this->GetAmmoItem();
         if (!itemManager->HasItem(item)) {
             return false;
         }
@@ -111,11 +111,11 @@ ARM void ActorRefill::vfunc_14(u32 param1) {
             case 4:
             case 5:
                 if (this->CollidesWithPlayer(PlayerCollide_PickupFlags) != 0) {
-                    if (this->vfunc_b4() == -1) {
+                    if (this->GetAmmoItem() == -1) {
                         data_027e103c->func_ov000_020cfbf0(mUnk_158 * 60, 1, 0);
                     } else {
                         ItemManager *itemManager = gItemManager;
-                        itemManager->GiveAmmo(this->vfunc_b4(), mUnk_158);
+                        itemManager->GiveAmmo(this->GetAmmoItem(), mUnk_158);
                     }
                     func_ov000_020d7ad4(&data_ov000_020eec9c, 0x100);
                     this->func_ov014_02135364(3);
@@ -227,7 +227,7 @@ ARM ActorRefillBombs::ActorRefillBombs() :
 
 ARM ActorRefillBombs::~ActorRefillBombs() {}
 
-ARM ItemFlag ActorRefillBombs::vfunc_b4() {
+ARM ItemFlag ActorRefillBombs::GetAmmoItem() {
     return ItemFlag_BombBag;
 }
 
@@ -239,7 +239,7 @@ ARM ActorRefillBombchus::ActorRefillBombchus() :
 
 ARM ActorRefillBombchus::~ActorRefillBombchus() {}
 
-ARM ItemFlag ActorRefillBombchus::vfunc_b4() {
+ARM ItemFlag ActorRefillBombchus::GetAmmoItem() {
     return ItemFlag_BombchuBag;
 }
 
@@ -251,7 +251,7 @@ ARM ActorRefillArrows::ActorRefillArrows() :
 
 ARM ActorRefillArrows::~ActorRefillArrows() {}
 
-ARM ItemFlag ActorRefillArrows::vfunc_b4() {
+ARM ItemFlag ActorRefillArrows::GetAmmoItem() {
     return ItemFlag_Bow;
 }
 
@@ -263,8 +263,8 @@ ARM ActorRefillTime::ActorRefillTime() :
 
 ARM ActorRefillTime::~ActorRefillTime() {}
 
-ARM bool ActorRefillTime::vfunc_08() {
-    if (!ActorRefill::vfunc_08()) {
+ARM bool ActorRefillTime::Init() {
+    if (!ActorRefill::Init()) {
         return false;
     }
     switch (mUnk_020.mUnk_00[0]) {
@@ -293,7 +293,7 @@ ARM bool ActorRefillTime::vfunc_08() {
     return true;
 }
 
-ARM ItemFlag ActorRefillTime::vfunc_b4() {
+ARM ItemFlag ActorRefillTime::GetAmmoItem() {
     return ItemFlag_None;
 }
 
@@ -305,8 +305,8 @@ ARM ActorLSTM::ActorLSTM() :
 
 ARM ActorLSTM::~ActorLSTM() {}
 
-ARM bool ActorLSTM::vfunc_08() {
-    if (!ActorRefill::vfunc_08()) {
+ARM bool ActorLSTM::Init() {
+    if (!ActorRefill::Init()) {
         return false;
     }
     switch (mUnk_020.mUnk_00[0]) {
@@ -335,6 +335,6 @@ ARM bool ActorLSTM::vfunc_08() {
     return true;
 }
 
-ARM ItemFlag ActorLSTM::vfunc_b4() {
+ARM ItemFlag ActorLSTM::GetAmmoItem() {
     return ItemFlag_None;
 }
