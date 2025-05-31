@@ -11,11 +11,13 @@ Contents:
 
 1. Use one of these platforms:
     - Windows (recommended)
+    - macOS
     - Linux
 2. Install the following:
     - Python 3.11+ and pip
     - GCC 9+
     - Ninja
+    - Wine (macOS only)
 3. Install the Python dependencies:
 ```shell
 python -m pip install -r tools/requirements.txt
