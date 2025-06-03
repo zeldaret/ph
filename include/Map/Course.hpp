@@ -27,14 +27,15 @@ struct CourseProgress {
 };
 
 class Course : public SysObject {
-    /* 000 */ unk32 mIndex;
+public:
+    /* 000 */ s32 mIndex;
     /* 004 */ CourseType mType;
     /* 008 */ unk32 mUnk_008;
     /* 00c */ char mName[0x10];
     /* 01c */ Vec2b mCurrMapPos; // position in the map grid
     /* 01e */ unk8 mUnk_01e;
     /* 01f */ unk8 mUnk_01f;
-    /* 020 */ unk8 mMapGrid[10][10];
+    /* 020 */ u8 mMapGrid[10][10];
     /* 084 */ Vec2b mMainGrid; // part of the grid where you can walk off screen to another map
     /* 086 */ Vec2b mMainGridSize;
     /* 088 */ s32 mScreenMapOffsetX;
@@ -42,8 +43,8 @@ class Course : public SysObject {
     /* 090 */ unk32 mUnk_090;
     /* 094 */ unk32 mUnk_094;
     /* 098 */ AABB mBounds;
-    /* 0b0 */ s8 mNumMaps;
-    /* 0b1 */ unk8 mUnk_0b1;
+    /* 0b0 */ u8 mNumMaps;
+    /* 0b1 */ u8 mUnk_0b1;
     /* 0b2 */ unk8 mUnk_0b2;
     /* 0b3 */ unk8 mUnk_0b3;
     /* 0b4 */ unk32 mUnk_0b4;
@@ -58,7 +59,7 @@ class Course : public SysObject {
     /* 25e */ unk8 mUnk_25e;
     /* 25f */ unk8 mUnk_25f;
     /* 260 */ unk32 mNumKeys;
-    /* 260 */ unk32 mFlags0[1];
+    /* 264 */ unk32 mFlags0[1];
     /* 268 */ unk32 mFlags1[1]; // knows which doors are open in a dungeon
     /* 26c */
 
@@ -77,7 +78,7 @@ class Course : public SysObject {
     void GetMRCFilePath(unk32 param_2, unk32 buf, unk32 param_4);
     void func_ov00_0207ce20(unk32 param_2, unk32 param_3, char *param_4, unk32 param_5);
     void func_ov00_0207ce4c(s32 param_2, s32 param_3, unk32 param_4, char *param_5, unk32 param_6);
-    bool func_ov00_0207d404(s32 param_2, unk32 param_3, unk32 param_4);
+    bool func_ov00_0207d404(s32 param_2, unk32 param_3, unk32 param_4, unk32 param_5);
     bool IsCurrentMapInMainGrid();
     bool IsInMainGrid(s32 x, s32 y);
     bool IsMapInMainGrid(u32 map);
@@ -107,7 +108,7 @@ class Course : public SysObject {
     bool GetMapDataFlag2(unk32 param_2);
     void SetMapDataFlag3(unk32 param_2, bool param_3);
     bool GetMapDataFlag3(unk32 param_2);
-    void SetMapDataFlag4(unk32 param_2, unk32 param_3);
+    void SetMapDataFlag4(unk32 param_2, bool param_3);
     bool GetMapDataFlag4(unk32 param_2);
     MapData *FindMapData(u32 map);
     MapData *FindCurrentMapData();

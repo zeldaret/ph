@@ -861,7 +861,7 @@ ARM bool Actor::func_ov00_020c3094() {
     Vec3p pos, prevPos;
     Vec3p_Copy(&mPos, &pos);
     Vec3p_Copy(&mPrevPos, &prevPos);
-    s32 unk1 = gMapManager->func_ov00_02083ef8(&pos, &prevPos, 0);
+    s32 unk1 = gMapManager->func_ov00_02083ef8(&pos, &prevPos, false);
     if (mPos.y <= unk1) {
         result = true;
         mPos.y = unk1;
@@ -887,7 +887,7 @@ ARM bool Actor::func_ov00_020c313c(u32 param1) {
 
 ARM void Actor::func_ov00_020c3158() {
     if (mUnk_03c < 0) return;
-    gMapManager->func_ov00_02084c5c(mUnk_03c, 1);
+    gMapManager->SetMapDataFlag1(mUnk_03c, 1);
 }
 
 ARM void Actor::Kill() {
@@ -928,7 +928,7 @@ ARM void Actor::GetLinkPos(Vec3p *result) {
     if (gPlayerLink != NULL && gPlayerLink->GetCurrentCharacter() != PlayerCharacter_Link) {
         return this->GetLinkDummyPos(result);
     }
-    *result = gPlayerPos;
+    result = &gPlayerPos;
 }
 
 ARM void Actor::GetLinkDummyPos(Vec3p *result) {
@@ -939,7 +939,7 @@ ARM void Actor::GetLinkDummyPos(Vec3p *result) {
         *result = dummy->mPos;
         return;
     }
-    *result = gPlayerPos;
+    result = &gPlayerPos;
 }
 
 Actor_UnkStruct_09c::Actor_UnkStruct_09c() {
