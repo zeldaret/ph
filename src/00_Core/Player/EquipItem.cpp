@@ -14,6 +14,6 @@ s32 EquipItem::vfunc_4c() const {}
 Vec3p *EquipItem::GetPlayerPos() {}
 void EquipItem::func_ov000_020be99c(Vec3p *param1) {}
 void EquipItem::func_ov000_020be9e4(s32 param1, s32 param2, s32 param3, s16 param4) {}
-u16 EquipItem::GetAmmo() {}
+s16 EquipItem::GetAmmo() const {}
 void EquipItem::GiveAmmo(u32 amount) {}
 bool EquipItem::GetHitbox(Cylinder *hitbox) const {}

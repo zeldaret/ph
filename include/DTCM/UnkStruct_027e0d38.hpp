@@ -3,6 +3,12 @@
 #include "global.h"
 #include "types.h"
 
+struct UnkStruct_027e0d38_UnkC {
+    /* 00 */ unk32 mUnk_00;
+
+    unk32 func_ov000_020a5e9c(void);
+};
+
 struct UnkStruct_027e0d38_Unk28 {
     /* 00 */ unk8 mUnk_00[0x34];
     /* 34 */ bool mUnk_34;
@@ -14,7 +20,7 @@ struct UnkStruct_027e0d38 {
     /* 01 */ unk8 mUnk_01[3]; // padding?
     /* 04 */ unk32 mUnk_04;
     /* 08 */ unk32 mUnk_08;
-    /* 0c */ unk32 mUnk_0c;
+    /* 0c */ UnkStruct_027e0d38_UnkC mUnk_0c;
     /* 10 */ unk32 mUnk_10;
     /* 14 */ unk32 mUnk_14;
     /* 18 */ unk32 mUnk_18;

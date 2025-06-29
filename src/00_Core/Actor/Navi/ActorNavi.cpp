@@ -18,7 +18,7 @@ FairyId ActorNavi::GetFairyId() {}
 s32 ActorNavi::vfunc_b8() {}
 void ActorNavi::vfunc_d4() {}
 void ActorNavi::vfunc_d0() {}
-void ActorNavi::SetActive(bool active) {}
+void ActorNavi::SetActive(unk32 active) {}
 void ActorNavi::vfunc_e0() {}
 void ActorNavi::vfunc_d8() {}
 void ActorNavi::vfunc_20(bool param1) {}

@@ -25,18 +25,18 @@ public:
     /* 294 */ ModelRender mUnk_294;
     /* 2f0 */ void *mUnk_2f0;
     /* 2f4 */ unk8 mUnk_2f4[0x40];
-    /* 334 */ unk32 mUnk_334;
-    /* 338 */ unk32 mUnk_338;
-    /* 33c */ unk32 mUnk_33c;
+    /* 334 */ Vec3p mUnk_334;
     /* 340 */ unk16 mUnk_340;
     /* 342 */ unk8 mUnk_342[0x2];
-    /* 344 */ unk32 mUnk_344;
+    /* 344 */ u32 mUnk_344;
     /* 348 */ unk32 mUnk_348;
-    /* 34c */ unk8 mUnk_34c[0x68];
+    /* 34c */ unk8 mUnk_34c[0x38];
+    /* 384 */ Mat3p mUnk_384;
+    /* 3a8 */ unk8 mUnk_3a8[0xC];
     /* 3b4 */ EquipHammer *mHammer;
     /* 3b8 */ unk32 mUnk_3b8;
     /* 3bc */ unk32 mUnk_3bc;
-    /* 3c0 */ unk8 mUnk_3c0[0x8];
+    /* 3c0 */ u8 mUnk_3c0[0x8];
     /* 3c8 */
 
     /* 00 */ virtual ~ActorNavi() override;
@@ -52,14 +52,22 @@ public:
     /* d0 */ virtual void vfunc_d0() override;
     /* d4 */ virtual void vfunc_d4() override;
     /* d8 */ virtual void vfunc_d8() override;
-    /* dc */ virtual void SetActive(bool active) override;
+    /* dc */ virtual void SetActive(unk32 active) override;
     /* e0 */ virtual void vfunc_e0() override;
     /* e8 */ virtual void vfunc_e8() override;
     /* ec */ virtual void vfunc_ec() override;
 
     static ActorNavi *Create();
     void func_ov000_020b8200();
-    void func_ov000_020b853c();
+    void func_ov000_020b853c(void);
+
+    bool func_ov059_0219933c(u32 param1);
+    void func_ov059_0219a0ac();
+    void func_ov059_0219aa08();
+    void func_ov059_0219aba8(u32 param1);
+    bool func_ov059_0219af14();
+    bool func_ov059_0219afc4();
+    void func_ov059_0219b020();
 
     ActorNavi();
 };

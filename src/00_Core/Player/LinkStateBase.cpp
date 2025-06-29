@@ -44,14 +44,14 @@ bool LinkStateBase::func_ov00_020a8774(Vec3p *param1, s32 angle) {}
 void LinkStateBase::func_ov00_020a8844(Vec3p *param1, bool param2, bool param3) {}
 void LinkStateBase::func_ov00_020a8954(bool param1, unk32 *param2) {}
 void LinkStateBase::func_ov00_020a8994() {}
-void LinkStateBase::func_ov00_020a89bc(unk32 param1, unk32 param2) {}
+void LinkStateBase::func_ov00_020a89bc(unk32 *param1, unk32 param2) {}
 void LinkStateBase::func_ov00_020a8a08(unk32 param1) {}
 void LinkStateBase::func_ov00_020a8a4c(const void *param1, unk32 param2) {}
 void LinkStateBase::func_ov00_020a8a90(unk32 param1) {}
 void LinkStateBase::func_ov00_020a8ab0(unk32 param1) {}
 void LinkStateBase::func_ov00_020a8ad0(unk32 param1) {}
 void LinkStateBase::func_ov00_020a8b04(s32 param1, bool param2) {}
-void LinkStateBase::func_ov00_020a8b3c(s32 param1) {}
+unk32 LinkStateBase::func_ov00_020a8b3c(s32 param1) {}
 bool LinkStateBase::func_ov00_020a8b80() {}
 bool LinkStateBase::HasFlags_PlayerLinkBase_Unk48(u16 flags) {}
 unk8 LinkStateBase::Get_PlayerLinkBase_Unk5e() {}
