@@ -8,7 +8,8 @@ extern "C" {
 #include "nds/math.h"
 #include "types.h"
 
-#include "Actor/Navi/ActorNaviBase.hpp"
+#include "Actor/Navi/ActorNavi.hpp"
+#include "DTCM/UnkStruct_027e0d38.hpp"
 #include "Item/Item.hpp"
 #include "Player/EquipItem.hpp"
 #include "Render/ModelRender.hpp"
@@ -186,6 +187,9 @@ public:
     // Rupees
     s32 GetMaxRupees() const;
     void GiveRupees(s32 amount, bool param2);
+    inline u16 GetNumRupees(void) {
+        return this->mNumRupees;
+    }
 
     // Potion
     void SetPotion(u32 index, Potion potion);
@@ -203,3 +207,4 @@ public:
 };
 
 extern ItemManager *gItemManager;
+extern UnkStruct_027e0d38 *data_027e0d38;

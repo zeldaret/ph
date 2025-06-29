@@ -312,7 +312,7 @@ ARM s32 ActorManager::func_ov00_020c3bb0(unk32 param1, s32 *param2) {
     if (param2 != NULL) *param2 = 0;
 
     AABB boxes[8];
-    s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN(boxes));
+    s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN_U(boxes));
     if (numBoxes <= 0) return 0;
 
     s32 i;
@@ -349,7 +349,7 @@ ARM s32 ActorManager::func_ov00_020c3bb0(unk32 param1, s32 *param2) {
 
 ARM void ActorManager::func_ov00_020c3ce8(unk32 param1, bool param2) {
     AABB boxes[8];
-    s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN(boxes));
+    s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN_U(boxes));
     if (numBoxes <= 0) return;
 
     s32 i;

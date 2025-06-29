@@ -85,7 +85,7 @@ data_027e0c38 kind:bss addr:0x27e0c38
 data_027e0c50 kind:bss addr:0x27e0c50
 data_027e0c54 kind:bss addr:0x27e0c54
 data_027e0c5c kind:bss addr:0x27e0c5c
-data_027e0c68 kind:bss addr:0x27e0c68
+gMessageManager kind:bss addr:0x27e0c68
 data_027e0cb4 kind:bss addr:0x27e0cb4
 data_027e0cbc kind:bss addr:0x27e0cbc
 data_027e0ce0 kind:bss addr:0x27e0ce0
