@@ -6,7 +6,9 @@
 struct UnkStruct_027e0d38_Unk28 {
     /* 00 */ unk8 mUnk_00[0x34];
     /* 34 */ bool mUnk_34;
-    /* 35 */
+    /* 35 */ unk8 mUnk_35[0x27];
+    /* 5c */ unk32 mUnk_5c[3];
+    /* 68 */
 };
 
 struct UnkStruct_027e0d38 {

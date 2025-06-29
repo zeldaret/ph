@@ -78,6 +78,7 @@ enum ActorTypeId_ {
     ActorTypeId_BMTY = 'BMTY',
     ActorTypeId_BTRF = 'BTRF',
     ActorTypeId_CBLS = 'CBLS',
+    ActorTypeId_EVIC = 'EVIC',
     ActorTypeId_FLAL = 'FLAL',
     ActorTypeId_FLBM = 'FLBM',
     ActorTypeId_FLBT = 'FLBT',

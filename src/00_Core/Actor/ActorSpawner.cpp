@@ -68,8 +68,8 @@ ARM s32 ActorSpawner::Spawn(ActorTypeId type, Vec3p *pos, ActorSpawnOptions *opt
         Actor *actor2          = *actorSlot;
         actor2->mPos           = *pos;
         actor2->mPrevPos       = *pos;
-        (*actorSlot)->mUnk_010 = gMapManager->GetCourseData_Unk_1c();
-        (*actorSlot)->mUnk_011 = gMapManager->GetCourseData_Unk_1d();
+        (*actorSlot)->mUnk_010 = gMapManager->GetCurrentMapPosX();
+        (*actorSlot)->mUnk_011 = gMapManager->GetCurrentMapPosY();
         u16 nextIndex          = index + 1;
         if (actorManager->mMaxActorIndex < nextIndex) {
             actorManager->mMaxActorIndex = nextIndex;
