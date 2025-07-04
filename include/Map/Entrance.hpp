@@ -14,6 +14,6 @@ public:
     /* 0e */ u8 mId;
     /* 0f */ u8 mUnk_0f;
     /* 10 */ u8 mUnk_10;
-    /* 10 */ u8 mUnk_11;
+    /* 11 */ u8 mUnk_11;
     /* 14 */
 };

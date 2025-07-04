@@ -13,6 +13,7 @@
 #include "DTCM/UnkStruct_027e0f78.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
+#include "Message/MessageManager.hpp"
 #include "Message/MsgProc.hpp"
 #include "Player/PlayerBase.hpp"
 #include "Save/AdventureFlags.hpp"
@@ -518,15 +519,12 @@ ARM void MapManager::func_ov00_02082af4() {
     this->mUnk_0b = false;
 }
 
-void MapManager::func_ov00_02082b3c(UnkStruct_02082348 *param_2, Vec2b *param_3) {
-    u8 bVar1;
-    u16 uVar3;
-    u32 uVar4;
-    ActorManager *pAVar6;
-    PlayerBase *puVar2;
+ARM bool MapManager::func_ov00_02082b3c(UnkStruct_02082348 *param_2) {
     Vec2b mapGridPos;
+    u8 entranceId;
+    bool cmp;
 
-    this->mCourse->FindMapGridPos(&mapGridPos, this->mCourse, *(u32 *) ((unk32) param_2 + 0x12));
+    Course::FindMapGridPos(&mapGridPos, this->mCourse, param_2->mUnk_04.mId);
 
     if (mapGridPos.x != this->GetCurrentMapPosX() || mapGridPos.y != this->GetCurrentMapPosY() ||
         (param_2->mUnk_04.mPos.y == 1 && data_027e0d38->mUnk_14 == 1) || param_2->mUnk_04.mUnk_11 != 0)
@@ -538,19 +536,21 @@ void MapManager::func_ov00_02082b3c(UnkStruct_02082348 *param_2, Vec2b *param_3)
         data_027e0f68->func_ov004_02102b28();
         data_027e0f6c->func_ov004_02102770();
         data_027e0f78->func_ov004_02102e3c();
-        uVar3                      = this->mCourse->FindCurrentMapData_Unk_04();
-        uVar4                      = this->mCourse->FindMapData_Unk_04(param_2->mUnk_04.mId);
-        this->mCourse->mCurrMapPos = mapGridPos;
-        this->func_ov004_021024c4(param_2, uVar3 != uVar4, 0);
-        gActorManager->func_ov004_02105578(*(unk32 *) ((unk32) param_2 + 0x12));
+        entranceId = param_2->mUnk_04.mId;
+        cmp        = this->mCourse->FindCurrentMapData_Unk_04() != this->mCourse->FindMapData_Unk_04(entranceId);
+        this->mCourse->mCurrMapPos.x = mapGridPos.x;
+        this->mCourse->mCurrMapPos.y = mapGridPos.y;
+        this->func_ov004_021024c4(param_2, cmp, false);
+        gActorManager->func_ov004_02105578(entranceId);
         data_027e103c->func_ov000_020cfcec();
     } else {
         gAdventureFlags->func_ov00_020976c8();
-        this->mUnk_0c = *(unk32 *) (param_2 + 0x13);
-        gPlayer->TeleportToEntrance(*(unk32 *) (param_2 + 0x13), false);
-        data_027e0c68.func_ov004_02106db8();
+        this->mUnk_0c = param_2->mUnk_04.mUnk_0f;
+        gPlayer->TeleportToEntrance(param_2->mUnk_04.mUnk_0f, false);
+        gMessageManager.func_ov004_02106db8();
         this->mMap->vfunc_18();
     }
+    return true;
 }
 
 ARM u8 MapManager::func_ov00_02082d08() {
@@ -914,7 +914,7 @@ ARM bool MapManager::GetEntrancePos(Entrance *param_1, unk32 entranceId) {
 
 ARM bool MapManager::func_ov00_02083664(Entrance *param_2, unk32 entranceId) {
     Entrance entrance;
-    entrance.mId     = (u8) 0xff;
+    entrance.mId     = 0xff;
     entrance.mUnk_10 = 0;
     if (this->GetEntrancePos(&entrance, entranceId)) {
         param_2->mPos.x = entrance.mPos.x;
@@ -1308,7 +1308,7 @@ unk8 MapManager::func_ov00_02084100(unk32 *param_1, MapManager *param_2) {
     param_1[1]  = uVar1;
 }
 
-u32 MapManager::GetMapData_Unk_48() {
+unk32 MapManager::GetMapData_Unk_48() {
     return this->mMap->mUnk_048;
 }
 

@@ -4,13 +4,13 @@
 #include "nds/math.h"
 #include "types.h"
 
+#include "Map/Entrance.hpp"
+
 struct UnkStruct_027e0d38_UnkC {
     /* 00 */ unk32 mUnk_00;
 
     s32 func_ov000_020a5e9c(void);
 };
-
-class Entrance;
 
 // This might be FlagsUnk2
 struct UnkStruct_02082348 {

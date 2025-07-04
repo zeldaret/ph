@@ -110,7 +110,7 @@ public:
     void func_ov00_02082acc();
     unk32 *func_ov00_02082adc();
     void func_ov00_02082af4();
-    void func_ov00_02082b3c(UnkStruct_02082348 *param_2, Vec2b *param3);
+    bool func_ov00_02082b3c(UnkStruct_02082348 *param_2);
     u8 func_ov00_02082d08();
     u8 GetCurrentMapPosX();
     u8 GetCurrentMapPosY();
@@ -207,7 +207,7 @@ public:
     unk32 *MapData_vfunc_78(Vec2b *param_1);
     unk32 func_ov00_020840dc(Vec2b *param_1);
     static unk8 func_ov00_02084100(unk32 *param_1, MapManager *param_2);
-    u32 GetMapData_Unk_48();
+    unk32 GetMapData_Unk_48();
     unk32 GetMapData_Unk_4c();
     unk32 func_ov00_0208412c();
     void func_ov00_0208413c(unk32 param_2);
@@ -277,7 +277,7 @@ public:
     static void LoadMapTexSprites(s32 param1);
     void func_ov004_02102260();
     void func_ov004_02102264(unk32 *param1, char *param2);
-    void func_ov004_021024c4(UnkStruct_02082348 *param1, unk32 param2, bool param3);
+    void func_ov004_021024c4(UnkStruct_02082348 *param1, bool param2, bool param3);
     void func_ov004_021025d8();
 };
 
