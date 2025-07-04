@@ -147,7 +147,7 @@ extern MapManager_Unk2 data_ov000_020e24e8[];
 extern unk32 data_ov000_020eec68;
 extern unk32 data_ov015_02190458;
 
-static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
+// static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
 MapManager::MapManager() {
     /*MapManager_Unk1 *object;
@@ -2432,11 +2432,12 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
             return -1;
         }
         this->func_ov00_02083a1c(auStack_2a, this, param_2);
-        piVar1 = (int *) this->MapData_vfunc_78(auStack_2a);
-        if (piVar1 == (int *) 0x0) {
+        piVar1 = this->MapData_vfunc_78(auStack_2a);
+        if (piVar1 == NULL) {
             return -1;
         }
-        // iVar2 = (**(code **) (*piVar1 + 0x1c))();
+
+        // iVar2 = (*piVar1 + 0x1c)();
         if (iVar2 == 0x42) {
             // uStack_2b = *(undefined *) ((int) piVar1 + 0x15);
             // uStack_2c = *(undefined *) (piVar1 + 5);
@@ -2509,8 +2510,7 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     u32 uVar7;
     int iStack_10c;
     int iStack_108;
-    int iStack_104;
-    int iStack_100;
+    Vec2p iStack_104;
     Vec3p VStack_f0;
     Vec3p VStack_e4;
     Vec4p VStack_d8;
@@ -2525,16 +2525,16 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     unk16 uStack_64;
     unk16 uStack_62;
     unk16 uStack_60;
-    unk32 uStack_3e;
-    unk32 uStack_3d;
-    unk32 uStack_3c;
-    unk32 uStack_3b;
-    unk32 uStack_34;
-    unk32 uStack_33;
-    unk32 uStack_32;
-    unk32 uStack_31;
-    unk32 uStack_30;
-    unk32 uStack_2f;
+    unk8 uStack_3e;
+    unk8 uStack_3d;
+    unk8 uStack_3c;
+    unk8 uStack_3b;
+    unk8 uStack_34;
+    unk8 uStack_33;
+    unk8 uStack_32;
+    unk8 uStack_31;
+    unk8 uStack_30;
+    unk8 uStack_2f;
     unk32 uStack_2c;
     unk32 uStack_28;
 
@@ -2543,16 +2543,10 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     }
     func_ov000_020792a0(data_027e0d3c, 0, *param_3, param_3[1]);
     func_ov000_020792a0(data_027e0d3c, 0, *param_4, param_4[1]);
-    VStack_b0.x = VStack_98.x;
-    VStack_b0.y = VStack_98.y;
-    VStack_b0.z = VStack_98.z;
-    VStack_bc.x = VStack_a4.x;
-    VStack_bc.y = VStack_a4.y;
-    VStack_bc.z = VStack_a4.z;
-    VStack_c8.x = VStack_98.x;
-    VStack_c8.y = VStack_98.y;
-    VStack_c8.z = VStack_98.z;
-    Vec3p_Sub(&VStack_c8, &VStack_bc, &VStack_c8);
+    VStack_b0 = VStack_98;
+    VStack_bc = VStack_a4;
+    VStack_c8 = VStack_98;
+    Vec3p_Sub(&VStack_98, &VStack_a4, &VStack_c8);
     lVar1 = (u64) param_5 * 0xc000 + 0x800;
     uVar7 = (u32) lVar1 >> 0xc | (int) ((u64) lVar1 >> 0x20) * 0x100000;
     iVar6 = Vec3p_Length(&VStack_c8);
@@ -2626,9 +2620,9 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
                 VStack_e4.y = aVStack_8c[0].y;
                 VStack_e4.z = aVStack_8c[0].z;
             }
-            func_ov000_0207920c(data_027e0d3c, &VStack_e4, &iStack_104, 0);
-            param_2[8].x = iStack_104;
-            param_2[8].y = iStack_100;
+            func_ov000_0207920c(data_027e0d3c, &VStack_e4, (unk32 *) &iStack_104, 0);
+            param_2[8].x = iStack_104.x;
+            param_2[8].y = iStack_104.y;
             return 1;
         }
         VStack_bc.x = VStack_b0.x;
