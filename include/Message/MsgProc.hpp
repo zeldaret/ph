@@ -186,4 +186,4 @@ public:
     char *func_ov000_0209d71c(s32 param_2);
     u8 *func_ov000_0209d90c(s8, s8);
 };
-extern UnkClass_data_027e0f7c data_027e0f7c;
+extern UnkClass_data_027e0f7c *data_027e0f7c;
