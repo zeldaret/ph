@@ -240,4 +240,13 @@ public:
     void func_ov004_0210cb38();
     void func_ov004_0210cc20(Course *course);
     void func_ov004_0210cc58(Course *course, u32 map);
+
+    MapBase *func_ov012_0212b358(unk32 param_2, unk32 param_3);
+    MapBase *func_ov015_02128dd8(unk32 param_2, unk32 param_3);
+    s32 func_ov015_02129c14();
+    bool func_ov015_02129c24(Vec3p *param_2, Vec3p *param_3);
+    bool func_ov015_02129c34(s32 param_2);
+    bool func_ov015_02129c44(s32 param_2);
+    MapBase *func_ov017_0215b4a0(unk32 param_2, unk32 param_3);
+    MapBase *func_ov017_0215b4e8(unk32 param_2, unk32 param_3);
 };
