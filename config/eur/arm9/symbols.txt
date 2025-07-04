@@ -2646,7 +2646,7 @@ data_02057610 kind:data(any) addr:0x02057610
 data_02057618 kind:data(any) addr:0x02057618
 data_02057620 kind:data(any) addr:0x02057620
 data_02057628 kind:data(any) addr:0x02057628
-data_02057634 kind:data(any) addr:0x02057634
+_ZTV8GameMode kind:data(any) addr:0x02057634
 data_02057650 kind:data(any) addr:0x02057650
 data_0205765c kind:data(any) addr:0x0205765c
 data_02057664 kind:data(any) addr:0x02057664
