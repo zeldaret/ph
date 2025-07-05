@@ -1,5 +1,6 @@
 #pragma once
 
+#include "global.h"
 #include "types.h"
 
 struct UnkStruct_0202e894 {
@@ -21,3 +22,5 @@ public:
     static void operator delete(void *ptr);
     static void operator delete[](void *ptr);
 };
+
+extern UnkStruct_0202e894 *data_027e0ce4;

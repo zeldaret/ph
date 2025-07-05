@@ -71,8 +71,8 @@ src/00_Core/Actor/Navi/ActorWisdomNavi.cpp:
     .sbss       start:0x020ee590 end:0x020ee5b0
 
 src/00_Core/Item/Item.cpp:
+    complete
     .text       start:0x020ad020 end:0x020ad090
-    .rodata     start:0x020dc574 end:0x020dc6c4
 
 src/00_Core/Item/ItemManager.cpp:
     complete
@@ -148,3 +148,6 @@ src/00_Core/Save/AdventureFlags.cpp:
     .text       start:0x02097628 end:0x020980f4
     .data       start:0x020e310c end:0x020e3ad8
     .bss        start:0x020eaac4 end:0x020eaac8
+
+src/00_Core/Game/GameModePlay.cpp:
+    .text       start:0x02079d28 end:0x02079ddc

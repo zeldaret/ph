@@ -11,13 +11,13 @@ contribute to this list!
 `04` | Load            | 2    | Scene loading
 `05` | ---             | 2    |
 `06` | ---             | 2    |
-`07` | ---             | 2    |
-`08` | ---             | 3    |
-`09` | ---             | 3    |
-`10` | ---             | 3    |
-`11` | ---             | 3    |
-`12` | Battle          | 3    | Handles battle mode.
-`13` | ---             | 3    |
+`07` | DownloadPlay    | 2    | Handles DS download play.
+`08` | GameStart       | 3    | Handles starting the game.
+`09` | Adventure       | 3    | Handles the adventure game mode.
+`10` | FileSelect      | 3    | Handles the file selection screen.
+`11` | DwcSetup        | 3    | Handles Wi-Fi connection setup.
+`12` | Battle          | 3    | Handles the battle game mode.
+`13` | Contact         | 3    | Handles contact mode.
 `14` | Land            | 4    | Link and essential land-based actors.
 `15` | Sea             | 4    | Handles the sea, Linebeck's ship, and sea-based actors.
 `16` | Startup         | N/A  | Exists briefly on game startup. Initializes RNG, messages, and more.
@@ -67,16 +67,16 @@ contribute to this list!
 `60` | ---             | 12   |
 `61` | ---             | 12   |
 
-## Overlay setups
-The game contains a list of "overlay setups" which contain overlay IDs to load into slot 1, 2, 3 and 12.
+## Game modes
+There is a list of game mode called `gGameModes` which contain overlay IDs to load into slot 1, 2, 3 and 12.
 
  Index | Slot 1 | Slot 2 | Slot 3 | Slot 12 | Usage
 -------|--------|--------|--------|---------|-------
 `0`    | None   | None   | None   | None    | Game load
 `1`    | 1      | None   | 8      | None    | Startup screen (before title screen)
-`2`    | 3      | 4      | 9      | None    | Scene load
+`2`    | 3      | 4      | 9      | None    | Adventure mode
 `3`    | 1      | 6      | 10     | None    | File selection
 `4`    | 1      | None   | 11     | 61      | Wi-Fi connection setup
-`5`    | 1      | 7      | None   | None    | DS download play battle mode
-`6`    | 1      | 4      | 12     | 60      | Multi-card battle mode
+`5`    | 1      | 7      | None   | None    | DS download play
+`6`    | 1      | 4      | 12     | 60      | Battle mode
 `7`    | 1      | None   | 13     | None    | Contact mode (trading items)
