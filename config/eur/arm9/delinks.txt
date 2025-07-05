@@ -11,6 +11,7 @@ src/Main/Actor/ActorType.cpp:
     .bss        start:0x02069180 end:0x02069188
 
 src/Main/System/OverlayManager.cpp:
+    complete
     .text       start:0x0202ff44 end:0x0203003c
 
 libs/cpp/src/__register_global_object.cpp:
@@ -59,3 +60,9 @@ src/Main/Unknown/UnkStruct_02063220.cpp:
     .text       start:0x0202f3f0 end:0x0202f8e8
     .rodata     start:0x020562e0 end:0x02056300
     .data       start:0x0205772c end:0x02057808
+
+src/Main/Game/Game.cpp:
+    .text       start:0x0202c6c8 end:0x0202d0cc
+
+src/Main/Game/GameMode.cpp:
+    .text       start:0x0202c0a8 end:0x0202c0cc

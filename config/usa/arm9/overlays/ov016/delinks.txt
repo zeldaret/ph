@@ -4,3 +4,5 @@
     .data       start:0x021200e0 end:0x02120120 kind:data align:32
     .bss        start:0x02120120 end:0x02120120 kind:bss align:32
 
+src/16_Startup/Game/Game.cpp:
+    .text       start:0x0211fc78 end:0x0211fd5c
