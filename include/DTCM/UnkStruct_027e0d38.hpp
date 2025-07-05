@@ -1,25 +1,9 @@
 #pragma once
 
+#include "Save/AdventureFlags.hpp"
 #include "global.h"
 #include "nds/math.h"
 #include "types.h"
-
-#include "Map/Entrance.hpp"
-
-struct UnkStruct_027e0d38_UnkC {
-    /* 00 */ unk32 mUnk_00;
-
-    s32 func_ov000_020a5e9c(void);
-};
-
-// This might be FlagsUnk2
-struct UnkStruct_02082348 {
-    /* 00 */ UnkStruct_027e0d38_UnkC mUnk_00;
-    /* 04 */ Entrance mUnk_04;
-    /* 18 */
-
-    void func_ov000_02078bf0(UnkStruct_02082348 *param_2);
-};
 
 struct UnkStruct_027e0d38_Unk28 {
     /* 000 */ unk32 *mUnk_00;
@@ -53,8 +37,8 @@ struct UnkStruct_027e0d38_Unk28 {
     /* 056 */ u8 mUnk_56;
     /* 057 */ unk8 mUnk_57;
     /* 058 */ unk32 mUnk_58;
-    /* 05c */ Entrance mUnk_5c;
-    /* 070 */ UnkStruct_02082348 mUnk_70;
+    /* 05c */ UnkStruct_02082348_04 mUnk_5c;
+    /* 070 */ FlagsUnk2 mUnk_70;
     /* 088 */ unk8 pad1[0x9A - 0x88];
     /* 09a */ u8 mUnk_9a;
     /* 09b */ u8 mUnk_9b;

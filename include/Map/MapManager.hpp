@@ -72,8 +72,8 @@ public:
     void GetCourseDungeonProgress(CourseProgress *param_2);
     void func_ov00_020820fc(s32 param_2, unk32 param_3, unk32 param_4);
     void func_ov00_0208210c(unk32 param_2, UnkStruct_0208210c_param3 *param_3);
-    void func_ov00_0208230c(struct UnkStruct_02082348 *param_2);
-    void func_ov00_02082348(struct UnkStruct_02082348 *param_2);
+    void func_ov00_0208230c(struct FlagsUnk2 *param_2);
+    void func_ov00_02082348(struct FlagsUnk2 *param_2);
     void func_ov00_020823a4(unk32 param_2);
     void func_ov00_020823b4();
     bool func_ov00_020823c4(unk32 *param_2, s32 param_3);
@@ -110,7 +110,7 @@ public:
     void func_ov00_02082acc();
     unk32 *func_ov00_02082adc();
     void func_ov00_02082af4();
-    bool func_ov00_02082b3c(UnkStruct_02082348 *param_2);
+    bool func_ov00_02082b3c(FlagsUnk2 *param_2);
     u8 func_ov00_02082d08();
     u8 GetCurrentMapPosX();
     u8 GetCurrentMapPosY();
@@ -277,7 +277,7 @@ public:
     static void LoadMapTexSprites(s32 param1);
     void func_ov004_02102260();
     void func_ov004_02102264(unk32 *param1, char *param2);
-    void func_ov004_021024c4(UnkStruct_02082348 *param1, bool param2, bool param3);
+    void func_ov004_021024c4(FlagsUnk2 *param1, bool param2, bool param3);
     void func_ov004_021025d8();
 };
 

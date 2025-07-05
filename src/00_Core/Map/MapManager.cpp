@@ -171,8 +171,8 @@ ARM void MapManager::func_ov00_020820fc(s32 param_2, unk32 param_3, unk32 param_
 }
 
 ARM void MapManager::func_ov00_0208210c(unk32 param_2, UnkStruct_0208210c_param3 *param_3) {
-    UnkStruct_02082348 local_28;
-    UnkStruct_02082348 local_40;
+    FlagsUnk2 local_28;
+    FlagsUnk2 local_40;
 
     local_28.mUnk_00.mUnk_00 = 0x47;
     local_28.mUnk_04.mPos.x  = 0;
@@ -225,7 +225,7 @@ ARM void MapManager::func_ov00_0208210c(unk32 param_2, UnkStruct_0208210c_param3
     }
 }
 
-ARM void MapManager::func_ov00_0208230c(UnkStruct_02082348 *param_2) {
+ARM void MapManager::func_ov00_0208230c(FlagsUnk2 *param_2) {
     param_2->mUnk_00.mUnk_00 = this->mCourse->mIndex;
 
     Course *course           = this->mCourse;
@@ -233,8 +233,8 @@ ARM void MapManager::func_ov00_0208230c(UnkStruct_02082348 *param_2) {
     param_2->mUnk_04.mUnk_0f = this->mUnk_0c;
 }
 
-ARM void MapManager::func_ov00_02082348(UnkStruct_02082348 *param_2) {
-    UnkStruct_02082348 unkStruct;
+ARM void MapManager::func_ov00_02082348(FlagsUnk2 *param_2) {
+    FlagsUnk2 unkStruct;
 
     unkStruct.mUnk_00.mUnk_00 = 0x47;
     unkStruct.mUnk_04.mPos.x  = 0;
@@ -455,7 +455,7 @@ ARM s32 MapManager::func_ov00_02082914(unk32 param_2) {
     int local_50;
 
     switch (param_2) {
-        case 0xfa: local_30 = data_027e0d38->mUnk_28->mUnk_5c; return this->mMap->AddEntrance(&local_30);
+        // case 0xfa: local_30 = data_027e0d38->mUnk_28->mUnk_5c; return this->mMap->AddEntrance(&local_30);
         case 0xfb:
         case 0xfc:
         case 0xfd:
@@ -519,7 +519,7 @@ ARM void MapManager::func_ov00_02082af4() {
     this->mUnk_0b = false;
 }
 
-ARM bool MapManager::func_ov00_02082b3c(UnkStruct_02082348 *param_2) {
+ARM bool MapManager::func_ov00_02082b3c(FlagsUnk2 *param_2) {
     Vec2b mapGridPos;
     u8 entranceId;
     bool cmp;
