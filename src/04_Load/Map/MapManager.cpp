@@ -1,4 +1,5 @@
 #include "Map/MapManager.hpp"
+#include "Save/AdventureFlags.hpp"
 
 MapManager::MapManager() {}
 MapManager::~MapManager() {}
@@ -7,5 +8,5 @@ void MapManager::Destroy() {}
 void MapManager::LoadMapTexSprites(s32 param1) {}
 void MapManager::func_ov004_02102260() {}
 void MapManager::func_ov004_02102264(unk32 *param1, char *param2) {}
-void MapManager::func_ov004_021024c4(UnkStruct_02082348 *param1, bool param2, bool param3) {}
+void MapManager::func_ov004_021024c4(FlagsUnk2 *param1, bool param2, bool param3) {}
 void MapManager::func_ov004_021025d8() {}
