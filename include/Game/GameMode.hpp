@@ -5,10 +5,21 @@
 
 #include "System/SysNew.hpp"
 
+enum GameModes {
+    GameMode_Load          = 0,
+    GameMode_StartupScreen = 1,
+    GameMode_Adventure     = 2,
+    GameMode_FileSelect    = 3,
+    GameMode_WFCSetup      = 4,
+    GameMode_DownloadPlay  = 5,
+    GameMode_Battle        = 6,
+    GameMode_Contact       = 7
+};
+
 class GameMode : public SysObject {
 public:
     /* 000 (vtable) */
-    /* 004 */ unk32 mUnk_000;
+    /* 004 */ s32 mModeId;
     /* 008 */
 
     /* 00 */ virtual ~GameMode();
@@ -20,8 +31,8 @@ public:
     /* 1c */
 
     inline GameMode() {}
-    inline GameMode(unk32 param1) :
-        mUnk_000(param1) {}
+    inline GameMode(s32 modeId) :
+        mModeId(modeId) {}
 
     void func_0202c0b8();
 };

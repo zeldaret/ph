@@ -84,20 +84,6 @@ struct astruct_16 {
     /* 2c */
 }; // What is this struct?
 
-// This might be FlagsUnk2
-struct UnkStruct_02082348 {
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
-    /* 0c */ unk32 mUnk_0c;
-    /* 10 */ unk16 mUnk_10;
-    /* 12 */ u8 mUnk_12;
-    /* 13 */ u8 mUnk_13;
-    /* 14 */ u8 mUnk_14;
-    /* 15 */ u8 mUnk_15;
-    /* 16 */
-};
-
 struct UnkStruct_027e077c {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk32 mUnk_04;
@@ -203,17 +189,17 @@ ARM void MapManager::func_ov00_020820fc(s32 param_2, unk32 param_3, unk32 param_
 ARM void MapManager::func_ov00_0208210c(unk32 param_2, unk32 *param_3) {
     void *pvVar3;
     unk32 uVar2;
-    UnkStruct_02082348 local_40[2];
+    FlagsUnk2 local_40[2];
 
-    local_40[1].mUnk_00 = 0x47;
-    local_40[1].mUnk_04 = 0;
-    local_40[1].mUnk_08 = 0;
-    local_40[1].mUnk_0c = -2;
-    local_40[1].mUnk_10 = 0;
-    local_40[1].mUnk_12 = -1;
-    local_40[1].mUnk_13 = 0;
-    local_40[1].mUnk_14 = 0;
-    local_40[1].mUnk_15 = 0;
+    local_40[1].mUnk_00.mUnk_00 = 0x47;
+    local_40[1].mUnk_04.mUnk_00 = 0;
+    local_40[1].mUnk_04.mUnk_04 = 0;
+    local_40[1].mUnk_04.mUnk_08 = -2;
+    local_40[1].mUnk_04.mUnk_0c = 0;
+    local_40[1].mUnk_04.mUnk_0e = -1;
+    local_40[1].mUnk_04.mUnk_0f = 0;
+    local_40[1].mUnk_04.mUnk_10 = 0;
+    local_40[1].mUnk_04.mUnk_11 = 0;
     if (param_2 != 0) {
         *param_3                    = 0xb;
         *(unk8 *) (param_3 + 1)     = 2;
@@ -268,16 +254,16 @@ ARM void MapManager::func_ov00_0208230c(s32 *param_2) {
 }
 
 ARM void MapManager::func_ov00_02082348(unk32 *param_2) {
-    UnkStruct_02082348 unkStruct;
-    unkStruct.mUnk_00 = 0x47;
-    unkStruct.mUnk_04 = 0;
-    unkStruct.mUnk_08 = 0;
-    unkStruct.mUnk_0c = -2;
-    unkStruct.mUnk_10 = 0;
-    unkStruct.mUnk_12 = -1;
-    unkStruct.mUnk_13 = 0;
-    unkStruct.mUnk_14 = 0;
-    unkStruct.mUnk_15 = 0;
+    FlagsUnk2 unkStruct;
+    unkStruct.mUnk_00.mUnk_00 = 0x47;
+    unkStruct.mUnk_04.mUnk_00 = 0;
+    unkStruct.mUnk_04.mUnk_04 = 0;
+    unkStruct.mUnk_04.mUnk_08 = -2;
+    unkStruct.mUnk_04.mUnk_0c = 0;
+    unkStruct.mUnk_04.mUnk_0e = -1;
+    unkStruct.mUnk_04.mUnk_0f = 0;
+    unkStruct.mUnk_04.mUnk_10 = 0;
+    unkStruct.mUnk_04.mUnk_11 = 0;
     this->func_ov00_0208230c((s32 *) &unkStruct);
     func_ov000_02078bf0((s32 *) &unkStruct, param_2);
 }

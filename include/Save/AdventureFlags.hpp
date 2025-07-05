@@ -57,21 +57,35 @@ enum AdventureFlag_ {
     /* 0x187 */ AdventureFlag_COUNT = 391,
 };
 
-struct FlagsUnk2 {
+struct UnkStruct_027e0d38_UnkC {
     /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
-    /* 0c */ unk32 mUnk_0c;
-    /* 10 */ unk16 mUnk_10;
-    /* 12 */ unk8 mUnk_12;
-    /* 13 */ unk8 mUnk_13;
-    /* 14 */ unk8 mUnk_14;
-    /* 15 */ unk8 mUnk_15;
-    /* 16 */ unk8 mUnk_16;
-    /* 17 */ unk8 mUnk_17;
+
+    s32 func_ov000_020a5e9c(void);
+};
+
+class UnkStruct_02082348_04 {
+public:
+    /* 00 */ unk32 mUnk_00;
+    /* 00 */ unk32 mUnk_04;
+    /* 00 */ unk32 mUnk_08;
+    /* 0c */ unk16 mUnk_0c;
+    /* 0e */ u8 mUnk_0e;
+    /* 0f */ u8 mUnk_0f;
+    /* 10 */ u8 mUnk_10;
+    /* 11 */ u8 mUnk_11;
+    /* 12 */ u8 mUnk_12;
+    /* 13 */ u8 mUnk_13;
+    /* 14 */
+};
+
+struct FlagsUnk2 {
+    /* 00 */ UnkStruct_027e0d38_UnkC mUnk_00;
+    /* 04 */ UnkStruct_02082348_04 mUnk_04;
     /* 18 */
 
     ~FlagsUnk2();
+    void func_ov000_02078bf0(FlagsUnk2 *param_2);
+    void func_ov004_02100ae0();
 };
 
 struct FlagsUnk {

@@ -120,11 +120,13 @@ extern struct TouchControl gTouchControl;
 class UnkClass_027e0e28 {
 public:
     unk32 func_ov000_0207bc48();
+    void func_ov000_0207bc9c();
 };
 extern UnkClass_027e0e28 *data_027e0e28;
 extern u8 data_027e0c54;
 extern unk32 *data_ov009_0211f5b4;
 extern "C" unk32 func_ov003_020f3f94(unk32 *);
+extern "C" void func_ov003_020f4060(unk32 **);
 extern unk32 *data_02057ed4;
 
 // see Actor.cpp
@@ -161,8 +163,12 @@ public:
 
     void func_ov003_020f4874(void);
     void func_ov003_020f4760(u8, unk32);
+    unk32 func_ov003_020f4960(void);
+    void func_ov003_020f4a5c(void);
+    void func_ov003_02f46f8(void);
+    void func_ov003_020f4678(unk32);
 };
-extern UnkClass_027e1054 data_027e1054;
+extern UnkClass_027e1054 *data_027e1054;
 
 class UnkClass_ov000_020eec9c {
 public:

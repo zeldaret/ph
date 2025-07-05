@@ -15,6 +15,8 @@ void SysDelete(void *ptr);
 void *func_0202e99c(s32 length);
 void *func_0202e9bc(s32 length);
 
+extern u32 *data_027e0ce0[];
+
 class SysObject {
 public:
     static void *operator new(unsigned long length, u32 *id, u32 idLength);
