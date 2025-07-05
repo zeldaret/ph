@@ -3926,7 +3926,7 @@ data_ov000_020df330 kind:data(any) addr:0x020df2d0
 __sinit_ov000_020df338 kind:function(arm,size=0x14) addr:0x020df2d8
 __sinit_ov000_020df34c kind:function(arm,size=0x2c) addr:0x020df2ec
 __sinit_ov000_020df378 kind:function(arm,size=0x14) addr:0x020df318
-__sinit_ov000_020df38c kind:function(arm,size=0x2c) addr:0x020df32c
+__sinit_TouchControl.cpp kind:function(arm,size=0x2c) addr:0x020df32c
 __sinit_ov000_020df3b8 kind:function(arm,size=0x14) addr:0x020df358
 __sinit_ov000_020df3cc kind:function(arm,size=0x14) addr:0x020df36c
 __sinit_ov000_020df3e0 kind:function(arm,size=0x14) addr:0x020df380
