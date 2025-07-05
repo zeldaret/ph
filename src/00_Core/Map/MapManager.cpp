@@ -523,6 +523,9 @@ ARM bool MapManager::func_ov00_02082b3c(UnkStruct_02082348 *param_2) {
     Vec2b mapGridPos;
     u8 entranceId;
     bool cmp;
+    ActorManager *actorManager;
+    u16 var1;
+    u32 var2;
 
     Course::FindMapGridPos(&mapGridPos, this->mCourse, param_2->mUnk_04.mId);
 
@@ -531,17 +534,23 @@ ARM bool MapManager::func_ov00_02082b3c(UnkStruct_02082348 *param_2) {
     {
         gAdventureFlags->func_ov00_020976c8();
         data_027e0f64->func_ov000_0208b13c();
-        gActorManager->func_ov004_02105608(mapGridPos.x, mapGridPos.y, this->func_ov00_02082d08());
+        actorManager = gActorManager;
+        actorManager->func_ov004_02105608(mapGridPos.x, mapGridPos.y, this->func_ov00_02082d08());
         this->mMap->vfunc_2c();
         data_027e0f68->func_ov004_02102b28();
         data_027e0f6c->func_ov004_02102770();
         data_027e0f78->func_ov004_02102e3c();
         entranceId = param_2->mUnk_04.mId;
-        cmp        = this->mCourse->FindCurrentMapData_Unk_04() != this->mCourse->FindMapData_Unk_04(entranceId);
+        cmp        = false;
+        var1       = this->mCourse->FindCurrentMapData_Unk_04();
+        var2       = this->mCourse->FindMapData_Unk_04(entranceId);
+        if (var1 != var2) {
+            cmp = true;
+        }
         this->mCourse->mCurrMapPos.x = mapGridPos.x;
         this->mCourse->mCurrMapPos.y = mapGridPos.y;
         this->func_ov004_021024c4(param_2, cmp, false);
-        gActorManager->func_ov004_02105578(entranceId);
+        gActorManager->func_ov004_02105578(param_2->mUnk_04.mId);
         data_027e103c->func_ov000_020cfcec();
     } else {
         gAdventureFlags->func_ov00_020976c8();
@@ -1085,9 +1094,7 @@ ARM void MapManager::func_ov00_02083a54(Vec2b *param_1, MapManager *param_2, Vec
     s32 iVar4;
     Vec3p VStack_20;
     u32 uVar5;
-
     Vec3p *piVar6;
-
     Vec3p local_2c;
     Vec3p local_38;
 
