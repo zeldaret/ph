@@ -5,6 +5,17 @@
 
 #include "System/SysNew.hpp"
 
+enum GameModes {
+    GameMode_Load          = 0,
+    GameMode_StartupScreen = 1,
+    GameMode_Adventure     = 2,
+    GameMode_FileSelect    = 3,
+    GameMode_WFCSetup      = 4,
+    GameMode_DownloadPlay  = 5,
+    GameMode_Battle        = 6,
+    GameMode_Contact       = 7
+};
+
 class GameMode : public SysObject {
 public:
     /* 000 (vtable) */
