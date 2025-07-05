@@ -3840,10 +3840,12 @@ from:0x0202fff0 kind:thumb_call to:0x0202ff44 module:main
 from:0x0202fff8 kind:load to:0x020561f4 module:main
 from:0x0202fffc kind:load to:0x027e0ce0 module:dtcm
 from:0x02030000 kind:load to:0x020ee698 module:overlay(0)
+from:0x02030004 kind:overlay_id to:61 module:none
 from:0x0203000e kind:thumb_call to:0x0202ff84 module:main
 from:0x02030016 kind:thumb_call to:0x0202ff84 module:main
 from:0x02030024 kind:thumb_call_arm to:0x021028a0 module:overlay(7)
 from:0x0203002c kind:thumb_call to:0x0202ff84 module:main
+from:0x02030034 kind:overlay_id to:7 module:none
 from:0x02030038 kind:load to:0x027e0ce0 module:dtcm
 from:0x02030044 kind:thumb_call_arm to:0x0202ea0c module:main
 from:0x0203006c kind:thumb_call to:0x0203004c module:main

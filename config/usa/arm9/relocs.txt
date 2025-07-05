@@ -3842,10 +3842,12 @@ from:0x0202ffec kind:thumb_call to:0x0202ff40 module:main
 from:0x0202fff4 kind:load to:0x020561b0 module:main
 from:0x0202fff8 kind:load to:0x027e0ce0 module:dtcm
 from:0x0202fffc kind:load to:0x020ee638 module:overlay(0)
+from:0x02030000 kind:overlay_id to:61 module:none
 from:0x0203000a kind:thumb_call to:0x0202ff80 module:main
 from:0x02030012 kind:thumb_call to:0x0202ff80 module:main
 from:0x02030020 kind:thumb_call_arm to:0x02102820 module:overlay(7)
 from:0x02030028 kind:thumb_call to:0x0202ff80 module:main
+from:0x02030030 kind:overlay_id to:7 module:none
 from:0x02030034 kind:load to:0x027e0ce0 module:dtcm
 from:0x02030040 kind:thumb_call_arm to:0x0202ea08 module:main
 from:0x02030068 kind:thumb_call to:0x02030048 module:main

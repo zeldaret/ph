@@ -159,8 +159,8 @@ public:
     void Load(OverlayIndex index, OverlayId id);
     void LoadIfNotLoaded(OverlayIndex index, OverlayId id);
     void Unload(OverlayIndex index);
-    void LoadOverlaySetup(s32 index);
-    void UnloadOverlaySetup();
+    void LoadGameMode(s32 mode);
+    void UnloadGameMode();
 
     void LoadEquipItem(ItemFlag equipId);
 };

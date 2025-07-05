@@ -9,7 +9,7 @@ struct UnkStruct_020ee698 {
 };
 extern UnkStruct_020ee698 data_ov000_020ee698;
 
-struct OverlaySetup {
+struct GameModeData {
     /* 00 */ unk8 mUnk_00;
     /* 01 */ unk8 mUnk_01;
     /* 02 */ unk8 mUnk_02;
@@ -22,7 +22,7 @@ struct OverlaySetup {
     /* 18 */ void *mUnk_18;
     /* 1c */
 };
-extern OverlaySetup gOverlaySetups[];
+extern GameModeData gGameModes[];
 
 extern u32 *data_027e0ce0[];
 extern "C" void func_ov007_02102850(u32 **);
@@ -52,23 +52,21 @@ THUMB void OverlayManager::Unload(OverlayIndex index) {
     }
 }
 
-//! TODO: solve the .word issue with the overlay IDs
-//! both functions should match otherwise
-THUMB void OverlayManager::LoadOverlaySetup(s32 index) {
+THUMB void OverlayManager::LoadGameMode(s32 mode) {
     OverlayId overlayId;
-    OverlaySetup *pSetup;
+    GameModeData *pSetup;
 
-    pSetup = &gOverlaySetups[index];
+    pSetup = &gGameModes[mode];
 
     this->LoadIfNotLoaded(OverlayIndex_1, pSetup->slot1Overlay);
     this->LoadIfNotLoaded(OverlayIndex_2, pSetup->slot2Overlay);
 
-    if (index == 5) {
+    if (mode == 5) {
         func_ov007_02102850(data_027e0ce0);
     } else {
         overlayId = pSetup->slot12Overlay;
 
-        if (index == 6 && data_ov000_020ee698.mUnk_2c == 2) {
+        if (mode == 6 && data_ov000_020ee698.mUnk_2c == 2) {
             overlayId = OverlayId_61;
         }
 
@@ -77,7 +75,7 @@ THUMB void OverlayManager::LoadOverlaySetup(s32 index) {
     }
 }
 
-THUMB void OverlayManager::UnloadOverlaySetup() {
+THUMB void OverlayManager::UnloadGameMode() {
     this->Unload(OverlayIndex_12);
     this->Unload(OverlayIndex_3);
 
