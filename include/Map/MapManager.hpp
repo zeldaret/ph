@@ -183,7 +183,7 @@ public:
     s32 func_ov00_020839d4(s32 param_2);
     s32 func_ov00_020839f8(s32 param_2);
     static void func_ov00_02083a1c(Vec2b *param_1, MapManager *param_2, Vec3p *param_3);
-    static void func_ov00_02083a54(u8 *param_1, MapManager *param_2, s32 *param_3, s32 param_4, s32 *param_5);
+    static void func_ov00_02083a54(Vec2b *param_1, MapManager *param_2, Vec3p *param_3, s32 param_4, unk32 param_5);
     s32 GetTileStartX(unk32 x);
     s32 GetTileStartZ(unk32 z);
     s32 GetTileEndX(unk32 x);

@@ -640,7 +640,7 @@ ARM bool MapManager::func_ov00_02082e1c(s32 *param_2, s32 *param_3) {
         } else {
             this->mCourse->GetMapScreenPos(uVar8, &mapScreenPos.x, &mapScreenPos.y);
             Course::FindMapGridPos(&local_4a, this->mCourse, uVar8);
-            MapManager::func_ov00_02083a54((u8 *) &local_4c.x, this, &local_28.x, (u32) local_4a.x, (s32 *) local_4a.y);
+            MapManager::func_ov00_02083a54(&local_4a, this, &local_28, local_4a.x, local_4a.y);
             uVar8    = this->mCourse->GetScreenMapCellSizeX();
             lVar3    = (int) ((u32) local_4c.x << 0xc) * (int) uVar8 + 0x800;
             *param_2 = mapScreenPos.y + ((int) (((u32) lVar3 >> 0xc | (int) (lVar3 >> 0x20) * 0x100000) + 0x800) >> 0xc);
@@ -1079,51 +1079,42 @@ ARM void MapManager::func_ov00_02083a1c(Vec2b *param_1, MapManager *param_2, Vec
     param_1->y = x;
 }
 
-ARM void MapManager::func_ov00_02083a54(u8 *param_1, MapManager *param_2, s32 *param_3, s32 param_4, s32 *param_5) {
-    bool bVar1;
+ARM void MapManager::func_ov00_02083a54(Vec2b *param_1, MapManager *param_2, Vec3p *param_3, s32 param_4, unk32 param_5) {
     unk8 uVar2;
     unk8 uVar3;
     s32 iVar4;
-    u32 uVar5;
-    s32 *piVar6;
-    Vec3p local_38;
-    Vec3p local_2c;
     Vec3p VStack_20;
+    u32 uVar5;
 
-    piVar6 = param_3;
-    iVar4  = param_2->GetCourseData_Unk_25c();
-    if (iVar4 == 0) {
-        uVar2      = param_2->func_ov00_020839f8(param_3[2]);
-        uVar3      = param_2->func_ov00_020839d4(*param_3);
-        *param_1   = uVar3;
-        param_1[1] = uVar2;
+    Vec3p *piVar6;
+
+    Vec3p local_2c;
+    Vec3p local_38;
+
+    if (param_2->GetCourseData_Unk_25c() != 0) {
+        uVar5 = (param_4 == -1 || param_5 == 0xffffffff) ? param_2->func_ov00_02082d08()
+                                                         : uVar5 = param_2->mCourse->mMapGrid[param_4][param_5];
+
+        if (param_2->IsMapInMainGrid(uVar5)) {
+            param_2->func_ov00_02083524(&VStack_20, param_4, param_5);
+            local_38 = *param_3;
+            Vec3p_Sub(&local_38, &VStack_20, &local_2c);
+            uVar2      = param_2->mMap->GetClampedTileY(local_2c.z);
+            uVar3      = param_2->mMap->GetClampedTileX(local_2c.x);
+            param_1->x = uVar3;
+            param_1->y = uVar2;
+            return;
+        }
+        uVar2      = param_2->func_ov00_020839f8(param_3->z);
+        uVar3      = param_2->func_ov00_020839d4(param_3->x);
+        param_1->x = uVar3;
+        param_1->y = uVar2;
         return;
     }
-    if (param_4 != -1) {
-        piVar6 = param_5;
-    }
-    if (param_4 != -1 && piVar6 != (int *) 0xffffffff) {
-        uVar5 = (u32) * (u8 *) ((s32) piVar6 + (s32) (param_2->mCourse->mMapGrid + param_4));
-    } else {
-        uVar5 = param_2->func_ov00_02082d08();
-    }
-    bVar1 = param_2->IsMapInMainGrid(uVar5);
-    if (!bVar1) {
-        uVar2      = param_2->func_ov00_020839f8(param_3[2]);
-        uVar3      = param_2->func_ov00_020839d4(*param_3);
-        *param_1   = uVar3;
-        param_1[1] = uVar2;
-        return;
-    }
-    param_2->func_ov00_02083524(&VStack_20, param_4, *param_5);
-    local_38.x = *param_3;
-    local_38.y = param_3[1];
-    local_38.z = param_3[2];
-    Vec3p_Sub(&local_38, &VStack_20, &local_2c);
-    uVar2      = param_2->mMap->GetClampedTileY(local_2c.z);
-    uVar3      = param_2->mMap->GetClampedTileX(local_2c.x);
-    *param_1   = uVar3;
-    param_1[1] = uVar2;
+    uVar2      = param_2->func_ov00_020839f8(param_3->z);
+    uVar3      = param_2->func_ov00_020839d4(param_3->x);
+    param_1->x = uVar3;
+    param_1->y = uVar2;
 }
 
 ARM s32 MapManager::GetTileStartX(unk32 x) {
