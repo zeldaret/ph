@@ -65,4 +65,6 @@ src/Main/Game/Game.cpp:
     .text       start:0x0202c6b0 end:0x0202d0b4
 
 src/Main/Game/GameMode.cpp:
+    complete
     .text       start:0x0202c090 end:0x0202c0b4
+    .data       start:0x020575cc end:0x020575f0

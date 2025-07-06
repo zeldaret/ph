@@ -1353,12 +1353,12 @@ func_0202bc10 kind:function(arm,size=0x28) addr:0x0202bbf8
 func_0202bc38 kind:function(arm,size=0x320) addr:0x0202bc20
 func_0202bf58 kind:function(arm,size=0x68) addr:0x0202bf40
 func_0202bfc0 kind:function(arm,size=0xe8) addr:0x0202bfa8
-_ZN8GameModeD0Ev kind:function(thumb,size=0x2) addr:0x0202c090
-_ZN8GameModeD2Ev kind:function(thumb,size=0xc) addr:0x0202c094
+_ZN8GameModeD1Ev kind:function(thumb,size=0x2) addr:0x0202c090
+_ZN8GameModeD0Ev kind:function(thumb,size=0xc) addr:0x0202c094
 _ZN8GameMode13func_0202c0b8Ev kind:function(thumb,size=0x2) addr:0x0202c0a0
 _ZN8GameMode8vfunc_0cEPt kind:function(thumb,size=0x2) addr:0x0202c0a4
 _ZN8GameMode8vfunc_10EPt kind:function(thumb,size=0x2) addr:0x0202c0a8
-_ZN8GameMode8vfunc_14EPt kind:function(thumb,size=0x2) addr:0x0202c0ac
+_ZN8GameMode8vfunc_14Eb kind:function(thumb,size=0x2) addr:0x0202c0ac
 _ZN8GameMode8vfunc_18Ev kind:function(thumb,size=0x2) addr:0x0202c0b0
 func_0202c0cc kind:function(thumb,size=0x5c) addr:0x0202c0b4
 func_0202c128 kind:function(thumb,size=0x27c) addr:0x0202c110
@@ -2645,7 +2645,7 @@ data_02057610 kind:data(any) addr:0x020575b0
 data_02057618 kind:data(any) addr:0x020575b8
 data_02057620 kind:data(any) addr:0x020575c0
 data_02057628 kind:data(any) addr:0x020575c8
-data_02057634 kind:data(any) addr:0x020575d4
+_ZTV8GameMode kind:data(any) addr:0x020575cc
 data_02057650 kind:data(any) addr:0x020575f0
 data_0205765c kind:data(any) addr:0x020575fc
 gBuildDate kind:data(any) addr:0x02057604

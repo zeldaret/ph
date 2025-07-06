@@ -39,7 +39,7 @@ from:0x02100e78 kind:arm_call to:0x02007ad8 module:main
 from:0x02100e90 kind:arm_call to:0x02007ad8 module:main
 from:0x02100eb8 kind:arm_call_thumb to:0x0200b944 module:main
 from:0x02100ec4 kind:arm_call_thumb to:0x0200b954 module:main
-from:0x02100ed4 kind:load to:0x020575d4 module:main
+from:0x02100ed4 kind:load to:0x020575cc add:8 module:main
 from:0x02100ed8 kind:load to:0x02102948 module:overlay(7)
 from:0x02100edc kind:load to:0x0210297c module:overlay(7)
 from:0x02100ee0 kind:load to:0x0210296c module:overlay(7)

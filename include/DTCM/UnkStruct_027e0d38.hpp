@@ -54,7 +54,7 @@ struct UnkStruct_027e0d38 {
     /* 04 */ unk32 mUnk_04;
     /* 08 */ unk32 mUnk_08;
     /* 0c */ UnkStruct_027e0d38_UnkC mUnk_0c;
-    /* 10 */ unk32 mUnk_10; // `Entrance`?
+    /* 10 */ unk32 mUnk_10; // `UnkStruct_02082348_04`?
     /* 14 */ unk32 mUnk_14;
     /* 18 */ unk32 mUnk_18;
     /* 1c */ unk16 mUnk_1c;
@@ -70,6 +70,8 @@ struct UnkStruct_027e0d38 {
     s32 func_ov000_02078b40();
     unk8 func_ov000_02078b64();
     bool func_ov000_02078b88();
+    void func_ov004_02100bcc();
+    unk32 func_ov005_02100b7c(unk32 param_1);
 };
 
 extern UnkStruct_027e0d38 *data_027e0d38;
