@@ -4,6 +4,10 @@
 #include "System/OverlayManager.hpp"
 #include "Unknown/UnkStruct_020ee698.hpp"
 #include "Unknown/UnkStruct_020ee734.hpp"
+#include "Unknown/UnkStruct_020ee820.hpp"
+#include "Unknown/UnkStruct_020eec60.hpp"
+#include "Unknown/UnkStruct_020eec68.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 
 extern "C" {
 // SDK functions
@@ -24,6 +28,17 @@ void func_0200a23c();
 void func_0200a318(u8 *);
 unk32 func_0200dd94();
 unk32 func_0200a284(u8 *);
+u16 func_ov001_020efdac();
+void *NewEXPH(char *id, s32 length, s32 param_3);
+unk32 func_ov000_020773c0();
+void func_020174a4(u32 *, void *);
+void func_0201f378();
+void func_0202019c(void *, const char *, u32 *, unk32);
+void func_020213f0(u32 *);
+void func_02021714(unk32, u32 *);
+void func_020209a4(unk32, u32 *);
+void func_0201f1ac(u32 *);
+void func_0201f96c(unk32, unk32);
 }
 
 extern unk8 data_020691a0;
@@ -133,11 +148,70 @@ ARM TouchControl::TouchControl() {
 }
 
 // --- data_ov000_020ee698 ---
-ARM UnkStruct_020ee698::UnkStruct_020ee698() {}
+ARM UnkStruct_020ee698::UnkStruct_020ee698() {
+    void *newHeap;
+
+    this->mUnk_00 = 0;
+    this->mUnk_02 = 0;
+    this->mUnk_04 = func_ov001_020efdac();
+    this->mUnk_08 = 0x0D;
+    this->mUnk_2c = 4;
+    Fill16(0, this->mUnk_0c, 0x1E);
+
+    newHeap = NewEXPH((char *) data_027e0ce0[1], 0x700, 0x20);
+
+    if (func_ov000_020773c0() == 3) {
+        this->mUnk_00 = 1;
+    }
+
+    func_020174a4(data_027e0ce0[1], newHeap);
+}
 
 // --- data_ov000_020ee734 ---
-ARM void GameStart::func_ov008_02113150() {}
-ARM void GameStart::func_ov008_021131ac() {}
+ARM UnkStruct_020ee734::UnkStruct_020ee734() {
+    this->mUnk_90 = 0;
+    this->mUnk_94 = 1;
+    this->mUnk_95 = 0;
+    this->mUnk_96 = 0;
+    this->mUnk_97 = 0;
+    this->mUnk_98 = 0;
+    this->mUnk_99 = 0;
+    this->mUnk_9a = 0;
+    this->mUnk_9c = 0;
+    this->mUnk_a0 = 0;
+    this->mUnk_a4 = -1;
+    this->mUnk_a8 = 0;
+    this->mUnk_a9 = 0;
+
+    for (s32 i = 0; i < ARRAY_LEN(this->mUnk_ac); i++) {
+        this->mUnk_ac[i] = 0;
+    }
+}
+
+ARM void UnkStruct_020ee734::func_ov008_021131ac() {
+    if (func_0200dd94() == 0 && !this->mUnk_98) {
+        func_0201f378();
+        this->mUnk_90 = data_027e0ce0[3];
+        func_0202019c(this, "SoundData/final_sound_data.sdat", data_027e0ce0[3], 0);
+        func_020213f0(this->mUnk_90);
+        func_02021714(9, this->mUnk_90);
+        func_020209a4(1, this->mUnk_90);
+        func_0201f1ac(this->mUnk_90);
+        this->mUnk_b0 = 1;
+
+        data_ov000_020eec68.func_ov008_021132cc();
+        data_ov000_020eec9c.func_ov008_0211337c();
+        data_ov000_020ee820.func_ov008_021133f0();
+        data_ov000_020eec60.func_ov008_02113474();
+        data_ov000_020ee820.func_ov000_020d69e4();
+
+        for (s32 i = 0; i < 16; i++) {
+            func_0201f96c(i, 0);
+        }
+
+        this->mUnk_98 = 1;
+    }
+}
 
 // --- data_ov000_020eec68 ---
 ARM void GameStart::func_ov008_02113284() {}

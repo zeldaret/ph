@@ -28,7 +28,7 @@ public:
 
     void func_ov008_021130d0();
     void func_ov008_02113150();
-    void func_ov008_021131ac();
+
     void func_ov008_02113284();
     void func_ov008_021132cc();
     void func_ov008_02113314();
