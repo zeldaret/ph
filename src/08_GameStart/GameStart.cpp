@@ -2,12 +2,17 @@
 #include "Game/Game.hpp"
 #include "Game/GameMode.hpp"
 #include "System/OverlayManager.hpp"
+#include "Unknown/UnkStruct_020ee0a0.hpp"
 #include "Unknown/UnkStruct_020ee698.hpp"
+#include "Unknown/UnkStruct_020ee6f8.hpp"
 #include "Unknown/UnkStruct_020ee734.hpp"
 #include "Unknown/UnkStruct_020ee820.hpp"
 #include "Unknown/UnkStruct_020eec60.hpp"
 #include "Unknown/UnkStruct_020eec68.hpp"
 #include "Unknown/UnkStruct_020eec9c.hpp"
+#include "Unknown/UnkStruct_020eed2c.hpp"
+#include "Unknown/UnkStruct_027e0dbc.hpp"
+#include "Unknown/UnkStruct_027e0f88.hpp"
 
 extern "C" {
 // SDK functions
@@ -44,6 +49,7 @@ void Fill256(int value, int *dst, int size);
 void func_0200afac();
 void func_0200b4dc(unk32);
 void func_0200aa20();
+void func_02015718();
 }
 
 extern unk8 data_020691a0;
@@ -128,7 +134,8 @@ ARM void GameStart::func_ov008_02112e88() {
     gOverlayManager.Load(OverlayIndex_Core, OverlayId_Core);
     data_ov000_020ee734.func_ov008_021131ac();
     data_027e0d54.func_ov008_02112f28();
-    this->func_ov008_02113678(data_027e0ce0[0]);
+    //! TODO: turn data_027e0ce0 into a class
+    // data_027e0ce0->func_ov008_02113678();
     func_ov000_0207a654(&data_ov000_020ec754);
 }
 
@@ -302,13 +309,13 @@ ARM void UnkStruct_020ee820::func_ov008_021133f0() {
     }
 
     func_0200aa20();
-    this->mUnk_04 = 0;
-    this->mUnk_08 = this->mUnk_40;
-    this->mUnk_0c = sizeof(this->mUnk_40);
-    this->mUnk_10 = 0x105D;
-    this->mUnk_14 = 1;
-    this->mUnk_18 = 0;
-    this->mUnk_1c = 0;
+    this->mUnk_04.mUnk_00 = 0;
+    this->mUnk_08         = this->mUnk_40;
+    this->mUnk_0c         = sizeof(this->mUnk_40);
+    this->mUnk_10         = 0x105D;
+    this->mUnk_14         = 1;
+    this->mUnk_18         = 0;
+    this->mUnk_1c         = 0;
     func_0200afac();
     func_0200b4dc(1);
     this->func_ov000_020d69d4(2);
@@ -316,26 +323,38 @@ ARM void UnkStruct_020ee820::func_ov008_021133f0() {
 }
 
 // --- data_ov000_020eec60 ---
-ARM UnkStruct_020eec60::UnkStruct_020eec60() {}
-ARM void UnkStruct_020eec60::func_ov008_02113474() {}
+ARM UnkStruct_020eec60::UnkStruct_020eec60() {
+    this->mUnk_00 = false;
+    this->mUnk_01 = 0;
+    this->mUnk_02 = 0;
+}
+
+ARM void UnkStruct_020eec60::func_ov008_02113474() {
+    if (data_ov000_020ee820.mUnk_00 && !this->mUnk_00) {
+        data_ov000_020ee820.mUnk_04.func_020156b4();
+        this->mUnk_00 = true;
+    }
+
+    func_02015718();
+}
 
 // --- data_ov000_020ee6f8 ---
-ARM void GameStart::func_ov008_021134b8() {}
+ARM UnkStruct_020ee6f8::UnkStruct_020ee6f8() {}
 
 // --- data_ov000_020ee0a0 ---
-ARM void GameStart::func_ov008_0211351c() {}
-ARM void GameStart::func_ov008_021135b8() {}
+ARM UnkStruct_020ee0a0::UnkStruct_020ee0a0() {}
+ARM void UnkStruct_020ee0a0::func_ov008_021135b8() {}
 
 // --- data_027e0f88 ---
-ARM void GameStart::func_ov008_021135bc() {} // ctor
-ARM void GameStart::func_ov008_02113678(u32 *param_1) {} // create function
-ARM void GameStart::func_ov008_021136c0() {} // sub-class ctor
+ARM UnkStruct_027e0f88::UnkStruct_027e0f88() {} // ctor
+ARM void UnkStruct_027e0f88::func_ov008_02113678() {} // create function
+ARM void UnkStruct_027e0f88::func_ov008_021136c0() {} // sub-class ctor
 
 // --- data_ov000_020eed2c ---
-ARM void GameStart::func_ov008_021136ec() {}
+ARM UnkStruct_020eed2c::UnkStruct_020eed2c() {}
 
 // --- data_027e0dbc ---
-ARM void GameStart::func_ov008_021136fc() {}
+ARM UnkStruct_027e0dbc::UnkStruct_027e0dbc() {}
 
 // --- gSaveItemManager ---
 ARM void GameStart::func_ov008_02113730() {}

@@ -3,13 +3,20 @@
 #include "global.h"
 #include "types.h"
 
+class UnkStruct_020ee820_04 {
+public:
+    /* 00 */ unk32 mUnk_00;
+
+    void func_020156b4();
+};
+
 class UnkStruct_020ee820 {
 public:
     /* 00 */ bool mUnk_00;
     /* 01 */ unk8 mUnk_01;
     /* 02 */ unk8 mUnk_02;
     /* 03 */ unk8 mUnk_03;
-    /* 04 */ unk32 mUnk_04;
+    /* 04 */ UnkStruct_020ee820_04 mUnk_04;
     /* 08 */ unk32 *mUnk_08;
     /* 0c */ unk32 mUnk_0c;
     /* 10 */ unk32 mUnk_10;

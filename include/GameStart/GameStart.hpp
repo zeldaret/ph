@@ -39,10 +39,9 @@ public:
     void func_ov008_02113474();
     void func_ov008_021134b8();
     void func_ov008_0211351c();
-    void func_ov008_021135b8();
+
     void func_ov008_021135bc();
-    void func_ov008_02113678(u32 *param_1);
-    void func_ov008_021136c0();
+
     void func_ov008_021136ec();
     void func_ov008_021136fc();
     void func_ov008_02113730();
