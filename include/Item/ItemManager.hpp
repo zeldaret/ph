@@ -66,8 +66,8 @@ public:
     /* 028 */ ShipType mEquippedShipParts[ShipPart_COUNT];
     /* 048 */ s8 mShipParts[ShipPart_COUNT][ShipType_COUNT];
     /* 090 */ s8 mTreasure[Treasure_COUNT];
-    /* 098 */ u8 mUnk_098[6]; // max 99
-    /* 09e */ u16 mUnk_09e[6]; // max 9999, corresponds with mUnk_098
+    /* 098 */ FishType mFishCount[FishType_COUNT];
+    /* 09e */ u16 mFishSize[FishType_COUNT];
     /* 0aa */ unk16 mUnk_0aa; // padding?
     /* 0ac */ EquipItem *(*mEquipItems)[ItemFlag_EQUIP_COUNT];
     /* 0b0 */ u16 (*mAmmo)[ItemFlag_EQUIP_COUNT];
@@ -176,11 +176,11 @@ public:
     void SetTreasureSalvaged(u32 index);
     u8 GetMaxTreasureCount() const;
 
-    // mUnk_098, mUnk_09e
-    u8 GetUnk_098(u32 index) const;
-    u16 GetUnk_09e(u32 index) const;
-    s32 GetUnk_09e_Divided(u32 index) const;
-    void SetUnk_09e(u32 index, u16 value); // also increments the corresponding mUnk_098 value
+    // mFishCount, mFishSize
+    u8 GetCollectedFishCount(u32 index) const;
+    u16 GetFishSize(u32 index) const;
+    s32 GetFishSize_Divided(u32 index) const;
+    void SetFishSize(u32 index, u16 value); // also increments the corresponding mFishCount value
 
     // Item
     bool HasItem(ItemFlag item) const;

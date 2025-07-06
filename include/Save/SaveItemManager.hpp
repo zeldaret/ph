@@ -5,7 +5,8 @@
 
 #include "../Item/Item.hpp"
 
-struct SaveItemManager {
+class SaveItemManager {
+public:
     /* 00 */ ItemFlags itemFlags;
     /* 10 */ u32 salvagedTreasureFlags;
     /* 14 */ ShipPartPricesShown shipPartPricesShown;
@@ -15,7 +16,7 @@ struct SaveItemManager {
     /* 74 */ s8 treasure[Treasure_COUNT];
     /* 7c */ unk8 unk_7c[4];
     /* 80 */ u16 hourglassSeconds;
-    /* 82 */ u16 unk_82[6];
+    /* 82 */ u16 fishSize[FishType_COUNT];
     /* 8e */ u16 numRupees;
     /* 90 */ unk8 unk_90;
     /* 91 */ unk8 unk_91;
@@ -29,9 +30,13 @@ struct SaveItemManager {
     /* 9c */ u8 quiverSize;
     /* 9d */ u8 bombBagSize;
     /* 9e */ u8 bombchuBagSize;
-    /* 9f */ u8 unk_9f[6];
+    /* 9f */ FishType fishCount[FishType_COUNT];
     /* a5 */ u8 equippedFairy;
     /* a6 */
 
     SaveItemManager();
+
+    void Init();
 };
+
+extern SaveItemManager gSaveItemManager;

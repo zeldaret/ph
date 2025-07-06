@@ -1,6 +1,7 @@
 #include "GameStart/GameStart.hpp"
 #include "Game/Game.hpp"
 #include "Game/GameMode.hpp"
+#include "Save/SaveItemManager.hpp"
 #include "System/OverlayManager.hpp"
 #include "Unknown/UnkStruct_020e9360.hpp"
 #include "Unknown/UnkStruct_020e9370.hpp"
@@ -543,7 +544,8 @@ ARM UnkStruct_027e0dbc::UnkStruct_027e0dbc() {
 }
 
 // --- gSaveItemManager ---
-// ARM void SaveItemManager::SaveItemManager() {}
+ARM SaveItemManager::SaveItemManager() {}
+
 // ARM void SaveItemManager::func_ov008_02113968() {} // sub-class 1 dtor (array?)
 // ARM void SaveItemManager::func_ov008_0211396c() {} // sub-class 1 ctor (array?)
 // ARM void SaveItemManager::func_ov008_02113984() {} // sub-class 2 dtor (array?)

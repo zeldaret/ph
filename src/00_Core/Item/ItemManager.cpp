@@ -53,8 +53,8 @@ THUMB void ItemManager::Save(SaveItemManager *save) {
     }
     save->treasurePriceShownFlags[0] = mTreasurePriceShownFlags[0];
     for (s32 i = 0; i < 6; ++i) {
-        save->unk_9f[i] = mUnk_098[i];
-        save->unk_82[i] = mUnk_09e[i];
+        save->fishCount[i] = mFishCount[i];
+        save->fishSize[i]  = mFishSize[i];
     }
     save->quiverSize     = mQuiverSize;
     save->bombBagSize    = mBombBagSize;
@@ -99,8 +99,8 @@ THUMB void ItemManager::Load(const SaveItemManager *save) {
     }
     mTreasurePriceShownFlags[0] = save->treasurePriceShownFlags[0];
     for (s32 i = 0; i < 6; ++i) {
-        mUnk_098[i] = save->unk_9f[i];
-        mUnk_09e[i] = save->unk_82[i];
+        mFishCount[i] = save->fishCount[i];
+        mFishSize[i]  = save->fishSize[i];
     }
     mQuiverSize     = save->quiverSize;
     mBombBagSize    = save->bombBagSize;
@@ -289,28 +289,28 @@ THUMB void ItemManager::SetTreasureCount(Treasure treasure, s8 count) {
     mTreasure[treasure] = count;
 }
 
-THUMB u8 ItemManager::GetUnk_098(u32 index) const {
-    return mUnk_098[index];
+THUMB u8 ItemManager::GetCollectedFishCount(u32 index) const {
+    return mFishCount[index];
 }
 
-THUMB u16 ItemManager::GetUnk_09e(u32 index) const {
-    return mUnk_09e[index];
+THUMB u16 ItemManager::GetFishSize(u32 index) const {
+    return mFishSize[index];
 }
 
-THUMB s32 ItemManager::GetUnk_09e_Divided(u32 index) const {
-    q20 quotient = CoDivide64By32(INT_TO_Q20(mUnk_09e[index]), FLOAT_TO_Q20(2.54));
+THUMB s32 ItemManager::GetFishSize_Divided(u32 index) const {
+    q20 quotient = CoDivide64By32(INT_TO_Q20(mFishSize[index]), FLOAT_TO_Q20(2.54));
     s32 result   = ROUND_Q20(quotient);
     if (result < 1) result = 1;
     return result;
 }
 
-THUMB void ItemManager::SetUnk_09e(u32 index, u16 value) {
-    u8 count = mUnk_098[index] + 1;
+THUMB void ItemManager::SetFishSize(u32 index, u16 value) {
+    u8 count = mFishCount[index] + 1;
     if (count > 99) count = 99;
-    mUnk_098[index] = count;
-    if (value > mUnk_09e[index]) {
+    mFishCount[index] = count;
+    if (value > mFishSize[index]) {
         if (value > 9999) value = 9999;
-        mUnk_09e[index] = value;
+        mFishSize[index] = value;
     }
 }
 
