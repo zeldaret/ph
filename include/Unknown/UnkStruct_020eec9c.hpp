@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Unknown/UnkStruct_func_0201f704.hpp"
 #include "global.h"
 #include "types.h"
 
@@ -8,13 +9,13 @@ struct UnkStruct_020eec9c_28 {
     /* 04 */ unk16 mUnk_04;
     /* 06 */ unk8 mUnk_06;
     /* 07 */ unk8 mUnk_07;
-    /* 08 */ unk32 mUnk_08;
+    /* 08 */ UnkStruct_func_0201f704 mUnk_08;
     /* 0c */
 };
 
 class UnkStruct_020eec9c {
 public:
-    /* 00 */ unk32 mUnk_00;
+    /* 00 */ UnkStruct_func_0201f704 mUnk_00;
     /* 04 */ unk32 mUnk_04;
     /* 08 */ unk8 mUnk_08;
     /* 09 */ unk8 mUnk_09;

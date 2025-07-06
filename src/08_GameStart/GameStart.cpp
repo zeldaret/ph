@@ -13,6 +13,7 @@
 #include "Unknown/UnkStruct_020eed2c.hpp"
 #include "Unknown/UnkStruct_027e0dbc.hpp"
 #include "Unknown/UnkStruct_027e0f88.hpp"
+#include "Unknown/UnkStruct_func_0201f704.hpp"
 
 extern "C" {
 // SDK functions
@@ -44,7 +45,6 @@ void func_02021714(unk32, u32 *);
 void func_020209a4(unk32, u32 *);
 void func_0201f1ac(u32 *);
 void func_0201f96c(unk32, unk32);
-void func_0201f704(s32);
 void Fill256(int value, int *dst, int size);
 void func_0200afac();
 void func_0200b4dc(unk32);
@@ -244,7 +244,7 @@ ARM UnkStruct_020eec68::UnkStruct_020eec68() {
 
 ARM void UnkStruct_020eec68::func_ov008_021132cc() {
     for (s32 i = 0; i < ARRAY_LEN(this->mUnk_00); i++) {
-        func_0201f704(this->mUnk_00[i]);
+        this->mUnk_00[i].func_0201f704();
     }
 
     this->mUnk_0c.func_02021a1c();
@@ -285,11 +285,11 @@ ARM void UnkStruct_020eec9c::func_ov008_0211337c() {
         return;
     }
 
-    func_0201f704(this->mUnk_00);
+    this->mUnk_00.func_0201f704();
 
     UnkStruct_020eec9c_28 *pUnk_28 = &this->mUnk_28[0];
     for (s32 i = 0; i < 8; i++) {
-        func_0201f704(pUnk_28->mUnk_08);
+        pUnk_28->mUnk_08.func_0201f704();
         pUnk_28++;
     }
 }
@@ -339,7 +339,24 @@ ARM void UnkStruct_020eec60::func_ov008_02113474() {
 }
 
 // --- data_ov000_020ee6f8 ---
-ARM UnkStruct_020ee6f8::UnkStruct_020ee6f8() {}
+ARM UnkStruct_020ee6f8::UnkStruct_020ee6f8() {
+    this->mUnk_04 = 0;
+    this->mUnk_08 = 0x10;
+    this->mUnk_0c = 0x10;
+    this->mUnk_10 = 0;
+    this->mUnk_14 = 0;
+
+    UnkStruct_020ee6f8_18 *pUnk_18 = &this->mUnk_18[0];
+    do {
+        pUnk_18->mUnk_00 = -1;
+        pUnk_18->mUnk_04 = -1;
+        pUnk_18++;
+    } while (pUnk_18 < &this->mUnk_18[3]);
+
+    this->mUnk_38 = 0;
+    this->mUnk_00.func_0201f704();
+    this->mUnk_38 = 1;
+}
 
 // --- data_ov000_020ee0a0 ---
 ARM UnkStruct_020ee0a0::UnkStruct_020ee0a0() {}

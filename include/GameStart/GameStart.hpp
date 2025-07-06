@@ -26,24 +26,6 @@ public:
     void func_ov008_02112ee0();
     void func_ov008_02112f28();
 
-    void func_ov008_021130d0();
-    void func_ov008_02113150();
-
-    void func_ov008_02113284();
-    void func_ov008_021132cc();
-    void func_ov008_02113314();
-    void func_ov008_0211337c();
-    void func_ov008_021133bc();
-    void func_ov008_021133f0();
-    void func_ov008_02113460();
-    void func_ov008_02113474();
-    void func_ov008_021134b8();
-    void func_ov008_0211351c();
-
-    void func_ov008_021135bc();
-
-    void func_ov008_021136ec();
-    void func_ov008_021136fc();
     void func_ov008_02113730();
     void func_ov008_02113968();
     void func_ov008_0211396c();
