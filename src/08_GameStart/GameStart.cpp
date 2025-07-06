@@ -58,7 +58,7 @@ extern unk32 data_ov000_020ec754;
 
 #define REG_DISPCNT (*(u32 *) 0x04000000)
 #define REG_DISPCNT_SUB (*(u32 *) 0x04001000)
-#define UNK_027FFC3C (*(u32 *) 0x027ffc3c)
+#define FRAME_COUNTER (*(u32 *) 0x027ffc3c)
 
 ARM GameStart *GameStart::Create(unk32 param1) {
     return new(data_027e0ce0[1], 4) GameStart(param1);
@@ -109,13 +109,13 @@ ARM GameModeId GameStart::vfunc_08(bool param1) {
             this->mUnk_008++;
 
             if (this->mUnk_008 == 1) {
-                this->mUnk_00c = UNK_027FFC3C;
+                this->mUnk_00c = FRAME_COUNTER;
             } else {
                 if (this->mUnk_008 == 2 && gGame.mPrevModeId == 1) {
                     func_ov008_02112e88();
                 }
 
-                if (UNK_027FFC3C - this->mUnk_00c >= 60) {
+                if (FRAME_COUNTER - this->mUnk_00c >= 60) {
                     gGame.func_0202cec8(1, 0);
                 }
             }
@@ -134,8 +134,7 @@ ARM void GameStart::func_ov008_02112e88() {
     gOverlayManager.Load(OverlayIndex_Core, OverlayId_Core);
     data_ov000_020ee734.func_ov008_021131ac();
     data_027e0d54.func_ov008_02112f28();
-    //! TODO: turn data_027e0ce0 into a class
-    // data_027e0ce0->func_ov008_02113678();
+    UnkStruct_027e0f88::func_ov008_02113678(data_027e0ce0[0]);
     func_ov000_0207a654(&data_ov000_020ec754);
 }
 
@@ -340,7 +339,7 @@ ARM void UnkStruct_020eec60::func_ov008_02113474() {
 
 // --- data_ov000_020ee6f8 ---
 ARM UnkStruct_020ee6f8::UnkStruct_020ee6f8() {
-    this->mUnk_04 = 0;
+    this->mUnk_04 = false;
     this->mUnk_08 = 0x10;
     this->mUnk_0c = 0x10;
     this->mUnk_10 = 0;
@@ -353,25 +352,94 @@ ARM UnkStruct_020ee6f8::UnkStruct_020ee6f8() {
         pUnk_18++;
     } while (pUnk_18 < &this->mUnk_18[3]);
 
-    this->mUnk_38 = 0;
+    this->mUnk_38 = false;
     this->mUnk_00.func_0201f704();
-    this->mUnk_38 = 1;
+    this->mUnk_38 = true;
 }
 
 // --- data_ov000_020ee0a0 ---
-ARM UnkStruct_020ee0a0::UnkStruct_020ee0a0() {}
+ARM UnkStruct_020ee0a0::UnkStruct_020ee0a0() {
+    this->mUnk_00 = 0;
+    this->mUnk_02 = 0x7FFF;
+    this->mUnk_04 = 0;
+    this->mUnk_08 = 6;
+    this->mUnk_0c = 0xA0;
+    this->mUnk_10 = 0x1F;
+    this->mUnk_34 = -1;
+    this->mUnk_38 = 6;
+    this->mUnk_3c = 0xA0;
+    this->mUnk_40 = 0x1F;
+    this->mUnk_44 = 0;
+    this->mUnk_45 = 0x1F;
+    this->mUnk_46 = 0x1F;
+    this->mUnk_47 = 0x1F;
+
+    s32 uVar5 = 0x0;
+    s32 iVar2 = 0x4;
+    s32 iVar3 = 0x8;
+    s32 iVar4 = 0xc;
+
+    for (s32 iVar6 = 0; iVar6 < ARRAY_LEN(this->mUnk_14); iVar6++) {
+        s32 iVar1            = iVar6 * 0x4;
+        iVar6                = iVar6 + 0x1;
+        this->mUnk_14[iVar1] = uVar5 | iVar2 << 8 | iVar3 << 16 | iVar4 << 24;
+        iVar2                = iVar2 + 0x10;
+        uVar5                = uVar5 + 0x10;
+        iVar3                = iVar3 + 0x10;
+        iVar4                = iVar4 + 0x10;
+    }
+}
+
 ARM void UnkStruct_020ee0a0::func_ov008_021135b8() {}
 
 // --- data_027e0f88 ---
-ARM UnkStruct_027e0f88::UnkStruct_027e0f88() {} // ctor
-ARM void UnkStruct_027e0f88::func_ov008_02113678() {} // create function
-ARM void UnkStruct_027e0f88::func_ov008_021136c0() {} // sub-class ctor
+ARM UnkStruct_027e0f88::UnkStruct_027e0f88(u32 *param_1) {
+    this->mUnk_00 = 2;
+    this->mUnk_0e = 0;
+    this->mUnk_10 = 0x1000;
+    this->mUnk_12 = 0;
+
+    for (s32 i = 0; i < ARRAY_LEN(this->mUnk_04); i++) {
+        if (i < this->mUnk_00) {
+            this->mUnk_04[i] = new(param_1, 4) UnkStruct_027e0f88_04(i, 0x7FFF, 0x2000, ~0x1FFF, 1);
+        } else {
+            this->mUnk_04[i] = NULL;
+        }
+
+        this->mUnk_04[i]->mUnk_0c = 0;
+    }
+
+    this->func_ov000_020a1a3c();
+}
+
+ARM void UnkStruct_027e0f88::func_ov008_02113678(u32 *param_1) {
+    if (data_027e0f88 != NULL) {
+        return;
+    }
+
+    data_027e0f88 = new(param_1, 4) UnkStruct_027e0f88(param_1);
+}
+
+ARM UnkStruct_027e0f88_04::UnkStruct_027e0f88_04(unk32 param_1, unk16 param_2, unk32 param_3, unk16 param_4, u8 param_5) {
+    this->mUnk_00 = param_1;
+    this->mUnk_04 = param_5;
+    this->mUnk_06 = param_2;
+    this->func_ov000_020a1b54(param_4, param_5);
+}
 
 // --- data_ov000_020eed2c ---
-ARM UnkStruct_020eed2c::UnkStruct_020eed2c() {}
+ARM UnkStruct_020eed2c::UnkStruct_020eed2c() {
+    this->mUnk_00 = 0;
+    this->mUnk_02 = 0;
+}
 
 // --- data_027e0dbc ---
-ARM UnkStruct_027e0dbc::UnkStruct_027e0dbc() {}
+ARM UnkStruct_027e0dbc::UnkStruct_027e0dbc() {
+    this->mUnk_1c = 0;
+    this->mUnk_20 = FRAME_COUNTER;
+    this->mUnk_24 = 0;
+    this->func_02042744(&this->mUnk_10);
+}
 
 // --- gSaveItemManager ---
 ARM void GameStart::func_ov008_02113730() {}
