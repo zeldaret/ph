@@ -34,9 +34,9 @@ _ZN9GameStart19func_ov008_02113984Ev kind:function(arm,size=0x4) addr:0x02113904
 _ZN9GameStart19func_ov008_02113988Ev kind:function(arm,size=0x50) addr:0x02113908
 _ZN9GameStart19func_ov008_021139d8Ev kind:function(arm,size=0x4) addr:0x02113958
 _ZN9GameStart19func_ov008_021139dcEv kind:function(arm,size=0x30) addr:0x0211395c
-_ZN9GameStart19func_ov008_02113a0cEv kind:function(arm,size=0x34) addr:0x0211398c
-_ZN9GameStart19func_ov008_02113a40Ev kind:function(arm,size=0x68) addr:0x021139c0
-_ZN9GameStart19func_ov008_02113aa8Ev kind:function(arm,size=0x4c) addr:0x02113a28
+_ZN18UnkStruct_020e9370C1Ev kind:function(arm,size=0x34) addr:0x0211398c
+_ZN18UnkStruct_020e9360C1Ev kind:function(arm,size=0x68) addr:0x021139c0
+_ZN18UnkStruct_020ec7dcC1Ev kind:function(arm,size=0x4c) addr:0x02113a28
 data_ov008_02113b00 kind:data(any) addr:0x02113a80
 data_ov008_02113b04 kind:data(any) addr:0x02113a84
 data_ov008_02113b20 kind:data(any) addr:0x02113aa0
