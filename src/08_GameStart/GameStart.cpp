@@ -2,6 +2,9 @@
 #include "Game/Game.hpp"
 #include "Game/GameMode.hpp"
 #include "System/OverlayManager.hpp"
+#include "Unknown/UnkStruct_020e9360.hpp"
+#include "Unknown/UnkStruct_020e9370.hpp"
+#include "Unknown/UnkStruct_020ec7dc.hpp"
 #include "Unknown/UnkStruct_020ee0a0.hpp"
 #include "Unknown/UnkStruct_020ee698.hpp"
 #include "Unknown/UnkStruct_020ee6f8.hpp"
@@ -46,6 +49,7 @@ void func_020209a4(unk32, u32 *);
 void func_0201f1ac(u32 *);
 void func_0201f96c(unk32, unk32);
 void Fill256(int value, int *dst, int size);
+void Fill(unsigned char *dst, int value, int size);
 void func_0200afac();
 void func_0200b4dc(unk32);
 void func_0200aa20();
@@ -55,6 +59,8 @@ void func_02015718();
 extern unk8 data_020691a0;
 extern GameStart data_027e0d54;
 extern unk32 data_ov000_020ec754;
+extern unk32 data_ov000_020d8795;
+extern u8 data_ov000_020d88b4[24];
 
 #define REG_DISPCNT (*(u32 *) 0x04000000)
 #define REG_DISPCNT_SUB (*(u32 *) 0x04001000)
@@ -451,10 +457,39 @@ ARM void GameStart::func_ov008_021139d8() {} // sub-class 3 dtor (array?)
 ARM void GameStart::func_ov008_021139dc() {} // sub-class 3 ctor (array?)
 
 // --- data_ov000_020e9370 ---
-ARM void GameStart::func_ov008_02113a0c() {}
+ARM UnkStruct_020e9370::UnkStruct_020e9370() {
+    this->mUnk_900 = 0;
+    this->mUnk_904 = 0;
+    this->mUnk_908 = 0;
+    this->mUnk_90a = 0;
+    this->mUnk_90c = 320;
+    this->mUnk_910 = 480;
+    this->mUnk_914 = 2;
+}
 
 // --- data_ov000_020e9360 ---
-ARM void GameStart::func_ov008_02113a40() {}
+ARM UnkStruct_020e9360::UnkStruct_020e9360() {
+    unk32 val1 = data_ov000_020d8795;
+    u8 *val2   = data_ov000_020d88b4;
+
+    this->mUnk_00 = val2;
+    this->mUnk_0f = val1;
+
+    Fill(this->mUnk_04, 0, sizeof(this->mUnk_04));
+
+    for (s32 i = 0; i < ARRAY_LEN(this->mUnk_04); i++) {
+        this->mUnk_04[i] = this->mUnk_00[i * 2 + 1];
+    }
+}
 
 // --- data_ov000_020ec7dc ---
-ARM void GameStart::func_ov008_02113aa8() {}
+ARM UnkStruct_020ec7dc::UnkStruct_020ec7dc() {
+    UnkStruct_020ec7dc_00 *pUnk_00 = &this->mUnk_00[0];
+    do {
+        Fill16(0, pUnk_00->mUnk_00, sizeof(pUnk_00->mUnk_00));
+        pUnk_00++;
+    } while (pUnk_00 < &this->mUnk_00[3]);
+
+    this->func_ov000_0207c170();
+    this->mUnk_3c = 0;
+}

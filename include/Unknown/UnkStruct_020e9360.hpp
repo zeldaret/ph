@@ -5,7 +5,9 @@
 
 class UnkStruct_020e9360 {
 public:
-    /* 00 */
+    /* 00 */ u8 *mUnk_00;
+    /* 04 */ u8 mUnk_04[11];
+    /* 0f */ unk8 mUnk_0f;
 
     UnkStruct_020e9360();
 };
