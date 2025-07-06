@@ -23,27 +23,4 @@ public:
     GameStart(unk32 param1);
 
     void func_ov008_02112e88();
-    void func_ov008_02112ee0();
-    void func_ov008_02112f28();
-
-    void func_ov008_02113730();
-    void func_ov008_02113968();
-    void func_ov008_0211396c();
-    void func_ov008_02113984();
-    void func_ov008_02113988();
-    void func_ov008_021139d8();
-    void func_ov008_021139dc();
-    void func_ov008_02113a0c();
-    void func_ov008_02113a40();
-    void func_ov008_02113aa8();
-};
-
-class GameStart2 : public GameStart {
-    /* 00 (base) */
-    /* 010 */
-};
-
-class TouchControl2 : public TouchControl {
-public:
-    TouchControl2();
 };

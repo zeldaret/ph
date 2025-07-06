@@ -14,6 +14,7 @@
 #include "Unknown/UnkStruct_020eec68.hpp"
 #include "Unknown/UnkStruct_020eec9c.hpp"
 #include "Unknown/UnkStruct_020eed2c.hpp"
+#include "Unknown/UnkStruct_027e0d54.hpp"
 #include "Unknown/UnkStruct_027e0dbc.hpp"
 #include "Unknown/UnkStruct_027e0f88.hpp"
 #include "Unknown/UnkStruct_func_0201f704.hpp"
@@ -49,15 +50,21 @@ void func_020209a4(unk32, u32 *);
 void func_0201f1ac(u32 *);
 void func_0201f96c(unk32, unk32);
 void Fill256(int value, int *dst, int size);
+void Fill32(unk32, u32 *, unk32);
 void Fill(unsigned char *dst, int value, int size);
 void func_0200afac();
 void func_0200b4dc(unk32);
 void func_0200aa20();
 void func_02015718();
+unk16 func_0200c76c();
+void func_020400f4(u16);
+void func_02040100(u16);
+unk32 func_02040528(unk32);
+unk32 func_020400c0();
+unk32 func_02040464(unk32, u16 *, unk32, unk32, unk32, unk32, unk32, unk32, unk32);
 }
 
 extern unk8 data_020691a0;
-extern GameStart data_027e0d54;
 extern unk32 data_ov000_020ec754;
 extern unk32 data_ov000_020d8795;
 extern u8 data_ov000_020d88b4[24];
@@ -144,11 +151,99 @@ ARM void GameStart::func_ov008_02112e88() {
     func_ov000_0207a654(&data_ov000_020ec754);
 }
 
-// --- class data_027e0d54 ---
-ARM void GameStart::func_ov008_02112ee0() {}
-ARM void GameStart::func_ov008_02112f28() {}
+// --- data_027e0d54 ---
+ARM UnkStruct_027e0d54::UnkStruct_027e0d54() {
+    Fill32(0, this->mUnk_00, sizeof(this->mUnk_00));
 
-// --- TouchControl ---
+    this->mUnk_08 = NULL;
+    this->mUnk_0c = 1;
+    this->mUnk_0d = 0;
+    this->mUnk_0e = 0;
+    this->mUnk_0f = 0;
+    this->mUnk_10 = 0;
+    this->mUnk_14 = 0;
+    this->mUnk_16 = 0;
+}
+
+ARM void UnkStruct_027e0d54::func_ov008_02112f28() {
+    unk16 local_e;
+    u16 local_2a; // sp, #0x16
+    u16 local_2c; // sp, #0x14
+    bool bVar1;
+    u16 auStack_28[13];
+
+    UnkStruct_027e0d54_08 *pUnk_00 = new(data_027e0ce0[0], 4) UnkStruct_027e0d54_08();
+
+    if (pUnk_00 != NULL) {
+        // why??
+        Fill32(0, pUnk_00->mUnk_00, sizeof(pUnk_00));
+        Fill32(0, pUnk_00->mUnk_00, sizeof(pUnk_00));
+    }
+
+    this->mUnk_08 = pUnk_00;
+    this->mUnk_14 = func_0200c76c();
+    func_020400f4(this->mUnk_14);
+
+    local_2c = 0x21;
+    local_2a = 0;
+    local_e  = 0;
+    bVar1    = true;
+
+    Fill16(0, auStack_28, sizeof(auStack_28));
+
+    if (func_02040528(0x1302) == 0) {
+        this->mUnk_10 = func_020400c0();
+    } else {
+        if (func_02040464(0x7EA00, &local_2c, 0x20, 0, 0, 0, 6, 1, 0) == 0) {
+            this->mUnk_10 = func_020400c0();
+        } else {
+            unk32 sVar6 = 0xC2E4;
+            bool bVar10 = local_2a == 0xC2E4;
+            unk32 sVar3 = local_2a;
+            // unk16 sVar3;
+            // unk32 sVar6;
+            // bool bVar1 = false;
+
+            // if (local_2a == 0xC2E4 || local_e != 0x1D3F) {
+            //     sVar3 = local_e;
+            //     sVar6 = 0x1D3F;
+            // }
+
+            if (bVar10) {
+                sVar6 = 0x1D3F;
+                sVar3 = local_e;
+            }
+
+            // bool bVar2 = sVar3 != sVar6;
+            // if (!bVar10 || bVar2) {
+            //     sVar6 = 0x1;
+            // }
+
+            bool uVar4 = 1;
+            if (bVar10 && !(sVar3 != 0x1D3F)) {
+                uVar4 = 0x0;
+            }
+
+            this->mUnk_0c = uVar4;
+
+            if (local_2c != 0x21) {
+                bVar1 = false;
+            }
+        }
+    }
+
+    func_02040100(this->mUnk_14);
+
+    if (this->mUnk_10 != 0) {
+        this->mUnk_0f = 1;
+    }
+
+    if (!this->mUnk_0c && bVar1) {
+        this->mUnk_0c = true;
+    }
+}
+
+// --- gTouchControl ---
 ARM TouchControl::TouchControl() {
     u8 auStack_10[8];
 
@@ -448,13 +543,13 @@ ARM UnkStruct_027e0dbc::UnkStruct_027e0dbc() {
 }
 
 // --- gSaveItemManager ---
-ARM void GameStart::func_ov008_02113730() {}
-ARM void GameStart::func_ov008_02113968() {} // sub-class 1 dtor (array?)
-ARM void GameStart::func_ov008_0211396c() {} // sub-class 1 ctor (array?)
-ARM void GameStart::func_ov008_02113984() {} // sub-class 2 dtor (array?)
-ARM void GameStart::func_ov008_02113988() {} // sub-class 2 ctor (array?)
-ARM void GameStart::func_ov008_021139d8() {} // sub-class 3 dtor (array?)
-ARM void GameStart::func_ov008_021139dc() {} // sub-class 3 ctor (array?)
+// ARM void SaveItemManager::SaveItemManager() {}
+// ARM void SaveItemManager::func_ov008_02113968() {} // sub-class 1 dtor (array?)
+// ARM void SaveItemManager::func_ov008_0211396c() {} // sub-class 1 ctor (array?)
+// ARM void SaveItemManager::func_ov008_02113984() {} // sub-class 2 dtor (array?)
+// ARM void SaveItemManager::func_ov008_02113988() {} // sub-class 2 ctor (array?)
+// ARM void SaveItemManager::func_ov008_021139d8() {} // sub-class 3 dtor (array?)
+// ARM void SaveItemManager::func_ov008_021139dc() {} // sub-class 3 ctor (array?)
 
 // --- data_ov000_020e9370 ---
 ARM UnkStruct_020e9370::UnkStruct_020e9370() {
