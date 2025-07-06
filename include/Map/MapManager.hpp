@@ -163,7 +163,7 @@ public:
     s32 GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4);
     bool func_ov00_020836dc(u32 param_2, u32 actorId);
     bool IsTriggerTypeOverlapped(u32 param_2, Vec3p *param_3);
-    bool GetOverlappingTrigger(Vec3p *param_2);
+    unk8 GetOverlappingTrigger(Vec3p *param_2);
     bool func_ov00_02083790(s32 param_2);
     bool func_ov00_02083840(s32 param_2);
     bool AddTrigger(s32 param_2);
@@ -191,7 +191,7 @@ public:
     s32 func_ov00_02083c24(unk32 x);
     s32 func_ov00_02083c50(unk32 z);
     void func_ov00_02083c7c(Vec3p *param_2, Vec2b param_3);
-    void func_ov00_02083ce8(Vec3p *param_2, u32 param_3, s32 param_4, u32 param_5);
+    void func_ov00_02083ce8(Vec3p *param_2, Vec2b param_3, s32 param_4, u32 param_5);
     s32 func_ov00_02083e34(unk8 param_2, unk8 param_3, unk32 param_4);
     unk32 MapData_vfunc_60(Vec2b *param_1);
     bool func_ov00_02083e70(Vec2b *param_2);

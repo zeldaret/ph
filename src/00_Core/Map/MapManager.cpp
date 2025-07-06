@@ -971,7 +971,7 @@ ARM bool MapManager::IsTriggerTypeOverlapped(u32 type, Vec3p *pos) {
     return this->mMap->IsTriggerTypeOverlapped(type, pos);
 }
 
-ARM bool MapManager::GetOverlappingTrigger(Vec3p *param_2) {
+ARM unk8 MapManager::GetOverlappingTrigger(Vec3p *param_2) {
     return this->mMap->GetOverlappingTrigger(param_2);
 }
 
@@ -1157,33 +1157,32 @@ ARM void MapManager::func_ov00_02083c7c(Vec3p *param_2, Vec2b param_3) {
     param_2->y = this->MapData_vfunc_68(&local_28, true);
 }
 
-ARM void MapManager::func_ov00_02083ce8(Vec3p *param_2, u32 param_3, s32 param_4, u32 param_5) {
+ARM void MapManager::func_ov00_02083ce8(Vec3p *param_2, Vec2b param_3, s32 param_4, u32 param_5) {
     u32 uVar2;
+    u8 uVar3;
+    u8 uVar4;
     Vec3p local_2c;
     Vec3p local_38;
-
-    uVar2 = param_3;
+    Vec2b local_8;
 
     if (GetCourseData_Unk_25c()) {
-        if (param_4 != -1) {
-            uVar2 = param_5;
-        } else if (param_4 != -1 && uVar2 != -1) {
-            uVar2 = this->mCourse->mMapGrid[param_4][uVar2];
-        } else {
+        if (param_4 == -1 || param_5 == -1) {
             uVar2 = this->func_ov00_02082d08();
+        } else {
+            uVar2 = this->mCourse->mMapGrid[param_4][param_5];
         }
 
         if (this->IsMapInMainGrid(uVar2)) {
             func_ov00_02083524(&local_2c, param_4, param_5);
-            param_2->x = local_2c.x + this->mMap->GetTileStartX(param_3 & 0xff) + 0x800;
-            param_2->z = local_2c.z + this->mMap->GetTileStartZ(param_3 >> 8 & 0xff) + 0x800;
+            param_2->x = local_2c.x + this->mMap->GetTileStartX(param_3.x) + 0x800;
+            param_2->z = local_2c.z + this->mMap->GetTileStartZ(param_3.y) + 0x800;
         } else {
-            param_2->x = this->mMap->GetTileStartX(param_3 & 0xff) + 0x800;
-            param_2->z = this->mMap->GetTileStartZ(param_3 >> 8 & 0xff) + 0x800;
+            param_2->x = this->mMap->GetTileStartX(param_3.x) + 0x800;
+            param_2->z = this->mMap->GetTileStartZ(param_3.y) + 0x800;
         }
     } else {
-        param_2->x = this->mMap->GetTileStartX(param_3 & 0xff) + 0x800;
-        param_2->z = this->mMap->GetTileStartZ(param_3 >> 8 & 0xff) + 0x800;
+        param_2->x = this->mMap->GetTileStartX(param_3.x) + 0x800;
+        param_2->z = this->mMap->GetTileStartZ(param_3.y) + 0x800;
     }
 
     local_38   = *param_2;
@@ -1451,7 +1450,7 @@ void MapManager::func_ov00_020843ec(s32 *param_2) {
     s32 local_24;
     s32 local_20;
 
-    // uVar1 = (**(code **) (*param_2 + 8))(); // Which function is this?
+    // uVar1 = (**(code **) (*param_2 + 8))();
     if (uVar1 < 2) {
         // (**(code **) (*param_2 + 0x3c))(param_2, &local_28); // And this?
         // local_40.z = (**(code **) (*param_2 + 0x40))(); // What about this?
@@ -1490,7 +1489,7 @@ void MapManager::func_ov00_020843ec(s32 *param_2) {
         return;
     }
     if (uVar1 == 2) {
-        this->mMap->vfunc_2c(/*&local_58*/); // No args?
+        // this->mMap->vfunc_2c(/*&local_58*/); // No args?
         local_64.x = local_58;
         local_64.y = iStack_54;
         local_64.z = iStack_50;
@@ -1568,47 +1567,33 @@ unk32 MapManager::func_ov00_02084740() {
         0x8f, 0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9a, 0x9b, 0x9d, 0x9e,  0x9f, 0xa0, 0x70, 0x71,
         0x73, 0x76, 0x77, 0x7d, 0x7e, 0x81, 0x82, 0x86, 0x9c, 0x36, 0x37, 0xd0, 0xd1, 0xcd, 0x19a,
     };
-    bool bVar1;
+    unk8 bVar1;
     int iVar2;
     int iVar3;
     unk32 uVar4;
     unk32 uVar5;
     unk32 uVar6;
     unk32 uVar7;
-    s32 *puVar8;
-    unk32 *puVar9;
-    unk32 local_1c8;
-    unk32 local_1c4;
-    unk32 local_1c0;
+    Vec3p local_1c8;
     unk32 local_1bc[108];
 
-    // iVar2 = this->func_ov00_02084700(?); // what param?
-    // iVar3 = UnkStruct_027e0d38::FUN_overlay_d_0__02078b40(*(UnkStruct_027e0d38 **) PTR_PTR_overlay_d_0__020847d4);
+    iVar2 = this->func_ov00_02084700();
+    iVar3 = data_027e0d38->func_ov000_02078b40();
     if (iVar3 != 2) {
-        local_1c8 = *(unk32 *) gPlayerPos.x;
-        local_1c4 = *(unk32 *) gPlayerPos.y;
-        local_1c0 = *(unk32 *) gPlayerPos.z;
-        // bVar1     = FUN_overlay_d_0__02083780(&local_1c8); // MapManager method?
+        local_1c8 = gPlayerPos;
+        bVar1     = this->GetOverlappingTrigger(&local_1c8);
         if (bVar1) {
-            // iVar2 = this->func_ov00_020847f0();
+            iVar2 = this->func_ov00_020847f0(bVar1);
         }
     }
-    puVar9 = local_1bc;
-    iVar3  = 0x1b;
-    puVar8 = (s32 *) data_ov000_020d88f0;
-    do {
-        uVar4     = *puVar8;
-        uVar5     = puVar8[1];
-        uVar6     = puVar8[2];
-        uVar7     = puVar8[3];
-        puVar8    = puVar8 + 4;
-        *puVar9   = uVar4;
-        puVar9[1] = uVar5;
-        puVar9[2] = uVar6;
-        puVar9[3] = uVar7;
-        puVar9    = puVar9 + 4;
-        iVar3     = iVar3 + -1;
-    } while (iVar3 != 0);
+    iVar3 = 0x1b; //((sizeof(data_ov000_020d88f0) / 4) - 2) / 4;
+    while (iVar3 != 0) {
+        local_1bc[iVar3] = data_ov000_020d88f0[iVar3];
+
+        *local_1bc += 4;
+        iVar3--;
+    }
+
     return local_1bc[iVar2];
 }
 

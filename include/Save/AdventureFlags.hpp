@@ -81,7 +81,7 @@ struct FlagsUnk2 {
     /* 04 */ UnkStruct_02082348_04 mUnk_04;
     /* 18 */
 
-    ~FlagsUnk2();
+    //~FlagsUnk2();
     void func_ov000_02078bf0(FlagsUnk2 *param_2);
     void func_ov004_02100ae0();
 };
