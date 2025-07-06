@@ -12,7 +12,8 @@ public:
 class UnkStruct_020ec7dc {
 public:
     /* 00 */ UnkStruct_020ec7dc_00 mUnk_00[3];
-    /* 3c */ unk8 mUnk_3c;
+    /* 3c */ unk8 mUnk_3c[4];
+    /* 40 */
 
     UnkStruct_020ec7dc();
 

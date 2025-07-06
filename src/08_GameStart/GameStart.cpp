@@ -63,6 +63,7 @@ void func_02040100(u16);
 unk32 func_02040528(unk32);
 unk32 func_020400c0();
 unk32 func_02040464(unk32, u16 *, unk32, unk32, unk32, unk32, unk32, unk32, unk32);
+void ForEach(void *, unk32, unk32, void *, void *);
 }
 
 extern unk8 data_020691a0;
@@ -376,7 +377,7 @@ ARM UnkStruct_020eec9c::UnkStruct_020eec9c() {
         pUnk_28->mUnk_06 = 0;
         pUnk_28->mUnk_07 = 0;
         pUnk_28++;
-    } while (pUnk_28 < &this->mUnk_28[8]);
+    } while (pUnk_28 < &this->mUnk_28[ARRAY_LEN(this->mUnk_28)]);
 
     this->mUnk_88 = 0;
 }
@@ -452,7 +453,7 @@ ARM UnkStruct_020ee6f8::UnkStruct_020ee6f8() {
         pUnk_18->mUnk_00 = -1;
         pUnk_18->mUnk_04 = -1;
         pUnk_18++;
-    } while (pUnk_18 < &this->mUnk_18[3]);
+    } while (pUnk_18 < &this->mUnk_18[ARRAY_LEN(this->mUnk_18)]);
 
     this->mUnk_38 = false;
     this->mUnk_00.func_0201f704();
@@ -544,14 +545,61 @@ ARM UnkStruct_027e0dbc::UnkStruct_027e0dbc() {
 }
 
 // --- gSaveItemManager ---
-ARM SaveItemManager::SaveItemManager() {}
+ARM SaveItemManager::SaveItemManager() {
+    Fill32(0, this->itemFlags.flags, sizeof(this->itemFlags));
+    Fill32(0, &this->salvagedTreasureFlags, sizeof(this->salvagedTreasureFlags));
+    Fill32(0, this->shipPartPricesShown.flags, sizeof(this->shipPartPricesShown));
+    Fill32(0, this->treasurePriceShownFlags, sizeof(this->treasurePriceShownFlags));
+    this->unk_7c = 0;
+    this->unk_7e = 0;
+    this->unk_7f = 0;
+    this->Init();
+    Fill256(0, this->unk_a8, sizeof(this->unk_a8));
+    Fill16(0, this->unk_f0, sizeof(this->unk_f0));
+    ForEach(this->unk_f8, ARRAY_LEN(this->unk_f8), sizeof(this->unk_f8), SaveItemManager_f8::func_ov008_021139dc,
+            SaveItemManager_f8::func_ov008_021139d8);
+    ForEach(this->unk_2f8, ARRAY_LEN(this->unk_2f8), sizeof(this->unk_2f8), SaveItemManager_2f8::func_ov008_02113988,
+            SaveItemManager_2f8::func_ov008_02113984);
+    Fill32(0, this->unk_cac, sizeof(this->unk_cac));
+    Fill32(0, this->unk_cac, sizeof(this->unk_cac));
+    ForEach(this->unk_d1c, ARRAY_LEN(this->unk_d1c), sizeof(this->unk_d1c), SaveItemManager_d1c::func_ov008_02113968,
+            SaveItemManager_d1c::func_ov008_0211396c);
+    Fill32(0, this->unk_e9c, sizeof(this->unk_e9c));
+    Fill32(0, this->unk_ea4, sizeof(this->unk_ea4));
+    this->unk_cec.func_ov000_0207a3e4();
+    Fill32(0, this->unk_eb0, sizeof(this->unk_eb0));
+    Fill32(0, this->unk_eb8, sizeof(this->unk_eb8));
+    Fill32(0, this->unk_eb8, sizeof(this->unk_eb8));
+    this->func_ov000_0207a418();
+    Fill256(0, this->unk_1400, sizeof(this->unk_1400));
 
-// ARM void SaveItemManager::func_ov008_02113968() {} // sub-class 1 dtor (array?)
-// ARM void SaveItemManager::func_ov008_0211396c() {} // sub-class 1 ctor (array?)
-// ARM void SaveItemManager::func_ov008_02113984() {} // sub-class 2 dtor (array?)
-// ARM void SaveItemManager::func_ov008_02113988() {} // sub-class 2 ctor (array?)
-// ARM void SaveItemManager::func_ov008_021139d8() {} // sub-class 3 dtor (array?)
-// ARM void SaveItemManager::func_ov008_021139dc() {} // sub-class 3 ctor (array?)
+    SaveItemManager_2580 *pUnk_2580 = &this->unk_2580[0];
+    do {
+        Fill16(0, pUnk_2580->mUnk_00, sizeof(pUnk_2580->mUnk_00));
+        pUnk_2580++;
+    } while (pUnk_2580 < &this->unk_2580[ARRAY_LEN(this->unk_2580)]);
+
+    this->unk_2840.func_ov000_0207a4f0();
+    this->unk_2400.func_ov000_0207a5ac();
+
+    UnkStruct_020ec7dc_00 *pUnk_2900 = &this->unk_2900.mUnk_00[0];
+    do {
+        Fill16(0, pUnk_2900->mUnk_00, sizeof(pUnk_2900->mUnk_00));
+        pUnk_2900++;
+    } while (pUnk_2900 < &this->unk_2900.mUnk_00[ARRAY_LEN(this->unk_2900.mUnk_00)]);
+
+    this->unk_2900.func_ov000_0207c170();
+    Fill32(0, (u32 *) this->unk_2900.mUnk_3c, sizeof(this->unk_2900.mUnk_3c));
+    this->unk_2940.func_ov000_0207a6d0();
+    this->unk_29c0 = 0;
+}
+
+ARM void SaveItemManager_d1c::func_ov008_02113968() {}
+ARM void SaveItemManager_d1c::func_ov008_0211396c() {}
+ARM void SaveItemManager_2f8::func_ov008_02113984() {}
+ARM void SaveItemManager_2f8::func_ov008_02113988() {}
+ARM void SaveItemManager_f8::func_ov008_021139d8() {}
+ARM void SaveItemManager_f8::func_ov008_021139dc() {}
 
 // --- data_ov000_020e9370 ---
 ARM UnkStruct_020e9370::UnkStruct_020e9370() {
@@ -585,8 +633,8 @@ ARM UnkStruct_020ec7dc::UnkStruct_020ec7dc() {
     do {
         Fill16(0, pUnk_00->mUnk_00, sizeof(pUnk_00->mUnk_00));
         pUnk_00++;
-    } while (pUnk_00 < &this->mUnk_00[3]);
+    } while (pUnk_00 < &this->mUnk_00[ARRAY_LEN(this->mUnk_00)]);
 
     this->func_ov000_0207c170();
-    this->mUnk_3c = 0;
+    this->mUnk_3c[0] = 0;
 }
