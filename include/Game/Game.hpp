@@ -21,7 +21,7 @@ public:
     /* 0fe */ unk16 mUnk_0fe;
     /* 100 */ unk8 mUnk_100;
     /* 101 */ s8 mUnk_101;
-    /* 102 */ unk8 mUnk_102;
+    /* 102 */ bool mUnk_102;
     /* 103 */ u8 mUnk_103;
     /* 104 */
 

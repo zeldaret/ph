@@ -1,5 +1,5 @@
 func_ov005_02100ae0 kind:function(arm,size=0x9c) addr:0x02100a60
-func_ov005_02100b7c kind:function(arm,size=0x74) addr:0x02100afc
+_ZN18UnkStruct_027e0d3819func_ov005_02100b7cEi kind:function(arm,size=0x74) addr:0x02100afc
 func_ov005_02100bf0 kind:function(arm,size=0xc0) addr:0x02100b70
 func_ov005_02100cb0 kind:function(arm,size=0x110) addr:0x02100c30
 func_ov005_02100dc0 kind:function(arm,size=0x4c) addr:0x02100d40

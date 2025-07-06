@@ -425,7 +425,7 @@ from:0x02079ca2 kind:thumb_call_arm to:0x02007938 module:main
 from:0x02079cb6 kind:thumb_call to:0x02079b7c module:overlay(0)
 from:0x02079cc0 kind:load to:0x02069140 module:main
 from:0x02079cdc kind:thumb_call_arm to:0x0201823c module:main
-from:0x02079ce4 kind:load to:0x020575d4 module:main
+from:0x02079ce4 kind:load to:0x020575cc add:8 module:main
 from:0x02079ce8 kind:load to:0x020e1fc0 module:overlay(0)
 from:0x02079cec kind:load to:0x027e0d40 module:dtcm
 from:0x02079cf0 kind:load to:0x027e0934 module:dtcm

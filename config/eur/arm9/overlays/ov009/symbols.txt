@@ -1,8 +1,8 @@
 _ZN17GameModeAdventure6CreateEi kind:function(thumb,size=0x20) addr:0x02112c20
 _ZN17GameModeAdventureC1Ei kind:function(thumb,size=0x128) addr:0x02112c40
-_Z19func_ov009_02112d68v kind:function(arm,size=0x4) addr:0x02112d68
+_ZN21UnkStruct_020f2978_00D1Ev kind:function(arm,size=0x4) addr:0x02112d68
 _ZN17GameModeAdventureD0Ev kind:function(thumb,size=0x88) addr:0x02112d6c
-_ZN17GameModeAdventureD2Ev kind:function(thumb,size=0x84) addr:0x02112df4
+_ZN17GameModeAdventureD1Ev kind:function(thumb,size=0x84) addr:0x02112df4
 _ZN17GameModeAdventure8vfunc_08Ei kind:function(arm,size=0x17c) addr:0x02112e78
 _ZN17GameModeAdventure8vfunc_0cEPt kind:function(arm,size=0xc8) addr:0x02112ff4
 _ZN17GameModeAdventure8vfunc_10EPt kind:function(arm,size=0xe0) addr:0x021130bc
@@ -22,9 +22,9 @@ func_ov009_0211364c kind:function(thumb,size=0x2) addr:0x0211364c
 func_ov009_02113650 kind:function(arm,size=0x1c) addr:0x02113650
 func_ov009_0211366c kind:function(arm,size=0x2c) addr:0x0211366c
 func_ov009_02113698 kind:function(arm,size=0x2c) addr:0x02113698
-func_ov009_021136c4 kind:function(arm,size=0x24) addr:0x021136c4
-func_ov009_021136e8 kind:function(arm,size=0x24) addr:0x021136e8
-func_ov009_0211370c kind:function(arm,size=0x20) addr:0x0211370c
+_ZN23UnkStruct_020fadf4_Base19func_ov009_021136c4Ev kind:function(arm,size=0x24) addr:0x021136c4
+_ZN18UnkStruct_0211ac0c19func_ov009_021136e8Ev kind:function(arm,size=0x24) addr:0x021136e8
+_ZN23UnkStruct_020fadf4_Base19func_ov009_0211370cEv kind:function(arm,size=0x20) addr:0x0211370c
 func_ov009_0211372c kind:function(arm,size=0x11c) addr:0x0211372c
 func_ov009_02113848 kind:function(thumb,size=0x20) addr:0x02113848
 func_ov009_02113868 kind:function(thumb,size=0x94) addr:0x02113868
@@ -345,12 +345,12 @@ func_ov009_0211a880 kind:function(arm,size=0x2c) addr:0x0211a880
 func_ov009_0211a8ac kind:function(arm,size=0xdc) addr:0x0211a8ac
 func_ov009_0211a988 kind:function(arm,size=0x24) addr:0x0211a988
 func_ov009_0211a9ac kind:function(thumb,size=0x88) addr:0x0211a9ac
-func_ov009_0211aa34 kind:function(thumb,size=0x60) addr:0x0211aa34
+_ZN18UnkStruct_0211a9acD1Ev kind:function(thumb,size=0x60) addr:0x0211aa34
 func_ov009_0211aa94 kind:function(arm,size=0xf8) addr:0x0211aa94
 func_ov009_0211ab8c kind:function(arm,size=0x3c) addr:0x0211ab8c
 func_ov009_0211abc8 kind:function(arm,size=0x44) addr:0x0211abc8
 func_ov009_0211ac0c kind:function(thumb,size=0x20) addr:0x0211ac0c
-func_ov009_0211ac2c kind:function(thumb,size=0x2a) addr:0x0211ac2c
+_ZN18UnkStruct_0211ac0c19func_ov009_0211ac2cEv kind:function(thumb,size=0x2a) addr:0x0211ac2c
 func_ov009_0211ac58 kind:function(thumb,size=0x90) addr:0x0211ac58
 func_ov009_0211ace8 kind:function(thumb,size=0x10) addr:0x0211ace8
 func_ov009_0211acf8 kind:function(thumb,size=0xa0) addr:0x0211acf8
@@ -608,7 +608,7 @@ data_ov009_0211e690 kind:data(any) addr:0x0211e690
 data_ov009_0211e694 kind:data(any) addr:0x0211e694
 data_ov009_0211e698 kind:data(any) addr:0x0211e698
 data_ov009_0211e69c kind:data(any) addr:0x0211e69c
-data_ov009_0211e6c8 kind:data(any) addr:0x0211e6c8
+_ZTV17GameModeAdventure kind:data(any) addr:0x0211e6c8
 data_ov009_0211e6ec kind:data(any) addr:0x0211e6ec
 data_ov009_0211e6f0 kind:data(any) addr:0x0211e6f0
 data_ov009_0211e6f4 kind:data(any) addr:0x0211e6f4

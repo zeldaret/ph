@@ -6309,7 +6309,7 @@ from:0x0212b99c kind:thumb_call to:0x0211c048 module:overlay(11)
 from:0x0212b9a0 kind:thumb_call_arm to:0x0200c20c module:main
 from:0x0212b9ac kind:thumb_call_arm to:0x0200ee38 module:main
 from:0x0212b9b2 kind:thumb_call_arm to:0x0200ef98 module:main
-from:0x0212b9bc kind:load to:0x02057634 module:main
+from:0x0212b9bc kind:load to:0x0205762c add:8 module:main
 from:0x0212b9c0 kind:load to:0x021307e8 module:overlay(11)
 from:0x0212b9c4 kind:load to:0x027e0ce0 module:dtcm
 from:0x0212b9cc kind:load to:0x027e05f4 module:dtcm

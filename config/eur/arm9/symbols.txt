@@ -1358,7 +1358,7 @@ _ZN8GameModeD0Ev kind:function(thumb,size=0xc) addr:0x0202c0ac
 _ZN8GameModeD2Ev kind:function(thumb,size=0x2) addr:0x0202c0b8
 _ZN8GameMode8vfunc_0cEPt kind:function(thumb,size=0x2) addr:0x0202c0bc
 _ZN8GameMode8vfunc_10EPt kind:function(thumb,size=0x2) addr:0x0202c0c0
-_ZN8GameMode8vfunc_14EPt kind:function(thumb,size=0x2) addr:0x0202c0c4
+_ZN8GameMode8vfunc_14Eb kind:function(thumb,size=0x2) addr:0x0202c0c4
 _ZN8GameMode8vfunc_18Ev kind:function(thumb,size=0x2) addr:0x0202c0c8
 func_0202c0cc kind:function(thumb,size=0x5c) addr:0x0202c0cc
 func_0202c128 kind:function(thumb,size=0x27c) addr:0x0202c128
@@ -2646,7 +2646,7 @@ data_02057610 kind:data(any) addr:0x02057610
 data_02057618 kind:data(any) addr:0x02057618
 data_02057620 kind:data(any) addr:0x02057620
 data_02057628 kind:data(any) addr:0x02057628
-data_02057634 kind:data(any) addr:0x02057634
+_ZTV8GameMode kind:data(any) addr:0x0205762c
 data_02057650 kind:data(any) addr:0x02057650
 data_0205765c kind:data(any) addr:0x0205765c
 data_02057664 kind:data(any) addr:0x02057664

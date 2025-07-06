@@ -961,7 +961,7 @@ ARM bool UnkStruct_020397f8::func_0203c1a0() {
 
         pVar1 = (s8 *) data_027e103c->func_ov000_020cef9c();
         iVar3 = data_027e0f7c.func_ov000_0209d90c(pVar1[0x24F], 0);
-        data_027e1054.func_ov003_020f4760(iVar3[1], 0);
+        data_027e1054->func_ov003_020f4760(iVar3[1], 0);
         data_ov000_020eec9c.func_ov000_020d77e4(6);
         data_027e103c->func_ov000_020cfb58();
 
@@ -977,7 +977,7 @@ ARM bool UnkStruct_020397f8::func_0203c1a0() {
 }
 
 ARM bool UnkStruct_020397f8::func_0203c25c(UnkStruct_020397f8 *param1) {
-    if (data_027e1054.mUnk_00->mUnk_00->mUnk_95 != 0) {
+    if (data_027e1054->mUnk_00->mUnk_00->mUnk_95 != 0) {
         return false;
     }
 
