@@ -5,6 +5,8 @@
 
 class UnkStruct_020eec60 {
 public:
+    UnkStruct_020eec60();
+
     void func_ov008_02113474();
 };
 

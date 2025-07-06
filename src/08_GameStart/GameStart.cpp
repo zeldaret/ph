@@ -39,6 +39,11 @@ void func_02021714(unk32, u32 *);
 void func_020209a4(unk32, u32 *);
 void func_0201f1ac(u32 *);
 void func_0201f96c(unk32, unk32);
+void func_0201f704(s32);
+void Fill256(int value, int *dst, int size);
+void func_0200afac();
+void func_0200b4dc(unk32);
+void func_0200aa20();
 }
 
 extern unk8 data_020691a0;
@@ -214,20 +219,105 @@ ARM void UnkStruct_020ee734::func_ov008_021131ac() {
 }
 
 // --- data_ov000_020eec68 ---
-ARM void GameStart::func_ov008_02113284() {}
-ARM void GameStart::func_ov008_021132cc() {}
+ARM UnkStruct_020eec68::UnkStruct_020eec68() {
+    this->mUnk_10 = 0;
+    this->mUnk_11 = 0;
+    this->mUnk_12 = 0;
+    this->mUnk_13 = 0;
+    this->mUnk_14 = 0;
+    this->mUnk_15 = 0;
+    this->mUnk_16 = 0;
+    this->mUnk_18 = 0;
+    this->mUnk_1c = 0;
+    this->mUnk_20 = -1;
+    this->mUnk_24 = 0;
+    this->mUnk_28 = 0x7FFFFFFF;
+    this->mUnk_2c = 0x7F;
+}
+
+ARM void UnkStruct_020eec68::func_ov008_021132cc() {
+    for (s32 i = 0; i < ARRAY_LEN(this->mUnk_00); i++) {
+        func_0201f704(this->mUnk_00[i]);
+    }
+
+    this->mUnk_0c.func_02021a1c();
+    this->mUnk_11 = 1;
+    this->mUnk_12 = 0;
+    this->mUnk_10 = 1;
+}
 
 // --- data_ov000_020eec9c ---
-ARM void GameStart::func_ov008_02113314() {}
-ARM void GameStart::func_ov008_0211337c() {}
+ARM UnkStruct_020eec9c::UnkStruct_020eec9c() {
+    this->mUnk_04 = 0;
+    this->mUnk_08 = 0;
+    this->mUnk_09 = 0;
+    this->mUnk_0a = 1;
+    this->mUnk_0b = 0;
+    this->mUnk_0c = 0;
+    this->mUnk_10 = 0;
+    this->mUnk_14 = -1;
+    this->mUnk_18 = -1;
+    this->mUnk_1c = 0;
+    this->mUnk_20 = 0;
+    this->mUnk_24 = -1;
+
+    UnkStruct_020eec9c_28 *pUnk_28 = &this->mUnk_28[0];
+    do {
+        pUnk_28->mUnk_00 = 0;
+        pUnk_28->mUnk_04 = 0;
+        pUnk_28->mUnk_06 = 0;
+        pUnk_28->mUnk_07 = 0;
+        pUnk_28++;
+    } while (pUnk_28 < &this->mUnk_28[8]);
+
+    this->mUnk_88 = 0;
+}
+
+ARM void UnkStruct_020eec9c::func_ov008_0211337c() {
+    if (func_0200dd94() != 0) {
+        return;
+    }
+
+    func_0201f704(this->mUnk_00);
+
+    UnkStruct_020eec9c_28 *pUnk_28 = &this->mUnk_28[0];
+    for (s32 i = 0; i < 8; i++) {
+        func_0201f704(pUnk_28->mUnk_08);
+        pUnk_28++;
+    }
+}
 
 // --- data_ov000_020ee820 ---
-ARM void GameStart::func_ov008_021133bc() {}
-ARM void GameStart::func_ov008_021133f0() {}
+ARM UnkStruct_020ee820::UnkStruct_020ee820() {
+    this->mUnk_00 = false;
+    this->mUnk_01 = 0;
+    this->mUnk_02 = 0;
+    this->mUnk_20 = -1;
+    Fill256(0, this->mUnk_40, sizeof(this->mUnk_40));
+}
+
+ARM void UnkStruct_020ee820::func_ov008_021133f0() {
+    if (this->mUnk_00) {
+        return;
+    }
+
+    func_0200aa20();
+    this->mUnk_04 = 0;
+    this->mUnk_08 = this->mUnk_40;
+    this->mUnk_0c = sizeof(this->mUnk_40);
+    this->mUnk_10 = 0x105D;
+    this->mUnk_14 = 1;
+    this->mUnk_18 = 0;
+    this->mUnk_1c = 0;
+    func_0200afac();
+    func_0200b4dc(1);
+    this->func_ov000_020d69d4(2);
+    this->mUnk_00 = true;
+}
 
 // --- data_ov000_020eec60 ---
-ARM void GameStart::func_ov008_02113460() {}
-ARM void GameStart::func_ov008_02113474() {}
+ARM UnkStruct_020eec60::UnkStruct_020eec60() {}
+ARM void UnkStruct_020eec60::func_ov008_02113474() {}
 
 // --- data_ov000_020ee6f8 ---
 ARM void GameStart::func_ov008_021134b8() {}
