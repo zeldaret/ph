@@ -2,6 +2,7 @@
 #include "Game/Game.hpp"
 #include "Game/GameMode.hpp"
 #include "System/OverlayManager.hpp"
+#include "Unknown/UnkStruct_020ee698.hpp"
 #include "Unknown/UnkStruct_020ee734.hpp"
 
 extern "C" {
@@ -22,7 +23,7 @@ void func_ov000_0207a654(unk32 *);
 void func_0200a23c();
 void func_0200a318(u8 *);
 unk32 func_0200dd94();
-unk32 func_0200a284();
+unk32 func_0200a284(u8 *);
 }
 
 extern unk8 data_020691a0;
@@ -74,11 +75,11 @@ ARM GameStart::~GameStart() {
     func_02004c68();
 }
 
-ARM unk32 GameStart::vfunc_08(unk32 param1) {
-    unk32 uVar3 = 0;
+ARM GameModeId GameStart::vfunc_08(bool param1) {
+    GameModeId mode = GameModeId_Load;
 
     if (gGame.mFadeControl.mState != 0) {
-        if (gGame.mFadeControl.mState != 1 && param1 == 0) {
+        if (gGame.mFadeControl.mState != 1 && !param1) {
             this->mUnk_008++;
 
             if (this->mUnk_008 == 1) {
@@ -94,10 +95,10 @@ ARM unk32 GameStart::vfunc_08(unk32 param1) {
             }
         }
     } else {
-        uVar3 = 2;
+        mode = GameModeId_Adventure;
     }
 
-    return uVar3;
+    return mode;
 }
 
 ARM void GameStart::vfunc_10(u16 *param1) {}
@@ -115,23 +116,24 @@ ARM void GameStart::func_ov008_02112e88() {
 ARM void GameStart::func_ov008_02112ee0() {}
 ARM void GameStart::func_ov008_02112f28() {}
 
-// --- TouchControl2 ---
-ARM TouchControl2::TouchControl2() {
+// --- TouchControl ---
+ARM TouchControl::TouchControl() {
     u8 auStack_10[8];
 
+    this->Init();
     func_0200a23c();
 
     if (func_0200dd94() != 0) {
         func_0200a318(NULL);
     } else {
-        if (func_0200a284() != 0) {
+        if (func_0200a284(auStack_10) != 0) {
             func_0200a318(auStack_10);
         }
     }
 }
 
 // --- data_ov000_020ee698 ---
-ARM void GameStart::func_ov008_021130d0() {}
+ARM UnkStruct_020ee698::UnkStruct_020ee698() {}
 
 // --- data_ov000_020ee734 ---
 ARM void GameStart::func_ov008_02113150() {}

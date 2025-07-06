@@ -14,7 +14,7 @@ public:
     /* 010 */
 
     /* 00 */ virtual ~GameStart() override;
-    /* 04 */ virtual unk32 vfunc_08(unk32 param1) override;
+    /* 04 */ virtual GameModeId vfunc_08(bool param1) override;
     /* 10 */ virtual void vfunc_10(u16 *param1) override;
     /* 14 */
 

@@ -39,6 +39,7 @@ public:
 
     TouchControl();
     TouchControl(unk32 param_1);
+    void Init();
     void IncreaseSpeed(s16 increase);
     void UpdateFlags(u16 speed);
     void UpdateWithStateFlags(TouchStateFlags *state, u16 speed);
