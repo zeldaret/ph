@@ -29,7 +29,7 @@ ARM void MessageManager::func_0203643c(u32 *param_1, MessageManager *param_2, u3
 }
 
 // non-matching
-THUMB void MessageManager::func_02036490(unk32 param_2, unk32 param_3, unk32 param_4) {
+THUMB void MessageManager::func_02036490() {
     this->mUnk_03 = 0;
     this->mUnk_0c = 0;
 

@@ -71,7 +71,7 @@ data_027e0698 kind:bss addr:0x027e0698
 data_027e06d8 kind:bss addr:0x027e06d8
 data_027e06e4 kind:bss addr:0x027e06e4
 data_027e0718 kind:bss addr:0x027e0718
-data_027e071c kind:bss addr:0x027e071c
+gFadeController kind:bss addr:0x027e071c
 gRandom kind:bss(size=0x18) addr:0x027e0764
 data_027e077c kind:bss addr:0x027e077c
 data_027e080c kind:bss addr:0x027e080c

@@ -1,6 +1,6 @@
 #include "Player/TouchControl.hpp"
 
-TouchControl::TouchControl() {}
+void TouchControl::Init() {}
 
 void TouchControl::IncreaseSpeed(s16 increase) {
     this->mFlags = 0;

@@ -225,7 +225,10 @@ def main():
             "json",
             "delinks",
             "--config-path", config_path / args.version / "arm9" / "config.yaml"
-        ], capture_output=True, text=True, check=True)
+        ], capture_output=True, text=True)
+        if out.returncode != 0:
+            print(f"Error running dsd:\n{out.stderr.strip()}")
+            return
         delinks_json = json.loads(out.stdout)
 
     project = Project(args.version, platform=platform, delinks_json=delinks_json)

@@ -1,9 +1,12 @@
 #pragma once
 
+#include "nds/math.h"
+
+#include "DTCM/UnkStruct_027e077c.hpp"
+#include "Game/Game.hpp"
 #include "Message/BMG.hpp"
 #include "System/SysNew.hpp"
 #include "Unknown/func_ov000_020d0644.hpp"
-#include "nds/math.h"
 
 // temp
 #define UNK_TYPE void
@@ -88,20 +91,16 @@ extern char *data_02057ed8; // "MSP:opening.nclr"
 struct Struct_027e0db0 {
     /* 0x00 */ unk32 mUnk_00;
     /* 0x04 */ unk32 mUnk_04;
+
+    void func_ov000_0207b288(GameModeId modeId);
 };
 extern Struct_027e0db0 data_027e0db0;
 
-// see Actor.cpp
-struct UnkStruct2 {
-    /* 0 */ u32 mUnk_0;
-    /* 4 */ u32 mUnk_4;
-    /* 8 */
-};
-extern UnkStruct2 data_027e077c;
-extern u8 data_02056be4[];
-
 class UnkClass_027e0cbc {
 public:
+    void func_0203d57c();
+    void func_0203d5c0();
+    void func_0203d6d0();
     unk32 func_0203d7e0(unk32);
     unk32 func_0203d77c(unk32, s32, s32);
 };
