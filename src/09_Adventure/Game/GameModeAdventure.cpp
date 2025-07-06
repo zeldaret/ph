@@ -47,11 +47,11 @@ THUMB GameModeAdventure::GameModeAdventure(unk32 param1) :
     func_ov003_020f4510();
 
     local_28.mUnk_00.mUnk_00 = 0x47;
-    local_28.mUnk_04.mUnk_00 = 0;
-    local_28.mUnk_04.mUnk_04 = 0;
-    local_28.mUnk_04.mUnk_08 = -2;
-    local_28.mUnk_04.mUnk_0c = 0;
-    local_28.mUnk_04.mUnk_0e = -1;
+    local_28.mUnk_04.mPos.x  = 0;
+    local_28.mUnk_04.mPos.y  = 0;
+    local_28.mUnk_04.mPos.z  = -2;
+    local_28.mUnk_04.mAngle  = 0;
+    local_28.mUnk_04.mId     = -1;
     local_28.mUnk_04.mUnk_0f = 0;
     local_28.mUnk_04.mUnk_10 = 0;
     local_28.mUnk_04.mUnk_11 = 0;
@@ -70,7 +70,7 @@ THUMB GameModeAdventure::GameModeAdventure(unk32 param1) :
                 AdventureFlags::Get_FlagsUnk_00(index, &local_28);
             } else {
                 local_28.mUnk_00.mUnk_00 = data_ov000_020eab04;
-                local_28.mUnk_04.mUnk_0e = data_ov000_020eab08;
+                local_28.mUnk_04.mId     = data_ov000_020eab08;
                 local_28.mUnk_04.mUnk_0f = data_ov000_020eab09;
             }
         }
