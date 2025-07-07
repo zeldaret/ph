@@ -4,33 +4,45 @@
 #include "types.h"
 
 #include "../Item/Item.hpp"
+#include "Actor/Actor.hpp"
 #include "Unknown/UnkStruct_020ec7dc.hpp"
 
 class SaveItemManager_f8 {
 public:
-    /* 00 */ unk32 pad[2];
+    /* 00 */ u32 mUnk_00[2];
     /* 08 */
 
     static void func_ov008_021139d8();
     static void func_ov008_021139dc();
+
+    ~SaveItemManager_f8();
+    SaveItemManager_f8();
 };
 
 class SaveItemManager_2f8 {
 public:
-    /* 00 */ unk32 pad[3];
+    /* 00 */ u32 mUnk_00[2];
+    /* 08 */ u32 mUnk_08[1];
     /* 0c */
 
     static void func_ov008_02113984();
     static void func_ov008_02113988();
+
+    ~SaveItemManager_2f8();
+    SaveItemManager_2f8();
 };
 
 class SaveItemManager_d1c {
 public:
-    /* 00 */ unk8 pad[0x30];
+    /* 00 */ unk8 pad[0x1c];
+    /* 1c */ Actor_UnkStruct_020 mUnk_1c;
     /* 30 */
 
     static void func_ov008_02113968();
     static void func_ov008_0211396c();
+
+    SaveItemManager_d1c();
+    ~SaveItemManager_d1c();
 };
 
 class SaveItemManager_cec {

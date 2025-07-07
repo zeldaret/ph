@@ -556,13 +556,13 @@ ARM SaveItemManager::SaveItemManager() {
     this->Init();
     Fill256(0, this->unk_a8, sizeof(this->unk_a8));
     Fill16(0, this->unk_f0, sizeof(this->unk_f0));
-    ForEach(this->unk_f8, ARRAY_LEN(this->unk_f8), sizeof(this->unk_f8), SaveItemManager_f8::func_ov008_021139dc,
+    ForEach(this->unk_f8, ARRAY_LEN(this->unk_f8), sizeof(SaveItemManager_f8), SaveItemManager_f8::func_ov008_021139dc,
             SaveItemManager_f8::func_ov008_021139d8);
-    ForEach(this->unk_2f8, ARRAY_LEN(this->unk_2f8), sizeof(this->unk_2f8), SaveItemManager_2f8::func_ov008_02113988,
+    ForEach(this->unk_2f8, ARRAY_LEN(this->unk_2f8), sizeof(SaveItemManager_2f8), SaveItemManager_2f8::func_ov008_02113988,
             SaveItemManager_2f8::func_ov008_02113984);
     Fill32(0, this->unk_cac, sizeof(this->unk_cac));
     Fill32(0, this->unk_cac, sizeof(this->unk_cac));
-    ForEach(this->unk_d1c, ARRAY_LEN(this->unk_d1c), sizeof(this->unk_d1c), SaveItemManager_d1c::func_ov008_02113968,
+    ForEach(this->unk_d1c, ARRAY_LEN(this->unk_d1c), sizeof(SaveItemManager_d1c), SaveItemManager_d1c::func_ov008_02113968,
             SaveItemManager_d1c::func_ov008_0211396c);
     Fill32(0, this->unk_e9c, sizeof(this->unk_e9c));
     Fill32(0, this->unk_ea4, sizeof(this->unk_ea4));
@@ -594,12 +594,25 @@ ARM SaveItemManager::SaveItemManager() {
     this->unk_29c0 = 0;
 }
 
-ARM void SaveItemManager_d1c::func_ov008_02113968() {}
-ARM void SaveItemManager_d1c::func_ov008_0211396c() {}
-ARM void SaveItemManager_2f8::func_ov008_02113984() {}
-ARM void SaveItemManager_2f8::func_ov008_02113988() {}
-ARM void SaveItemManager_f8::func_ov008_021139d8() {}
-ARM void SaveItemManager_f8::func_ov008_021139dc() {}
+ARM SaveItemManager_d1c::~SaveItemManager_d1c() {}
+
+ARM SaveItemManager_d1c::SaveItemManager_d1c() {}
+
+ARM SaveItemManager_2f8::~SaveItemManager_2f8() {}
+
+ARM SaveItemManager_2f8::SaveItemManager_2f8() {
+    Fill32(0, this->mUnk_00, sizeof(this->mUnk_00));
+    Fill32(0, this->mUnk_08, sizeof(this->mUnk_08));
+    Fill32(0, this->mUnk_00, sizeof(this->mUnk_00));
+    Fill32(0, this->mUnk_08, sizeof(this->mUnk_08));
+}
+
+ARM SaveItemManager_f8::~SaveItemManager_f8() {}
+
+ARM SaveItemManager_f8::SaveItemManager_f8() {
+    Fill32(0, this->mUnk_00, sizeof(this->mUnk_00) / 2); // ?
+    Fill32(0, this->mUnk_00, sizeof(this->mUnk_00));
+}
 
 // --- data_ov000_020e9370 ---
 ARM UnkStruct_020e9370::UnkStruct_020e9370() {
