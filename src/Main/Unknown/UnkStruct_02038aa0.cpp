@@ -1,8 +1,7 @@
 #include "Unknown/UnkStruct_02038aa0.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
+#include "Game/Game.hpp"
 #include "Message/MessageManager.hpp"
-
-extern u32 data_027e0618[];
 
 ARM UnkStruct_0203881c::UnkStruct_0203881c() {
     this->mUnk_14 = 0x1000;
@@ -155,7 +154,7 @@ ARM void UnkStruct_02038aa0::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3
     // this->vfunc_60(0, 0, (unk32)param3);
     // this->vfunc_64(param3);
 
-    if (*(unk32 *) data_027e0618 == 2) {
+    if (gGame.mModeId == GameModeId_Adventure) {
         if (this->func_02032fa4() == 0) {
             data_027e103c->func_ov000_020cfc9c(1, 0);
         } else {

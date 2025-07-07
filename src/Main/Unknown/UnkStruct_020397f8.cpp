@@ -1,5 +1,6 @@
 #include "Unknown/UnkStruct_020397f8.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
+#include "Game/Game.hpp"
 #include "Message/MessageManager.hpp"
 #include "Message/MsgProc.hpp"
 #include "Player/TouchControl.hpp"
@@ -12,7 +13,6 @@ extern "C" void func_ov018_02169634(UnkStruct_020397f8 *);
 
 extern unk16 data_02056a0e[];
 extern u8 data_02056a08[];
-extern u32 data_027e0618[];
 
 THUMB UnkStruct_020397f8::UnkStruct_020397f8() :
     UnkStruct_02038aa0(0, 0),
@@ -90,7 +90,7 @@ THUMB void UnkStruct_020397f8::vfunc_4c() {
 
 // non-matching
 ARM void UnkStruct_020397f8::vfunc_2c() {
-    if (data_027e0618[0x101] != 0) {
+    if (gGame.mUnk_101 != 0) {
         if (((data_02056be4[data_027e077c.mUnk_0] & 1) != 0) != this->mUnk_50) {
             return;
         }
@@ -177,7 +177,7 @@ ARM void UnkStruct_020397f8::vfunc_3c(unk32 param1) {
                 return;
             }
 
-            if (data_027e0618[0x101] != 0) {
+            if (gGame.mUnk_101 != 0) {
                 if (((data_02056be4[data_027e077c.mUnk_0] & 1) != 0) != this->mUnk_50) {
                     return;
                 }
@@ -233,13 +233,13 @@ ARM void UnkStruct_020397f8::vfunc_40(s32 param1, s32 param2) {
     }
 
     if (this->mUnk_585 != 0 && ((data_02056be4[data_027e077c.mUnk_0] & 1) == 0)) {
-        switch (data_027e0618[0]) {
-            case 2:
+        switch (gGame.mModeId) {
+            case GameModeId_Adventure:
                 if (data_027e0cbc.func_0203d7e0(3) != 0) {
                     this->mUnk_388.func_02034b0c(0xBE, 0, 0, 0, 0);
                 }
                 break;
-            case 6:
+            case GameModeId_Battle:
                 if (data_027e0cbc.func_0203d7e0(0x58) != 0) {
                     this->mUnk_388.func_02034b0c(0x013B, 0, 0, 0, 0);
                 }
@@ -409,7 +409,7 @@ ARM void UnkStruct_020397f8::vfunc_44(s32 touchLastX, s32 touchLastY) {
         if ((gTouchControl.mFlags & 1) != 0) {
             if (this->mUnk_50 == 0 && data_027e0d38 != 0) {
                 if (func_ov000_02079e04() == 0 && data_027e0e28->func_ov000_0207bc48() == 0) {
-                    if (data_027e0618[0x101] == 0 && data_027e103c->mUnk_24 == 0) {
+                    if (gGame.mUnk_101 == 0 && data_027e103c->mUnk_24 == 0) {
                         return;
                     }
                 }
@@ -521,7 +521,7 @@ ARM void UnkStruct_020397f8::vfunc_50(EntryINF1 *param1, unk32 param2, s32 *para
         }
     }
 
-    if (*((s32 *) data_027e0618) == 2 && data_027e0d38->func_ov000_02078b40() == 2 &&
+    if (gGame.mModeId == GameModeId_Adventure && data_027e0d38->func_ov000_02078b40() == 2 &&
         func_ov003_020f3f94(data_ov009_0211f5b4) == 0)
     {
         UnkStruct_020397f8 *pVar4 = (UnkStruct_020397f8 *) gMessageManager.mUnk_28[4];
@@ -603,7 +603,7 @@ ARM void UnkStruct_020397f8::vfunc_58() {
             }
         }
 
-        // if (data_027e0618[0] == 2 && func_ov000_02079e04() && (data_027e1054.mUnk_04 + 0x99) != 0 &&
+        // if (gGame.mModeId == GameModeId_Adventure && func_ov000_02079e04() && (data_027e1054.mUnk_04 + 0x99) != 0 &&
         //         (data_027e077c.mUnk_0 != 0x39 || data_027e103c->func_ov000_020cf0bc())) {
         //     data_027e1054.func_ov003_020f4874();
         //     data_027e103c->func_ov005_02103f8c(data_02057ed4);
@@ -920,7 +920,7 @@ ARM bool UnkStruct_020397f8::func_0203c084() {
             bVar1 = false;
         }
 
-        if (!bVar1 && data_027e0618[0x101] == 0) {
+        if (!bVar1 && gGame.mUnk_101 == 0) {
             if ((data_027e0d38 != NULL && data_027e0d38->mUnk_14 == 1) == 0) {
                 bVar2 = false;
             }

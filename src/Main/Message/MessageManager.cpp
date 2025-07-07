@@ -1,5 +1,6 @@
 #include "Message/MessageManager.hpp"
 #include "Actor/ActorManager.hpp"
+#include "Game/Game.hpp"
 #include "Player/TouchControl.hpp"
 #include "System/SysNew.hpp"
 
@@ -18,8 +19,6 @@ struct UnkStruct_027e0ffc {
 };
 extern UnkStruct_027e0ffc *data_027e0ffc;
 
-extern u32 data_027e0618[];
-
 // non-matching
 ARM void MessageManager::func_0203643c(u32 *param_1, MessageManager *param_2, u32 param_3) {
     BMGGroups *pBVar2 = param_2->pGroups;
@@ -35,20 +34,20 @@ THUMB void MessageManager::func_02036490() {
 
     this->pGroups->func_020372f0(BMG_FILE_INDEX_SYSTEM, 2);
 
-    switch (*data_027e0618) {
-        case 3:
+    switch (gGame.mModeId) {
+        case GameModeId_FileSelect:
             this->pGroups->func_020372f0(BMG_FILE_INDEX_MAINSELECT, 2);
             this->pGroups->func_020372f0(BMG_FILE_INDEX_BATTLE, 2);
             break;
-        case 5:
+        case GameModeId_DownloadPlay:
             this->pGroups->func_020372f0(BMG_FILE_INDEX_BATTLE, 2);
             this->pGroups->func_020372f0(BMG_FILE_INDEX_BATTLECOMMON, 2);
             break;
-        case 6:
+        case GameModeId_Battle:
             this->pGroups->func_020372f0(BMG_FILE_INDEX_BATTLE, 2);
             this->pGroups->func_020372f0(BMG_FILE_INDEX_BATTLECOMMON, 2);
             break;
-        case 7: this->pGroups->func_020372f0(BMG_FILE_INDEX_MAINSELECT, 2); break;
+        case GameModeId_Contact: this->pGroups->func_020372f0(BMG_FILE_INDEX_MAINSELECT, 2); break;
         default: break;
     }
 
@@ -67,11 +66,12 @@ THUMB void MessageManager::func_02036490() {
     this->mUnk_18[0]->mUnk_39 = 0;
     this->mUnk_18[1]->mUnk_39 = 1;
 
-    if (*data_027e0618 == 2 || *data_027e0618 == 3 || *data_027e0618 == 6) {
+    if (gGame.mModeId == GameModeId_Adventure || gGame.mModeId == GameModeId_FileSelect || gGame.mModeId == GameModeId_Battle)
+    {
         for (s32 i = 0; i < ARRAY_LEN(this->mUnk_28); i++) {
             switch (data_02056924[i + 1]) {
                 case 0:
-                    if (*data_027e0618 != 2) {
+                    if (gGame.mModeId != GameModeId_Adventure) {
                         this->mUnk_28[i] = new(data_027e0ce0[1], 4) UnkStruct_020397f8();
                         this->mUnk_28[i]->func_0203dc74(0xE0, 0x40);
                         this->mUnk_28[i]->mUnk_2c = &data_02068e6c;

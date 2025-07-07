@@ -1,8 +1,8 @@
 #include "Unknown/UnkStruct_02063220.hpp"
 #include "DTCM/UnkStruct_027e02a0.hpp"
 #include "DTCM/UnkStruct_027e05f8.hpp"
-#include "DTCM/UnkStruct_027e0618.hpp"
 #include "DTCM/UnkStruct_027e08f8.hpp"
+#include "Game/Game.hpp"
 #include "System/OverlayManager.hpp"
 #include "Unknown/UnkStruct_0206322c.hpp"
 #include "Unknown/UnkStruct_020ee734.hpp"
@@ -268,7 +268,7 @@ THUMB void UnkStruct_02063220::func_0202f754(unk32 param1) {
                 data_0206322c.func_02030464(1, 1);
             }
 
-            data_027e0618.func_0202cf34();
+            gGame.func_0202cf34();
 
             if (gOverlayManager.mLoadedOverlays[OverlayIndex_Core] != -1) {
                 data_ov000_020ee734.func_ov000_020d6620();
