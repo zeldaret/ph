@@ -1,8 +1,5 @@
-#include "Game/Game.hpp"
-#include "Game/GameMode.hpp"
-#include "GameStart/GameStart.hpp"
+#include "Player/TouchControl.hpp"
 #include "Save/SaveItemManager.hpp"
-#include "System/OverlayManager.hpp"
 #include "Unknown/UnkStruct_020e9360.hpp"
 #include "Unknown/UnkStruct_020e9370.hpp"
 #include "Unknown/UnkStruct_020ec7dc.hpp"
@@ -18,7 +15,6 @@
 #include "Unknown/UnkStruct_027e0d54.hpp"
 #include "Unknown/UnkStruct_027e0dbc.hpp"
 #include "Unknown/UnkStruct_027e0f88.hpp"
-#include "Unknown/UnkStruct_func_0201f704.hpp"
 
 extern "C" {
 void func_0200a23c();
@@ -49,7 +45,6 @@ void func_02040100(u16);
 unk32 func_02040528(unk32);
 unk32 func_020400c0();
 unk32 func_02040464(unk32, u16 *, unk32, unk32, unk32, unk32, unk32, unk32, unk32);
-void ForEach(void *, unk32, unk32, void *, void *);
 }
 
 extern unk32 data_ov000_020d8795;
@@ -166,17 +161,12 @@ ARM TouchControl::TouchControl() {
 }
 
 // --- data_ov000_020ee698 ---
-ARM UnkStruct_020ee698::UnkStruct_020ee698() {
-    void *newHeap;
-
-    this->mUnk_00 = 0;
-    this->mUnk_02 = 0;
-    this->mUnk_04 = func_ov001_020efdac();
-    this->mUnk_08 = 0x0D;
-    this->mUnk_2c = 4;
-    Fill16(0, this->mUnk_0c, 0x1E);
-
-    newHeap = NewEXPH((char *) data_027e0ce0[1], 0x700, 0x20);
+ARM UnkStruct_020ee698::UnkStruct_020ee698() :
+    mUnk_00(0),
+    mUnk_02(0),
+    mUnk_04(func_ov001_020efdac()),
+    mUnk_08(0x0D) {
+    void *newHeap = NewEXPH((char *) data_027e0ce0[1], 0x700, 0x20);
 
     if (func_ov000_020773c0() == 3) {
         this->mUnk_00 = 1;
@@ -215,7 +205,7 @@ ARM void UnkStruct_020ee734::func_ov008_021131ac() {
         func_02021714(9, this->mUnk_90);
         func_020209a4(1, this->mUnk_90);
         func_0201f1ac(this->mUnk_90);
-        this->mUnk_b0 = 1;
+        this->mUnk_ac[1] = 1;
 
         data_ov000_020eec68.func_ov008_021132cc();
         data_ov000_020eec9c.func_ov008_0211337c();
@@ -450,27 +440,6 @@ ARM UnkStruct_027e0dbc::UnkStruct_027e0dbc() {
 
 // --- gSaveItemManager ---
 ARM SaveItemManager::SaveItemManager() {
-    Fill32(0, this->itemFlags.flags, sizeof(this->itemFlags));
-    Fill32(0, &this->salvagedTreasureFlags, sizeof(this->salvagedTreasureFlags));
-    Fill32(0, this->shipPartPricesShown.flags, sizeof(this->shipPartPricesShown));
-    Fill32(0, this->treasurePriceShownFlags, sizeof(this->treasurePriceShownFlags));
-    this->unk_7c = 0;
-    this->unk_7e = 0;
-    this->unk_7f = 0;
-    this->Init();
-    Fill256(0, this->unk_a8, sizeof(this->unk_a8));
-    Fill16(0, this->unk_f0, sizeof(this->unk_f0));
-    // __cxa_vec_ctor(this->unk_f8, ARRAY_LEN(this->unk_f8), sizeof(SaveItemManager_f8),
-    // SaveItemManager_f8::func_ov008_021139dc,
-    //         SaveItemManager_f8::func_ov008_021139d8);
-    // __cxa_vec_ctor(this->unk_2f8, ARRAY_LEN(this->unk_2f8), sizeof(SaveItemManager_2f8),
-    // SaveItemManager_2f8::func_ov008_02113988,
-    //         SaveItemManager_2f8::func_ov008_02113984);
-    Fill32(0, this->unk_cac, sizeof(this->unk_cac));
-    Fill32(0, this->unk_cac, sizeof(this->unk_cac));
-    // __cxa_vec_ctor(this->unk_d1c, ARRAY_LEN(this->unk_d1c), sizeof(SaveItemManager_d1c),
-    // SaveItemManager_d1c::func_ov008_02113968,
-    //         SaveItemManager_d1c::func_ov008_0211396c);
     Fill32(0, this->unk_e9c, sizeof(this->unk_e9c));
     Fill32(0, this->unk_ea4, sizeof(this->unk_ea4));
     this->unk_cec.func_ov000_0207a3e4();

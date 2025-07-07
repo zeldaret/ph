@@ -46,7 +46,7 @@ THUMB void OverlayManager::LoadGameMode(s32 mode) {
     } else {
         overlayId = pSetup->slot12Overlay;
 
-        if (mode == 6 && data_ov000_020ee698.mUnk_2c == 2) {
+        if (mode == 6 && data_ov000_020ee698.mUnk_0c.mUnk_2c == 2) {
             overlayId = OverlayId_61;
         }
 

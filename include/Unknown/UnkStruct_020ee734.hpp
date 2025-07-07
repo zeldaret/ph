@@ -24,8 +24,8 @@ public:
     /* a9 */ unk8 mUnk_a9;
     /* aa */ unk8 mUnk_aa;
     /* ab */ unk8 mUnk_ab;
-    /* ac */ unk32 *mUnk_ac;
-    /* b0 */ unk32 mUnk_b0;
+    /* ac */ unk32 mUnk_ac[8];
+    /* cc */
 
     UnkStruct_020ee734();
 

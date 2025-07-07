@@ -79,7 +79,11 @@ public:
     void func_ov000_0207a6d0();
 };
 
-class SaveItemManager {
+extern "C" void Fill16(int value, unsigned short *dst, int size);
+extern "C" void Fill32(unk32, u32 *, unk32);
+extern "C" void Fill256(int value, int *dst, int size);
+
+class SaveInventory {
 public:
     /* 0000 */ ItemFlags itemFlags;
     /* 0010 */ u32 salvagedTreasureFlags;
@@ -111,9 +115,40 @@ public:
     /* 00a6 */ unk16 unk_a6;
     /* 00a8 */ unk32 unk_a8[0x12];
     /* 00f0 */ u16 unk_f0[4];
+    /* 00f8 */
+
+    SaveInventory() {
+        Fill32(0, this->itemFlags.flags, sizeof(this->itemFlags));
+        Fill32(0, &this->salvagedTreasureFlags, sizeof(this->salvagedTreasureFlags));
+        Fill32(0, this->shipPartPricesShown.flags, sizeof(this->shipPartPricesShown));
+        Fill32(0, this->treasurePriceShownFlags, sizeof(this->treasurePriceShownFlags));
+        this->unk_7c = 0;
+        this->unk_7e = 0;
+        this->unk_7f = 0;
+        this->Init();
+        Fill256(0, this->unk_a8, sizeof(this->unk_a8));
+        Fill16(0, this->unk_f0, sizeof(this->unk_f0));
+    }
+
+    void Init();
+};
+
+class SaveItemManager_Dummy2 {
+public:
+    /* 000 */ u32 unk_cac[16];
+
+    SaveItemManager_Dummy2() {
+        Fill32(0, this->unk_cac, sizeof(this->unk_cac));
+        Fill32(0, this->unk_cac, sizeof(this->unk_cac));
+    }
+};
+
+class SaveItemManager {
+public:
+    /* 0000 */ SaveInventory inventory;
     /* 00f8 */ SaveItemManager_f8 unk_f8[64];
     /* 02f8 */ SaveItemManager_2f8 unk_2f8[207];
-    /* 0cac */ u32 unk_cac[16];
+    /* 0cac */ SaveItemManager_Dummy2 unk_cac;
     /* 0cec */ SaveItemManager_cec unk_cec;
     /* 0cf0 */ unk8 unk_cf0[0xd1c - 0xcf0];
     /* 0d1c */ SaveItemManager_d1c unk_d1c[8];
@@ -137,7 +172,6 @@ public:
 
     SaveItemManager();
 
-    void Init();
     void func_ov000_0207a418();
 };
 

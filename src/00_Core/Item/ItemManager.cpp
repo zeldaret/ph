@@ -27,85 +27,85 @@ THUMB void ItemManager::ClearPrevEquippedItem() {
 }
 
 THUMB void ItemManager::Save(SaveItemManager *save) {
-    save->itemFlags = mItemFlags;
-    save->numRupees = mNumRupees;
+    save->inventory.itemFlags = mItemFlags;
+    save->inventory.numRupees = mNumRupees;
     for (s32 i = 0; i < MAX_POTIONS; ++i) {
-        save->potions[i] = mPotions[i];
+        save->inventory.potions[i] = mPotions[i];
     }
-    save->numBombs              = (u8) (*mAmmo)[ItemFlag_BombBag];
-    save->numBombchus           = (u8) (*mAmmo)[ItemFlag_BombchuBag];
-    save->numArrows             = (u8) (*mAmmo)[ItemFlag_Bow];
-    save->equippedItem          = (u8) mEquippedItem;
-    save->salvagedTreasureFlags = mSalvagedTreasureFlags;
-    save->hourglassSeconds      = SoftDivide(mHourglassSandFrames, 60);
+    save->inventory.numBombs              = (u8) (*mAmmo)[ItemFlag_BombBag];
+    save->inventory.numBombchus           = (u8) (*mAmmo)[ItemFlag_BombchuBag];
+    save->inventory.numArrows             = (u8) (*mAmmo)[ItemFlag_Bow];
+    save->inventory.equippedItem          = (u8) mEquippedItem;
+    save->inventory.salvagedTreasureFlags = mSalvagedTreasureFlags;
+    save->inventory.hourglassSeconds      = SoftDivide(mHourglassSandFrames, 60);
     for (s32 i = 0; i < Gem_COUNT; ++i) {
-        save->numGems[i] = mNumGems[i];
+        save->inventory.numGems[i] = mNumGems[i];
     }
     for (s32 i = 0; i < ShipPart_COUNT; ++i) {
-        save->equippedShipParts[i] = mEquippedShipParts[i];
+        save->inventory.equippedShipParts[i] = mEquippedShipParts[i];
         for (s32 j = 0; j < ShipType_COUNT; ++j) {
-            save->shipParts[i][j] = mShipParts[i][j];
+            save->inventory.shipParts[i][j] = mShipParts[i][j];
         }
     }
-    save->shipPartPricesShown = mShipPartPricesShown;
+    save->inventory.shipPartPricesShown = mShipPartPricesShown;
     for (s32 i = 0; i < Treasure_COUNT; ++i) {
-        save->treasure[i] = mTreasure[i];
+        save->inventory.treasure[i] = mTreasure[i];
     }
-    save->treasurePriceShownFlags[0] = mTreasurePriceShownFlags[0];
+    save->inventory.treasurePriceShownFlags[0] = mTreasurePriceShownFlags[0];
     for (s32 i = 0; i < 6; ++i) {
-        save->fishCount[i] = mFishCount[i];
-        save->fishSize[i]  = mFishSize[i];
+        save->inventory.fishCount[i] = mFishCount[i];
+        save->inventory.fishSize[i]  = mFishSize[i];
     }
-    save->quiverSize     = mQuiverSize;
-    save->bombBagSize    = mBombBagSize;
-    save->bombchuBagSize = mBombchuBagSize;
+    save->inventory.quiverSize     = mQuiverSize;
+    save->inventory.bombBagSize    = mBombBagSize;
+    save->inventory.bombchuBagSize = mBombchuBagSize;
     if (mEquippedFairy == FairyId_None) {
-        save->equippedFairy = 3;
+        save->inventory.equippedFairy = 3;
         return;
     }
-    save->equippedFairy = (u8) mEquippedFairy;
+    save->inventory.equippedFairy = (u8) mEquippedFairy;
 }
 
 THUMB void ItemManager::Load(const SaveItemManager *save) {
-    mItemFlags = save->itemFlags;
-    mNumRupees = save->numRupees;
-    mHourglassSandFrames =
-        save->hourglassSeconds <= MAX_HOURGLASS_SECONDS ? save->hourglassSeconds * 60 : MAX_HOURGLASS_SECONDS * 60;
+    mItemFlags           = save->inventory.itemFlags;
+    mNumRupees           = save->inventory.numRupees;
+    mHourglassSandFrames = save->inventory.hourglassSeconds <= MAX_HOURGLASS_SECONDS ? save->inventory.hourglassSeconds * 60
+                                                                                     : MAX_HOURGLASS_SECONDS * 60;
     for (s32 i = ItemFlag_EQUIP_START; i < ItemFlag_EQUIP_END; ++i) {
         if (GET_FLAG(mItemFlags.flags, (u32) i)) {
             (*mAmmo)[i] = 1;
         }
     }
-    (*mAmmo)[ItemFlag_BombBag]    = save->numBombs;
-    (*mAmmo)[ItemFlag_BombchuBag] = save->numBombchus;
-    (*mAmmo)[ItemFlag_Bow]        = save->numArrows;
+    (*mAmmo)[ItemFlag_BombBag]    = save->inventory.numBombs;
+    (*mAmmo)[ItemFlag_BombchuBag] = save->inventory.numBombchus;
+    (*mAmmo)[ItemFlag_Bow]        = save->inventory.numArrows;
     for (s32 i = 0; i < MAX_POTIONS; ++i) {
-        mPotions[i] = save->potions[i];
+        mPotions[i] = save->inventory.potions[i];
     }
-    mEquippedItem          = save->equippedItem;
-    mSalvagedTreasureFlags = save->salvagedTreasureFlags;
+    mEquippedItem          = save->inventory.equippedItem;
+    mSalvagedTreasureFlags = save->inventory.salvagedTreasureFlags;
     for (s32 i = 0; i < Gem_COUNT; ++i) {
-        mNumGems[i] = save->numGems[i];
+        mNumGems[i] = save->inventory.numGems[i];
     }
     for (s32 i = 0; i < ShipPart_COUNT; ++i) {
-        mEquippedShipParts[i] = save->equippedShipParts[i];
+        mEquippedShipParts[i] = save->inventory.equippedShipParts[i];
         for (s32 j = 0; j < ShipType_COUNT; ++j) {
-            mShipParts[i][j] = save->shipParts[i][j];
+            mShipParts[i][j] = save->inventory.shipParts[i][j];
         }
     }
-    mShipPartPricesShown = save->shipPartPricesShown;
+    mShipPartPricesShown = save->inventory.shipPartPricesShown;
     for (s32 i = 0; i < Treasure_COUNT; ++i) {
-        mTreasure[i] = save->treasure[i];
+        mTreasure[i] = save->inventory.treasure[i];
     }
-    mTreasurePriceShownFlags[0] = save->treasurePriceShownFlags[0];
+    mTreasurePriceShownFlags[0] = save->inventory.treasurePriceShownFlags[0];
     for (s32 i = 0; i < 6; ++i) {
-        mFishCount[i] = save->fishCount[i];
-        mFishSize[i]  = save->fishSize[i];
+        mFishCount[i] = save->inventory.fishCount[i];
+        mFishSize[i]  = save->inventory.fishSize[i];
     }
-    mQuiverSize     = save->quiverSize;
-    mBombBagSize    = save->bombBagSize;
-    mBombchuBagSize = save->bombchuBagSize;
-    mEquippedFairy  = save->equippedFairy;
+    mQuiverSize     = save->inventory.quiverSize;
+    mBombBagSize    = save->inventory.bombBagSize;
+    mBombchuBagSize = save->inventory.bombchuBagSize;
+    mEquippedFairy  = save->inventory.equippedFairy;
     if (mEquippedFairy >= FairyId_COUNT) {
         mEquippedFairy = FairyId_None;
     }

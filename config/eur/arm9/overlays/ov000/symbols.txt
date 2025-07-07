@@ -152,7 +152,7 @@ func_ov000_0207a2d8 kind:function(arm,size=0x10) addr:0x0207a2d8
 func_ov000_0207a2e8 kind:function(thumb,size=0x14) addr:0x0207a2e8
 func_ov000_0207a2fc kind:function(arm,size=0x4) addr:0x0207a2fc
 func_ov000_0207a300 kind:function(thumb,size=0x8c) addr:0x0207a300
-_ZN15SaveItemManager4InitEv kind:function(thumb,size=0x56) addr:0x0207a38c
+_ZN13SaveInventory4InitEv kind:function(thumb,size=0x56) addr:0x0207a38c
 func_ov000_0207a3e4 kind:function(thumb,size=0x32) addr:0x0207a3e4
 func_ov000_0207a418 kind:function(thumb,size=0xbc) addr:0x0207a418
 func_ov000_0207a4d4 kind:function(thumb,size=0x1a) addr:0x0207a4d4
@@ -5980,7 +5980,6 @@ data_ov000_020ee6f8 kind:bss addr:0x020ee6f8
 data_ov000_020ee734 kind:bss addr:0x020ee734
 data_ov000_020ee800 kind:bss addr:0x020ee800
 data_ov000_020ee820 kind:bss addr:0x020ee820
-data_ov000_020ee824 kind:bss addr:0x020ee824
 data_ov000_020ee860 kind:bss addr:0x020ee860
 data_ov000_020eec60 kind:bss addr:0x020eec60
 data_ov000_020eec64 kind:bss addr:0x020eec64
