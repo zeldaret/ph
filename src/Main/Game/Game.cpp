@@ -12,6 +12,7 @@
 #include "System/OverlayManager.hpp"
 #include "Unknown/UnkStruct_0203dae0.hpp"
 #include "Unknown/UnkStruct_02075dac.hpp"
+#include "Unknown/UnkStruct_020ec7dc.hpp"
 #include "Unknown/UnkStruct_020ee734.hpp"
 
 #define FRAME_COUNTER (*(u32 *) 0x027ffc3c)
@@ -25,7 +26,6 @@ extern unk32 data_02068ed0;
 extern unk32 data_02068e64;
 extern unk32 data_02062d4c;
 extern unk32 data_020683f4;
-extern unk32 data_ov000_020ec7dc;
 extern unk32 data_027e0d54;
 extern bool data_027e0f8c;
 extern unk32 data_ov009_0211e0c0;
@@ -163,7 +163,8 @@ extern "C" void func_0202c0cc();
 extern "C" void func_0202c128(unk32 param1, u16 param2);
 extern "C" void func_02017cb0(unk32 *param0, unk32 param1);
 extern "C" void func_02031024(unk32 *param0);
-extern "C" void Fill16(unk16 value, void *dest, s32 count);
+extern "C" void Fill16(int value, unsigned short *dst, int size);
+;
 extern "C" void func_02033d40(unk32 (*param0)[]);
 extern "C" void func_ov000_0207c0f0(unk32 *param0, unk32 param1);
 extern "C" void func_ov000_0207a2e8(unk32 *param0, unk32 param1);
@@ -193,11 +194,11 @@ THUMB bool Game::StartGameMode() {
 
     func_02031024(&data_020683f4);
     data_027e077c.Init(0);
-    Fill16(0, &data_027e0d04, 6);
+    Fill16(0, (u16 *) &data_027e0d04, 6);
     func_02033d40(&data_027e0c38);
     data_027e05f8.Init();
     if (gOverlayManager.mLoadedOverlays[0] != OverlayId_None) {
-        func_ov000_0207c0f0(&data_ov000_020ec7dc, mModeId);
+        data_ov000_020ec7dc.func_ov000_0207c0f0(mModeId);
         gTouchControl.Init();
         data_027e0e2c.func_ov000_0207bcb4();
         data_027e0db0.func_ov000_0207b288(mModeId);

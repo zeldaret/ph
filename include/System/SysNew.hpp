@@ -25,4 +25,5 @@ public:
     static void operator delete[](void *ptr);
 };
 
+extern u32 *data_027e0ce0[];
 extern UnkStruct_0202e894 *data_027e0ce4;

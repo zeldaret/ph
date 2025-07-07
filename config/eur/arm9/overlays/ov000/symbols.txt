@@ -152,7 +152,7 @@ func_ov000_0207a2d8 kind:function(arm,size=0x10) addr:0x0207a2d8
 func_ov000_0207a2e8 kind:function(thumb,size=0x14) addr:0x0207a2e8
 func_ov000_0207a2fc kind:function(arm,size=0x4) addr:0x0207a2fc
 func_ov000_0207a300 kind:function(thumb,size=0x8c) addr:0x0207a300
-_ZN15SaveItemManagerC1Ev kind:function(thumb,size=0x56) addr:0x0207a38c
+_ZN13SaveInventory4InitEv kind:function(thumb,size=0x56) addr:0x0207a38c
 func_ov000_0207a3e4 kind:function(thumb,size=0x32) addr:0x0207a3e4
 func_ov000_0207a418 kind:function(thumb,size=0xbc) addr:0x0207a418
 func_ov000_0207a4d4 kind:function(thumb,size=0x1a) addr:0x0207a4d4
@@ -242,7 +242,7 @@ func_ov000_0207c0ac kind:function(thumb,size=0x20) addr:0x0207c0ac
 func_ov000_0207c0cc kind:function(thumb,size=0x24) addr:0x0207c0cc
 func_ov000_0207c0f0 kind:function(thumb,size=0x28) addr:0x0207c0f0
 func_ov000_0207c118 kind:function(thumb,size=0x58) addr:0x0207c118
-func_ov000_0207c170 kind:function(thumb,size=0x1e) addr:0x0207c170
+_ZN18UnkStruct_020ec7dc19func_ov000_0207c170Ev kind:function(thumb,size=0x1e) addr:0x0207c170
 func_ov000_0207c190 kind:function(thumb,size=0x1e) addr:0x0207c190
 func_ov000_0207c1b0 kind:function(arm,size=0x48) addr:0x0207c1b0
 func_ov000_0207c1f8 kind:function(arm,size=0x68) addr:0x0207c1f8
@@ -1644,10 +1644,10 @@ func_ov000_020a19c8 kind:function(arm,size=0x34) addr:0x020a19c8
 func_ov000_020a19fc kind:function(arm,size=0x10) addr:0x020a19fc
 func_ov000_020a1a0c kind:function(arm,size=0x18) addr:0x020a1a0c
 func_ov000_020a1a24 kind:function(arm,size=0x18) addr:0x020a1a24
-func_ov000_020a1a3c kind:function(arm,size=0x80) addr:0x020a1a3c
+_ZN18UnkStruct_027e0f8819func_ov000_020a1a3cEv kind:function(arm,size=0x80) addr:0x020a1a3c
 func_ov000_020a1abc kind:function(arm,size=0x68) addr:0x020a1abc
 func_ov000_020a1b24 kind:function(arm,size=0x30) addr:0x020a1b24
-func_ov000_020a1b54 kind:function(arm,size=0x114) addr:0x020a1b54
+_ZN21UnkStruct_027e0f88_0419func_ov000_020a1b54Eii kind:function(arm,size=0x114) addr:0x020a1b54
 func_ov000_020a1c68 kind:function(arm,size=0x8) addr:0x020a1c68
 func_ov000_020a1c70 kind:function(arm,size=0x1c) addr:0x020a1c70
 func_ov000_020a1c8c kind:function(arm,size=0xc) addr:0x020a1c8c
@@ -2127,10 +2127,10 @@ _ZNK11ItemManager16GetShipPartCountEjj kind:function(thumb,size=0xe) addr:0x020a
 _ZN11ItemManager16SetShipPartCountEjjc kind:function(thumb,size=0x18) addr:0x020ad900
 _ZNK11ItemManager16GetTreasureCountEj kind:function(thumb,size=0x8) addr:0x020ad918
 _ZN11ItemManager16SetTreasureCountEjc kind:function(thumb,size=0xe) addr:0x020ad920
-_ZNK11ItemManager10GetUnk_098Ej kind:function(thumb,size=0x8) addr:0x020ad930
-_ZNK11ItemManager10GetUnk_09eEj kind:function(thumb,size=0xa) addr:0x020ad938
-_ZNK11ItemManager18GetUnk_09e_DividedEj kind:function(thumb,size=0x28) addr:0x020ad944
-_ZN11ItemManager10SetUnk_09eEjt kind:function(thumb,size=0x34) addr:0x020ad96c
+_ZNK11ItemManager21GetCollectedFishCountEj kind:function(thumb,size=0x8) addr:0x020ad930
+_ZNK11ItemManager11GetFishSizeEj kind:function(thumb,size=0xa) addr:0x020ad938
+_ZNK11ItemManager19GetFishSize_DividedEj kind:function(thumb,size=0x28) addr:0x020ad944
+_ZN11ItemManager11SetFishSizeEjt kind:function(thumb,size=0x34) addr:0x020ad96c
 _ZNK11ItemManager10GetMaxAmmoEi kind:function(thumb,size=0x40) addr:0x020ad9a0
 _ZNK11ItemManager19GetMaxShipPartCountEv kind:function(thumb,size=0x4) addr:0x020ad9e0
 _ZNK11ItemManager19GetMaxTreasureCountEv kind:function(thumb,size=0x4) addr:0x020ad9e4
@@ -3572,8 +3572,8 @@ func_ov000_020d680c kind:function(arm,size=0x38) addr:0x020d680c
 func_ov000_020d6844 kind:function(arm,size=0x24) addr:0x020d6844
 func_ov000_020d6868 kind:function(arm,size=0x130) addr:0x020d6868
 func_ov000_020d6998 kind:function(arm,size=0x3c) addr:0x020d6998
-func_ov000_020d69d4 kind:function(arm,size=0x10) addr:0x020d69d4
-func_ov000_020d69e4 kind:function(arm,size=0x44) addr:0x020d69e4
+_ZN18UnkStruct_020ee82019func_ov000_020d69d4Ei kind:function(arm,size=0x10) addr:0x020d69d4
+_ZN18UnkStruct_020ee82019func_ov000_020d69e4Ev kind:function(arm,size=0x44) addr:0x020d69e4
 func_ov000_020d6a28 kind:function(arm,size=0x30) addr:0x020d6a28
 func_ov000_020d6a58 kind:function(arm,size=0x34) addr:0x020d6a58
 func_ov000_020d6a8c kind:function(arm,size=0x18) addr:0x020d6a8c
@@ -5980,7 +5980,6 @@ data_ov000_020ee6f8 kind:bss addr:0x020ee6f8
 data_ov000_020ee734 kind:bss addr:0x020ee734
 data_ov000_020ee800 kind:bss addr:0x020ee800
 data_ov000_020ee820 kind:bss addr:0x020ee820
-data_ov000_020ee824 kind:bss addr:0x020ee824
 data_ov000_020ee860 kind:bss addr:0x020ee860
 data_ov000_020eec60 kind:bss addr:0x020eec60
 data_ov000_020eec64 kind:bss addr:0x020eec64

@@ -7,7 +7,7 @@
 #include "System/SysNew.hpp"
 #include "global.h"
 
-extern "C" void func_0204f614(UnkClass_func_ov000_020d0644 *, unk32, unk32, void *, void *);
+extern "C" void __cxa_vec_ctor(void *, unk32, unk32, void *, void *);
 
 // non-matching
 ARM MsgProc_Type3::MsgProc_Type3(unk32 param_2, unk16 param_3, unk32 param_4) :
@@ -22,8 +22,10 @@ ARM MsgProc_Type3::MsgProc_Type3(unk32 param_2, unk16 param_3, unk32 param_4) :
     this->mUnk_172 = -1;
     this->mUnk_174 = -1;
 
-    func_0204f614(this->mUnk_180, ARRAY_LEN(this->mUnk_180), sizeof(UnkClass_func_ov000_020d0644),
-                  UnkClass_func_ov000_020d0644::func_020d060c, this->func_0203c83c);
+    //! TODO: move instructions above in an inlined ctor (create a dedicated class for it).
+    //! The call below will be automatically generated.
+    __cxa_vec_ctor(this->mUnk_180, ARRAY_LEN(this->mUnk_180), sizeof(UnkClass_func_ov000_020d0644),
+                   UnkClass_func_ov000_020d0644::func_020d060c, this->func_0203c83c);
 
     this->mUnk_180[0].func_ov000_020d0644(0x1E, 0, 0x8A, 0, 0);
     this->mUnk_180[1].func_ov000_020d0644(0x1E, 1, 0x8B, 0, 0);
