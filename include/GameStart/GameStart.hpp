@@ -18,9 +18,9 @@ public:
     /* 10 */ virtual void vfunc_10(u16 *param1) override;
     /* 14 */
 
-    static GameStart *Create(unk32 param1);
+    static GameStart *Create(GameModeId modeId);
 
-    GameStart(unk32 param1);
+    GameStart(GameModeId modeId);
 
-    void func_ov008_02112e88();
+    static void func_ov008_02112e88();
 };

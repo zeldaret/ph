@@ -460,14 +460,17 @@ ARM SaveItemManager::SaveItemManager() {
     this->Init();
     Fill256(0, this->unk_a8, sizeof(this->unk_a8));
     Fill16(0, this->unk_f0, sizeof(this->unk_f0));
-    ForEach(this->unk_f8, ARRAY_LEN(this->unk_f8), sizeof(SaveItemManager_f8), SaveItemManager_f8::func_ov008_021139dc,
-            SaveItemManager_f8::func_ov008_021139d8);
-    ForEach(this->unk_2f8, ARRAY_LEN(this->unk_2f8), sizeof(SaveItemManager_2f8), SaveItemManager_2f8::func_ov008_02113988,
-            SaveItemManager_2f8::func_ov008_02113984);
+    // __cxa_vec_ctor(this->unk_f8, ARRAY_LEN(this->unk_f8), sizeof(SaveItemManager_f8),
+    // SaveItemManager_f8::func_ov008_021139dc,
+    //         SaveItemManager_f8::func_ov008_021139d8);
+    // __cxa_vec_ctor(this->unk_2f8, ARRAY_LEN(this->unk_2f8), sizeof(SaveItemManager_2f8),
+    // SaveItemManager_2f8::func_ov008_02113988,
+    //         SaveItemManager_2f8::func_ov008_02113984);
     Fill32(0, this->unk_cac, sizeof(this->unk_cac));
     Fill32(0, this->unk_cac, sizeof(this->unk_cac));
-    ForEach(this->unk_d1c, ARRAY_LEN(this->unk_d1c), sizeof(SaveItemManager_d1c), SaveItemManager_d1c::func_ov008_02113968,
-            SaveItemManager_d1c::func_ov008_0211396c);
+    // __cxa_vec_ctor(this->unk_d1c, ARRAY_LEN(this->unk_d1c), sizeof(SaveItemManager_d1c),
+    // SaveItemManager_d1c::func_ov008_02113968,
+    //         SaveItemManager_d1c::func_ov008_0211396c);
     Fill32(0, this->unk_e9c, sizeof(this->unk_e9c));
     Fill32(0, this->unk_ea4, sizeof(this->unk_ea4));
     this->unk_cec.func_ov000_0207a3e4();

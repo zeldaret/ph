@@ -37,35 +37,6 @@ void func_02004b94();
 void func_02004c68();
 void func_020425e0();
 void func_ov000_0207a654(unk32 *);
-void func_0200a23c();
-void func_0200a318(u8 *);
-unk32 func_0200dd94();
-unk32 func_0200a284(u8 *);
-u16 func_ov001_020efdac();
-void *NewEXPH(char *id, s32 length, s32 param_3);
-unk32 func_ov000_020773c0();
-void func_020174a4(u32 *, void *);
-void func_0201f378();
-void func_0202019c(void *, const char *, u32 *, unk32);
-void func_020213f0(u32 *);
-void func_02021714(unk32, u32 *);
-void func_020209a4(unk32, u32 *);
-void func_0201f1ac(u32 *);
-void func_0201f96c(unk32, unk32);
-void Fill256(int value, int *dst, int size);
-void Fill32(unk32, u32 *, unk32);
-void Fill(unsigned char *dst, int value, int size);
-void func_0200afac();
-void func_0200b4dc(unk32);
-void func_0200aa20();
-void func_02015718();
-unk16 func_0200c76c();
-void func_020400f4(u16);
-void func_02040100(u16);
-unk32 func_02040528(unk32);
-unk32 func_020400c0();
-unk32 func_02040464(unk32, u16 *, unk32, unk32, unk32, unk32, unk32, unk32, unk32);
-void ForEach(void *, unk32, unk32, void *, void *);
 }
 
 extern unk8 data_020691a0;
@@ -77,12 +48,12 @@ extern u8 data_ov000_020d88b4[24];
 #define REG_DISPCNT_SUB (*(u32 *) 0x04001000)
 #define FRAME_COUNTER (*(u32 *) 0x027ffc3c)
 
-ARM GameStart *GameStart::Create(unk32 param1) {
-    return new(data_027e0ce0[1], 4) GameStart(param1);
+ARM GameStart *GameStart::Create(GameModeId modeId) {
+    return new(data_027e0ce0[1], 4) GameStart(modeId);
 }
 
-ARM GameStart::GameStart(unk32 param1) :
-    GameMode(param1) {
+ARM GameStart::GameStart(GameModeId modeId) :
+    GameMode(modeId) {
     unk32 *uVar1;
     unk32 local_14;
     unk32 local_18;
@@ -121,24 +92,24 @@ ARM GameStart::~GameStart() {
 ARM GameModeId GameStart::vfunc_08(bool param1) {
     GameModeId mode = GameModeId_Load;
 
-    if (gGame.mFadeControl.mState != 0) {
-        if (gGame.mFadeControl.mState != 1 && !param1) {
-            this->mUnk_008++;
-
-            if (this->mUnk_008 == 1) {
-                this->mUnk_00c = FRAME_COUNTER;
-            } else {
-                if (this->mUnk_008 == 2 && gGame.mPrevModeId == 1) {
-                    func_ov008_02112e88();
-                }
-
-                if (FRAME_COUNTER - this->mUnk_00c >= 60) {
-                    gGame.func_0202cec8(1, 0);
+    switch (gGame.mFadeControl.mState) {
+        case 1:
+            if (!param1) {
+                this->mUnk_008++;
+                if (this->mUnk_008 == 1) {
+                    this->mUnk_00c = FRAME_COUNTER;
+                } else {
+                    if (this->mUnk_008 == 2 && gGame.mPrevModeId == 1) {
+                        GameStart::func_ov008_02112e88();
+                    }
+                    if (FRAME_COUNTER - this->mUnk_00c >= 60) {
+                        gGame.func_0202cec8(1, 0);
+                    }
                 }
             }
-        }
-    } else {
-        mode = GameModeId_Adventure;
+            break;
+        case 0: mode = GameModeId_Adventure; break;
+        default: break;
     }
 
     return mode;
