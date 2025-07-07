@@ -41,5 +41,5 @@ data_ov008_02113b00 kind:data(any) addr:0x02113b00
 data_ov008_02113b04 kind:data(any) addr:0x02113b04
 data_ov008_02113b20 kind:data(any) addr:0x02113b20
 data_ov008_02113b2c kind:data(any) addr:0x02113b2c
-_ZTV9GameStart kind:data(any) addr:0x02113b44
+_ZTV9GameStart kind:data(any) addr:0x02113b3c
 data_ov008_02113b60 kind:data(any) addr:0x02113b60
