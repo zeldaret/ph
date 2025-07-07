@@ -38,6 +38,7 @@ from:0x02112e2c kind:arm_call to:0x02112ea8 module:overlay(8)
 from:0x02112e38 kind:arm_call to:0x021135f8 module:overlay(8)
 from:0x02112e40 kind:arm_call_thumb to:0x0207a5f4 module:overlay(0)
 from:0x02112e48 kind:load to:0x027e0900 module:dtcm
+from:0x02112e4c kind:overlay_id to:0 module:none
 from:0x02112e50 kind:load to:0x020ee6d4 module:overlay(0)
 from:0x02112e54 kind:load to:0x027e0d54 module:dtcm
 from:0x02112e58 kind:load to:0x027e0ce0 module:dtcm
