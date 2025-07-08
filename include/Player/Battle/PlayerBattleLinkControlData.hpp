@@ -26,7 +26,7 @@ public:
 
     /* 04 */ virtual ~PlayerBattleLinkControlData() override;
     /* 10 */ virtual unk32 GetCharacterId() override;
-    /* 14 */ virtual void vfunc_14(s32 param1) override;
+    /* 14 */ virtual u16 *vfunc_14(s32 param1) override;
     /* 18 */ virtual void vfunc_18() override;
     /* 20 */ virtual void vfunc_20() override;
     /* 2c */ virtual void vfunc_2c() override;

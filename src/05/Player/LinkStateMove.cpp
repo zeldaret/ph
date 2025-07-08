@@ -34,10 +34,11 @@ ARM void LinkStateMove::func_ov005_021113d0() {
     mUnk_12 = 10;
 }
 
-static q4 data_ov005_02112be4          = FLOAT_TO_Q20(16 / 15.0);
-static q20 data_ov005_02112be8         = FLOAT_TO_Q20(1 / 64.0);
-static q20 data_ov005_02112bec         = FLOAT_TO_Q20(1 / 3.0);
-static const Vec3p data_ov005_021123ac = {
+static q4 data_ov005_02112be4                       = FLOAT_TO_Q20(16 / 15.0);
+static q20 data_ov005_02112be8                      = FLOAT_TO_Q20(1 / 64.0);
+static q20 data_ov005_02112bec                      = FLOAT_TO_Q20(1 / 3.0);
+static LinkStateBase_UnkStruct1 data_ov005_021123ac = {
+    0,
     FLOAT_TO_Q20(0.0122),
     FLOAT_TO_Q20(1.0),
     FLOAT_TO_Q20(0.0),

@@ -3,7 +3,7 @@
 PlayerBattleLinkControlData::PlayerBattleLinkControlData() {}
 PlayerBattleLinkControlData::~PlayerBattleLinkControlData() {}
 void PlayerBattleLinkControlData::vfunc_18() {}
-void PlayerBattleLinkControlData::vfunc_14(s32 param1) {}
+u16 *PlayerBattleLinkControlData::vfunc_14(s32 param1) {}
 void PlayerBattleLinkControlData::vfunc_60(unk32 param1, unk32 param2, s32 param3) {}
 void PlayerBattleLinkControlData::vfunc_68(unk32 param1, unk32 param2) {}
 void PlayerBattleLinkControlData::vfunc_64(u32 param1) {}

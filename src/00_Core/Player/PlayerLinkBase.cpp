@@ -22,7 +22,7 @@ bool PlayerLinkBase::func_ov000_020bba28() {}
 void PlayerLinkBase::func_ov000_020bba48() {}
 bool PlayerLinkBase::vfunc_18(s32 param1) {}
 bool PlayerLinkBase::CanMove() {}
-bool PlayerLinkBase::vfunc_58() {}
+bool PlayerLinkBase::vfunc_58(unk32 param1, ActorRef *param2) {}
 bool PlayerLinkBase::vfunc_5c() {}
 bool PlayerLinkBase::vfunc_60() {}
 void PlayerLinkBase::vfunc_64() {}
@@ -66,7 +66,7 @@ void PlayerLinkBase::UpdateTilePos(Vec3p *param1, PlayerCharacter character) {}
 void PlayerLinkBase::func_ov000_020bc90c(Vec3p *param1, s32 param2) {}
 bool PlayerLinkBase::func_ov000_020bc960(unk32 param1, unk32 param2, unk32 param3) {}
 bool PlayerLinkBase::TeleportToLastEntrance(bool param1) {}
-bool PlayerLinkBase::TeleportToEntrance(unk32 entranceId, bool param2) {}
+bool PlayerLinkBase::TeleportToEntrance(Vec3p *pos, unk32 entranceId) {}
 bool PlayerLinkBase::Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5) {}
 void PlayerLinkBase::vfunc_74() {}
 bool PlayerLinkBase::GongoronCollidesWith(Cylinder *hitbox) {}

@@ -28,9 +28,8 @@ enum LinkStateId_ {
 
 struct LinkStateBase_UnkStruct1 {
     /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ Vec3p mUnk_08;
-    /* 14 */
+    /* 04 */ Vec3p mUnk_04;
+    /* 10 */
 };
 
 class LinkStateItem;

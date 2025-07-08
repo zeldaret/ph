@@ -567,7 +567,7 @@ void MapManager::func_ov00_02082b3c(unk32 *param_2, Vec2b *param_3) {
     {
         gAdventureFlags->func_ov00_020976c8();
         this->mUnk_0c = *(unk32 *) (param_2 + 0x13);
-        gPlayer->TeleportToEntrance(*(unk32 *) (param_2 + 0x13), false);
+        gPlayer->TeleportToEntrance((Vec3p *) (param_2 + 0x13), false);
         func_ov004_02106db8(data_027e0c68);
         this->mMap->vfunc_18();
     } else {

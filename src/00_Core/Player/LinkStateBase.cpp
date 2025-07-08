@@ -354,12 +354,12 @@ ARM void LinkStateBase::func_ov00_020a8844(Vec3p *param1, bool param2, bool para
     }
 }
 
+unk32 data_ov000_020e5670                    = 0x29;
 LinkStateBase_UnkStruct1 data_ov000_020e5674 = {
-    .mUnk_00   = 0x29,
-    .mUnk_04   = 0x27,
-    .mUnk_08.x = 0x1000,
-    .mUnk_08.y = 0,
-    .mUnk_08.z = 0x5000,
+    .mUnk_00   = 0x27,
+    .mUnk_04.x = 0x1000,
+    .mUnk_04.y = 0,
+    .mUnk_04.z = 0x5000,
 };
 unk32 data_ov000_020e5684[] = {1, 0x1333, 0, 0x3C000};
 unk32 data_ov000_020e5694[] = {0x1F, 0x1000, 0, 0x3C000};
