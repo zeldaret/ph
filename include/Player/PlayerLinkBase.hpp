@@ -61,7 +61,7 @@ public:
     /* 38 */ virtual bool TeleportToEntrance(Vec3p *pos, unk32 entranceId) override;
     /* 3c */ virtual bool TeleportToLastEntrance(bool param1) override;
     /* 50 */ virtual ~PlayerLinkBase() override;
-    /* 58 */ virtual bool vfunc_58();
+    /* 58 */ virtual bool vfunc_58(unk32 param1, ActorRef *param2);
     /* 5c */ virtual bool vfunc_5c();
     /* 60 */ virtual bool vfunc_60();
     /* 64 */ virtual void vfunc_64();
@@ -73,7 +73,7 @@ public:
     /* 7c */ virtual void vfunc_7c();
     /* 80 */ virtual void SetUnk_5e();
     /* 84 */ virtual void ResetUnk_5e();
-    /* 88 */ virtual void vfunc_88();
+    /* 88 */ virtual void vfunc_88(unk32 param_1);
 
     void UnequipPotion();
     void ChangeLinkState(s32 index);

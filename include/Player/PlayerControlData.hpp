@@ -5,6 +5,19 @@
 #include "types.h"
 
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_0202e1a0.hpp"
+
+class PlayerControlData_118 {
+public:
+    /* 00 */ unk32 mUnk_00;
+    /* 04 */ unk32 mUnk_04;
+    /* 08 */ unk32 mUnk_08;
+    /* 0c */ UnkStruct_0202e1a0 mUnk_0c;
+    /* 24 */
+
+    void func_ov000_020c0e24(unk32 param1);
+    unk32 func_ov000_020c0d68();
+};
 
 class PlayerControlData : public SysObject {
 public:
@@ -26,11 +39,11 @@ public:
     /* 040 */ unk8 mUnk_040[0xc0];
     /* 100 */ unk32 mUnk_100;
     /* 104 */ unk8 mUnk_104[0x14];
-    /* 118 */ unk32 mUnk_118;
+    /* 118 */ PlayerControlData_118 *mUnk_118;
     /* 11c */ unk8 mUnk_11c[4];
     /* 120 */ unk32 mUnk_120;
     /* 124 */ unk8 mUnk_124[0x14];
-    /* 138 */ unk32 mUnk_138;
+    /* 138 */ PlayerControlData_118 *mUnk_138;
     /* 13c */ unk8 mUnk_13c[4];
     /* 140 */ unk32 mUnk_140;
     /* 144 */ unk32 mUnk_144;
@@ -63,7 +76,7 @@ public:
     /* 04 */ virtual ~PlayerControlData();
     /* 0c */ virtual unk32 vfunc_0c();
     /* 10 */ virtual unk32 GetCharacterId()    = 0;
-    /* 14 */ virtual void vfunc_14(s32 param1) = 0;
+    /* 14 */ virtual u16 *vfunc_14(s32 param1) = 0;
     /* 18 */ virtual void vfunc_18();
     /* 1c */ virtual void vfunc_1c();
     /* 20 */ virtual void vfunc_20();
@@ -97,7 +110,7 @@ public:
     void func_ov000_020b44d4(s32 param1, u32 param2);
     void func_ov000_020b4558(s32 param1, u32 param2);
     void func_ov000_020b45e0();
-    void func_ov000_020b45f8(unk32 *param1, unk8 param2, unk8 param3);
+    void func_ov000_020b45f8(struct LinkStateBase_UnkStruct1 *param1, unk8 param2, unk8 param3);
     void func_ov000_020b464c(unk32 *param1, unk8 param2, unk8 param3);
     void func_ov000_020b484c(s32 param1, s32 param2, s32 param3);
     void func_ov000_020b4944(unk32 param1, u32 param2, s32 param3);

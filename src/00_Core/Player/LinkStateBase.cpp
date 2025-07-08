@@ -6,10 +6,16 @@
 #include "Player/LinkStateItem.hpp"
 #include "Player/PlayerControl.hpp"
 
+extern "C" bool func_01ffe468(unk32 param1, Vec3p *param2, s32 *param3, s32 *param4, bool param5);
 extern "C" void ApproachAngle_thunk(s16 *src, s16 dst, u32 param3);
 extern "C" void func_ov000_020b1a4c(Vec3p *, Vec3p *);
+extern "C" void func_ov000_020b1498(s32, s32, s16);
 extern "C" void func_ov000_0207c5d4(unk32 *, unk32, s32);
 extern unk32 *data_027e0e58;
+extern unk32 data_ov000_020e5650;
+extern LinkStateBase_UnkStruct1 data_ov000_020e5674;
+extern unk32 data_ov000_020dc510[];
+extern unk32 data_027e0fb0;
 
 THUMB void LinkStateBase::vfunc_00() {}
 
@@ -255,9 +261,8 @@ ARM void LinkStateBase::PlayerLinkBase_vfunc_74() {
     this->mLink->vfunc_74();
 }
 
-// non-matching
-ARM void LinkStateBase::PlayerLinkBase_vfunc_88() {
-    this->mLink->vfunc_88(); // fake?
+ARM void LinkStateBase::PlayerLinkBase_vfunc_88(unk32 param_1) {
+    this->mLink->vfunc_88(param_1); // fake?
 }
 
 ARM u16 LinkStateBase::Get_PlayerLinkBase_Unk48() {
@@ -293,48 +298,278 @@ ARM void LinkStateBase::PlayerLinkBase_func_ov00_020bccc8() {
     this->mLink->func_ov000_020bccc8();
 }
 
-ARM bool LinkStateBase::PlayerLinkBase_vfunc_58(unk32 param1, ActorRef *param2) {}
-ARM bool LinkStateBase::func_ov00_020a8704(s16 *pAngle) {}
+ARM bool LinkStateBase::PlayerLinkBase_vfunc_58(unk32 param1, ActorRef *param2) {
+    this->mLink->vfunc_58(param1, param2);
+}
+
+// non-matching
+ARM bool LinkStateBase::func_ov00_020a8704(s16 *pAngle) {
+    UnkStruct_027e0fd4 *iVar2;
+    UnkStruct_027e0fd4 *iVar3;
+
+    iVar2 = func_ov00_020a8d40();
+    iVar3 = func_ov00_020a8d40();
+
+    if (iVar3->mUnk_05c > 0 && (iVar3->mUnk_064 != 0 || iVar2->mUnk_06c != 0)) {
+        s16 uVar1  = Atan2(iVar2->mUnk_064, iVar2->mUnk_06c);
+        s16 *angle = GetPlayerAngle();
+
+        *pAngle = *angle - uVar1;
+        return true;
+    }
+
+    return false;
+}
+
+// non-matching
 ARM bool LinkStateBase::func_ov00_020a8774(Vec3p *param1, s32 angle) {}
-ARM void LinkStateBase::func_ov00_020a8844(Vec3p *param1, bool param2, bool param3) {}
-ARM void LinkStateBase::func_ov00_020a8954(bool param1, unk32 *param2) {}
-ARM void LinkStateBase::func_ov00_020a8994() {}
-ARM void LinkStateBase::func_ov00_020a89bc(LinkStateBase_UnkStruct1 *param1, unk32 param2) {}
-ARM void LinkStateBase::func_ov00_020a8a08(unk32 param1) {}
-ARM void LinkStateBase::func_ov00_020a8a4c(const void *param1, unk32 param2) {}
-ARM void LinkStateBase::func_ov00_020a8a90(unk32 param1) {}
-ARM void LinkStateBase::func_ov00_020a8ab0(unk32 param1) {}
-ARM void LinkStateBase::func_ov00_020a8ad0(unk32 param1) {}
-ARM void LinkStateBase::func_ov00_020a8b04(s32 param1, bool param2) {}
-ARM unk32 LinkStateBase::func_ov00_020a8b3c(s32 param1) {}
-ARM bool LinkStateBase::func_ov00_020a8b80() {}
-ARM bool LinkStateBase::HasFlags_PlayerLinkBase_Unk48(u16 flags) {}
-ARM unk8 LinkStateBase::Get_PlayerLinkBase_Unk5e() {}
-ARM unk32 LinkStateBase::Get_PlayerControlData_Unk004() {}
-ARM PlayerCharacter LinkStateBase::GetCurrentCharacter() {}
-ARM PlayerControlData *LinkStateBase::GetPlayerControlData() {}
-ARM LinkStateId LinkStateBase::GetStateId() {}
-ARM s32 LinkStateBase::GetHealth() {}
-ARM s32 LinkStateBase::GetCurrentCharacterHealth() {}
-ARM bool LinkStateBase::func_ov00_020a8c34() {}
-ARM Vec3p *LinkStateBase::GetPlayerPos() {}
-ARM Vec3p *LinkStateBase::GetPlayerVel() {}
-ARM unk8 *LinkStateBase::func_ov00_020a8c64() {}
-ARM s16 *LinkStateBase::GetPlayerAngle() {}
-ARM void *LinkStateBase::GetPlayer_Unk18() {}
-ARM s32 LinkStateBase::Get_PlayerControlData_Unk32() {}
-ARM Actor *LinkStateBase::GetGrabActor() {}
-ARM ActorRef *LinkStateBase::GetGrabActorRef() {}
-ARM unk32 LinkStateBase::Grab() {}
-ARM s32 LinkStateBase::Get_PlayerLinkBase_Unk44() {}
-ARM bool LinkStateBase::IsEquipBeingUsed(ItemFlag id) {}
-ARM EquipItem *LinkStateBase::GetEquipItem(ItemFlag id) {}
-ARM UnkStruct_027e0fd4 *LinkStateBase::func_ov00_020a8d40() {}
-ARM unk32 LinkStateBase::func_ov00_020a8d50() {}
-ARM unk32 LinkStateBase::func_ov00_020a8d6c() {}
-ARM s32 LinkStateBase::PlayerControlData_vfunc_14(s32 param1) {}
-ARM unk32 LinkStateBase::Get_PlayerControlData_Unk100() {}
-ARM unk32 LinkStateBase::Get_PlayerControlData_Unk120() {}
-ARM s32 LinkStateBase::Get_PlayerLinkBase_Unk38() {}
-ARM DebugHierarchy *LinkStateBase::GetDebugHierarchy0() {}
-ARM DebugHierarchy *LinkStateBase::GetDebugHierarchy1() {}
+
+// non-matching
+ARM void LinkStateBase::func_ov00_020a8844(Vec3p *param1, bool param2, bool param3) {
+    Vec3p uStack_1c;
+    s32 uStack_20;
+    s32 uStack_24;
+
+    if (gPlayerControl->mUnk_7d == false) {
+        return;
+    }
+
+    if (gGame.mUnk_101) {
+        return;
+    }
+
+    uStack_1c = *param1;
+
+    if (func_01ffe468(data_027e0f64->func_ov000_0208b180(), &uStack_1c, &uStack_20, &uStack_24, false)) {
+        return;
+    }
+
+    if (param2) {
+        func_ov000_020b1498(uStack_20, uStack_24, *GetPlayerAngle());
+    }
+
+    if (param3) {
+        func_ov000_020b1498(uStack_20, uStack_24, (*GetPlayerAngle() - 0x8000) * 0x10000 >> 0x10);
+    }
+}
+
+// non-matching
+ARM void LinkStateBase::func_ov00_020a8954(bool param1, unk32 *param2) {
+    if (param1) {
+        data_ov000_020e5650 = 0x29;
+    } else {
+        data_ov000_020e5650 = 0x27;
+    }
+
+    this->func_ov00_020a8a4c(&data_ov000_020e5674, 1);
+    *param2 = 0;
+}
+
+ARM void LinkStateBase::func_ov00_020a8994() {
+    this->ChangeLinkState(data_ov000_020dc510[this->func_ov00_020a8d40()->mUnk_05a]);
+}
+
+ARM void LinkStateBase::func_ov00_020a89bc(LinkStateBase_UnkStruct1 *param1, unk8 param2) {
+    UnkStruct_027e0fd4 *pUVar1 = this->func_ov00_020a8d40();
+
+    if (!(pUVar1->mUnk_05a != 1 && pUVar1->mUnk_05a != 2)) {
+        this->func_ov005_0211097c(param1, 1, param2);
+        return;
+    }
+
+    this->func_ov00_020a8a4c(param1, param2);
+}
+
+ARM void LinkStateBase::func_ov00_020a8a08(LinkStateBase_UnkStruct1 *param1) {
+    UnkStruct_027e0fd4 *pUVar1 = this->func_ov00_020a8d40();
+
+    if (!(pUVar1->mUnk_05a != 1 && pUVar1->mUnk_05a != 2)) {
+        this->func_ov005_0211097c(param1, 0, 1);
+        return;
+    }
+
+    this->func_ov00_020a8a90(param1);
+}
+
+ARM void LinkStateBase::func_ov00_020a8a4c(LinkStateBase_UnkStruct1 *param1, unk8 param2) {
+    PlayerControlData *pPVar1 = gPlayerControlData;
+
+    pPVar1->func_ov000_020b45f8(param1, 1, param2);
+
+    if (pPVar1->mUnk_118 != NULL) {
+        pPVar1->mUnk_118->mUnk_0c.mUnk_02 = 0;
+    }
+
+    if (pPVar1->mUnk_138 != NULL) {
+        pPVar1->mUnk_138->mUnk_0c.mUnk_02 = 0;
+    }
+}
+
+ARM void LinkStateBase::func_ov00_020a8a90(LinkStateBase_UnkStruct1 *param1) {
+    gPlayerControlData->func_ov000_020b45f8(param1, 0, 1);
+}
+
+ARM void LinkStateBase::func_ov00_020a8ab0(unk32 *param1) {
+    gPlayerControlData->func_ov000_020b464c(param1, 1, 1);
+}
+
+ARM void LinkStateBase::func_ov00_020a8ad0(unk32 param1) {
+    gPlayerControlData->mUnk_118->func_ov000_020c0e24(param1);
+    gPlayerControlData->mUnk_138->func_ov000_020c0e24(param1);
+}
+
+ARM void LinkStateBase::func_ov00_020a8b04(s32 param1, bool param2) {
+    PlayerControlData *pPlayerControlData = gPlayerControlData;
+
+    if (param2) {
+        pPlayerControlData->mUnk_118->mUnk_0c.func_0202e310(param1);
+    } else {
+        pPlayerControlData->mUnk_138->mUnk_0c.func_0202e310(param1);
+    }
+}
+
+ARM unk32 LinkStateBase::func_ov00_020a8b3c(s32 param1) {
+    PlayerControlData *pPlayerControlData = gPlayerControlData;
+    unk32 uVar2                           = 0;
+    PlayerControlData_118 *iVar3;
+
+    if (param1 != 0) {
+        iVar3 = pPlayerControlData->mUnk_118;
+    } else {
+        iVar3 = pPlayerControlData->mUnk_138;
+    }
+
+    if (iVar3->mUnk_0c.func_0202e58c() && !(iVar3->mUnk_0c.mUnk_02 & 5)) {
+        uVar2 = 1;
+    }
+
+    return uVar2;
+}
+
+ARM bool LinkStateBase::func_ov00_020a8b80() {
+    return data_027e0fd4->mUnk_0c6 >= 0;
+}
+
+ARM bool LinkStateBase::HasFlags_PlayerLinkBase_Unk48(u16 flags) {
+    return this->mLink->mUnk_48 & flags;
+}
+
+ARM u8 LinkStateBase::Get_PlayerLinkBase_Unk5e() {
+    return this->mLink->mUnk_5c[2];
+}
+
+ARM unk32 *LinkStateBase::Get_PlayerControlData_Unk004() {
+    return &gPlayerControlData->mUnk_004;
+}
+
+ARM PlayerCharacter LinkStateBase::GetCurrentCharacter() {
+    return this->mLink->GetCurrentCharacter();
+}
+
+ARM PlayerControlData *LinkStateBase::GetPlayerControlData() {
+    return gPlayerControlData;
+}
+
+ARM LinkStateId LinkStateBase::GetStateId() {
+    return this->mLink->GetStateId();
+}
+
+ARM s32 LinkStateBase::GetHealth() {
+    return this->mLink->mHealth;
+}
+
+ARM s32 LinkStateBase::GetCurrentCharacterHealth() {
+    PlayerLinkBase *pLink = this->mLink;
+
+    pLink->GetHealth(pLink->GetCurrentCharacter());
+}
+
+ARM bool LinkStateBase::func_ov00_020a8c34(unk32 param1, Vec3p *param2, unk32 param3) {
+    return data_027e0fd4->func_ov000_020b5268(param1, param2, param3);
+}
+
+ARM Vec3p *LinkStateBase::GetPlayerPos() {
+    return &gPlayerPos;
+}
+
+ARM Vec3p *LinkStateBase::GetPlayerVel() {
+    return &gPlayerVel;
+}
+
+ARM UnkStruct_027e0fd4_90 *LinkStateBase::func_ov00_020a8c64() {
+    return &data_027e0fd4->mUnk_090;
+}
+
+ARM s16 *LinkStateBase::GetPlayerAngle() {
+    return &gPlayerAngle;
+}
+
+ARM unk32 *LinkStateBase::GetPlayer_Unk18() {
+    return &data_027e0fb0;
+}
+
+ARM s32 LinkStateBase::Get_PlayerControlData_Unk32() {
+    return gPlayerControlData->mUnk_032;
+}
+
+ARM Actor *LinkStateBase::GetGrabActor() {
+    return gActorManager->GetActor(&this->mLink->mGrabActor);
+}
+
+ARM ActorRef *LinkStateBase::GetGrabActorRef() {
+    return &this->mLink->mGrabActor;
+}
+
+ARM unk32 LinkStateBase::Grab() {
+    return this->mLink->Grab();
+}
+
+ARM s32 *LinkStateBase::Get_PlayerLinkBase_Unk44() {
+    return &this->mLink->mUnk_44;
+}
+
+ARM bool LinkStateBase::IsEquipBeingUsed(ItemFlag id) {
+    EquipItem *pEquipItem = gItemManager->GetEquipItem(id);
+    return pEquipItem != NULL && pEquipItem->IsInUse();
+}
+
+ARM EquipItem *LinkStateBase::GetEquipItem(ItemFlag id) {
+    return gItemManager->GetEquipItem(id);
+}
+
+ARM UnkStruct_027e0fd4 *LinkStateBase::func_ov00_020a8d40() {
+    return data_027e0fd4;
+}
+
+ARM unk32 LinkStateBase::func_ov00_020a8d50() {
+    return gPlayerControlData->mUnk_138->func_ov000_020c0d68();
+}
+
+ARM unk32 LinkStateBase::func_ov00_020a8d6c() {
+    return gPlayerControlData->mUnk_118->func_ov000_020c0d68();
+}
+
+ARM s32 LinkStateBase::PlayerControlData_vfunc_14(s32 param1) {
+    u16 *iVar1 = gPlayerControlData->vfunc_14(param1);
+    return iVar1 != 0 ? iVar1[2] << 12 : 0x1000;
+}
+
+ARM unk32 LinkStateBase::Get_PlayerControlData_Unk100() {
+    return gPlayerControlData->mUnk_100;
+}
+
+ARM unk32 LinkStateBase::Get_PlayerControlData_Unk120() {
+    return gPlayerControlData->mUnk_120;
+}
+
+ARM s32 *LinkStateBase::Get_PlayerLinkBase_Unk38() {
+    return &this->mLink->mUnk_38;
+}
+
+ARM DebugHierarchy *LinkStateBase::GetDebugHierarchy0() {
+    return this->mLink->mDebugHierarchy_0;
+}
+
+ARM DebugHierarchy *LinkStateBase::GetDebugHierarchy1() {
+    return this->mLink->mDebugHierarchy_1;
+}
