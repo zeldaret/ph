@@ -86,7 +86,7 @@ public:
     /* 64 */ virtual void vfunc_64(u32 param1);
     /* 68 */ virtual void vfunc_68(unk32 param1, unk32 param2);
     /* 6c */ virtual void vfunc_6c(s32 param1, Vec3p *param2);
-    /* 70 */ virtual void vfunc_70(s32 param1);
+    /* 70 */ virtual void vfunc_70(s32 param1, Vec3p *param2);
     /* 74 */ virtual unk32 vfunc_74(s32 param1);
     /* 78 */ virtual unk32 vfunc_78(s32 param1);
     /* 7c */ virtual unk32 vfunc_7c();

@@ -37,7 +37,7 @@ public:
     /* 2c */ virtual void vfunc_2c(s32 param1, unk8 param2)               = 0;
     /* 30 */ virtual bool vfunc_30(s32 param1, Vec3p *param2, s32 param3) = 0;
     /* 34 */ virtual bool Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5);
-    /* 38 */ virtual bool TeleportToEntrance(unk32 entranceId, bool param2);
+    /* 38 */ virtual bool TeleportToEntrance(Vec3p *pos, unk32 entranceId);
     /* 3c */ virtual bool TeleportToLastEntrance(bool param1);
     /* 40 */ virtual void AddHealth(s16 amount);
     /* 44 */ virtual void vfunc_44() = 0;
@@ -64,4 +64,4 @@ public:
 extern PlayerBase *gPlayer;
 extern Vec3p gPlayerPos;
 extern Vec3p gPlayerVel;
-extern u16 gPlayerAngle;
+extern s16 gPlayerAngle;

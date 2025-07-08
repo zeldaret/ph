@@ -28,7 +28,7 @@ void PlayerControlData::vfunc_40(u16 *param1, Vec3p *param2, unk32 param3, char 
 void PlayerControlData::vfunc_44(unk32 param1, unk32 *param2, unk32 param3, unk16 param4) {}
 void PlayerControlData::vfunc_48(unk32 param1, unk32 param2, unk32 param3, s16 param4) {}
 void PlayerControlData::vfunc_4c(unk32 param1, Vec3p *param2) {}
-void PlayerControlData::vfunc_70(s32 param1) {}
+void PlayerControlData::vfunc_70(s32 param1, Vec3p *param2) {}
 void PlayerControlData::vfunc_50() {}
 void PlayerControlData::vfunc_54() {}
 void PlayerControlData::vfunc_58() {}

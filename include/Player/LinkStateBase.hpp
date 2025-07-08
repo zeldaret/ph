@@ -6,6 +6,7 @@
 
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
+#include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
 #include "Debug/DebugHierarchy.hpp"
 #include "Player/EquipItem.hpp"
@@ -64,7 +65,7 @@ public:
     void ChangeLinkSubState(LinkStateId id, s32 subState);
     void EquipItem_vfunc_28();
     void UpdateSwordShieldInUse();
-    void func_ov00_020a81b8(unk32 param1, unk32 param2);
+    void func_ov00_020a81b8(unk32 param1, s32 *param2);
     LinkStateItem *GetLinkItemState();
     void LookAt(Vec3p *target);
     void func_ov00_020a81fc(Vec3p *param1, unk32 param2);
@@ -75,16 +76,16 @@ public:
     void func_ov00_020a8294(s32 param1, u32 param2);
     void func_ov00_020a82ac();
     void ApplyImpulse(s32 angle, s32 power);
-    void func_ov00_020a8360(unk32 param1);
-    void func_ov00_020a8390(unk32 param1, void *param2);
-    void func_ov00_020a84bc(s32 param1);
-    void func_ov00_020a8508();
+    void func_ov00_020a8360(ActorTypeId type);
+    Actor *func_ov00_020a8390(ActorTypeId type, Actor_UnkStruct_020 *param2);
+    void func_ov00_020a84bc(bool isVisible);
+    void func_ov00_020a8508(unk32 param_1);
     void func_ov00_020a853c(Vec3p *param1);
-    void Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5);
-    void PlayerBase_vfunc_38(Vec3p *pos);
+    void Teleport(Vec3p *pos, s16 angle, unk32 param3, unk32 param4, unk32 param5);
+    void TeleportToEntrance(Vec3p *pos);
     void PlayerLinkBase_vfunc_74();
     void PlayerLinkBase_vfunc_88();
-    unk16 Get_PlayerLinkBase_Unk48();
+    u16 Get_PlayerLinkBase_Unk48();
     bool func_ov00_020a8638(unk32 param1);
     void Clear_PlayerLinkBase_Unk48(u16 flags);
     void func_ov00_020a8680(unk32 param1, unk16 param2, bool param3);
@@ -157,6 +158,8 @@ public:
     bool func_ov005_0211139c();
     bool func_ov005_021113b4();
     void func_ov005_021113c4(bool param1);
+
+    void func_ov023_02177ba0(Vec3p *param_1);
 };
 
 LinkStateBase *GetLinkState(LinkStateId index);

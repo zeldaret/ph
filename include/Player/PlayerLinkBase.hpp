@@ -29,7 +29,7 @@ public:
     /* 38 */ s32 mUnk_38;
     /* 3c */ ActorRef mGrabActor;
     /* 44 */ s32 mUnk_44;
-    /* 48 */ unk16 mUnk_48;
+    /* 48 */ u16 mUnk_48;
     /* 4a */ unk16 mUnk_4a;
     /* 4c */ unk32 mUnk_4c;
     /* 50 */ unk32 mUnk_50;
@@ -58,7 +58,7 @@ public:
     /* 2c */ virtual void vfunc_2c(s32 param1, unk8 param2) override;
     /* 30 */ virtual bool vfunc_30(s32 param1, Vec3p *param2, s32 param3) override;
     /* 34 */ virtual bool Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5) override;
-    /* 38 */ virtual bool TeleportToEntrance(unk32 entranceId, bool param2) override;
+    /* 38 */ virtual bool TeleportToEntrance(Vec3p *pos, unk32 entranceId) override;
     /* 3c */ virtual bool TeleportToLastEntrance(bool param1) override;
     /* 50 */ virtual ~PlayerLinkBase() override;
     /* 58 */ virtual bool vfunc_58();
@@ -73,7 +73,7 @@ public:
     /* 7c */ virtual void vfunc_7c();
     /* 80 */ virtual void SetUnk_5e();
     /* 84 */ virtual void ResetUnk_5e();
-    /* 88 */
+    /* 88 */ virtual void vfunc_88();
 
     void UnequipPotion();
     void ChangeLinkState(s32 index);
@@ -114,7 +114,7 @@ public:
     void func_ov000_020bc398(unk32 param1, s32 param2);
     PlayerCharacter GetCurrentCharacter();
     s32 GetHealth(PlayerCharacter character);
-    void AddHealth(s16 amount, PlayerCharacter character);
+    void AddHealth2(s16 amount, PlayerCharacter character);
     void func_ov000_020bc4ac();
     s32 GetStateId();
     s32 func_ov000_020bc520(Vec3p *param1);
@@ -125,7 +125,7 @@ public:
     unk32 func_ov000_020bc84c();
     void func_ov000_020bc854(Vec3p *param1);
     void UpdateTilePos(Vec3p *param1, PlayerCharacter character);
-    void func_ov000_020bc90c(unk32 *param1, s32 param2);
+    void func_ov000_020bc90c(Vec3p *param1, s32 param2);
     bool func_ov000_020bc960(unk32 param1, unk32 param2, unk32 param3);
     bool GongoronCollidesWith(Cylinder *hitbox);
     bool func_ov000_020bcc78();
@@ -148,7 +148,7 @@ public:
     bool func_ov000_020bd304();
     bool func_ov000_020bd318();
     void SetPlayerCharacter(PlayerCharacter character);
-    bool func_ov000_020bd3b0(unk32 param1, unk32 param2, unk32 param3, unk16 param4);
+    bool func_ov000_020bd3b0(unk32 param1, ActorRef *param2, unk32 param3, unk16 param4);
     void SetPosition(Vec3p *position);
     void SetAngle(s16 *angle);
     bool func_ov000_020bd510(s32 param1, unk32 *param2);
