@@ -30,7 +30,6 @@ typedef s16 q4;
 u32 func_01ff9f3c(s32 a, s32 b);
 s32 Atan2(s32 x, s32 y);
 
-u32 SoftDivide(u32 a, u32 b);
 u32 CoDivide64By32(u32 a, u32 b);
 u32 func_01ff98f0(u32 a, u32 b);
 u32 CoReciprocal(u32 x);
