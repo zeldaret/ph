@@ -13,9 +13,10 @@ extern "C" void func_ov000_020b1498(s32, s32, s16);
 extern "C" void func_ov000_0207c5d4(unk32 *, unk32, s32);
 extern unk32 *data_027e0e58;
 extern unk32 data_ov000_020e5650;
-extern LinkStateBase_UnkStruct1 data_ov000_020e5674;
 extern unk32 data_ov000_020dc510[];
 extern unk32 data_027e0fb0;
+
+char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
 THUMB void LinkStateBase::vfunc_00() {}
 
@@ -352,6 +353,16 @@ ARM void LinkStateBase::func_ov00_020a8844(Vec3p *param1, bool param2, bool para
         func_ov000_020b1498(uStack_20, uStack_24, (*GetPlayerAngle() - 0x8000) * 0x10000 >> 0x10);
     }
 }
+
+LinkStateBase_UnkStruct1 data_ov000_020e5674 = {
+    .mUnk_00   = 0x29,
+    .mUnk_04   = 0x27,
+    .mUnk_08.x = 0x1000,
+    .mUnk_08.y = 0,
+    .mUnk_08.z = 0x5000,
+};
+unk32 data_ov000_020e5684[] = {1, 0x1333, 0, 0x3C000};
+unk32 data_ov000_020e5694[] = {0x1F, 0x1000, 0, 0x3C000};
 
 // non-matching
 ARM void LinkStateBase::func_ov00_020a8954(bool param1, unk32 *param2) {
