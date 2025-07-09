@@ -6,7 +6,7 @@
 // astruct_11
 struct UnkStruct_0202e1a0 {
     /* 00 */ unk16 mUnk_00;
-    /* 02 */ unk16 mUnk_02;
+    /* 02 */ u16 mUnk_02;
     /* 04 */ s32 mUnk_04;
     /* 08 */ u32 mUnk_08;
     /* 0c */ s32 mUnk_0c;
