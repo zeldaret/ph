@@ -13,10 +13,13 @@ extern "C" void func_ov000_020b1498(s32, s32, s16);
 extern "C" void func_ov000_0207c5d4(unk32 *, unk32, s32);
 extern unk32 *data_027e0e58;
 extern unk32 data_ov000_020e5650;
-extern unk32 data_ov000_020dc510[];
 extern unk32 data_027e0fb0;
 
 char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
+
+const LinkStateId data_ov000_020dc510[] = {
+    LinkStateId_Move, LinkStateId_Follow, LinkStateId_Move, LinkStateId_Move, LinkStateId_Move, LinkStateId_Move,
+};
 
 THUMB void LinkStateBase::vfunc_00() {}
 
