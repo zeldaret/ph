@@ -1921,7 +1921,7 @@ _ZN13LinkStateBase18func_ov00_020a8774EP5Vec3pi kind:function(arm,size=0xd0) add
 _ZN13LinkStateBase18func_ov00_020a8844EP5Vec3pbb kind:function(arm,size=0x110) addr:0x020a87e4
 _ZN13LinkStateBase18func_ov00_020a8954EbPi kind:function(arm,size=0x40) addr:0x020a88f4
 _ZN13LinkStateBase18func_ov00_020a8994Ev kind:function(arm,size=0x28) addr:0x020a8934
-_ZN13LinkStateBase18func_ov00_020a89bcEP24LinkStateBase_UnkStruct1i kind:function(arm,size=0x4c) addr:0x020a895c
+_ZN13LinkStateBase18func_ov00_020a89bcEP24LinkStateBase_UnkStruct1c kind:function(arm,size=0x4c) addr:0x020a895c
 _ZN13LinkStateBase18func_ov00_020a8a08EP24LinkStateBase_UnkStruct1 kind:function(arm,size=0x44) addr:0x020a89a8
 _ZN13LinkStateBase18func_ov00_020a8a4cEP24LinkStateBase_UnkStruct1c kind:function(arm,size=0x44) addr:0x020a89ec
 _ZN13LinkStateBase18func_ov00_020a8a90EP24LinkStateBase_UnkStruct1 kind:function(arm,size=0x20) addr:0x020a8a30
@@ -4718,8 +4718,9 @@ data_ov000_020e5640 kind:data(any) addr:0x020e55e0
 data_ov000_020e5644 kind:data(any) addr:0x020e55e4
 data_ov000_020e5648 kind:data(any) addr:0x020e55e8
 data_ov000_020e564c kind:data(any) addr:0x020e55ec
-data_ov000_020e5650 kind:data(any) addr:0x020e55f0
-data_ov000_020e5674 kind:data(any) addr:0x020e5614
+gShipParts kind:data(any) addr:0x020e55f0
+data_ov000_020e5670$2102 kind:data(any) addr:0x020e5610
+data_ov000_020e5674$2103 kind:data(any) addr:0x020e5614
 data_ov000_020e5684 kind:data(any) addr:0x020e5624
 data_ov000_020e5694 kind:data(any) addr:0x020e5634
 _ZTV13LinkStateBase kind:data(any) addr:0x020e5644

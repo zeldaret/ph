@@ -12,12 +12,11 @@ extern "C" void func_ov000_020b1a4c(Vec3p *, Vec3p *);
 extern "C" void func_ov000_020b1498(s32, s32, s16);
 extern "C" void func_ov000_0207c5d4(unk32 *, unk32, s32);
 extern unk32 *data_027e0e58;
-extern unk32 data_ov000_020e5650;
 extern unk32 data_027e0fb0;
 
-char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
+static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
-const LinkStateId data_ov000_020dc510[] = {
+static const LinkStateId data_ov000_020dc510[] = {
     LinkStateId_Move, LinkStateId_Follow, LinkStateId_Move, LinkStateId_Move, LinkStateId_Move, LinkStateId_Move,
 };
 
@@ -357,27 +356,27 @@ ARM void LinkStateBase::func_ov00_020a8844(Vec3p *param1, bool param2, bool para
     }
 }
 
-unk32 data_ov000_020e5670                    = 0x29;
-LinkStateBase_UnkStruct1 data_ov000_020e5674 = {
-    .mUnk_00   = 0x27,
-    .mUnk_04.x = 0x1000,
-    .mUnk_04.y = 0,
-    .mUnk_04.z = 0x5000,
-};
-unk32 data_ov000_020e5684[] = {1, 0x1333, 0, 0x3C000};
-unk32 data_ov000_020e5694[] = {0x1F, 0x1000, 0, 0x3C000};
-
-// non-matching
 ARM void LinkStateBase::func_ov00_020a8954(bool param1, unk32 *param2) {
+    static unk32 data_ov000_020e5670                    = 0x29;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5674 = {
+        .mUnk_00   = 0x27,
+        .mUnk_04.x = FLOAT_TO_Q20(1.0),
+        .mUnk_04.y = FLOAT_TO_Q20(0.0),
+        .mUnk_04.z = FLOAT_TO_Q20(5.0),
+    };
+
     if (param1) {
-        data_ov000_020e5650 = 0x29;
+        data_ov000_020e5670 = 0x29;
     } else {
-        data_ov000_020e5650 = 0x27;
+        data_ov000_020e5670 = 0x27;
     }
 
     this->func_ov00_020a8a4c(&data_ov000_020e5674, 1);
     *param2 = 0;
 }
+
+unk32 data_ov000_020e5684[] = {1, 0x1333, 0, 0x3C000};
+unk32 data_ov000_020e5694[] = {0x1F, 0x1000, 0, 0x3C000};
 
 ARM void LinkStateBase::func_ov00_020a8994() {
     this->ChangeLinkState(data_ov000_020dc510[this->func_ov00_020a8d40()->mUnk_05a]);
