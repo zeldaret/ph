@@ -4722,7 +4722,7 @@ data_ov000_020e5650 kind:data(any) addr:0x020e55f0
 data_ov000_020e5674 kind:data(any) addr:0x020e5614
 data_ov000_020e5684 kind:data(any) addr:0x020e5624
 data_ov000_020e5694 kind:data(any) addr:0x020e5634
-_ZTV13LinkStateBase kind:data(any) addr:0x020e564c
+_ZTV13LinkStateBase kind:data(any) addr:0x020e5644
 _ZN13LinkStateMove19data_ov000_020e56f0E kind:data(any) addr:0x020e5690
 data_ov000_020e56f4$1005 kind:data(any) addr:0x020e5694 local
 _ZTV13LinkStateMove kind:data(any) addr:0x020e5698
