@@ -195,7 +195,7 @@ THUMB bool Game::StartGameMode() {
     data_027e077c.Init(0);
     Fill16(0, &data_027e0d04, 6);
     func_02033d40(&data_027e0c38);
-    data_027e05f8.Init();
+    data_027e05f8 = UnkStruct_027e05f8();
     if (gOverlayManager.mLoadedOverlays[0] != OverlayId_None) {
         func_ov000_0207c0f0(&data_ov000_020ec7dc, mModeId);
         gTouchControl.Init();
