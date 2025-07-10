@@ -108,15 +108,20 @@ struct FlagsUnk {
     ~FlagsUnk();
 };
 
+struct FlagsData {
+    /* 00 */ unk32 data[16];
+    /* 40 */
+};
+
 class AdventureFlags : public SysObject {
 public:
-    /* 00 */ unk32 mFlags[16];
+    /* 00 */ FlagsData mFlags;
     /* 40 */ CutsceneHandler *mCutsceneHandler;
     /* 44 */ void *mUnk_44;
     /* 48 */
 
     static bool Exists();
-    void CopyTo(unk32 *flags);
+    void CopyTo(FlagsData *flags);
     void func_ov00_02097674();
     s32 func_ov00_02097684(unk32 param1, unk32 param2, void **param3);
     void Load();

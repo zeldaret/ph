@@ -7,7 +7,9 @@ ARM bool AdventureFlags::Exists() {
     return gAdventureFlags != NULL;
 }
 
-ARM void AdventureFlags::CopyTo(unk32 *flags) {}
+ARM void AdventureFlags::CopyTo(FlagsData *flags) {
+    *flags = this->mFlags;
+}
 
 ARM void AdventureFlags::func_ov00_02097674() {
     this->mCutsceneHandler->func_ov000_020980f8();
