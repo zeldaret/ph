@@ -22,7 +22,7 @@ public:
     /* 0x00 */ u8 mUnk_00[2];
     /* 0x02 */ u8 mUnk_02;
     /* 0x03 */ u8 mUnk_03;
-    /* 0x04 */ u8 mUnk_04; // halts actors and hides the item menu
+    /* 0x04 */ bool mUnk_04; // halts actors and hides the item menu
     /* 0x05 */ u8 mUnk_05;
     /* 0x06 */ unk16 mUnk_06;
     /* 0x08 */ UnkStruct_020397f8 *mUnk_08;
