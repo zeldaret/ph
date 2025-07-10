@@ -96,18 +96,16 @@ struct FlagsUnk {
     /* 38 */ unk32 mUnk_38;
     /* 3c */ unk16 mUnk_3c;
     /* 3e */ unk16 mUnk_3e;
-    /* 40 */ unk16 mUnk_40;
-    /* 42 */ unk16 mUnk_42;
+    /* 40 */ u16 mUnk_40;
+    /* 42 */ u16 mUnk_42;
     /* 44 */ unk32 mUnk_44;
-    /* 48 */ unk8 mUnk_48;
-    /* 49 */ unk8 mUnk_49;
-    /* 4a */ unk8 mUnk_4a;
+    /* 48 */ u8 mUnk_48;
+    /* 49 */ u8 mUnk_49;
+    /* 4a */ u8 mUnk_4a;
     /* 4b */ unk8 mUnk_4b;
     /* 4c */
 
     ~FlagsUnk();
-
-    void func_ov000_020980f8();
 };
 
 class AdventureFlags : public SysObject {
@@ -120,7 +118,7 @@ public:
     static bool Exists();
     void CopyTo(unk32 *flags);
     void func_ov00_02097674();
-    s32 func_ov00_02097684();
+    s32 func_ov00_02097684(unk32 param1, unk32 param2, void **param3);
     void Load();
     void func_ov00_020976c8();
     void func_ov00_02097700();
