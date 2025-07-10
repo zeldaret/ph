@@ -4,16 +4,14 @@
 #include "types.h"
 
 struct UnkStruct_027e077c {
-private:
+public:
     /* 0 */ unk32 mUnk_0;
     /* 4 */ unk32 mUnk_4;
-
-public:
     /* 8 */ unk16 mUnk_8;
     /* a */ unk8 mUnk_a;
     /* b */
 
-    UnkStruct_027e077c(unk32 param1);
+    void Init(unk32 param1);
     bool func_0202e740(unk32 param1);
 
     inline volatile unk32 GetUnk0() const {
