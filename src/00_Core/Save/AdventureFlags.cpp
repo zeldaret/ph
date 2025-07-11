@@ -74,7 +74,7 @@ ARM void AdventureFlags::Set(AdventureFlag flag, bool value) {
     }
 }
 
-ARM void AdventureFlags::func_Ov00_02097810(s32 param1) {}
+ARM void AdventureFlags::func_ov00_02097810(s32 param1, astruct_23 *param2) {}
 
 // non-matching
 ARM unk32 AdventureFlags::func_ov00_02097968(unk32 param1) {
