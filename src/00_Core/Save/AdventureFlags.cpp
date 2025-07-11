@@ -7,6 +7,7 @@
 extern unk32 data_027e0dbc;
 extern "C" void func_ov000_0207ba94(unk32 *, u32);
 extern "C" void *func_ov040_021834cc();
+extern "C" void *func_ov035_02183200();
 
 extern FlagsUnk data_ov000_020e310c[];
 extern FlagsData data_ov000_020eaac4;
@@ -75,6 +76,7 @@ ARM void AdventureFlags::Set(AdventureFlag flag, bool value) {
 
 ARM void AdventureFlags::func_Ov00_02097810(s32 param1) {}
 
+// non-matching
 ARM unk32 AdventureFlags::func_ov00_02097968(unk32 param1) {
     if (this->Get_FlagsUnk_30_Flag(param1)) {
         return -1;
@@ -265,12 +267,69 @@ ARM void *AdventureFlags::func_ov00_02097f8c() {
     return NULL;
 }
 
-ARM void *AdventureFlags::func_ov00_02097fac() {}
-ARM void *AdventureFlags::func_ov00_02097fd0() {}
-ARM void AdventureFlags::func_ov00_02097ff4(bool param1, bool param2) {}
-ARM unk32 AdventureFlags::func_ov00_02098058() {}
-ARM bool AdventureFlags::func_ov00_02098064(unk32 param1) {}
-ARM bool AdventureFlags::func_ov00_02098074(unk32 param1, unk16 param2, unk32 param3, unk32 param4, bool param5) {}
-ARM bool AdventureFlags::func_ov00_0209809c() {}
-ARM bool AdventureFlags::func_ov00_020980ac() {}
-ARM void AdventureFlags::func_ov00_020980bc(s32 param1) {}
+// non-matching
+ARM void *AdventureFlags::func_ov00_02097fac() {
+    void *piVar1 = this->func_ov00_02097f8c();
+
+    if (piVar1 != NULL) {
+        return func_ov035_02183200();
+    }
+
+    return NULL;
+}
+
+// non-matching
+ARM void *AdventureFlags::func_ov00_02097fd0() {
+    this->func_ov00_02097c08();
+    this->func_ov00_02097fac();
+}
+
+// non-matching
+ARM void AdventureFlags::func_ov00_02097ff4(bool param1, bool param2) {
+    u8 pAVar1;
+    u32 uVar2;
+
+    if (param1) {
+        if (param2) {
+            pAVar1 = data_027e0c54;
+        }
+
+        data_027e0db0.func_ov000_0207b2f0(0, pAVar1);
+    } else {
+        data_027e0db0.func_ov000_0207b334(0);
+    }
+
+    uVar2 = this->mCutsceneHandler->mFlags2;
+
+    if (param1) {
+        uVar2 |= 2;
+    } else {
+        uVar2 &= ~2;
+    }
+
+    this->mCutsceneHandler->mFlags2 = uVar2;
+}
+
+ARM unk32 AdventureFlags::func_ov00_02098058() {
+    return this->mCutsceneHandler->mCutsceneTimer1;
+}
+
+ARM bool AdventureFlags::func_ov00_02098064(unk32 param1) {
+    return this->mCutsceneHandler->func_ov000_02098694(param1);
+}
+
+ARM bool AdventureFlags::func_ov00_02098074(unk32 param1, unk16 param2, unk32 param3, unk32 param4, bool param5) {
+    return this->mCutsceneHandler->func_ov000_020987c4(param1, param2, param3, param4, param5);
+}
+
+ARM bool AdventureFlags::func_ov00_0209809c() {
+    return this->mCutsceneHandler->func_ov000_02098834();
+}
+
+ARM bool AdventureFlags::func_ov00_020980ac() {
+    return this->mCutsceneHandler->func_ov000_02098860();
+}
+
+ARM void AdventureFlags::func_ov00_020980bc(s32 param1) {
+    this->mCutsceneHandler->mFreeze += param1;
+}
