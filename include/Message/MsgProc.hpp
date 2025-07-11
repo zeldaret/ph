@@ -93,6 +93,8 @@ struct Struct_027e0db0 {
     /* 0x04 */ unk32 mUnk_04;
 
     void func_ov000_0207b288(GameModeId modeId);
+    void func_ov000_0207b2f0(unk32 param_1, bool param_2);
+    void func_ov000_0207b334(unk32 param_1);
 };
 extern Struct_027e0db0 data_027e0db0;
 
