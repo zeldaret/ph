@@ -40,7 +40,7 @@ public:
     /* 0x4C */
 
     static void func_0203643c(u32 *param_1, MessageManager *param_2, u32 param_3);
-    void func_02036490(unk32 param_2, unk32 param_3, unk32 param_4);
+    void func_02036490();
     void func_0203665c(void);
     MessageManager();
     ~MessageManager();

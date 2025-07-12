@@ -1,5 +1,6 @@
 #include "Unknown/UnkStruct_0203dae0.hpp"
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_02075dac.hpp"
 
 extern u32 *data_027e0ce0[];
 extern "C" void Fill256(unk32, unk16 *, unk32, unk32);
@@ -9,12 +10,6 @@ extern "C" void func_020298b8(unk32 *, unk32, unk32, unk32, unk32);
 extern "C" void func_02029830(unk32 *, unk32, unk32, unk32, unk32);
 extern "C" unk32 func_0203d400(u8);
 extern "C" void func_02035440(u8);
-
-class UnkStruct_02075dac {
-public:
-    unk32 func_0203f9b8(void *);
-};
-extern UnkStruct_02075dac data_02075dac;
 
 // non-matching
 THUMB UnkStruct_0203dae0::UnkStruct_0203dae0(u8 param1) {

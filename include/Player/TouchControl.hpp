@@ -37,7 +37,7 @@ public:
     /* 34 */ TouchFlags mFlags;
     /* 36 */
 
-    TouchControl();
+    void Init();
     void IncreaseSpeed(s16 increase);
     void UpdateFlags(u16 speed);
     void UpdateWithStateFlags(TouchStateFlags *state, u16 speed);
