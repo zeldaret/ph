@@ -22,6 +22,8 @@ struct UnkStruct_027e0c68 {
     /* 2c */ unk8 mUnk_2c[0x1c];
     /* 48 */ DebugHierarchyBase *mDebug;
     /* 4c */
+
+    void func_ov004_02106db8();
 };
 
 extern UnkStruct_027e0c68 data_027e0c68;

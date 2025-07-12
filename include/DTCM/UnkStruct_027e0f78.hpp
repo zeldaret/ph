@@ -10,6 +10,8 @@ struct UnkStruct_027e0f78 {
     /* 1c */ u16 mUnk_1c;
     /* 1e */ u16 mUnk_1e;
     /* 20 */
+
+    void func_ov004_02102e3c();
 };
 
 extern UnkStruct_027e0f78 *data_027e0f78;
