@@ -101,7 +101,7 @@ bool MapBase::func_ov00_020809b8(s32 param_2) {}
 unk8 MapBase::func_ov00_02080a78(Vec3p *param_2) {}
 void MapBase_Unk2::func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param_3) {}
 unk8 MapBase::func_ov00_02080b24(Vec2b *param_2) {}
-void MapBase::func_ov00_02080d08(unk32 param_2) {}
+void MapBase::func_ov00_02080d08(Vec2b *param_2) {}
 void MapBase::vfunc_bc() {}
 void MapBase::vfunc_98(unk32 param_2, unk32 param_3, unk32 param_4) {}
 void MapBase::vfunc_c0() {}

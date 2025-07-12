@@ -228,7 +228,7 @@ public:
     bool func_ov00_020809b8(s32 param_2);
     unk8 func_ov00_02080a78(Vec3p *param_2);
     unk8 func_ov00_02080b24(Vec2b *param_2);
-    void func_ov00_02080d08(unk32 param_2);
+    void func_ov00_02080d08(Vec2b *param_2);
     bool TriggerOfType_vfunc_10(unk32 type);
     void func_ov00_02080de4();
     unk8 func_ov00_02080de8(unk32 param_2);
