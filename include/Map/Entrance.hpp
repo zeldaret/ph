@@ -12,8 +12,8 @@ public:
     /* 00 */ Vec3p mPos;
     /* 0c */ unk16 mAngle;
     /* 0e */ u8 mId;
-    /* 0f */ u8 mUnk_0f;
-    /* 10 */ u8 mUnk_10;
-    /* 11 */ u8 mUnk_11;
+    /* 0f */ unk32 mUnk_0f;
+    /* 10 */ // u8 mUnk_10;
+    /* 11 */ // u8 mUnk_11;
     /* 14 */
 };
