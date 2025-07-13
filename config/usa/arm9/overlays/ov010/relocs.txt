@@ -16,7 +16,7 @@ from:0x02112c7c kind:thumb_call_arm to:0x02032a70 module:main
 from:0x02112c80 kind:thumb_call_arm to:0x020329ac module:main
 from:0x02112c90 kind:thumb_call_arm to:0x02032a70 module:main
 from:0x02112c96 kind:thumb_call_arm to:0x020d86b8 module:overlay(0)
-from:0x02112ca0 kind:load to:0x020575d4 module:main
+from:0x02112ca0 kind:load to:0x020575cc add:8 module:main
 from:0x02112ca4 kind:load to:0x0211e9e8 module:overlay(10)
 from:0x02112ca8 kind:load to:0x027e0618 module:dtcm
 from:0x02112cac kind:load to:0x027e0ce0 module:dtcm

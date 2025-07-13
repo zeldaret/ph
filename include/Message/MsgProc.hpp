@@ -1,9 +1,13 @@
 #pragma once
 
+#include "nds/math.h"
+
+#include "DTCM/UnkStruct_027e077c.hpp"
+#include "Game/Game.hpp"
 #include "Message/BMG.hpp"
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 #include "Unknown/func_ov000_020d0644.hpp"
-#include "nds/math.h"
 
 // temp
 #define UNK_TYPE void
@@ -88,20 +92,16 @@ extern char *data_02057ed8; // "MSP:opening.nclr"
 struct Struct_027e0db0 {
     /* 0x00 */ unk32 mUnk_00;
     /* 0x04 */ unk32 mUnk_04;
+
+    void func_ov000_0207b288(GameModeId modeId);
 };
 extern Struct_027e0db0 data_027e0db0;
 
-// see Actor.cpp
-struct UnkStruct2 {
-    /* 0 */ u32 mUnk_0;
-    /* 4 */ u32 mUnk_4;
-    /* 8 */
-};
-extern UnkStruct2 data_027e077c;
-extern u8 data_02056be4[];
-
 class UnkClass_027e0cbc {
 public:
+    void func_0203d57c();
+    void func_0203d5c0();
+    void func_0203d6d0();
     unk32 func_0203d7e0(unk32);
     unk32 func_0203d77c(unk32, s32, s32);
 };
@@ -120,11 +120,13 @@ extern struct TouchControl gTouchControl;
 class UnkClass_027e0e28 {
 public:
     unk32 func_ov000_0207bc48();
+    void func_ov000_0207bc9c();
 };
 extern UnkClass_027e0e28 *data_027e0e28;
 extern u8 data_027e0c54;
 extern unk32 *data_ov009_0211f5b4;
 extern "C" unk32 func_ov003_020f3f94(unk32 *);
+extern "C" void func_ov003_020f4060(unk32 **);
 extern unk32 *data_02057ed4;
 
 // see Actor.cpp
@@ -161,15 +163,12 @@ public:
 
     void func_ov003_020f4874(void);
     void func_ov003_020f4760(u8, unk32);
+    unk32 func_ov003_020f4960(void);
+    void func_ov003_020f4a5c(void);
+    void func_ov003_02f46f8(void);
+    void func_ov003_020f4678(unk32);
 };
-extern UnkClass_027e1054 data_027e1054;
-
-class UnkClass_ov000_020eec9c {
-public:
-    void func_ov000_020d77e4(unk32);
-    unk32 func_ov000_020d7f18(unk32);
-};
-extern UnkClass_ov000_020eec9c data_ov000_020eec9c;
+extern UnkClass_027e1054 *data_027e1054;
 
 class UnkClass_ov000_027e0d04 {
 public:

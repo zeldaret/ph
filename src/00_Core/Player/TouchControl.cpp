@@ -1,8 +1,7 @@
 #include "Player/TouchControl.hpp"
 #include "global.h"
 
-//! TODO: Replace with header file
-extern "C" void Fill16(int value, unsigned short *dst, int size);
+void TouchControl::Init() {}
 
 TouchControl gTouchControl;
 

@@ -1,28 +1,8 @@
 #include "System/OverlayManager.hpp"
+#include "Game/Game.hpp"
+#include "Unknown/UnkStruct_020ee698.hpp"
 #include "global.h"
 #include "nds/overlay.h"
-
-struct UnkStruct_020ee698 {
-    /* 00 */ unk8 mUnk_00[0x2C];
-    /* 2c */ unk32 mUnk_2c;
-    /* 30 */
-};
-extern UnkStruct_020ee698 data_ov000_020ee698;
-
-struct GameModeData {
-    /* 00 */ unk8 mUnk_00;
-    /* 01 */ unk8 mUnk_01;
-    /* 02 */ unk8 mUnk_02;
-    /* 03 */ unk8 mUnk_03;
-    /* 04 */ OverlayId slot1Overlay;
-    /* 08 */ OverlayId slot2Overlay;
-    /* 0c */ OverlayId slot3Overlay;
-    /* 10 */ OverlayId slot12Overlay;
-    /* 14 */ void *mUnk_14;
-    /* 18 */ void *mUnk_18;
-    /* 1c */
-};
-extern GameModeData gGameModes[];
 
 extern u32 *data_027e0ce0[];
 extern "C" void func_ov007_02102850(u32 **);
@@ -54,7 +34,7 @@ THUMB void OverlayManager::Unload(OverlayIndex index) {
 
 THUMB void OverlayManager::LoadGameMode(s32 mode) {
     OverlayId overlayId;
-    GameModeData *pSetup;
+    const GameModeData *pSetup;
 
     pSetup = &gGameModes[mode];
 
@@ -66,7 +46,7 @@ THUMB void OverlayManager::LoadGameMode(s32 mode) {
     } else {
         overlayId = pSetup->slot12Overlay;
 
-        if (mode == 6 && data_ov000_020ee698.mUnk_2c == 2) {
+        if (mode == 6 && data_ov000_020ee698.mUnk_0c.mUnk_2c == 2) {
             overlayId = OverlayId_61;
         }
 
@@ -79,7 +59,7 @@ THUMB void OverlayManager::UnloadGameMode() {
     this->Unload(OverlayIndex_12);
     this->Unload(OverlayIndex_3);
 
-    if (this->mLoadedOverlays[2] == OverlayId_07) {
+    if (this->mLoadedOverlays[2] == OverlayId_DownloadPlay) {
         func_ov007_021028a0(data_027e0ce0);
         this->Unload(OverlayIndex_2);
     }

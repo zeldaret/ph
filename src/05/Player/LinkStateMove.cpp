@@ -1,5 +1,6 @@
 #include "Player/LinkStateMove.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
+#include "Game/Game.hpp"
 #include "Player/LinkStateDamage.hpp"
 #include "Player/LinkStateFollow.hpp"
 #include "Player/LinkStateInteract.hpp"
@@ -50,7 +51,6 @@ static Vec3p data_ov005_02112bf0 = {
 static const volatile q20 data_ov005_021123b8 = FLOAT_TO_Q20(15.0);
 
 extern LinkStateFollow *GetLinkStateFollow();
-extern unk32 data_027e0618;
 extern "C" bool Lerp(s32 *pValue, s32 dest, s32 factor, unk32 param4, u32 step);
 extern unk32 data_027e0ffc;
 extern "C" void func_ov000_020ceacc(unk32 *param1, unk32 param2, Vec3p *param3, unk32 param4);
@@ -101,7 +101,7 @@ ARM void LinkStateMove::vfunc_1c() {
             this->EquipItem_vfunc_28();
         }
     }
-    if (data_027e0618 != 6) {
+    if (gGame.mModeId != GameModeId_Battle) {
         s32 temp_r7_2 = gPlayerControl->func_ov00_020b0418();
         if ((this->func_ov00_020a8f2c() == 0) && (temp_r7_2 > 0)) {
             mUnk_0c = temp_r7_2;

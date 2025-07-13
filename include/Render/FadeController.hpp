@@ -31,3 +31,5 @@ struct FadeController {
     void ProcessFade(s32 param1);
     void SetScreenBrightness(s32 param1);
 };
+
+extern FadeController gFadeController;

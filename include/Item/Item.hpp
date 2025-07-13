@@ -296,6 +296,17 @@ enum Potion_ {
     Potion_COUNT,
 };
 
+typedef u8 FishType;
+enum FishType_ {
+    FishType_SkippyJack,
+    FishType_Toona,
+    FishType_Loovar,
+    FishType_RustySwordfish,
+    FishType_Neptoona,
+    FishType_Stowfish,
+    FishType_COUNT
+};
+
 struct ItemFlags {
     /* 00 */ u32 flags[CEIL_DIV(ItemFlag_COUNT, 32)];
     /* 10 */
