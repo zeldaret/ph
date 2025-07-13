@@ -2,6 +2,7 @@
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
+#include "Game/Game.hpp"
 #include "Item/ItemModelLoader.hpp"
 #include "Map/MapManager.hpp"
 #include "Player/PlayerLinkBase.hpp"
@@ -188,9 +189,8 @@ ARM void ItemManager::Shield_vfunc_38(unk32 param1) {
     (*mEquipItems)[ItemFlag_WoodenShield]->vfunc_38(param1);
 }
 
-extern unk32 data_027e0618;
 ARM void ItemManager::EquipItem_vfunc_38(unk32 param1) {
-    if (data_027e0618 != 6) {
+    if (gGame.mModeId != GameModeId_Battle) {
         this->Sword_vfunc_38(param1);
         this->Shield_vfunc_38(param1);
     }
