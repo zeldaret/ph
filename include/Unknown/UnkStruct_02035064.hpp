@@ -36,7 +36,7 @@ public:
     /* 74 */ u16 *mUnk_74;
     /* 78 */ s32 *mUnk_78;
     /* 7c */ u32 mUnk_7c;
-    /* 80 */ u16 mUnk_80;
+    /* 80 */ s16 mUnk_80;
     /* 82 */ unk16 mUnk_82;
     /* 84 */ unk16 mUnk_84;
     /* 86 */ bool mUnk_86;

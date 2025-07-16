@@ -3,9 +3,10 @@ IndentWidth: 4
 ColumnLimit: 127
 
 AllowShortFunctionsOnASingleLine: Empty
-AllowShortIfStatementsOnASingleLine: WithoutElse
-AllowShortCaseLabelsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
+InsertBraces: true
 
 IndentCaseLabels: true
 IndentExternBlock: NoIndent
@@ -15,7 +16,7 @@ IndentAccessModifiers: false
 AccessModifierOffset: -4
 
 AlignConsecutiveAssignments: Consecutive
-AlignEscapedNewlines: DontAlign
+AlignEscapedNewlines: LeftWithLastLine
 AlignTrailingComments: Leave
 
 BreakConstructorInitializers: AfterColon
@@ -26,7 +27,8 @@ SpaceAfterCStyleCast: true
 SpaceBeforeParens: Custom
 SpaceBeforeParensOptions:
   AfterPlacementOperator: false
+  AfterControlStatements: true
 
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterControlStatement: MultiLine
+  AfterControlStatement: Never

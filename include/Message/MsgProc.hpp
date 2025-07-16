@@ -6,6 +6,7 @@
 #include "Game/Game.hpp"
 #include "Message/BMG.hpp"
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 #include "Unknown/func_ov000_020d0644.hpp"
 
 // temp
@@ -168,13 +169,6 @@ public:
     void func_ov003_020f4678(unk32);
 };
 extern UnkClass_027e1054 *data_027e1054;
-
-class UnkClass_ov000_020eec9c {
-public:
-    void func_ov000_020d77e4(unk32);
-    unk32 func_ov000_020d7f18(unk32);
-};
-extern UnkClass_ov000_020eec9c data_ov000_020eec9c;
 
 class UnkClass_ov000_027e0d04 {
 public:

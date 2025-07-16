@@ -7,7 +7,7 @@
 #define BMG_MAGIC "MESGbmg1"
 #define BMG_GET_INF1(pGroups, flags) ((pGroups)->entries[(flags) >> 0x10].func_02037258((flags) & 0xFFFF))
 #define BMG_GET_MSG_OFFSET(pGroups, flags) (BMG_GET_INF1((pGroups), (flags))->offset)
-#define BMG_GET_MSG_ADDR(pGroups, flags) \
+#define BMG_GET_MSG_ADDR(pGroups, flags)                                                              \
     ((u32) (pGroups)->entries[(flags) >> 0x10].pDAT1 + (BMG_GET_MSG_OFFSET((pGroups), (flags)) & ~1))
 
 enum BMGTag {

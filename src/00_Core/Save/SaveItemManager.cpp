@@ -1,3 +1,3 @@
 #include "Save/SaveItemManager.hpp"
 
-SaveItemManager::SaveItemManager() {}
+void SaveInventory::Init() {}

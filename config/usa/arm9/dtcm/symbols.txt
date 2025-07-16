@@ -66,7 +66,7 @@ data_027e05f4 kind:bss addr:0x027e05f4
 data_027e05f8 kind:bss addr:0x027e05f8
 data_027e0600 kind:bss addr:0x027e0600
 data_027e060c kind:bss addr:0x027e060c
-data_027e0618 kind:bss addr:0x027e0618
+gGame kind:bss addr:0x027e0618
 data_027e0698 kind:bss addr:0x027e0698
 data_027e06d8 kind:bss addr:0x027e06d8
 data_027e06e4 kind:bss addr:0x027e06e4

@@ -3,3 +3,10 @@
     .data       start:0x02113a80 end:0x02113b00 kind:data align:32
     .bss        start:0x02113b00 end:0x02113b00 kind:bss align:32
 
+src/08_GameStart/GameStart.cpp:
+    .text   start:0x02112ba0 end:0x02112e60
+    .data   start:0x02113a80 end:0x02113ae0
+
+src/08_GameStart/Init.cpp:
+    .text   start:0x02112e60 end:0x02113a74
+    .data   start:0x02113ae0 end:0x02113b00

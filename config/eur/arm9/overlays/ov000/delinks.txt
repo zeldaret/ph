@@ -28,6 +28,7 @@ src/00_Core/Actor/Dungeon/ActorSwitchObject.cpp:
     .sbss       start:0x020ecd64 end:0x020ecd84
 
 src/00_Core/Actor/Dungeon/ActorEventIcon.cpp:
+    complete
     .text       start:0x020904f4 end:0x020908f8
     .init       start:0x020df6f8 end:0x020df738
     .ctor       start:0x020e1ecc end:0x020e1ed0
