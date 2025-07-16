@@ -74,7 +74,8 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
     if ((s32) uVar7 <= 0) {
         switch (uVar7) {
             case 0x0:
-            case 0x2f: break;
+            case 0x2f:
+                break;
             case 0x7:
                 if (data_027e0d54[0xd] != 0) {
                     return -0x1;
@@ -117,12 +118,18 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
                 }
 
                 return uVar10;
-            case 0x4: return gAdventureFlags->Get(param1 + 0x4) != false;
-            case 0x5: return gActorManager->func_ov00_020c3b2c(NULL) != 0;
-            case 0x6: break;
-            case 0x8: return (((data_027e0cb4[(param1 + 0x4) >> 5]) & 1) << ((param1 + 0x4) & 0x1f)) == 0x0;
-            case 0x9: break;
-            case 0xa: break;
+            case 0x4:
+                return gAdventureFlags->Get(param1 + 0x4) != false;
+            case 0x5:
+                return gActorManager->func_ov00_020c3b2c(NULL) != 0;
+            case 0x6:
+                break;
+            case 0x8:
+                return (((data_027e0cb4[(param1 + 0x4) >> 5]) & 1) << ((param1 + 0x4) & 0x1f)) == 0x0;
+            case 0x9:
+                break;
+            case 0xa:
+                break;
             case 0xb:
                 lVar2  = gRandom.mRandomValue * gRandom.mFactor;
                 uVar7  = lVar2;
@@ -143,8 +150,10 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
                     }
                 }
                 return (int) (char) uVar10;
-            case 0xd: return gItemManager->GetNumRupees() != 0;
-            case 0xe: return gItemManager->HasItem(param1 + 0x4) != 0;
+            case 0xd:
+                return gItemManager->GetNumRupees() != 0;
+            case 0xe:
+                return gItemManager->HasItem(param1 + 0x4) != 0;
             default:
                 if (uVar7 == 0x2f) {
                     return gItemManager->HasItem((param1 + 0x4) + 0x60) != 0;

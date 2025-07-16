@@ -123,7 +123,8 @@ ARM void ActorRefill::vfunc_14(u32 param1) {
                     temp_r0_3 = mUnk_130;
                     switch (temp_r0_3) {
                         case 0:
-                        case 3: break;
+                        case 3:
+                            break;
                         case 1:
                             if (this->func_ov00_020c2c0c()) {
                                 this->func_ov014_02135364(4);
@@ -172,13 +173,16 @@ ARM bool ActorRefill::func_ov014_02135364(unk32 param1) {
     mActiveFrames = 0;
     switch (mUnk_130) {
         case 0:
-        case 2: break;
+        case 2:
+            break;
         case 1:
             mVel.x = 0;
             mVel.y = 0;
             mVel.z = 0;
             break;
-        case 3: this->Kill(); break;
+        case 3:
+            this->Kill();
+            break;
     }
     return true;
 }
@@ -268,9 +272,15 @@ ARM bool ActorRefillTime::Init() {
         return false;
     }
     switch (mUnk_020.mUnk_00[0]) {
-        case 2: mUnk_158 = 5; break;
-        case 4: mUnk_158 = 15; break;
-        case 5: mUnk_158 = 30; break;
+        case 2:
+            mUnk_158 = 5;
+            break;
+        case 4:
+            mUnk_158 = 15;
+            break;
+        case 5:
+            mUnk_158 = 30;
+            break;
         default:
         case 0:
         case 1:
@@ -286,9 +296,15 @@ ARM bool ActorRefillTime::Init() {
             break;
     }
     switch (mUnk_158) {
-        case 15: mUnk_15c = 0x45; break;
-        case 30: mUnk_15c = 0x46; break;
-        default: mUnk_15c = 0x44; break;
+        case 15:
+            mUnk_15c = 0x45;
+            break;
+        case 30:
+            mUnk_15c = 0x46;
+            break;
+        default:
+            mUnk_15c = 0x44;
+            break;
     }
     return true;
 }
@@ -310,9 +326,15 @@ ARM bool ActorLSTM::Init() {
         return false;
     }
     switch (mUnk_020.mUnk_00[0]) {
-        case 2: mUnk_158 = -5; break;
-        case 4: mUnk_158 = -15; break;
-        case 5: mUnk_158 = -30; break;
+        case 2:
+            mUnk_158 = -5;
+            break;
+        case 4:
+            mUnk_158 = -15;
+            break;
+        case 5:
+            mUnk_158 = -30;
+            break;
         default:
         case 0:
         case 1:
@@ -328,9 +350,15 @@ ARM bool ActorLSTM::Init() {
             break;
     }
     switch (mUnk_158) {
-        case -15: mUnk_15c = 0x48; break;
-        case -30: mUnk_15c = 0x49; break;
-        default: mUnk_15c = 0x47; break;
+        case -15:
+            mUnk_15c = 0x48;
+            break;
+        case -30:
+            mUnk_15c = 0x49;
+            break;
+        default:
+            mUnk_15c = 0x47;
+            break;
     }
     return true;
 }

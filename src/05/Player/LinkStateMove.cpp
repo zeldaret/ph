@@ -96,8 +96,7 @@ ARM void LinkStateMove::vfunc_1c() {
         this->UpdateSwordShieldInUse();
     } else {
         if ((temp_r0 == 3) || (temp_r0 == 4) || (temp_r0 == 5) || (temp_r7 == 3) || (temp_r7 == 4) || (temp_r7 == 5) ||
-            (temp_r7 == 9) || ((temp_r7 - 0xD) <= 1U))
-        {
+            (temp_r7 == 9) || ((temp_r7 - 0xD) <= 1U)) {
             this->EquipItem_vfunc_28();
         }
     }
@@ -209,8 +208,7 @@ ARM void LinkStateMove::vfunc_1c() {
 
 ARM bool LinkStateMove::vfunc_3c() {
     if ((gPlayerControl->GetFollowActor() == NULL) && (gPlayerControl->mFollowObject == NULL) &&
-        (this->Get_PlayerControlData_Unk120() != 2) && (this->Get_PlayerControlData_Unk120() != 3))
-    {
+        (this->Get_PlayerControlData_Unk120() != 2) && (this->Get_PlayerControlData_Unk120() != 3)) {
         return true;
     }
     return false;

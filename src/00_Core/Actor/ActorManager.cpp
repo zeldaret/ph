@@ -47,7 +47,9 @@ ARM void ActorManager::DeleteActor(u32 index, bool param2) {
 
 ARM void ActorManager::func_ov00_020c3484(ActorRef *ref, ActorManager *actorMgr, unk32 param3) {
     ref->Reset();
-    if (data_027e103c->mUnk_24 == 0) return;
+    if (data_027e103c->mUnk_24 == 0) {
+        return;
+    }
 
     q20 minDistance       = 0x7fffffff;
     Actor **actorIter     = actorMgr->mActorTable;
@@ -153,13 +155,19 @@ ARM Actor *ActorManager::GetActor(ActorRef *ref) {
 }
 
 ARM bool FilterActor::Filter(Actor *actor) {
-    if (mType != actor->mType) return false;
-    if (mUnk_08 != -1 && mUnk_08 != actor->mUnk_034.id) return false;
+    if (mType != actor->mType) {
+        return false;
+    }
+    if (mUnk_08 != -1 && mUnk_08 != actor->mUnk_034.id) {
+        return false;
+    }
     if (mExcludeRefs != NULL) {
         for (s32 i = 0; mExcludeRefs[i].id != -1; ++i) {
             ActorRef *ref          = &mExcludeRefs[i];
             volatile Actor *actor2 = actor;
-            if (ref->id == actor2->mRef.id) return false;
+            if (ref->id == actor2->mRef.id) {
+                return false;
+            }
         }
     }
     if (mExcludeNotInAABB) {
@@ -168,7 +176,9 @@ ARM bool FilterActor::Filter(Actor *actor) {
         pos.y       = actor->mPos.y;
         pos.z       = actor->mPos.z;
         bool result = !mAABB.ContainsInXZ(&pos);
-        if (result) return false;
+        if (result) {
+            return false;
+        }
     }
     if (mExcludeNotInSphere) {
         Vec3p pos;
@@ -176,14 +186,18 @@ ARM bool FilterActor::Filter(Actor *actor) {
         pos.y       = actor->mPos.y;
         pos.z       = actor->mPos.z;
         bool result = !mSphere.ContainsInXZ(&pos);
-        if (result) return false;
+        if (result) {
+            return false;
+        }
     }
     return true;
 }
 
 ARM s32 ActorManager::FilterActors(FilterActorBase *filter, ActorList *filteredActors) {
     s32 numApplied = 0;
-    if (filteredActors != NULL) filteredActors->length = 0;
+    if (filteredActors != NULL) {
+        filteredActors->length = 0;
+    }
 
     Actor **actorIter     = mActorTable;
     Actor **actorTableEnd = actorIter + mMaxActorIndex;
@@ -247,7 +261,9 @@ ARM void ActorManager::func_ov00_020c399c(u32 index, Cylinder *cylinder) {
 }
 
 ARM Actor *ActorManager::func_ov00_020c39ac(s32 index, const ActorTypeId *actorTypes, bool param3) {
-    if (actorTypes == NULL && param3) return NULL;
+    if (actorTypes == NULL && param3) {
+        return NULL;
+    }
 
     Actor *actor  = mActorTable[index];
     Actor *result = NULL;
@@ -277,7 +293,9 @@ ARM Actor *ActorManager::func_ov00_020c39ac(s32 index, const ActorTypeId *actorT
                         otherActor3->mHitbox.pos.z = oldHitbox.pos.z;
                         otherActor3->mHitbox.size  = oldHitbox.size;
 
-                        if (result != NULL) break;
+                        if (result != NULL) {
+                            break;
+                        }
                     }
                 }
             }
@@ -288,7 +306,9 @@ ARM Actor *ActorManager::func_ov00_020c39ac(s32 index, const ActorTypeId *actorT
 }
 
 ARM s32 ActorManager::func_ov00_020c3b2c(s32 *param1) {
-    if (param1 != NULL) *param1 = 0;
+    if (param1 != NULL) {
+        *param1 = 0;
+    }
 
     s32 i;
     s32 numAlive = 0;
@@ -309,11 +329,15 @@ ARM s32 ActorManager::func_ov00_020c3b2c(s32 *param1) {
 }
 
 ARM s32 ActorManager::func_ov00_020c3bb0(unk32 param1, s32 *param2) {
-    if (param2 != NULL) *param2 = 0;
+    if (param2 != NULL) {
+        *param2 = 0;
+    }
 
     AABB boxes[8];
     s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN_U(boxes));
-    if (numBoxes <= 0) return 0;
+    if (numBoxes <= 0) {
+        return 0;
+    }
 
     s32 i;
     s32 numInBox = 0;
@@ -350,7 +374,9 @@ ARM s32 ActorManager::func_ov00_020c3bb0(unk32 param1, s32 *param2) {
 ARM void ActorManager::func_ov00_020c3ce8(unk32 param1, bool param2) {
     AABB boxes[8];
     s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN_U(boxes));
-    if (numBoxes <= 0) return;
+    if (numBoxes <= 0) {
+        return;
+    }
 
     s32 i;
     Actor **actorIter = mActorTable;

@@ -19,8 +19,10 @@ ARM LinkStateId LinkStateItem::GetId() {
 
 ARM s32 LinkStateItem::IsHammerEquipped() {
     switch (this->mEquipId) {
-        case ItemFlag_Hammer: return 0;
-        default: return -1;
+        case ItemFlag_Hammer:
+            return 0;
+        default:
+            return -1;
     }
 }
 
@@ -40,20 +42,32 @@ ARM void LinkStateItem::OnStateLeave(s32 param1) {
             }
             data_027e1098->func_ov014_0211fd04();
             break;
-        case ItemFlag_OshusSword: break;
-        case ItemFlag_WoodenShield: break;
-        case ItemFlag_Boomerang: break;
-        case ItemFlag_BombBag: this->StopUsingBomb(param1); break;
-        case ItemFlag_Bow: break;
-        case ItemFlag_GrapplingHook: this->StopUsingRope(); break;
-        case ItemFlag_Hammer: this->StopUsingHammer(); break;
+        case ItemFlag_OshusSword:
+            break;
+        case ItemFlag_WoodenShield:
+            break;
+        case ItemFlag_Boomerang:
+            break;
+        case ItemFlag_BombBag:
+            this->StopUsingBomb(param1);
+            break;
+        case ItemFlag_Bow:
+            break;
+        case ItemFlag_GrapplingHook:
+            this->StopUsingRope();
+            break;
+        case ItemFlag_Hammer:
+            this->StopUsingHammer();
+            break;
         case ItemFlag_PotionA:
         case ItemFlag_PotionB:
             UnkStruct_027e103c *pData_027e103c = data_027e103c;
             pData_027e103c->mUnk_2a            = 0;
             pData_027e103c->func_ov000_020cf9dc(0, 0);
             break;
-        case ItemFlag_Shovel: this->StopUsingScoop(); break;
+        case ItemFlag_Shovel:
+            this->StopUsingScoop();
+            break;
     }
 
     if (this->mEquipId != ItemFlag_None) {
@@ -63,10 +77,14 @@ ARM void LinkStateItem::OnStateLeave(s32 param1) {
 
     switch (this->mEquipId) {
         case ItemFlag_None:
-        case ItemFlag_OshusSword: break;
-        case ItemFlag_WoodenShield: break;
+        case ItemFlag_OshusSword:
+            break;
+        case ItemFlag_WoodenShield:
+            break;
         case ItemFlag_PotionA:
-        case ItemFlag_PotionB: this->EquipItem_vfunc_28(); break;
+        case ItemFlag_PotionB:
+            this->EquipItem_vfunc_28();
+            break;
         default:
             this->EquipItem_vfunc_28();
             if (param1 != 4 && param1 != 2) {

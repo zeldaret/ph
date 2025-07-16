@@ -41,7 +41,9 @@ ARM void ActorType::Unregister() {
     ActorType **previous = NULL;
 
     for (actorType = sActorTypeList.head; actorType != NULL; actorType = actorType->next) {
-        if (actorType == this) break;
+        if (actorType == this) {
+            break;
+        }
         previous = current;
         current  = &actorType->next;
     }

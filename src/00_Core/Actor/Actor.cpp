@@ -174,9 +174,13 @@ extern "C" void func_01ffbe34(UnkStruct1 *param1);
 extern "C" void func_020313c8(unk32 *param1, unk32 param2, unk32 param3, u32 param4, UnkStruct1 *param5);
 ARM void Actor::vfunc_1c(u16 *param1) {
     u16 unk1 = mUnk_07a;
-    if (mUnk_129) unk1 = mUnk_126;
+    if (mUnk_129) {
+        unk1 = mUnk_126;
+    }
     if (unk1 != 0xffff) {
-        if ((*param1 & 4) == 0 && (*param1 & 8) == 0) return;
+        if ((*param1 & 4) == 0 && (*param1 & 8) == 0) {
+            return;
+        }
         unk32 unk2;
         unk32 unk3;
         if (func_ov00_02079470(data_027e0d3c, &mPos, 0, 0, &unk2, &unk3, 0, 0)) {
@@ -191,17 +195,23 @@ ARM void Actor::vfunc_1c(u16 *param1) {
 ARM void Actor::vfunc_20(bool param1) {}
 
 ARM void Actor::SetUnk_129(bool value) {
-    if (mUnk_128) mUnk_129 = value;
+    if (mUnk_128) {
+        mUnk_129 = value;
+    }
 }
 
 ARM bool Actor::SetUnk_11b() {
-    if (mUnk_11b) return false;
+    if (mUnk_11b) {
+        return false;
+    }
     mUnk_11b = true;
     return true;
 }
 
 ARM bool Actor::SetVelocity(Vec3p *vel) {
-    if (!mUnk_11b) return false;
+    if (!mUnk_11b) {
+        return false;
+    }
     mVel     = *vel;
     mUnk_11b = false;
     return true;
@@ -251,18 +261,21 @@ ARM bool Actor::vfunc_98() {}
 ARM bool Actor::vfunc_9c() {}
 
 ARM bool Actor::func_ov00_020c195c() {
-    if (!mUnk_11b) return false;
+    if (!mUnk_11b) {
+        return false;
+    }
     gPlayerLink->func_ov000_020bc854(&mPos);
     return true;
 }
 
 ARM bool Actor::func_ov00_020c198c() {
     if (data_027e077c.GetUnk0() != data_027e077c.GetUnk4() || (data_02056be4[data_027e077c.GetUnk0()] & 1) != 0 ||
-        (data_02056be4[data_027e077c.GetUnk4()] & 4) != 0 || data_027e103c->func_ov005_02103f4c() || gPlayer->mHealth <= 0)
-    {
+        (data_02056be4[data_027e077c.GetUnk4()] & 4) != 0 || data_027e103c->func_ov005_02103f4c() || gPlayer->mHealth <= 0) {
         return false;
     }
-    if (gPlayerLink && !gPlayerLink->func_ov000_020bd304()) return false;
+    if (gPlayerLink && !gPlayerLink->func_ov000_020bd304()) {
+        return false;
+    }
     return true;
 }
 
@@ -277,12 +290,12 @@ ARM bool KillPickupsFilter::Filter(Actor *actor) {
         case ActorTypeId_FLAL:
         case ActorTypeId_FLBM:
         case ActorTypeId_FLBT:
-        case ActorTypeId_FLTM: {
+        case ActorTypeId_FLTM:
             actor->Kill();
             return true;
-        }
 
-        default: return false;
+        default:
+            return false;
     }
 }
 
@@ -336,7 +349,9 @@ ARM bool Actor::IsNearLink() {
 
     q20 z  = playerPos.z;
     q20 dx = abs(playerPos.x - mPos.x);
-    if (dx > FLOAT_TO_Q20(10.0)) return false;
+    if (dx > FLOAT_TO_Q20(10.0)) {
+        return false;
+    }
     q20 dz = abs(playerPos.z - mPos.z);
     return dz <= FLOAT_TO_Q20(10.0);
 }
@@ -354,12 +369,16 @@ ARM void Actor::func_ov00_020c1cf8() {
 }
 
 ARM bool Actor::func_ov00_020c1d58() {
-    if (gAdventureFlags->func_ov00_02097738()) return false;
+    if (gAdventureFlags->func_ov00_02097738()) {
+        return false;
+    }
     return gPlayer->vfunc_04() != false;
 }
 
 ARM bool Actor::func_ov00_020c1da0(s32 param1, Vec3p *param2) {
-    if (!this->func_ov00_020c1d58()) return false;
+    if (!this->func_ov00_020c1d58()) {
+        return false;
+    }
 
     Vec3p vec;
     if (param2) {
@@ -372,8 +391,12 @@ ARM bool Actor::func_ov00_020c1da0(s32 param1, Vec3p *param2) {
 }
 
 ARM bool Actor::func_ov00_020c1e2c(s32 param1, Vec3p *param2) {
-    if (!this->func_ov00_020c1d58()) return false;
-    if (mHitbox.size < 0) return false;
+    if (!this->func_ov00_020c1d58()) {
+        return false;
+    }
+    if (mHitbox.size < 0) {
+        return false;
+    }
 
     Vec3p vec;
     if (param2) {
@@ -391,7 +414,9 @@ ARM bool Actor::func_ov00_020c1e2c(s32 param1, Vec3p *param2) {
 }
 
 ARM bool Actor::func_ov00_020c1ef8(Cylinder *param1, Vec3p *param2, s32 param3, s32 param4) {
-    if (!this->func_ov00_020c1d58()) return false;
+    if (!this->func_ov00_020c1d58()) {
+        return false;
+    }
     if (gPlayer->CollidesWith(param1)) {
         return gPlayer->vfunc_30(param3, param2, param4);
     }
@@ -399,7 +424,9 @@ ARM bool Actor::func_ov00_020c1ef8(Cylinder *param1, Vec3p *param2, s32 param3, 
 }
 
 ARM bool Actor::func_ov00_020c1f5c(Vec3p *param1, Vec3p *param2, s32 param3, Vec3p *param4, u8 param5, s32 param6) {
-    if (!this->func_ov00_020c1d58()) return false;
+    if (!this->func_ov00_020c1d58()) {
+        return false;
+    }
     if (gPlayer->func_ov00_020a7c60(param1, param2, param3)) {
         return gPlayer->vfunc_30(param5, param4, param6);
     }
@@ -407,7 +434,9 @@ ARM bool Actor::func_ov00_020c1f5c(Vec3p *param1, Vec3p *param2, s32 param3, Vec
 }
 
 ARM bool Actor::func_ov00_020c1fc8(PlayerCollide flags) {
-    if (gAdventureFlags->func_ov00_02097738()) return false;
+    if (gAdventureFlags->func_ov00_02097738()) {
+        return false;
+    }
     bool result = false;
     if (mHitbox.size >= 0) {
         Vec3p vecFromPlayer;
@@ -463,7 +492,9 @@ ARM bool Actor::CollidesWithShield(Cylinder *param1) {
     s32 currAngle = gPlayerAngle;
     s32 angle     = Atan2(vecFromPlayer.x, vecFromPlayer.z);
     s32 angleDiff = (s16) angle - currAngle;
-    if (angleDiff < 0) angleDiff = -angleDiff;
+    if (angleDiff < 0) {
+        angleDiff = -angleDiff;
+    }
     if (angleDiff <= DEG_TO_ANG(90) && gPlayer->EquipCollidesWith(param1, ItemFlag_WoodenShield)) {
         return true;
     }
@@ -475,19 +506,29 @@ ARM bool Actor::CollidesWithPlayer(PlayerCollide flags) {
         Cylinder hitbox;
         this->GetHitbox(&hitbox);
         if (flags & PlayerCollide_Player) {
-            if (gPlayer->CollidesWith(&hitbox)) return true;
+            if (gPlayer->CollidesWith(&hitbox)) {
+                return true;
+            }
         }
         if (flags & PlayerCollide_Sword) {
-            if (gPlayer->EquipCollidesWith(&hitbox, ItemFlag_OshusSword)) return true;
+            if (gPlayer->EquipCollidesWith(&hitbox, ItemFlag_OshusSword)) {
+                return true;
+            }
         }
         if (flags & PlayerCollide_Shield) {
-            if (this->CollidesWithShield(&hitbox)) return true;
+            if (this->CollidesWithShield(&hitbox)) {
+                return true;
+            }
         }
         if (flags & PlayerCollide_Gongoron) {
-            if (gPlayerLink && gPlayerLink->GongoronCollidesWith(&hitbox)) return true;
+            if (gPlayerLink && gPlayerLink->GongoronCollidesWith(&hitbox)) {
+                return true;
+            }
         }
         if (flags & PlayerCollide_Hammer) {
-            if (gPlayer->EquipCollidesWith(&hitbox, ItemFlag_Hammer)) return true;
+            if (gPlayer->EquipCollidesWith(&hitbox, ItemFlag_Hammer)) {
+                return true;
+            }
         }
     }
     return false;
@@ -507,8 +548,12 @@ ARM void Actor::func_ov00_020c23d4(ActorRef *ref, Actor *actor, Cylinder *cylind
 }
 
 ARM bool Actor::func_ov00_020c243c(ActorTypeId *actorTypes, Actor **out) {
-    if (out) *out = NULL;
-    if (gAdventureFlags->func_ov00_02097738()) return false;
+    if (out) {
+        *out = NULL;
+    }
+    if (gAdventureFlags->func_ov00_02097738()) {
+        return false;
+    }
 
     bool result = false;
     if (mHitbox.size >= 0) {
@@ -529,28 +574,28 @@ ARM bool Actor::func_ov00_020c243c(ActorTypeId *actorTypes, Actor **out) {
             knockback.actor   = actor;
 
             switch (actor->mType) {
-                case ActorTypeId_SBEM: {
+                case ActorTypeId_SBEM:
                     knockback.mUnk_10 = 1;
-                } break;
+                    break;
 
-                case ActorTypeId_Arrow: {
+                case ActorTypeId_Arrow:
                     knockback.mUnk_10 = 7;
-                } break;
+                    break;
 
-                case ActorTypeId_BMRN: {
+                case ActorTypeId_BMRN:
                     knockback.mUnk_10 = 5;
-                } break;
+                    break;
 
-                case ActorTypeId_GrapplingHook: {
+                case ActorTypeId_GrapplingHook:
                     knockback.mUnk_10 = 8;
-                } break;
+                    break;
 
                 case ActorTypeId_Bomb:
                 case ActorTypeId_Blast:
                 case ActorTypeId_BMTY:
-                case ActorTypeId_CBLS: {
+                case ActorTypeId_CBLS:
                     knockback.mUnk_10 = 6;
-                } break;
+                    break;
 
                 case ActorTypeId_TSBH:
                 case ActorTypeId_BIGR:
@@ -560,23 +605,25 @@ ARM bool Actor::func_ov00_020c243c(ActorTypeId *actorTypes, Actor **out) {
                 case ActorTypeId_BKEY:
                 case ActorTypeId_FORC:
                 case ActorTypeId_FLTB:
-                case ActorTypeId_TSUB: {
+                case ActorTypeId_TSUB:
                     knockback.mUnk_10 = 10;
-                } break;
+                    break;
 
-                case ActorTypeId_VLR0: {
+                case ActorTypeId_VLR0:
                     knockback.mUnk_10 = 4;
-                } break;
+                    break;
 
-                default: {
+                default:
                     knockback.mUnk_10 = 11;
-                } break;
+                    break;
             }
 
             result = this->vfunc_48(&knockback);
             if (result) {
                 actor->mUnk_040 = this->mRef;
-                if (out) *out = actor;
+                if (out) {
+                    *out = actor;
+                }
             }
         }
     }
@@ -590,15 +637,21 @@ ARM bool Actor::CollidesWith(Actor *other) {
             Cylinder a, b;
             this->GetHitbox(&a);
             other->GetHitbox(&b);
-            if (a.Overlaps(&b)) collides = true;
+            if (a.Overlaps(&b)) {
+                collides = true;
+            }
         }
     }
     return collides;
 }
 
 ARM bool Actor::func_ov00_020c27a8(unk32 param1) {
-    if (mUnk_11b) return false;
-    if (param1 == 0) return mUnk_12c != 0;
+    if (mUnk_11b) {
+        return false;
+    }
+    if (param1 == 0) {
+        return mUnk_12c != 0;
+    }
     return mUnk_12c == param1;
 }
 
@@ -614,7 +667,9 @@ ARM bool Actor::IsFollowedByLink() {
 }
 
 ARM void Actor::StopLinkFollow() {
-    if (!this->IsFollowedByLink()) return;
+    if (!this->IsFollowedByLink()) {
+        return;
+    }
     gPlayerControl->StopFollowing();
 }
 
@@ -667,7 +722,9 @@ ARM void Actor::func_ov00_020c2988(Vec3p *param1, q20 param2, Vec3p *param3) {
     param3->y = 0;
     param3->z = z1 - z0;
     q20 dist  = this->XzDistanceTo(param1);
-    if (dist < param2) param2 = dist;
+    if (dist < param2) {
+        param2 = dist;
+    }
     func_0202d95c(param3, param2);
 }
 
@@ -709,7 +766,9 @@ ARM void Actor::GetUnk_08c(Cylinder *param1) {
 
 ARM void Actor::IncreaseActiveFrames() {
     mActiveFrames += 1;
-    if (mActiveFrames < 0) mActiveFrames = 0;
+    if (mActiveFrames < 0) {
+        mActiveFrames = 0;
+    }
 }
 
 ARM bool Actor::func_ov00_020c2c0c() {
@@ -793,7 +852,9 @@ ARM bool Actor::func_ov00_020c2e7c() {
         s32 unk2 = unk1;
         if (unk1 >= 0) {
             unk1 = rope->mUnk_70;
-            if (unk1 >= unk2) result = true;
+            if (unk1 >= unk2) {
+                result = true;
+            }
         }
     }
     return result;
@@ -828,9 +889,13 @@ ARM bool Actor::func_ov00_020c2ed4() {
         }
     } else {
         index = rope->func_ov14_0213d480(mRef.id);
-        if (index >= 0) return true;
+        if (index >= 0) {
+            return true;
+        }
     }
-    if (rope->mUnk_6a) mVel = gVec3p_ZERO;
+    if (rope->mUnk_6a) {
+        mVel = gVec3p_ZERO;
+    }
     return false;
 }
 
@@ -852,7 +917,9 @@ ARM bool Actor::IsHitboxTouched(bool param1) {
 
 ARM void Actor::ApplyGravity() {
     mVel.y -= mGravity;
-    if (mVel.y < -mMaxFall) mVel.y = -mMaxFall;
+    if (mVel.y < -mMaxFall) {
+        mVel.y = -mMaxFall;
+    }
 }
 
 ARM bool Actor::func_ov00_020c3094() {
@@ -885,18 +952,24 @@ ARM bool Actor::func_ov00_020c313c(u32 param1) {
 }
 
 ARM void Actor::func_ov00_020c3158() {
-    if (mUnk_03c < 0) return;
+    if (mUnk_03c < 0) {
+        return;
+    }
     gMapManager->SetMapDataFlag1(mUnk_03c, 1);
 }
 
 ARM void Actor::Kill() {
     mAlive = false;
-    if (mUnk_119 == 0) return;
+    if (mUnk_119 == 0) {
+        return;
+    }
     this->func_ov00_020c3158();
 }
 
 ARM void Actor::KillInBounds() {
-    if (mPos.y >= -FLOAT_TO_Q20(10.0)) return;
+    if (mPos.y >= -FLOAT_TO_Q20(10.0)) {
+        return;
+    }
     this->Kill();
 }
 
