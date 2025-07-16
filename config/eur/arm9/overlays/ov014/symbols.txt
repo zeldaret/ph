@@ -1751,7 +1751,7 @@ __sinit_ov014_02155814 kind:function(arm,size=0x38) addr:0x02155814
 .p__sinit_ov014_02154b6c kind:data(word) addr:0x021558e0
 .p__sinit_ov014_02154ba4 kind:data(word) addr:0x021558e4
 .p__sinit_ov014_02154bdc kind:data(word) addr:0x021558e8
-.p__sinit_ov014_02154c14 kind:data(word) addr:0x021558ec
+.p__sinit_ActorRefill.cpp kind:data(word) addr:0x021558ec local
 .p__sinit_ov014_02154d24 kind:data(word) addr:0x021558f0
 .p__sinit_ov014_02154efc kind:data(word) addr:0x021558f4
 .p__sinit_ov014_02154f3c kind:data(word) addr:0x021558f8
@@ -1985,7 +1985,7 @@ data_ov014_021589b4 kind:data(any) addr:0x021589b4
 data_ov014_021589d4 kind:data(any) addr:0x021589d4
 data_ov014_021589d8 kind:data(any) addr:0x021589d8
 _ZTV10ActorRupee kind:data(any) addr:0x021589dc
-data_ov014_02158aa0 kind:data(any) addr:0x02158aa0
+vtable_ov014_02158aa0 kind:data(any) addr:0x02158a98
 data_ov014_02158b60 kind:data(any) addr:0x02158b60
 data_ov014_02158b64 kind:data(any) addr:0x02158b64
 data_ov014_02158b68 kind:data(any) addr:0x02158b68

@@ -2538,7 +2538,7 @@ data_020561dc kind:data(any) addr:0x020561dc
 data_020561f0 kind:data(any) addr:0x020561f0
 gGameModes kind:data(any) addr:0x020561f4
 data_020562d4 kind:data(any) addr:0x020562d4
-data_020562e2 kind:data(any) addr:0x020562e2
+data_020562e0 kind:data(any) addr:0x020562e0
 data_02056300 kind:data(any) addr:0x02056300
 data_02056308 kind:data(any) addr:0x02056308
 data_02056324 kind:data(any) addr:0x02056324
@@ -2601,7 +2601,7 @@ data_020571f0 kind:data(any) addr:0x020571f0
 data_02057200 kind:data(any) addr:0x02057200
 data_02057208 kind:data(any) addr:0x02057208
 .p__sinit_02050ca0 kind:data(word) addr:0x0205725c
-.p__sinit_02050cb4 kind:data(word) addr:0x02057260
+.p__sinit_UnkStruct_027e05f8_2.cpp kind:data(word) addr:0x02057260 local
 .p__sinit_02050ce0 kind:data(word) addr:0x02057264
 .p__sinit_02050d0c kind:data(word) addr:0x02057268
 .p__sinit_02050d20 kind:data(word) addr:0x0205726c
@@ -3109,7 +3109,7 @@ data_02068ec4 kind:bss addr:0x02068ec4
 data_02068ed0 kind:bss addr:0x02068ed0
 data_02068ed8 kind:bss addr:0x02068ed8
 data_0206902c kind:bss addr:0x0206902c
-sActorTypeList kind:bss addr:0x02069180
+sActorTypeList kind:bss(size=8) addr:0x02069180
 data_020691a0 kind:bss addr:0x020691a0
 data_02075da0 kind:bss addr:0x02075da0
 data_02075dac kind:bss addr:0x02075dac
