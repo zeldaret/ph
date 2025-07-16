@@ -86,7 +86,9 @@ bool ActorRupee::Init() {
                 mVel.z = 0;
                 func_ov14_0213b204(0);
                 break;
-            case 3: func_ov14_0213b204(5); break;
+            case 3:
+                func_ov14_0213b204(5);
+                break;
         }
     }
 
@@ -122,23 +124,32 @@ void ActorRupee::Move() {
 
 ItemId ActorRupee::GetRupeeCutsceneItemId() {
     switch (mRupeeId) {
-        case RupeeId_Green: return ItemId_None;
+        case RupeeId_Green:
+            return ItemId_None;
 
-        case RupeeId_Blue: return ItemId_None;
+        case RupeeId_Blue:
+            return ItemId_None;
 
-        case RupeeId_Red: return ItemId_None;
+        case RupeeId_Red:
+            return ItemId_None;
 
-        case RupeeId_BigGreen: return ItemId_BigGreenRupee;
+        case RupeeId_BigGreen:
+            return ItemId_BigGreenRupee;
 
-        case RupeeId_BigRed: return ItemId_BigRedRupee;
+        case RupeeId_BigRed:
+            return ItemId_BigRedRupee;
 
-        case RupeeId_Gold: return ItemId_GoldRupee;
+        case RupeeId_Gold:
+            return ItemId_GoldRupee;
 
-        case RupeeId_Rupoor10: return ItemId_Rupoor10;
+        case RupeeId_Rupoor10:
+            return ItemId_Rupoor10;
 
-        case RupeeId_Rupoor50: return ItemId_Rupoor50;
+        case RupeeId_Rupoor50:
+            return ItemId_Rupoor50;
 
-        default: break;
+        default:
+            break;
     }
 
     return ItemId_None;
@@ -146,7 +157,9 @@ ItemId ActorRupee::GetRupeeCutsceneItemId() {
 
 void ActorRupee::func_ov14_0213b204(unk32 param1) {
     switch (param1) {
-        case 0: mVisible = true; break;
+        case 0:
+            mVisible = true;
+            break;
         case 1:
         case 2:
         case 3:
@@ -188,10 +201,17 @@ void ActorRupee::Update(bool param1) {
             uVar3 = -1;
 
             switch (mRupeeId) {
-                case RupeeId_Green: uVar3 = 0xfa; break;
-                case RupeeId_Blue: uVar3 = 0xfb; break;
-                case RupeeId_Red: uVar3 = 0xfc; break;
-                default: break;
+                case RupeeId_Green:
+                    uVar3 = 0xfa;
+                    break;
+                case RupeeId_Blue:
+                    uVar3 = 0xfb;
+                    break;
+                case RupeeId_Red:
+                    uVar3 = 0xfc;
+                    break;
+                default:
+                    break;
             }
 
             func_ov000_020d7ad4(data_ov000_020eec9c, uVar3);
@@ -252,7 +272,8 @@ void ActorRupee::Update(bool param1) {
                 func_ov14_0213b204(1);
             }
             break;
-        default: break;
+        default:
+            break;
     }
 
     KillInBounds();
@@ -323,9 +344,11 @@ bool ActorRupee::func_ov14_0213b70c(RupeeId id) {
         case RupeeId_BigGreen:
         case RupeeId_BigRed:
         case RupeeId_Gold:
-        case RupeeId_Rupoor50: return true;
+        case RupeeId_Rupoor50:
+            return true;
 
-        default: break;
+        default:
+            break;
     }
 
     return false;

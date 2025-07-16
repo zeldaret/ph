@@ -11,8 +11,10 @@ THUMB bool Item::func_ov00_020ad020(ItemId item) {
         case ItemId_GoldenCannon:
         case ItemId_GoldenHull:
         case ItemId_Unk_126:
-        case ItemId_Unk_133: return true;
-        default: break;
+        case ItemId_Unk_133:
+            return true;
+        default:
+            break;
     }
 
     return false;
@@ -25,8 +27,10 @@ THUMB bool Item::func_ov00_020ad068(ItemId item) {
         case ItemId_SpiritOfCourageUpgradeLvl1:
         case ItemId_SpiritOfPowerUpgradeLvl2:
         case ItemId_SpiritOfWisdomUpgradeLvl2:
-        case ItemId_SpiritOfCourageUpgradeLvl2: return true;
-        default: break;
+        case ItemId_SpiritOfCourageUpgradeLvl2:
+            return true;
+        default:
+            break;
     }
 
     return false;

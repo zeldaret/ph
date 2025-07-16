@@ -236,8 +236,10 @@ ARM bool PlayerControl::func_ov00_020af4a4() {
         switch (data_027e077c.GetUnk0()) {
             case 0x1a:
             case 0x1b:
-            case 0x1c: return true;
-            default: return false;
+            case 0x1c:
+                return true;
+            default:
+                return false;
         }
     }
     return false;
@@ -419,8 +421,12 @@ ARM void PlayerControl::func_ov00_020afb6c() {
         s32 iVar8 = 0;
         u32 uVar9 = 3;
         switch (followActor->mUnk_12c) {
-            case 0: mFollowRef.Reset(); break;
-            case 1: iVar8 = 1; break;
+            case 0:
+                mFollowRef.Reset();
+                break;
+            case 1:
+                iVar8 = 1;
+                break;
             case 5:
                 iVar8 = 2;
                 uVar9 = 1;
@@ -518,12 +524,15 @@ ARM bool PlayerControl::func_ov00_020afeec(unk32 param1, bool param2) {
         case 1:
         case 2:
         case 7:
-        case 13: return true;
+        case 13:
+            return true;
 
         case 10:
-        case 11: return param2;
+        case 11:
+            return param2;
 
-        default: return !param2;
+        default:
+            return !param2;
     }
 }
 
@@ -749,14 +758,12 @@ ARM bool PlayerControl::func_ov00_020b0778(Vec3p *param1, u32 angle, unk32 *para
     temp_r5 = mTouchY - sp4;
     if (this->CheckTouchedNow(1) != 0) {
         if (((var_r6 - 0x18) <= temp_r4) && (temp_r4 <= (var_r6 + 0x18)) && ((var_r7 - 0x18) <= temp_r5) &&
-            (temp_r5 <= (var_r7 + 0x18)))
-        {
+            (temp_r5 <= (var_r7 + 0x18))) {
             *param3 = FLOAT_TO_Q20(1.0);
             return true;
         }
         if (((-0x18 - var_r6) <= temp_r4) && (temp_r4 <= (0x18 - var_r6)) && ((-0x18 - var_r7) <= temp_r5) &&
-            (temp_r5 <= (0x18 - var_r7)))
-        {
+            (temp_r5 <= (0x18 - var_r7))) {
             *param3 = -FLOAT_TO_Q20(1.0);
             return true;
         }
@@ -783,14 +790,12 @@ ARM bool PlayerControl::func_ov00_020b0778(Vec3p *param1, u32 angle, unk32 *para
     }
     if (this->CheckTouching(1) != 0) {
         if (((var_r6 < 0) && (temp_r4 < (var_r6 + 0x18))) || ((var_r6 > 0) && (temp_r4 > (var_r6 - 0x18))) ||
-            ((var_r7 < 0) && (temp_r5 < (var_r7 + 0x18))) || ((var_r7 > 0) && (temp_r5 > (var_r7 - 0x18))))
-        {
+            ((var_r7 < 0) && (temp_r5 < (var_r7 + 0x18))) || ((var_r7 > 0) && (temp_r5 > (var_r7 - 0x18)))) {
             *param3 = FLOAT_TO_Q20(1.0);
             return true;
         }
         if (((var_r6 > 0) && (temp_r4 < (0x18 - var_r6))) || ((var_r6 < 0) && (temp_r4 > (-0x18 - var_r6))) ||
-            ((var_r7 > 0) && (temp_r5 < (0x18 - var_r7))) || ((var_r7 < 0) && (temp_r5 > (-0x18 - var_r7))))
-        {
+            ((var_r7 > 0) && (temp_r5 < (0x18 - var_r7))) || ((var_r7 < 0) && (temp_r5 > (-0x18 - var_r7)))) {
             *param3 = -FLOAT_TO_Q20(1.0);
             return true;
         }
@@ -852,8 +857,7 @@ ARM bool PlayerControl::func_ov00_020b0b0c(s16 *pAngle, ItemFlag *pEquipId, unk3
     }
 
     if ((this->CheckUntouchedNow(1) && mTouchDuration >= 0 && mTouchDuration < 21) ||
-        (this->CheckTouchFast(1) && mTouchSlowDuration > 21))
-    {
+        (this->CheckTouchFast(1) && mTouchSlowDuration > 21)) {
         s32 dy = INT_TO_Q20(mTouchLastY - mTouchFastY);
         s32 dx = INT_TO_Q20(mTouchLastX - mTouchFastX);
         Vec3p local_20;

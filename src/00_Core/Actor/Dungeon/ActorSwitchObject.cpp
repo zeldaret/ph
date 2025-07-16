@@ -37,9 +37,14 @@ void ActorSwitchObject::vfunc_14(u32 param1) {
         case 0:
             uVar3 = this->func_ov000_0208fcb4();
             switch (uVar3) {
-                case 1: this->func_ov000_0208fc10(1); return;
-                case 2: this->func_ov000_0208fc10(2); return;
-                default: return;
+                case 1:
+                    this->func_ov000_0208fc10(1);
+                    return;
+                case 2:
+                    this->func_ov000_0208fc10(2);
+                    return;
+                default:
+                    return;
             }
             bVar1 = this->func_ov000_0208fc10(2);
             return;
@@ -72,7 +77,9 @@ bool ActorSwitchObject::func_ov000_0208fc10(s32 param1) {
     this->mUnk_130 = param1;
 
     switch (param1) {
-        case 0: this->func_ov00_020c1c20(0, 0); break;
+        case 0:
+            this->func_ov00_020c1c20(0, 0);
+            break;
         case 1:
             this->func_ov00_020c1c20(0, 1);
             if (this->mUnk_158 == 0) {
