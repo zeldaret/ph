@@ -71,14 +71,16 @@ ARM void ActorEventIcon::func_ov000_02090648(u32 param1) {
                         return;
                     }
                     break;
-                case 1: break;
+                case 1:
+                    break;
                 case 2:
                     if (this->mUnk_160.mUnk_5c.mUnk_08 >= 0x5A000 && Vec3p_Distance(&this->mPos, &gPlayerPos) > 0x1000) {
                         this->func_ov000_02090774(1);
                         return;
                     }
                     break;
-                default: break;
+                default:
+                    break;
             }
 
             if (this->mUnk_160.mUnk_5c.mUnk_00 == 1) {
@@ -95,8 +97,10 @@ ARM void ActorEventIcon::func_ov000_02090648(u32 param1) {
                 }
             }
             break;
-        case 1: break;
-        default: break;
+        case 1:
+            break;
+        default:
+            break;
     }
 
     this->mUnk_160.func_0203516c();
@@ -106,9 +110,14 @@ ARM bool ActorEventIcon::func_ov000_02090774(u32 param1) {
     this->mUnk_130 = param1;
 
     switch (this->mUnk_130) {
-        case 0: this->mUnk_158 = 0; break;
-        case 1: this->mAlive = false; break;
-        default: break;
+        case 0:
+            this->mUnk_158 = 0;
+            break;
+        case 1:
+            this->mAlive = false;
+            break;
+        default:
+            break;
     }
 
     return true;
@@ -140,7 +149,9 @@ ARM void ActorEventIcon::vfunc_1c(u16 *param1) {
                     iStack_10 -= 0x11;
                 }
                 break;
-            default: iStack_10 += this->mUnk_15c; break;
+            default:
+                iStack_10 += this->mUnk_15c;
+                break;
         }
 
         this->mUnk_160.func_02034a1c(iStack_c, iStack_10, 0);

@@ -235,7 +235,9 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
                 this->mOffsetPos = auStack_e0.mUnk_14;
             }
             break;
-        default: this->func_ov000_020b853c(); break;
+        default:
+            this->func_ov000_020b853c();
+            break;
     }
 
     pIVar3 = gItemManager;
@@ -251,7 +253,8 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
             pIVar3->func_ov000_020c0c44(&this->mUnk_2f0);
             pIVar3->func_ov000_020c0e5c(&this->mUnk_2f0, 1);
             break;
-        default: break;
+        default:
+            break;
     }
 }
 
@@ -283,7 +286,8 @@ ARM bool ActorNavi::func_ov059_0219af14() {
                 this->mVel.y = this->mOffsetPos.y - this->mPos.y;
                 return true;
             }
-        default: break;
+        default:
+            break;
     }
 
     return false;
@@ -294,9 +298,13 @@ ARM bool ActorNavi::func_ov059_0219afc4() {
     this->func_ov059_0219933c(0);
 
     switch (this->mUnk_130) {
-        case 3: this->mOffsetPos.y = gPlayerPos.y + 0x1666; return true;
-        case 4: return true;
-        default: break;
+        case 3:
+            this->mOffsetPos.y = gPlayerPos.y + 0x1666;
+            return true;
+        case 4:
+            return true;
+        default:
+            break;
     }
 
     return false;

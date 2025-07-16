@@ -125,7 +125,9 @@ THUMB void ItemManager::Load(const SaveItemManager *save) {
 
 ARM FairyId ItemManager::GetEquippedFairy() const {
     FairyId fairy = mEquippedFairy;
-    if (fairy == FairyId_None) return FairyId_Courage;
+    if (fairy == FairyId_None) {
+        return FairyId_Courage;
+    }
     return fairy;
 }
 
@@ -149,7 +151,9 @@ ARM void ItemManager::TickEquipItem(void) {
     }
     (*mEquipItems)[ItemFlag_OshusSword]->vfunc_30();
     (*mEquipItems)[ItemFlag_WoodenShield]->vfunc_30();
-    if (data_027e0d38->mUnk_14 == 1) return;
+    if (data_027e0d38->mUnk_14 == 1) {
+        return;
+    }
     if (equip != ItemFlag_None && mEquipLoadTimer == 0) {
         (*mEquipItems)[equip]->vfunc_30();
     }
@@ -194,11 +198,17 @@ ARM void ItemManager::EquipItem_vfunc_38(unk32 param1) {
         this->Sword_vfunc_38(param1);
         this->Shield_vfunc_38(param1);
     }
-    if (data_027e0d38->mUnk_14 == 1) return;
+    if (data_027e0d38->mUnk_14 == 1) {
+        return;
+    }
 
     ItemFlag equip = this->GetEquippedItem();
-    if (equip == ItemFlag_None) return;
-    if (mEquipLoadTimer > 0) return;
+    if (equip == ItemFlag_None) {
+        return;
+    }
+    if (mEquipLoadTimer > 0) {
+        return;
+    }
 
     (*mEquipItems)[equip]->vfunc_38(param1);
 }
@@ -233,7 +243,9 @@ ARM u16 ItemManager::GetAmmo(ItemFlag equipId) const {
 
 ARM void ItemManager::GiveAmmo(ItemFlag equipId, u32 amount) {
     (*mAmmo)[equipId] += amount;
-    if ((*mAmmo)[equipId] <= this->GetMaxAmmo(equipId)) return;
+    if ((*mAmmo)[equipId] <= this->GetMaxAmmo(equipId)) {
+        return;
+    }
     (*mAmmo)[equipId] = this->GetMaxAmmo(equipId);
 }
 
@@ -242,8 +254,12 @@ extern "C" bool func_ov015_02136670(void *param1);
 extern u8 data_ov022_0217a4ac[];
 ARM bool ItemManager::func_ov00_020ad790(unk32 param1) {
     unk32 unk1 = data_027e0d38->func_ov000_02078b40();
-    if (unk1 == 2) return func_ov015_02136670(data_027e10a4);
-    if (data_027e0d38->mUnk_14 == 1) return false;
+    if (unk1 == 2) {
+        return func_ov015_02136670(data_027e10a4);
+    }
+    if (data_027e0d38->mUnk_14 == 1) {
+        return false;
+    }
     if (gOverlayManager.mLoadedOverlays[OverlayIndex_6] == OverlayId_29 && data_ov022_0217a4ac[0x54] != 0) {
         return false;
     }
@@ -251,13 +267,14 @@ ARM bool ItemManager::func_ov00_020ad790(unk32 param1) {
     ItemFlag equipId = mForcedItem;
     bool unk2        = !gMapManager->func_ov00_020849f8();
     if (mEquippedItem != ItemFlag_None && (unk2 || (u32) mEquippedItem - 9 <= 1) &&
-        (gPlayerLink == 0 || gPlayerLink->func_ov000_020bbd80(param1)) && this->HasItem(mEquippedItem))
-    {
+        (gPlayerLink == 0 || gPlayerLink->func_ov000_020bbd80(param1)) && this->HasItem(mEquippedItem)) {
         equipId = mEquippedItem;
     }
 
     if (equipId != ItemFlag_None) {
-        if (mEquipLoadTimer != 0) return param1 == 0;
+        if (mEquipLoadTimer != 0) {
+            return param1 == 0;
+        }
         return this->GetEquipItem(equipId)->IsUsable(param1);
     }
     return false;
@@ -276,7 +293,9 @@ THUMB s8 ItemManager::GetShipPartCount(ShipPart part, ShipType type) const {
 }
 
 THUMB void ItemManager::SetShipPartCount(ShipPart part, ShipType type, s8 count) {
-    if (count > 99) count = 99;
+    if (count > 99) {
+        count = 99;
+    }
     mShipParts[part][type] = count;
 }
 
@@ -285,7 +304,9 @@ THUMB s8 ItemManager::GetTreasureCount(Treasure treasure) const {
 }
 
 THUMB void ItemManager::SetTreasureCount(Treasure treasure, s8 count) {
-    if (count > 99) count = 99;
+    if (count > 99) {
+        count = 99;
+    }
     mTreasure[treasure] = count;
 }
 
@@ -300,16 +321,22 @@ THUMB u16 ItemManager::GetFishSize(u32 index) const {
 THUMB s32 ItemManager::GetFishSize_Divided(u32 index) const {
     q20 quotient = CoDivide64By32(INT_TO_Q20(mFishSize[index]), FLOAT_TO_Q20(2.54));
     s32 result   = ROUND_Q20(quotient);
-    if (result < 1) result = 1;
+    if (result < 1) {
+        result = 1;
+    }
     return result;
 }
 
 THUMB void ItemManager::SetFishSize(u32 index, u16 value) {
     u8 count = mFishCount[index] + 1;
-    if (count > 99) count = 99;
+    if (count > 99) {
+        count = 99;
+    }
     mFishCount[index] = count;
     if (value > mFishSize[index]) {
-        if (value > 9999) value = 9999;
+        if (value > 9999) {
+            value = 9999;
+        }
         mFishSize[index] = value;
     }
 }
@@ -319,10 +346,14 @@ const u16 sBombBagSizes[] = {10, 20, 30, 0};
 
 THUMB u16 ItemManager::GetMaxAmmo(ItemFlag equipId) const {
     switch (equipId) {
-        case ItemFlag_Bow: return (sQuiverSizes + 1)[mQuiverSize];
-        case ItemFlag_BombBag: return sBombBagSizes[mBombBagSize];
-        case ItemFlag_BombchuBag: return sBombBagSizes[mBombchuBagSize];
-        default: return 1;
+        case ItemFlag_Bow:
+            return (sQuiverSizes + 1)[mQuiverSize];
+        case ItemFlag_BombBag:
+            return sBombBagSizes[mBombBagSize];
+        case ItemFlag_BombchuBag:
+            return sBombBagSizes[mBombchuBagSize];
+        default:
+            return 1;
     }
 }
 
@@ -335,17 +366,27 @@ THUMB u8 ItemManager::GetMaxTreasureCount() const {
 }
 
 ARM u32 ItemManager::GetActiveFairyLevel(FairyId id) const {
-    if (mEquippedFairy == FairyId_None) return 0;
+    if (mEquippedFairy == FairyId_None) {
+        return 0;
+    }
     FairyId fairy = this->GetEquippedFairy();
-    if (fairy == FairyId_Courage && mUnk_14d != 0) return 0;
+    if (fairy == FairyId_Courage && mUnk_14d != 0) {
+        return 0;
+    }
     fairy = this->GetEquippedFairy();
-    if (id == fairy) return this->GetFairyLevel(id);
+    if (id == fairy) {
+        return this->GetFairyLevel(id);
+    }
     return 0;
 }
 
 ARM u32 ItemManager::GetFairyLevel(FairyId id) const {
-    if (this->HasItem(ItemFlag_FAIRY_LV2 + id)) return 2;
-    if (this->HasItem(ItemFlag_FAIRY_LV1 + id)) return 1;
+    if (this->HasItem(ItemFlag_FAIRY_LV2 + id)) {
+        return 2;
+    }
+    if (this->HasItem(ItemFlag_FAIRY_LV1 + id)) {
+        return 1;
+    }
     return 0;
 }
 
@@ -475,8 +516,7 @@ THUMB void ItemManager::LoadFanfareItem(ItemId id) {
 
     ItemModel *model;
     if (id == ItemId_Unk_43 || id == ItemId_Cannon || (id >= ItemId_GOLDEN_SHIP_START && id <= ItemId_GOLDEN_SHIP_END) ||
-        id == ItemId_Unk_126 || id == ItemId_Unk_133)
-    {
+        id == ItemId_Unk_126 || id == ItemId_Unk_133) {
         model = *data_027e1058;
     } else if (id >= ItemId_TREASURE_START && id <= ItemId_TREASURE_END) {
         model = LoadTreasureItemFanfare(data_027e105c, id - ItemId_TREASURE_START, true, false);
@@ -535,266 +575,277 @@ extern "C" void GiveShipPart(ShipPart part, ShipType type);
 extern "C" void EquipLinebeckCannon();
 THUMB void ItemManager::GiveItem(ItemId id) {
     switch (id) {
-        case ItemId_SmallKey: {
+        case ItemId_SmallKey:
             this->GiveKeys(1);
-        } break;
+            break;
 
-        case ItemId_GreenRupee: {
+        case ItemId_GreenRupee:
             this->GiveRupees(1, true);
-        } break;
+            break;
 
-        case ItemId_BlueRupee: {
+        case ItemId_BlueRupee:
             this->GiveRupees(5, true);
-        } break;
+            break;
 
-        case ItemId_RedRupee: {
+        case ItemId_RedRupee:
             this->GiveRupees(20, true);
-        } break;
+            break;
 
-        case ItemId_BigGreenRupee: {
+        case ItemId_BigGreenRupee:
             this->GiveRupees(100, true);
-        } break;
+            break;
 
-        case ItemId_BigRedRupee: {
+        case ItemId_BigRedRupee:
             this->GiveRupees(200, true);
-        } break;
+            break;
 
-        case ItemId_GoldRupee: {
+        case ItemId_GoldRupee:
             this->GiveRupees(300, true);
-        } break;
+            break;
 
-        case ItemId_OshusSword: {
+        case ItemId_OshusSword:
             SET_FLAG(mItemFlags.flags, ItemFlag_OshusSword);
             this->GetEquipItem(ItemFlag_OshusSword)->GiveAmmo(1);
-        } break;
+            break;
 
-        case ItemId_WoodenShield: {
+        case ItemId_WoodenShield:
             SET_FLAG(mItemFlags.flags, ItemFlag_WoodenShield);
             this->GetEquipItem(ItemFlag_WoodenShield)->GiveAmmo(1);
-        } break;
+            break;
 
-        case ItemId_BombBag: {
+        case ItemId_BombBag:
             this->GiveEquipItem(ItemFlag_BombBag, 10);
-        } break;
+            break;
 
-        case ItemId_BombchuBag: {
+        case ItemId_BombchuBag:
             this->GiveEquipItem(ItemFlag_BombchuBag, 10);
-        } break;
+            break;
 
-        case ItemId_Bow: {
+        case ItemId_Bow:
             this->GiveEquipItem(ItemFlag_Bow, 20);
-        } break;
+            break;
 
-        case ItemId_Boomerang: {
+        case ItemId_Boomerang:
             this->GiveEquipItem(ItemFlag_Boomerang, 1);
-        } break;
+            break;
 
-        case ItemId_Scoop: {
+        case ItemId_Scoop:
             this->GiveEquipItem(ItemFlag_Shovel, 1);
-        } break;
+            break;
 
-        case ItemId_Hammer: {
+        case ItemId_Hammer:
             this->GiveEquipItem(ItemFlag_Hammer, 1);
-        } break;
+            break;
 
-        case ItemId_Rope: {
+        case ItemId_Rope:
             this->GiveEquipItem(ItemFlag_GrapplingHook, 1);
-        } break;
+            break;
 
-        case ItemId_PhantomHourglass: {
+        case ItemId_PhantomHourglass:
             SET_FLAG(mItemFlags.flags, ItemFlag_Hourglass);
             gAdventureFlags->Set(AdventureFlag_Hourglass, true);
-        } break;
+            break;
 
-        case ItemId_SWSeaChart: {
+        case ItemId_SWSeaChart:
             SET_FLAG(mItemFlags.flags, ItemFlag_SeaChartSW);
             gAdventureFlags->Set(AdventureFlag_SWSeaChart, true);
-        } break;
+            break;
 
-        case ItemId_NWSeaChart: {
+        case ItemId_NWSeaChart:
             SET_FLAG(mItemFlags.flags, ItemFlag_SeaChartNW);
             gAdventureFlags->Set(AdventureFlag_NWSeaChart, true);
-        } break;
+            break;
 
-        case ItemId_SESeaChart: {
+        case ItemId_SESeaChart:
             SET_FLAG(mItemFlags.flags, ItemFlag_SeaChartSE);
             gAdventureFlags->Set(AdventureFlag_SESeaChart, true);
-        } break;
+            break;
 
-        case ItemId_NESeaChart: {
+        case ItemId_NESeaChart:
             SET_FLAG(mItemFlags.flags, ItemFlag_SeaChartNE);
             gAdventureFlags->Set(AdventureFlag_NESeaChart, true);
-        } break;
+            break;
 
-        case ItemId_FishingRod: {
+        case ItemId_FishingRod:
             SET_FLAG(mItemFlags.flags, ItemFlag_FishingRod);
             gAdventureFlags->Set(AdventureFlag_FishingRod, true);
-        } break;
+            break;
 
-        case ItemId_Cannon: {
+        case ItemId_Cannon:
             SET_FLAG(mItemFlags.flags, ItemFlag_Cannon);
             gAdventureFlags->Set(AdventureFlag_Cannon, true);
             GiveShipPart(ShipPart_Cannon, ShipType_Linebeck);
             EquipLinebeckCannon();
-        } break;
+            break;
 
-        case ItemId_SunKey: {
+        case ItemId_SunKey:
             SET_FLAG(mItemFlags.flags, ItemFlag_SunKey);
             gAdventureFlags->Set(AdventureFlag_SunKey, true);
-        } break;
+            break;
 
-        case ItemId_Unk_39: {
+        case ItemId_Unk_39:
             SET_FLAG(mItemFlags.flags, ItemFlag_Unk_39);
             gAdventureFlags->Set(AdventureFlag_Unk_23, true);
-        } break;
+            break;
 
-        case ItemId_Quiver: {
+        case ItemId_Quiver:
             this->UpgradeQuiver();
-        } break;
+            break;
 
-        case ItemId_BigBombBag: {
+        case ItemId_BigBombBag:
             this->UpgradeBombBag();
-        } break;
+            break;
 
-        case ItemId_BigBombchuBag: {
+        case ItemId_BigBombchuBag:
             this->UpgradeBombchuBag();
-        } break;
+            break;
 
-        case ItemId_KingsKey: {
+        case ItemId_KingsKey:
             SET_FLAG(mItemFlags.flags, ItemFlag_KingsKey);
-        } break;
+            break;
 
-        case ItemId_GhostKey: {
+        case ItemId_GhostKey:
             SET_FLAG(mItemFlags.flags, ItemFlag_GhostKey);
-        } break;
+            break;
 
-        case ItemId_PowerGem: {
+        case ItemId_PowerGem:
             mNumGems[Gem_Power] += 1;
-        } break;
+            break;
 
-        case ItemId_WisdomGem: {
+        case ItemId_WisdomGem:
             mNumGems[Gem_Wisdom] += 1;
-        } break;
+            break;
 
-        case ItemId_CourageGem: {
+        case ItemId_CourageGem:
             mNumGems[Gem_Courage] += 1;
-        } break;
+            break;
 
-        case ItemId_SalvageArm: {
+        case ItemId_SalvageArm:
             SET_FLAG(mItemFlags.flags, ItemFlag_SalvageArm);
             gAdventureFlags->Set(AdventureFlag_SalvageArm, true);
             gPlayerManager->mSalvageArmHealth = 5;
-        } break;
+            break;
 
-        case ItemId_SwordsmanScroll: {
+        case ItemId_SwordsmanScroll:
             SET_FLAG(mItemFlags.flags, ItemFlag_SwordsmansScroll);
-        } break;
+            break;
 
-        case ItemId_Crimsonine: {
+        case ItemId_Crimsonine:
             gAdventureFlags->Set(AdventureFlag_Crimsonine, true);
-        } break;
+            break;
 
-        case ItemId_Azurine: {
+        case ItemId_Azurine:
             gAdventureFlags->Set(AdventureFlag_Azurine, true);
-        } break;
+            break;
 
-        case ItemId_Aquanine: {
+        case ItemId_Aquanine:
             gAdventureFlags->Set(AdventureFlag_Aquanine, true);
-        } break;
+            break;
 
-        case ItemId_SpiritOfPowerUpgradeLvl1: {
+        case ItemId_SpiritOfPowerUpgradeLvl1:
             SET_FLAG(mItemFlags.flags, ItemFlag_PowerLv1);
-        } break;
+            break;
 
-        case ItemId_SpiritOfWisdomUpgradeLvl1: {
+        case ItemId_SpiritOfWisdomUpgradeLvl1:
             SET_FLAG(mItemFlags.flags, ItemFlag_WisdomLv1);
-        } break;
+            break;
 
-        case ItemId_SpiritOfCourageUpgradeLvl1: {
+        case ItemId_SpiritOfCourageUpgradeLvl1:
             SET_FLAG(mItemFlags.flags, ItemFlag_CourageLv1);
-        } break;
+            break;
 
-        case ItemId_SpiritOfPowerUpgradeLvl2: {
+        case ItemId_SpiritOfPowerUpgradeLvl2:
             SET_FLAG(mItemFlags.flags, ItemFlag_PowerLv2);
-        } break;
+            break;
 
-        case ItemId_SpiritOfWisdomUpgradeLvl2: {
+        case ItemId_SpiritOfWisdomUpgradeLvl2:
             SET_FLAG(mItemFlags.flags, ItemFlag_WisdomLv2);
-        } break;
+            break;
 
-        case ItemId_SpiritOfCourageUpgradeLvl2: {
+        case ItemId_SpiritOfCourageUpgradeLvl2:
             SET_FLAG(mItemFlags.flags, ItemFlag_CourageLv2);
-        } break;
+            break;
 
-        case ItemId_RedPotion: {
+        case ItemId_RedPotion:
             for (s32 i = 0; i < MAX_POTIONS; ++i) {
-                if (mPotions[i] != Potion_None) continue;
+                if (mPotions[i] != Potion_None) {
+                    continue;
+                }
                 this->SetPotion(i, Potion_Red);
                 break;
             }
-        } break;
+            break;
 
-        case ItemId_PurplePotion: {
+        case ItemId_PurplePotion:
             for (s32 i = 0; i < MAX_POTIONS; ++i) {
-                if (mPotions[i] != Potion_None) continue;
+                if (mPotions[i] != Potion_None) {
+                    continue;
+                }
                 this->SetPotion(i, Potion_Purple);
                 break;
             }
-        } break;
+            break;
 
-        case ItemId_YellowPotion: {
+        case ItemId_YellowPotion:
             for (s32 i = 0; i < MAX_POTIONS; ++i) {
-                if (mPotions[i] != Potion_None) continue;
+                if (mPotions[i] != Potion_None) {
+                    continue;
+                }
                 this->SetPotion(i, Potion_Yellow);
                 break;
             }
-        } break;
+            break;
 
-        case ItemId_SandOfHours: {
+        case ItemId_SandOfHours:
             mHourglassSandFrames += 3600;
-        } break;
+            break;
 
-        case ItemId_GoldenChimney: {
+        case ItemId_GoldenChimney:
             gAdventureFlags->Set(AdventureFlag_ReceivedGoldenChimney, true);
             GiveShipPart(ShipPart_Chimney, ShipType_Golden);
-        } break;
+            break;
 
-        case ItemId_GoldenHandrail: {
+        case ItemId_GoldenHandrail:
             gAdventureFlags->Set(AdventureFlag_ReceivedGoldenHandrail, true);
             GiveShipPart(ShipPart_Handrail, ShipType_Golden);
-        } break;
+            break;
 
-        case ItemId_GoldenCannon: {
+        case ItemId_GoldenCannon:
             gAdventureFlags->Set(AdventureFlag_ReceivedGoldenCannon, true);
             GiveShipPart(ShipPart_Cannon, ShipType_Golden);
-        } break;
+            break;
 
-        case ItemId_GoldenHull: {
+        case ItemId_GoldenHull:
             gAdventureFlags->Set(AdventureFlag_ReceivedGoldenHull, true);
             GiveShipPart(ShipPart_Hull, ShipType_Golden);
-        } break;
+            break;
 
-        case ItemId_CycloneSlate: {
+        case ItemId_CycloneSlate:
             SET_FLAG(mItemFlags.flags, ItemFlag_CycloneSlate);
-        } break;
+            break;
 
-        case ItemId_BigCatchLure: {
+        case ItemId_BigCatchLure:
             SET_FLAG(mItemFlags.flags, ItemFlag_BigCatchLure);
-        } break;
+            break;
 
-        case ItemId_Rupoor10: {
+        case ItemId_Rupoor10:
             this->GiveRupees(-10, true);
-        } break;
+            break;
 
-        case ItemId_Rupoor50: {
+        case ItemId_Rupoor50:
             this->GiveRupees(-50, true);
-        } break;
+            break;
 
-        case ItemId_Nothing: break;
-        case ItemId_Unk_5: break;
-        case ItemId_Unk_16: break;
-        case ItemId_Unk_131: break;
-        case ItemId_Unk_132: break;
+        case ItemId_Nothing:
+            break;
+        case ItemId_Unk_5:
+            break;
+        case ItemId_Unk_16:
+            break;
+        case ItemId_Unk_131:
+            break;
+        case ItemId_Unk_132:
+            break;
 
         default: {
             if (ItemId_TREASURE_CHART_START <= id && id <= ItemId_TREASURE_CHART_END) {
@@ -803,8 +854,7 @@ THUMB void ItemManager::GiveItem(ItemId id) {
         } break;
     }
     if (gAdventureFlags->Get(AdventureFlag_Azurine) && gAdventureFlags->Get(AdventureFlag_Crimsonine) &&
-        gAdventureFlags->Get(AdventureFlag_Aquanine))
-    {
+        gAdventureFlags->Get(AdventureFlag_Aquanine)) {
         gAdventureFlags->Set(AdventureFlag_Unk_128, true);
     }
 }
@@ -822,9 +872,9 @@ THUMB void ItemManager::GiveEquipItem(ItemFlag item, u16 ammo) {
 THUMB void ItemManager::UnequipPotion() {
     switch (mEquippedItem) {
         case ItemFlag_PotionA:
-        case ItemFlag_PotionB: {
+        case ItemFlag_PotionB:
             this->EquipPreviousItem();
-        } break;
+            break;
     }
 }
 
@@ -856,13 +906,19 @@ ARM unk32 ItemManager::GetNumKeys() const {
 
 THUMB void ItemManager::GiveKeys(u32 amount) {
     s32 keys = amount + gMapManager->GetNumKeys();
-    if (keys >= MAX_KEYS) keys = MAX_KEYS;
-    if (keys <= 0) keys = 0;
+    if (keys >= MAX_KEYS) {
+        keys = MAX_KEYS;
+    }
+    if (keys <= 0) {
+        keys = 0;
+    }
     gMapManager->SetNumKeys(keys);
 }
 
 ARM ItemFlag ItemManager::GetEquippedItem() const {
-    if (mForcedItem != ItemFlag_None) return mForcedItem;
+    if (mForcedItem != ItemFlag_None) {
+        return mForcedItem;
+    }
     return mEquippedItem;
 }
 
@@ -879,7 +935,9 @@ ARM void ItemManager::EquipPreviousItem() {
 
 THUMB void ItemManager::ForceEquipItem(ItemFlag equipId) {
     for (ItemFlag i = ItemFlag_EQUIP_START; i < ItemFlag_EQUIP_END; ++i) {
-        if (i == equipId) continue;
+        if (i == equipId) {
+            continue;
+        }
         (*mEquipItems)[i - ItemFlag_EQUIP_START]->UpdateInUse(0);
     }
     mForcedItem     = equipId;
@@ -888,7 +946,9 @@ THUMB void ItemManager::ForceEquipItem(ItemFlag equipId) {
 
 THUMB bool ItemManager::ClearForcedEquipItem() {
     mForcedItem = ItemFlag_None;
-    if (mEquippedItem != ItemFlag_None) return this->SetEquippedItem(mEquippedItem);
+    if (mEquippedItem != ItemFlag_None) {
+        return this->SetEquippedItem(mEquippedItem);
+    }
     return false;
 }
 
@@ -898,17 +958,23 @@ ARM void ItemManager::UpdateSwordShieldInUse() {
 }
 
 THUMB void ItemManager::UpgradeQuiver() {
-    if (mQuiverSize < MAX_AMMO_UPGRADE) mQuiverSize += 1;
+    if (mQuiverSize < MAX_AMMO_UPGRADE) {
+        mQuiverSize += 1;
+    }
     (*mAmmo)[ItemFlag_Bow] = this->GetMaxAmmo(ItemFlag_Bow);
 }
 
 THUMB void ItemManager::UpgradeBombBag() {
-    if (mBombBagSize < MAX_AMMO_UPGRADE) mBombBagSize += 1;
+    if (mBombBagSize < MAX_AMMO_UPGRADE) {
+        mBombBagSize += 1;
+    }
     (*mAmmo)[ItemFlag_BombBag] = this->GetMaxAmmo(ItemFlag_BombBag);
 }
 
 THUMB void ItemManager::UpgradeBombchuBag() {
-    if (mBombchuBagSize < MAX_AMMO_UPGRADE) mBombchuBagSize += 1;
+    if (mBombchuBagSize < MAX_AMMO_UPGRADE) {
+        mBombchuBagSize += 1;
+    }
     (*mAmmo)[ItemFlag_BombchuBag] = this->GetMaxAmmo(ItemFlag_BombchuBag);
 }
 
@@ -936,23 +1002,29 @@ ARM bool ItemManager::HasPotion(u32 index) const {
     switch (mPotions[index]) {
         case Potion_Red:
         case Potion_Purple:
-        case Potion_Yellow: return true;
+        case Potion_Yellow:
+            return true;
 
         case Potion_None:
-        default: return false;
+        default:
+            return false;
     }
 }
 
 ARM bool ItemManager::HasAllPotions() const {
     for (s32 i = 0; i < MAX_POTIONS; ++i) {
-        if (!this->HasPotion(i)) return false;
+        if (!this->HasPotion(i)) {
+            return false;
+        }
     }
     return true;
 }
 
 ARM bool ItemManager::HasPurplePotion() const {
     for (s32 i = 0; i < MAX_POTIONS; ++i) {
-        if (mPotions[i] == Potion_Purple) return true;
+        if (mPotions[i] == Potion_Purple) {
+            return true;
+        }
     }
     return false;
 }
@@ -961,21 +1033,23 @@ extern "C" void func_020196bc(ItemModel *param1, unk32 param2);
 extern "C" void func_020196fc(ItemModel *param1, unk32 param2);
 THUMB void ItemManager::LoadDungeonItemModels() {
     for (s32 i = 0; i < DungeonItemModelId_COUNT; ++i) {
-        if (mDungeonItemModels[i] == NULL) continue;
+        if (mDungeonItemModels[i] == NULL) {
+            continue;
+        }
 
         u16 unk1, unk2;
         switch (i) {
             case DungeonItemModelId_RoundCrystal:
             case DungeonItemModelId_SquareCrystal:
-            case DungeonItemModelId_TriangleCrystal: {
+            case DungeonItemModelId_TriangleCrystal:
                 unk1 = data_027e0f78->mUnk_1e;
                 unk2 = data_027e0f78->mUnk_1c;
-            } break;
+                break;
 
-            default: {
+            default:
                 unk1 = data_027e0f78->mUnk_1a;
                 unk2 = data_027e0f78->mUnk_18;
-            } break;
+                break;
         }
         func_020196bc(mDungeonItemModels[i], unk1);
         func_020196fc(mDungeonItemModels[i], unk2);
@@ -993,38 +1067,38 @@ THUMB void ItemManager::PlayItemFanfareSfx(ItemId item) {
     switch (item) {
         case ItemId_PowerGem:
         case ItemId_WisdomGem:
-        case ItemId_CourageGem: {
+        case ItemId_CourageGem:
             sfx = SfxId_Fanfare_Gem;
-        } break;
+            break;
 
-        case ItemId_GoldRupee: {
+        case ItemId_GoldRupee:
             sfx = SfxId_Fanfare_GoldRupee;
-        } break;
+            break;
 
         case ItemId_SmallKey:
         case ItemId_GreenRupee:
         case ItemId_BlueRupee:
-        case ItemId_RedRupee: {
+        case ItemId_RedRupee:
             sfx = SfxId_Fanfare_Rupee;
-        } break;
+            break;
 
         case ItemId_Rupoor10:
-        case ItemId_Rupoor50: {
+        case ItemId_Rupoor50:
             sfx = SfxId_Fanfare_Rupoor;
-        } break;
+            break;
 
         case ItemId_Nothing:
-        case ItemId_HerosNewClothes: {
+        case ItemId_HerosNewClothes:
             sfx = SfxId_Fanfare_Nothing_2;
-        } break;
+            break;
 
-        case ItemId_HeartContainer: {
+        case ItemId_HeartContainer:
             sfx = SfxId_Fanfare_HeartContainer;
-        } break;
+            break;
 
-        default: {
+        default:
             sfx = SfxId_Fanfare_Treasure;
-        } break;
+            break;
     }
     if (gItemManager->mFanfareSfx != SfxId_None) {
         sfx = gItemManager->mFanfareSfx;
