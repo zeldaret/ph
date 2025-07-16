@@ -17,6 +17,7 @@ _ZN13LinkStateItem14StopUsingScoopEv kind:function(arm,size=0xe4) addr:0x021997f
 _Z19func_ov054_021998d4iiij kind:function(arm,size=0x40) addr:0x021998d4
 data_ov054_02199914 kind:data(any) addr:0x02199914
 __sinit_EquipScoop.cpp kind:function(arm,size=0x30) addr:0x02199924
+.p__sinit_ov054_02199924 kind:data(word) addr:0x02199954
 data_ov054_02199960 kind:data(any) addr:0x02199960
 data_ov054_02199964 kind:data(any) addr:0x02199964
 data_ov054_02199968 kind:data(any) addr:0x02199968

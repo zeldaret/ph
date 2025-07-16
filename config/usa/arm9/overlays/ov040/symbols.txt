@@ -477,6 +477,16 @@ __sinit_ov040_021884ec kind:function(arm,size=0x40) addr:0x0218845c
 __sinit_ov040_0218852c kind:function(arm,size=0x5c) addr:0x0218849c
 __sinit_ov040_02188578 kind:function(arm,size=0x5c) addr:0x021884f8
 __sinit_ov040_021885c4 kind:function(arm,size=0x40) addr:0x02188554
+.p__sinit_ov040_021882c0 kind:data(word) addr:0x02188594
+.p__sinit_ov040_02188300 kind:data(word) addr:0x02188598
+.p__sinit_ov040_02188340 kind:data(word) addr:0x0218859c
+.p__sinit_ov040_02188380 kind:data(word) addr:0x021885a0
+.p__sinit_ov040_021883c0 kind:data(word) addr:0x021885a4
+.p__sinit_ov040_0218841c kind:data(word) addr:0x021885a8
+.p__sinit_ov040_0218845c kind:data(word) addr:0x021885ac
+.p__sinit_ov040_0218849c kind:data(word) addr:0x021885b0
+.p__sinit_ov040_021884f8 kind:data(word) addr:0x021885b4
+.p__sinit_ov040_02188554 kind:data(word) addr:0x021885b8
 data_ov040_02188640 kind:data(any) addr:0x021885c0
 data_ov040_02188644 kind:data(any) addr:0x021885c4
 data_ov040_02188648 kind:data(any) addr:0x021885c8

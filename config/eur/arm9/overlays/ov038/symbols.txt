@@ -171,6 +171,8 @@ data_ov038_02188ac4 kind:data(any) addr:0x02188ac4
 data_ov038_02188ad8 kind:data(any) addr:0x02188ad8
 __sinit_ov038_02188ae4 kind:function(arm,size=0x13c) addr:0x02188ae4
 __sinit_ov038_02188c20 kind:function(arm,size=0x40) addr:0x02188c20
+.p__sinit_ov038_02188ae4 kind:data(word) addr:0x02188c60
+.p__sinit_ov038_02188c20 kind:data(word) addr:0x02188c64
 data_ov038_02188c80 kind:data(any) addr:0x02188c80
 data_ov038_02188c84 kind:data(any) addr:0x02188c84
 data_ov038_02188c88 kind:data(any) addr:0x02188c88
