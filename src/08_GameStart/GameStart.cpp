@@ -108,8 +108,11 @@ ARM GameModeId GameStart::vfunc_08(bool param1) {
                 }
             }
             break;
-        case 0: mode = GameModeId_Adventure; break;
-        default: break;
+        case 0:
+            mode = GameModeId_Adventure;
+            break;
+        default:
+            break;
     }
 
     return mode;

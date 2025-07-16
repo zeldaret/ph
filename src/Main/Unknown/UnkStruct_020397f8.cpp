@@ -148,7 +148,9 @@ ARM void UnkStruct_020397f8::vfunc_2c() {
     if (this->mUnk_15c == 1) {
         if (this->mUnk_586 == ((data_02056be4[data_027e077c.mUnk_0] & 1) != 0)) {
             switch (this->mUnk_150[1]) {
-                case 0: this->func_0203b0ec(1); break;
+                case 0:
+                    this->func_0203b0ec(1);
+                    break;
                 case 2:
                 case 3:
                     if (this->func_0203a3e0() != 0) {
@@ -362,8 +364,7 @@ ARM void UnkStruct_020397f8::vfunc_48() {
 
 ARM void UnkStruct_020397f8::func_0203a35c() {
     if ((this->mUnk_57c == 1 || this->mUnk_150[3] != 0) ||
-        (this->mUnk_128.mUnk_04 == NULL || this->mUnk_128.mUnk_04[0] == 0) != 0)
-    {
+        (this->mUnk_128.mUnk_04 == NULL || this->mUnk_128.mUnk_04[0] == 0) != 0) {
         if (this->func_0203a3e0()) {
             s16 mUnk_56e                 = this->mUnk_56e;
             s16 mUnk_570                 = this->mUnk_570;
@@ -427,7 +428,8 @@ ARM void UnkStruct_020397f8::vfunc_44(s32 touchLastX, s32 touchLastY) {
             if (gTouchControl.mTouch == 0) {
                 switch (this->mUnk_150[1]) {
                     case 3:
-                    case 4: break;
+                    case 4:
+                        break;
                     case 5:
                         if (data_027e103c->mUnk_20 == 3) {
                             this->func_0203b0ec(1);
@@ -438,7 +440,8 @@ ARM void UnkStruct_020397f8::vfunc_44(s32 touchLastX, s32 touchLastY) {
                             this->func_0203b0ec(1);
                         }
                         break;
-                    case 7: break;
+                    case 7:
+                        break;
                     case 2:
                         //! TODO: fixme
                         // if (this->mUnk_164->mUnk_168.mUnk_06 <= 0) {
@@ -522,8 +525,7 @@ ARM void UnkStruct_020397f8::vfunc_50(EntryINF1 *param1, unk32 param2, s32 *para
     }
 
     if (gGame.mModeId == GameModeId_Adventure && data_027e0d38->func_ov000_02078b40() == 2 &&
-        func_ov003_020f3f94(data_ov009_0211f5b4) == 0)
-    {
+        func_ov003_020f3f94(data_ov009_0211f5b4) == 0) {
         UnkStruct_020397f8 *pVar4 = (UnkStruct_020397f8 *) gMessageManager.mUnk_28[4];
 
         if (pVar4 != NULL && pVar4->mUnk_15c > 0) {
@@ -740,14 +742,16 @@ ARM unk32 UnkStruct_020397f8::vfunc_1c(u16 *param1, UnkStruct_0203b264 *param2, 
     }
 
     switch (this->mUnk_57a) {
-        case 0: return this->func_0203905c(param1, param2, param3, param4);
+        case 0:
+            return this->func_0203905c(param1, param2, param3, param4);
         case 1:
             UnknownMsgChoiceStruct *pChoiceData;
             s32 i       = this->func_0203a30c();
             pChoiceData = &this->mUnk_428[this->mUnk_528[i]];
             return this->mUnk_164->func_0203cb5c(
                 *param1, (((pChoiceData->mUnk_00->mUnk_0[3] << 0x10) | ((u16 *) pChoiceData->mUnk_00->mUnk_0)[2]) + ~0xFFFE));
-        default: break;
+        default:
+            break;
     }
 
     return 0;
@@ -767,16 +771,30 @@ ARM void UnkStruct_020397f8::vfunc_60(func_0203b410_param1 *param1, unk32 param2
     if (this->func_02032fa4() == 0) {
         switch (param1->mUnk_0c) {
             case 0:
-            case 1: uVar6 = this->mUnk_580 != 0; break;
-            case 2: uVar6 = 2; break;
-            case 3: uVar6 = 3; break;
-            case 5: uVar6 = 4; break;
-            case 6: uVar6 = 5; break;
+            case 1:
+                uVar6 = this->mUnk_580 != 0;
+                break;
+            case 2:
+                uVar6 = 2;
+                break;
+            case 3:
+                uVar6 = 3;
+                break;
+            case 5:
+                uVar6 = 4;
+                break;
+            case 6:
+                uVar6 = 5;
+                break;
             default:
                 // why???
                 switch (param1->mUnk_0c) {
-                    case 4: uVar6 = 8; break;
-                    case 7: uVar6 = 9; break;
+                    case 4:
+                        uVar6 = 8;
+                        break;
+                    case 7:
+                        uVar6 = 9;
+                        break;
                     default:
                         if (this->mUnk_580 != 0) {
                             uVar6 = 7;
@@ -825,8 +843,7 @@ ARM void UnkStruct_020397f8::vfunc_64(s16 *param1) {
     unk32 uVar2;
 
     if (this->mUnk_50 != 0 || data_027e0db0.mUnk_04 > 0 || func_0203c084() != 0 ||
-        (gAdventureFlags->Exists() && gAdventureFlags->func_ov00_02097738()))
-    {
+        (gAdventureFlags->Exists() && gAdventureFlags->func_ov00_02097738())) {
         uVar2 = 0x16;
     } else {
         uVar2 = 0;
@@ -858,15 +875,23 @@ ARM void UnkStruct_020397f8::func_0203b764() {
     this->func_02039440(data_02056a04[i * 0x18], data_02056a16[i]);
 
     switch (this->mUnk_57b) {
-        case 1: this->mUnk_158.y -= 38; break;
+        case 1:
+            this->mUnk_158.y -= 38;
+            break;
         case 2:
             switch (this->pInfoEntry->mUnk_06) {
-                case 2: this->mUnk_158.y -= 111; break;
-                case 3: this->mUnk_158.y -= 98; break;
-                default: break;
+                case 2:
+                    this->mUnk_158.y -= 111;
+                    break;
+                case 3:
+                    this->mUnk_158.y -= 98;
+                    break;
+                default:
+                    break;
             }
             break;
-        default: break;
+        default:
+            break;
     }
 }
 

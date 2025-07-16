@@ -47,8 +47,11 @@ THUMB void MessageManager::func_02036490() {
             this->pGroups->func_020372f0(BMG_FILE_INDEX_BATTLE, 2);
             this->pGroups->func_020372f0(BMG_FILE_INDEX_BATTLECOMMON, 2);
             break;
-        case GameModeId_Contact: this->pGroups->func_020372f0(BMG_FILE_INDEX_MAINSELECT, 2); break;
-        default: break;
+        case GameModeId_Contact:
+            this->pGroups->func_020372f0(BMG_FILE_INDEX_MAINSELECT, 2);
+            break;
+        default:
+            break;
     }
 
     for (s32 i = 0; i < ARRAY_LEN(this->mUnk_18); i++) {
@@ -66,8 +69,8 @@ THUMB void MessageManager::func_02036490() {
     this->mUnk_18[0]->mUnk_39 = 0;
     this->mUnk_18[1]->mUnk_39 = 1;
 
-    if (gGame.mModeId == GameModeId_Adventure || gGame.mModeId == GameModeId_FileSelect || gGame.mModeId == GameModeId_Battle)
-    {
+    if (gGame.mModeId == GameModeId_Adventure || gGame.mModeId == GameModeId_FileSelect ||
+        gGame.mModeId == GameModeId_Battle) {
         for (s32 i = 0; i < ARRAY_LEN(this->mUnk_28); i++) {
             switch (data_02056924[i + 1]) {
                 case 0:
@@ -83,7 +86,9 @@ THUMB void MessageManager::func_02036490() {
                     this->mUnk_28[i]->func_0203dc74(0x50, 0x60);
                     this->mUnk_28[i]->mUnk_2c = &data_02068e6c;
                     break;
-                case 2: this->mUnk_28[i] = NULL; break;
+                case 2:
+                    this->mUnk_28[i] = NULL;
+                    break;
                 case 3:
                     if (func_0202ab48() == 0) {
                         this->mUnk_28[i] = new(data_027e0ce0[1], 4) MsgProc_Type2();
@@ -93,7 +98,8 @@ THUMB void MessageManager::func_02036490() {
                         this->mUnk_28[i] = NULL;
                     }
                     break;
-                default: break;
+                default:
+                    break;
             }
 
             if (this->mUnk_28[i] != NULL) {
@@ -194,8 +200,10 @@ ARM bool MessageManager::func_02036824(void) {
     switch (data_027e077c.mUnk_0) {
         case 0x01:
         case 0x37:
-        case 0x3B: return true;
-        default: break;
+        case 0x3B:
+            return true;
+        default:
+            break;
     }
 
     return false;
@@ -515,8 +523,7 @@ ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, u8 *param_3) 
     if (data_ov000_020eec9c.func_ov000_020d7f18(0x19) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x18) == 0 &&
         data_ov000_020eec9c.func_ov000_020d7f18(0x34) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x35) == 0 &&
         data_ov000_020eec9c.func_ov000_020d7f18(0x1A) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x1B) == 0 &&
-        (param_3[12]) != 7)
-    {
+        (param_3[12]) != 7) {
         data_ov000_020eec9c.func_ov000_020d77e4(0x1C);
     }
 

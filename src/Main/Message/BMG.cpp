@@ -87,8 +87,12 @@ THUMB u16 BMGFileInfo::func_020371c8(u32 *pFile, s16 unk_18) {
                 //! TODO: fake?
                 this->pDAT1 = (SectionDAT1 *) (pSection + 1);
                 break;
-            case BMG_TAG_FLW1: this->pFLW1 = (SectionFLW1 *) pSection; break;
-            case BMG_TAG_FLI1: this->pFLI1 = (SectionFLI1 *) pSection; break;
+            case BMG_TAG_FLW1:
+                this->pFLW1 = (SectionFLW1 *) pSection;
+                break;
+            case BMG_TAG_FLI1:
+                this->pFLI1 = (SectionFLI1 *) pSection;
+                break;
         }
 
         pSection = (SectionBase *) ((u8 *) pSection + pSection->size);

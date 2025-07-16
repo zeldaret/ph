@@ -960,7 +960,7 @@ func_ov000_0209048c kind:function(arm,size=0x38) addr:0x0209048c
 func_ov000_020904c4 kind:function(arm,size=0x14) addr:0x020904c4
 func_ov000_020904d8 kind:function(arm,size=0x1c) addr:0x020904d8
 _ZN14ActorEventIcon6CreateEv kind:function(arm,size=0x30) addr:0x020904f4
-_ZN14ActorEventIconC2Ev kind:function(arm,size=0x5c) addr:0x02090524
+_ZN14ActorEventIconC1Ev kind:function(arm,size=0x5c) addr:0x02090524
 _ZN14ActorEventIcon4InitEv kind:function(arm,size=0xb0) addr:0x02090580
 _ZN14ActorEventIcon8vfunc_14Ej kind:function(arm,size=0xc) addr:0x02090630
 _ZN14ActorEventIcon8vfunc_18Ej kind:function(arm,size=0xc) addr:0x0209063c
@@ -3940,7 +3940,7 @@ __sinit_ov000_020df4cc kind:function(arm,size=0x174) addr:0x020df4cc
 __sinit_ov000_020df640 kind:function(arm,size=0x38) addr:0x020df640
 __sinit_ActorSwitchObject.cpp kind:function(arm,size=0x40) addr:0x020df678
 __sinit_ov000_020df6b8 kind:function(arm,size=0x40) addr:0x020df6b8
-__sinit_ActorEventIcon.cpp kind:function(arm,size=0x40) addr:0x020df6f8
+__sinit_ActorEventIcon.cpp kind:function(arm,size=0x40) addr:0x020df6f8 local
 __sinit_ov000_020df738 kind:function(arm,size=0x38) addr:0x020df738
 __sinit_ov000_020df770 kind:function(arm,size=0x20) addr:0x020df770
 __sinit_ov000_020df790 kind:function(arm,size=0x1718) addr:0x020df790
@@ -4066,7 +4066,7 @@ data_ov000_020e2870 kind:data(any) addr:0x020e2870
 data_ov000_020e289c kind:data(any) addr:0x020e289c
 _ZTV17ActorSwitchObject kind:data(any) addr:0x020e2930
 data_ov000_020e29ec kind:data(any) addr:0x020e29ec
-_ZTV14ActorEventIcon kind:data(any) addr:0x020e2aa8
+_ZTV14ActorEventIcon kind:data(any) addr:0x020e2aa0
 data_ov000_020e2b64 kind:data(any) addr:0x020e2b64
 data_ov000_020e2bb4 kind:data(any) addr:0x020e2bb4
 data_ov000_020e2c04 kind:data(any) addr:0x020e2c04
@@ -5849,7 +5849,7 @@ data_ov000_020ecd64 kind:bss addr:0x020ecd64
 _ZN17ActorSwitchObject5gTypeE kind:bss addr:0x020ecd70
 data_ov000_020ecd84 kind:bss addr:0x020ecd84
 data_ov000_020ecd90 kind:bss addr:0x020ecd90
-data_ov000_020ecda4 kind:bss addr:0x020ecda4
+@558 kind:bss addr:0x020ecda4 local
 _ZN14ActorEventIcon5gTypeE kind:bss addr:0x020ecdb0
 data_ov000_020ecdc4 kind:bss addr:0x020ecdc4
 data_ov000_020ecdcc kind:bss addr:0x020ecdcc
