@@ -275,7 +275,8 @@ def main():
             transform_dep = "tools/transform_dep.py"
             mwcc_cmd += f" && $python {transform_dep} $basefile.d $basefile.d"
             mwcc_implicit.append(transform_dep)
-            mwcc_implicit.append(WINE)
+            if WINE == DEFAULT_WIBO_PATH:
+                mwcc_implicit.append(WINE)
         n.rule(
             name="mwcc",
             command=mwcc_cmd,
