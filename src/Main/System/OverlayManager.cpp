@@ -1,12 +1,8 @@
 #include "System/OverlayManager.hpp"
 #include "Game/Game.hpp"
-
-struct UnkStruct_020ee698 {
-    /* 00 */ unk8 mUnk_00[0x2C];
-    /* 2c */ unk32 mUnk_2c;
-    /* 30 */
-};
-extern UnkStruct_020ee698 data_ov000_020ee698;
+#include "Unknown/UnkStruct_020ee698.hpp"
+#include "global.h"
+#include "nds/overlay.h"
 
 extern u32 *data_027e0ce0[];
 extern "C" void func_ov007_02102850(u32 **);
@@ -50,7 +46,7 @@ THUMB void OverlayManager::LoadGameMode(s32 mode) {
     } else {
         overlayId = pSetup->slot12Overlay;
 
-        if (mode == 6 && data_ov000_020ee698.mUnk_2c == 2) {
+        if (mode == 6 && data_ov000_020ee698.mUnk_0c.mUnk_2c == 2) {
             overlayId = OverlayId_61;
         }
 

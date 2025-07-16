@@ -1233,7 +1233,8 @@ ARM bool MapManager::func_ov00_02083e70(Vec2b *param_2) {
         case 0x1b:
         case 0x2b:
         case 0x4e:
-        case 0x4f: return true;
+        case 0x4f:
+            return true;
     }
 
     return this->MapData_vfunc_60(param_2) >= this->GetMapData_Unk_48();
@@ -1563,10 +1564,13 @@ ARM s32 MapManager::func_ov00_020846a4() {
         switch (this->mCourse->mType) {
             case CourseType_Dungeon:
             case CourseType_TempleOfTheOceanKing:
-            case CourseType_Battle: return 1;
-            case CourseType_Sea: return 2;
+            case CourseType_Battle:
+                return 1;
+            case CourseType_Sea:
+                return 2;
             case CourseType_Normal:
-            default: return 0;
+            default:
+                return 0;
         }
     }
     return iVar1;
@@ -1763,7 +1767,8 @@ bool MapManager::func_ov00_020849dc() {
 
 ARM bool MapManager::func_ov00_020849f8() {
     switch (data_027e0d38->mUnk_0c.func_ov000_020a5e9c()) {
-        case 5: return true;
+        case 5:
+            return true;
         default:
             if (this->GetMapData_Unk_06() != 0 && !this->func_ov00_020849c0()) {
                 return true;
@@ -1835,10 +1840,17 @@ ARM void MapManager::func_ov00_02084b38(u32 param_2, unk32 param_3, bool param_4
             }
             pMVar1->mUnk_180[param_2 >> 5].mUnk_0 &= ~(1 << (param_2 & 0x1f));
             break;
-        case 1: this->mCourse->SetMapDataFlag0(param_2, param_4); break;
-        case 2: this->mCourse->SetFlag0(param_2, param_4); break;
-        case 3: this->mCourse->SetFlag1(param_2, param_4); break;
-        default: break;
+        case 1:
+            this->mCourse->SetMapDataFlag0(param_2, param_4);
+            break;
+        case 2:
+            this->mCourse->SetFlag0(param_2, param_4);
+            break;
+        case 3:
+            this->mCourse->SetFlag1(param_2, param_4);
+            break;
+        default:
+            break;
     }
 }
 
@@ -2039,8 +2051,10 @@ unk32 MapManager::func_ov00_02084ebc(Vec3p *param_2) {
                 case 0x1f:
                 case 0x27:
                 case 0x28:
-                case 0x29: return 0;
-                default: break;
+                case 0x29:
+                    return 0;
+                default:
+                    break;
             }
         } else if (iVar2 == 0x37) {
             return 0;
@@ -2239,8 +2253,7 @@ s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *par
             // iVar3 = gMapManager->MapData_vfunc_78();
             if ((((iVar3 != 0) && ((*(u32 *) (iVar3 + 4) & 4) != 0)) &&
                  (iVar4 = Vec3p_Distance((Vec3p *) (iVar3 + 0x18), param_2), iVar4 < *param_3)) &&
-                (iVar5 = func_ov000_0208b7d0(iVar3, param_2), iVar5 != 0))
-            {
+                (iVar5 = func_ov000_0208b7d0(iVar3, param_2), iVar5 != 0)) {
                 *param_3 = iVar4;
                 iVar7    = iVar3;
             }
@@ -2424,8 +2437,9 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
                     iVar2 = piVar1->vfunc_3c(1);
                     return iVar2;
                 }
-            } else if (iVar2 == 0x61)
+            } else if (iVar2 == 0x61) {
                 goto LAB_overlay_d_0__02085afc;
+            }
             return -1;
         }
         if ((iVar2 < 0x38) && (iVar2 != 1)) {
@@ -2764,8 +2778,7 @@ bool MapManager::func_ov00_02086284(s32 *param_2, Vec3p *param_3, Vec3p *param_4
         local_70.z = local_5c;
         if ((((*(char *) ((int) param_2 + 5) != '\0') && ((param_6 & 0x80) != 0)) &&
              (iVar2 = Vec3p_Distance(&local_70, param_3), iVar2 <= local_58)) &&
-            ((local_60 + local_54 <= param_4->y && (iVar2 = param_5 + local_60 + local_54, param_3->y <= iVar2))))
-        {
+            ((local_60 + local_54 <= param_4->y && (iVar2 = param_5 + local_60 + local_54, param_3->y <= iVar2)))) {
             param_7->y = iVar2;
             param_8->x = 0;
             param_8->y = 0x1000;
@@ -2813,8 +2826,7 @@ bool MapManager::func_ov00_02086284(s32 *param_2, Vec3p *param_3, Vec3p *param_4
     }
     if (((*(char *) ((int) param_2 + 5) != '\0') && ((param_6 & 0x80) != 0)) &&
         (((param_3->x < local_94 && (((local_a0.x <= param_3->x && (param_3->z < local_8c)) && (local_98 <= param_3->z)))) ||
-          (local_90 + param_5 <= param_4->y))))
-    {
+          (local_90 + param_5 <= param_4->y)))) {
         param_7->y = local_90 + param_5;
         param_8->x = 0;
         param_8->y = 0x1000;
