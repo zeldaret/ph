@@ -3109,7 +3109,7 @@ data_02068ec4 kind:bss addr:0x02068e64
 data_02068ed0 kind:bss addr:0x02068e70
 data_02068ed8 kind:bss addr:0x02068e78
 data_0206902c kind:bss addr:0x02068fcc
-sActorTypeList kind:bss(size=8) addr:0x02069120
+sActorTypeList kind:bss(size=0x8) addr:0x02069120
 data_020691a0 kind:bss addr:0x02069140
 data_02075da0 kind:bss addr:0x02075d40
 data_02075dac kind:bss addr:0x02075d4c
