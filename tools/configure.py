@@ -11,12 +11,17 @@ from typing import Any
 import ninja_syntax
 from get_platform import Platform, get_platform
 
+# Platform info
+platform = get_platform()
+if platform is None:
+    exit(1)
 
-DEFAULT_WIBO_PATH = "./wibo"
-
+DEFAULT_WINE_PATH = "./wibo"
+if platform.system == "macos":
+    DEFAULT_WINE_PATH = "wine"
 
 parser = argparse.ArgumentParser(description="Generates build.ninja")
-parser.add_argument('-w', type=str, default=DEFAULT_WIBO_PATH, dest="wine", required=False, help="Path to Wine/Wibo (linux only)")
+parser.add_argument('-w', type=str, default=DEFAULT_WINE_PATH, dest="wine", required=False, help="Path to Wine/Wibo (macOS/Linux only)")
 parser.add_argument("--compiler", type=Path, required=False, help="Path to pre-installed compiler root directory")
 parser.add_argument("--no-extract", action="store_true", help="Skip extract step")
 parser.add_argument("--dsd", type=Path, required=False, help="Path to pre-installed dsd CLI")
@@ -104,10 +109,6 @@ for root, dirs, _ in os.walk(libs_path):
 CC_INCLUDES = " ".join(f"-i {include}" for include in includes)
 
 
-# Platform info
-platform = get_platform()
-if platform is None:
-    exit(1)
 EXE = platform.exe
 WINE = args.wine if platform.system != "windows" else ""
 DSD = str(args.dsd or os.path.join('.', str(root_path / f"dsd{EXE}")))
@@ -405,7 +406,7 @@ def add_download_tool_builds(n: ninja_syntax.Writer, project: Project):
         )
         n.newline()
 
-    if project.platform.system != "windows" and WINE == DEFAULT_WIBO_PATH:
+    if project.platform.system != "windows" and WINE == DEFAULT_WINE_PATH:
         n.build(
             rule="download_tool",
             outputs=WINE,
