@@ -26,7 +26,7 @@ args = parser.parse_args()
 
 # Config
 GAME = "ph"
-DSD_VERSION = 'v0.9.1'
+DSD_VERSION = 'v0.10.0'
 WIBO_VERSION = '0.6.16'
 OBJDIFF_VERSION = 'v3.0.0-beta.6'
 MWCC_VERSION = "2.0/sp1p5"
@@ -198,7 +198,7 @@ class Project:
         return self.delinks_json['arm9_objects_file']
 
 
-def can_run_dsd() -> bool:
+def check_can_run_dsd() -> bool:
     try:
         output = subprocess.run([DSD, "--version"], capture_output=True, text=True, check=True)
         version = output.stdout.strip().split(" ")[-1]
@@ -214,10 +214,12 @@ def can_run_dsd() -> bool:
 
 
 def main():
-    if platform is None: return
+    if platform is None:
+        return
 
     delinks_json = None
-    if can_run_dsd():
+    can_run_dsd = check_can_run_dsd()
+    if can_run_dsd:
         out = subprocess.run([
             DSD,
             "--force-color",
@@ -356,21 +358,28 @@ def main():
         n.newline()
 
         add_download_tool_builds(n, project)
-        add_extract_build(n, project)
-        add_delink_and_lcf_builds(n, project)
-        add_disassemble_builds(n, project)
-        add_mwcc_builds(n, project, mwcc_implicit)
-        add_mwld_and_rom_builds(n, project)
-        add_check_builds(n, project)
-        add_objdiff_builds(n, project)
         add_configure_build(n, project)
-        add_apply_build(n, project)
 
-        n.default(["objdiff", "check", "sha1"])
+        if can_run_dsd:
+            add_extract_build(n, project)
+            add_delink_and_lcf_builds(n, project)
+            add_disassemble_builds(n, project)
+            add_mwcc_builds(n, project, mwcc_implicit)
+            add_mwld_and_rom_builds(n, project)
+            add_check_builds(n, project)
+            add_objdiff_builds(n, project)
+            add_apply_build(n, project)
+
+            n.default(["objdiff", "check", "sha1"])
+        else:
+            n.default(["download_tools"])
 
 
 def add_download_tool_builds(n: ninja_syntax.Writer, project: Project):
+    downloads: list[str] = []
+
     if args.dsd is None:
+        downloads.append(DSD)
         n.build(
             rule="download_tool",
             outputs=DSD,
@@ -382,6 +391,7 @@ def add_download_tool_builds(n: ninja_syntax.Writer, project: Project):
         )
         n.newline()
 
+    downloads.append(OBJDIFF)
     n.build(
         rule="download_tool",
         outputs=OBJDIFF,
@@ -394,6 +404,7 @@ def add_download_tool_builds(n: ninja_syntax.Writer, project: Project):
     n.newline()
 
     if args.compiler is None:
+        downloads.extend([CC, LD])
         n.build(
             rule="download_tool",
             outputs=[CC, LD],
@@ -406,6 +417,7 @@ def add_download_tool_builds(n: ninja_syntax.Writer, project: Project):
         n.newline()
 
     if project.platform.system != "windows" and WINE == DEFAULT_WIBO_PATH:
+        downloads.append(WINE)
         n.build(
             rule="download_tool",
             outputs=WINE,
@@ -416,6 +428,13 @@ def add_download_tool_builds(n: ninja_syntax.Writer, project: Project):
             },
         )
         n.newline()
+
+    n.build(
+        inputs=downloads,
+        rule="phony",
+        outputs="download_tools",
+    )
+    n.newline
 
 
 def add_extract_build(n: ninja_syntax.Writer, project: Project):
@@ -502,8 +521,10 @@ def add_mwcc_builds(n: ninja_syntax.Writer, project: Project, mwcc_implicit: lis
     for source_file in get_c_cpp_files([src_path, libs_path]):
         src_obj_path = project.game_build / source_file
         cc_flags: list[str] = []
-        if is_cpp(source_file): cc_flags.append("-lang=c++")
-        elif is_c(source_file): cc_flags.append("-lang=c")
+        if is_cpp(source_file):
+            cc_flags.append("-lang=c++")
+        elif is_c(source_file):
+            cc_flags.append("-lang=c")
         n.build(
             inputs=str(source_file),
             implicit=mwcc_implicit,
@@ -699,4 +720,5 @@ def get_config_files(game_config: Path, name: str) -> list[str]:
     ]
 
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()
