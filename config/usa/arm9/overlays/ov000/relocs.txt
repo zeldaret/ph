@@ -2313,7 +2313,7 @@ from:0x020904b8 kind:arm_call to:0x020904c4 module:overlay(0)
 from:0x020904c0 kind:load to:0x027e0fe0 module:dtcm
 from:0x020904cc kind:arm_call to:0x020c14f4 module:overlay(0)
 from:0x020904e8 kind:arm_call to:0x02035020 module:main
-from:0x0209051c kind:load to:0x020e2a48 module:overlay(0)
+from:0x0209051c kind:load to:0x020e2a40 add:8 module:overlay(0)
 from:0x02090560 kind:arm_call to:0x02035070 module:main
 from:0x02090578 kind:arm_call to:0x02035174 module:main
 from:0x0209059c kind:arm_call to:0x02035070 module:main

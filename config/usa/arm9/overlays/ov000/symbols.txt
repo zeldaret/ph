@@ -4066,7 +4066,7 @@ data_ov000_020e2870 kind:data(any) addr:0x020e2810
 data_ov000_020e289c kind:data(any) addr:0x020e283c
 _ZTV17ActorSwitchObject kind:data(any) addr:0x020e28d0
 data_ov000_020e29ec kind:data(any) addr:0x020e298c
-_ZTV14ActorEventIcon kind:data(any) addr:0x020e2a48
+_ZTV14ActorEventIcon kind:data(any) addr:0x020e2a40
 data_ov000_020e2b64 kind:data(any) addr:0x020e2b04
 data_ov000_020e2bb4 kind:data(any) addr:0x020e2b54
 data_ov000_020e2c04 kind:data(any) addr:0x020e2ba4
