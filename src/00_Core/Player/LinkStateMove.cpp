@@ -51,8 +51,10 @@ ARM bool LinkStateMove::vfunc_24(s32 param1) {
         return LinkStateBase::vfunc_24(param1);
     }
     switch (param1) {
-        case 2: return true;
-        default: return false;
+        case 2:
+            return true;
+        default:
+            return false;
     }
 }
 

@@ -39,7 +39,9 @@ ARM void ActorActionObject::vfunc_14(u32 param1) {
     u32 flag = mUnk_020.mUnk_00[2];
     bool bVar3;
     switch (mUnk_020.mUnk_00[0]) {
-        case 0: bVar3 = true; break;
+        case 0:
+            bVar3 = true;
+            break;
         case 1:
             if (gPlayerLink->mGrabActor.id != -1 && gPlayerLink->GetStateId() == LinkStateId_Move) {
                 bVar3 = true;
@@ -54,7 +56,9 @@ ARM void ActorActionObject::vfunc_14(u32 param1) {
                 bVar3 = false;
             }
             break;
-        default: bVar3 = false; break;
+        default:
+            bVar3 = false;
+            break;
     }
 
     if (!bVar3) {

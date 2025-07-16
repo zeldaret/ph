@@ -1,8 +1,8 @@
 #include "Unknown/UnkStruct_02063220.hpp"
 #include "DTCM/UnkStruct_027e02a0.hpp"
 #include "DTCM/UnkStruct_027e05f8.hpp"
-#include "DTCM/UnkStruct_027e0618.hpp"
 #include "DTCM/UnkStruct_027e08f8.hpp"
+#include "Game/Game.hpp"
 #include "System/OverlayManager.hpp"
 #include "Unknown/UnkStruct_0206322c.hpp"
 #include "Unknown/UnkStruct_020ee734.hpp"
@@ -56,8 +56,10 @@ const u16 data_020562e2[] = {
 THUMB bool UnkStruct_02063220::func_0202f3f0(unk32 param1) {
     switch (param1) {
         case 2:
-        case 3: return true;
-        default: break;
+        case 3:
+            return true;
+        default:
+            break;
     }
 
     return false;
@@ -67,9 +69,14 @@ THUMB unk32 UnkStruct_02063220::func_0202f400(unk32 param1) {
     unk32 ret = 0;
 
     switch (param1) {
-        case 2: ret = 1; break;
-        case 3: ret = 2; break;
-        default: break;
+        case 2:
+            ret = 1;
+            break;
+        case 3:
+            ret = 2;
+            break;
+        default:
+            break;
     }
 
     return ret;
@@ -268,7 +275,7 @@ THUMB void UnkStruct_02063220::func_0202f754(unk32 param1) {
                 data_0206322c.func_02030464(1, 1);
             }
 
-            data_027e0618.func_0202cf34();
+            gGame.func_0202cf34();
 
             if (gOverlayManager.mLoadedOverlays[OverlayIndex_Core] != -1) {
                 data_ov000_020ee734.func_ov000_020d6620();

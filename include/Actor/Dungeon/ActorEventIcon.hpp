@@ -12,9 +12,10 @@ public:
     static ActorType gType;
 
     /* 000 (base) */
-    /* 158 */ void *mUnk_158;
+    /* 158 */ u32 mUnk_158;
     /* 15c */ u32 mUnk_15c;
     /* 160 */ UnkStruct_02035064 mUnk_160;
+    /* 1e8 */
 
     /* 00 */ virtual ~ActorEventIcon() override;
     /* 08 */ virtual bool Init() override;
@@ -25,6 +26,6 @@ public:
 
     static ActorEventIcon *Create();
     ActorEventIcon();
-    u32 func_ov000_02090648(u32 param1);
+    void func_ov000_02090648(u32 param1);
     bool func_ov000_02090774(u32 param1);
 };

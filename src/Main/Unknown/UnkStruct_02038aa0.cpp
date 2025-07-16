@@ -1,8 +1,7 @@
 #include "Unknown/UnkStruct_02038aa0.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
+#include "Game/Game.hpp"
 #include "Message/MessageManager.hpp"
-
-extern u32 data_027e0618[];
 
 ARM UnkStruct_0203881c::UnkStruct_0203881c() {
     this->mUnk_14 = 0x1000;
@@ -58,8 +57,7 @@ ARM void UnkStruct_02038aa0::func_02038b74(void) {}
 ARM bool UnkStruct_02038aa0::func_02038b78() {
     if (data_027e0c54 == 0) {
         if ((this->mUnk_50 != 0 && gMessageManager.func_02036850() != 0) ||
-            (this->mUnk_50 == 0 && gMessageManager.func_02036824() != 0))
-        {
+            (this->mUnk_50 == 0 && gMessageManager.func_02036824() != 0)) {
             return true;
         }
 
@@ -155,7 +153,7 @@ ARM void UnkStruct_02038aa0::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3
     // this->vfunc_60(0, 0, (unk32)param3);
     // this->vfunc_64(param3);
 
-    if (*(unk32 *) data_027e0618 == 2) {
+    if (gGame.mModeId == GameModeId_Adventure) {
         if (this->func_02032fa4() == 0) {
             data_027e103c->func_ov000_020cfc9c(1, 0);
         } else {
@@ -205,12 +203,22 @@ ARM void UnkStruct_02038aa0::vfunc_64() {}
 
 ARM s32 UnkStruct_02038aa0::vfunc_68(unk32 param1) {
     switch (param1) {
-        case 0: break;
-        case 1: this->mUnk_34 = 4; break;
-        case 2: this->mUnk_34 = 6; break;
-        case 3: this->mUnk_34 = 1; break;
-        case 4: this->mUnk_34 = 0; break;
-        default: break;
+        case 0:
+            break;
+        case 1:
+            this->mUnk_34 = 4;
+            break;
+        case 2:
+            this->mUnk_34 = 6;
+            break;
+        case 3:
+            this->mUnk_34 = 1;
+            break;
+        case 4:
+            this->mUnk_34 = 0;
+            break;
+        default:
+            break;
     }
 
     return ((this->mUnk_18 << 3) - this->func_020337d8(param1)) / 2;
