@@ -93,6 +93,11 @@ public:
     virtual ~UnkStruct_0215b4e8() override;
 };
 
+struct UnkStruct_02084740 {
+    /* 00 */ unk32 mUnk_00[0x6c];
+    /* 68 */
+};
+
 class UnkStruct_02085594 {
 public:
     /* 00 */ unk32 mUnk_00;
@@ -1580,11 +1585,6 @@ ARM s32 MapManager::func_ov00_02084700() {
 
     return iVar1;
 }
-
-struct UnkStruct_02084740 {
-    /* 00 */ unk32 mUnk_00[0x6c];
-    /* 68 */
-};
 
 unk32 MapManager::func_ov00_02084740() {
     unk32 bVar1;
