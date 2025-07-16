@@ -2452,6 +2452,7 @@ func_020506b8 kind:function(thumb,size=0xd4) addr:0x02050674
 func_0205078c kind:function(thumb,size=0x138) addr:0x02050748
 func_020508c4 kind:function(thumb,size=0x54) addr:0x02050880
 func_02050918 kind:function(thumb,size=0xf2) addr:0x020508d4
+func_02050a20 kind:function(arm,size=0x280) addr:0x020509dc
 __sinit_02050ca0 kind:function(arm,size=0x14) addr:0x02050c5c
 __sinit_UnkStruct_027e05f8_2.cpp kind:function(arm,size=0x2c) addr:0x02050c70 local
 __sinit_02050ce0 kind:function(arm,size=0x2c) addr:0x02050c9c
