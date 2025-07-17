@@ -213,6 +213,7 @@ data_ov002_020f6840 kind:data(any) addr:0x020f6840
 data_ov002_020f6844 kind:data(any) addr:0x020f6844
 data_ov002_020f6898 kind:data(any) addr:0x020f6898
 __sinit_ov002_020f6978 kind:function(arm,size=0x2c) addr:0x020f6978
+.p__sinit_ov002_020f6978 kind:data(word) addr:0x020f69a4
 data_ov002_020f69c0 kind:data(any) addr:0x020f69c0
 data_ov002_020f69c4 kind:data(any) addr:0x020f69c4
 data_ov002_020f69c8 kind:data(any) addr:0x020f69c8

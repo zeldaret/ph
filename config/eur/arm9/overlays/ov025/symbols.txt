@@ -291,7 +291,17 @@ __sinit_ov025_021799cc kind:function(arm,size=0x40) addr:0x021799cc
 __sinit_ov025_02179a0c kind:function(arm,size=0x40) addr:0x02179a0c
 __sinit_ov025_02179a4c kind:function(arm,size=0x40) addr:0x02179a4c
 __sinit_ov025_02179a8c kind:function(arm,size=0x10c) addr:0x02179a8c
-data_ov025_02179bb0 kind:data(any) addr:0x02179bb0 ambiguous
+.p__sinit_ov025_02179680 kind:data(word) addr:0x02179b98
+.p__sinit_ov025_02179784 kind:data(word) addr:0x02179b9c
+.p__sinit_ov025_021797c4 kind:data(word) addr:0x02179ba0
+.p__sinit_ov025_02179804 kind:data(word) addr:0x02179ba4
+.p__sinit_ov025_02179844 kind:data(word) addr:0x02179ba8
+.p__sinit_ov025_02179884 kind:data(word) addr:0x02179bac
+.p__sinit_ov025_021798bc kind:data(word) addr:0x02179bb0
+.p__sinit_ov025_021799cc kind:data(word) addr:0x02179bb4
+.p__sinit_ov025_02179a0c kind:data(word) addr:0x02179bb8
+.p__sinit_ov025_02179a4c kind:data(word) addr:0x02179bbc
+.p__sinit_ov025_02179a8c kind:data(word) addr:0x02179bc0
 data_ov025_02179be0 kind:data(any) addr:0x02179be0
 data_ov025_02179bf8 kind:data(any) addr:0x02179bf8 ambiguous
 data_ov025_02179c18 kind:data(any) addr:0x02179c18 ambiguous

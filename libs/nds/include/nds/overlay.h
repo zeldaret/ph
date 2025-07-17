@@ -31,8 +31,8 @@ bool Overlay_func_020423e8(s32 param1, unk32 param2, unk32 param3);
 void Overlay_Init(Overlay *overlay);
 void Overlay_RunGlobalDestructors(Overlay *overlay);
 bool Overlay_Destroy(Overlay *overlay);
-bool Overlay_Load(Overlay *overlay, unk32 param2);
-bool Overlay_Unload(Overlay *overlay, unk32 param2);
+bool FS_LoadOverlay(Overlay *overlay, unk32 param2);
+bool FS_UnloadOverlay(Overlay *overlay, unk32 param2);
 
 #ifdef __cplusplus
 }

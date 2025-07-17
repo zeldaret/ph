@@ -119,6 +119,11 @@ __sinit_ov033_0217fcb0 kind:function(arm,size=0x40) addr:0x0217fc10
 __sinit_ov033_0217fcf0 kind:function(arm,size=0x40) addr:0x0217fc50
 __sinit_ov033_0217fd30 kind:function(arm,size=0x124) addr:0x0217fc90
 __sinit_ov033_0217fe54 kind:function(arm,size=0x40) addr:0x0217fdb4
+.p__sinit_ov033_0217fb90 kind:data(word) addr:0x0217fdf4
+.p__sinit_ov033_0217fcb0 kind:data(word) addr:0x0217fdf8
+.p__sinit_ov033_0217fcf0 kind:data(word) addr:0x0217fdfc
+.p__sinit_ov033_0217fd30 kind:data(word) addr:0x0217fe00
+.p__sinit_ov033_0217fe54 kind:data(word) addr:0x0217fe04
 data_ov033_0217fec0 kind:data(any) addr:0x0217fe20
 data_ov033_0217ff48 kind:data(any) addr:0x0217fea8
 data_ov033_02180058 kind:data(any) addr:0x0217ffb8

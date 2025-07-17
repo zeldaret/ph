@@ -310,6 +310,8 @@ data_ov030_021887f0 kind:data(any) addr:0x02188750
 data_ov030_021887fc kind:data(any) addr:0x0218875c
 __sinit_ov030_02188824 kind:function(arm,size=0x1c8) addr:0x02188784
 __sinit_ov030_021889ec kind:function(arm,size=0x40) addr:0x0218894c
+.p__sinit_ov030_02188824 kind:data(word) addr:0x0218898c
+.p__sinit_ov030_021889ec kind:data(word) addr:0x02188990
 data_ov030_02188a48 kind:data(any) addr:0x021889a8
 data_ov030_02188a68 kind:data(any) addr:0x021889c8
 data_ov030_02188a7c kind:data(any) addr:0x021889dc

@@ -236,6 +236,7 @@ data_ov039_0218692c kind:data(any) addr:0x0218692c
 data_ov039_02186940 kind:data(any) addr:0x02186940
 data_ov039_02186954 kind:data(any) addr:0x02186954
 __sinit_ov039_02186968 kind:function(arm,size=0x54) addr:0x02186968
+.p__sinit_ov039_02186968 kind:data(word) addr:0x021869bc
 data_ov039_021869e0 kind:data(any) addr:0x021869e0
 data_ov039_021869e4 kind:data(any) addr:0x021869e4
 data_ov039_021869e8 kind:data(any) addr:0x021869e8

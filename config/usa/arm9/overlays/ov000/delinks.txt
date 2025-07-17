@@ -87,7 +87,7 @@ src/00_Core/Map/Course.cpp:
 
 src/00_Core/Map/MapBase.cpp:
     .text       start:0x0207d9d8 end:0x02080ec0
-    .data       start:0x020e229c end:0x020e23b4
+    .data       start:0x020e229c end:0x020e23c4
     .sbss       start:0x020ec7bc end:0x020ec904
 
 src/00_Core/Map/MapManager.cpp:
@@ -110,7 +110,7 @@ src/00_Core/Player/LinkStateDamage.cpp:
 
 src/00_Core/Player/LinkStateFollow.cpp:
     .text       start:0x020a8f14 end:0x020a9244
-    .data       start:0x020e56fc end:0x020e5788
+    .data       start:0x020e56fc end:0x020e5888
 
 src/00_Core/Player/LinkStateInteract.cpp:
     .text       start:0x020aa2cc end:0x020abd18
