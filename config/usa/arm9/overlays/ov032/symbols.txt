@@ -274,6 +274,14 @@ __sinit_ov032_02185130 kind:function(arm,size=0x38) addr:0x02185090
 __sinit_ov032_02185168 kind:function(arm,size=0x110) addr:0x021850c8
 __sinit_ov032_02185278 kind:function(arm,size=0x110) addr:0x021851d8
 __sinit_ov032_02185388 kind:function(arm,size=0x40) addr:0x021852e8
+.p__sinit_ov032_02184d3c kind:data(word) addr:0x02185328
+.p__sinit_ov032_02184e68 kind:data(word) addr:0x0218532c
+.p__sinit_ov032_02184f90 kind:data(word) addr:0x02185330
+.p__sinit_ov032_021850b8 kind:data(word) addr:0x02185334
+.p__sinit_ov032_02185130 kind:data(word) addr:0x02185338
+.p__sinit_ov032_02185168 kind:data(word) addr:0x0218533c
+.p__sinit_ov032_02185278 kind:data(word) addr:0x02185340
+.p__sinit_ov032_02185388 kind:data(word) addr:0x02185344
 data_ov032_02185400 kind:data(any) addr:0x02185360
 data_ov032_02185410 kind:data(any) addr:0x02185370
 data_ov032_02185420 kind:data(any) addr:0x02185380

@@ -3723,6 +3723,7 @@ data_ov000_020dc574 kind:data(any) addr:0x020dc514
 data_ov000_020dc674 kind:data(any) addr:0x020dc614
 sQuiverSizes kind:data(any) addr:0x020dc664 local
 sBombBagSizes kind:data(any) addr:0x020dc66c local
+data_ov000_020dc6d4 kind:data(any) addr:0x020dc674
 data_ov000_020dc6e0 kind:data(any) addr:0x020dc680
 data_ov000_020dc6e4 kind:data(any) addr:0x020dc684
 data_ov000_020dc6e8 kind:data(any) addr:0x020dc688
@@ -3763,6 +3764,7 @@ data_ov000_020dd29c kind:data(any) addr:0x020dd23c
 data_ov000_020dd2a0 kind:data(any) addr:0x020dd240
 data_ov000_020dd364 kind:data(any) addr:0x020dd304
 sUnkTable kind:data(any) addr:0x020dd310
+data_ov000_020dd3f8 kind:data(any) addr:0x020dd398
 data_ov000_020dd408 kind:data(any) addr:0x020dd3a8
 data_ov000_020dd410 kind:data(any) addr:0x020dd3b0
 data_ov000_020dd418 kind:data(any) addr:0x020dd3b8
@@ -3979,6 +3981,62 @@ __sinit_ov000_020e1e38 kind:function(arm,size=0x14) addr:0x020e1dd8
 __sinit_ov000_020e1e4c kind:function(arm,size=0x14) addr:0x020e1dec
 __sinit_ov000_020e1e60 kind:function(arm,size=0x14) addr:0x020e1e00
 __sinit_ov000_020e1e74 kind:function(arm,size=0x14) addr:0x020e1e14
+.p__sinit_ov000_020df338 kind:data(word) addr:0x020e1e28
+.p__sinit_ov000_020df34c kind:data(word) addr:0x020e1e2c
+.p__sinit_ov000_020df378 kind:data(word) addr:0x020e1e30
+.p__sinit_ov000_020df38c kind:data(word) addr:0x020e1e34
+.p__sinit_ov000_020df3b8 kind:data(word) addr:0x020e1e38
+.p__sinit_ov000_020df3cc kind:data(word) addr:0x020e1e3c
+.p__sinit_ov000_020df3e0 kind:data(word) addr:0x020e1e40
+.p__sinit_ov000_020df3f4 kind:data(word) addr:0x020e1e44
+.p__sinit_ov000_020df420 kind:data(word) addr:0x020e1e48
+.p__sinit_ov000_020df45c kind:data(word) addr:0x020e1e4c
+.p__sinit_ov000_020df470 kind:data(word) addr:0x020e1e50
+.p__sinit_ov000_020df4a4 kind:data(word) addr:0x020e1e54
+.p__sinit_ov000_020df4b8 kind:data(word) addr:0x020e1e58
+.p__sinit_ov000_020df4cc kind:data(word) addr:0x020e1e5c
+.p__sinit_ov000_020df640 kind:data(word) addr:0x020e1e60
+.p__sinit_ov000_020df678 kind:data(word) addr:0x020e1e64
+.p__sinit_ov000_020df6b8 kind:data(word) addr:0x020e1e68
+.p__sinit_ActorEventIcon.cpp kind:data(word) addr:0x020e1e6c local
+.p__sinit_ov000_020df738 kind:data(word) addr:0x020e1e70
+.p__sinit_ov000_020df770 kind:data(word) addr:0x020e1e74
+.p__sinit_ov000_020df790 kind:data(word) addr:0x020e1e78
+.p__sinit_ov000_020e0ea8 kind:data(word) addr:0x020e1e7c
+.p__sinit_ov000_020e1030 kind:data(word) addr:0x020e1e80
+.p__sinit_ov000_020e105c kind:data(word) addr:0x020e1e84
+.p__sinit_ov000_020e109c kind:data(word) addr:0x020e1e88
+.p__sinit_ov000_020e10d4 kind:data(word) addr:0x020e1e8c
+.p__sinit_ov000_020e1114 kind:data(word) addr:0x020e1e90
+.p__sinit_ov000_020e1128 kind:data(word) addr:0x020e1e94
+.p__sinit_ov000_020e11d8 kind:data(word) addr:0x020e1e98
+.p__sinit_ov000_020e120c kind:data(word) addr:0x020e1e9c
+.p__sinit_ov000_020e1250 kind:data(word) addr:0x020e1ea0
+.p__sinit_ov000_020e1290 kind:data(word) addr:0x020e1ea4
+.p__sinit_ov000_020e12d8 kind:data(word) addr:0x020e1ea8
+.p__sinit_ActorForceNavi.cpp kind:data(word) addr:0x020e1eac local
+.p__sinit_ov000_020e137c kind:data(word) addr:0x020e1eb0
+.p__sinit_ov000_020e1b14 kind:data(word) addr:0x020e1eb4
+.p__sinit_ActorWisdomNavi.cpp kind:data(word) addr:0x020e1eb8 local
+.p__sinit_ov000_020e1b94 kind:data(word) addr:0x020e1ebc
+.p__sinit_ov000_020e1bd4 kind:data(word) addr:0x020e1ec0
+.p__sinit_ov000_020e1c14 kind:data(word) addr:0x020e1ec4
+.p__sinit_ov000_020e1c54 kind:data(word) addr:0x020e1ec8
+.p__sinit_ov000_020e1c68 kind:data(word) addr:0x020e1ecc
+.p__sinit_ov000_020e1c8c kind:data(word) addr:0x020e1ed0
+.p__sinit_ov000_020e1ccc kind:data(word) addr:0x020e1ed4
+.p__sinit_ov000_020e1d0c kind:data(word) addr:0x020e1ed8
+.p__sinit_ov000_020e1d4c kind:data(word) addr:0x020e1edc
+.p__sinit_ov000_020e1d7c kind:data(word) addr:0x020e1ee0
+.p__sinit_ov000_020e1da8 kind:data(word) addr:0x020e1ee4
+.p__sinit_ov000_020e1de8 kind:data(word) addr:0x020e1ee8
+.p__sinit_ov000_020e1dfc kind:data(word) addr:0x020e1eec
+.p__sinit_ov000_020e1e10 kind:data(word) addr:0x020e1ef0
+.p__sinit_ov000_020e1e24 kind:data(word) addr:0x020e1ef4
+.p__sinit_ov000_020e1e38 kind:data(word) addr:0x020e1ef8
+.p__sinit_ov000_020e1e4c kind:data(word) addr:0x020e1efc
+.p__sinit_ov000_020e1e60 kind:data(word) addr:0x020e1f00
+.p__sinit_ov000_020e1e74 kind:data(word) addr:0x020e1f04
 data_ov000_020e1f80 kind:data(any) addr:0x020e1f20
 data_ov000_020e1fa4 kind:data(any) addr:0x020e1f44
 data_ov000_020e1fb4 kind:data(any) addr:0x020e1f54
@@ -4029,7 +4087,7 @@ data_ov000_020e233c kind:data(any) addr:0x020e22dc
 _ZTV7MapBase kind:data(any) addr:0x020e22e8
 data_ov000_020e240c kind:data(any) addr:0x020e23ac
 data_ov000_020e2410 kind:data(any) addr:0x020e23b0
-data_ov000_020e242c kind:data(any) addr:0x020e23cc
+vtable_ov000_020e242c kind:data(any) addr:0x020e23c4
 data_ov000_020e2484 kind:data(any) addr:0x020e2424
 data_ov000_020e2488 kind:data(any) addr:0x020e2428
 data_ov000_020e248c kind:data(any) addr:0x020e242c
@@ -4039,6 +4097,7 @@ data_ov000_020e2498 kind:data(any) addr:0x020e2438
 data_ov000_020e249c kind:data(any) addr:0x020e243c
 data_ov000_020e24a0 kind:data(any) addr:0x020e2440
 data_ov000_020e24a4 kind:data(any) addr:0x020e2444
+data_ov000_020e24c4 kind:data(any) addr:0x020e2464
 data_ov000_020e24c8 kind:data(any) addr:0x020e2468
 data_ov000_020e24cc kind:data(any) addr:0x020e246c
 data_ov000_020e24d0 kind:data(any) addr:0x020e2470
@@ -4055,7 +4114,7 @@ data_ov000_020e2510 kind:data(any) addr:0x020e24b0
 data_ov000_020e2520 kind:data(any) addr:0x020e24c0
 data_ov000_020e2524 kind:data(any) addr:0x020e24c4
 data_ov000_020e2528 kind:data(any) addr:0x020e24c8
-data_ov000_020e2544 kind:data(any) addr:0x020e24e4
+data_ov000_020e253c kind:data(any) addr:0x020e24dc
 data_ov000_020e2568 kind:data(any) addr:0x020e2508
 data_ov000_020e2588 kind:data(any) addr:0x020e2528
 data_ov000_020e25b0 kind:data(any) addr:0x020e2550
@@ -4064,10 +4123,10 @@ data_ov000_020e2748 kind:data(any) addr:0x020e26e8
 data_ov000_020e27dc kind:data(any) addr:0x020e277c
 data_ov000_020e2870 kind:data(any) addr:0x020e2810
 data_ov000_020e289c kind:data(any) addr:0x020e283c
-_ZTV17ActorSwitchObject kind:data(any) addr:0x020e28d0
-data_ov000_020e29ec kind:data(any) addr:0x020e298c
+_ZTV17ActorSwitchObject kind:data(any) addr:0x020e28c8
+vtable_ov000_020e29ec kind:data(any) addr:0x020e2984
 _ZTV14ActorEventIcon kind:data(any) addr:0x020e2a40
-data_ov000_020e2b64 kind:data(any) addr:0x020e2b04
+data_ov000_020e2b64 kind:data(any) addr:0x020e2afc
 data_ov000_020e2bb4 kind:data(any) addr:0x020e2b54
 data_ov000_020e2c04 kind:data(any) addr:0x020e2ba4
 data_ov000_020e2c54 kind:data(any) addr:0x020e2bf4
@@ -4906,7 +4965,7 @@ _ZTV13LinkStateRoll kind:data(any) addr:0x020e6060
 @1498 kind:data(any) addr:0x020e60c0
 sShipTypes kind:data(any) addr:0x020e60c4 local
 @1556 kind:data(any) addr:0x020e60e8
-data_ov000_020e6158 kind:data(any) addr:0x020e60f8
+vtable_ov000_020e6158 kind:data(any) addr:0x020e60f0
 data_ov000_020e6174 kind:data(any) addr:0x020e6114
 data_ov000_020e6178 kind:data(any) addr:0x020e6118
 data_ov000_020e617c kind:data(any) addr:0x020e611c
@@ -4973,8 +5032,8 @@ data_ov000_020e678c kind:data(any) addr:0x020e672c
 data_ov000_020e67ac kind:data(any) addr:0x020e674c
 data_ov000_020e67b8 kind:data(any) addr:0x020e6758
 data_ov000_020e67d8 kind:data(any) addr:0x020e6778
-data_ov000_020e67e4 kind:data(any) addr:0x020e6784
-data_ov000_020e68dc kind:data(any) addr:0x020e687c
+vtable_ov000_020e67e4 kind:data(any) addr:0x020e677c
+vtable_ov000_020e68dc kind:data(any) addr:0x020e6874
 data_ov000_020e691c kind:data(any) addr:0x020e68bc
 data_ov000_020e6934 kind:data(any) addr:0x020e68d4
 data_ov000_020e6974 kind:data(any) addr:0x020e6914
@@ -5018,8 +5077,8 @@ data_ov000_020e6c54 kind:data(any) addr:0x020e6bf4
 data_ov000_020e6c58 kind:data(any) addr:0x020e6bf8
 data_ov000_020e6c5c kind:data(any) addr:0x020e6bfc
 _ZTV14PlayerLinkBase kind:data(any) addr:0x020e6c28
-data_ov000_020e6d18 kind:data(any) addr:0x020e6cb8
-_ZTV17ActorActionObject kind:data(any) addr:0x020e6ce4
+vtable_ov000_020e6d18 kind:data(any) addr:0x020e6cb0
+_ZTV17ActorActionObject kind:data(any) addr:0x020e6cdc
 data_ov000_020e6df8 kind:data(any) addr:0x020e6d98
 data_ov000_020e6dfc kind:data(any) addr:0x020e6d9c
 data_ov000_020e6e08 kind:data(any) addr:0x020e6da8
@@ -5060,7 +5119,7 @@ data_ov000_020e7018 kind:data(any) addr:0x020e6fb8
 data_ov000_020e701c kind:data(any) addr:0x020e6fbc
 data_ov000_020e7048 kind:data(any) addr:0x020e6fe8
 _ZTV15ActorWisdomNavi kind:data(any) addr:0x020e7038
-data_ov000_020e7198 kind:data(any) addr:0x020e7138
+vtable_ov000_020e7198 kind:data(any) addr:0x020e7130
 data_ov000_020e71a0 kind:data(any) addr:0x020e7140
 data_ov000_020e71a4 kind:data(any) addr:0x020e7144
 data_ov000_020e71a8 kind:data(any) addr:0x020e7148
@@ -5081,7 +5140,7 @@ _ZTV5Actor kind:data(any) addr:0x020e7194
 @1032 kind:data(any) addr:0x020e7260 local
 @1031 kind:data(any) addr:0x020e7264 local
 _ZTV11FilterActor kind:data(any) addr:0x020e7288
-data_ov000_020e72fc kind:data(any) addr:0x020e729c
+vtable_ov000_020e72fc kind:data(any) addr:0x020e7294
 data_ov000_020e7300 kind:data(any) addr:0x020e72a0
 data_ov000_020e7304 kind:data(any) addr:0x020e72a4
 data_ov000_020e7308 kind:data(any) addr:0x020e72a8
@@ -5799,6 +5858,7 @@ data_ov000_020e9f10 kind:bss addr:0x020e9eb0
 data_ov000_020ea110 kind:bss addr:0x020ea0b0
 data_ov000_020eaa98 kind:bss addr:0x020eaa38
 data_ov000_020eaac4 kind:bss addr:0x020eaa64
+data_ov000_020eaac8 kind:bss addr:0x020eaa68
 data_ov000_020eaad8 kind:bss addr:0x020eaa78
 data_ov000_020eaaf8 kind:bss addr:0x020eaa98
 data_ov000_020eab04 kind:bss addr:0x020eaaa4

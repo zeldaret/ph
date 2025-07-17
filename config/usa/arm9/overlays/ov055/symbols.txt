@@ -19,6 +19,7 @@ data_ov055_021997b0 kind:data(any) addr:0x02199710
 data_ov055_021997c4 kind:data(any) addr:0x02199724
 data_ov055_021997d8 kind:data(any) addr:0x02199738
 __sinit_EquipBomb.cpp kind:function(arm,size=0x30) addr:0x0219974c
+.p__sinit_EquipBomb.cpp kind:data(word) addr:0x0219977c
 data_ov055_02199840 kind:data(any) addr:0x021997a0
 data_ov055_02199850 kind:data(any) addr:0x021997b0
 data_ov055_02199854 kind:data(any) addr:0x021997b4

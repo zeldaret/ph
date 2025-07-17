@@ -12,6 +12,7 @@ _Z11GetEquipBowv kind:function(arm,size=0x10) addr:0x02199248
 _ZN13LinkStateItem19func_ov056_021992f8Ev kind:function(arm,size=0x24) addr:0x02199258
 data_ov056_0219931c kind:data(any) addr:0x0219927c
 __sinit_EquipBow.cpp kind:function(arm,size=0x54) addr:0x02199288
+.p__sinit_EquipBow.cpp kind:data(word) addr:0x021992dc
 data_ov056_021993a0 kind:data(any) addr:0x02199300
 data_ov056_021993a4 kind:data(any) addr:0x02199304
 data_ov056_021993a8 kind:data(any) addr:0x02199308

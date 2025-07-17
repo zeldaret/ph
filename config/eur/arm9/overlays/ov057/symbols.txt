@@ -45,6 +45,8 @@ _ZN22ActorRope_Unk_0219a3b0D0Ev kind:function(arm,size=0x14) addr:0x0219a980
 data_ov057_0219a994 kind:data(any) addr:0x0219a994
 __sinit_EquipRope.cpp kind:function(arm,size=0x2c) addr:0x0219a9a0 local
 __sinit_ActorRope.cpp kind:function(arm,size=0x44) addr:0x0219a9cc local
+.p__sinit_ov057_0219a9a0 kind:data(word) addr:0x0219aa10
+.p__sinit_ov057_0219a9cc kind:data(word) addr:0x0219aa14
 _ZTV22EquipRope_Unk_02198dd0 kind:data(any) addr:0x0219aa28
 data_ov057_0219aa40 kind:data(any) addr:0x0219aa40
 data_ov057_0219aa50 kind:data(any) addr:0x0219aa50

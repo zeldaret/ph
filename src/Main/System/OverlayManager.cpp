@@ -10,7 +10,7 @@ extern "C" void func_ov007_021028a0(u32 **);
 
 THUMB void OverlayManager::Load(OverlayIndex index, OverlayId id) {
     if (id != OverlayId_None) {
-        Overlay_Load(NULL, id);
+        FS_LoadOverlay(NULL, id);
     }
 
     this->mLoadedOverlays[index] = id;
@@ -27,7 +27,7 @@ THUMB void OverlayManager::LoadIfNotLoaded(OverlayIndex index, OverlayId id) {
 
 THUMB void OverlayManager::Unload(OverlayIndex index) {
     if (this->mLoadedOverlays[index] != OverlayId_None) {
-        Overlay_Unload(NULL, this->mLoadedOverlays[index]);
+        FS_UnloadOverlay(NULL, this->mLoadedOverlays[index]);
         this->mLoadedOverlays[index] = OverlayId_None;
     }
 }

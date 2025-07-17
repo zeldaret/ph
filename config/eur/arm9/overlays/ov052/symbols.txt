@@ -80,6 +80,8 @@ data_ov052_021978b8 kind:data(any) addr:0x021978b8
 data_ov052_021978c8 kind:data(any) addr:0x021978c8
 __sinit_ov052_021978d4 kind:function(arm,size=0x40) addr:0x021978d4
 __sinit_ov052_02197914 kind:function(arm,size=0x40) addr:0x02197914
+.p__sinit_ov052_021978d4 kind:data(word) addr:0x02197954
+.p__sinit_ov052_02197914 kind:data(word) addr:0x02197958
 data_ov052_02197960 kind:data(any) addr:0x02197960
 data_ov052_02197964 kind:data(any) addr:0x02197964
 data_ov052_02197968 kind:data(any) addr:0x02197968

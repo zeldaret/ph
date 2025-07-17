@@ -10,7 +10,7 @@ src/14_Land/Actor/ActorRupee.cpp:
     .rodata     start:0x02153e28 end:0x02153e48
     .init       start:0x0215517c end:0x021551d8
     .ctor       start:0x0215591c end:0x02155920
-    .data       start:0x02158994 end:0x02158a94
+    .data       start:0x02158994 end:0x02158a98
     .bss        start:0x0215b1f4 end:0x0215b214
 
 src/14_Land/Actor/Player/ActorRefill.cpp:
