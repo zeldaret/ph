@@ -1,5 +1,6 @@
 #pragma once
 
+#include "flags.h"
 #include "global.h"
 #include "types.h"
 
@@ -7,118 +8,49 @@
 #include "Render/FadeControl.hpp"
 #include "System/SysNew.hpp"
 
-/**
- * Adventure Flags value format:
- *     - 0x001F: 0000 0000 0001 1111 -> the shift value to read or write the flag's bit
- *     - 0xFFE0: 1111 1111 1110 0000 -> index of the value in `FlagsData.data` (see `FlagsData` struct below)
- *
- * `FlagsData.data` is an array of 32-bits values, the `FlagIndex` enum below represents the index to that array
- * and `FlagSlot` is the shift value to access the actual flag's bit.
- *
- * `ADVENTURE_FLAG` is a macro that allows you to get the final value from the index and the slot number.
- */
-
-typedef u32 FlagIndex;
-enum FlagIndex_ {
-    FlagIndex_0  = 0,
-    FlagIndex_1  = 1,
-    FlagIndex_2  = 2,
-    FlagIndex_3  = 3,
-    FlagIndex_4  = 4,
-    FlagIndex_5  = 5,
-    FlagIndex_6  = 6,
-    FlagIndex_7  = 7,
-    FlagIndex_8  = 8,
-    FlagIndex_9  = 9,
-    FlagIndex_10 = 10,
-    FlagIndex_11 = 11,
-    FlagIndex_12 = 12,
-    FlagIndex_13 = 13,
-    FlagIndex_14 = 14,
-    FlagIndex_15 = 15,
-    FlagIndex_Max,
-};
-
-typedef u32 FlagSlot;
-enum FlagSlot_ {
-    FlagSlot_0  = 0,
-    FlagSlot_1  = 1,
-    FlagSlot_2  = 2,
-    FlagSlot_3  = 3,
-    FlagSlot_4  = 4,
-    FlagSlot_5  = 5,
-    FlagSlot_6  = 6,
-    FlagSlot_7  = 7,
-    FlagSlot_8  = 8,
-    FlagSlot_9  = 9,
-    FlagSlot_10 = 10,
-    FlagSlot_11 = 11,
-    FlagSlot_12 = 12,
-    FlagSlot_13 = 13,
-    FlagSlot_14 = 14,
-    FlagSlot_15 = 15,
-    FlagSlot_16 = 16,
-    FlagSlot_17 = 17,
-    FlagSlot_18 = 18,
-    FlagSlot_19 = 19,
-    FlagSlot_20 = 20,
-    FlagSlot_21 = 21,
-    FlagSlot_22 = 22,
-    FlagSlot_23 = 23,
-    FlagSlot_24 = 24,
-    FlagSlot_25 = 25,
-    FlagSlot_26 = 26,
-    FlagSlot_27 = 27,
-    FlagSlot_28 = 28,
-    FlagSlot_29 = 29,
-    FlagSlot_30 = 30,
-    FlagSlot_31 = 31,
-};
-
-#define ADVENTURE_FLAG(index, slot) (((index) << 5) | ((slot) & 0x1F))
-#define ADVENTURE_FLAG_CHECK(data, index, slot) (data[index >> 5] & (1 << ((slot) & 0x1F)))
-#define ADVENTURE_FLAG_GET(data, flag) (data[flag >> 5] & (1 << ((flag) & 0x1F)))
-
 typedef u32 AdventureFlag;
 enum AdventureFlag_ {
-    /* 0x0009 */ AdventureFlag_SWSeaChart = ADVENTURE_FLAG(FlagIndex_0, FlagSlot_9),
-    /* 0x000A */ AdventureFlag_NWSeaChart = ADVENTURE_FLAG(FlagIndex_0, FlagSlot_10),
-    /* 0x000B */ AdventureFlag_SESeaChart = ADVENTURE_FLAG(FlagIndex_0, FlagSlot_11),
-    /* 0x000C */ AdventureFlag_NESeaChart = ADVENTURE_FLAG(FlagIndex_0, FlagSlot_12),
-    /* 0x0013 */ AdventureFlag_Hourglass  = ADVENTURE_FLAG(FlagIndex_0, FlagSlot_19),
-    /* 0x0016 */ AdventureFlag_SunKey     = ADVENTURE_FLAG(FlagIndex_0, FlagSlot_22),
-    /* 0x0017 */ AdventureFlag_Unk_23     = ADVENTURE_FLAG(FlagIndex_0, FlagSlot_23),
+    /* 0x0009 */ AdventureFlag_SWSeaChart = FLAG(FlagIndex_0, FlagSlot_9),
+    /* 0x000A */ AdventureFlag_NWSeaChart = FLAG(FlagIndex_0, FlagSlot_10),
+    /* 0x000B */ AdventureFlag_SESeaChart = FLAG(FlagIndex_0, FlagSlot_11),
+    /* 0x000C */ AdventureFlag_NESeaChart = FLAG(FlagIndex_0, FlagSlot_12),
+    /* 0x0013 */ AdventureFlag_Hourglass  = FLAG(FlagIndex_0, FlagSlot_19),
+    /* 0x0016 */ AdventureFlag_SunKey     = FLAG(FlagIndex_0, FlagSlot_22),
+    /* 0x0017 */ AdventureFlag_Unk_23     = FLAG(FlagIndex_0, FlagSlot_23),
+    /* 0x001D */ AdventureFlag_Unk_29     = FLAG(FlagIndex_0, FlagSlot_29),
+    /* 0x001E */ AdventureFlag_Unk_30     = FLAG(FlagIndex_0, FlagSlot_30),
+    /* 0x001F */ AdventureFlag_Unk_31     = FLAG(FlagIndex_0, FlagSlot_31),
 
-    /* 0x002B */ AdventureFlag_FishingRod    = ADVENTURE_FLAG(FlagIndex_1, FlagSlot_11),
-    /* 0x0030 */ AdventureFlag_Cannon        = ADVENTURE_FLAG(FlagIndex_1, FlagSlot_16),
-    /* 0x0033 */ AdventureFlag_RegalNecklace = ADVENTURE_FLAG(FlagIndex_1, FlagSlot_19),
+    /* 0x002B */ AdventureFlag_FishingRod    = FLAG(FlagIndex_1, FlagSlot_11),
+    /* 0x0030 */ AdventureFlag_Cannon        = FLAG(FlagIndex_1, FlagSlot_16),
+    /* 0x0033 */ AdventureFlag_RegalNecklace = FLAG(FlagIndex_1, FlagSlot_19),
 
-    /* 0x007A */ AdventureFlag_CourageCrest = ADVENTURE_FLAG(FlagIndex_3, FlagSlot_26),
-    /* 0x007D */ AdventureFlag_Azurine      = ADVENTURE_FLAG(FlagIndex_3, FlagSlot_29),
-    /* 0x007E */ AdventureFlag_Crimsonine   = ADVENTURE_FLAG(FlagIndex_3, FlagSlot_30),
-    /* 0x007F */ AdventureFlag_Aquanine     = ADVENTURE_FLAG(FlagIndex_3, FlagSlot_31),
+    /* 0x007A */ AdventureFlag_CourageCrest = FLAG(FlagIndex_3, FlagSlot_26),
+    /* 0x007D */ AdventureFlag_Azurine      = FLAG(FlagIndex_3, FlagSlot_29),
+    /* 0x007E */ AdventureFlag_Crimsonine   = FLAG(FlagIndex_3, FlagSlot_30),
+    /* 0x007F */ AdventureFlag_Aquanine     = FLAG(FlagIndex_3, FlagSlot_31),
 
-    /* 0x0080 */ AdventureFlag_Unk_128    = ADVENTURE_FLAG(FlagIndex_4, FlagSlot_0),
-    /* 0x008C */ AdventureFlag_SalvageArm = ADVENTURE_FLAG(FlagIndex_4, FlagSlot_12),
+    /* 0x0080 */ AdventureFlag_Unk_128    = FLAG(FlagIndex_4, FlagSlot_0),
+    /* 0x008C */ AdventureFlag_SalvageArm = FLAG(FlagIndex_4, FlagSlot_12),
 
-    /* 0x00A2 */ AdvantureFlag_HerosNewClothes    = ADVENTURE_FLAG(FlagIndex_5, FlagSlot_2),
-    /* 0x00A3 */ AdvantureFlag_Kaleidoscope       = ADVENTURE_FLAG(FlagIndex_5, FlagSlot_3),
-    /* 0x00A4 */ AdventureFlag_GuardNotebook      = ADVENTURE_FLAG(FlagIndex_5, FlagSlot_4),
-    /* 0x00A7 */ AdventureFlag_WoodHeart          = ADVENTURE_FLAG(FlagIndex_5, FlagSlot_7),
-    /* 0x00B6 */ AdventureFlag_SpawnFinalPhantoms = ADVENTURE_FLAG(FlagIndex_5, FlagSlot_22),
+    /* 0x00A2 */ AdvantureFlag_HerosNewClothes    = FLAG(FlagIndex_5, FlagSlot_2),
+    /* 0x00A3 */ AdvantureFlag_Kaleidoscope       = FLAG(FlagIndex_5, FlagSlot_3),
+    /* 0x00A4 */ AdventureFlag_GuardNotebook      = FLAG(FlagIndex_5, FlagSlot_4),
+    /* 0x00A7 */ AdventureFlag_WoodHeart          = FLAG(FlagIndex_5, FlagSlot_7),
+    /* 0x00B6 */ AdventureFlag_SpawnFinalPhantoms = FLAG(FlagIndex_5, FlagSlot_22),
 
-    /* 0x0126 */ AdventureFlag_ReceivedGoldenChimney  = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_6),
-    /* 0x0127 */ AdventureFlag_ReceivedGoldenHandrail = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_7),
-    /* 0x0128 */ AdventureFlag_ReceivedGoldenCannon   = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_8),
-    /* 0x0129 */ AdventureFlag_ReceivedGoldenHull     = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_9),
-    /* 0x0137 */ AdventureFlag_FrogGlyph_MercayIsland = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_23),
-    /* 0x0138 */ AdventureFlag_FrogGlyph_MolidaIsland = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_24),
-    /* 0x0139 */ AdventureFlag_FrogGlyph_BannanIsland = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_25),
-    /* 0x013A */ AdventureFlag_FrogGlyph_DeeEssIsland = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_26),
-    /* 0x013B */ AdventureFlag_FrogGlyph_IsleOfFrost  = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_27),
-    /* 0x013C */ AdventureFlag_FrogGlyph_NorthEast    = ADVENTURE_FLAG(FlagIndex_9, FlagSlot_28),
+    /* 0x0126 */ AdventureFlag_ReceivedGoldenChimney  = FLAG(FlagIndex_9, FlagSlot_6),
+    /* 0x0127 */ AdventureFlag_ReceivedGoldenHandrail = FLAG(FlagIndex_9, FlagSlot_7),
+    /* 0x0128 */ AdventureFlag_ReceivedGoldenCannon   = FLAG(FlagIndex_9, FlagSlot_8),
+    /* 0x0129 */ AdventureFlag_ReceivedGoldenHull     = FLAG(FlagIndex_9, FlagSlot_9),
+    /* 0x0137 */ AdventureFlag_FrogGlyph_MercayIsland = FLAG(FlagIndex_9, FlagSlot_23),
+    /* 0x0138 */ AdventureFlag_FrogGlyph_MolidaIsland = FLAG(FlagIndex_9, FlagSlot_24),
+    /* 0x0139 */ AdventureFlag_FrogGlyph_BannanIsland = FLAG(FlagIndex_9, FlagSlot_25),
+    /* 0x013A */ AdventureFlag_FrogGlyph_DeeEssIsland = FLAG(FlagIndex_9, FlagSlot_26),
+    /* 0x013B */ AdventureFlag_FrogGlyph_IsleOfFrost  = FLAG(FlagIndex_9, FlagSlot_27),
+    /* 0x013C */ AdventureFlag_FrogGlyph_NorthEast    = FLAG(FlagIndex_9, FlagSlot_28),
 
-    /* 0x0187 */ AdventureFlag_COUNT = ADVENTURE_FLAG(FlagIndex_12, FlagSlot_7),
+    /* 0x0187 */ AdventureFlag_COUNT = FLAG(FlagIndex_12, FlagSlot_7),
 };
 
 struct UnkStruct_027e0d38_UnkC {

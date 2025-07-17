@@ -57,7 +57,7 @@ ARM bool AdventureFlags::Get(AdventureFlag flag) {
         return false;
     }
 
-    return ADVENTURE_FLAG_GET(this->mFlags.data, flag);
+    return GET_FLAG(this->mFlags.data, flag);
 }
 
 ARM void AdventureFlags::Set(AdventureFlag flag, bool value) {
@@ -67,9 +67,9 @@ ARM void AdventureFlags::Set(AdventureFlag flag, bool value) {
         }
 
         if (value) {
-            this->mFlags.data[flag >> 5] |= (1 << (flag & 0x1F));
+            SET_FLAG(this->mFlags.data, flag);
         } else {
-            this->mFlags.data[flag >> 5] &= ~(1 << (flag & 0x1F));
+            UNSET_FLAG(this->mFlags.data, flag);
         }
     }
 }
@@ -225,31 +225,30 @@ ARM unk32 AdventureFlags::func_ov00_02097ecc() {
     u32 *pFlags = (u32 *) data_ov000_020eaac4.data;
     u32 index;
 
-    if (ADVENTURE_FLAG_CHECK(pFlags, FlagIndex_0, FlagSlot_30) && !ADVENTURE_FLAG_CHECK(pFlags, FlagIndex_0, FlagSlot_31)) {
+    if (GET_FLAG(pFlags, AdventureFlag_Unk_30) && !GET_FLAG(pFlags, AdventureFlag_Unk_31)) {
         index = AdventureFlags::Get_FlagsUnk_30(0x20);
 
-        if (!(pFlags[index >> 5] & (1 << (index & 0x1F)))) {
+        if (!GET_FLAG(pFlags, index)) {
             return 0x20;
         }
 
         return 0x21;
     }
 
-    if (ADVENTURE_FLAG_CHECK(pFlags, FlagIndex_0, FlagSlot_29) && !ADVENTURE_FLAG_CHECK(pFlags, FlagIndex_0, FlagSlot_30)) {
+    if (GET_FLAG(pFlags, AdventureFlag_Unk_29) && !GET_FLAG(pFlags, AdventureFlag_Unk_30)) {
         index = AdventureFlags::Get_FlagsUnk_30(0x1F);
 
-        if (!(pFlags[index >> 5] & (1 << (index & 0x1F)))) {
+        if (!GET_FLAG(pFlags, index)) {
             return 0x1F;
         }
 
         return 0x21;
     }
 
-    // {FlagIndex_0, FlagSlot_9} is AdventureFlag_SWSeaChart
-    if (ADVENTURE_FLAG_CHECK(pFlags, FlagIndex_0, FlagSlot_9) && !ADVENTURE_FLAG_CHECK(pFlags, FlagIndex_0, FlagSlot_29)) {
+    if (GET_FLAG(pFlags, AdventureFlag_SWSeaChart) && !GET_FLAG(pFlags, AdventureFlag_Unk_29)) {
         index = AdventureFlags::Get_FlagsUnk_30(0x1E);
 
-        if (!(pFlags[index >> 5] & (1 << (index & 0x1F)))) {
+        if (!GET_FLAG(pFlags, index)) {
             return 0x1E;
         }
 
