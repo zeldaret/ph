@@ -1,10 +1,6 @@
 #ifndef PH_GLOBAL_H
 #define PH_GLOBAL_H
 
-#define GET_FLAG(arr, pos) (((1 << ((pos) & 0x1f)) & (arr)[((u32) (pos)) >> 5]) != 0)
-#define SET_FLAG(arr, pos) ((arr)[((u32) (pos)) >> 5] |= 1 << ((pos) & 0x1f))
-#define RESET_FLAG(arr, pos) ((arr)[((u32) (pos)) >> 5] &= ~(1 << ((pos) & 0x1f)))
-
 #define ARRAY_LEN_U(arr) (u32)((sizeof(arr) / sizeof(*arr)))
 #define ARRAY_LEN(arr) (s32)(sizeof(arr) / sizeof(*arr))
 

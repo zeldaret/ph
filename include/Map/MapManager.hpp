@@ -8,6 +8,7 @@
 #include "Map/Course.hpp"
 #include "Map/MapBase.hpp"
 #include "Physics/AABB.hpp"
+#include "Save/AdventureFlags.hpp"
 #include "System/SysNew.hpp"
 
 struct MapManager_Unk1 {
@@ -245,6 +246,7 @@ public:
                             Vec3p *param_8);
     bool func_ov00_02086a84(s32 *param_2, Vec3p *param_3, Vec3p *param_4, s32 param_5, s32 param_6, unk32 param_7,
                             Vec3p *param_8, Vec3p *param_9);
+    void func_ov000_02098d34(FlagsUnk2 *param1);
 
     MapManager();
     ~MapManager();

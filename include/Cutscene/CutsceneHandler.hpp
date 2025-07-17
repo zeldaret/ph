@@ -43,6 +43,12 @@ public:
     /* 88 */ s32 mUnk_88;
     /* 8c */
 
+    void SetFlags(s32 value) {
+        mFlags1 &= value;
+        mFlags2 &= value;
+    }
+
+    void func_ov000_020980f8();
     s32 func_ov000_020980fc(unk32 param1, unk32 param2, void **param3);
     bool func_ov000_02098114();
     bool SkipCutscene(s32 param1);
