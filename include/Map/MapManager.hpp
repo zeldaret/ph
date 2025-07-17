@@ -8,6 +8,7 @@
 #include "Map/Course.hpp"
 #include "Map/MapBase.hpp"
 #include "Physics/AABB.hpp"
+#include "Save/AdventureFlags.hpp"
 #include "System/SysNew.hpp"
 
 struct MapManager_Unk1 {
