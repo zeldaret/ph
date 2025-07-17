@@ -26,7 +26,7 @@ args = parser.parse_args()
 
 # Config
 GAME = "ph"
-DSD_VERSION = 'v0.10.0'
+DSD_VERSION = 'v0.10.1'
 WIBO_VERSION = '0.6.16'
 OBJDIFF_VERSION = 'v3.0.0-beta.6'
 MWCC_VERSION = "2.0/sp1p5"
@@ -166,7 +166,8 @@ class Project:
     def source_object_files(self) -> list[str]:
         files: list[str] = []
         for source_file in get_c_cpp_files([src_path, libs_path]):
-            files.append(str(source_file.with_suffix(".o")))
+            src_obj_path = self.game_build / source_file
+            files.append(str(src_obj_path.with_suffix(".o")))
         return files
 
     def arm9_o(self) -> Path:
