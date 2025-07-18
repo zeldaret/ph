@@ -188,11 +188,10 @@ ARM unk32 UnkStruct_02038aa0::vfunc_1c(s32 param1, unk32 *param2, unk32 param3, 
 ARM unk32 UnkStruct_02038aa0::vfunc_20(s32 param1, s32 *param2) {}
 ARM void UnkStruct_02038aa0::func_02039208(unk16 param1) {}
 
-// non-matching
 ARM void UnkStruct_02038aa0::vfunc_08(s32 param1, unk32 *param2, s16 *param3, unk32 param4) {
     this->mUnk_15c    = 10;
     this->mUnk_150[2] = 1;
-    this->func_0203e2ac(param2);
+    this->UnkStruct_0203dae0::vfunc_08(param1, (unk32) param2, param3, param4);
 }
 
 ARM unk32 UnkStruct_02038aa0::func_02039250() {}
