@@ -67,7 +67,7 @@ typedef enum BMGFileIndex {
 
 struct SectionBase {
     /* 00 */ u32 tag; // "INF1", "DAT1", ...
-    /* 04 */ u32 size; // the size of the section
+    /* 04 */ u32 size; // the size of the section, aligned to 32
     /* 08 */
 };
 
@@ -81,7 +81,7 @@ struct BMGHeader {
 };
 
 struct EntryINF1 {
-    /* 00 */ u32 offset; // relative to the end of the DAT1 header
+    /* 00 */ u32 offset; // relative to the end of the DAT1 header (where actual strings are in DAT1)
     /* 04 */ u8 mUnk_04; // flags/attributes? (+0x04 to +0x06)
     /* 05 */ u8 mUnk_05;
     /* 06 */ u8 mUnk_06;
@@ -100,60 +100,69 @@ struct SectionINF1 {
     /* 14 */
 };
 
-enum InstrType {
-    /* 1 */ FLW1_TYPE_SHOW_MSG = 1,
-    /* 2 */ FLW1_TYPE_BRANCH   = 2,
-    /* 3 */ FLW1_TYPE_EVENT    = 3,
+enum NodeType {
+    /* 1 */ NODE_TYPE_MSG    = 1,
+    /* 2 */ NODE_TYPE_BRANCH = 2,
+    /* 3 */ NODE_TYPE_EVENT  = 3,
     /* 4 */
 };
 
-struct InstrShowMsg {
+struct NodeMsg {
+    /* 00 (type) */
     /* 01 */ u8 bmgFileIndex; // index into sBMGFiles
-    /* 02 */ u16 msgIndex; // index of INF1 entry
-    /* 04 */ s16 nextIndex; // index of FLW1 entry, 0xFFFF stops the conversation
-    /* 06 */ s16 nextBMGFileIndex; // index into sBMGFiles
+    /* 02 */ u16 infIndex; // index of INF1 entry
+    /* 04 */ u16 nextFlwIndex; // index of FLW1 entry, 0xFFFF stops the conversation
+    /* 06 */ u16 unused_0x6;
     /* 08 */
 };
 
-struct InstrBranch {
-    /* 01 */ u8 mUnk_01;
-    /* 02 */ u16 funcIndex; // index of the query function to run
-    /* 04 */ u16 funcArg; // the argument to use in the function
-    /* 06 */ u16 flwEntry; // the index of the second section table to be used next in the conversation.
+struct NodeBranch {
+    /* 00 (type) */
+    /* 01 */ u8 numQueryResults;
+    /* 02 */ u16 queryIndex; // index of the query function to run
+    /* 04 */ u16 queryParams; // the argument to use in the function
+    /* 06 */ u16 nextNodeTableBaseIdx; // the index of the second section table to be used next in the conversation.
     /* 08 */
 };
 
-struct InstrEvent {
-    /* 01 */ u8 funcIndex; // index of the query function to run
-    /* 02 */ u16 flwEntry; // the index of the second section table to be used next in the conversation.
-    /* 04 */ u32 funcArg; // the argument to use in the function
+struct NodeEvent {
+    /* 00 (type) */
+    /* 01 */ u8 eventIndex; // index of the query function to run
+    /* 02 */ u16 nextNodeTableIndex; // the index of the second section table to be used next in the conversation.
+    /* 04 */ u32 eventParams; // the argument to use in the function
     /* 08 */
 };
 
-struct FLW1Instr {
-    /* 00 */ u8 type; // see InstrType
+struct FLW1Node {
+    /* 00 */ u8 type; // see NodeType
     /* 01 */ union {
-        InstrShowMsg showMsg;
-        InstrBranch branch;
-        InstrEvent event;
+        NodeMsg showMsg;
+        NodeBranch branch;
+        NodeEvent event;
     };
-    /* 09 */
+    /* 08 */
+};
+
+struct FLW1Header {
+    /* 00 */ SectionBase base;
+    /* 04 */ u16 numNodes;
+    /* 08 */ u16 numLabels;
+    /* 0c */ u32 padding_0xC;
+    /* 10 */
 };
 
 struct SectionFLW1 {
-    /* 00 */ SectionBase base;
-    /* 04 */ u16 numInstructions;
-    /* 08 */ u16 numLabels;
-    /* 0c */ u32 mUnk_0c; // always zero?
-    /* 10 */ FLW1Instr *instructions;
-    /* 14 */ s16 *flwEntries;
+    /* 00 */ FLW1Header header;
+    /* 10 */ FLW1Node *nodes;
+    /* 14 */ u16 *flwEntries;
     /* 18 */ s8 *bmgFileIndices;
     /* 1c */
 };
 
 struct EntryFLI1 {
     /* 00 */ u32 msgFlowID;
-    /* 04 */ u32 msgFlowNodeIndex;
+    /* 04 */ u16 msgFlowNodeIndex;
+    /* 06 */ u16 padding_0x6;
     /* 08 */
 };
 
