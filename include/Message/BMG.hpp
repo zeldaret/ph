@@ -140,7 +140,7 @@ struct NodeEvent {
 struct FLW1Node {
     /* 00 */ u8 type; // see NodeType
     /* 01 */ union {
-        NodeMsg showMsg;
+        NodeMsg msg;
         NodeBranch branch;
         NodeEvent event;
     };
@@ -172,8 +172,8 @@ struct EntryFLI1 {
 
 struct SectionFLI1 {
     /* 00 */ SectionBase base;
-    /* 04 */ u16 numEntries;
-    /* 08 */ u16 entrySize;
+    /* 08 */ u16 numEntries;
+    /* 0a */ u16 entrySize;
     /* 0c */ u32 mUnk_0c; // always zero?
     /* 10 */ EntryFLI1 *entries;
     /* 14 */

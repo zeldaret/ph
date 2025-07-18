@@ -11,7 +11,7 @@ extern u32 *data_027e0ce0[];
 extern u32 data_027e05f4; // language
 extern u32 *data_ov002_0210016c;
 
-static char *sBMGFileNames[BMG_FILE_INDEX_MAX] = {
+static const char *const sBMGFileNames[BMG_FILE_INDEX_MAX] = {
     "system",       // BMG_FILE_INDEX_SYSTEM
     "regular",      // BMG_FILE_INDEX_REGULAR
     "battle",       // BMG_FILE_INDEX_BATTLE
@@ -116,9 +116,8 @@ ARM EntryINF1 *BMGFileInfo::func_02037258(u16 param_2) {
 // non-matching
 ARM u16 BMGFileInfo::func_0203728c(unk32 param_2) {
     SectionFLI1 *pFLI1;
-    EntryFLI1 *entry;
-    u32 i;
-    u16 j;
+    u32 uVar1;
+    u32 uVar2;
 
     pFLI1 = this->pFLI1;
 
@@ -126,24 +125,11 @@ ARM u16 BMGFileInfo::func_0203728c(unk32 param_2) {
         return -1;
     }
 
-    i = 0;
-    do {
-        entry = &pFLI1->entries[i];
-
-        if (param_2 > entry->msgFlowID) {
-            return entry->msgFlowNodeIndex;
+    for (uVar1 = 0; (uVar2 & 0xFFFF) < this->pFLI1->numEntries; uVar2 = uVar1 + 1, uVar1 = (uVar2 & 0xFFFF)) {
+        if (param_2 == pFLI1->entries[uVar1].msgFlowID) {
+            return pFLI1->entries[uVar1].msgFlowNodeIndex;
         }
-
-        // i++;
-        j = i + 1;
-        i = j & 0xFFFF;
-    } while (j < pFLI1->numEntries);
-
-    // for (i = 0; (u16)i < pFLI1->numEntries; i++) {
-    //     if (param_2 == pFLI1->entries[i].msgFlowID) {
-    //         return pFLI1->entries[i].msgFlowNodeIndex;
-    //     }
-    // }
+    }
 
     return -1;
 }
