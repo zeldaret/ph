@@ -6,7 +6,7 @@
 
 #define BMG_MAGIC "MESGbmg1"
 #define BMG_GET_INF1(pGroups, flags) ((pGroups)->entries[(flags) >> 0x10].func_02037258((flags) & 0xFFFF))
-#define BMG_GET_MSG_OFFSET(pGroups, flags) (BMG_GET_INF1((pGroups), (flags))->offset)
+#define BMG_GET_MSG_OFFSET(pGroups, flags) (BMG_GET_INF1((pGroups), (flags))->stringOffset)
 #define BMG_GET_MSG_ADDR(pGroups, flags)                                                              \
     ((u32) (pGroups)->entries[(flags) >> 0x10].pDAT1 + (BMG_GET_MSG_OFFSET((pGroups), (flags)) & ~1))
 
@@ -81,7 +81,7 @@ struct BMGHeader {
 };
 
 struct EntryINF1 {
-    /* 00 */ u32 offset; // relative to the end of the DAT1 header (where actual strings are in DAT1)
+    /* 00 */ u32 stringOffset; // relative to the end of the DAT1 header (where actual strings are in DAT1)
     /* 04 */ u8 mUnk_04; // flags/attributes? (+0x04 to +0x06)
     /* 05 */ u8 mUnk_05;
     /* 06 */ u8 mUnk_06;
@@ -127,9 +127,13 @@ struct NodeBranch {
 
 struct NodeEvent {
     /* 00 (type) */
-    /* 01 */ u8 eventIndex; // index of the query function to run
+    /* 01 */ u8 eventIndex; // index of the event function to run
     /* 02 */ u16 nextNodeTableIndex; // the index of the second section table to be used next in the conversation.
-    /* 04 */ u32 eventParams; // the argument to use in the function
+    /* 04 */ union { // the argument to use in the function
+        u32 eventParams32;
+        u16 eventParams16[2];
+        u8 eventParams8[4];
+    };
     /* 08 */
 };
 
@@ -146,15 +150,15 @@ struct FLW1Node {
 struct FLW1Header {
     /* 00 */ SectionBase base;
     /* 04 */ u16 numNodes;
-    /* 08 */ u16 numLabels;
+    /* 08 */ u16 numFlwEntries;
     /* 0c */ u32 padding_0xC;
     /* 10 */
 };
 
 struct SectionFLW1 {
     /* 00 */ FLW1Header header;
-    /* 10 */ FLW1Node *nodes;
-    /* 14 */ u16 *flwEntries;
+    /* 10 */ FLW1Node *nodes; // real size is `FLW1Header.numNodes * sizeof(FLW1Node)`
+    /* 14 */ u16 *flwEntries; // "indirection table", real size is `FLW1Header.numFlwEntries * sizeof(u16)`
     /* 18 */ s8 *bmgFileIndices;
     /* 1c */
 };
@@ -176,7 +180,7 @@ struct SectionFLI1 {
 };
 
 struct EntryDAT1 {
-    /* 00 */ char *text;
+    /* 00 */ char *text; // always null-terminated
     /* 04 */
 };
 

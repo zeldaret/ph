@@ -162,14 +162,15 @@ THUMB void BMGGroups::func_020372f0(BMGFileIndex eIndex, s16 unk_18) {
 
     pFile = data_027e0ce0[1];
 
-    if (unk_18 != 1) {
-        if (unk_18 != 4) {
+    switch (unk_18) {
+        case 1:
             pFile = data_027e0ce0[0];
-        } else {
+            break;
+        case 4:
             pFile = data_ov002_0210016c;
-        }
-    } else {
-            // pFile = data_027e0ce0[0];
+            break;
+        default:
+            break;
     }
 
     // get file data
