@@ -6,23 +6,6 @@
 #include "Message/BMG.hpp"
 #include "System/SysNew.hpp"
 
-class UnkStruct_02032e7c : public SysObject {
-public:
-    /* 00 (vtable) */
-    /* 04 */ u16 *mUnk_04; // pointer to the current position in the message to display
-    /* 08 */ unk16 mUnk_08;
-    /* 0a */ unk16 mUnk_0a;
-    /* 0c */ unk16 mUnk_0c;
-    /* 0e */ unk16 mUnk_0e;
-    /* 10 */ unk32 mUnk_10;
-    /* 14 */
-
-    /* 0 */ virtual ~UnkStruct_02032e7c();
-    /* 8 */
-
-    UnkStruct_02032e7c();
-};
-
 class UnkSubClass1_02256FF8 {
 public:
     /* 00 (vtable) */
@@ -116,38 +99,6 @@ public:
     /* 20 */ virtual unk32 vfunc_20(s32 param1, s32 *param2);
     /* 24 */ virtual bool vfunc_24(s16 **param1);
     /* 28 */
-
-    // /* 0x08 */ /* func_02033030 */ virtual void vfunc_08(unk32* param_2, unk32* param_3);
-    // /* 0x0C */ /* func_02033190 */ virtual void vfunc_0C(u8 param_2, u8 param_3, u8 param_4, unk32 param_5);
-    // /* 0x10 */ /* func_020331c4 */ virtual void vfunc_10(u8 param_2, u8 param_3);
-    // /* 0x14 */ /* func_02032fcc */ virtual bool vfunc_14(u16 param_2, u8 param_3);
-    // /* 0x18 */ /* func_020332e4 */ virtual unk32 vfunc_18(UnkStruct_0203b264* param_2, unk32 param_3, unk32 param_4);
-    // /* 0x1C */ /* func_02033360 */ virtual unk32 vfunc_1C(u16* param_2, UnkStruct_0203b264* param_3, unk8 param_4, unk32
-    // param_5);
-    // /* 0x20 */ /* func_020333e0 */ virtual UNK_TYPE vfunc_20(UNK_TYPE);
-    // /* 0x24 */ /* func_02033af4 */ virtual UNK_TYPE vfunc_24(UNK_TYPE);
-
-    //! TODO: fake?
-    /* 28 */ virtual bool vfunc_28(void);
-    /* 2c */ virtual void vfunc_2C(void);
-    /* 30 */ virtual void vfunc_30(void);
-    /* 34 */ virtual unk32 vfunc_34(unk32 param_2);
-    /* 38 */ virtual bool vfunc_38(void);
-    /* 3c */ virtual void vfunc_3C(unk32 param_2);
-    /* 40 */ virtual void vfunc_40(unk32 param_2, unk32 param_3);
-    /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY);
-    /* 48 */ virtual void vfunc_48(void);
-    /* 4c */ virtual void vfunc_4C(void);
-    /* 50 */ virtual void vfunc_50(EntryINF1 *param_2, u32 param_3, s16 *param_4, UnkSubClass1_02256FF8 *param_5);
-    /* 54 */ virtual void vfunc_54(void);
-    /* 58 */ virtual void vfunc_58(void);
-    /* 5c */ virtual void vfunc_5C(void);
-    /* 60 */ virtual void vfunc_60(func_0203b410_param1 *param_2, unk32 param_3, unk32 param_4);
-    /* 64 */ virtual void vfunc_64(s16 *param_2);
-    /* 68 */ virtual unk32 vfunc_68(unk32 param_2);
-    /* 6c */ virtual void vfunc_6C(unk32 *param_2, unk32 *param_3);
-    /* 70 */ virtual void vfunc_70(unk32 *param_2, unk32 *param_3);
-    /* 74 */
 
     UnkStruct_02032f0c();
     void func_02032f94();
