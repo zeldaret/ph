@@ -75,6 +75,8 @@ public:
     /* 74 */ virtual void vfunc_74();
     /* 78 */
 
+    static void func_020387e0(u8 *param_2);
+
     UnkStruct_02038aa0(u8 param1, u8 param2);
     void func_02038b40();
     bool func_02038b78();
@@ -86,38 +88,8 @@ public:
     unk32 func_02039250();
     void func_02039440(unk32 param1, unk32 param2);
     bool func_0203951c();
-
-    static void func_020387e0(u8 *param_2);
-
-    unk32 func_02032fb4(void);
     u16 *func_02037604(u16 **);
-    void func_02038b28(void);
-    void func_02038b74(void); // is this a dtor?
-    void func_02038f40(void);
-    void func_02038f44(EntryINF1 *param_2, u32 param_3, struct func_02038f44_param4 *param_4, UnkSubClass1_02256FF8 *param_5,
-                       unk32 param_6);
-    void func_02039058(void);
-    unk32 func_0203905c(u16 *param_2, UnkStruct_0203b264 *param_3, unk8 param_4, unk32 param_5);
-    void func_02038d20(void);
-    void func_020392b4(void);
-    void func_02039398(void);
-    void func_020393a8(s16 *param_2);
-    void func_0203a188(unk32, unk32);
-    unk32 func_0203a3e0(void);
-    unk32 func_0203cb5c(unk8, s16);
-
-    void func_0203dcfc(unk32 param_2, unk32 param_3, unk32 param_4, unk32 param_5);
-    unk32 func_0203de14(unk32);
-    void func_0203e090(void);
-    void func_0203e1b0(unk32, unk32, unk32);
 
     //! TODO: not sure it belongs to this class:
-
-    void func_02033190(unk32 param_2, unk32 param_3, unk32 param_4, unk32 param_5);
-    void func_020331c4(unk32, unk32);
-    void func_0203947c(void);
-    void func_0203cabc(unk32);
-    unk32 func_0203e284(UnkStruct_0203b264 *, unk32, unk32);
-    void func_0203e2ac(unk32 *param_2);
     s16 func_0203d318(s16, s16);
 };

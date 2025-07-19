@@ -106,9 +106,7 @@ public:
     u16 **SetUnk_0c(u16 *value);
     u8 func_02032fa4();
     s32 func_02032fb4();
-    void func_02032fcc(unk32, unk32);
     void func_02033214(unk32 param1, unk32 param2, unk32 param3, u8 param4, unk32 param5);
-    unk32 func_02033360(void);
     void func_020334b4(u32 param1, s32 param2, s32 param3, s32 param4);
     void func_02033628(unk32 param1, u16 *param2);
     u32 func_0203369c(u16 *param1, s32 param2);

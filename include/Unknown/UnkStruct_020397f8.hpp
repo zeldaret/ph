@@ -105,6 +105,8 @@ public:
     /* 68 */ virtual s32 vfunc_68(unk32 param1) override;
     /* 70 */ virtual void vfunc_70(s32 *param1, s32 *param2) override;
 
+    static bool func_0203c25c(class UnkStruct_020397f8 *param1);
+
     UnkStruct_020397f8();
     void func_02039ca8();
     void func_0203a188(s32 param1, s32 param2); // void func_0203a188(unk32 param_2, unk32 param_3, unk32 param_4);
@@ -122,11 +124,6 @@ public:
     bool func_0203c084();
     bool func_0203c13c();
     bool func_0203c1a0();
-    static bool func_0203c25c(class UnkStruct_020397f8 *param1);
-
-    //! TODO: check if this is really here
-    void func_02039a3c(void);
-    unk32 func_02039250(void);
 };
 
 class MsgProc_Type3 : public UnkStruct_02038aa0 {
@@ -155,6 +152,9 @@ public:
     /* 40 */ virtual void vfunc_40(unk32 param_2, unk32 param_3) override;
     /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY) override;
     /* 48 */ virtual void vfunc_48() override;
+
+    void func_0203cabc(unk32);
+    unk32 func_0203cb5c(unk8, s16);
 };
 
 class MsgProc_Type2 : public UnkStruct_02038aa0 {
