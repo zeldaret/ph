@@ -97,7 +97,6 @@ extern UnkClass_027e0cbc data_027e0cbc;
 extern unk16 data_02056a10[];
 extern unk16 data_02056a16[];
 extern unk32 data_02056a04[8];
-extern unk32 data_027e0c38[];
 extern "C" void func_0203489c(unk32, unk16, unk32 *, unk32 *);
 extern "C" void func_020347b0(unk32, unk16, unk32 *, unk32 *, unk32, unk32);
 extern THUMB unk32 func_0202ab48(void);
