@@ -16,5 +16,5 @@ s32 PlayerBase::EquipItem_vfunc_2c() {}
 void PlayerBase::SetHealth(s16 health) {}
 void PlayerBase::AddHealth(s16 amount) {}
 bool PlayerBase::Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5) {}
-bool PlayerBase::TeleportToEntrance(unk32 entranceId, bool param2) {}
+bool PlayerBase::TeleportToEntrance(Vec3p *pos, unk32 entranceId) {}
 bool PlayerBase::TeleportToLastEntrance(bool param1) {}

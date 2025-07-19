@@ -6,7 +6,7 @@
 #include "Player/EquipRope.hpp"
 
 class EquipSword : public EquipItem {
-private:
+public:
     /* 00 (base) */
     /* 09 */ unk8 mUnk_09[3]; // padding?
     /* 0c */ void *mUnk_0c;
@@ -40,7 +40,6 @@ private:
     /* 6f */ unk8 mUnk_6f;
     /* 70 */
 
-public:
     EquipSword();
 
     /* 00 */ virtual void vfunc_00() override;

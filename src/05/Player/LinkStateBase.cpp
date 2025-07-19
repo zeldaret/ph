@@ -15,7 +15,7 @@ void LinkStateBase::func_ov005_02110228(s32 param1, s32 param2, s32 param3, char
 bool LinkStateBase::func_ov005_0211058c(s32 param1) {}
 void LinkStateBase::func_ov005_021107fc() {}
 void LinkStateBase::func_ov005_0211086c(s32 param1) {}
-void LinkStateBase::func_ov005_0211097c(unk32 param1, unk8 param2, unk8 param3) {}
+void LinkStateBase::func_ov005_0211097c(LinkStateBase_UnkStruct1 *param1, unk8 param2, unk8 param3) {}
 unk32 LinkStateBase::func_ov005_021109c0() {}
 void LinkStateBase::func_ov005_02110b40(s32 param1) {}
 void LinkStateBase::func_ov005_02110bb4() {}
