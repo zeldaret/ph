@@ -82,7 +82,7 @@ public:
     /* 0c */ virtual void vfunc_0c(unk32 param1, unk32 param2, unk32 param3, unk32 param4) override;
     /* 10 */ virtual void vfunc_10(u32 param1, unk32 param2) override;
     /* 14 */ virtual bool vfunc_14(s32 param1, s32 param2) override;
-    /* 18 */ virtual unk32 vfunc_18(s32 param1) override;
+    /* 18 */ virtual unk32 vfunc_18(UnkStruct_02032e7c *param1, unk32 param2, unk32 param3) override;
     /* 28 */ virtual bool vfunc_28();
     /* 2c */ virtual void vfunc_2c();
     /* 30 */ virtual void vfunc_30();

@@ -26,11 +26,11 @@ public:
     /* 0x05 */ u8 mUnk_05;
     /* 0x06 */ unk16 mUnk_06;
     /* 0x08 */ UnkStruct_020397f8 *mUnk_08;
-    /* 0x0C */ u8 mUnk_0c;
-    /* 0x0C */ u8 mUnk_0d;
-    /* 0x0C */ unk16 mUnk_0e;
+    /* 0x0c */ u8 mUnk_0c;
+    /* 0x0d */ u8 mUnk_0d;
+    /* 0x0e */ unk16 mUnk_0e;
     /* 0x10 */ unk16 mUnk_10;
-    /* 0x10 */ unk16 mUnk_12;
+    /* 0x12 */ unk16 mUnk_12;
     /* 0x14 */ BMGGroups *pGroups;
     /* 0x18 */ UnkStruct_020386d8 *mUnk_18[2];
     /* 0x20 */ UnkStruct_02037750 *mUnk_20[2];

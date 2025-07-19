@@ -713,7 +713,7 @@ ARM s32 UnkStruct_020397f8::func_0203b0ec(u32 param1) {
 }
 
 // non-matching
-ARM unk32 UnkStruct_020397f8::vfunc_18(s32 param1) {
+ARM unk32 UnkStruct_020397f8::vfunc_18(UnkStruct_02032e7c *param1, unk32 param2, unk32 param3) {
     u16 sVar1;
     u32 uVar4;
     s32 unaff_r4;

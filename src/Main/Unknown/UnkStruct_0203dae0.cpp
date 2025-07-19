@@ -157,10 +157,10 @@ ARM void UnkStruct_0203dae0::vfunc_2c() {
 
 ARM bool UnkStruct_0203dae0::func_0203e1b0(unk32 param1, unk32 param2, s32 param3) {}
 
-ARM unk32 UnkStruct_0203dae0::vfunc_18(s32 param1) {
+ARM unk32 UnkStruct_0203dae0::vfunc_18(UnkStruct_02032e7c *param1, unk32 param2, unk32 param3) {
     unk32 iVar1;
 
-    iVar1 = this->UnkStruct_02032f0c::vfunc_18(param1);
+    iVar1 = this->UnkStruct_02032f0c::vfunc_18(param1, param2, param3);
 
     if (iVar1 != 0) {
         this->func_0203dc10(1);

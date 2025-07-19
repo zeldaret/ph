@@ -87,7 +87,7 @@ public:
     /* 5b4 */
 
     /* 00 */ virtual ~UnkStruct_020397f8();
-    /* 18 */ virtual unk32 vfunc_18(s32 param1) override;
+    /* 18 */ virtual unk32 vfunc_18(UnkStruct_02032e7c *param1, unk32 param2, unk32 param3) override;
     /* 1c */ virtual unk32 vfunc_1c(s32 param1, unk32 *param2, unk32 param3, unk32 param4) override;
     /* 20 */ virtual unk32 vfunc_20(s32 param1, s32 *param2) override;
     /* 2c */ virtual void vfunc_2c() override;

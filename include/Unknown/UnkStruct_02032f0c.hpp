@@ -5,6 +5,7 @@
 
 #include "Message/BMG.hpp"
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_02032e7c.hpp"
 
 class UnkSubClass1_02256FF8 {
 public:
@@ -39,8 +40,7 @@ public:
 struct UnkStruct_MsgProc_Base_unk_2C {
     /* 00 */ s8 mUnk_00;
     /* 01 */ s8 mUnk_01;
-    /* 02 */ s8 mUnk_02;
-    /* 03 */ s8 mUnk_03;
+    /* 02 */ u16 mUnk_02;
     /* 04 */ unk32 mUnk_04;
     /* 08 */ u8 *mUnk_08;
     /* 0c */
@@ -64,8 +64,8 @@ public:
     /* 08 */ UnkSubClass1_02256FF8 *mUnk_08;
     /* 0c */ u16 *mUnk_0c;
     /* 10 */ unk32 *mUnk_10;
-    /* 14 */ s32 mUnk_14;
-    /* 18 */ s32 mUnk_18;
+    /* 14 */ s32 mUnk_14; // some width?
+    /* 18 */ s32 mUnk_18; // some height?
     /* 1c */ unk32 mUnk_1c;
     /* 20 */ unk32 mUnk_20;
     /* 24 */ unk32 *mUnk_24;
@@ -82,7 +82,7 @@ public:
     /* 49 */ u8 mUnk_49;
     /* 4a */ u16 mUnk_4a;
     /* 4c */ u8 mUnk_4c;
-    /* 4d */ bool mUnk_4d;
+    /* 4d */ u8 mUnk_4d;
     /* 4e */ u8 mUnk_4e;
     /* 4f */ u8 mUnk_4f;
     /* 50 */ u8 mUnk_50;
@@ -94,7 +94,7 @@ public:
     /* 0c */ virtual void vfunc_0c(unk32 param1, unk32 param2, unk32 param3, unk32 param4);
     /* 10 */ virtual void vfunc_10(u32 param1, unk32);
     /* 14 */ virtual bool vfunc_14(s32 param1, s32 param2);
-    /* 18 */ virtual unk32 vfunc_18(s32 param1);
+    /* 18 */ virtual unk32 vfunc_18(UnkStruct_02032e7c *param1, unk32 param2, unk32 param3);
     /* 1c */ virtual unk32 vfunc_1c(s32 param1, unk32 *param2, unk32 param3, unk32 param4);
     /* 20 */ virtual unk32 vfunc_20(s32 param1, s32 *param2);
     /* 24 */ virtual bool vfunc_24(s16 **param1);
@@ -104,14 +104,14 @@ public:
     u16 **func_02032f98(u16 *value);
     u8 func_02032fa4();
     s32 func_02032fb4();
-    void func_02033214(unk32 param1, unk32 param2, unk32 param3, u8 param4, unk32 param5);
+    void func_02033214(unk32 param1, unk32 param2, unk32 param3, u8 param4, UnkSubClass1_02256FF8 *param5);
     void func_020334b4(u32 param1, s32 param2, s32 param3, s32 param4);
-    void func_02033628(unk32 param1, u16 *param2);
+    unk32 func_02033628(UnkStruct_02032e7c *param1, u16 **param2, unk32 param3);
     u32 func_0203369c(u16 *param1, s32 param2);
     void func_02033780(s32 param1);
     s32 func_020337d8(s32 param1);
     s32 func_020337fc(s16 *param1, s32 param2);
-    void func_020338a8(s32 param1, unk32 param2);
+    void func_020338a8(UnkStruct_02032e7c *param1, unk32 param2);
     void func_020338d0(unk32 *param1, unk32 param2);
     s32 func_02033904(unk32 param1, unk32 param2);
     s32 func_02033938(unk32 param1);

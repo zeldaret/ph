@@ -99,7 +99,7 @@ extern unk16 data_02056a16[];
 extern unk32 data_02056a04[8];
 extern "C" void func_0203489c(unk32, unk16, unk32 *, unk32 *);
 extern "C" void func_020347b0(unk32, unk16, unk32 *, unk32 *, unk32, unk32);
-extern THUMB unk32 func_0202ab48(void);
+extern "C" unk32 func_0202ab48(void);
 extern "C" void func_02034984(unk32, u8, unk32, unk32);
 extern "C" void func_02034698(unk32, unk32, unk32 *, unk32 *);
 extern struct TouchControl gTouchControl;
