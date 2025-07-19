@@ -74,6 +74,8 @@ func_ov050_021987c4 kind:function(arm,size=0x8) addr:0x02198724
 data_ov050_021987cc kind:data(any) addr:0x0219872c
 __sinit_ov050_0219882c kind:function(arm,size=0x64) addr:0x0219878c
 __sinit_ov050_02198890 kind:function(arm,size=0x118) addr:0x021987f0
+.p__sinit_ov050_0219882c kind:data(word) addr:0x02198908
+.p__sinit_ov050_02198890 kind:data(word) addr:0x0219890c
 data_ov050_021989c0 kind:data(any) addr:0x02198920
 data_ov050_021989d0 kind:data(any) addr:0x02198930
 data_ov050_021989f0 kind:data(any) addr:0x02198950

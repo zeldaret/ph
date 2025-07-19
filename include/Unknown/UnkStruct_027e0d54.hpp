@@ -1,8 +1,10 @@
 #pragma once
 
-#include "System/SysNew.hpp"
 #include "global.h"
 #include "types.h"
+
+#include "Game/GameMode.hpp"
+#include "System/SysNew.hpp"
 
 class UnkStruct_027e0d54_08 : public SysObject {
 public:
@@ -17,7 +19,7 @@ public:
     /* 04 */ bool mUnk_0c;
     /* 04 */ unk8 mUnk_0d;
     /* 04 */ unk8 mUnk_0e;
-    /* 04 */ unk8 mUnk_0f;
+    /* 04 */ u8 mUnk_0f;
     /* 10 */ unk32 mUnk_10;
     /* 10 */ u16 mUnk_14;
     /* 10 */ unk16 mUnk_16;
@@ -25,6 +27,7 @@ public:
     UnkStruct_027e0d54();
 
     void func_ov008_02112f28();
+    void func_ov000_0207a2e8(GameModeId modeId);
 };
 
 extern UnkStruct_027e0d54 data_027e0d54;

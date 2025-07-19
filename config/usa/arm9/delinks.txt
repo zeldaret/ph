@@ -69,3 +69,10 @@ src/Main/Game/GameMode.cpp:
     complete
     .text       start:0x0202c090 end:0x0202c0b4
     .data       start:0x020575cc end:0x020575f0
+
+src/Main/DTCM/UnkStruct_027e05f8_2.cpp:
+    complete
+    .text       start:0x02037408 end:0x02037470
+    .init       start:0x02050c70 end:0x02050c9c
+    .ctor       start:0x02057218 end:0x0205721c
+    .dtcm       start:0x027e05f8 end:0x027e060c

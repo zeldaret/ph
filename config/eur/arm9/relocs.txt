@@ -3743,7 +3743,7 @@ from:0x0202f8b0 kind:thumb_call_arm to:0x0200f248 module:main
 from:0x0202f8c0 kind:load to:0x0206322c module:main
 from:0x0202f8c4 kind:load to:0x027e05f8 module:dtcm
 from:0x0202f8c8 kind:load to:0x027e08f8 module:dtcm
-from:0x0202f8cc kind:load to:0x020562e2 module:main
+from:0x0202f8cc kind:load to:0x020562e0 add:2 module:main
 from:0x0202f8dc kind:load to:0x027e0618 module:dtcm
 from:0x0202f8e0 kind:load to:0x027e0900 module:dtcm
 from:0x0202f8e4 kind:load to:0x020ee734 module:overlay(0)

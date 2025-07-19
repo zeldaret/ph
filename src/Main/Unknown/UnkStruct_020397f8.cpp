@@ -1,4 +1,6 @@
 #include "Unknown/UnkStruct_020397f8.hpp"
+#include "DTCM/UnkStruct_027e0c38.hpp"
+#include "DTCM/UnkStruct_027e0c54.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Game/Game.hpp"
 #include "Message/MessageManager.hpp"
@@ -275,7 +277,7 @@ ARM void UnkStruct_020397f8::vfunc_40(s32 touchLastX, s32 touchLastY) {
         local_9c += touchLastX + local_8c + iVar6;
         local_a0 += touchLastY + local_90 + iVar7;
 
-        if (data_027e0c38[5] == 1) {
+        if (data_027e0c38.mUnk_14 == 1) {
             iVar8 = func_0202ab48();
 
             if (iVar8 == 0) {
@@ -543,7 +545,7 @@ ARM void UnkStruct_020397f8::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3
 
     iVar6 = param3[0];
 
-    if (data_027e0c54 != 0) {
+    if (data_027e0c54.mUnk_0) {
         UnkStruct_020397f8 *pVar4 = gMessageManager.func_02036700();
 
         if (pVar4 != NULL && pVar4->mUnk_15c > 0) {
