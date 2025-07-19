@@ -31,7 +31,7 @@ public:
     /* 008 */ GameMode *mMode;
     /* 00c */ unk8 mUnk_00c[0xc0];
     /* 0cc */ FadeControl mFadeControl;
-    /* 0f0 */ unk16 mUnk_0f0;
+    /* 0f0 */ u16 mUnk_0f0;
     /* 0f2 */ u16 mUnk_0f2;
     /* 0f4 */ s32 mUnk_0f4;
     /* 0f8 */ s32 mUnk_0f8;

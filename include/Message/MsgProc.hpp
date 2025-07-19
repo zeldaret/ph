@@ -94,6 +94,7 @@ struct Struct_027e0db0 {
     /* 0x04 */ unk32 mUnk_04;
 
     void func_ov000_0207b288(GameModeId modeId);
+    void func_ov000_0207b378(unk32 param_1);
 };
 extern Struct_027e0db0 data_027e0db0;
 
@@ -101,6 +102,8 @@ class UnkClass_027e0cbc {
 public:
     void func_0203d57c();
     void func_0203d5c0();
+    void func_0203d64c(s32);
+    void func_0203d664(s32);
     void func_0203d6d0();
     unk32 func_0203d7e0(unk32);
     unk32 func_0203d77c(unk32, s32, s32);
@@ -109,7 +112,6 @@ extern UnkClass_027e0cbc data_027e0cbc;
 extern unk16 data_02056a10[];
 extern unk16 data_02056a16[];
 extern unk32 data_02056a04[];
-extern unk32 data_027e0c38[];
 extern "C" void func_0203489c(unk32, unk16, unk32 *, unk32 *);
 extern "C" void func_020347b0(unk32, unk16, unk32 *, unk32 *, unk32, unk32);
 extern THUMB unk32 func_0202ab48(void);
@@ -123,7 +125,6 @@ public:
     void func_ov000_0207bc9c();
 };
 extern UnkClass_027e0e28 *data_027e0e28;
-extern u8 data_027e0c54;
 extern unk32 *data_ov009_0211f5b4;
 extern "C" unk32 func_ov003_020f3f94(unk32 *);
 extern "C" void func_ov003_020f4060(unk32 **);
@@ -174,6 +175,7 @@ class UnkClass_ov000_027e0d04 {
 public:
     /* 0x00 */ unk16 mUnk_00;
 
+    void func_0203fe00();
     void func_0203fe60(unk32);
 };
 extern UnkClass_ov000_027e0d04 data_027e0d04;

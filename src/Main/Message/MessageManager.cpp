@@ -1,5 +1,6 @@
 #include "Message/MessageManager.hpp"
 #include "Actor/ActorManager.hpp"
+#include "DTCM/UnkStruct_027e0c54.hpp"
 #include "Game/Game.hpp"
 #include "Player/TouchControl.hpp"
 #include "System/SysNew.hpp"
@@ -236,7 +237,7 @@ ARM bool MessageManager::func_020368f4(UnkStruct_02037750 *param_2) {
 }
 
 // non-matching
-ARM void MessageManager::func_0203690c(unk32 param_2, unk32 param_3, unk32 param_4) {
+ARM void MessageManager::func_0203690c(unk32 param_2) {
     UnkStruct_020397f8 *unk_28_0;
     UnkStruct_020397f8 *unk_28_2;
     UnkStruct_02038aa0 *pSVar4;
@@ -308,7 +309,7 @@ ARM void MessageManager::func_0203690c(unk32 param_2, unk32 param_3, unk32 param
         //! TODO: fake?
         pSVar4 = this->func_02037178((UnkSubClass1_02256FF8 *) this->mUnk_18[0]);
 
-        if (data_027e0c54 != 0 && pSVar4 != NULL && pSVar4->mUnk_50 != ((data_02056be4[data_027e077c.mUnk_0] & 1) != 0)) {
+        if (data_027e0c54.mUnk_0 && pSVar4 != NULL && pSVar4->mUnk_50 != ((data_02056be4[data_027e077c.mUnk_0] & 1) != 0)) {
             this->mUnk_04 = 0;
         }
     }

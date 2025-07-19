@@ -117,6 +117,7 @@ struct UnkStruct_027e103c {
     void func_ov004_02104ffc(unk32 param1, unk32 param2);
     void func_ov004_0210504c();
 
+    void func_ov005_02103e58(u16 *param1);
     void func_ov005_02103f20();
     void func_ov005_02103f3c();
     bool func_ov005_02103f4c();
