@@ -45,21 +45,6 @@ public:
     UnkStruct_0203b264 *func_0203eeb0(unk32 param_2, unk32 param_3);
 };
 
-class UnkStruct_0203dae0_114 : public SysObject {
-public:
-    /* 0x00 (vtable) */
-    /* 0x04 */ unk32 *mUnk_04;
-    /* 0x08 */
-
-    UnkStruct_0203dae0_114();
-    /* 0x00 */ virtual ~UnkStruct_0203dae0_114() override;
-    /* 0x08 */ virtual unk32 vfunc_08(void *);
-    /* 0x08 */ virtual unk32 vfunc_0c(void);
-    /* 0x0C */
-
-    unk32 *func_0203d1b4(void);
-};
-
 struct func_02038f44_param4 {
     u8 mUnk_00;
     u8 mUnk_01;
@@ -108,7 +93,7 @@ public:
 extern UnkClass_027e0cbc data_027e0cbc;
 extern unk16 data_02056a10[];
 extern unk16 data_02056a16[];
-extern unk32 data_02056a04[];
+extern unk32 data_02056a04[8];
 extern unk32 data_027e0c38[];
 extern "C" void func_0203489c(unk32, unk16, unk32 *, unk32 *);
 extern "C" void func_020347b0(unk32, unk16, unk32 *, unk32 *, unk32, unk32);
@@ -127,7 +112,7 @@ extern u8 data_027e0c54;
 extern unk32 *data_ov009_0211f5b4;
 extern "C" unk32 func_ov003_020f3f94(unk32 *);
 extern "C" void func_ov003_020f4060(unk32 **);
-extern unk32 *data_02057ed4;
+extern char *data_02057ed4;
 
 // see Actor.cpp
 typedef struct UnkStruct_01ffbe34 {

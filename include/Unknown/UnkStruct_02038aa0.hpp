@@ -28,7 +28,7 @@ public:
     /* 2b */ unk8 mUnk_2b;
     /* 2c */
 
-    void func_0203f020(s16 *, unk32);
+    void func_0203f020(unk32, unk32);
 };
 
 struct UnkStruct_0203b264;
@@ -59,21 +59,21 @@ public:
     /* 30 */ virtual void vfunc_30() override;
     /* 34 */ virtual unk32 vfunc_34(s32 param1);
     /* 38 */ virtual bool vfunc_38();
-    /* 40 */ virtual void vfunc_40(unk32 param_2, unk32 param_3)   = 0;
-    /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY) = 0;
-    /* 48 */ virtual void vfunc_48();
-    /* 4c */ virtual void vfunc_4c(u32 param1, unk32 param2);
-    /* 50 */ virtual void vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4);
+    /* 3c */ virtual void vfunc_3c(unk32 param_2, unk32 param_3)   = 0;
+    /* 40 */ virtual void vfunc_40(s32 touchLastX, s32 touchLastY) = 0;
+    /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY);
+    /* 48 */ virtual void vfunc_48(u32 param1, unk32 param2);
+    /* 4c */ virtual void vfunc_4c(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4);
+    /* 50 */ virtual void vfunc_50();
     /* 54 */ virtual void vfunc_54();
     /* 58 */ virtual void vfunc_58();
-    /* 5c */ virtual void vfunc_5c(u16 *param_2, struct UnkStruct_0203b264 *param_3, unk8 param_4, unk32 param_5);
-    /* 60 */ virtual void vfunc_60();
-    /* 64 */ virtual void vfunc_64();
-    /* 68 */ virtual s32 vfunc_68(unk32 param1);
+    /* 5c */ virtual void vfunc_5c();
+    /* 60 */ virtual void vfunc_60(func_0203b410_param1 *param1, unk32 param2, unk32 param3);
+    /* 64 */ virtual s32 vfunc_64(unk32 param1);
+    /* 68 */ virtual void vfunc_68(s32 *param1, s32 *param2);
     /* 6c */ virtual void vfunc_6c(s32 *param1, s32 *param2);
-    /* 70 */ virtual void vfunc_70(s32 *param1, s32 *param2);
-    /* 74 */ virtual void vfunc_74();
-    /* 78 */
+    /* 70 */ virtual void vfunc_70();
+    /* 74 */
 
     static void func_020387e0(u8 *param_2);
 
@@ -84,13 +84,10 @@ public:
     s32 func_02038cb8(s32 param1);
     s32 func_02038cf4();
     s32 func_02038d10();
-    bool func_02038ef4(s32 param1, s32 param2);
+    bool func_02038ef4(s32 touchLastX, s32 touchLastY);
     void func_02039208(unk16 param1);
     unk32 func_02039250();
     void func_02039440(unk32 param1, unk32 param2);
     bool func_0203951c();
     u16 *func_02037604(u16 **);
-
-    //! TODO: not sure it belongs to this class:
-    s16 func_0203d318(s16, s16);
 };

@@ -5,8 +5,7 @@
 
 #include "Message/MsgProc.hpp"
 #include "Unknown/UnkStruct_02032f0c.hpp"
-
-class UnkStruct_0203dae0_114;
+#include "Unknown/UnkStruct_0203d1d0.hpp"
 
 // astruct_7, MsgProc_Base2
 class UnkStruct_0203dae0 : public UnkStruct_02032f0c {
@@ -69,7 +68,7 @@ public:
     /* 108 */ unk8 mUnk_10b;
     /* 10c */ unk32 mUnk_10c;
     /* 110 */ unk32 mUnk_110;
-    /* 114 */ UnkStruct_0203dae0_114 *mUnk_114;
+    /* 114 */ UnkStruct_0203d1d0_base *mUnk_114;
     /* 118 */ s32 mUnk_118;
     /* 11c */ u16 mUnk_11c;
     /* 11e */ u8 mUnk_11e;
@@ -87,15 +86,16 @@ public:
     /* 28 */ virtual bool vfunc_28();
     /* 2c */ virtual void vfunc_2c();
     /* 30 */ virtual void vfunc_30();
+    /* 34 */
 
+    UnkStruct_0203dae0();
     UnkStruct_0203dae0(u8 param1);
-    void func_0203dc10(unk32 param1);
-    void func_0203dc10(unk32 param_2, unk32 param_3);
+    void func_0203dc10(unk32 param_2);
     bool func_0203dc74(s32 param1, s32 param2);
     void func_0203dcfc(u8 param1, unk32 param2, unk32 param3, s32 param4);
     unk32 *func_0203ddec();
     void func_0203ddfc();
-    void func_0203de14();
+    unk32 func_0203de14(unk32 param1);
     s32 func_0203de24();
     bool func_0203de58(s32 param1);
     bool func_0203e0f8();
@@ -106,4 +106,7 @@ public:
     bool func_0203e6e4(u32 param1, u32 param2, s32 param3);
 
     void func_ov003_020f13b0(unk32 param1);
+
+    //! TODO: figure out if this belongs here
+    static u16 func_0203d318(unk32, unk32);
 };

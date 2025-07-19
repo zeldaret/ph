@@ -101,9 +101,7 @@ public:
     /* 28 */
 
     UnkStruct_02032f0c();
-    void func_02032f94();
-    unk32 *func_02032f98(unk32 param_2);
-    u16 **SetUnk_0c(u16 *value);
+    u16 **func_02032f98(u16 *value);
     u8 func_02032fa4();
     s32 func_02032fb4();
     void func_02033214(unk32 param1, unk32 param2, unk32 param3, u8 param4, unk32 param5);

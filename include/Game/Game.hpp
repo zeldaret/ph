@@ -38,7 +38,7 @@ public:
     /* 0fc */ u16 mUnk_0fc;
     /* 0fe */ u16 mUnk_0fe;
     /* 100 */ unk8 mUnk_100;
-    /* 101 */ s8 mUnk_101;
+    /* 101 */ u8 mUnk_101;
     /* 102 */ bool mUnk_102;
     /* 103 */ u8 mUnk_103;
     /* 104 */
