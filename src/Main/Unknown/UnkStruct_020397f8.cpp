@@ -85,8 +85,8 @@ THUMB UnkStruct_020397f8::UnkStruct_020397f8() :
 }
 
 // non-matching
-THUMB void UnkStruct_020397f8::vfunc_4c(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) {
-    this->UnkStruct_02038aa0::vfunc_4c(param1, param2, param3, param4);
+THUMB void UnkStruct_020397f8::vfunc_4c() {
+    this->UnkStruct_02038aa0::vfunc_4c();
     this->func_0203dcfc(this->mUnk_50, 0, 0, 2);
 }
 
@@ -377,8 +377,10 @@ ARM u32 UnkStruct_020397f8::func_0203a30c() {
 }
 
 // non-matching (regalloc)
-ARM void UnkStruct_020397f8::vfunc_48(u32 param1, unk32 param2) {
-    if (this->mUnk_164 != NULL && this->mUnk_164->mUnk_15c > 0) {
+ARM void UnkStruct_020397f8::vfunc_48() {
+    UnkStruct_020397f8 *unk_164 = this->mUnk_164;
+
+    if (unk_164 != NULL && unk_164->mUnk_15c > 0) {
         this->func_02038b40();
     }
 
@@ -530,14 +532,14 @@ ARM bool UnkStruct_020397f8::func_0203a6d0(unk32 param1, unk32 param2) {
 }
 
 // non-matching
-ARM void UnkStruct_020397f8::vfunc_50() {
+ARM void UnkStruct_020397f8::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) {
     bool bVar5;
     bool bVar2;
     int iVar4;
     int iVar6;
     s16 temp;
 
-    // iVar6 = param3[0];
+    iVar6 = param3[0];
 
     if (data_027e0c54 != 0) {
         UnkStruct_020397f8 *pVar4 = gMessageManager.func_02036700();
@@ -557,11 +559,11 @@ ARM void UnkStruct_020397f8::vfunc_50() {
     }
 
     this->mUnk_586 = (data_02056be4[data_027e077c.mUnk_0] & 1) != 0;
-    // temp           = param3[8];
+    temp           = param3[8];
 
-    // if (temp >= 0 && param3[9] >= 0) {
-    //     temp = param3[10];
-    // }
+    if (temp >= 0 && param3[9] >= 0) {
+        temp = param3[10];
+    }
 
     if (temp < 0) {
         this->mUnk_57b = temp;
@@ -569,18 +571,18 @@ ARM void UnkStruct_020397f8::vfunc_50() {
         this->mUnk_57b = 0;
     }
 
-    // this->func_02038f44(param1, param2, param3, param4, iVar6);
+    this->UnkStruct_02038aa0::vfunc_50(param1, param2, param3, param4);
     this->mUnk_574 = 0;
 
-    // if (data_027e0d38 != 0 && (data_02056be4[data_027e077c.mUnk_0] & 1) != 0 && (param3[11])) {
-    //     data_027e103c->func_ov000_020cf284(0x80, 0);
-    // }
+    if (data_027e0d38 != 0 && (data_02056be4[data_027e077c.mUnk_0] & 1) != 0 && (param3[11])) {
+        data_027e103c->func_ov000_020cf284(0x80, 0);
+    }
 }
 
 // switch decomp issue (solved now?)
 ARM void UnkStruct_020397f8::vfunc_54() {}
 
-ARM void UnkStruct_020397f8::vfunc_5c() {
+ARM void UnkStruct_020397f8::vfunc_5c(u16 *param_2, UnkStruct_0203b264 *param_3, unk8 param_4, unk32 param_5) {
     if (this->mUnk_15f == 0 || this->pInfoEntry->mUnk_06 <= 2) {
         this->mUnk_168.mUnk_5c.mUnk_08 = this->mUnk_168.mUnk_7c;
         this->mUnk_168.func_020352d8();
