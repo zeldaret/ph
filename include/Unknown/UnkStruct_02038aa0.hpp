@@ -77,6 +77,7 @@ public:
 
     static void func_020387e0(u8 *param_2);
 
+    UnkStruct_02038aa0();
     UnkStruct_02038aa0(u8 param1, u8 param2);
     void func_02038b40();
     bool func_02038b78();

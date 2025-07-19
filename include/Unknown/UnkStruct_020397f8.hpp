@@ -179,4 +179,5 @@ public:
     /* 50 */ virtual void vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) override;
 
     void func_0203c4ac(unk32, unk32);
+    void func_0203c5dc(void);
 };
