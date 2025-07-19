@@ -59,7 +59,7 @@ public:
     /* 30 */ virtual void vfunc_30() override;
     /* 34 */ virtual unk32 vfunc_34(s32 param1);
     /* 38 */ virtual bool vfunc_38();
-    /* 40 */ virtual void vfunc_40()                               = 0;
+    /* 40 */ virtual void vfunc_40(unk32 param_2, unk32 param_3)   = 0;
     /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY) = 0;
     /* 48 */ virtual void vfunc_48();
     /* 4c */ virtual void vfunc_4c(u32 param1, unk32 param2);
