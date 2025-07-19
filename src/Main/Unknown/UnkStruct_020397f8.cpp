@@ -14,6 +14,8 @@ extern "C" void func_ov018_02169634(UnkStruct_020397f8 *);
 extern unk16 data_02056a0e[];
 extern u8 data_02056a08[];
 
+static char *sShipTypes[] = {"brg", "anc", "pdl", "hul", "can", "dco", "bow", "fnl"};
+
 // non-matching (regalloc)
 THUMB UnkStruct_020397f8::UnkStruct_020397f8() :
     UnkStruct_02038aa0(0, 0),
