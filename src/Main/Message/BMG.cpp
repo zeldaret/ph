@@ -5,7 +5,7 @@ extern "C" {
 
 char *func_0202ab38(u32 *lang);
 u32 *func_0202d550(int, u32 *, char *path, int, int, int);
-void func_0202d590(BMGHeader *);
+void func_0202d590(void *);
 
 extern u32 *data_027e0ce0[];
 extern u32 data_027e05f4; // language
@@ -54,7 +54,7 @@ THUMB void BMGFileInfo::func_020371b4() {
     this->pFLW1   = NULL;
     this->pFLI1   = NULL;
     this->pDAT1   = NULL;
-    this->mUnk_14 = NULL;
+    this->pFile   = NULL;
     this->mUnk_18 = 0;
 }
 
@@ -63,15 +63,14 @@ THUMB u16 BMGFileInfo::func_020371c8(u32 *pFile, s16 unk_18) {
     SectionBase *pSection;
     u16 groupId;
     u32 i;
-    BMGHeader *pHeader = (BMGHeader *) pFile;
 
     groupId       = -1;
-    this->mUnk_14 = pHeader;
+    this->pHeader = (BMGHeader *) pFile;
     this->mUnk_18 = unk_18;
-    this->pHeader = pHeader;
+    this->pFile   = pFile;
     pSection      = (SectionBase *) ((u8 *) pFile + sizeof(BMGHeader));
 
-    for (i = 0; i < this->mUnk_14->numSections; i++) {
+    for (i = 0; i < this->pHeader->numSections; i++) {
         switch (pSection->tag) {
             case BMG_TAG_MID1:
                 // unused
@@ -177,7 +176,7 @@ THUMB void BMGGroups::func_020373b4(s16 unk_18) {
 
     for (i = 0; i < this->numEntries; i++) {
         if (this->entries[i].mUnk_18 == unk_18) {
-            func_0202d590(this->entries[i].mUnk_14);
+            func_0202d590(this->entries[i].pFile);
             this->entries[i].func_020371b4();
         }
     }
