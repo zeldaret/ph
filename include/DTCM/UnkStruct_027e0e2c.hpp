@@ -19,6 +19,7 @@ struct UnkStruct_027e0e2c {
     /* 2c */
 
     void func_ov000_0207bcb4();
+    void func_ov000_0207be84(unk32 param_1);
 };
 
 extern UnkStruct_027e0e2c data_027e0e2c;

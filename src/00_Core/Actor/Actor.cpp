@@ -6,6 +6,7 @@ extern "C" {
 #include "Actor/ActorManager.hpp"
 #include "Actor/ActorPlayerDummy.hpp"
 #include "DTCM/UnkStruct_027e077c.hpp"
+#include "DTCM/UnkStruct_027e0c54.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Item/ItemManager.hpp"
 #include "Map/MapManager.hpp"
@@ -946,9 +947,8 @@ ARM bool Actor::func_ov00_020c3118(unk16 param1) {
     return func_ov00_020c5924(&mPos, param1, &mRef, 2, NULL);
 }
 
-extern u8 data_027e0c54;
 ARM bool Actor::func_ov00_020c313c(u32 param1) {
-    return param1 == data_027e0c54;
+    return param1 == data_027e0c54.mUnk_0;
 }
 
 ARM void Actor::func_ov00_020c3158() {

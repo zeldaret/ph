@@ -31,14 +31,14 @@ public:
     /* 008 */ GameMode *mMode;
     /* 00c */ unk8 mUnk_00c[0xc0];
     /* 0cc */ FadeControl mFadeControl;
-    /* 0f0 */ unk16 mUnk_0f0;
+    /* 0f0 */ u16 mUnk_0f0;
     /* 0f2 */ u16 mUnk_0f2;
     /* 0f4 */ s32 mUnk_0f4;
     /* 0f8 */ s32 mUnk_0f8;
     /* 0fc */ u16 mUnk_0fc;
     /* 0fe */ u16 mUnk_0fe;
     /* 100 */ unk8 mUnk_100;
-    /* 101 */ s8 mUnk_101;
+    /* 101 */ u8 mUnk_101;
     /* 102 */ bool mUnk_102;
     /* 103 */ u8 mUnk_103;
     /* 104 */

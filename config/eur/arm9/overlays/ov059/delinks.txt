@@ -10,6 +10,6 @@ src/59_Hammer/Player/EquipHammer.cpp:
     .text        start:0x02198d00 end:0x0219933c
     .data        start:0x0219b140 end:0x0219b1c0
 
-src/59_Hammer/Actor/Navi/ActorNaviBase.cpp:
+src/59_Hammer/Actor/Navi/ActorNaviBase_59.cpp:
     .text        start:0x0219933c end:0x0219b110
     .rodata      start:0x0219b110 end:0x0219b124

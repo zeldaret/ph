@@ -69,6 +69,8 @@ data_ov043_0218d340 kind:data(any) addr:0x0218d340
 data_ov043_0218d3c4 kind:data(any) addr:0x0218d3c4
 __sinit_ov043_0218d414 kind:function(arm,size=0x16c) addr:0x0218d414
 __sinit_ov043_0218d580 kind:function(arm,size=0x40) addr:0x0218d580
+.p__sinit_ov043_0218d414 kind:data(word) addr:0x0218d5c0
+.p__sinit_ov043_0218d580 kind:data(word) addr:0x0218d5c4
 data_ov043_0218d5e0 kind:data(any) addr:0x0218d5e0
 data_ov043_0218d668 kind:data(any) addr:0x0218d668
 data_ov043_0218d778 kind:data(any) addr:0x0218d778

@@ -36,6 +36,7 @@ func_ov058_0219acac kind:function(thumb,size=0x88) addr:0x0219acac
 func_ov058_0219ad34 kind:function(thumb,size=0x32) addr:0x0219ad34
 data_ov058_0219ad68 kind:data(any) addr:0x0219ad68
 __sinit_EquipBombchu.cpp kind:function(arm,size=0xfc) addr:0x0219ad80
+.p__sinit_ov058_0219ad80 kind:data(word) addr:0x0219ae7c
 data_ov058_0219aea0 kind:data(any) addr:0x0219aea0
 data_ov058_0219aea4 kind:data(any) addr:0x0219aea4
 data_ov058_0219aea8 kind:data(any) addr:0x0219aea8

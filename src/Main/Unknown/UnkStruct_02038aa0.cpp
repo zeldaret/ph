@@ -1,4 +1,5 @@
 #include "Unknown/UnkStruct_02038aa0.hpp"
+#include "DTCM/UnkStruct_027e0c54.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Game/Game.hpp"
 #include "Message/MessageManager.hpp"
@@ -55,7 +56,7 @@ ARM void UnkStruct_02038aa0::func_02038b74(void) {}
 
 // non-matching
 ARM bool UnkStruct_02038aa0::func_02038b78() {
-    if (data_027e0c54 == 0) {
+    if (!data_027e0c54.mUnk_0) {
         if ((this->mUnk_50 != 0 && gMessageManager.func_02036850() != 0) ||
             (this->mUnk_50 == 0 && gMessageManager.func_02036824() != 0)) {
             return true;

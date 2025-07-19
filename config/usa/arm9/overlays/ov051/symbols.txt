@@ -89,6 +89,11 @@ __sinit_ov051_021982e0 kind:function(arm,size=0x40) addr:0x02198240
 __sinit_ov051_02198320 kind:function(arm,size=0x110) addr:0x02198280
 __sinit_ov051_02198430 kind:function(arm,size=0x40) addr:0x02198390
 __sinit_ov051_02198470 kind:function(arm,size=0x40) addr:0x021983d0
+.p__sinit_ov051_021982a0 kind:data(word) addr:0x02198410
+.p__sinit_ov051_021982e0 kind:data(word) addr:0x02198414
+.p__sinit_ov051_02198320 kind:data(word) addr:0x02198418
+.p__sinit_ov051_02198430 kind:data(word) addr:0x0219841c
+.p__sinit_ov051_02198470 kind:data(word) addr:0x02198420
 data_ov051_021984e8 kind:data(any) addr:0x02198448
 data_ov051_0219859c kind:data(any) addr:0x021984fc
 data_ov051_021985a0 kind:data(any) addr:0x02198500
