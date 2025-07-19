@@ -24,6 +24,7 @@ src/Main/Message/BmgRelatedFunctions.cpp:
 
 src/Main/Unknown/UnkStruct_02032f0c.cpp:
     .text       start:0x02032f0c end:0x02033d40
+    .data       start:0x020579c0 end:0x02057a00
 
 src/Main/Unknown/UnkStruct_02035064.cpp:
     .text       start:0x02035064 end:0x02035370
@@ -43,15 +44,23 @@ src/Main/Unknown/UnkStruct_02037750.cpp:
 
 src/Main/Unknown/UnkStruct_02038aa0.cpp:
     .text       start:0x0203881c end:0x02039578
+    .data       start:0x02057d88 end:0x02057e14
+
+src/Main/Unknown/UnkStruct_020397f8.cpp:
+    .text       start:0x020397f8 end:0x0203c358
+    .data       start:0x02057e54 end:0x02057ed0
 
 src/Main/Message/func_0203c358.cpp:
     .text       start:0x0203c358 end:0x0203c72c
+    .data       start:0x02057f0c end:0x02057f88
 
 src/Main/Message/func_0203c72c.cpp:
     .text       start:0x0203c72c end:0x0203c8a8
+    .data       start:0x02057f88 end:0x02058004
 
 src/Main/Unknown/UnkStruct_0203dae0.cpp:
     .text       start:0x0203dae0 end:0x0203e784
+    .data       start:0x0205804c end:0x02058088
 
 src/Main/Unknown/UnkStruct_0206322c.cpp:
     .text       start:0x02030354 end:0x020306c0
