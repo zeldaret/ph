@@ -92,7 +92,7 @@ public:
     /* 20 */ virtual unk32 vfunc_20(s32 param1, s32 *param2) override;
     /* 2c */ virtual void vfunc_2c() override;
     /* 38 */ virtual bool vfunc_38() override;
-    /* 3c */ virtual void vfunc_3c(unk32 param_2, unk32 param_3) override;
+    /* 3c */ virtual void vfunc_3c(unk32 param_2) override;
     /* 40 */ virtual void vfunc_40(s32 touchLastX, s32 touchLastY) override;
     /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY) override;
     /* 48 */ virtual void vfunc_48() override;
@@ -149,7 +149,7 @@ public:
     MsgProc_Type3(unk32 param_2, unk16 param_3, unk32 param_4);
     /* 00 */ virtual ~MsgProc_Type3();
     /* 24 */ virtual bool vfunc_24(s16 **param1) override;
-    /* 40 */ virtual void vfunc_3c(unk32 param_2, unk32 param_3) override;
+    /* 40 */ virtual void vfunc_3c(unk32 param_2) override;
     /* 44 */ virtual void vfunc_40(s32 touchLastX, s32 touchLastY) override;
     /* 48 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY) override;
 
@@ -174,7 +174,7 @@ public:
     MsgProc_Type2(unk32 param_2, unk16 param_3, unk32 param_4);
     /* 00 */ virtual ~MsgProc_Type2();
     /* 14 */ virtual bool vfunc_14(s32 param1, s32 param2) override;
-    /* 40 */ virtual void vfunc_3c(unk32 param_2, unk32 param_3) override;
+    /* 40 */ virtual void vfunc_3c(unk32 param_2) override;
     /* 44 */ virtual void vfunc_40(s32 touchLastX, s32 touchLastY) override;
     /* 50 */ virtual void vfunc_4c() override;
 

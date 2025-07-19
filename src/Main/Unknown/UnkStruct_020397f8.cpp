@@ -183,7 +183,7 @@ ARM void UnkStruct_020397f8::func_02039ca8() {
     }
 }
 
-ARM void UnkStruct_020397f8::vfunc_3c(unk32 param_2, unk32 param_3) {
+ARM void UnkStruct_020397f8::vfunc_3c(unk32 param_2) {
     if (this->mUnk_15c > 0 && this->func_0203de14(param_2) != 0) {
         if (this->mUnk_124->mUnk_29 != 3) {
             if ((this->mUnk_50 == 0) && func_ov000_02079e04() != 0) {

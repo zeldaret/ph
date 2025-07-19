@@ -21,7 +21,7 @@ THUMB MsgProc_Type2::MsgProc_Type2() :
 }
 
 // non-matching
-THUMB void MsgProc_Type2::vfunc_4c(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) {
+THUMB void MsgProc_Type2::vfunc_4c() {
     u16 uVar1;
     unk32 uVar2;
     s16 uVar3;
@@ -29,7 +29,7 @@ THUMB void MsgProc_Type2::vfunc_4c(EntryINF1 *param1, u32 param2, s16 *param3, U
     s32 local_20;
     s32 local_1c;
 
-    this->UnkStruct_02038aa0::vfunc_4c(param1, param2, param3, param4);
+    this->UnkStruct_02038aa0::vfunc_4c();
     uVar3 = 0;
 
     for (iVar4 = 0; iVar4 < 2; iVar4++) {
@@ -51,7 +51,7 @@ THUMB void MsgProc_Type2::vfunc_4c(EntryINF1 *param1, u32 param2, s16 *param3, U
     }
 }
 
-ARM void MsgProc_Type2::vfunc_3c(unk32 param_2, unk32 param_3) {
+ARM void MsgProc_Type2::vfunc_3c(unk32 param_2) {
     if (this->mUnk_15c > 0 && this->mUnk_122 != 1) {
         if (this->func_0203de14(param_2) != 0) {
             this->vfunc_40(0, 0);

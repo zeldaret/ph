@@ -21,10 +21,21 @@ extern UnkStruct_027e0ffc *data_027e0ffc;
 
 // non-matching
 ARM void MessageManager::func_0203643c(u32 *param_1, MessageManager *param_2, u32 param_3) {
-    BMGGroups *pBVar2 = param_2->pGroups;
+    // BMGGroups *pBVar2 = param_2->pGroups;
+    // BMGFileInfo* pEntries = &pBVar2->entries[param_3 >> 0x10];
+    // EntryINF1* puVar1 = pEntries->func_02037258(param_3 & 0xFFFF);
 
-    *param_1 = ((u32) pBVar2->entries[param_3 >> 0x10].pDAT1 +
-                (pBVar2->entries[param_3 >> 0x10].func_02037258(param_3 & 0xFFFF)->offset & ~1));
+    // *param_1 = *(u32 *)(pEntries->pDAT1) + (puVar1->stringOffset & ~1);
+
+    // *param_1 = ((u32) pBVar2->entries[param_3 >> 0x10].pDAT1 +
+    //             (pBVar2->entries[param_3 >> 0x10].func_02037258(param_3 & 0xFFFF)->stringOffset & ~1));
+
+    u32 *puVar1;
+    BMGGroups *piVar2;
+
+    piVar2   = param_2->pGroups;
+    puVar1   = (u32 *) piVar2->entries[(param_3 >> 0x10) /* * 0x1c */].func_02037258(param_3 & 0xffff);
+    *param_1 = *(u32 *) (*(u32 *) &piVar2->entries[(param_3 >> 0x10) /* * 0x1c */].pDAT1) + (*puVar1 & 0xfffffffe);
 }
 
 // non-matching
@@ -103,7 +114,7 @@ THUMB void MessageManager::func_02036490() {
             }
 
             if (this->mUnk_28[i] != NULL) {
-                this->mUnk_28[i]->vfunc_4C();
+                this->mUnk_28[i]->vfunc_4c();
             }
         }
     }
@@ -288,7 +299,7 @@ ARM void MessageManager::func_0203690c(unk32 param_2, unk32 param_3, unk32 param
 
     for (i = 0; i < ARRAY_LEN(this->mUnk_28); i++) {
         if (this->mUnk_28[i] != NULL) {
-            this->mUnk_28[i]->vfunc_2C();
+            this->mUnk_28[i]->vfunc_2c();
         }
     }
 
@@ -370,7 +381,7 @@ ARM void MessageManager::func_02036ca4(unk32 param_2) {
         UnkStruct_02038aa0 *pSVar1 = this->mUnk_28[i];
 
         if (pSVar1 != NULL) {
-            pSVar1->vfunc_3C(param_2);
+            pSVar1->vfunc_3c(param_2);
         }
     }
 }
@@ -415,7 +426,7 @@ ARM void MessageManager::func_02036d6c(void) {
 
     for (i = 0; i < ARRAY_LEN(this->mUnk_28); i++) {
         if (func_0202ab48() == 0 || i != 5) {
-            this->mUnk_28[i]->UnkStruct_02038aa0::vfunc_10();
+            this->mUnk_28[i]->UnkStruct_02038aa0::func_02038b40();
         }
     }
 }
@@ -518,7 +529,7 @@ ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, u8 *param_3) 
     pSVar5->mUnk_164 = (UnkStruct_020397f8 *) pSVar2;
     pSVar5->mUnk_418 = this->mUnk_28[5];
 
-    pSVar5->vfunc_50(pEVar1, BMG_GET_MSG_ADDR(this->pGroups, param_2), (s32 *) param_3, 0);
+    pSVar5->vfunc_50(pEVar1, BMG_GET_MSG_ADDR(this->pGroups, param_2), (s16 *) param_3, NULL);
 
     if (data_ov000_020eec9c.func_ov000_020d7f18(0x19) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x18) == 0 &&
         data_ov000_020eec9c.func_ov000_020d7f18(0x34) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x35) == 0 &&
