@@ -71,7 +71,7 @@ void TriggerBase::vfunc_08() {}
 s32 MapBase::GetTriggerBoundingBox(unk32 param_2, AABB *param_3) {}
 bool TriggerBase::GetBoundingBox(AABB *bbox) {}
 s32 MapBase::GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4) {}
-bool MapBase::GetOverlappingTrigger(Vec3p *param_2) {}
+unk8 MapBase::GetOverlappingTrigger(Vec3p *param_2) {}
 bool TriggerBase::Overlaps(Vec3p *point) {}
 TriggerBase *MapBase::FindTrigger(unk32 type) {}
 unk8 MapBase::GetOverlappingTriggers(Vec3p *param_2, TriggerBase **triggers, unk32 capacity) {}
@@ -101,7 +101,7 @@ bool MapBase::func_ov00_020809b8(s32 param_2) {}
 unk8 MapBase::func_ov00_02080a78(Vec3p *param_2) {}
 void MapBase_Unk2::func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param_3) {}
 unk8 MapBase::func_ov00_02080b24(Vec2b *param_2) {}
-void MapBase::func_ov00_02080d08(unk32 param_2) {}
+void MapBase::func_ov00_02080d08(Vec2b *param_2) {}
 void MapBase::vfunc_bc() {}
 void MapBase::vfunc_98(unk32 param_2, unk32 param_3, unk32 param_4) {}
 void MapBase::vfunc_c0() {}
