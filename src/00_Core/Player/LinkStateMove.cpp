@@ -1,4 +1,5 @@
 #include "Player/LinkStateMove.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 
 unk32 LinkStateMove::data_ov000_020e56f0 = 0x800;
 
@@ -19,9 +20,6 @@ THUMB void LinkStateMove::CreateDebugHierarchy() {
     debugHierarchy->GetChildNode(1, description, id, &data_ov000_020e56f0, 8, 0, 0x1000, 0);
 }
 
-extern u32 data_ov000_020eec9c;
-extern "C" void func_ov000_020d77e4(void *param1, s32 param2);
-
 ARM void LinkStateMove::OnStateEnter() {
     this->mUnk_0c = 0;
     this->mUnk_10 = 0;
@@ -36,7 +34,7 @@ ARM void LinkStateMove::OnStateEnter() {
     shield->UpdateInUse(1);
 
     PlayerBase::GetEquipSword()->func_ov000_020c06b0(-1);
-    func_ov000_020d77e4(&data_ov000_020eec9c, 0xD);
+    data_ov000_020eec9c.func_ov000_020d77e4(0xD);
 }
 
 ARM void LinkStateMove::OnStateLeave(s32 param1) {

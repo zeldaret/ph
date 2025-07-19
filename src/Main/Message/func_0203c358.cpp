@@ -7,9 +7,9 @@
 #include "System/SysNew.hpp"
 #include "global.h"
 
-extern "C" void func_0203fc78(unk32 *, unk32 *);
+extern "C" void func_0203fc78(bool, unk32 *, unk32 *);
 
-THUMB MsgProc_Type2::MsgProc_Type2(unk32 param_2, unk16 param_3, unk32 param_4) :
+THUMB MsgProc_Type2::MsgProc_Type2() :
     UnkStruct_02038aa0(0, 0) {
     this->mUnk_162 = 4;
     this->mUnk_164 = 1;
@@ -21,27 +21,25 @@ THUMB MsgProc_Type2::MsgProc_Type2(unk32 param_2, unk16 param_3, unk32 param_4) 
 }
 
 // non-matching
-THUMB void MsgProc_Type2::func_0203c39c(unk32 param_2, unk32 param_3) {
+THUMB void MsgProc_Type2::vfunc_4c() {
     u16 uVar1;
     unk32 uVar2;
     s16 uVar3;
     s32 iVar4;
     s32 local_20;
-    s32 local_1c[2];
+    s32 local_1c;
 
-    this->func_02038b28();
+    this->UnkStruct_02038aa0::vfunc_4c();
     uVar3 = 0;
 
     for (iVar4 = 0; iVar4 < 2; iVar4++) {
-        local_1c[0] = 0xC0;
-        local_20    = 0x10;
+        local_1c = 0xC0;
+        local_20 = 0x10;
 
-        if (iVar4 != 0) {
-            func_0203fc78(local_1c, &local_20);
-        }
+        func_0203fc78(iVar4 != 0, &local_1c, &local_20);
 
-        uVar1 = this->func_0203d318((s32) (local_1c[0] + 7 + ((u32) (local_1c[0] + 7 >> 2) >> 0x1D)) >> 3,
-                                    (s32) (local_20 + 7 + ((u32) (local_20 + 7 >> 2) >> 0x1D)) >> 3);
+        uVar1 = this->func_0203d318((s32) (local_1c + ((u32) (local_1c + 7 >> 2) >> 0x1D)) >> 3,
+                                    (s32) (local_20 + ((u32) (local_20 + 7 >> 2) >> 0x1D)) >> 3);
 
         if (uVar3 < uVar1) {
             uVar3 = uVar1;
@@ -53,7 +51,7 @@ THUMB void MsgProc_Type2::func_0203c39c(unk32 param_2, unk32 param_3) {
     }
 }
 
-ARM void MsgProc_Type2::vfunc_3C(unk32 param_2) {
+ARM void MsgProc_Type2::vfunc_3c(unk32 param_2) {
     if (this->mUnk_15c > 0 && this->mUnk_122 != 1) {
         if (this->func_0203de14(param_2) != 0) {
             this->vfunc_40(0, 0);
@@ -61,16 +59,19 @@ ARM void MsgProc_Type2::vfunc_3C(unk32 param_2) {
     }
 }
 
-ARM void MsgProc_Type2::vfunc_40(unk32 param_2, unk32 param_3) {
-    param_2 += this->mUnk_166;
-    param_3 += this->mUnk_168;
+ARM void MsgProc_Type2::vfunc_40(s32 touchLastX, s32 touchLastY) {
+    touchLastX += this->mUnk_166;
+    touchLastY += this->mUnk_168;
 
-    this->func_0203c4ac(param_2 + this->mUnk_16a, param_3 + this->mUnk_16c);
-    this->UnkStruct_02038aa0::vfunc_30(param_2, param_3);
+    this->func_0203c4ac(touchLastX + this->mUnk_16a, touchLastY + this->mUnk_16c);
+    this->func_02038ef4(touchLastX, touchLastY);
 }
 
-ARM bool MsgProc_Type2::vfunc_14(unk32 param_2, unk32 param_3) {
-    return this->UnkStruct_0203dae0::vfunc_14(param_2 + this->mUnk_162, param_3);
+ARM void MsgProc_Type2::func_0203c4ac(unk32, unk32) {}
+
+ARM bool MsgProc_Type2::vfunc_14(s32 param1, s32 param2) {
+    return this->UnkStruct_0203dae0::vfunc_14(param1 + this->mUnk_162, param2);
 }
 
+ARM void MsgProc_Type2::func_0203c5dc() {}
 ARM MsgProc_Type2::~MsgProc_Type2() {}

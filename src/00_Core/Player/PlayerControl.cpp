@@ -14,6 +14,7 @@
 #include "Player/PlayerBase.hpp"
 #include "Player/PlayerLinkBase.hpp"
 #include "Save/AdventureFlags.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 
 static char *sShipTypes[] = {"brg", "anc", "pdl", "hul", "can", "dco", "bow", "fnl"};
 
@@ -1032,11 +1033,9 @@ ARM bool PlayerControl::IsNotTouching() {
     return !mTouch;
 }
 
-extern u32 data_ov000_020eec9c[];
-extern "C" void func_ov000_020d77e4(u32 *param1, u32 param2);
 ARM bool PlayerControl::IsTouchingFast() {
     if (this->CheckTouchFast(1)) {
-        func_ov000_020d77e4(data_ov000_020eec9c, 0x17);
+        data_ov000_020eec9c.func_ov000_020d77e4(0x17);
         return true;
     }
     return false;

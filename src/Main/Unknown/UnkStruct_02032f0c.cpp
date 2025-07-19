@@ -1,24 +1,26 @@
 #include "Unknown/UnkStruct_02032f0c.hpp"
+#include "Unknown/UnkStruct_02032e7c.hpp"
 #include "Unknown/UnkStruct_02035064.hpp"
 
 extern "C" void Fill32(unk32, void *, unk32);
 extern "C" void Fill16(unk32, void *, unk32);
 extern "C" void func_020296e0(unk32 **, UnkStruct_MsgProc_Base_unk_2C **, unk32, unk32, unk32, unk32);
-extern THUMB unk32 func_0202ab48(void);
+extern "C" unk32 func_0202ab48(void);
 
-ARM UnkStruct_02032e7c::UnkStruct_02032e7c() {
-    this->mUnk_04 = NULL;
-    this->mUnk_08 = 0;
-    this->mUnk_0a = 0;
-    this->mUnk_0c = 0;
-    this->mUnk_0e = 0;
+//! TODO: move?
+// ARM UnkStruct_02032e7c::UnkStruct_02032e7c() {
+//     this->mUnk_04 = NULL;
+//     this->mUnk_08 = 0;
+//     this->mUnk_0a = 0;
+//     this->mUnk_0c = 0;
+//     this->mUnk_0e = 0;
 
-    if (func_0202ab48() == 0) {
-        this->mUnk_10 = 2;
-    } else {
-        this->mUnk_10 = 3;
-    }
-}
+//     if (func_0202ab48() == 0) {
+//         this->mUnk_10 = 2;
+//     } else {
+//         this->mUnk_10 = 3;
+//     }
+// }
 
 THUMB UnkStruct_02032f0c::UnkStruct_02032f0c() {
     this->mUnk_04 = 0;
@@ -44,9 +46,7 @@ THUMB UnkStruct_02032f0c::UnkStruct_02032f0c() {
 
 THUMB UnkStruct_02032f0c::~UnkStruct_02032f0c() {}
 
-ARM void UnkStruct_02032f0c::func_02032f94() {}
-
-ARM u16 **UnkStruct_02032f0c::SetUnk_0c(u16 *value) {
+ARM u16 **UnkStruct_02032f0c::func_02032f98(u16 *value) {
     this->mUnk_0c = value;
     return &this->mUnk_0c;
 }
@@ -60,7 +60,7 @@ ARM s32 UnkStruct_02032f0c::func_02032fb4() {
 }
 
 // non-matching
-ARM bool UnkStruct_02032f0c::vfunc_14(s32 param1, s32 param2) {
+bool UnkStruct_02032f0c::vfunc_14(s32 param1, s32 param2) {
     s16 iVar1;
     s16 iVar2;
 
@@ -74,17 +74,17 @@ ARM bool UnkStruct_02032f0c::vfunc_14(s32 param1, s32 param2) {
     return true;
 }
 
-ARM void UnkStruct_02032f0c::vfunc_08(s32 param1, unk32 param2, s16 *param3, unk32 param4) {}
+void UnkStruct_02032f0c::vfunc_08(s32 param1, unk32 param2, s16 *param3, unk32 param4) {}
 
-ARM void UnkStruct_02032f0c::vfunc_0c(unk32 param1, unk32 param2, unk32 param3, unk32 param4) {
+void UnkStruct_02032f0c::vfunc_0c(unk32 param1, unk32 param2, unk32 param3, unk32 param4) {
     func_020296e0(&this->mUnk_10, this->mUnk_2c, param1, param2, param4, param3);
 }
 
-ARM void UnkStruct_02032f0c::vfunc_10(u32 param1, unk32 param2) {}
+void UnkStruct_02032f0c::vfunc_10(u32 param1, unk32 param2) {}
 ARM void UnkStruct_02032f0c::func_02033214(unk32 param1, unk32 param2, unk32 param3, u8 param4, unk32 param5) {}
-ARM unk32 UnkStruct_02032f0c::vfunc_18(s32 param1) {}
-ARM unk32 UnkStruct_02032f0c::vfunc_1c(s32 param1, unk32 *param2, unk32 param3, unk32 param4) {}
-ARM unk32 UnkStruct_02032f0c::vfunc_20(s32 param1, s32 *param2) {}
+unk32 UnkStruct_02032f0c::vfunc_18(s32 param1) {}
+unk32 UnkStruct_02032f0c::vfunc_1c(s32 param1, unk32 *param2, unk32 param3, unk32 param4) {}
+unk32 UnkStruct_02032f0c::vfunc_20(s32 param1, s32 *param2) {}
 ARM void UnkStruct_02032f0c::func_020334b4(u32 param1, s32 param2, s32 param3, s32 param4) {}
 ARM void UnkStruct_02032f0c::func_02033628(unk32 param1, u16 *param2) {}
 ARM u32 UnkStruct_02032f0c::func_0203369c(u16 *param1, s32 param2) {}
@@ -100,10 +100,11 @@ ARM void UnkStruct_02032f0c::func_020338d0(unk32 *param1, unk32 param2) {}
 ARM s32 UnkStruct_02032f0c::func_02033904(unk32 param1, unk32 param2) {}
 ARM s32 UnkStruct_02032f0c::func_02033938(unk32 param1) {}
 ARM s32 UnkStruct_02032f0c::func_0203396c(u16 *param1) {}
-ARM bool UnkStruct_02032f0c::vfunc_24(s16 **param1) {}
+bool UnkStruct_02032f0c::vfunc_24(s16 **param1) {}
 ARM u16 *UnkStruct_02032f0c::func_02033b0c(s32 param1) {}
 ARM bool UnkStruct_02032f0c::func_02033c6c() {}
 ARM unk32 UnkStruct_02032f0c::func_02033c88(u32 param1) {}
 ARM s32 UnkStruct_02032f0c::func_02033cbc(s16 *param1) {}
 
-ARM UnkStruct_02032e7c::~UnkStruct_02032e7c() {}
+//! TODO: move?
+// ARM UnkStruct_02032e7c::~UnkStruct_02032e7c() {}
