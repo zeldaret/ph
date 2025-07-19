@@ -19,7 +19,8 @@ public:
     /* 24 */ unk32 mUnk_24;
     /* 28 */
 
-    /* 0 */ virtual ~UnkStruct_0203881c();
+    /* 0 */ virtual void vfunc_00();
+    /* 0 */ virtual void vfunc_04();
     /* 8 */
 
     UnkStruct_0203881c();

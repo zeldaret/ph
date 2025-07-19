@@ -16,7 +16,8 @@ public:
     /* 10 */ unk32 mUnk_10;
     /* 14 */
 
-    /* 0 */ virtual ~UnkStruct_02032e7c();
+    /* 0 */ virtual void vfunc_00();
+    /* 0 */ virtual void vfunc_04();
     /* 8 */
 
     UnkStruct_02032e7c();

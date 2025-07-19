@@ -95,12 +95,12 @@ public:
     /* 3c */ virtual void vfunc_3c(unk32 param_2, unk32 param_3) override;
     /* 40 */ virtual void vfunc_40(s32 touchLastX, s32 touchLastY) override;
     /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY) override;
-    /* 48 */ virtual void vfunc_48(u32 param1, unk32 param2) override;
-    /* 4c */ virtual void vfunc_4c(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) override;
-    /* 50 */ virtual void vfunc_50() override;
+    /* 48 */ virtual void vfunc_48() override;
+    /* 4c */ virtual void vfunc_4c() override;
+    /* 50 */ virtual void vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) override;
     /* 54 */ virtual void vfunc_54() override;
     /* 58 */ virtual void vfunc_58() override;
-    /* 5c */ virtual void vfunc_5c() override;
+    /* 5c */ virtual void vfunc_5c(u16 *param_2, UnkStruct_0203b264 *param_3, unk8 param_4, unk32 param_5) override;
     /* 60 */ virtual void vfunc_60(func_0203b410_param1 *param1, unk32 param2, unk32 param3) override;
     /* 64 */ virtual s32 vfunc_64(unk32 param1) override;
     /* 6c */ virtual void vfunc_6c(s32 *param1, s32 *param2) override;
@@ -176,7 +176,7 @@ public:
     /* 14 */ virtual bool vfunc_14(s32 param1, s32 param2) override;
     /* 40 */ virtual void vfunc_3c(unk32 param_2, unk32 param_3) override;
     /* 44 */ virtual void vfunc_40(s32 touchLastX, s32 touchLastY) override;
-    /* 50 */ virtual void vfunc_4c(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) override;
+    /* 50 */ virtual void vfunc_4c() override;
 
     void func_0203c4ac(unk32, unk32);
     void func_0203c5dc(void);
