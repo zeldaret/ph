@@ -285,7 +285,7 @@ ARM bool ActorRefillTime::Init() {
         case 0:
         case 1:
         case 3:
-            s32 temp_ip = gRandom.Next(10);
+            s32 temp_ip = gRandom.Next(0, 10);
             if (temp_ip >= 9) {
                 mUnk_158 = 30;
             } else if (temp_ip >= 6) {
@@ -339,7 +339,7 @@ ARM bool ActorLSTM::Init() {
         case 0:
         case 1:
         case 3:
-            s32 temp_ip = gRandom.Next(10);
+            s32 temp_ip = gRandom.Next(0, 10);
             if (temp_ip >= 9) {
                 mUnk_158 = -30;
             } else if (temp_ip >= 6) {

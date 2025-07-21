@@ -96,7 +96,7 @@ enum ActorTypeId_ {
 class ActorType_UnkClass {
 public:
     /* 0 */ u32 mUnk_0;
-    /* 4 */ u32 mUnk_4;
+    /* 4 */ s32 mUnk_4;
     /* 8 */
 
     ActorType_UnkClass(u32 unk_00, u32 unk_04) :
