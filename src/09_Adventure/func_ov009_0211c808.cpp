@@ -13,10 +13,5 @@ const u8 data_ov009_0211e0fc[80] = {
 };
 
 THUMB void func_ov009_0211c808(unk32 *param1) {
-    unk32 uVar3;
-
-    // gRandom.mRandomValue = gRandom.mAddend + gRandom.mFactor * gRandom.mRandomValue;
-    // uVar3                = ((gRandom.mRandomValue >> 32) * 100) >> 0x20;
-    uVar3   = gRandom.Next(0, 100);
-    *param1 = func_ov009_0211c558(data_ov009_0211e0fc, uVar3);
+    *param1 = func_ov009_0211c558(data_ov009_0211e0fc, gRandom.Next(0, 100));
 }
