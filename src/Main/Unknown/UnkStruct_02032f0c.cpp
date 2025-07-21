@@ -142,10 +142,10 @@ ARM void UnkStruct_02032f0c::func_02033214(unk32 param1, unk32 param2, unk32 par
     this->mUnk_08 = param5;
 
     unk32 uStack_20 = param3;
-    u16 local_38;
+    u16 *local_38;
     UnkStruct_02032e7c UStack_34;
-    MessageManager::func_0203643c((u32 *) &local_38, &gMessageManager, param1);
-    UStack_34.mUnk_04 = &local_38;
+    MessageManager::func_0203643c(&local_38, &gMessageManager, param1);
+    UStack_34.mUnk_04 = local_38;
     UStack_34.mUnk_10 = this->mUnk_4d;
     this->func_020338a8(&UStack_34, -1);
     UStack_34.mUnk_0e = param4;

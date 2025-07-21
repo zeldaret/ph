@@ -20,23 +20,8 @@ struct UnkStruct_027e0ffc {
 };
 extern UnkStruct_027e0ffc *data_027e0ffc;
 
-// non-matching
-ARM void MessageManager::func_0203643c(u32 *param_1, MessageManager *param_2, u32 param_3) {
-    // BMGGroups *pBVar2 = param_2->pGroups;
-    // BMGFileInfo* pEntries = &pBVar2->entries[param_3 >> 0x10];
-    // EntryINF1* puVar1 = pEntries->func_02037258(param_3 & 0xFFFF);
-
-    // *param_1 = *(u32 *)(pEntries->pDAT1) + (puVar1->stringOffset & ~1);
-
-    // *param_1 = ((u32) pBVar2->entries[param_3 >> 0x10].pDAT1 +
-    //             (pBVar2->entries[param_3 >> 0x10].func_02037258(param_3 & 0xFFFF)->stringOffset & ~1));
-
-    u32 *puVar1;
-    BMGGroups *piVar2;
-
-    piVar2   = param_2->pGroups;
-    puVar1   = (u32 *) piVar2->entries[(param_3 >> 0x10) /* * 0x1c */].func_02037258(param_3 & 0xffff);
-    *param_1 = *(u32 *) (*(u32 *) &piVar2->entries[(param_3 >> 0x10) /* * 0x1c */].pDAT1) + (*puVar1 & 0xfffffffe);
+ARM void MessageManager::func_0203643c(u16 **param_1, MessageManager *param_2, u32 param_3) {
+    *param_1 = GetMsgStringAddr(param_2, param_3);
 }
 
 // non-matching
@@ -433,7 +418,7 @@ ARM void MessageManager::func_02036d6c(void) {
 }
 
 // non-matching
-ARM UnkStruct_02038aa0 *MessageManager::func_02036da8(u32 param_2, s16 *param_3) {
+ARM UnkStruct_02038aa0 *MessageManager::func_02036da8(u32 param_2, UnkStruct_000 *param_3) {
     EntryINF1 *pEVar1;
     EntryINF1 *pEVar2;
     UnkStruct_02038aa0 *pSVar4;
@@ -443,50 +428,54 @@ ARM UnkStruct_02038aa0 *MessageManager::func_02036da8(u32 param_2, s16 *param_3)
     int iStack_34;
     int iStack_30;
 
-    pEVar1 = this->pGroups->entries[param_2 >> 0x10].func_02037258(param_2 & 0xFFFF);
+    // pEVar1 = this->pGroups->entries[param_2 >> 0x10].func_02037258(param_2 & 0xFFFF);
+
+    pEVar1 = BMG_GET_INF1(this->pGroups, param_2);
 
     if (pEVar1 == NULL) {
         return NULL;
     }
 
-    if ((data_02056be4[data_027e077c.mUnk_0] & 1) == 0) {
-        pSVar4 = this->mUnk_28[4];
-        func_02037628((u8 *) &iStack_38);
-
-        // ???
-        bVar6 = (data_02056be4[data_027e077c.mUnk_0] & 1) == 0;
-        if (bVar6) {
-            data_02056be4[0] = 1;
-        }
-        if (!bVar6) {
-            data_02056be4[0] = 0;
-        }
-
-        iStack_38 = *param_3;
-        // iStack_34 = param_3[1];
-        // iStack_30 = param_3[2];
-        pBVar5 = this->pGroups;
-        // pSVar4->vfunc_50(pEVar1, BMG_GET_MSG_ADDR(pBVar5, param_2), (s16*)&iStack_38, 1);
-        BMGFileInfo *entry = &(pBVar5)->entries[(param_2) >> 0x10];
-        // pSVar4->vfunc_50(pEVar1,
-        // ((u32)entry->pDAT1 + (((entry.func_02037258((((param_2))) & 0xFFFF))->offset) & ~1)),
-        // // BMG_GET_MSG_ADDR(pBVar5, param_2),
-        // (s16*)&iStack_38, 1);
-
-        data_ov000_020eec9c.func_ov000_020d77e4(0x1C);
-        return pSVar4;
+    if ((data_02056be4[data_027e077c.mUnk_0] & 1) != 0) {
+        return NULL;
     }
 
-    return NULL;
+    pSVar4 = this->mUnk_28[4];
+
+    // ???
+    UnkStruct_000 stack;
+    data_02056be4[0] = (data_02056be4[data_027e077c.mUnk_0] & 1) == 0;
+    // if (bVar6) {
+    //     data_02056be4[0] = 1;
+    // }
+    // if (!bVar6) {
+    //     data_02056be4[0] = 0;
+    // }
+    stack = *param_3;
+    pSVar4->vfunc_50(pEVar1, GetMsgStringAddr(this, param_2), &iStack_38, &stack);
+
+    // iStack_38 = *param_3;
+    // iStack_34 = param_3[1];
+    // iStack_30 = param_3[2];
+    // pBVar5 = this->pGroups;
+    // pSVar4->vfunc_50(pEVar1, BMG_GET_MSG_ADDR(pBVar5, param_2), (s16*)&iStack_38, 1);
+    // BMGFileInfo *entry = &(pBVar5)->entries[(param_2) >> 0x10];
+    // pSVar4->vfunc_50(pEVar1,
+    // ((u32)entry->pDAT1 + (((entry.func_02037258((((param_2))) & 0xFFFF))->offset) & ~1)),
+    // // BMG_GET_MSG_ADDR(pBVar5, param_2),
+    // (s16*)&iStack_38, 1);
+
+    data_ov000_020eec9c.func_ov000_020d77e4(0x1C);
+    return pSVar4;
 }
 
 // non-matching
 ARM void MessageManager::func_02036edc(u32 param_2, u8 param_3) {
     UnkStruct_020397f8 *pSVar1;
-    u8 auStack_28[24];
+    u16 auStack_28[12];
     u8 local_13;
 
-    func_02037628(auStack_28);
+    // func_02037628(auStack_28);
     local_13 = 0;
 
     if ((data_02056be4[data_027e077c.mUnk_0] & 1) != 0 && (data_02056be4[data_027e077c.mUnk_0] & 2) == 0) {
@@ -505,14 +494,14 @@ ARM void MessageManager::func_02036edc(u32 param_2, u8 param_3) {
 }
 
 // non-matching
-ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, u8 *param_3) {
+ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, u16 *param_3) {
     EntryINF1 *pEVar1;
     UnkStruct_02038aa0 *pSVar2;
     EntryINF1 *pEVar3;
     int iVar4;
     UnkStruct_020397f8 *pSVar5;
 
-    pEVar1 = this->pGroups->entries[param_2 >> 0x10].func_02037258(param_2 & 0xffff);
+    pEVar1 = BMG_GET_INF1(this->pGroups, param_2);
 
     if (pEVar1 == NULL) {
         return NULL;
@@ -530,7 +519,7 @@ ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, u8 *param_3) 
     pSVar5->mUnk_164 = (UnkStruct_020397f8 *) pSVar2;
     pSVar5->mUnk_418 = this->mUnk_28[5];
 
-    pSVar5->vfunc_50(pEVar1, BMG_GET_MSG_ADDR(this->pGroups, param_2), (s16 *) param_3, NULL);
+    pSVar5->vfunc_50(pEVar1, GetMsgStringAddr(this, param_2), (s16 *) param_3, NULL);
 
     if (data_ov000_020eec9c.func_ov000_020d7f18(0x19) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x18) == 0 &&
         data_ov000_020eec9c.func_ov000_020d7f18(0x34) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x35) == 0 &&

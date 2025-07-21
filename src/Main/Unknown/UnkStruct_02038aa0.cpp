@@ -135,7 +135,7 @@ ARM bool UnkStruct_02038aa0::func_02038ef4(s32 touchLastX, s32 touchLastY) {
 ARM void UnkStruct_02038aa0::vfunc_44(s32 touchLastX, s32 touchLastY) {}
 
 // non-matching
-ARM void UnkStruct_02038aa0::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) {
+ARM void UnkStruct_02038aa0::vfunc_50(EntryINF1 *param1, u16 *param2, s16 *param3, UnkStruct_000 *param4) {
     int iVar1;
 
     this->pInfoEntry = param1;

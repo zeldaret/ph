@@ -536,7 +536,7 @@ ARM bool UnkStruct_020397f8::func_0203a6d0(unk32 param1, unk32 param2) {
 }
 
 // non-matching
-ARM void UnkStruct_020397f8::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) {
+ARM void UnkStruct_020397f8::vfunc_50(EntryINF1 *param1, u16 *param2, s16 *param3, UnkStruct_000 *param4) {
     bool bVar5;
     bool bVar2;
     int iVar4;

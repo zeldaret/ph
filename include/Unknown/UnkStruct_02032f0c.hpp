@@ -7,6 +7,15 @@
 #include "System/SysNew.hpp"
 #include "Unknown/UnkStruct_02032e7c.hpp"
 
+struct UnkStruct_000 {
+    /* 00 */ unk32 mUnk_00;
+    /* 04 */ unk32 mUnk_04;
+    /* 08 */ unk32 mUnk_08;
+    /* 0c */
+
+    UnkStruct_000();
+};
+
 class UnkSubClass1_02256FF8 {
 public:
     /* 00 (vtable) */
