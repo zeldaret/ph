@@ -302,7 +302,7 @@ ARM void Game::Run() {
                 if ((this->mUnk_0f4 & 7U) == 0) {
                     data_027e0dbc.func_ov000_0207b9dc();
                 } else {
-                    gRandom.Next(0);
+                    gRandom.Next(0, 0);
                 }
             }
             nextGameMode = 0;
