@@ -12,7 +12,7 @@ void func_ov000_020d7ad4(u32 *param1, u32 param2);
 }
 u16 GetRupeeValue(RupeeId id);
 
-char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
+static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
 extern u32 *data_ov014_021589d8;
 extern u32 data_ov000_020e9370[];
@@ -20,10 +20,6 @@ extern u32 data_ov000_020eec9c[];
 extern u32 **data_027e0fe0[];
 
 ActorType ActorRupee::gType = ActorType(ActorTypeId_Rupee, (ActorCreateFunc) ActorRupee::Create, NULL);
-
-#pragma section force_data begin
-ActorType_UnkClass data_ov014_021589f4 = ActorType_UnkClass(FLOAT_TO_Q21(0.4662), FLOAT_TO_Q19(0.4661));
-#pragma section force_data end
 
 ActorRupee *ActorRupee::Create() {
     ActorRupee *newRupee = new(*data_027e0fe0[0], 4) ActorRupee();
@@ -323,14 +319,16 @@ void ActorRupee::func_ov14_0213b5f4(RupeeId id, unk32 param2, Vec3p *param3, boo
     }
 }
 
+static const ActorType_UnkClass data_ov014_021589f4 = ActorType_UnkClass(FLOAT_TO_Q21(0.4662), FLOAT_TO_Q19(0.4661));
+
 void ActorRupee::func_ov14_0213b6a4(RupeeId id, Actor_UnkStruct_012 *param2) {
     param2->mUnk_04 = 3;
 
     if (func_ov14_0213b70c(id)) {
         param2->mUnk_08 = 2;
         param2->mUnk_0c = 2;
-        param2->mUnk_14 = data_ov014_021589f4.unk_00;
-        param2->mUnk_18 = data_ov014_021589f4.unk_04;
+        param2->mUnk_14 = data_ov014_021589f4.mUnk_0;
+        param2->mUnk_18 = data_ov014_021589f4.mUnk_4;
     } else {
         param2->mUnk_08 = 2;
         param2->mUnk_0c = 2;

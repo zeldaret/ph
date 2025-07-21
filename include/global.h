@@ -26,8 +26,4 @@
 #pragma define_section sbss ".data" \
                             ".sbss"
 
-// Force variables to be in .data by using #pragma section force_data begin|end
-#pragma define_section force_data ".data" \
-                                  ".data"
-
 #endif
