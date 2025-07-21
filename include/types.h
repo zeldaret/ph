@@ -16,6 +16,7 @@ typedef char s8;
 typedef s8 unk8;
 typedef s16 unk16;
 typedef s32 unk32;
+typedef s64 unk64;
 
 #ifndef __cplusplus
 typedef s32 bool;

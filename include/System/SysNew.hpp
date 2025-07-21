@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include <stddef.h>
+
 struct UnkStruct_0202e894 {
     /* 00 */ u32 mId;
     /* 04 */ u32 *mUnk_04;
@@ -19,8 +21,8 @@ extern u32 *data_027e0ce0[];
 
 class SysObject {
 public:
-    static void *operator new(unsigned long length, u32 *id, u32 idLength);
-    static void *operator new[](unsigned long length, u32 *id, u32 idLength);
+    static void *operator new(size_t length, u32 *id, u32 idLength);
+    static void *operator new[](size_t length, u32 *id, u32 idLength);
     static void operator delete(void *ptr);
     static void operator delete[](void *ptr);
 };
