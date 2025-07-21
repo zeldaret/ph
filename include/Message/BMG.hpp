@@ -5,10 +5,6 @@
 #include "types.h"
 
 #define BMG_MAGIC "MESGbmg1"
-#define BMG_GET_INF1(pGroups, flags) ((pGroups)->entries[(flags) >> 0x10].func_02037258((flags) & 0xFFFF))
-#define BMG_GET_MSG_OFFSET(pGroups, flags) (BMG_GET_INF1((pGroups), (flags))->stringOffset)
-#define BMG_GET_MSG_ADDR(pGroups, flags)                                                              \
-    ((u32) (pGroups)->entries[(flags) >> 0x10].pDAT1 + (BMG_GET_MSG_OFFSET((pGroups), (flags)) & ~1))
 
 enum BMGTag {
     /* "INF1" */ BMG_TAG_INF1 = '1FNI',
@@ -179,23 +175,12 @@ struct SectionFLI1 {
     /* 14 */
 };
 
-struct EntryDAT1 {
-    /* 00 */ char *text; // always null-terminated
-    /* 04 */
-};
-
-struct SectionDAT1 {
-    /* 00 */ SectionBase base;
-    /* 08 */ EntryDAT1 *entries;
-    /* 0c */
-};
-
 struct BMGFileInfo {
     /* 00 */ BMGHeader *pHeader; // pointer to the file's header
     /* 04 */ SectionINF1 *pINF1; // pointer to the data informations (INF -> informations)
     /* 08 */ SectionFLW1 *pFLW1; // pointer to the message flow data (FLW -> flow)
     /* 0c */ SectionFLI1 *pFLI1; // pointer to the message flow index table (FLI -> flow index table)
-    /* 10 */ SectionDAT1 *pDAT1; // pointer to the data (DAT -> data)
+    /* 10 */ char *pDAT1; // pointer to the data, unlike the others this one points directly to the strings
     /* 14 */ u32 *pFile;
     /* 18 */ s16 mUnk_18; // stores `func_020372f0`->param_3 value (currently undetermined purpose)
     /* 1a */ s16 groupId; // stores the group id

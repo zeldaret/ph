@@ -83,8 +83,7 @@ THUMB u16 BMGFileInfo::func_020371c8(u32 *pFile, s16 unk_18) {
                 groupId     = this->pINF1->groupId;
                 break;
             case BMG_TAG_DAT1:
-                //! TODO: fake?
-                this->pDAT1 = (SectionDAT1 *) (pSection + 1);
+                this->pDAT1 = (char *) (pSection + 1);
                 break;
             case BMG_TAG_FLW1:
                 this->pFLW1 = (SectionFLW1 *) pSection;
