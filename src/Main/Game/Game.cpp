@@ -38,7 +38,6 @@
 
 extern unk32 data_02068ed0;
 extern unk32 data_02068e64;
-extern unk32 data_02062d4c;
 extern unk32 data_020683f4;
 extern unk32 data_02063e4c;
 extern unk32 data_02068780;
@@ -173,9 +172,19 @@ THUMB void Game::EndGameMode() {
     return;
 }
 
+struct SchedulerTask {
+    /* 0 */ void (*mFunc)();
+    /* 4 */ void *mObject;
+    /* 8 */ SchedulerTask *mNext;
+    /* c */
+};
+
+SchedulerTask data_02062d40;
+unk8 data_02062d4c[0xd4];
+
 extern "C" void func_0202c0cc();
 extern "C" void func_0202c128(unk32 param1, u16 param2);
-extern "C" void func_02017cb0(unk32 *param0, unk32 param1);
+extern "C" void func_02017cb0(unk8 *param0, unk32 param1);
 extern "C" void func_02031024(unk32 *param0);
 extern "C" void Fill16(int value, unsigned short *dst, int size);
 extern "C" void func_ov000_0207c0f0(unk32 *param0, unk32 param1);
@@ -196,7 +205,7 @@ THUMB bool Game::StartGameMode() {
     mUnk_0fe = uVar3;
     mUnk_0fc = mUnk_0fe;
     func_0202c128(1, mUnk_0fc);
-    func_02017cb0(&data_02062d4c, 0xc);
+    func_02017cb0(data_02062d4c, 0xc);
     mUnk_0f0 = 0;
     mUnk_0f4 = 0;
     mUnk_101 = 0;
@@ -256,11 +265,16 @@ THUMB bool Game::StartGameMode() {
     return mFadeControl.func_0202abdc(0x20, 0);
 }
 
-THUMB void Game::func_0202c974() {
-    this->func_0202cf34();
+THUMB void Game::func_0202c974(Game *game) {
+    game->func_0202cf34();
 }
 
-THUMB void Game::func_0202c97c() {}
+extern "C" void func_0200b934(SchedulerTask *param0);
+THUMB void Game::func_0202c97c() {
+    data_02062d40.mFunc   = (void (*)()) &Game::func_0202c974;
+    data_02062d40.mObject = (void *) &gGame;
+    func_0200b934(&data_02062d40);
+}
 
 extern "C" void func_0200a440();
 extern "C" void func_020310fc(unk32 *param0);

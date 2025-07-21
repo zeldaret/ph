@@ -48,7 +48,7 @@ public:
 
     void EndGameMode();
     bool StartGameMode();
-    void func_0202c974();
+    static void func_0202c974(Game *game);
     void func_0202c97c();
     void Run();
     void func_0202cec8(s32 param1, unk32 param2);

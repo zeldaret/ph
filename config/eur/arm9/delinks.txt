@@ -64,6 +64,7 @@ src/Main/Unknown/UnkStruct_02063220.cpp:
 src/Main/Game/Game.cpp:
     .text       start:0x0202c6c8 end:0x0202d0cc
     .rodata     start:0x020561f4 end:0x020562d4
+    .bss        start:0x02062d40 end:0x02062e20
 
 src/Main/Game/GameMode.cpp:
     complete
