@@ -55,7 +55,7 @@ func_020029ec kind:function(arm,size=0x10) addr:0x020029ec
 func_020029fc kind:function(arm,size=0x1b0) addr:0x020029fc
 _ll_udiv kind:function(arm,size=0xc) addr:0x02002bac
 func_02002bb8 kind:function(arm,size=0x3c) addr:0x02002bb8
-func_02002bf4 kind:function(arm,size=0x20) addr:0x02002bf4
+_ull_mul kind:function(arm,size=0x20) addr:0x02002bf4
 _s32_div_f kind:function(arm,size=0x20c) addr:0x02002c14
 _u32_div_f kind:function(arm,size=0x1e4) addr:0x02002e20
 .L_02002e28 kind:label(arm) addr:0x02002e28
