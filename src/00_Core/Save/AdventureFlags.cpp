@@ -1,5 +1,6 @@
 #include "Save/AdventureFlags.hpp"
 #include "Cutscene/CutsceneHandler.hpp"
+#include "DTCM/UnkStruct_027e0c54.hpp"
 #include "Map/MapManager.hpp"
 #include "Message/MessageManager.hpp"
 #include "Message/MsgProc.hpp"
@@ -283,23 +284,14 @@ ARM void *AdventureFlags::func_ov00_02097fd0() {
     this->func_ov00_02097fac();
 }
 
-// non-matching
 ARM void AdventureFlags::func_ov00_02097ff4(bool param1, bool param2) {
-    u8 pAVar1;
-    u32 uVar2;
-
     if (param1) {
-        if (param2) {
-            pAVar1 = data_027e0c54;
-        }
-
-        data_027e0db0.func_ov000_0207b2f0(0, pAVar1);
+        data_027e0db0.func_ov000_0207b2f0(0, param2 && data_027e0c54.mUnk_0);
     } else {
         data_027e0db0.func_ov000_0207b334(0);
     }
 
-    uVar2 = this->mCutsceneHandler->mFlags2;
-
+    u32 uVar2 = this->mCutsceneHandler->mFlags2;
     if (param1) {
         uVar2 |= 2;
     } else {

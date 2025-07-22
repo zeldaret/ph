@@ -1,5 +1,7 @@
 #include "Message/MessageManager.hpp"
 #include "Actor/ActorManager.hpp"
+#include "DTCM/UnkStruct_027e0c54.hpp"
+#include "DTCM/UnkStruct_027e0ffc.hpp"
 #include "Game/Game.hpp"
 #include "Player/TouchControl.hpp"
 #include "System/SysNew.hpp"
@@ -13,11 +15,6 @@ extern UnkStruct_MsgProc_Base_unk_2C *data_02068e6c;
 extern UnkStruct_MsgProc_Base_unk_2C *data_02068e8c;
 extern u16 data_02056918[];
 extern ActorTypeId data_0205691c[];
-
-struct UnkStruct_027e0ffc {
-    void func_ov000_020cec60(u16, Vec3p *, Actor *, unk32);
-};
-extern UnkStruct_027e0ffc *data_027e0ffc;
 
 // non-matching
 ARM void MessageManager::func_0203643c(u32 *param_1, MessageManager *param_2, u32 param_3) {
@@ -236,7 +233,7 @@ ARM bool MessageManager::func_020368f4(UnkStruct_02037750 *param_2) {
 }
 
 // non-matching
-ARM void MessageManager::func_0203690c(unk32 param_2, unk32 param_3, unk32 param_4) {
+ARM void MessageManager::func_0203690c(unk32 param_2) {
     UnkStruct_020397f8 *unk_28_0;
     UnkStruct_020397f8 *unk_28_2;
     UnkStruct_02038aa0 *pSVar4;
@@ -308,7 +305,7 @@ ARM void MessageManager::func_0203690c(unk32 param_2, unk32 param_3, unk32 param
         //! TODO: fake?
         pSVar4 = this->func_02037178((UnkSubClass1_02256FF8 *) this->mUnk_18[0]);
 
-        if (data_027e0c54 != 0 && pSVar4 != NULL && pSVar4->mUnk_50 != ((data_02056be4[data_027e077c.mUnk_0] & 1) != 0)) {
+        if (data_027e0c54.mUnk_0 && pSVar4 != NULL && pSVar4->mUnk_50 != ((data_02056be4[data_027e077c.mUnk_0] & 1) != 0)) {
             this->mUnk_04 = 0;
         }
     }
@@ -326,7 +323,7 @@ ARM void MessageManager::func_0203690c(unk32 param_2, unk32 param_3, unk32 param
         pActor = gActorManager->GetActor(&actorRef);
 
         if (pActor != NULL) {
-            data_027e0ffc->func_ov000_020cec60(data_02056918[this->mUnk_10], &pActor->mPos, pActor, 0);
+            data_027e0ffc.func_ov000_020cec60(data_02056918[this->mUnk_10], &pActor->mPos, pActor, 0);
         }
     }
 }
@@ -353,7 +350,7 @@ ARM void MessageManager::func_02036bbc(void) {
     }
 }
 
-ARM void MessageManager::func_02036c50(unk32 param_2) {
+ARM void MessageManager::func_02036c50(u16 *param_2) {
     s32 i;
 
     for (i = 0; i < ARRAY_LEN(this->mUnk_28); i++) {

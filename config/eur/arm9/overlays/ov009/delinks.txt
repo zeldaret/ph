@@ -8,3 +8,7 @@
 src/09_Adventure/Game/GameModeAdventure.cpp:
     .text       start:0x02112c20 end:0x021132cc
     .data       start:0x0211e680 end:0x0211e6ec
+
+src/09_Adventure/func_ov009_0211c808.cpp:
+    .text       start:0x0211c808 end:0x0211c844
+    .rodata     start:0x0211e0fc end:0x0211e14c

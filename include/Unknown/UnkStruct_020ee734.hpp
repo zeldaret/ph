@@ -32,6 +32,7 @@ public:
     void func_ov000_020d6488();
     void func_ov000_020d6620(void);
     void func_ov000_020d6438(GameModeId modeId);
+    void func_ov000_020d64ac();
 
     void func_ov008_021131ac(void);
 };

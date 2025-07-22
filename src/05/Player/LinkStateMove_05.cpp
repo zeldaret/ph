@@ -1,4 +1,5 @@
 #include "DTCM/UnkStruct_027e0d38.hpp"
+#include "DTCM/UnkStruct_027e0ffc.hpp"
 #include "Game/Game.hpp"
 #include "Player/LinkStateDamage.hpp"
 #include "Player/LinkStateFollow.hpp"
@@ -52,7 +53,6 @@ static const volatile q20 data_ov005_021123b8 = FLOAT_TO_Q20(15.0);
 
 extern LinkStateFollow *GetLinkStateFollow();
 extern "C" bool Lerp(s32 *pValue, s32 dest, s32 factor, unk32 param4, u32 step);
-extern unk32 data_027e0ffc;
 extern "C" void func_ov000_020ceacc(unk32 *param1, unk32 param2, Vec3p *param3, unk32 param4);
 ARM void LinkStateMove::vfunc_1c() {
     Actor *grabActor = this->GetGrabActor();
@@ -169,7 +169,7 @@ ARM void LinkStateMove::vfunc_1c() {
                 } else if (mUnk_10 > 0) {
                     *(unk16 *) ((u32) this->func_ov00_020a8d40() + 0xa8) = 0x4CD;
                     if (mUnk_10 == 0x19) {
-                        func_ov000_020ceacc(&data_027e0ffc, 0x23D, this->GetPlayerPos(), 0);
+                        data_027e0ffc.func_ov000_020ceacc(0x23D, this->GetPlayerPos(), 0);
                     }
                     mUnk_10 -= 1;
                 } else {
