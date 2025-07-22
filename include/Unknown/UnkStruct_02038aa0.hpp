@@ -144,7 +144,7 @@ public:
     unk32 func_0203cb5c(unk8, s16);
 
     void func_0203dcfc(unk32 param_2, unk32 param_3, unk32 param_4, unk32 param_5);
-    unk32 func_0203de14(unk32);
+    unk32 func_0203de14(u16 *);
     void func_0203e090(void);
     void func_0203e1b0(unk32, unk32, unk32);
 

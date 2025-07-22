@@ -6,12 +6,14 @@
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
 #include "Actor/ActorSpawner.hpp"
+#include "DTCM/UnkStruct_027e077c.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Player/PlayerBase.hpp"
 #include "Save/AdventureFlags.hpp"
 #include "Unknown/UnkStruct_02037750.hpp"
+#include "Unknown/UnkStruct_020eec68.hpp"
 #include "stdio.h"
 
 extern bool func_01ffbe78(Vec3p *param1, Vec3p *param2, Vec3p *param3, Vec4p *param4);
@@ -48,7 +50,6 @@ extern s32 func_ov000_0209d71c(s32 *param_1, s32 param_2);
 extern void func_ov000_020c3348(ActorSpawnOptions *param_1);
 extern void func_ov000_020d70a4(unk32 *param_1, unk32 param_2, unk32 param_3, unk32 param_4);
 extern void func_ov000_020d72b8(unk32 *param_1);
-extern unk32 func_ov000_020d7424(unk32 *param_1);
 
 extern void func_ov004_021024c4(MapManager *param_1, s32 param_2, bool param_3, s32 param_4);
 extern void func_ov004_02102770(s32 *param_1);
@@ -84,13 +85,6 @@ struct astruct_16 {
     /* 2c */
 }; // What is this struct?
 
-struct UnkStruct_027e077c {
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk16 mUnk_08;
-    /* 0a */ unk8 mUnk_0a;
-};
-
 class Case_0 : public MapBase {
 public:
     char pad[0x790 - 0x1B0];
@@ -112,7 +106,6 @@ public:
     virtual ~Case_Default() override;
 };
 
-extern UnkStruct_027e077c *data_027e077c;
 extern unk32 *data_027e0c68;
 extern u32 *data_027e0ce0[];
 extern UnkStruct_0202e894 *data_027e0ce4;
@@ -128,7 +121,6 @@ extern UnkStruct_027e103c *data_027e103c;
 extern unk32 *data_ov000_020e24a4;
 extern MapManager_Unk2 data_ov000_020e24c8[];
 extern MapManager_Unk2 data_ov000_020e24e8[];
-extern unk32 data_ov000_020eec68;
 extern unk32 data_ov015_02190458;
 
 MapManager::MapManager() {
@@ -446,19 +438,19 @@ ARM void MapManager::func_ov00_02082808(bool param_2) {
         if (iVar2 == 0) {
             func_ov015_021849a4(&data_ov015_02190458);
         }
-        func_ov000_020d70a4(&data_ov000_020eec68, iVar1, 0, 0x7f);
+        data_ov000_020eec68.func_ov000_020d70a4(iVar1, 0, 0x7f);
     } else {
-        iVar2 = func_ov000_020d7424(&data_ov000_020eec68);
+        iVar2 = data_ov000_020eec68.func_ov000_020d7424();
         if (iVar1 == iVar2) {
             return;
         }
-        func_ov000_020d70a4(&data_ov000_020eec68, iVar1, 0, 0x7f);
+        data_ov000_020eec68.func_ov000_020d70a4(iVar1, 0, 0x7f);
     }
     iVar1 = data_027e0d38->mUnk_0c.func_ov000_020a5e9c();
     if (iVar1 == 0) {
         return;
     }
-    func_ov000_020d72b8(&data_ov000_020eec68);
+    data_ov000_020eec68.func_ov000_020d72b8();
 }
 
 ARM s32 MapManager::MapData_vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, short param_4[4]) {
@@ -2390,8 +2382,8 @@ void MapManager::func_ov00_0208583c(MapManager *param_1, Vec3p *param_2, unk32 p
     if (piVar1 == NULL) {
         return;
     }
-    if (data_027e077c->mUnk_00 == 1) {
-        if (data_027e077c->mUnk_04 == 1) {
+    if (data_027e077c.mUnk_0 == 1) {
+        if (data_027e077c.mUnk_4 == 1) {
             //(**(code **) (*piVar1 + 0x30))(piVar1, param_3);
             return;
         }

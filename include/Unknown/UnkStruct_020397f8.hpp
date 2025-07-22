@@ -90,7 +90,7 @@ public:
     /* 4c */ virtual void vfunc_4c();
     /* 2c */ virtual void vfunc_2c();
     void func_02039ca8();
-    /* 3c */ virtual void vfunc_3c(unk32 param1);
+    /* 3c */ virtual void vfunc_3c(u16 *param1);
     /* 40 */ virtual void vfunc_40(s32 param1, s32 param2);
     void func_0203a188(s32 param1, s32 param2); // void func_0203a188(unk32 param_2, unk32 param_3, unk32 param_4);
     bool func_0203a2c0();
@@ -201,7 +201,7 @@ public:
     MsgProc_Type2(unk32 param_2, unk16 param_3, unk32 param_4);
     /* 00 */ virtual ~MsgProc_Type2();
     /* 14 */ /* func_0203c5c4 */ virtual bool vfunc_14(unk32 param_2, unk32 param_3) override;
-    /* 3c */ /* func_0203c414 */ virtual void vfunc_3C(unk32 param_2) override;
+    /* 3c */ /* func_0203c414 */ virtual void vfunc_3C(u16 *param_2) override;
     /* 40 */ /* func_0203c460 */ virtual void vfunc_40(unk32 param_2, unk32 param_3) override;
     /* 4c */ /* func_0203c39c */ virtual void vfunc_4C(void) override; // func_02039a3c?
 

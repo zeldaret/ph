@@ -9,6 +9,7 @@
 #include "Player/PlayerManager.hpp"
 #include "Save/AdventureFlags.hpp"
 #include "System/OverlayManager.hpp"
+#include "Unknown/UnkStruct_020eec68.hpp"
 
 static const char *sShipPartTypes[] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
@@ -1056,8 +1057,6 @@ THUMB void ItemManager::LoadDungeonItemModels() {
     }
 }
 
-extern unk32 data_ov000_020eec68;
-extern "C" void PlaySoundEffect(void *param1, SfxId sfx);
 THUMB void ItemManager::PlayItemFanfareSfx(ItemId item) {
     if (gItemManager->mMuteNextFanfare == true) {
         gItemManager->mMuteNextFanfare = false;
@@ -1105,7 +1104,7 @@ THUMB void ItemManager::PlayItemFanfareSfx(ItemId item) {
 
         gItemManager->mFanfareSfx = SfxId_None;
     }
-    PlaySoundEffect(&data_ov000_020eec68, sfx);
+    data_ov000_020eec68.PlaySoundEffect(sfx);
 }
 
 THUMB bool ItemManager::HasShipPartPriceShown(ShipPart part, ShipType type) const {

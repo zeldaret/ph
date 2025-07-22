@@ -15,6 +15,7 @@ public:
 
     void func_02033d70(s32 param1);
     void func_02033d40();
+    void func_02033d84(u16 *param0);
 };
 
 extern "C" UnkStruct_027e0c38 data_027e0c38;

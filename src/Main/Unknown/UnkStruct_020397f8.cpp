@@ -7,6 +7,7 @@
 #include "Message/MsgProc.hpp"
 #include "Player/TouchControl.hpp"
 #include "Save/AdventureFlags.hpp"
+#include "Unknown/UnkStruct_02068894.hpp"
 
 extern "C" void func_ov000_020d0460(void *);
 extern "C" void func_0203efd8(void *, void *);
@@ -174,7 +175,7 @@ ARM void UnkStruct_020397f8::func_02039ca8() {
     }
 }
 
-ARM void UnkStruct_020397f8::vfunc_3c(unk32 param1) {
+ARM void UnkStruct_020397f8::vfunc_3c(u16 *param1) {
     if (this->mUnk_15c > 0 && this->func_0203de14(param1) != 0) {
         if (this->mUnk_124->mUnk_29 != 3) {
             if ((this->mUnk_50 == 0) && func_ov000_02079e04() != 0) {
@@ -814,7 +815,7 @@ ARM void UnkStruct_020397f8::vfunc_60(func_0203b410_param1 *param1, unk32 param2
 
     if (this->mUnk_15e == 7) {
         uVar5 = func_0202d5b4(data_02057f08, data_02057eec, data_020691a0, 0xCC00, 1);
-        func_02032304(data_02068894, data_02057ed8, data_02056af0, 1, param3);
+        data_02068894.func_02032304(data_02057ed8, data_02056af0, 1, param3);
         iVar3 = func_02016fcc(uVar5);
     } else {
         if (this->func_02032fa4() != 0) {

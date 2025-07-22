@@ -44,6 +44,9 @@ src/Main/Unknown/UnkStruct_02037750.cpp:
 src/Main/Unknown/UnkStruct_02038aa0.cpp:
     .text       start:0x0203881c end:0x02039578
 
+src/Main/Unknown/UnkStruct_020397f8.cpp:
+    .text       start:0x020395b4 end:0x0203c358
+
 src/Main/Message/func_0203c358.cpp:
     .text       start:0x0203c358 end:0x0203c72c
 

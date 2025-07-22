@@ -58,7 +58,7 @@ public:
     bool func_020368f4(UnkStruct_02037750 *param_2);
     void func_0203690c(unk32 param_2);
     void func_02036bbc(void);
-    void func_02036c50(unk32 param_2);
+    void func_02036c50(u16 *param_2);
     void func_02036ca4(unk32 param_2);
     bool func_02036ce4(UnkStruct_020386d8 *param_2, unk32 param_3);
     bool func_02036d30(UnkStruct_02037750 *param_2);

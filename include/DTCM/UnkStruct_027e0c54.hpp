@@ -15,6 +15,7 @@ public:
     void func_02036050();
     bool func_02036174();
     bool func_020361d0();
+    void func_02036240(u16 *param0);
     void func_020363b0();
 };
 
