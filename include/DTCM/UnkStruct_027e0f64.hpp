@@ -12,6 +12,7 @@ public:
     /* 8 */ void *mUnk_8;
     /* c */
 
+    void func_ov000_0208ae94();
     unk32 func_ov000_0208b180();
 };
 

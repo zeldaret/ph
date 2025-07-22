@@ -110,7 +110,6 @@ extern unk32 *data_027e0c68;
 extern u32 *data_027e0ce0[];
 extern UnkStruct_0202e894 *data_027e0ce4;
 extern unk32 *data_027e0d3c;
-extern unk32 data_027e0f64[];
 extern unk32 *data_027e0f68;
 extern unk32 *data_027e0f6c;
 extern unk32 *data_027e0f70;
@@ -475,19 +474,12 @@ ARM s32 MapManager::func_ov00_02082914(unk32 param_2) {
     int iVar4;
     int iVar5;
     Vec3p pVar1;
-    Entrance local_44;
-    Entrance local_30;
 
     switch (param_2) {
         case 0xfa:
-            pvVar1           = data_027e0d38->mUnk_28;
-            local_30.mPos.x  = *(int *) ((int) pvVar1 + 0x5c);
-            local_30.mPos.y  = *(int *) ((int) pvVar1 + 0x60);
-            local_30.mPos.z  = *(int *) ((int) pvVar1 + 100);
-            local_30.mAngle  = *(unk16 *) ((int) pvVar1 + 0x68);
-            local_30.mId     = *(unk8 *) ((int) pvVar1 + 0x6a);
-            local_30.mUnk_10 = *(int *) ((int) pvVar1 + 0x6c);
-            iVar3            = this->mMap->AddEntrance(&local_30);
+            pvVar1 = data_027e0d38->mUnk_28;
+            Entrance local_30(*(Entrance *) ((s32) pvVar1 + 0x5c));
+            iVar3 = this->mMap->AddEntrance(&local_30);
             return iVar3;
         case 0xfb:
         case 0xfc:
@@ -497,13 +489,12 @@ ARM s32 MapManager::func_ov00_02082914(unk32 param_2) {
         default:
             return (int) this;
     }
-    local_44.mId     = -1;
-    local_44.mUnk_10 = 0;
-    pvVar1           = data_027e0d38->mUnk_28;
-    pVar1            = *(Vec3p *) ((int) pvVar1 + 0x38);
-    iVar3            = 0x2000;
-    iVar4            = 0x2000;
-    iVar5            = 0xfd;
+    Entrance local_44;
+    pvVar1 = data_027e0d38->mUnk_28;
+    pVar1  = *(Vec3p *) ((int) pvVar1 + 0x38);
+    iVar3  = 0x2000;
+    iVar4  = 0x2000;
+    iVar5  = 0xfd;
     if (this->mCourse->mType == CourseType_Sea) {
         iVar3 = this->mMap->vfunc_88();
         iVar3 = iVar3 + 0xa000;
@@ -961,8 +952,6 @@ ARM bool MapManager::GetEntrancePos(Entrance *param_1, unk32 entranceId) {
 
 ARM bool MapManager::func_ov00_02083664(Entrance *param_2, unk32 entranceId) {
     Entrance entrance;
-    entrance.mId     = (u8) 0xff;
-    entrance.mUnk_10 = 0;
     if (this->GetEntrancePos(&entrance, entranceId)) {
         param_2->mPos.x = entrance.mPos.x;
         param_2->mPos.y = entrance.mPos.y;

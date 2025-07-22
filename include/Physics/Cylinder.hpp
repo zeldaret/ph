@@ -19,4 +19,5 @@ struct Cylinder {
     }
 
     bool Overlaps(Cylinder *other);
+    bool func_ov000_0208f030(Vec3p *param1, Vec3p *param2, s32 param3);
 };

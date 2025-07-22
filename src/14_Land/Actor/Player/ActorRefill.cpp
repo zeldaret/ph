@@ -212,7 +212,6 @@ ARM void ActorRefill::vfunc_20(bool param1) {
     }
 }
 
-extern unk32 *data_027e0e58;
 extern "C" void func_ov000_0207c1b0(unk32 *param1, unk32 param2, Vec3p *param3, unk32 param4, unk32 param5, unk32 param6);
 ARM void ActorRefill::func_ov014_02135474() {
     s32 iVar1 = mUnk_130;

@@ -15,4 +15,14 @@ public:
     /* 0f */ // unk8 mUnk_0f;
     /* 10 */ s32 mUnk_10;
     /* 14 */
+
+    inline Entrance() :
+        mId(0xff),
+        mUnk_10(0) {}
+
+    inline Entrance(const Entrance &other) :
+        mPos(other.mPos),
+        mAngle(other.mAngle),
+        mId(other.mId),
+        mUnk_10(other.mUnk_10) {}
 };
