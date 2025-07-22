@@ -50,7 +50,7 @@ public:
     bool func_02036770(u32 param_2);
     unk32 func_02036798(void);
     bool func_020367dc(int param_2);
-    bool MessageManager::func_020367ec(void);
+    bool func_020367ec(void);
     bool func_02036808(void);
     bool func_02036824(void);
     bool func_02036850(void);
