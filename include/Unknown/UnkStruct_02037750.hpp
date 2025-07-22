@@ -3,6 +3,7 @@
 #include "global.h"
 #include "types.h"
 
+#include "Actor/Actor.hpp"
 #include "Player/LinkStateInteract.hpp"
 #include "System/SysNew.hpp"
 
@@ -14,7 +15,7 @@ class UnkStruct_02037750 : public SysObject {
 public:
     /* 00 (vtable) */
     /* 04 */ UnkStruct_02037750_Callback1 mUnk_04[0x4];
-    /* 14 */ unk32 mUnk_14;
+    /* 14 */ Actor *mUnk_14;
     /* 18 */ u32 mUnk_18;
     /* 1c */ u8 mUnk_1c;
     /* 1d */ u8 mUnk_1d;
