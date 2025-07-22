@@ -39,8 +39,12 @@ src/Main/Message/BMG.cpp:
     .rodata     start:0x02056958 end:0x020569e0
 
 src/Main/Unknown/UnkStruct_02037750.cpp:
-    .text       start:0x02037750 end:0x020387e0
-    .data       start:0x02057cb8 end:0x02057d70
+    .text       start:0x02037750 end:0x020386d8
+    .data       start:0x02057cb8 end:0x02057d34
+
+src/Main/Unknown/UnkStruct_020386d8.cpp:
+    .text       start:0x020386d8 end:0x020387e0
+    .data       start:0x02057d34 end:0x02057d70
 
 src/Main/Unknown/UnkStruct_02038aa0.cpp:
     .text       start:0x0203881c end:0x02039578
