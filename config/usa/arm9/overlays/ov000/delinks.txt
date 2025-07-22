@@ -132,6 +132,7 @@ src/00_Core/Player/LinkStateRoll.cpp:
     .data       start:0x020e6018 end:0x020e60a4
 
 src/00_Core/Player/PlayerBase.cpp:
+    complete
     .text       start:0x020a7a90 end:0x020a7f44
     .data       start:0x020e5530 end:0x020e55d0
 

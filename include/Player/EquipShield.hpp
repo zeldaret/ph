@@ -4,7 +4,7 @@
 
 #include "Player/EquipItem.hpp"
 
-class EquipShield {
+class EquipShield : public EquipItem {
 public:
     /* 00 (base) */
     /* 09 */ unk8 mUnk_09[5];

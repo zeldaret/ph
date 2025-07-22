@@ -4760,15 +4760,15 @@ data_ov000_020e5454 kind:data(any) addr:0x020e5454
 data_ov000_020e54a4 kind:data(any) addr:0x020e54a4
 data_ov000_020e54f4 kind:data(any) addr:0x020e54f4
 data_ov000_020e5548 kind:data(any) addr:0x020e5548
-data_ov000_020e5590 kind:data(any) addr:0x020e5590
-data_ov000_020e5594 kind:data(any) addr:0x020e5594
-data_ov000_020e5598 kind:data(any) addr:0x020e5598
-data_ov000_020e559c kind:data(any) addr:0x020e559c
-data_ov000_020e55a0 kind:data(any) addr:0x020e55a0
-data_ov000_020e55a4 kind:data(any) addr:0x020e55a4
-data_ov000_020e55a8 kind:data(any) addr:0x020e55a8
-data_ov000_020e55ac kind:data(any) addr:0x020e55ac
-_ZTV10PlayerBase kind:data(any) addr:0x020e55d8
+@1464 kind:data(any) addr:0x020e5590 local
+@1463 kind:data(any) addr:0x020e5594 local
+@1462 kind:data(any) addr:0x020e5598 local
+@1461 kind:data(any) addr:0x020e559c local
+@1460 kind:data(any) addr:0x020e55a0 local
+@1459 kind:data(any) addr:0x020e55a4 local
+@1458 kind:data(any) addr:0x020e55a8 local
+@1457 kind:data(any) addr:0x020e55ac local
+_ZTV10PlayerBase kind:data(any) addr:0x020e55d0
 data_ov000_020e5630 kind:data(any) addr:0x020e5630
 data_ov000_020e5634 kind:data(any) addr:0x020e5634
 data_ov000_020e5638 kind:data(any) addr:0x020e5638
