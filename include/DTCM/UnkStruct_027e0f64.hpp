@@ -13,6 +13,7 @@ public:
     /* c */
 
     void func_ov000_0208ae94();
+    void func_ov000_0208b13c();
     unk32 func_ov000_0208b180();
 };
 

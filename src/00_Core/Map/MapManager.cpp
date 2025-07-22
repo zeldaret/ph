@@ -8,6 +8,7 @@
 #include "Actor/ActorSpawner.hpp"
 #include "DTCM/UnkStruct_027e077c.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
+#include "DTCM/UnkStruct_027e0f64.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Player/PlayerBase.hpp"
@@ -28,7 +29,6 @@ extern void func_ov000_020798bc(s32 *param_1, s32 param_2);
 extern void func_ov000_02088000(unk32 param_1, s32 param_2);
 extern void func_ov000_02088130(u8 *param_1, unk32 param_2);
 extern void func_ov000_02088144(u8 *param_1, unk32 param_2);
-extern void func_ov000_0208b13c(s32 *param_1);
 extern unk32 func_ov000_0208b180(s32 *param_1);
 extern s32 func_ov000_0208b73c(s32 param_1, unk32 param_2);
 extern s32 func_ov000_0208b7d0(s32 param_1, Vec3p *param_2);
@@ -568,7 +568,7 @@ void MapManager::func_ov00_02082b3c(unk32 *param_2, Vec2b *param_3) {
         this->mMap->vfunc_18();
     } else {
         gAdventureFlags->func_ov00_020976c8();
-        func_ov000_0208b13c(data_027e0f64);
+        data_027e0f64->func_ov000_0208b13c();
         uVar5 = this->func_ov00_02082d08();
         gActorManager->func_ov004_02105608(param_3->x, param_3->y, uVar5);
         this->mMap->vfunc_2c();
@@ -1948,7 +1948,7 @@ s32 MapManager::func_ov00_02084d4c(unk32 param_2, unk32 param_3, Vec3p *param_4)
     int iStack_18;
     Vec3p VStack_14;
 
-    iVar1 = func_ov000_0208df78(data_027e0f64 + 4, param_2, param_3, &VStack_14, &iStack_20);
+    iVar1 = func_ov000_0208df78((s32 *) data_027e0f64 + 1, param_2, param_3, &VStack_14, &iStack_20);
     // object = PTR_DWORD_overlay_d_0__020e2510_overlay_d_0__02084ea8;
     if (iVar1 == -1) {
         return -1;
@@ -2098,10 +2098,10 @@ s32 MapManager::func_ov00_02085108(Vec3p *param_2) {
     int local_2c;
     unk32 local_28;
 
-    uVar2 = func_ov000_0208b180(data_027e0f64);
+    uVar2 = data_027e0f64->func_ov000_0208b180();
     func_ov000_02088130(&local_38, uVar2);
     local_44 = (u32) local_38;
-    uVar2    = func_ov000_0208b180(data_027e0f64);
+    uVar2    = data_027e0f64->func_ov000_0208b180();
     func_ov000_02088144(&local_3a, uVar2);
     if (local_44 <= local_37) {
         do {
@@ -2154,10 +2154,10 @@ s32 MapManager::func_ov00_0208527c(MapManager *param_1, unk32 param_2, unk32 *pa
     unk32 local_30;
     unk32 local_2c;
 
-    uVar3 = func_ov000_0208b180(data_027e0f64);
+    uVar3 = data_027e0f64->func_ov000_0208b180();
     func_ov000_02088130(&local_3c, uVar3);
     uVar7 = (u32) local_3c;
-    uVar3 = func_ov000_0208b180(data_027e0f64);
+    uVar3 = data_027e0f64->func_ov000_0208b180();
     func_ov000_02088144(&local_3e, uVar3);
     local_4c = (u32) local_3e;
     uVar6    = (u32) local_3d;
@@ -2218,10 +2218,10 @@ s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *par
     unk32 local_30;
     unk32 local_2c;
 
-    uVar2 = func_ov000_0208b180(data_027e0f64);
+    uVar2 = data_027e0f64->func_ov000_0208b180();
     func_ov000_02088130(&local_3c, uVar2);
     local_48 = (u32) local_3c;
-    uVar2    = func_ov000_0208b180(data_027e0f64);
+    uVar2    = data_027e0f64->func_ov000_0208b180();
     func_ov000_02088144(&local_3e, uVar2);
     local_50 = local_3e;
     uVar6    = local_3d;
