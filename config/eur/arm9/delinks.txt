@@ -5,25 +5,33 @@
     .data       start:0x020572e0 end:0x02058e20 kind:data align:32
     .bss        start:0x02058e20 end:0x020773c0 kind:bss align:32
 
-src/Main/Actor/ActorType.cpp:
+src/Main/Game/GameMode.cpp:
     complete
-    .text       start:0x0203e784 end:0x0203e8a0
-    .bss        start:0x02069180 end:0x02069188
+    .text       start:0x0202c0a8 end:0x0202c0cc
+    .data       start:0x0205762c end:0x02057650
+
+src/Main/Game/Game.cpp:
+    .text       start:0x0202c6c8 end:0x0202d0cc
+    .rodata     start:0x020561f4 end:0x020562d4
+
+src/Main/Message/BmgRelatedFunctions.cpp:
+    .text       start:0x0202d3bc end:0x0202d56c
+
+src/Main/Unknown/UnkStruct_02063220.cpp:
+    .text       start:0x0202f3f0 end:0x0202f8e8
+    .rodata     start:0x020562e0 end:0x02056300
+    .data       start:0x0205772c end:0x02057808
 
 src/Main/System/OverlayManager.cpp:
     complete
     .text       start:0x0202ff44 end:0x0203003c
 
-libs/cpp/src/__register_global_object.cpp:
-    complete
-    .text       start:0x0204f8d4 end:0x0204f8f4
-    .bss        start:0x02076da8 end:0x02076dac
-
-src/Main/Message/BmgRelatedFunctions.cpp:
-    .text       start:0x0202d3bc end:0x0202d56c
+src/Main/Unknown/UnkStruct_0206322c.cpp:
+    .text       start:0x02030354 end:0x020306c0
 
 src/Main/Unknown/UnkStruct_02032f0c.cpp:
     .text       start:0x02032f0c end:0x02033d40
+    .data       start:0x020579c0 end:0x02057a00
 
 src/Main/Unknown/UnkStruct_02035064.cpp:
     .text       start:0x02035064 end:0x02035370
@@ -37,42 +45,47 @@ src/Main/Message/BMG.cpp:
     .data       start:0x02057b78 end:0x02057cb8
     .rodata     start:0x02056958 end:0x020569e0
 
-src/Main/Unknown/UnkStruct_02037750.cpp:
-    .text       start:0x02037750 end:0x020387e0
-    .data       start:0x02057cb8 end:0x02057d70
-
-src/Main/Unknown/UnkStruct_02038aa0.cpp:
-    .text       start:0x0203881c end:0x02039578
-
-src/Main/Message/func_0203c358.cpp:
-    .text       start:0x0203c358 end:0x0203c72c
-
-src/Main/Message/func_0203c72c.cpp:
-    .text       start:0x0203c72c end:0x0203c8a8
-
-src/Main/Unknown/UnkStruct_0203dae0.cpp:
-    .text       start:0x0203dae0 end:0x0203e784
-
-src/Main/Unknown/UnkStruct_0206322c.cpp:
-    .text       start:0x02030354 end:0x020306c0
-
-src/Main/Unknown/UnkStruct_02063220.cpp:
-    .text       start:0x0202f3f0 end:0x0202f8e8
-    .rodata     start:0x020562e0 end:0x02056300
-    .data       start:0x0205772c end:0x02057808
-
-src/Main/Game/Game.cpp:
-    .text       start:0x0202c6c8 end:0x0202d0cc
-    .rodata     start:0x020561f4 end:0x020562d4
-
-src/Main/Game/GameMode.cpp:
-    complete
-    .text       start:0x0202c0a8 end:0x0202c0cc
-    .data       start:0x0205762c end:0x02057650
-
 src/Main/DTCM/UnkStruct_027e05f8_2.cpp:
     complete
     .text       start:0x0203744c end:0x020374b4
     .init       start:0x02050cb4 end:0x02050ce0
     .ctor       start:0x02057260 end:0x02057264
     .dtcm       start:0x027e05f8 end:0x027e060c
+
+src/Main/Unknown/UnkStruct_02037750.cpp:
+    .text       start:0x02037750 end:0x020386d8
+    .data       start:0x02057cb8 end:0x02057d34
+
+src/Main/Unknown/UnkStruct_020386d8.cpp:
+    .text       start:0x020386d8 end:0x020387e0
+    .data       start:0x02057d34 end:0x02057d70
+
+src/Main/Unknown/UnkStruct_02038aa0.cpp:
+    .text       start:0x0203881c end:0x02039578
+    .data       start:0x02057d88 end:0x02057e14
+
+src/Main/Unknown/UnkStruct_020397f8.cpp:
+    .text       start:0x020397f8 end:0x0203c358
+    .data       start:0x02057e14 end:0x02057ed0
+
+src/Main/Message/func_0203c358.cpp:
+    .text       start:0x0203c358 end:0x0203c72c
+    .data       start:0x02057f0c end:0x02057f88
+
+src/Main/Message/func_0203c72c.cpp:
+    .text       start:0x0203c72c end:0x0203c8a8
+    .data       start:0x02057f88 end:0x02058004
+
+src/Main/Unknown/UnkStruct_0203dae0.cpp:
+    .text       start:0x0203dae0 end:0x0203e784
+    .data       start:0x0205804c end:0x02058088
+
+src/Main/Actor/ActorType.cpp:
+    complete
+    .text       start:0x0203e784 end:0x0203e8a0
+    .bss        start:0x02069180 end:0x02069188
+
+libs/cpp/src/__register_global_object.cpp:
+    complete
+    .text       start:0x0204f8d4 end:0x0204f8f4
+    .bss        start:0x02076da8 end:0x02076dac

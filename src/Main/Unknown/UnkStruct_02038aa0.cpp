@@ -4,6 +4,8 @@
 #include "Game/Game.hpp"
 #include "Message/MessageManager.hpp"
 
+ARM void UnkStruct_02038aa0::func_020387e0(u8 *param_2) {}
+
 ARM UnkStruct_0203881c::UnkStruct_0203881c() {
     this->mUnk_14 = 0x1000;
     this->mUnk_18 = 0;
@@ -16,7 +18,8 @@ ARM void UnkStruct_0203881c::func_02038858(unk32 param1) {}
 ARM void UnkStruct_0203881c::func_02038888() {}
 ARM void UnkStruct_0203881c::func_02038950(UnkStruct_02038aa0 *param1, s32 param2) {}
 ARM void UnkStruct_0203881c::func_02038a80(s32 param1) {}
-ARM UnkStruct_0203881c::~UnkStruct_0203881c() {}
+ARM void UnkStruct_0203881c::vfunc_00() {}
+ARM void UnkStruct_0203881c::vfunc_04() {}
 
 THUMB UnkStruct_02038aa0::UnkStruct_02038aa0(u8 param1, u8 param2) :
     UnkStruct_0203dae0(param1),
@@ -33,15 +36,13 @@ THUMB UnkStruct_02038aa0::UnkStruct_02038aa0(u8 param1, u8 param2) :
 
 THUMB UnkStruct_02038aa0::~UnkStruct_02038aa0() {}
 
-THUMB void UnkStruct_02038aa0::func_02038b28(void) {
+THUMB void UnkStruct_02038aa0::vfunc_4c() {
     this->mUnk_114->mUnk_04 = NULL;
 }
 
-ARM void UnkStruct_02038aa0::vfunc_4c(u32 param1, unk32 param2) {
+ARM void UnkStruct_02038aa0::vfunc_10(u32 param1, unk32 param2) {
     this->UnkStruct_0203dae0::vfunc_10(param1, param2);
 }
-
-ARM void UnkStruct_02038aa0::vfunc_10() {}
 
 ARM void UnkStruct_02038aa0::func_02038b40() {
     this->mUnk_15c         = -1;
@@ -51,8 +52,6 @@ ARM void UnkStruct_02038aa0::func_02038b40() {
 }
 
 ARM void UnkStruct_02038aa0::vfunc_48() {}
-
-ARM void UnkStruct_02038aa0::func_02038b74(void) {}
 
 // non-matching
 ARM bool UnkStruct_02038aa0::func_02038b78() {
@@ -117,28 +116,26 @@ ARM s32 UnkStruct_02038aa0::func_02038d10() {
 
 ARM void UnkStruct_02038aa0::vfunc_2c() {}
 
-ARM void UnkStruct_02038aa0::vfunc_30(unk32 param_2, unk32 param_3) {
+ARM void UnkStruct_02038aa0::vfunc_30() {
     if (this->mUnk_15c > 0) {
-        this->func_0203e090();
+        this->UnkStruct_0203dae0::vfunc_30();
     } else {
         this->mUnk_118 = -1;
     }
 }
 
-ARM bool UnkStruct_02038aa0::func_02038ef4(s32 param1, s32 param2) {
+ARM bool UnkStruct_02038aa0::func_02038ef4(s32 touchLastX, s32 touchLastY) {
     unk32 local_14;
     unk32 local_18;
 
     this->vfunc_70(&local_14, &local_18);
-    this->func_0203e1b0(local_14 + param1, local_18 + param2, 0);
+    this->func_0203e1b0(local_14 + touchLastX, local_18 + touchLastY, 0);
 }
-
-ARM void UnkStruct_02038aa0::func_02038f40(void) {}
 
 ARM void UnkStruct_02038aa0::vfunc_44(s32 touchLastX, s32 touchLastY) {}
 
 // non-matching
-ARM void UnkStruct_02038aa0::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3, UnkSubClass1_02256FF8 *param4) {
+ARM void UnkStruct_02038aa0::vfunc_50(EntryINF1 *param1, u16 *param2, s16 *param3, UnkStruct_000 *param4) {
     int iVar1;
 
     this->pInfoEntry = param1;
@@ -151,8 +148,8 @@ ARM void UnkStruct_02038aa0::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3
     this->mUnk_30 = this->mUnk_150[4] + 5;
 
     this->vfunc_54();
-    // this->vfunc_60(0, 0, (unk32)param3);
-    // this->vfunc_64(param3);
+    this->vfunc_60(0, 0, (unk32) param3);
+    this->vfunc_64((unk32) param3);
 
     if (gGame.mModeId == GameModeId_Adventure) {
         if (this->func_02032fa4() == 0) {
@@ -162,7 +159,7 @@ ARM void UnkStruct_02038aa0::vfunc_50(EntryINF1 *param1, u32 param2, s16 *param3
         }
     }
 
-    this->vfunc_5C();
+    // this->vfunc_5c();
 }
 
 // non-matching
@@ -182,27 +179,26 @@ ARM void UnkStruct_02038aa0::vfunc_5c(u16 *param_2, UnkStruct_0203b264 *param_3,
     // this->mUnk_150[2] = bVar5;
 
     // return?
-    this->func_02033360();
+    // this->UnkStruct_02032f0c::vfunc_1c();
 }
 
 ARM unk32 UnkStruct_02038aa0::vfunc_1c(s32 param1, unk32 *param2, unk32 param3, unk32 param4) {}
 ARM unk32 UnkStruct_02038aa0::vfunc_20(s32 param1, s32 *param2) {}
 ARM void UnkStruct_02038aa0::func_02039208(unk16 param1) {}
 
-// non-matching
-ARM void UnkStruct_02038aa0::vfunc_08(s32 param1, unk32 *param2, s16 *param3, unk32 param4) {
+ARM void UnkStruct_02038aa0::vfunc_08(s32 param1, unk32 param2, s16 *param3, unk32 param4) {
     this->mUnk_15c    = 10;
     this->mUnk_150[2] = 1;
-    this->func_0203e2ac(param2);
+    this->UnkStruct_0203dae0::vfunc_08(param1, param2, param3, param4);
 }
 
 ARM unk32 UnkStruct_02038aa0::func_02039250() {}
 ARM void UnkStruct_02038aa0::vfunc_54() {}
 ARM void UnkStruct_02038aa0::vfunc_58() {}
-ARM void UnkStruct_02038aa0::vfunc_60() {}
-ARM void UnkStruct_02038aa0::vfunc_64() {}
+ARM void UnkStruct_02038aa0::vfunc_60(func_0203b410_param1 *param1, unk32 param2, unk32 param3) {}
+ARM s32 UnkStruct_02038aa0::vfunc_64(unk32 param1) {}
 
-ARM s32 UnkStruct_02038aa0::vfunc_68(unk32 param1) {
+ARM unk32 UnkStruct_02038aa0::vfunc_68(s32 param1, s32 *param2) {
     switch (param1) {
         case 0:
             break;
@@ -228,16 +224,15 @@ ARM s32 UnkStruct_02038aa0::vfunc_68(unk32 param1) {
 ARM void UnkStruct_02038aa0::func_02039440(unk32 param1, unk32 param2) {}
 ARM void UnkStruct_02038aa0::vfunc_6c(s32 *param1, s32 *param2) {}
 
-ARM void UnkStruct_02038aa0::vfunc_70(s32 *param1, s32 *param2) {
-    this->vfunc_6C(param1, param2);
+ARM void UnkStruct_02038aa0::vfunc_70(unk32 *param1, unk32 *param2) {
+    this->vfunc_6c(param1, param2);
     *param1 += this->mUnk_158.x;
     *param2 += this->mUnk_158.y;
 }
 
 ARM bool UnkStruct_02038aa0::func_0203951c() {}
-ARM bool UnkStruct_02038aa0::vfunc_38() {}
+ARM bool UnkStruct_02038aa0::func_0203955c() {}
 
-ARM void UnkStruct_02038aa0::vfunc_0c(u8 param_2, u8 param_3, u8 param_4, unk32 param_5) {
-    this->func_0203dc10(1, param_3);
-    this->func_02033190(param_2, param_3, param_4, param_5);
+ARM bool UnkStruct_02038aa0::vfunc_38() {
+    return false;
 }

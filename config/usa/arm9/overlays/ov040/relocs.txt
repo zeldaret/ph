@@ -1289,7 +1289,7 @@ from:0x02187c34 kind:arm_call to:0x02033c78 module:main
 from:0x02187cc4 kind:arm_call to:0x02033484 module:main
 from:0x02187cf8 kind:arm_call to:0x0203b7d0 module:main
 from:0x02187d0c kind:load to:0x02068e2c module:main
-from:0x02187d10 kind:load to:0x020579b0 module:main
+from:0x02187d10 kind:load to:0x020579a8 add:8 module:main
 from:0x02187d20 kind:load to:0x02039d30 module:main
 from:0x02187d5c kind:arm_call_thumb to:0x0202ab30 module:main
 from:0x02187d80 kind:arm_call_thumb to:0x0202ab30 module:main

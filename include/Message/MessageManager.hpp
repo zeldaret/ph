@@ -26,11 +26,11 @@ public:
     /* 0x05 */ u8 mUnk_05;
     /* 0x06 */ unk16 mUnk_06;
     /* 0x08 */ UnkStruct_020397f8 *mUnk_08;
-    /* 0x0C */ u8 mUnk_0c;
-    /* 0x0C */ u8 mUnk_0d;
-    /* 0x0C */ unk16 mUnk_0e;
+    /* 0x0c */ u8 mUnk_0c;
+    /* 0x0d */ u8 mUnk_0d;
+    /* 0x0e */ unk16 mUnk_0e;
     /* 0x10 */ unk16 mUnk_10;
-    /* 0x10 */ unk16 mUnk_12;
+    /* 0x12 */ unk16 mUnk_12;
     /* 0x14 */ BMGGroups *pGroups;
     /* 0x18 */ UnkStruct_020386d8 *mUnk_18[2];
     /* 0x20 */ UnkStruct_02037750 *mUnk_20[2];
@@ -39,7 +39,7 @@ public:
     /* 0x48 */ DebugHierarchy *mDebug;
     /* 0x4C */
 
-    static void func_0203643c(u32 *param_1, MessageManager *param_2, u32 param_3);
+    static void func_0203643c(u16 **param_1, MessageManager *param_2, u32 param_3);
     void func_02036490();
     void func_0203665c(void);
     MessageManager();
@@ -50,7 +50,7 @@ public:
     bool func_02036770(u32 param_2);
     unk32 func_02036798(void);
     bool func_020367dc(int param_2);
-    bool MessageManager::func_020367ec(void);
+    bool func_020367ec(void);
     bool func_02036808(void);
     bool func_02036824(void);
     bool func_02036850(void);
@@ -64,9 +64,9 @@ public:
     bool func_02036d30(UnkStruct_02037750 *param_2);
     bool func_02036d4c(UnkStruct_02037750 *param_2);
     void func_02036d6c(void);
-    UnkStruct_02038aa0 *func_02036da8(u32 param_2, s16 *param_3);
+    UnkStruct_02038aa0 *func_02036da8(u32 param_2, UnkStruct_000 *param_3);
     void func_02036edc(u32 param_2, u8 param_3);
-    UnkStruct_020397f8 *func_02036f68(u32 param_2, u8 *param_3);
+    UnkStruct_020397f8 *func_02036f68(u32 param_2, u16 *param_3);
     UnkStruct_020386d8 *func_020370d0(unk32 param_2, unk32 param_3);
     UnkStruct_020386d8 *func_020370e8(unk32 param_2, unk16 param_3, unk16 param_4, unk32 param_5);
     void func_02037158(UnkSubClass1_02256FF8 *param_2);
@@ -74,5 +74,15 @@ public:
 
     void func_ov004_021069c4(void);
 };
+
+#define BMG_GET_INF1(pGroups, flags) ((pGroups)->entries[(flags) >> 16].func_02037258((flags)))
+
+static inline u16 *GetMsgStringAddr(MessageManager *pMessageManager, u32 flags) {
+    BMGGroups *pGroups = pMessageManager->pGroups;
+    EntryINF1 *pINF1   = BMG_GET_INF1(pGroups, flags);
+
+    flags >>= 16;
+    return (u16 *) &pGroups->entries[flags].pDAT1[pINF1->stringOffset & ~1];
+}
 
 extern MessageManager gMessageManager;
