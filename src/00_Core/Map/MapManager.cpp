@@ -1011,9 +1011,9 @@ ARM bool MapManager::func_ov00_02083790(s32 param_2) {
     if (param_2 == 0) {
         return true;
     }
-    *(int *) (*(int *) (*(unk32 *) data_027e0f64 + 8) + 0x1b4) = param_2;
-    *(int *) (*(int *) (*(unk32 *) data_027e0f64 + 4) + 0x1b4) = param_2;
-    iVar2                                                      = data_027e0d38->func_ov000_02078b40();
+    *(int *) (*(int *) ((unk32 *) data_027e0f64 + 2) + 0x1b4) = param_2;
+    *(int *) (*(int *) ((unk32 *) data_027e0f64 + 1) + 0x1b4) = param_2;
+    iVar2                                                     = data_027e0d38->func_ov000_02078b40();
     if ((iVar2 != 0) && (bVar1 = this->func_ov00_02082e1c(&aiStack_14, &iStack_18), !bVar1)) {
         func_ov000_02079898(data_027e0d3c, param_2, 0x10);
         gActorManager->func_ov00_020c3ce8(param_2, true);
@@ -1029,9 +1029,9 @@ ARM bool MapManager::func_ov00_02083840(s32 param_2) {
     if (param_2 == 0) {
         return true;
     }
-    *(unk32 *) (*(unk32 *) (*(unk32 *) data_027e0f64 + 8) + 0x1b4) = -1;
-    *(unk32 *) (*(unk32 *) (*(unk32 *) data_027e0f64 + 4) + 0x1b4) = -1;
-    iVar4                                                          = func_ov000_02078fe8(data_027e0d3c);
+    *(unk32 *) (*(unk32 *) ((unk32 *) data_027e0f64 + 2) + 0x1b4) = -1;
+    *(unk32 *) (*(unk32 *) ((unk32 *) data_027e0f64 + 1) + 0x1b4) = -1;
+    iVar4                                                         = func_ov000_02078fe8(data_027e0d3c);
     if (0 <= iVar4) {
         func_ov000_020798bc(data_027e0d3c, 0x10);
         gActorManager->func_ov00_020c3ce8(param_2, false);
