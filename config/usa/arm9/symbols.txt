@@ -2807,8 +2807,8 @@ data_02057cc8 kind:data(any) addr:0x02057c80
 data_02057ccc kind:data(any) addr:0x02057c84
 data_02057cd0 kind:data(any) addr:0x02057c88
 data_02057cd4 kind:data(any) addr:0x02057c8c
-_ZTV18UnkStruct_02037750 kind:data(any) addr:0x02057cb8
-_ZTV18UnkStruct_020386d8 kind:data(any) addr:0x02057cf4
+_ZTV18UnkStruct_02037750 kind:data(any) addr:0x02057cb0
+_ZTV18UnkStruct_020386d8 kind:data(any) addr:0x02057cec
 data_02057d70 kind:data(any) addr:0x02057d28
 _ZTV18UnkStruct_02038aa0 kind:data(any) addr:0x02057d40
 _ZTV18UnkStruct_0203881c kind:data(any) addr:0x02057dbc
