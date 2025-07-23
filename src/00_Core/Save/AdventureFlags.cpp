@@ -87,16 +87,16 @@ ARM unk32 AdventureFlags::func_ov00_02097968(unk32 param1) {
     aStack_c0.mUnk_16 = data_027e0db0.mUnk_04 > 0;
 
     FlagsUnk2 FStack_d8;
-    FStack_d8.mUnk_00.mUnk_00 = 0x47;
-    FStack_d8.mUnk_04.mUnk_00 = 0;
-    FStack_d8.mUnk_04.mUnk_04 = 0;
-    FStack_d8.mUnk_04.mUnk_08 = -2;
-    FStack_d8.mUnk_04.mUnk_0c = 0;
-    FStack_d8.mUnk_04.mUnk_0e = -1;
-    FStack_d8.mUnk_04.mUnk_0f = 0;
-    FStack_d8.mUnk_04.mUnk_10 = 0;
-    FStack_d8.mUnk_04.mUnk_11 = 0;
-    aStack_c0.mUnk_00         = param1;
+    FStack_d8.mUnk_00.mUnk_00   = 0x47;
+    FStack_d8.mUnk_04.mUnk_00.x = 0;
+    FStack_d8.mUnk_04.mUnk_00.y = 0;
+    FStack_d8.mUnk_04.mUnk_00.z = -2;
+    FStack_d8.mUnk_04.mUnk_0c   = 0;
+    FStack_d8.mUnk_04.mUnk_0e   = -1;
+    FStack_d8.mUnk_04.mUnk_0f   = 0;
+    FStack_d8.mUnk_04.mUnk_10   = 0;
+    FStack_d8.mUnk_04.mUnk_11   = 0;
+    aStack_c0.mUnk_00           = param1;
 
     aStack_c0.mUnk_0c = AdventureFlags::Get_FlagsUnk_00(param1, &FStack_d8);
     gMapManager->func_ov000_02098d34(&FStack_d8);
@@ -173,28 +173,28 @@ ARM unk32 AdventureFlags::Get_FlagsUnk_30(s32 index) {
 }
 
 ARM bool AdventureFlags::Get_FlagsUnk_00(s32 index, FlagsUnk2 *result) {
-    result->mUnk_00         = data_ov000_020e310c[index].mUnk_00.mUnk_00;
-    result->mUnk_04.mUnk_00 = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_00;
-    result->mUnk_04.mUnk_04 = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_04;
-    result->mUnk_04.mUnk_08 = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_08;
-    result->mUnk_04.mUnk_0c = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_0c;
-    result->mUnk_04.mUnk_0e = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_0e;
-    result->mUnk_04.mUnk_0f = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_0f;
-    result->mUnk_04.mUnk_10 = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_10;
-    result->mUnk_04.mUnk_11 = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_11;
+    result->mUnk_00           = data_ov000_020e310c[index].mUnk_00.mUnk_00;
+    result->mUnk_04.mUnk_00.x = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_00.x;
+    result->mUnk_04.mUnk_00.y = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_00.y;
+    result->mUnk_04.mUnk_00.z = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_00.z;
+    result->mUnk_04.mUnk_0c   = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_0c;
+    result->mUnk_04.mUnk_0e   = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_0e;
+    result->mUnk_04.mUnk_0f   = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_0f;
+    result->mUnk_04.mUnk_10   = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_10;
+    result->mUnk_04.mUnk_11   = data_ov000_020e310c[index].mUnk_00.mUnk_04.mUnk_11;
     return true;
 }
 
 ARM bool AdventureFlags::Get_FlagsUnk_18(s32 index, FlagsUnk2 *result) {
-    result->mUnk_00         = data_ov000_020e310c[index].mUnk_18.mUnk_00;
-    result->mUnk_04.mUnk_00 = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_00;
-    result->mUnk_04.mUnk_04 = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_04;
-    result->mUnk_04.mUnk_08 = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_08;
-    result->mUnk_04.mUnk_0c = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_0c;
-    result->mUnk_04.mUnk_0e = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_0e;
-    result->mUnk_04.mUnk_0f = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_0f;
-    result->mUnk_04.mUnk_10 = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_10;
-    result->mUnk_04.mUnk_11 = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_11;
+    result->mUnk_00           = data_ov000_020e310c[index].mUnk_18.mUnk_00;
+    result->mUnk_04.mUnk_00.x = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_00.x;
+    result->mUnk_04.mUnk_00.y = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_00.y;
+    result->mUnk_04.mUnk_00.z = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_00.z;
+    result->mUnk_04.mUnk_0c   = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_0c;
+    result->mUnk_04.mUnk_0e   = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_0e;
+    result->mUnk_04.mUnk_0f   = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_0f;
+    result->mUnk_04.mUnk_10   = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_10;
+    result->mUnk_04.mUnk_11   = data_ov000_020e310c[index].mUnk_18.mUnk_04.mUnk_11;
     return true;
 }
 
