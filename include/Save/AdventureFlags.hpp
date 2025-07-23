@@ -100,7 +100,7 @@ struct FlagsUnk {
     /* 4c */
 
     ~FlagsUnk();
-    void func_ov000_020980f8()
+    void func_ov000_020980f8();
 };
 
 struct FlagsData {
