@@ -27,6 +27,30 @@ struct MapManager_Unk2 {
     ~MapManager_Unk2();
 };
 
+struct UnkStruct_0208210c_param3 {
+    /* 000 */ unk32 mUnk_00;
+    /* 004 */ unk8 mUnk_04;
+    /* 005 */ unk8 mUnk_05;
+    /* 006 */ unk8 mUnk_06;
+    /* 007 */ bool mUnk_07;
+    /* 008 */ unk32 mUnk_08;
+    /* 00c */ unk32 mUnk_0c;
+    /* 010 */ u8 mUnk_10;
+    /* 011 */ unk8 mUnk_11;
+    /* 012 */ unk16 mUnk_12;
+    /* 014 */ unk16 mUnk_14;
+    /* 016 */ unk16 mUnk_16;
+    /* 018 */ Vec3p mUnk_18;
+    /* 024 */ Vec3p mUnk_24;
+    /* 030 */ unk8 mUnk_30[0x18C];
+    /* 1bc */ bool mUnk_1bc;
+    /* 1bd */ unk8 mUnk_1bd;
+    /* 1be */ u8 mUnk_1be;
+    /* 1bf */ u8 mUnk_1bf;
+    /* 1c0 */ unk32 mUnk_1c0;
+    /* 1c4 */
+};
+
 class MapManager : public SysObject {
 public:
     /* 00 */ Course *mCourse;
@@ -48,9 +72,9 @@ public:
 
     void GetCourseDungeonProgress(CourseProgress *param_2);
     void func_ov00_020820fc(s32 param_2, unk32 param_3, unk32 param_4);
-    void func_ov00_0208210c(unk32 param_2, unk32 *param_3);
-    void func_ov00_0208230c(s32 *param_2);
-    void func_ov00_02082348(unk32 *param_2);
+    void func_ov00_0208210c(unk32 param_2, UnkStruct_0208210c_param3 *param_3);
+    void func_ov00_0208230c(struct FlagsUnk2 *param_2);
+    void func_ov00_02082348(struct FlagsUnk2 *param_2);
     void func_ov00_020823a4(unk32 param_2);
     void func_ov00_020823b4();
     bool func_ov00_020823c4(unk32 *param_2, s32 param_3);
@@ -87,7 +111,7 @@ public:
     void func_ov00_02082acc();
     unk32 *func_ov00_02082adc();
     void func_ov00_02082af4();
-    void func_ov00_02082b3c(unk32 *param_2, Vec2b *param3);
+    bool func_ov00_02082b3c(FlagsUnk2 *param_2);
     u8 func_ov00_02082d08();
     u8 GetCurrentMapPosX();
     u8 GetCurrentMapPosY();
@@ -140,7 +164,7 @@ public:
     s32 GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4);
     bool func_ov00_020836dc(u32 param_2, u32 actorId);
     bool IsTriggerTypeOverlapped(u32 param_2, Vec3p *param_3);
-    bool GetOverlappingTrigger(Vec3p *param_2);
+    unk8 GetOverlappingTrigger(Vec3p *param_2);
     bool func_ov00_02083790(s32 param_2);
     bool func_ov00_02083840(s32 param_2);
     bool AddTrigger(s32 param_2);
@@ -160,7 +184,7 @@ public:
     s32 func_ov00_020839d4(s32 param_2);
     s32 func_ov00_020839f8(s32 param_2);
     static void func_ov00_02083a1c(Vec2b *param_1, MapManager *param_2, Vec3p *param_3);
-    static void func_ov00_02083a54(u8 *param_1, MapManager *param_2, s32 *param_3, s32 param_4, s32 *param_5);
+    static void func_ov00_02083a54(Vec2b *param_1, MapManager *param_2, Vec3p *param_3, s32 param_4, unk32 param_5);
     s32 GetTileStartX(unk32 x);
     s32 GetTileStartZ(unk32 z);
     s32 GetTileEndX(unk32 x);
@@ -168,7 +192,7 @@ public:
     s32 func_ov00_02083c24(unk32 x);
     s32 func_ov00_02083c50(unk32 z);
     void func_ov00_02083c7c(Vec3p *param_2, Vec2b param_3);
-    void func_ov00_02083ce8(Vec3p *param_2, u32 param_3, s32 param_4, u32 param_5);
+    void func_ov00_02083ce8(Vec3p *param_2, Vec2b param_3, s32 param_4, u32 param_5);
     s32 func_ov00_02083e34(unk8 param_2, unk8 param_3, unk32 param_4);
     unk32 MapData_vfunc_60(Vec2b *param_1);
     bool func_ov00_02083e70(Vec2b *param_2);
@@ -180,11 +204,11 @@ public:
     static void func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p *param_3);
     void GetTileWorldBounds(Vec2b *tile, AABB *tileBounds);
     unk32 MapData_vfunc_54(Vec2b *a);
-    unk32 func_ov00_020840a0(unk8 param_2, unk8 param_3);
+    unk32 func_ov00_020840a0(u8 param_2, u8 param_3);
     unk32 *MapData_vfunc_78(Vec2b *param_1);
     unk32 func_ov00_020840dc(Vec2b *param_1);
     static unk8 func_ov00_02084100(unk32 *param_1, MapManager *param_2);
-    u32 GetMapData_Unk_48();
+    unk32 GetMapData_Unk_48();
     unk32 GetMapData_Unk_4c();
     unk32 func_ov00_0208412c();
     void func_ov00_0208413c(unk32 param_2);
@@ -234,11 +258,11 @@ public:
     s32 func_ov00_02084d4c(unk32 param_2, unk32 param_3, Vec3p *param_4);
     unk32 func_ov00_02084ebc(Vec3p *param_2);
     s32 func_ov00_02085108(Vec3p *param_2);
-    static s32 func_ov00_0208527c(MapManager *param_1, unk32 param_2, unk32 *param_3);
+    static unk32 func_ov00_0208527c(MapManager *param_1, unk32 param_2, Vec3p *param_3);
     static s32 func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *param_3);
     unk32 func_ov00_02085594(Vec3p *param_2);
-    static void func_ov00_0208583c(MapManager *param_1, Vec3p *param_2, unk32 param_3);
-    static unk32 func_ov00_020858b0(MapManager *param_1, Vec3p *param_2, s32 param_3);
+    static unk32 func_ov00_0208583c(MapManager *param_1, Vec3p *param_2, unk32 param_3);
+    static unk32 func_ov00_020858b0(MapManager *param_1, Vec3p *param_2, unk32 param_3);
     s32 func_ov00_02085a34(Vec3p *param_2, unk32 param_3);
     unk8 func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param_4, u32 param_5);
     unk8 func_ov00_02086044(Vec3p *param_2, Vec3p *param_3, unk32 param_4);
@@ -255,7 +279,7 @@ public:
     static void LoadMapTexSprites(s32 param1);
     void func_ov004_02102260();
     void func_ov004_02102264(unk32 *param1, char *param2);
-    void func_ov004_021024c4(unk32 *param1, unk32 param2, bool param3);
+    void func_ov004_021024c4(FlagsUnk2 *param1, bool param2, bool param3);
     void func_ov004_021025d8();
 };
 

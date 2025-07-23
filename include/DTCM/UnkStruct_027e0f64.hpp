@@ -5,11 +5,16 @@
 
 #include "Debug/DebugHierarchy.hpp"
 
+struct UnkStruct_027e0f64_04 {
+    /* 000 */ u8 pad[0x1B4 - 0x00];
+    /* 1b4 */ unk32 mUnk_1b4;
+};
+
 class UnkStruct_027e0f64 {
 public:
     /* 0 */ DebugHierarchyBase *mUnk_0;
-    /* 4 */ void *mUnk_4;
-    /* 8 */ void *mUnk_8;
+    /* 4 */ UnkStruct_027e0f64_04 *mUnk_4;
+    /* 8 */ UnkStruct_027e0f64_04 *mUnk_8;
     /* c */
 
     void func_ov000_0208ae94();

@@ -33,8 +33,7 @@ public:
     /* 008 */ unk32 mUnk_008;
     /* 00c */ char mName[0x10];
     /* 01c */ Vec2b mCurrMapPos; // position in the map grid
-    /* 01e */ unk8 mUnk_01e;
-    /* 01f */ unk8 mUnk_01f;
+    /* 01e */ Vec2b mUnk_01e;
     /* 020 */ u8 mMapGrid[10][10];
     /* 084 */ Vec2b mMainGrid; // part of the grid where you can walk off screen to another map
     /* 086 */ Vec2b mMainGridSize;

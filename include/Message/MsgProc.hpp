@@ -184,6 +184,8 @@ extern UnkClass_ov000_027e0d04 data_027e0d04;
 
 class UnkClass_data_027e0f7c {
 public:
+    void func_ov000_0209d6e8(unk32 *param_2);
+    char *func_ov000_0209d71c(s32 param_2);
     u8 *func_ov000_0209d90c(s8, s8);
 };
-extern UnkClass_data_027e0f7c data_027e0f7c;
+extern UnkClass_data_027e0f7c *data_027e0f7c;
