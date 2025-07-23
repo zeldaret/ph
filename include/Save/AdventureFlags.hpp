@@ -69,7 +69,7 @@ public:
     /* 11 */ u8 mUnk_11;
     /* 12 */ u8 mUnk_12;
     /* 13 */ u8 mUnk_13;
-    /* 14 */ *
+    /* 14 */
 };
 
 struct FlagsUnk2 {
@@ -100,7 +100,7 @@ struct FlagsUnk {
     /* 4c */
 
     ~FlagsUnk();
-    void func_ov000_020980f8();
+    void func_ov000_020980f8()
 };
 
 struct FlagsData {
