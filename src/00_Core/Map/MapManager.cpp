@@ -800,8 +800,7 @@ ARM bool MapManager::IsMapInMainGrid(u32 map) {
 }
 
 ARM bool MapManager::func_ov00_02083328() {
-    u32 map = this->func_ov00_02082d08();
-    return this->mCourse->IsMapInMainGrid(map);
+    return this->mCourse->IsMapInMainGrid(this->func_ov00_02082d08());
 }
 
 ARM u8 MapManager::GetCourseMainGridSizeX() {
