@@ -7,11 +7,14 @@
 #include "DTCM/UnkStruct_027e0e58.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
 #include "Map/MapManager.hpp"
+#include "Render/ModelRender.hpp"
 #include "Unknown/UnkStruct_020ee0a0.hpp"
 #include "Unknown/UnkStruct_027e0f88.hpp"
 #include "stdio.h"
 
 extern "C" void Fill32(unk32, u32 *, unk32);
+extern "C" void func_020196bc(ItemModel *param1, unk32 param2);
+extern "C" void func_020196fc(ItemModel *param1, unk32 param2);
 extern void func_ov000_020a3de0(bool, unk32);
 
 extern bool data_027e0f8c;
@@ -143,8 +146,8 @@ ARM void MapBase::vfunc_b0(unk32 param_2, unk32 param_3) {
     if (this->mUnk_13c == NULL) {
         return;
     }
-    this->mUnk_13c->func_020196fc(param_2);
-    this->mUnk_13c->func_020196bc(param_3);
+    func_020196fc((ItemModel *) this->mUnk_13c, param_2);
+    func_020196bc((ItemModel *) this->mUnk_13c, param_3);
     return;
 }
 

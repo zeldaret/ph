@@ -24,9 +24,6 @@ struct MapBase_Unk_13c {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk32 mUnk_04;
     /* 08 */ unk32 mUnk_08;
-
-    void func_020196fc(unk32 param_2);
-    void func_020196bc(unk32 param_2);
 };
 
 struct MapBase_Unk_144 {

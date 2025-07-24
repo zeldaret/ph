@@ -167,7 +167,7 @@ public:
     unk8 GetOverlappingTrigger(Vec3p *param_2);
     bool func_ov00_02083790(s32 param_2);
     bool func_ov00_02083840(s32 param_2);
-    bool AddTrigger(s32 param_2);
+    bool AddTrigger(TriggerBase *param_2);
     bool func_ov00_020838d8(s32 param_2);
     bool FindExit(u32 param_2, Exit *param_3);
     char func_ov00_020838f8(Exit *param_2);
