@@ -1,3 +1,7 @@
+// TODO: Make sure every function has either ARM or THUMB
+// TODO: Optimise functions' bodies as much as possible (without affecting asm)
+// Clear these comments when done
+
 #include "Map/MapBase.hpp"
 #include "Map/MapManager.hpp"
 
