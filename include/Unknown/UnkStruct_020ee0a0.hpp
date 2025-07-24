@@ -25,6 +25,10 @@ public:
     UnkStruct_020ee0a0();
 
     void func_ov008_021135b8();
+    void func_ov000_0209cd80(unk16 param_2);
+    void func_ov000_0209cd9c(unk16 param_2, unk32 param_3);
+    void func_ov000_0209cddc(unk32 param_2);
+    void func_ov000_0209cdf8(unk32 param_2);
 };
 
 extern UnkStruct_020ee0a0 data_ov000_020ee0a0;

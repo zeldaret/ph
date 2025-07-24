@@ -1049,7 +1049,7 @@ ARM bool MapManager::func_ov00_02083840(s32 param_2) {
     return this->mMap->TriggerOfType_vfunc_10(param_2);
 }
 
-ARM bool MapManager::AddTrigger(s32 param_2) {
+ARM bool MapManager::AddTrigger(TriggerBase *param_2) {
     return this->mMap->AddTrigger(param_2);
 }
 
