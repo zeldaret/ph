@@ -538,9 +538,8 @@ ARM s32 MapManager::func_ov00_02082914(unk32 param_2) {
             break;
     }
 
-    local_44.mId     = param_2;
-    local_44.mPos    = pVar1;
-    local_44.mUnk_0f = iVar5;
+    local_44.mId  = param_2;
+    local_44.mPos = pVar1;
     return this->mMap->AddEntrance(&local_44);
 }
 
