@@ -16,6 +16,9 @@ struct MapManager_Unk1 {
     /* 4 */ unk32 mUnk_4;
     /* 8 */
 
+    inline MapManager_Unk1(unk32 unk0, unk32 unk4) :
+        mUnk_0(unk0),
+        mUnk_4(unk4) {}
     ~MapManager_Unk1();
 };
 
@@ -24,7 +27,18 @@ struct MapManager_Unk2 {
     /* 4 */ unk32 mUnk_4;
     /* 8 */
 
+    inline MapManager_Unk2(unk32 unk0, unk32 unk4) :
+        mUnk_0(unk0),
+        mUnk_4(unk4) {}
     ~MapManager_Unk2();
+};
+
+struct MapManager_Unk3 {
+    /* 0 */ unk32 mUnk_0;
+    /* 4 */
+
+    inline MapManager_Unk3(unk32 unk0) :
+        mUnk_0(unk0) {}
 };
 
 struct UnkStruct_0208210c_param3 {
@@ -148,7 +162,7 @@ public:
     void func_ov00_0208346c(AABB *param_2);
     void func_ov00_020834bc(Vec3p *param_2, unk32 param_3, unk32 param_4);
     void func_ov00_02083524(Vec3p *param_2, unk32 param_3, unk32 param_4);
-    static void func_ov00_02083560(TilePos *param_1, MapManager *param_2, u32 param_3);
+    TilePos func_ov00_02083560(u32 param_3);
     u8 func_ov00_02083570(u8 param_2, u8 param_3);
     unk32 func_ov00_02083588();
     unk32 func_ov00_020835a4();
@@ -184,7 +198,7 @@ public:
     s32 func_ov00_020839d4(s32 param_2);
     s32 func_ov00_020839f8(s32 param_2);
     TilePos func_ov00_02083a1c(Vec3p *param_3);
-    static void func_ov00_02083a54(TilePos *param_1, MapManager *param_2, Vec3p *param_3, s32 param_4, unk32 param_5);
+    TilePos func_ov00_02083a54(Vec3p *param_3, s32 param_4, unk32 param_5);
     s32 GetTileStartX(unk32 x);
     s32 GetTileStartZ(unk32 z);
     s32 GetTileEndX(unk32 x);

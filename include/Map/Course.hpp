@@ -69,7 +69,7 @@ public:
     void func_ov00_0207ca78(unk32 param_2, unk8 param_3, unk32 param_4);
     bool func_ov00_0207caa8(s32 param_2, unk32 *param_3, unk8 *param_4);
     unk32 func_ov00_0207cb30(s32 param_2);
-    static void FindMapGridPos(TilePos *pos, Course *param_2, u32 map);
+    TilePos FindMapGridPos(u32 map);
     Vec3p *FindMapCenter(unk32 map);
     void func_ov00_0207cbe8(s32 param_2);
     unk8 func_ov00_0207cc24(s32 param_2);

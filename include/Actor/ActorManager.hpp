@@ -78,12 +78,12 @@ public:
     /* c4 */
 
     void DeleteActor(u32 index, bool param2);
-    static void func_ov00_020c3484(ActorRef *ref, ActorManager *actorMgr, unk32 param3);
+    ActorRef func_ov00_020c3484(unk32 param3);
     void Actor_vfunc_10(u32 param1);
     Actor *FindActorById(s32 id);
     Actor *GetActor(ActorRef *ref);
     s32 FilterActors(FilterActorBase *filter, ActorList *filteredActors);
-    static void FindActorByType(ActorRef *ref, ActorManager *actorMgr, ActorTypeId type);
+    ActorRef FindActorByType(ActorTypeId type);
     ActorRef FindNearestActorOfType(ActorTypeId type, Vec3p *pos);
     bool func_ov00_020c398c(u32 index);
     void func_ov00_020c399c(u32 index, Cylinder *cylinder);

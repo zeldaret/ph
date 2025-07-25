@@ -96,7 +96,7 @@ src/00_Core/Map/MapManager.cpp:
     .rodata     start:0x020d8890 end:0x020d8a48
     .init       start:0x020df46c end:0x020df5e0
     .ctor       start:0x020e1e5c end:0x020e1e60
-    .data       start:0x020e2464 end:0x020e24dc
+    .data       start:0x020e2424 end:0x020e24dc
     .sbss       start:0x020ec904 end:0x020ec974
 
 src/00_Core/Player/LinkStateBase.cpp:

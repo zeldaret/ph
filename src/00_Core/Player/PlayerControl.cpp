@@ -376,8 +376,7 @@ ARM bool PlayerControl::func_ov00_020af778() {
             }
         }
     } else {
-        ActorRef ref;
-        ActorManager::func_ov00_020c3484(&ref, gActorManager, 0);
+        ActorRef ref   = gActorManager->func_ov00_020c3484(0);
         mNextFollowRef = ref;
         if (mTouchDuration == 0) {
             mLastFollowRef = mNextFollowRef;
@@ -475,9 +474,8 @@ ARM void PlayerControl::func_ov00_020afb6c() {
                 iVar7 = 2;
             }
         } else {
-            local_3c.y       = gPlayerPos.y;
-            TilePos local_44 = mUnk_9c;
-            gMapManager->func_ov00_02083c7c(&local_3c, local_44);
+            local_3c.y = gPlayerPos.y;
+            gMapManager->func_ov00_02083c7c(&local_3c, mUnk_9c);
             iVar2 = 2;
             iVar7 = 3;
         }
