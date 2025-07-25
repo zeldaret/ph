@@ -1,5 +1,6 @@
 #include "Actor/Player/ActorRefill.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
+#include "DTCM/UnkStruct_027e0e58.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Item/ItemManager.hpp"
 #include "System/Random.hpp"
@@ -212,13 +213,11 @@ ARM void ActorRefill::vfunc_20(bool param1) {
     }
 }
 
-extern unk32 *data_027e0e58;
-extern "C" void func_ov000_0207c1b0(unk32 *param1, unk32 param2, Vec3p *param3, unk32 param4, unk32 param5, unk32 param6);
 ARM void ActorRefill::func_ov014_02135474() {
     s32 iVar1 = mUnk_130;
     if (iVar1 != 4 && iVar1 != 5) {
-        func_ov000_0207c1b0(data_027e0e58, 0x241, &mPos, 2, 0, 0);
-        func_ov000_0207c1b0(data_027e0e58, 0x242, &mPos, 2, 0, 0);
+        data_027e0e58->func_ov000_0207c1b0(0x241, &mPos, 2, 0, 0);
+        data_027e0e58->func_ov000_0207c1b0(0x242, &mPos, 2, 0, 0);
         mAlive = false;
     }
 }

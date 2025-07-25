@@ -4,10 +4,11 @@
 
 #include "Player/EquipItem.hpp"
 
-class EquipShield {
-private:
+class EquipShield : public EquipItem {
+public:
     /* 00 (base) */
-    /* 09 */ unk8 mUnk_09[7];
+    /* 09 */ unk8 mUnk_09[5];
+    /* 0e */ unk16 mUnk_0e;
     /* 10 */ void *mUnk_10;
     /* 14 */ void *mUnk_14;
     /* 18 */ unk8 mUnk_18[4];

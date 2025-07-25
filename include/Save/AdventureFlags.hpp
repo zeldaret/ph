@@ -61,11 +61,9 @@ struct UnkStruct_027e0d38_UnkC {
 
 class UnkStruct_02082348_04 {
 public:
-    /* 00 */ unk32 mUnk_00;
-    /* 00 */ unk32 mUnk_04;
-    /* 00 */ unk32 mUnk_08;
-    /* 0c */ unk16 mUnk_0c;
-    /* 0e */ u8 mUnk_0e;
+    /* 00 */ Vec3p mUnk_00; // pos?
+    /* 0c */ unk16 mUnk_0c; // angle?
+    /* 0e */ u8 mUnk_0e; // some id?
     /* 0f */ u8 mUnk_0f;
     /* 10 */ u8 mUnk_10;
     /* 11 */ u8 mUnk_11;
@@ -79,7 +77,7 @@ struct FlagsUnk2 {
     /* 04 */ UnkStruct_02082348_04 mUnk_04;
     /* 18 */
 
-    ~FlagsUnk2();
+    //~FlagsUnk2();
     void func_ov000_02078bf0(FlagsUnk2 *param_2);
     void func_ov004_02100ae0();
 };
@@ -102,6 +100,7 @@ struct FlagsUnk {
     /* 4c */
 
     ~FlagsUnk();
+    void func_ov000_020980f8();
 };
 
 struct FlagsData {

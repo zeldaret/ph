@@ -988,7 +988,7 @@ ARM bool UnkStruct_020397f8::func_0203c1a0() {
         this->mUnk_584 = 1;
 
         pVar1 = (s8 *) data_027e103c->func_ov000_020cef9c();
-        iVar3 = data_027e0f7c.func_ov000_0209d90c(pVar1[0x24F], 0);
+        iVar3 = data_027e0f7c->func_ov000_0209d90c(pVar1[0x24F], 0);
         data_027e1054->func_ov003_020f4760(iVar3[1], 0);
         data_ov000_020eec9c.func_ov000_020d77e4(6);
         data_027e103c->func_ov000_020cfb58();

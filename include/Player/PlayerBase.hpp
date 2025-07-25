@@ -17,7 +17,7 @@ public:
     /* 08 */ s16 mInvincibleFrames;
     /* 0a */ s16 mHealth;
     /* 0c */ unk8 mUnk_0c[2];
-    /* 0e */ s16 mEntranceId;
+    /* 0e */ u16 mEntranceId;
     /* 10 */ bool mUpdatePos;
     /* 11 */ bool mVisible;
     /* 12 */ bool mInvincible;

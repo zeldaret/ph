@@ -73,6 +73,7 @@ public:
     UnkStruct_02038aa0 *func_02037178(UnkSubClass1_02256FF8 *param_2);
 
     void func_ov004_021069c4(void);
+    void func_ov004_02106db8(void);
 };
 
 extern MessageManager gMessageManager;

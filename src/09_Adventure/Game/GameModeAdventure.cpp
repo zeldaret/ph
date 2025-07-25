@@ -46,15 +46,15 @@ THUMB GameModeAdventure::GameModeAdventure(unk32 param1) :
     data_027e1044  = param1;
     func_ov003_020f4510();
 
-    local_28.mUnk_00.mUnk_00 = 0x47;
-    local_28.mUnk_04.mUnk_00 = 0;
-    local_28.mUnk_04.mUnk_04 = 0;
-    local_28.mUnk_04.mUnk_08 = -2;
-    local_28.mUnk_04.mUnk_0c = 0;
-    local_28.mUnk_04.mUnk_0e = -1;
-    local_28.mUnk_04.mUnk_0f = 0;
-    local_28.mUnk_04.mUnk_10 = 0;
-    local_28.mUnk_04.mUnk_11 = 0;
+    local_28.mUnk_00.mUnk_00   = 0x47;
+    local_28.mUnk_04.mUnk_00.x = 0;
+    local_28.mUnk_04.mUnk_00.y = 0;
+    local_28.mUnk_04.mUnk_00.z = -2;
+    local_28.mUnk_04.mUnk_0c   = 0;
+    local_28.mUnk_04.mUnk_0e   = -1;
+    local_28.mUnk_04.mUnk_0f   = 0;
+    local_28.mUnk_04.mUnk_10   = 0;
+    local_28.mUnk_04.mUnk_11   = 0;
 
     if (gGame.mUnk_102 != 0) {
         AdventureFlags::Get_FlagsUnk_00(0x17, &local_28);
