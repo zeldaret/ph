@@ -188,13 +188,13 @@ ARM void ActorSwitchObject::func_ov000_0208fef8() {
             Vec3p snakeSpawnPos;
             ActorSpawnOptions spawnOptions;
             s32 failedSpawns = 0;
-            for (u32 i = 0; i < ARRAY_LEN(mUnk_170); i++) {
-                if (mUnk_170[i].id != -1) {
-                    Actor *temp_r0_2 = gActorManager->GetActor(&mUnk_170[i]);
+            for (u32 i = 0; i < ARRAY_LEN(mTrapActors); i++) {
+                if (mTrapActors[i].id != -1) {
+                    Actor *temp_r0_2 = gActorManager->GetActor(&mTrapActors[i]);
                     if ((temp_r0_2 != NULL) && (temp_r0_2->mType == ActorTypeId_Rope)) {
                         continue;
                     }
-                    mUnk_170[i].Reset();
+                    mTrapActors[i].Reset();
                 }
                 snakeSpawnPos.z = (gRandom.Next(0, 11) - 5) << 12;
                 snakeSpawnPos.y = 0;
@@ -257,7 +257,7 @@ ARM void ActorSwitchObject::func_ov000_0208fef8() {
                             break;
                     }
                 }
-                gActorSpawner->Spawn(ActorTypeId_Rope, &snakeSpawnPos, &spawnOptions, &mUnk_170[i]);
+                gActorSpawner->Spawn(ActorTypeId_Rope, &snakeSpawnPos, &spawnOptions, &mTrapActors[i]);
             }
             return;
     }

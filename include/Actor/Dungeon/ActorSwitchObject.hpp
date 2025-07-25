@@ -17,7 +17,7 @@ public:
     /* 164 */ unk32 mUnk_164;
     /* 168 */ unk32 mUnk_168;
     /* 16c */ u32 mUnk_16c;
-    /* 170 */ ActorRef mUnk_170[5];
+    /* 170 */ ActorRef mTrapActors[5];
     /* 198 */
 
     /* 00 */ virtual ~ActorSwitchObject() override;
