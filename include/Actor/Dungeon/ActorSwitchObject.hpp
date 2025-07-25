@@ -27,10 +27,17 @@ public:
     /* 18 */ virtual void vfunc_18(u32 param1) override;
     /* b4 */
 
+    inline ActorSwitchObject() :
+        mUnk_158(0),
+        mUnk_15c(0),
+        mUnk_160(0),
+        mUnk_164(0),
+        mUnk_168(0) {}
+
     static ActorSwitchObject *Create();
     bool func_ov000_0208fc10(s32 param1);
     void func_ov000_0208fc7c();
-    bool func_ov000_0208fcb4();
+    unk32 func_ov000_0208fcb4();
     void func_ov000_0208fef8();
     void func_ov000_0209032c();
 };

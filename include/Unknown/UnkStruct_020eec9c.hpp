@@ -38,6 +38,7 @@ public:
 
     void func_ov000_020d77e4(unk32);
     unk32 func_ov000_020d7f18(unk32);
+    void func_ov000_020d7ad4(unk32);
     void func_ov008_0211337c();
 };
 

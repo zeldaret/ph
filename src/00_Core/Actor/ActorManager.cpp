@@ -232,24 +232,26 @@ ARM void ActorManager::FindActorByType(ActorRef *ref, ActorManager *actorMgr, Ac
     }
 }
 
-ARM void ActorManager::FindNearestActorOfType(ActorRef *ref, ActorManager *actorMgr, ActorTypeId type, Vec3p *pos) {
-    ref->Reset();
+ARM ActorRef ActorManager::FindNearestActorOfType(ActorTypeId type, Vec3p *pos) {
+    ActorRef ref;
 
     q20 minDistance = 0x7fffffff;
 
-    Actor **actorIter     = actorMgr->mActorTable;
-    Actor **actorTableEnd = actorIter + actorMgr->mMaxActorIndex;
+    Actor **actorIter     = this->mActorTable;
+    Actor **actorTableEnd = actorIter + this->mMaxActorIndex;
 
     for (; actorIter < actorTableEnd; actorIter++) {
         Actor *actor = *actorIter;
         if (actor != NULL && actor->mAlive && type == actor->mType) {
             q20 distance = Vec3p_Distance(&actor->mPos, pos);
             if (distance < minDistance) {
-                *ref        = (*actorIter)->mRef;
+                ref         = (*actorIter)->mRef;
                 minDistance = distance;
             }
         }
     }
+
+    return ref;
 }
 
 ARM bool ActorManager::func_ov00_020c398c(u32 index) {
