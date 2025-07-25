@@ -21,6 +21,7 @@ src/00_Core/Actor/ActorSpawner.cpp:
     .text       start:0x020c3f9c end:0x020c42d8
 
 src/00_Core/Actor/Dungeon/ActorSwitchObject.cpp:
+    complete
     .text       start:0x0208fa70 end:0x020903a8
     .init       start:0x020df678 end:0x020df6b8
     .ctor       start:0x020e1ec4 end:0x020e1ec8
@@ -95,7 +96,7 @@ src/00_Core/Map/MapManager.cpp:
     .rodata     start:0x020d88f0 end:0x020d8aa8
     .init       start:0x020df4cc end:0x020df640
     .ctor       start:0x020e1ebc end:0x020e1ec0
-    .data       start:0x020e24c4 end:0x020e253c
+    .data       start:0x020e2484 end:0x020e253c
     .sbss       start:0x020ec964 end:0x020ec9d4
 
 src/00_Core/Player/LinkStateBase.cpp:

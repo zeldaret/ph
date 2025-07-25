@@ -18,10 +18,10 @@ s32 MapBase::func_ov00_0207e28c(s32 param_2) {}
 void MapBase::vfunc_b4() {}
 void MapBase::vfunc_48() {}
 unk32 MapBase::vfunc_50() {}
-unk32 MapBase::vfunc_54(Vec2b *param_1) {}
-unk32 MapBase::vfunc_58(Vec2b *param_1, int param_2) {}
+unk32 MapBase::vfunc_54(TilePos *param_1) {}
+unk32 MapBase::vfunc_58(TilePos *param_1, int param_2) {}
 unk32 MapBase::vfunc_5c() {}
-unk32 MapBase::vfunc_60(Vec2b *param_1) {}
+unk32 MapBase::vfunc_60(TilePos *param_1) {}
 unk32 MapBase::vfunc_64() {}
 unk32 MapBase::vfunc_68(Vec3p *param_1, bool param_2) {}
 unk8 MapBase::func_ov00_0207e940(unk8 *param_1) {}
@@ -40,22 +40,22 @@ void MapBase::vfunc_a0() {}
 unk32 MapBase::vfunc_a4(unk8 *param_1) {}
 void MapBase::vfunc_a8() {}
 void MapBase::vfunc_ac() {}
-unk32 *MapBase::vfunc_78(Vec2b *param_1) {}
+unk32 *MapBase::vfunc_78(TilePos *param_1) {}
 s32 MapBase::vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, short param_4[4]) {}
 unk32 MapBase::vfunc_80() {}
 void MapBase::vfunc_84(unk32 param_2) {}
 bool MapBase::func_ov00_0207f38c(s32 *param_2) {}
-unk8 MapBase::vfunc_90(Vec2b *param_2, unk32 param_3) {}
+unk8 MapBase::vfunc_90(TilePos *param_2, unk32 param_3) {}
 void MapBase::vfunc_94() {}
 void MapBase::func_ov00_0207f4a4(Vec2s *param_2, unk32 param_3) {}
 void MapBase::func_ov00_0207f53c(Vec2s *param_1, MapBase *param_2, Vec3p *param_3) {}
-void MapBase::func_ov00_0207f588(Vec2s *param_1, MapBase *param_2, Vec2b *param_3, unk32 param_4) {}
+void MapBase::func_ov00_0207f588(Vec2s *param_1, MapBase *param_2, TilePos *param_3, unk32 param_4) {}
 void MapBase::func_ov00_0207f630(Vec2s *param_2, Vec3p *param_3) {}
 unk8 MapBase::GetTileStartX(unk32 x) {}
 unk8 MapBase::GetTileStartZ(unk32 z) {}
 s32 MapBase::GetTileEndX(unk32 x) {}
 s32 MapBase::GetTileEndZ(unk32 z) {}
-void MapBase::GetTileBounds(Vec2b *tilePos, AABB *bounds) {}
+void MapBase::GetTileBounds(TilePos *tilePos, AABB *bounds) {}
 s32 MapBase::GetClampedTileX(s32 worldX) {}
 s32 MapBase::GetClampedTileY(s32 worldZ) {}
 unk8 MapBase::GetTileX(s32 worldX) {}
@@ -100,8 +100,8 @@ bool MapBase::AddUnk_130(s32 param_2) {}
 bool MapBase::func_ov00_020809b8(s32 param_2) {}
 unk8 MapBase::func_ov00_02080a78(Vec3p *param_2) {}
 void MapBase_Unk2::func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param_3) {}
-unk8 MapBase::func_ov00_02080b24(Vec2b *param_2) {}
-void MapBase::func_ov00_02080d08(Vec2b *param_2) {}
+unk8 MapBase::func_ov00_02080b24(TilePos *param_2) {}
+void MapBase::func_ov00_02080d08(TilePos *param_2) {}
 void MapBase::vfunc_bc() {}
 void MapBase::vfunc_98(unk32 param_2, unk32 param_3, unk32 param_4) {}
 void MapBase::vfunc_c0() {}

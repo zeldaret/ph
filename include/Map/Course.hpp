@@ -5,6 +5,7 @@
 
 #include "Map/Course_Unk_c8.hpp"
 #include "Map/MapData.hpp"
+#include "Map/TilePos.hpp"
 #include "Physics/AABB.hpp"
 #include "System/SysNew.hpp"
 
@@ -32,11 +33,11 @@ public:
     /* 004 */ CourseType mType;
     /* 008 */ unk32 mUnk_008;
     /* 00c */ char mName[0x10];
-    /* 01c */ Vec2b mCurrMapPos; // position in the map grid
-    /* 01e */ Vec2b mUnk_01e;
+    /* 01c */ TilePos mCurrMapPos; // position in the map grid
+    /* 01e */ TilePos mUnk_01e;
     /* 020 */ u8 mMapGrid[10][10];
-    /* 084 */ Vec2b mMainGrid; // part of the grid where you can walk off screen to another map
-    /* 086 */ Vec2b mMainGridSize;
+    /* 084 */ TilePos mMainGrid; // part of the grid where you can walk off screen to another map
+    /* 086 */ TilePos mMainGridSize;
     /* 088 */ s32 mScreenMapOffsetX;
     /* 08c */ s32 mScreenMapOffsetY;
     /* 090 */ unk32 mUnk_090;
@@ -68,7 +69,7 @@ public:
     void func_ov00_0207ca78(unk32 param_2, unk8 param_3, unk32 param_4);
     bool func_ov00_0207caa8(s32 param_2, unk32 *param_3, unk8 *param_4);
     unk32 func_ov00_0207cb30(s32 param_2);
-    static void FindMapGridPos(Vec2b *pos, Course *param_2, u32 map);
+    TilePos FindMapGridPos(u32 map);
     Vec3p *FindMapCenter(unk32 map);
     void func_ov00_0207cbe8(s32 param_2);
     unk8 func_ov00_0207cc24(s32 param_2);
