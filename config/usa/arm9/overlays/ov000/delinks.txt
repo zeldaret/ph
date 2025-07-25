@@ -21,6 +21,7 @@ src/00_Core/Actor/ActorSpawner.cpp:
     .text       start:0x020c3f3c end:0x020c4278
 
 src/00_Core/Actor/Dungeon/ActorSwitchObject.cpp:
+    complete
     .text       start:0x0208fa10 end:0x02090348
     .init       start:0x020df618 end:0x020df658
     .ctor       start:0x020e1e64 end:0x020e1e68

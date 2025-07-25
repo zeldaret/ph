@@ -3940,7 +3940,7 @@ __sinit_ov000_020df4a4 kind:function(arm,size=0x14) addr:0x020df4a4
 __sinit_ov000_020df4b8 kind:function(arm,size=0x14) addr:0x020df4b8
 __sinit_ov000_020df4cc kind:function(arm,size=0x174) addr:0x020df4cc
 __sinit_ov000_020df640 kind:function(arm,size=0x38) addr:0x020df640
-__sinit_ActorSwitchObject.cpp kind:function(arm,size=0x40) addr:0x020df678
+__sinit_ActorSwitchObject.cpp kind:function(arm,size=0x40) addr:0x020df678 local
 __sinit_ov000_020df6b8 kind:function(arm,size=0x40) addr:0x020df6b8
 __sinit_ActorEventIcon.cpp kind:function(arm,size=0x40) addr:0x020df6f8 local
 __sinit_ov000_020df738 kind:function(arm,size=0x38) addr:0x020df738
@@ -3996,7 +3996,7 @@ __sinit_ov000_020e1e74 kind:function(arm,size=0x14) addr:0x020e1e74
 .p__sinit_ov000_020df4b8 kind:data(word) addr:0x020e1eb8
 .p__sinit_ov000_020df4cc kind:data(word) addr:0x020e1ebc
 .p__sinit_ov000_020df640 kind:data(word) addr:0x020e1ec0
-.p__sinit_ov000_020df678 kind:data(word) addr:0x020e1ec4
+.p__sinit_ActorSwitchObject.cpp kind:data(word) addr:0x020e1ec4 local
 .p__sinit_ov000_020df6b8 kind:data(word) addr:0x020e1ec8
 .p__sinit_ActorEventIcon.cpp kind:data(word) addr:0x020e1ecc local
 .p__sinit_ov000_020df738 kind:data(word) addr:0x020e1ed0
@@ -5905,7 +5905,7 @@ data_ov000_020ec9d6 kind:bss addr:0x020ec9d6
 data_ov000_020ec9d8 kind:bss addr:0x020ec9d8
 data_ov000_020ecd50 kind:bss addr:0x020ecd50
 data_ov000_020ecd58 kind:bss addr:0x020ecd58
-data_ov000_020ecd64 kind:bss addr:0x020ecd64
+@1240 kind:bss addr:0x020ecd64 local
 _ZN17ActorSwitchObject5gTypeE kind:bss addr:0x020ecd70
 data_ov000_020ecd84 kind:bss addr:0x020ecd84
 data_ov000_020ecd90 kind:bss addr:0x020ecd90
