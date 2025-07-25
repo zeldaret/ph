@@ -7513,7 +7513,7 @@ from:0x020c1a2c kind:load to:0x027e0fc8 module:dtcm
 from:0x020c1ae4 kind:arm_call to:0x020c3180 module:overlay(0)
 from:0x020c1b58 kind:arm_call to:0x020c37ec module:overlay(0)
 from:0x020c1b64 kind:load to:0x027e0fe4 module:dtcm
-from:0x020c1b68 kind:load to:0x020e71e8 module:overlay(0)
+from:0x020c1b68 kind:load to:0x020e71e0 add:8 module:overlay(0)
 from:0x020c1c18 kind:load to:0x027e0e60 module:dtcm
 from:0x020c1c1c kind:load to:0x02084be0 module:overlay(0)
 from:0x020c1c3c kind:arm_call to:0x02084b38 module:overlay(0)

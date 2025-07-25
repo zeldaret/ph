@@ -5129,7 +5129,7 @@ data_ov000_020e71b4 kind:data(any) addr:0x020e71b4
 data_ov000_020e71b8 kind:data(any) addr:0x020e71b8
 data_ov000_020e71bc kind:data(any) addr:0x020e71bc
 sShipTypes kind:data(any) addr:0x020e71c0
-_ZTV17KillPickupsFilter kind:data(any) addr:0x020e71e8
+_ZTV17KillPickupsFilter kind:data(any) addr:0x020e71e0
 _ZTV5Actor kind:data(any) addr:0x020e71f4
 @1038 kind:data(any) addr:0x020e72a8 local
 @1037 kind:data(any) addr:0x020e72ac local
