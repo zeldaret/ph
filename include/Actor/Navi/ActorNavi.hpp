@@ -10,7 +10,7 @@ public:
 
     /* 00 */ virtual ~UnkStruct_ov000_020b8110() override;
     /* 08 */ virtual void vfunc_08(unk16 *param1) override;
-    /* 14 */ virtual void vfunc_14(u16 *param1) override;
+    /* 14 */ virtual bool vfunc_14(u16 *param1) override;
     /* 18 */ virtual void vfunc_18(s32 *param1) override;
     /* 1c */
 

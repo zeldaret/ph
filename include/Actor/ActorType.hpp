@@ -85,6 +85,7 @@ enum ActorTypeId_ {
     ActorTypeId_FLTB = 'FLTB',
     ActorTypeId_FLTM = 'FLTM',
     ActorTypeId_FORC = 'FORC',
+    ActorTypeId_PWBS = 'PWBS',
     ActorTypeId_SBEM = 'SBEM',
     ActorTypeId_STNE = 'STNE',
     ActorTypeId_TARU = 'TARU',

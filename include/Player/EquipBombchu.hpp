@@ -18,13 +18,17 @@ struct EquipBombchu_Unk1 {
 class EquipBombchu_Unk_02198d00 : public UnkStruct_ov000_020beba8 {
 public:
     /* 0 (base) */
-    /* c */
+    /* 0c */ unk8 mUnk_0c[5];
+    /* 11 */ u8 mUnk_11;
+    /* 12 (padding) */
+    /* 14 */ Vec3p mUnk_14;
+    /* 20 */
 
     /* 00 */ virtual ~EquipBombchu_Unk_02198d00() override;
-    /* 08 */ virtual void vfunc_08(unk16 *param1) override;
+    /* 08 */ virtual bool vfunc_08(UnkStruct_ov000_020beba8_08 *param1) override;
     /* 0c */ virtual void vfunc_0c(unk16 *param1) override;
     /* 10 */ virtual void vfunc_10(s32 *param1) override;
-    /* 14 */ virtual void vfunc_14(u16 *param1) override;
+    /* 14 */ virtual bool vfunc_14(u16 *param1, s32 param2) override;
     /* 1c */
 
     inline EquipBombchu_Unk_02198d00() :

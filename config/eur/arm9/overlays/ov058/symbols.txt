@@ -1,7 +1,7 @@
-_ZN25EquipBombchu_Unk_02198d008vfunc_08EPs kind:function(arm,size=0x1f4) addr:0x02198d00
-_Z19func_ov058_02198ef4v kind:function(arm,size=0x4) addr:0x02198ef4
-_Z19func_ov058_02198ef8v kind:function(arm,size=0x4) addr:0x02198ef8
-_ZN25EquipBombchu_Unk_02198d008vfunc_14EPt kind:function(arm,size=0x78) addr:0x02198efc
+_ZN25EquipBombchu_Unk_02198d008vfunc_08EP27UnkStruct_ov000_020beba8_08 kind:function(arm,size=0x1f4) addr:0x02198d00
+_ZN24UnkStruct_027e0f6c_Unk_1D1Ev kind:function(arm,size=0x4) addr:0x02198ef4
+_ZN24UnkStruct_027e0f6c_Unk_1C1Ev kind:function(arm,size=0x4) addr:0x02198ef8
+_ZN25EquipBombchu_Unk_02198d008vfunc_14EPti kind:function(arm,size=0x78) addr:0x02198efc
 _ZN25EquipBombchu_Unk_02198d008vfunc_10EPi kind:function(arm,size=0x4c) addr:0x02198f74
 _ZN12EquipBombchu8vfunc_00Ev kind:function(thumb,size=0x7c) addr:0x02198fc0
 _ZN12EquipBombchu8vfunc_18Ev kind:function(thumb,size=0x22) addr:0x0219903c
