@@ -405,11 +405,11 @@ ARM void MapManager::func_ov00_02082670(unk32 param_2, s32 param_3) {
     this->mMap->func_ov00_0208006c(param_2, param_3);
 }
 
-ARM void MapManager::func_ov00_02082680(unk32 param_2, unk32 param_3) {
+ARM void MapManager::func_ov00_02082680(TilePos *param_2, unk32 param_3) {
     this->mMap->vfunc_98(param_2, 5, param_3);
 }
 
-ARM void MapManager::func_ov00_020826a0(unk32 param_2, unk32 param_3) {
+ARM void MapManager::func_ov00_020826a0(TilePos *param_2, unk32 param_3) {
     this->mMap->vfunc_98(param_2, 7, param_3);
 }
 

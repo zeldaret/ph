@@ -111,8 +111,8 @@ public:
     void func_ov00_02082650(s32 param_2, s32 param_3, unk32 param_4);
     void func_ov00_02082660(s32 param_2, s32 param_3);
     void func_ov00_02082670(unk32 param_2, s32 param_3);
-    void func_ov00_02082680(unk32 param_2, unk32 param_3);
-    void func_ov00_020826a0(unk32 param_2, unk32 param_3);
+    void func_ov00_02082680(TilePos *param_2, unk32 param_3);
+    void func_ov00_020826a0(TilePos *param_2, unk32 param_3);
     void CreateMap(unk32 mapType, unk32 param_3, unk32 param_4);
     void DestroyMap();
     void MapData_vfunc_44();
