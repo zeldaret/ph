@@ -4,7 +4,7 @@ ActorType ActorBomb::gType = ActorType(ActorTypeId_Bomb, (ActorCreateFunc) Actor
 
 ActorBomb *ActorBomb::Create() {}
 void ActorBomb_Unk1::vfunc_0c(unk16 *param1) {}
-void ActorBomb_Unk1::vfunc_10(s32 *param1) {}
+bool ActorBomb_Unk1::vfunc_10(s32 *param1) {}
 ActorBomb::ActorBomb() {}
 ActorBomb_Unk2::~ActorBomb_Unk2() {}
 ActorBomb::~ActorBomb() {}

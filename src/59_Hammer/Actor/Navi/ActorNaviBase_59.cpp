@@ -7,8 +7,8 @@
 #include "Player/PlayerBase.hpp"
 #include "Player/PlayerControl.hpp"
 
-extern unk32 data_ov000_020dc7d0;
-extern unk32 data_ov000_020dc7e4;
+extern const ItemManager_Unk1 *data_ov000_020dc7d0;
+extern const ItemManager_Unk1 *data_ov000_020dc7e4;
 extern u32 data_ov000_020e9370[];
 extern "C" void Vec3p_RotateY(u32, Vec3p *);
 extern "C" void func_ov005_02102c2c(u32 *param_1, int param_2, Vec3p *param_3, int param_4, int param_5, u32 param_6,
@@ -241,17 +241,18 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
     }
 
     pIVar3 = gItemManager;
+    void *pvVar2;
     switch (param1) {
         case 3:
-            pIVar3->func_ov00_020ad538(data_ov000_020dc7d0);
-            pIVar3->func_ov000_020c0c44(&this->mUnk_2f0);
-            pIVar3->func_ov000_020c0e5c(&this->mUnk_2f0, 0);
+            pvVar2 = pIVar3->func_ov00_020ad538(data_ov000_020dc7d0);
+            this->mUnk_2f0->func_ov000_020c0c44(pvVar2);
+            this->mUnk_2f0->func_ov000_020c0e5c(0);
             break;
         case 4:
             this->mUnk_348 = 0;
-            pIVar3->func_ov00_020ad538(data_ov000_020dc7e4);
-            pIVar3->func_ov000_020c0c44(&this->mUnk_2f0);
-            pIVar3->func_ov000_020c0e5c(&this->mUnk_2f0, 1);
+            pvVar2         = pIVar3->func_ov00_020ad538(data_ov000_020dc7e4);
+            this->mUnk_2f0->func_ov000_020c0c44(pvVar2);
+            this->mUnk_2f0->func_ov000_020c0e5c(1);
             break;
         default:
             break;

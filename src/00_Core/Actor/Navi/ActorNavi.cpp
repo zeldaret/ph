@@ -10,7 +10,7 @@ UnkStruct_ov000_020b8110::UnkStruct_ov000_020b8110() :
 UnkStruct_ov000_020b8110::~UnkStruct_ov000_020b8110() {}
 void UnkStruct_ov000_020b8110::vfunc_08(unk16 *param1) {}
 void UnkStruct_ov000_020b8110::vfunc_18(s32 *param1) {}
-void UnkStruct_ov000_020b8110::vfunc_14(u16 *param1) {}
+bool UnkStruct_ov000_020b8110::vfunc_14(u16 *param1) {}
 void ActorNavi::func_ov000_020b8200() {}
 void ActorNavi::vfunc_c4() {}
 void ActorNavi::vfunc_c8() {}

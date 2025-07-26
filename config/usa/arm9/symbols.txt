@@ -69,7 +69,7 @@ func_02003624 kind:function(arm,size=0x68) addr:0x02003624
 func_0200368c kind:function(arm,size=0x12c) addr:0x0200368c
 func_020037b8 kind:function(arm,size=0xd0) addr:0x020037b8
 func_02003888 kind:function(arm,size=0x4) addr:0x02003888
-func_0200388c kind:function(arm,size=0x18) addr:0x0200388c
+FX_Mul kind:function(arm,size=0x18) addr:0x0200388c
 func_020038a4 kind:function(arm,size=0x3c) addr:0x020038a4
 func_020038e0 kind:function(thumb,size=0xd0) addr:0x020038e0
 func_020039b0 kind:function(arm,size=0x34) addr:0x020039b0
@@ -2478,7 +2478,7 @@ __sinit_02050eb8 kind:function(arm,size=0x2c) addr:0x02050e74
 __sinit_02050ee4 kind:function(arm,size=0x1c) addr:0x02050ea0
 __sinit_02050f00 kind:function(arm,size=0x40) addr:0x02050ebc
 __sinit_02050f40 kind:function(arm,size=0x14) addr:0x02050efc
-gSinCosTable kind:data(any) addr:0x02050f10
+FX_SinCosTable_ kind:data(any) addr:0x02050f10
 data_02051054 kind:data(any) addr:0x02051010
 data_02051154 kind:data(any) addr:0x02051110
 data_02051254 kind:data(any) addr:0x02051210
@@ -2492,7 +2492,7 @@ data_02054954 kind:data(any) addr:0x02054910
 data_02054b54 kind:data(any) addr:0x02054b10
 data_02054e54 kind:data(any) addr:0x02054e10
 gAngToRadTable kind:data(any) addr:0x02054f10
-gAtan2Table kind:data(any) addr:0x02055014
+FX_AtanIdxTable_ kind:data(any) addr:0x02055014
 data_0205515c kind:data(any) addr:0x02055118
 data_0205516c kind:data(any) addr:0x02055128
 data_0205516e kind:data(any) addr:0x0205512a

@@ -21,4 +21,4 @@ bool UnkStruct_027e103c::func_ov005_021040ec() {}
 void UnkStruct_027e103c::func_ov005_02104114() {}
 void UnkStruct_027e103c::func_ov005_0210413c() {}
 void UnkStruct_027e103c::func_ov005_02104160() {}
-void UnkStruct_027e103c::func_Ov005_0210418c(char param1) {}
+void UnkStruct_027e103c::func_ov005_0210418c(char param1) {}

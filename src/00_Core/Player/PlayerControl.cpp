@@ -873,7 +873,7 @@ ARM bool PlayerControl::func_ov00_020b0b0c(s16 *pAngle, ItemFlag *pEquipId, unk3
         *pAngle   = mTouchAngle + ((s16) (mTouchFastAngle - mTouchAngle)) / 2;
 
         if (mTouchSpeed > FLOAT_TO_Q20(0.5)) {
-            q4 touchMoveAngle = Atan2(mTouchSpeedX, mTouchSpeedY) - *pAngle;
+            q4 touchMoveAngle = FX_Atan2Idx(mTouchSpeedX, mTouchSpeedY) - *pAngle;
             if (pFast != NULL) {
                 *pFast = true;
             }
@@ -881,7 +881,7 @@ ARM bool PlayerControl::func_ov00_020b0b0c(s16 *pAngle, ItemFlag *pEquipId, unk3
             return true;
         }
 
-        s32 unkAngle = Atan2(local_20.x, local_20.z);
+        s32 unkAngle = FX_Atan2Idx(local_20.x, local_20.z);
 
         s32 unkAngle2   = (s16) ((s16) unkAngle - *pAngle);
         Vec3p VStack_2c = {INT_TO_Q20(mTouchFastX), INT_TO_Q20(mTouchFastY), 0};

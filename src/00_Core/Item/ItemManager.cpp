@@ -167,24 +167,24 @@ ARM ItemModel *ItemManager::GetItemModel(ItemModelId id) {
     return mItemModels[id];
 }
 
-extern "C" void func_ov000_020c0bdc(unk32 param1, unk32 param2);
-ARM void ItemManager::func_ov00_020ad538(unk32 param1) const {
+extern "C" void *func_ov000_020c0bdc(unk32 param1, const ItemManager_Unk1 *param2);
+ARM void *ItemManager::func_ov00_020ad538(const ItemManager_Unk1 *param1) const {
     unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(6);
-    func_ov000_020c0bdc(unk1, param1);
+    return func_ov000_020c0bdc(unk1, param1);
 }
 
-ARM void ItemManager::func_ov00_020ad560(unk32 param1) const {
+ARM void *ItemManager::func_ov00_020ad560(const ItemManager_Unk1 *param1) const {
     unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(7);
-    func_ov000_020c0bdc(unk1, param1);
+    return func_ov000_020c0bdc(unk1, param1);
 }
 
 ARM ItemModel *ItemManager::GetDungeonItemModel(u32 index) {
     return mDungeonItemModels[index];
 }
 
-ARM void ItemManager::func_ov00_020ad594(unk32 param1) const {
+ARM void *ItemManager::func_ov00_020ad594(const ItemManager_Unk1 *param1) const {
     unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(11);
-    func_ov000_020c0bdc(unk1, param1);
+    return func_ov000_020c0bdc(unk1, param1);
 }
 
 ARM void ItemManager::Sword_vfunc_38(unk32 param1) {
