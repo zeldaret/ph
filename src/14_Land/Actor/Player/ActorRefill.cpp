@@ -4,6 +4,7 @@
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Item/ItemManager.hpp"
 #include "System/Random.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 
 static char *sShipTypes[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
@@ -75,8 +76,6 @@ ARM bool ActorRefill::Init() {
     return true;
 }
 
-extern unk32 data_ov000_020eec9c;
-extern "C" void func_ov000_020d7ad4(unk32 *param1, unk32 param2);
 ARM void ActorRefill::vfunc_14(u32 param1) {
     s32 temp_r0_4;
     s32 temp_r6;
@@ -118,7 +117,7 @@ ARM void ActorRefill::vfunc_14(u32 param1) {
                         ItemManager *itemManager = gItemManager;
                         itemManager->GiveAmmo(this->GetAmmoItem(), mUnk_158);
                     }
-                    func_ov000_020d7ad4(&data_ov000_020eec9c, 0x100);
+                    data_ov000_020eec9c.func_ov000_020d7ad4(0x100);
                     this->func_ov014_02135364(3);
                 } else {
                     temp_r0_3 = mUnk_130;

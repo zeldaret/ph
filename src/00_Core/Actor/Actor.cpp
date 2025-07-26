@@ -1004,8 +1004,7 @@ ARM void Actor::GetLinkPos(Vec3p *result) {
 }
 
 ARM void Actor::GetLinkDummyPos(Vec3p *result) {
-    ActorRef dummyRef;
-    ActorManager::FindActorByType(&dummyRef, gActorManager, ActorTypeId_PlayerDummy);
+    ActorRef dummyRef       = gActorManager->FindActorByType(ActorTypeId_PlayerDummy);
     ActorPlayerDummy *dummy = (ActorPlayerDummy *) gActorManager->GetActor(&dummyRef);
     if (dummy != NULL && dummy->mUnk_16e == 0) {
         *result = dummy->mPos;
