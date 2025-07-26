@@ -20,14 +20,4 @@ public:
 class FilterActorReturn {
 public:
     /* 00 */ ActorRef refs[20];
-
-    inline FilterActorReturn() {
-        ActorRef *ref = refs;
-        ActorRef *end;
-        do {
-            end = &refs[20];
-            ref->Reset();
-            ref++;
-        } while (ref < end);
-    }
 };

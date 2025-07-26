@@ -19,6 +19,12 @@ struct ActorSpawnOptions {
     /* 24 */ unk32 mUnk_24;
     /* 28 */ unk32 mUnk_28;
     /* 2c */
+
+    void func_ov000_020c3348();
+    inline ActorSpawnOptions() :
+        mUnk_1c(-1, -1) {
+        func_ov000_020c3348();
+    }
 };
 
 class ActorSpawner : public SysObject {

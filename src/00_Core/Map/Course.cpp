@@ -6,7 +6,7 @@ char *Course::SetCourseName(char *src) {}
 void Course::func_ov00_0207ca78(unk32 param_2, unk8 param_3, unk32 param_4) {}
 bool Course::func_ov00_0207caa8(s32 param_2, unk32 *param_3, unk8 *param_4) {}
 unk32 Course::func_ov00_0207cb30(s32 param_2) {}
-void Course::FindMapGridPos(Vec2b *pos, Course *param_2, u32 map) {}
+TilePos Course::FindMapGridPos(u32 map) {}
 Vec3p *Course::FindMapCenter(unk32 map) {}
 void Course::func_ov00_0207cbe8(s32 param_2) {}
 unk8 Course::func_ov00_0207cc24(s32 param_2) {}

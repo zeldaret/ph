@@ -20,7 +20,8 @@
 #include "Save/AdventureFlags.hpp"
 #include "Unknown/UnkStruct_02037750.hpp"
 #include "Unknown/UnkStruct_020eec68.hpp"
-#include "stdio.h"
+
+#include <stdio.h>
 
 extern bool func_01ffbe78(Vec3p *param1, Vec3p *param2, Vec3p *param3, Vec4p *param4);
 
@@ -46,7 +47,6 @@ extern void func_ov000_0208ed74(AABB *param_1, Vec3p *param_2);
 extern void func_ov000_02093a1c(u32 *param_1, unk32 *param_2, unk32 param_3);
 extern void func_ov000_02096324(unk32 *param_1, unk32 *param_2);
 extern s32 *func_ov000_02096418(s32 *param_1);
-extern void func_ov000_020c3348(ActorSpawnOptions *param_1);
 extern void func_ov015_021849a4(unk32 *param_1);
 
 // extern MapBase *func_ov018_0215b4a0(MapBase *param_1, unk32 param_2, unk32 param_3);
@@ -135,14 +135,10 @@ extern UnkStruct_0202e894 *data_027e0ce4;
 extern unk32 *data_027e0d3c;
 extern UnkStruct_027e0f68 *data_027e0f68;
 extern unk32 *data_027e0f70;
-extern unk32 data_ov000_020e24a4;
 extern unk32 data_ov000_020e24b4;
-extern unk32 data_ov000_020e24c4;
-extern MapManager_Unk2 data_ov000_020e24c8[];
-extern MapManager_Unk2 data_ov000_020e24e8[];
 extern unk32 data_ov015_02190458;
 
-// static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
+static char *sShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
 MapManager::MapManager() {
     /*MapManager_Unk1 *object;
@@ -188,6 +184,20 @@ MapManager::MapManager() {
                (DestructorChain *)(undefined *)0x20ec9b8);
     return;*/
 }
+
+static const MapManager_Unk3 data_ov000_020e24c4(0x5fff);
+static const MapManager_Unk1 data_ov000_020e24c8[4] = {
+    MapManager_Unk1(0, 0x60),
+    MapManager_Unk1(0, 0),
+    MapManager_Unk1(0x80, 0x60),
+    MapManager_Unk1(0x80, 0),
+};
+static const MapManager_Unk2 data_ov000_020e24e8[4] = {
+    MapManager_Unk2(-FLOAT_TO_Q20(128.0), -FLOAT_TO_Q20(96.0)),
+    MapManager_Unk2(-FLOAT_TO_Q20(128.0), -FLOAT_TO_Q20(96.0)),
+    MapManager_Unk2(-FLOAT_TO_Q20(128.0), -FLOAT_TO_Q20(96.0)),
+    MapManager_Unk2(-FLOAT_TO_Q20(128.0), -FLOAT_TO_Q20(96.0)),
+};
 
 MapManager::~MapManager() {}
 
@@ -560,14 +570,13 @@ ARM void MapManager::func_ov00_02082af4() {
 }
 
 ARM bool MapManager::func_ov00_02082b3c(FlagsUnk2 *param_2) {
-    Vec2b mapGridPos;
     u8 entranceId;
     bool cmp;
     ActorManager *actorManager;
     u16 var1;
     u32 var2;
 
-    Course::FindMapGridPos(&mapGridPos, this->mCourse, param_2->mUnk_04.mUnk_0e);
+    TilePos mapGridPos = this->mCourse->FindMapGridPos(param_2->mUnk_04.mUnk_0e);
 
     if (mapGridPos.x != this->GetCurrentMapPosX() || mapGridPos.y != this->GetCurrentMapPosY() ||
         (param_2->mUnk_04.mUnk_00.y == 1 && data_027e0d38->mUnk_14 == 1) || param_2->mUnk_04.mUnk_11 != 0) {
@@ -629,7 +638,7 @@ ARM u32 MapManager::func_ov00_02082d74(unk32 param_2) {
     return func_ov000_02078bc4(param_2);
 }
 
-ARM void MapManager::func_ov00_02082d84(Vec2b *param_2, s32 *param_3, s32 *param_4) {
+ARM void MapManager::func_ov00_02082d84(TilePos *param_2, s32 *param_3, s32 *param_4) {
     s32 mapWidth  = this->GetMapWidth();
     u32 uVar3     = CoDivide64By32(0x100000, mapWidth << 0xc);
     s32 mapHeight = this->GetMapHeight();
@@ -646,7 +655,6 @@ ARM bool MapManager::func_ov00_02082e1c(s32 *param_2, s32 *param_3) {
     Vec2p mapScreenPos;
     u8 uVar8;
     Vec3p local_28;
-    Vec2b local_4a;
     Vec3p local_4c;
     Course *course;
     bool bVar1;
@@ -678,10 +686,10 @@ ARM bool MapManager::func_ov00_02082e1c(s32 *param_2, s32 *param_3) {
 
             if (!this->mCourse->GetMapScreenPos(bVar1, &mapScreenPos.x, &mapScreenPos.y)) {
                 this->mCourse->GetMapScreenPos(uVar8, &mapScreenPos.x, &mapScreenPos.y);
-                Course::FindMapGridPos(&local_4a, this->mCourse, uVar8);
-                MapManager::func_ov00_02083a54(&local_4a, this, &local_28, local_4a.x, local_4a.y);
-                uVar8    = this->mCourse->GetScreenMapCellSizeX();
-                lVar3    = (int) ((u32) local_4c.x << 0xc) * (int) uVar8 + 0x800;
+                TilePos local_4a = this->mCourse->FindMapGridPos(uVar8);
+                local_4a         = this->func_ov00_02083a54(&local_28, local_4a.x, local_4a.y);
+                uVar8            = this->mCourse->GetScreenMapCellSizeX();
+                lVar3            = (int) ((u32) local_4c.x << 0xc) * (int) uVar8 + 0x800;
                 *param_2 = mapScreenPos.y + ((int) (((u32) lVar3 >> 0xc | (int) (lVar3 >> 0x20) * 0x100000) + 0x800) >> 0xc);
                 uVar8    = this->mCourse->GetScreenMapCellSizeY();
             } else {
@@ -713,7 +721,7 @@ ARM bool MapManager::func_ov00_02082e1c(s32 *param_2, s32 *param_3) {
 }
 
 ARM void MapManager::func_ov00_0208306c(s32 *param_2, s32 *param_3) {
-    Vec2b auStack_2c[18];
+    TilePos auStack_2c[18];
     Vec3p local_1c;
     Vec3p local_28;
     unk32 pMVar1;
@@ -726,8 +734,8 @@ ARM void MapManager::func_ov00_0208306c(s32 *param_2, s32 *param_3) {
         pMVar1 = -2;
     }
 
-    local_1c = gPlayerPos;
-    this->func_ov00_02083a1c(auStack_2c, this, &local_1c);
+    local_1c      = gPlayerPos;
+    auStack_2c[0] = this->func_ov00_02083a1c(&local_1c);
     this->func_ov00_02082d84(auStack_2c, param_2, param_3);
 
     if (pMVar3 == -3 || pMVar3 == pMVar1) {
@@ -916,8 +924,8 @@ ARM void MapManager::func_ov00_02083524(Vec3p *param_2, unk32 param_3, unk32 par
     param_2->z       = mapCenter->z;
 }
 
-ARM void MapManager::func_ov00_02083560(Vec2b *param_1, MapManager *param_2, u32 param_3) {
-    param_2->mCourse->FindMapGridPos(param_1, param_2->mCourse, param_3);
+ARM TilePos MapManager::func_ov00_02083560(u32 param_3) {
+    return this->mCourse->FindMapGridPos(param_3);
 }
 
 ARM u8 MapManager::func_ov00_02083570(u8 param_2, u8 param_3) {
@@ -1120,47 +1128,31 @@ ARM s32 MapManager::func_ov00_020839f8(s32 param_2) {
     return this->mMap->GetClampedTileY(param_2 - this->GetMapCenterZ());
 }
 
-ARM void MapManager::func_ov00_02083a1c(Vec2b *param_1, MapManager *param_2, Vec3p *param_3) {
-    s8 x       = param_2->func_ov00_020839f8(param_3->z);
-    s8 y       = param_2->func_ov00_020839d4(param_3->x);
-    param_1->x = y;
-    param_1->y = x;
+ARM TilePos MapManager::func_ov00_02083a1c(Vec3p *param_3) {
+    s8 y = this->func_ov00_020839f8(param_3->z);
+    s8 x = this->func_ov00_020839d4(param_3->x);
+    return TilePos(x, y);
 }
 
-ARM void MapManager::func_ov00_02083a54(Vec2b *param_1, MapManager *param_2, Vec3p *param_3, s32 param_4, unk32 param_5) {
-    unk8 uVar2;
-    unk8 uVar3;
-    s32 iVar4;
+ARM TilePos MapManager::func_ov00_02083a54(Vec3p *param_3, s32 param_4, unk32 param_5) {
     Vec3p VStack_20;
     u32 uVar5;
-    Vec3p *piVar6;
     Vec3p local_2c;
     Vec3p local_38;
 
-    if (param_2->GetCourseData_Unk_25c() != 0) {
-        uVar5 = (param_4 == -1 || param_5 == 0xffffffff) ? param_2->func_ov00_02082d08()
-                                                         : uVar5 = param_2->mCourse->mMapGrid[param_4][param_5];
+    if (this->GetCourseData_Unk_25c() != 0) {
+        uVar5 = (param_4 == -1 || param_5 == 0xffffffff) ? this->func_ov00_02082d08()
+                                                         : uVar5 = this->mCourse->mMapGrid[param_4][param_5];
 
-        if (param_2->IsMapInMainGrid(uVar5)) {
-            param_2->func_ov00_02083524(&VStack_20, param_4, param_5);
+        if (this->IsMapInMainGrid(uVar5)) {
+            this->func_ov00_02083524(&VStack_20, param_4, param_5);
             local_38 = *param_3;
             Vec3p_Sub(&local_38, &VStack_20, &local_2c);
-            uVar2      = param_2->mMap->GetClampedTileY(local_2c.z);
-            uVar3      = param_2->mMap->GetClampedTileX(local_2c.x);
-            param_1->x = uVar3;
-            param_1->y = uVar2;
-            return;
+            return TilePos(this->mMap->GetClampedTileX(local_2c.x), this->mMap->GetClampedTileY(local_2c.z));
         }
-        uVar2      = param_2->func_ov00_020839f8(param_3->z);
-        uVar3      = param_2->func_ov00_020839d4(param_3->x);
-        param_1->x = uVar3;
-        param_1->y = uVar2;
-        return;
+        return TilePos(this->func_ov00_020839d4(param_3->x), this->func_ov00_020839f8(param_3->z));
     }
-    uVar2      = param_2->func_ov00_020839f8(param_3->z);
-    uVar3      = param_2->func_ov00_020839d4(param_3->x);
-    param_1->x = uVar3;
-    param_1->y = uVar2;
+    return TilePos(this->func_ov00_020839d4(param_3->x), this->func_ov00_020839f8(param_3->z));
 }
 
 ARM s32 MapManager::GetTileStartX(unk32 x) {
@@ -1187,7 +1179,7 @@ ARM s32 MapManager::func_ov00_02083c50(unk32 z) {
     return this->GetMapCenterZ() + this->mMap->GetTileStartZ(z) + 0x800;
 }
 
-ARM void MapManager::func_ov00_02083c7c(Vec3p *param_2, Vec2b param_3) {
+ARM void MapManager::func_ov00_02083c7c(Vec3p *param_2, TilePos param_3) {
     Vec3p local_28;
 
     param_2->x = this->func_ov00_02083c24(param_3.x);
@@ -1196,13 +1188,13 @@ ARM void MapManager::func_ov00_02083c7c(Vec3p *param_2, Vec2b param_3) {
     param_2->y = this->MapData_vfunc_68(&local_28, true);
 }
 
-ARM void MapManager::func_ov00_02083ce8(Vec3p *param_2, Vec2b param_3, s32 param_4, u32 param_5) {
+ARM void MapManager::func_ov00_02083ce8(Vec3p *param_2, TilePos param_3, s32 param_4, u32 param_5) {
     u32 uVar2;
     u8 uVar3;
     u8 uVar4;
     Vec3p local_2c;
     Vec3p local_38;
-    Vec2b local_8;
+    TilePos local_8;
 
     if (GetCourseData_Unk_25c()) {
         if (param_4 == -1 || param_5 == -1) {
@@ -1229,17 +1221,17 @@ ARM void MapManager::func_ov00_02083ce8(Vec3p *param_2, Vec2b param_3, s32 param
 }
 
 ARM s32 MapManager::func_ov00_02083e34(unk8 param_2, unk8 param_3, unk32 param_4) {
-    Vec2b local_8;
+    TilePos local_8;
     local_8.x = param_2;
     local_8.y = param_3;
     return this->mMap->vfunc_60(&local_8);
 }
 
-ARM unk32 MapManager::MapData_vfunc_60(Vec2b *param_1) {
+ARM unk32 MapManager::MapData_vfunc_60(TilePos *param_1) {
     return this->mMap->vfunc_60(param_1);
 }
 
-ARM bool MapManager::func_ov00_02083e70(Vec2b *param_2) {
+ARM bool MapManager::func_ov00_02083e70(TilePos *param_2) {
     switch (this->MapData_vfunc_54(param_2)) {
         case 0x1b:
         case 0x2b:
@@ -1268,7 +1260,7 @@ ARM s32 MapManager::func_ov00_02083ef8(Vec3p *param_2, Vec3p *param_3, bool para
 ARM unk32 MapManager::func_ov00_02083f44(Vec3p *param_2, bool param_3) {
     q20 x          = param_2->x;
     q20 z          = param_2->z;
-    Vec3p local_18 = {x, data_ov000_020e24a4, z};
+    Vec3p local_18 = {x, data_ov000_020e24c4.mUnk_0, z};
     return this->func_ov00_02083ef8(param_2, &local_18, param_3);
 }
 
@@ -1299,7 +1291,7 @@ ARM void MapManager::func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p
     *param_1 = 0;
 }
 
-void MapManager::GetTileWorldBounds(Vec2b *tile, AABB *tileBounds) {
+void MapManager::GetTileWorldBounds(TilePos *tile, AABB *tileBounds) {
     int iVar1;
     Vec3p local_20;
 
@@ -1312,24 +1304,24 @@ void MapManager::GetTileWorldBounds(Vec2b *tile, AABB *tileBounds) {
     Vec3p_Add(&tileBounds->max, &local_20, &tileBounds->max);
 }
 
-unk32 MapManager::MapData_vfunc_54(Vec2b *param_1) {
+unk32 MapManager::MapData_vfunc_54(TilePos *param_1) {
     return this->mMap->vfunc_54(param_1);
 }
 
 ARM unk32 MapManager::func_ov00_020840a0(u8 param_2, u8 param_3) {
     // Correct param types?
-    Vec2b vec;
+    TilePos vec;
     vec.x = param_2;
     vec.y = param_3;
     return this->mMap->vfunc_54(&vec);
 }
 
 // Returns UnkStruct_02085594*
-unk32 *MapManager::MapData_vfunc_78(Vec2b *param_1) {
+unk32 *MapManager::MapData_vfunc_78(TilePos *param_1) {
     return this->mMap->vfunc_78(param_1);
 }
 
-unk32 MapManager::func_ov00_020840dc(Vec2b *param_1) {
+unk32 MapManager::func_ov00_020840dc(TilePos *param_1) {
     UnkStruct_02037750 *piVar1; // placeholder struct until I can find the real struct
 
     piVar1 = (UnkStruct_02037750 *) this->MapData_vfunc_78(param_1);
@@ -1362,11 +1354,11 @@ void MapManager::func_ov00_0208413c(unk32 param_2) {
     this->mMap->func_ov00_0207f948(param_2);
 }
 
-unk8 MapManager::MapData_vfunc_58(Vec2b *param_1, int param_2) {
+unk8 MapManager::MapData_vfunc_58(TilePos *param_1, int param_2) {
     this->mMap->vfunc_58(param_1, param_2);
 }
 
-ARM s32 MapManager::func_ov00_02084164(Vec2b *param_2) {
+ARM s32 MapManager::func_ov00_02084164(TilePos *param_2) {
     if (this->mMap->vfunc_58(param_2, 7) != 0) {
         return 0;
     }
@@ -1802,9 +1794,6 @@ u8 MapManager::func_ov00_02084a50() {
 
 void MapManager::SpawnNPC(Vec3p *pos, unk32 param_3, unk32 param_4) {
     ActorSpawnOptions actorSpawnOptions;
-    actorSpawnOptions.mUnk_1c.id    = -1;
-    actorSpawnOptions.mUnk_1c.index = -1;
-    func_ov000_020c3348(&actorSpawnOptions);
     actorSpawnOptions.mUnk_24 = param_3;
     actorSpawnOptions.mUnk_28 = param_4;
     gActorSpawner->Spawn(ActorTypeId_EVIC, pos, &actorSpawnOptions, NULL);
@@ -1954,9 +1943,9 @@ u8 MapManager::GetMapData_Unk_09() {
 
 ARM void MapManager::func_ov00_02084d24(unk8 param_2, unk8 param_3, unk16 param_4) {
     // Matches, but param types unsure.
-    // param_2 and param_3 aren't both part of a Vec2b *
+    // param_2 and param_3 aren't both part of a TilePos *
     // param_4 short or int?
-    Vec2b vec;
+    TilePos vec;
     vec.x = param_2;
     vec.y = param_3;
     this->mMap->vfunc_90(&vec, param_4);
@@ -2021,11 +2010,11 @@ unk32 MapManager::func_ov00_02084ebc(Vec3p *param_2) {
     int *piVar1;
     int iVar2;
     unk32 dVar3; // dword
-    Vec2b auStack_18[4]; // undefined type
+    TilePos auStack_18[4]; // undefined type
     u32 uStack_14;
 
-    this->func_ov00_02083a1c(auStack_18, this, param_2);
-    piVar1 = (int *) this->MapData_vfunc_78(auStack_18);
+    auStack_18[0] = this->func_ov00_02083a1c(param_2);
+    piVar1        = (int *) this->MapData_vfunc_78(auStack_18);
     if (piVar1 != (int *) 0x0) {
         // iVar2 = (**(code **) (*piVar1 + 0x1c))();
         if (iVar2 < 0x39) {
@@ -2288,13 +2277,12 @@ ARM unk32 MapManager::func_ov00_02085594(Vec3p *param_2) {
     unk32 dVar3;
     unk32 uVar4;
     bool bVar5;
-    Vec2b local_28;
     u32 uStack_24;
     Vec3p VStack_20;
 
-    this->func_ov00_02083a1c(&local_28, this, param_2);
-    piVar1 = (UnkStruct_02085594 *) this->MapData_vfunc_78(&local_28);
-    bVar5  = true;
+    TilePos local_28 = this->func_ov00_02083a1c(param_2);
+    piVar1           = (UnkStruct_02085594 *) this->MapData_vfunc_78(&local_28);
+    bVar5            = true;
     if (piVar1 != NULL) {
         *param_2 = piVar1->mUnk_14;
         switch (piVar1->vfunc_1c()) {
@@ -2359,10 +2347,9 @@ ARM unk32 MapManager::func_ov00_02085594(Vec3p *param_2) {
 
 ARM unk32 MapManager::func_ov00_0208583c(MapManager *param_1, Vec3p *param_2, unk32 param_3) {
     UnkStruct_02085594 *piVar1;
-    Vec2b auStack_10;
 
-    param_1->func_ov00_02083a1c(&auStack_10, param_1, param_2);
-    piVar1 = (UnkStruct_02085594 *) param_1->MapData_vfunc_78(&auStack_10);
+    TilePos auStack_10 = param_1->func_ov00_02083a1c(param_2);
+    piVar1             = (UnkStruct_02085594 *) param_1->MapData_vfunc_78(&auStack_10);
     if (piVar1 == NULL) {
         return -1;
     }
@@ -2382,17 +2369,17 @@ unk32 MapManager::func_ov00_020858b0(MapManager *param_1, Vec3p *param_2, unk32 
     UnkStruct_02085594 *piVar5;
     int playerPosY;
     unk32 local_38;
-    Vec2b local_28;
+    TilePos local_28;
 
     if (param_3 == 1) {
         func_ov000_02088000(data_027e0f64->mUnk_4, 7);
     } else {
         func_ov000_02088000(data_027e0f64->mUnk_4, 6);
     }
-    mapWidth  = param_1->GetMapWidth();
-    mapHeight = param_1->GetMapHeight();
-    local_38  = -1;
-    param_1->func_ov00_02083a1c(&local_28, param_1, param_2);
+    mapWidth   = param_1->GetMapWidth();
+    mapHeight  = param_1->GetMapHeight();
+    local_38   = -1;
+    local_28   = param_1->func_ov00_02083a1c(param_2);
     playerPosY = gPlayerPos.y;
     for (u8 x = local_28.x - 1; x <= (int) (local_28.x + 1); x++) {
         if ((x > -1) && (x < mapWidth)) {
@@ -2420,9 +2407,9 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
     u32 uVar4;
     u32 uVar5;
     u32 uVar6;
-    Vec2b uStack_2c;
-    Vec2b auStack_2a[2];
-    Vec2b aVStack_28[2];
+    TilePos uStack_2c;
+    TilePos auStack_2a[2];
+    TilePos aVStack_28[2];
     unk16 auStack_24[4];
     unk32 auStack_1c[4];
     unk32 uStack_18;
@@ -2433,8 +2420,8 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
         if (param_3 != 2 && param_3 != 3) {
             return -1;
         }
-        this->func_ov00_02083a1c(auStack_2a, this, param_2);
-        piVar1 = (UnkStruct_02085594 *) this->MapData_vfunc_78(auStack_2a);
+        auStack_2a[0] = this->func_ov00_02083a1c(param_2);
+        piVar1        = (UnkStruct_02085594 *) this->MapData_vfunc_78(auStack_2a);
         if (piVar1 == NULL) {
             return -1;
         }
@@ -2448,8 +2435,8 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
         iVar2 = piVar1->vfunc_38(param_3);
         return iVar2;
     }
-    this->func_ov00_02083a1c(aVStack_28, this, param_2);
-    iVar2 = this->func_ov00_02084ebc(param_2);
+    aVStack_28[0] = this->func_ov00_02083a1c(param_2);
+    iVar2         = this->func_ov00_02084ebc(param_2);
     if (iVar2 == 0) {
         return -1;
     }
@@ -2658,7 +2645,7 @@ unk8 MapManager::func_ov00_02086044(Vec3p *param_2, Vec3p *param_3, unk32 param_
     int *piVar9;
     Vec3p *pVVar10;
     int iVar11;
-    Vec2b local_c6;
+    TilePos local_c6;
     unk32 auStack_c4[4];
     Vec3p iStack_c0;
     Vec3p local_b0;
