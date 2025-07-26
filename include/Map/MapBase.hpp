@@ -98,7 +98,7 @@ public:
     /* 02a */ s16 mHeight;
     /* 02c */ unk16 mUnk_02c;
     /* 02e */ unk16 mUnk_02e;
-    /* 030 */ s16 mUnk_030;
+    /* 030 */ u16 mUnk_030;
     /* 032 */ unk8 mUnk_032[2];
     /* 034 */ unk32 mUnk_034;
     /* 038 */ unk32 mUnk_038;
@@ -170,7 +170,7 @@ public:
     /* 8c */ virtual unk32 vfunc_8c();
     /* 90 */ virtual unk8 vfunc_90(TilePos *param_2, unk32 param_3);
     /* 94 */ virtual void vfunc_94();
-    /* 98 */ virtual void vfunc_98(unk32 param_2, unk32 param_3, unk32 param_4);
+    /* 98 */ virtual void vfunc_98(TilePos *param_2, unk32 param_3, unk32 param_4);
     /* 9c */ virtual void vfunc_9c();
     /* a0 */ virtual void vfunc_a0();
     /* a4 */ virtual unk32 vfunc_a4(unk8 *param_1);

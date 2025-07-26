@@ -6,6 +6,7 @@
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0e58.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
+#include "Game/Game.hpp"
 #include "Map/MapManager.hpp"
 #include "Render/ModelRender.hpp"
 #include "Unknown/UnkStruct_020ee0a0.hpp"
@@ -18,6 +19,7 @@ extern "C" void func_020196fc(ItemModel *param1, unk32 param2);
 extern "C" unk32 *func_0201e4cc(unk32 *param_1);
 
 extern void func_ov000_020a3de0(bool, unk32);
+extern unk32 func_ov000_02079e3c(void);
 
 extern bool data_027e0f8c;
 extern unk32 data_ov000_020ecde4;
@@ -26,13 +28,13 @@ struct UnkStruct_020ec81c_04 {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk32 mUnk_04;
     /* 08 */ unk32 *mUnk_08;
-  /* 0c */
+    /* 0c */
 };
 
 struct UnkStruct_020ec81c {
     /* 00 */ unk32 mUnk_00;
-    /* 04 */ UnkStruct_020ec81c_04 *mUnk_04;
-  /* 08 */
+    /* 04 */ UnkStruct_020ec81c_04 *mUnk_04; // pointer type or not? pointer type matches vfunc_b4 / literal type matches .sbss
+    /* 08 */
 };
 
 #pragma section sbss begin
@@ -2389,43 +2391,36 @@ void MapBase::GetCurrentViewpoint(CameraViewpoint *param_2, s32 param_3) {
     */
 }
 
-unk32 MapBase::GetCurrentViewpoint_Unk_00(s32 param_2) {
-    /*
-      uint uVar1;
-  uint uVar2;
-  CameraViewpoint local_20;
+// Non-matching
+ARM unk32 MapBase::GetCurrentViewpoint_Unk_00(s32 param_2) {
+    u32 uVar1 = 0;
+    u32 uVar2;
+    CameraViewpoint local_20;
 
-  local_20.field1_0x4 = 0xff;
-  local_20.field0_0x0 = 0;
-  local_20.field6_0x14 = 0;
-  local_20.field7_0x16 = 0;
-  uVar1 = 0;
-  do {
-    uVar2 = uVar1 + 1;
-    local_20.field8_0x18[uVar1] = 0;
-    uVar1 = uVar2;
-  } while (uVar2 < 2);
-  GetCurrentViewpoint(param_1,&local_20,param_2);
-  return local_20.field0_0x0;
-    */
+    do {
+        local_20.mUnk_18[uVar1] = 0;
+        uVar2                   = uVar1 + 1;
+        uVar1                   = uVar2;
+    } while (uVar2 < 2);
+    this->GetCurrentViewpoint(&local_20, param_2);
+    return local_20.mUnk_00;
 }
 
-unk32 MapBase::vfunc_b8() {
-    /*
-      int iVar1;
+ARM unk32 MapBase::vfunc_b8() {
+    int iVar1;
 
-  if (gGame.mModeId != 6) {
-    return 0;
-  }
-  iVar1 = func_ov000_02079e3c();
-  if (iVar1 != 0) {
-    if (iVar1 != 1) {
-      return 0x1c;
+    if (gGame.mModeId == 6) {
+        iVar1 = func_ov000_02079e3c();
+        switch (iVar1) {
+            case 0:
+                return 0;
+            case 1:
+                return 0x1c;
+            default:
+                return 0x1c;
+        }
     }
-    return 0x1c;
-  }
-  return 0;
-    */
+    return 0;
 }
 
 bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
@@ -2655,23 +2650,21 @@ unk8 MapBase::func_ov00_02080b24(TilePos *param_2) {
 }
 
 void MapBase::func_ov00_02080d08(TilePos *param_2) {
-    /*
-      int iVar1;
 
-  iVar1 = (**(code **)(param_1->vtable + 0x58))(param_1,param_2,4);
-  if (iVar1 == 0) {
-    return;
-  }
-  (**(code **)(param_1->vtable + 0x98))(param_1,param_2,4,0);
-  (**(code **)(param_1->vtable + 0x98))(param_1,param_2,6,1);
-  param_1->field33_0x30 = param_1->field33_0x30 + -1;
-  return;
-    */
+    int iVar1;
+
+    iVar1 = this->vfunc_58(param_2, 4);
+    if (iVar1 == 0) {
+        return;
+    }
+    this->vfunc_98(param_2, 4, 0);
+    this->vfunc_98(param_2, 6, 1);
+    this->mUnk_030--;
 }
 
 ARM void MapBase::vfunc_bc() {}
 
-ARM void MapBase::vfunc_98(unk32 param_2, unk32 param_3, unk32 param_4) {}
+ARM void MapBase::vfunc_98(TilePos *param_2, unk32 param_3, unk32 param_4) {}
 
 ARM void MapBase::vfunc_c0() {}
 
@@ -2760,16 +2753,14 @@ LAB_arm9_ov000__02080ec8:
     */
 }
 
-void MapBase::func_ov00_02080edc() {
-    /*
-      int iVar1;
-
-  iVar1 = UnkStruct_027e0d38_UnkC::func_ov000_020a5e9c(&data_027e0d38->field6_0xc);
-  if ((iVar1 == 0x2a || iVar1 == 0x2f) || iVar1 == 0x30) {
-    param_1->field2_0x5 = 0;
-    return;
-  }
-  param_1->field2_0x5 = 1;
-  return;
-    */
+ARM void MapBase::func_ov00_02080edc() {
+    switch (data_027e0d38->mUnk_0c.func_ov000_020a5e9c()) {
+        case 0x2a:
+        case 0x2f:
+        case 0x30:
+            this->mUnk_005 = 0;
+            return;
+        default:
+            this->mUnk_005 = 1;
+    }
 }
