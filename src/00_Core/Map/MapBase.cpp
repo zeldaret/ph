@@ -15,10 +15,29 @@
 extern "C" void Fill32(unk32, u32 *, unk32);
 extern "C" void func_020196bc(ItemModel *param1, unk32 param2);
 extern "C" void func_020196fc(ItemModel *param1, unk32 param2);
+extern "C" unk32 *func_0201e4cc(unk32 *param_1);
+
 extern void func_ov000_020a3de0(bool, unk32);
 
 extern bool data_027e0f8c;
 extern unk32 data_ov000_020ecde4;
+
+struct UnkStruct_020ec81c_04 {
+    /* 00 */ unk32 mUnk_00;
+    /* 04 */ unk32 mUnk_04;
+    /* 08 */ unk32 *mUnk_08;
+  /* 0c */
+};
+
+struct UnkStruct_020ec81c {
+    /* 00 */ unk32 mUnk_00;
+    /* 04 */ UnkStruct_020ec81c_04 *mUnk_04;
+  /* 08 */
+};
+
+#pragma section sbss begin
+UnkStruct_020ec81c data_ov000_020ec81c;
+#pragma section sbss end
 
 MapBase::~MapBase() {}
 
@@ -27,9 +46,7 @@ MapBase_Unk_180::~MapBase_Unk_180() {}
 // Non-matching
 ARM void MapBase::SetBounds(unk32 map, Course *course) {
     Vec3p *pVVar5;
-    int x;
-    int y;
-    int z;
+    Vec3p vec;
 
     u16 uVar3 = this->mWidth;
     u16 uVar4 = this->mHeight;
@@ -37,18 +54,16 @@ ARM void MapBase::SetBounds(unk32 map, Course *course) {
     int iVar2 = (unk32) ((u32) uVar4 << 0xc) >> 1;
 
     pVVar5                = course->FindMapCenter(map);
-    x                     = pVVar5->x;
-    y                     = pVVar5->y;
-    z                     = pVVar5->z;
-    (this->mBounds).min.x = x - iVar1;
-    (this->mBounds).min.y = y;
-    (this->mBounds).min.z = z - iVar2;
-    (this->mCenter).x     = x;
-    (this->mCenter).y     = y;
-    (this->mCenter).z     = z;
-    (this->mBounds).max.x = x + iVar1;
-    (this->mBounds).max.y = y;
-    (this->mBounds).max.z = z + iVar2;
+    vec                   = *pVVar5;
+    (this->mBounds).min.x = vec.x - iVar1;
+    (this->mBounds).min.y = vec.y;
+    (this->mBounds).min.z = vec.z - iVar2;
+    (this->mCenter).x     = vec.x;
+    (this->mCenter).y     = vec.y;
+    (this->mCenter).z     = vec.z;
+    (this->mBounds).max.x = vec.x + iVar1;
+    (this->mBounds).max.y = vec.y;
+    (this->mBounds).max.z = vec.z + iVar2;
     (this->mOffset).x     = -iVar1;
     (this->mOffset).y     = 0;
     (this->mOffset).z     = -iVar2;
@@ -151,6 +166,7 @@ ARM void MapBase::vfunc_b0(unk32 param_2, unk32 param_3) {
     return;
 }
 
+// Non-matching
 ARM bool MapBase::func_ov00_0207e08c(s32 *param_2, s32 param_3) {
     int iVar1;
     int iVar2;
@@ -320,22 +336,17 @@ s32 MapBase::func_ov00_0207e28c(s32 param_2) {
     */
 }
 
-void MapBase::vfunc_b4() {
-    /*
-    if (_DAT_020ec820 != 0) {
-        func_0201e4cc(*(undefined4 *)(_DAT_020ec820 + 8));
-        return;
+ARM unk32 *MapBase::vfunc_b4() {
+    if (data_ov000_020ec81c.mUnk_04 != NULL) {
+        return func_0201e4cc(data_ov000_020ec81c.mUnk_04->mUnk_08);
     }
-    return;
-    */
+    return NULL;
 }
 
 void MapBase::vfunc_48() {
-    /*
-      Trigger_vfunc_08(param_1);
-  func_ov000_0209c8e4((int)param_1->field181_0x144,0);
-  return;
-    */
+    this->Trigger_vfunc_08();
+    this->mUnk_144->func_ov000_0209c8e4(0);
+    return;
 }
 
 unk32 MapBase::vfunc_50() {
@@ -1423,26 +1434,20 @@ void MapBase::func_ov00_0207f630(Vec2s *param_2, Vec3p *param_3) {
     */
 }
 
-unk8 MapBase::GetTileStartX(unk32 x) {
+ARM unk32 MapBase::GetTileStartX(unk32 x) {
     return (this->mOffset).x + x * 0x1000;
 }
 
-unk8 MapBase::GetTileStartZ(unk32 z) {
+ARM unk32 MapBase::GetTileStartZ(unk32 z) {
     return (this->mOffset).z + z * 0x1000;
 }
 
-s32 MapBase::GetTileEndX(unk32 x) {
-    int iVar1;
-
-    iVar1 = this->GetTileStartX(x);
-    return iVar1 + 0x1000;
+ARM unk32 MapBase::GetTileEndX(unk32 x) {
+    return this->GetTileStartX(x) + 0x1000;
 }
 
-s32 MapBase::GetTileEndZ(unk32 z) {
-    int iVar1;
-
-    iVar1 = this->GetTileStartZ(z);
-    return iVar1 + 0x1000;
+ARM unk32 MapBase::GetTileEndZ(unk32 z) {
+    return this->GetTileStartZ(z) + 0x1000;
 }
 
 void MapBase::GetTileBounds(Vec2b *tilePos, AABB *bounds) {
@@ -1504,12 +1509,12 @@ s32 MapBase::GetClampedTileY(s32 worldZ) {
     */
 }
 
-unk8 MapBase::GetTileX(s32 worldX) {
-    return worldX - (this->mOffset).x >> 0xc;
+ARM unk32 MapBase::GetTileX(s32 worldX) {
+    return worldX - this->mOffset.x >> 0xc;
 }
 
-unk8 MapBase::GetTileY(s32 worldZ) {
-    return worldZ - (this->mOffset).z >> 0xc;
+ARM unk32 MapBase::GetTileY(s32 worldZ) {
+    return worldZ - this->mOffset.z >> 0xc;
 }
 
 bool MapBase::IsInBounds(Vec3p *tileWorldPos) {
@@ -1579,7 +1584,7 @@ Entrance *MapBase::FindEntrance(unk32 id) {
     */
 }
 
-void MapBase::func_ov00_0207f924(s32 param_2) {
+ARM void MapBase::func_ov00_0207f924(unk32 param_2) {
     this->mCurrViewpointId[param_2] = this->mUnk_018[param_2];
 }
 

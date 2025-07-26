@@ -237,7 +237,6 @@ ARM void MessageManager::func_0203690c(unk32 param_2) {
     UnkStruct_020397f8 *unk_28_0;
     UnkStruct_020397f8 *unk_28_2;
     UnkStruct_02038aa0 *pSVar4;
-    ActorRef actorRef;
     Actor *pActor;
     bool iVar1;
     bool iVar2;
@@ -319,8 +318,8 @@ ARM void MessageManager::func_0203690c(unk32 param_2) {
     this->func_02036bbc();
 
     if (this->mUnk_10 != 0) {
-        ActorManager::FindActorByType(&actorRef, gActorManager, data_0205691c[this->mUnk_10]);
-        pActor = gActorManager->GetActor(&actorRef);
+        ActorRef actorRef = gActorManager->FindActorByType(data_0205691c[this->mUnk_10]);
+        pActor            = gActorManager->GetActor(&actorRef);
 
         if (pActor != NULL) {
             data_027e0ffc.func_ov000_020cec60(data_02056918[this->mUnk_10], &pActor->mPos, pActor, 0);

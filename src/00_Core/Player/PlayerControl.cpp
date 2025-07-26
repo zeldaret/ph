@@ -14,6 +14,7 @@
 #include "Player/PlayerBase.hpp"
 #include "Player/PlayerLinkBase.hpp"
 #include "Save/AdventureFlags.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 
 static char *sShipTypes[] = {"brg", "anc", "pdl", "hul", "can", "dco", "bow", "fnl"};
 
@@ -66,7 +67,7 @@ ARM Actor *PlayerControl::GetFollowActor() {
     return gActorManager->GetActor(&mFollowRef);
 }
 
-ARM bool PlayerControl::func_ov00_020af01c(Vec2b *param1) {
+ARM bool PlayerControl::func_ov00_020af01c(TilePos *param1) {
     if (mFollowing) {
         *param1 = mUnk_9c;
         return true;
@@ -300,8 +301,7 @@ ARM void PlayerControl::func_ov00_020af6e4(Vec3p *param1, s32 param3, s32 param4
         mFollowRef.Reset();
     }
 
-    Vec2b unk;
-    MapManager::func_ov00_02083a1c(&unk, gMapManager, param1);
+    TilePos unk       = gMapManager->func_ov00_02083a1c(param1);
     mUnk_9c           = unk;
     mFollowing        = true;
     mUnk_80           = false;
@@ -376,8 +376,7 @@ ARM bool PlayerControl::func_ov00_020af778() {
             }
         }
     } else {
-        ActorRef ref;
-        ActorManager::func_ov00_020c3484(&ref, gActorManager, 0);
+        ActorRef ref   = gActorManager->func_ov00_020c3484(0);
         mNextFollowRef = ref;
         if (mTouchDuration == 0) {
             mLastFollowRef = mNextFollowRef;
@@ -475,9 +474,8 @@ ARM void PlayerControl::func_ov00_020afb6c() {
                 iVar7 = 2;
             }
         } else {
-            local_3c.y     = gPlayerPos.y;
-            Vec2b local_44 = mUnk_9c;
-            gMapManager->func_ov00_02083c7c(&local_3c, local_44);
+            local_3c.y = gPlayerPos.y;
+            gMapManager->func_ov00_02083c7c(&local_3c, mUnk_9c);
             iVar2 = 2;
             iVar7 = 3;
         }
@@ -721,8 +719,7 @@ ARM bool PlayerControl::func_ov00_020b05e8(Vec3p *param1) {
             VStack_1c.z += MUL_Q20(COS(gPlayerAngle), FLOAT_TO_Q20(0.25));
         }
 
-        Vec2b VStack_20;
-        MapManager::func_ov00_02083a1c(&VStack_20, gMapManager, &VStack_1c);
+        TilePos VStack_20 = gMapManager->func_ov00_02083a1c(&VStack_1c);
         VStack_1c.x += (gMapManager->func_ov00_02083c24(VStack_20.x) - VStack_1c.x) / 2;
         VStack_1c.z += (gMapManager->func_ov00_02083c50(VStack_20.y) - VStack_1c.z) / 2;
         Vec3p_Sub(&VStack_1c, playerPos, param1);
@@ -1032,11 +1029,9 @@ ARM bool PlayerControl::IsNotTouching() {
     return !mTouch;
 }
 
-extern u32 data_ov000_020eec9c[];
-extern "C" void func_ov000_020d77e4(u32 *param1, u32 param2);
 ARM bool PlayerControl::IsTouchingFast() {
     if (this->CheckTouchFast(1)) {
-        func_ov000_020d77e4(data_ov000_020eec9c, 0x17);
+        data_ov000_020eec9c.func_ov000_020d77e4(0x17);
         return true;
     }
     return false;
