@@ -139,7 +139,7 @@ struct UnkStruct_027e103c {
     void func_ov005_02104114();
     void func_ov005_0210413c();
     void func_ov005_02104160();
-    void func_Ov005_0210418c(char param1);
+    void func_ov005_0210418c(char param1);
 };
 
 extern UnkStruct_027e103c *data_027e103c;

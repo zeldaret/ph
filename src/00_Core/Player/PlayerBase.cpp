@@ -54,7 +54,7 @@ ARM void PlayerBase::LookAt(Vec3p *target) {
     if (vec.x == 0 && vec.z == 0) {
         return;
     }
-    gPlayerAngle = Atan2(*(vs32 *) &vec.x, vec.z);
+    gPlayerAngle = FX_Atan2Idx(*(vs32 *) &vec.x, vec.z);
 }
 
 ARM bool PlayerBase::func_ov00_020a7c00(s32 param1) {

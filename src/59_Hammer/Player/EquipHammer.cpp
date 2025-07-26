@@ -161,7 +161,7 @@ ARM void LinkStateItem::func_ov059_02198ffc() {
     local_20 = *this->GetPlayerPos();
 
     Vec3p_Sub(&local_14, &local_20, &local_14);
-    dest = Atan2(local_14.x, local_14.z);
+    dest = FX_Atan2Idx(local_14.x, local_14.z);
     ApproachAngle_thunk(this->GetPlayerAngle(), dest, 0x2000);
 }
 

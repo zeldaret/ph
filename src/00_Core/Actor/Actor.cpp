@@ -15,6 +15,7 @@ extern "C" {
 #include "Player/PlayerLinkBase.hpp"
 #include "Player/TouchControl.hpp"
 #include "Save/AdventureFlags.hpp"
+#include "Unknown/UnkStruct_ov000_020e9c88.hpp"
 
 static char *sShipTypes[] = {"brg", "anc", "bow", "hul", "can", "dco", "pdl", "fnl"};
 
@@ -491,7 +492,7 @@ ARM bool Actor::CollidesWithShield(Cylinder *param1) {
     Vec3p vecFromPlayer;
     Vec3p_Sub(&mPos, &gPlayerPos, &vecFromPlayer);
     s32 currAngle = gPlayerAngle;
-    s32 angle     = Atan2(vecFromPlayer.x, vecFromPlayer.z);
+    s32 angle     = FX_Atan2Idx(vecFromPlayer.x, vecFromPlayer.z);
     s32 angleDiff = (s16) angle - currAngle;
     if (angleDiff < 0) {
         angleDiff = -angleDiff;
@@ -705,7 +706,7 @@ ARM s16 Actor::GetAngleTo(Vec3p *vec) {
     q20 dz = vec->z - mPos.z;
     q20 dx = vec->x - mPos.x;
     if (dx != 0 || dz != 0) {
-        angle = Atan2(dx, dz);
+        angle = FX_Atan2Idx(dx, dz);
     }
     return angle;
 }
@@ -973,11 +974,9 @@ ARM void Actor::KillInBounds() {
     this->Kill();
 }
 
-extern unk32 data_ov00_020e9c88;
-extern "C" void func_ov00_0207b89c(unk32 *param1, s32 param2, Vec3p *param3, void *param4, Actor *param5);
 void vfunc_ac_Thunk(Actor *actor);
 ARM void Actor::func_ov00_020c31c0(unk32 param1) {
-    func_ov00_0207b89c(&data_ov00_020e9c88, param1, &mPos, &vfunc_ac_Thunk, this);
+    data_ov000_020e9c88.func_ov000_0207b89c(param1, &mPos, (void (*)(void *)) &vfunc_ac_Thunk, this);
 }
 
 ARM void vfunc_ac_Thunk(Actor *actor) {

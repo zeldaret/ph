@@ -2,6 +2,7 @@
 
 #include "Actor/Navi/ActorNaviBase.hpp"
 #include "Unknown/UnkStruct_ov000_020beba8.hpp"
+#include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 
 class UnkStruct_ov000_020b8110 : public UnkStruct_ov000_020beba8 {
 public:
@@ -23,7 +24,7 @@ public:
 
     /* 000 (base) */
     /* 294 */ ModelRender mUnk_294;
-    /* 2f0 */ void *mUnk_2f0;
+    /* 2f0 */ UnkStruct_ov000_020c0c08 *mUnk_2f0;
     /* 2f4 */ unk8 mUnk_2f4[0x40];
     /* 334 */ Vec3p mUnk_334;
     /* 340 */ unk16 mUnk_340;
