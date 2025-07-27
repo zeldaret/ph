@@ -14,7 +14,7 @@ public:
     /* 08 */ Vec3p mPos;
     /* 14 */ unk16 mUnk_14;
     /* 16 */ unk16 mUnk_16;
-    /* 18 */ unk16 mUnk_18[2];
+    /* 18 */ u16 mUnk_18[2];
     /* 1c */
 
     inline CameraViewpoint() :

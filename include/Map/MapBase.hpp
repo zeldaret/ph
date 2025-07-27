@@ -26,16 +26,25 @@ struct MapBase_Unk_13c {
     /* 08 */ unk32 mUnk_08;
 };
 
+struct MapBase_Unk_140 {
+    /* 00 */ unk8 mUnk_00[0x60];
+    /* 60 */ unk32 *mUnk_60;
+    /* 64 */
+};
+
 struct MapBase_Unk_144 {
     /* 00 */ unk8 mUnk_00[0xc];
     /* 0c */ unk32 mUnk_0c;
     /* 10 */
 
     unk32 *func_ov000_0209c08c(unk32 param_2, unk32 param_3);
-    void func_ov000_0209c61c();
-    unk32 *func_ov000_0209c530();
-    void func_ov000_0209c788();
+    void func_ov000_0209c61c(void);
+    unk32 *func_ov000_0209c530(void);
+    void func_ov000_0209c788(void);
     void func_ov000_0209c8e4(unk32 param_2);
+    void func_ov000_0209c1e4(unk32 param_2, unk32 param_3, unk32 param_4);
+    void func_ov000_0209c2b4(unk32 param_2, unk32 param_3);
+    void func_ov000_0209c2d0(unk32 param_2, unk32 param_3);
 };
 
 struct MapBase_Unk_180 {
@@ -117,7 +126,7 @@ public:
     /* 124 */ std::vector<CameraViewpoint> mViewpoints;
     /* 130 */ std::vector<TriggerBase *> mUnk_130;
     /* 13c */ MapBase_Unk_13c *mUnk_13c;
-    /* 140 */ unk32 mUnk_140;
+    /* 140 */ MapBase_Unk_140 *mUnk_140;
     /* 144 */ MapBase_Unk_144 *mUnk_144;
     /* 148 */ s32 mUnk_148;
     /* 14c */ s32 mUnk_14c;
@@ -178,7 +187,7 @@ public:
     /* ac */ virtual void vfunc_ac();
     /* b0 */ virtual void vfunc_b0(unk32 param_2, unk32 param_3);
     /* b4 */ virtual unk32 *vfunc_b4();
-    /* b8 */ virtual unk32 vfunc_b8();
+    /* b8 */ virtual unk32 vfunc_b8(unk32 param_2);
     /* bc */ virtual void vfunc_bc();
     /* c0 */ virtual void vfunc_c0();
     /* c4 */
@@ -216,8 +225,8 @@ public:
     s32 AddEntrance(Entrance *param_2);
     Entrance *FindEntrance(unk32 id);
     void func_ov00_0207f924(unk32 param_2);
-    unk8 func_ov00_0207f934();
-    unk8 func_ov00_0207f948(unk32 param_2);
+    unk32 *func_ov00_0207f934();
+    void func_ov00_0207f948(unk32 *param_2);
     void AddTrigger(TriggerParams *param_2);
     s32 GetTriggerBoundingBox(s32 param_2, AABB *param_3);
     s32 GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4);

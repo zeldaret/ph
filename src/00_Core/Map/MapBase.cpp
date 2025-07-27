@@ -19,7 +19,7 @@ extern "C" void func_020196fc(ItemModel *param1, unk32 param2);
 extern "C" unk32 *func_0201e4cc(unk32 *param_1);
 
 extern void func_ov000_020a3de0(bool, unk32);
-extern unk32 func_ov000_02079e3c(void);
+extern unk32 func_ov000_02079e3c();
 
 extern bool data_027e0f8c;
 extern unk32 data_ov000_020ecde4;
@@ -1388,52 +1388,44 @@ void MapBase::func_ov00_0207f53c(Vec2s *param_1, MapBase *param_2, Vec3p *param_
 }
 
 void MapBase::func_ov00_0207f588(Vec2s *param_1, MapBase *param_2, TilePos *param_3, unk32 param_4) {
-    /*
-      param_1->x = 0;
-  param_1->y = 0;
-  switch(param_4) {
-  case 0:
-    param_1->x = (ushort)param_3->x << 1;
-    param_1->y = (ushort)param_3->y << 1;
-    return;
-  case 1:
-    param_1->x = (ushort)param_3->x * 2 + 1;
-    param_1->y = (ushort)param_3->y << 1;
-    return;
-  case 2:
-    param_1->x = (ushort)param_3->x << 1;
-    param_1->y = (ushort)param_3->y * 2 + 1;
-    return;
-  case 3:
-    param_1->x = (ushort)param_3->x * 2 + 1;
-    param_1->y = (ushort)param_3->y * 2 + 1;
-    return;
-  default:
-    return;
-  }
-    */
+    param_1->x = 0;
+    param_1->y = 0;
+    switch (param_4) {
+        case 0:
+            param_1->x = (u16) param_3->x << 1;
+            param_1->y = (u16) param_3->y << 1;
+            return;
+        case 1:
+            param_1->x = (u16) param_3->x * 2 + 1;
+            param_1->y = (u16) param_3->y << 1;
+            return;
+        case 2:
+            param_1->x = (u16) param_3->x << 1;
+            param_1->y = (u16) param_3->y * 2 + 1;
+            return;
+        case 3:
+            param_1->x = (u16) param_3->x * 2 + 1;
+            param_1->y = (u16) param_3->y * 2 + 1;
+            return;
+        default:
+            return;
+    }
 }
 
+// Non-matching
 void MapBase::func_ov00_0207f630(Vec2s *param_2, Vec3p *param_3) {
-    /*
-      uint uVar1;
-  uint uVar2;
-  uint uVar3;
-  uint uVar4;
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar3;
+    u32 uVar4;
 
-  uVar1 = param_2->y * 0x1000;
-  uVar2 = param_2->x * 0x1000;
-  uVar3 = param_2->y * 0x800000;
-  uVar4 = param_2->x * 0x800000;
-  param_3->x = uVar4 + 0x800 >> 0xc |
-               ((((int)uVar2 >> 0x1f) << 0xb | uVar2 >> 0x15) + (uint)(0xfffff7ff < uVar4)) *
-               0x100000;
-  param_3->y = 0;
-  param_3->z = uVar3 + 0x800 >> 0xc |
-               ((((int)uVar1 >> 0x1f) << 0xb | uVar1 >> 0x15) + (uint)(0xfffff7ff < uVar3)) *
-               0x100000;
-  return;
-    */
+    uVar1      = param_2->y * 0x1000;
+    uVar2      = param_2->x * 0x1000;
+    uVar3      = param_2->x * 0x800000;
+    uVar4      = param_2->y * 0x800000;
+    param_3->x = uVar4 + 0x800 >> 0xc | ((((s32) uVar2 >> 0x1f) << 0xb | uVar2 >> 0x15) + (0xfffff7ff < uVar4)) * 0x100000;
+    param_3->y = 0;
+    param_3->z = uVar3 + 0x800 >> 0xc | ((((s32) uVar1 >> 0x1f) << 0xb | uVar1 >> 0x15) + (0xfffff7ff < uVar3)) * 0x100000;
 }
 
 ARM unk32 MapBase::GetTileStartX(unk32 x) {
@@ -1452,63 +1444,51 @@ ARM unk32 MapBase::GetTileEndZ(unk32 z) {
     return this->GetTileStartZ(z) + 0x1000;
 }
 
-void MapBase::GetTileBounds(TilePos *tilePos, AABB *bounds) {
-    /*
-      int startZ;
-  int startX;
-  int endZ;
-  int endY;
-  int endX;
+// Non-matching
+ARM void MapBase::GetTileBounds(TilePos *tilePos, AABB *bounds) {
+    Vec3p start;
+    Vec3p end;
 
-  GetTileStartX(param_1,(uint)tilePos->x);
-  startZ = GetTileStartZ(param_1,(uint)tilePos->y);
-  startX = GetTileStartX(param_1,(uint)tilePos->x);
+    this->GetTileStartX(tilePos->x); // what's the purpose of this?
+    start.z = this->GetTileStartZ(tilePos->y);
+    start.x = this->GetTileStartX(tilePos->x);
+    start.y = FLOAT_TO_Q20(-1.2001); // why not just -1.2?
 
-    endZ            = GetTileEndZ(param_1, (uint) tilePos->y);
-    endY            = (**(code **) (param_1->vtable + 0x60))(param_1, tilePos);
-    endX            = GetTileEndX(param_1, (uint) tilePos->x);
-    (bounds->min).x = startX;
-    (bounds->min).y = -0x1333; // -1.2
-    (bounds->min).z = startZ;
-    (bounds->max).x = endX;
-    (bounds->max).y = endY;
-    (bounds->max).z = endZ;
-    return;
-    */
+    end.z       = this->GetTileEndZ(tilePos->y);
+    end.y       = this->vfunc_60(tilePos);
+    end.x       = this->GetTileEndX(tilePos->x);
+    bounds->min = start;
+    bounds->max = end;
 }
 
-s32 MapBase::GetClampedTileX(s32 worldX) {
-    /*
-      int iVar1;
-  int iVar2;
+ARM s32 MapBase::GetClampedTileX(s32 worldX) {
+    int iVar1;
+    int iVar2;
 
-  iVar2 = worldX - (param_1->mOffset).x >> 0xc;
-  if (iVar2 < 0) {
-    iVar2 = 0;
-  }
-  iVar1 = (ushort)param_1->mWidth - 1;
-  if (iVar1 <= iVar2) {
-    iVar2 = iVar1;
-  }
-  return iVar2;
-    */
+    iVar2 = worldX - this->mOffset.x >> 0xc;
+    if (iVar2 < 0) {
+        iVar2 = 0;
+    }
+    iVar1 = (u16) this->mWidth - 1;
+    if (iVar2 >= iVar1) {
+        iVar2 = iVar1;
+    }
+    return iVar2;
 }
 
-s32 MapBase::GetClampedTileY(s32 worldZ) {
-    /*
-      int iVar1;
-  int iVar2;
+ARM s32 MapBase::GetClampedTileY(s32 worldZ) {
+    int iVar1;
+    int iVar2;
 
-  iVar2 = worldZ - (param_1->mOffset).z >> 0xc;
-  if (iVar2 < 0) {
-    iVar2 = 0;
-  }
-  iVar1 = (ushort)param_1->mHeight - 1;
-  if (iVar1 <= iVar2) {
-    iVar2 = iVar1;
-  }
-  return iVar2;
-    */
+    iVar2 = worldZ - this->mOffset.z >> 0xc;
+    if (iVar2 < 0) {
+        iVar2 = 0;
+    }
+    iVar1 = (u16) this->mHeight - 1;
+    if (iVar2 >= iVar1) {
+        iVar2 = iVar1;
+    }
+    return iVar2;
 }
 
 ARM unk32 MapBase::GetTileX(s32 worldX) {
@@ -1519,19 +1499,13 @@ ARM unk32 MapBase::GetTileY(s32 worldZ) {
     return worldZ - this->mOffset.z >> 0xc;
 }
 
-bool MapBase::IsInBounds(Vec3p *tileWorldPos) {
-    /*
-      int iVar1;
-  int iVar2;
-
-  iVar1 = GetTileX(param_1,tileWorldPos->x);
-  iVar2 = GetTileY(param_1,tileWorldPos->z);
-  if ((((-1 < iVar1) && (iVar1 < (int)(uint)(ushort)param_1->mWidth)) && (-1 < iVar2)) &&
-     (iVar2 < (int)(uint)(ushort)param_1->mHeight)) {
+ARM bool MapBase::IsInBounds(Vec3p *tileWorldPos) {
+    int iVar1 = this->GetTileX(tileWorldPos->x);
+    int iVar2 = this->GetTileY(tileWorldPos->z);
+    if ((iVar1 < 0) || (iVar1 >= (int) (u16) this->mWidth) || (iVar2 < 0) || (iVar2 >= (int) (u16) this->mHeight)) {
+        return false;
+    }
     return true;
-  }
-  return false;
-    */
 }
 
 s32 MapBase::AddEntrance(Entrance *param_2) {
@@ -1590,27 +1564,14 @@ ARM void MapBase::func_ov00_0207f924(unk32 param_2) {
     this->mCurrViewpointId[param_2] = this->mUnk_018[param_2];
 }
 
-unk8 MapBase::func_ov00_0207f934() {
-    /*
-      undefined4 uVar1;
-
-  if (param_1->field180_0x140 == 0) {
-    uVar1 = 0;
-  }
-  else {
-    uVar1 = *(undefined4 *)(param_1->field180_0x140 + 0x60);
-  }
-  return uVar1;
-    */
+ARM unk32 *MapBase::func_ov00_0207f934() {
+    return !this->mUnk_140 ? NULL : this->mUnk_140->mUnk_60;
 }
 
-unk8 MapBase::func_ov00_0207f948(unk32 param_2) {
-    /*
-      if (param_1->field180_0x140 != 0) {
-    *(undefined4 *)(param_1->field180_0x140 + 0x60) = param_2;
-  }
-  return;
-    */
+ARM void MapBase::func_ov00_0207f948(unk32 *param_2) {
+    if (this->mUnk_140 != NULL) {
+        this->mUnk_140->mUnk_60 = param_2;
+    }
 }
 
 void MapBase::AddTrigger(TriggerParams *param_2) {
@@ -2059,32 +2020,20 @@ bool MapBase::func_ov00_0207ff88(s32 param_2) {
     */
 }
 
-void MapBase::func_ov00_0208005c(s32 param_2, s32 param_3, unk32 param_4) {
-    /*
-      func_ov000_0209c1e4(param_1->field181_0x144);
-  return;
-    */
+ARM void MapBase::func_ov00_0208005c(unk32 param_2, unk32 param_3, unk32 param_4) {
+    this->mUnk_144->func_ov000_0209c1e4(param_2, param_3, param_4);
 }
 
-void MapBase::func_ov00_0208006c(unk32 param_2, s32 param_3) {
-    /*
-      func_ov000_0209c2b4(param_1->field181_0x144);
-  return;
-    */
+ARM void MapBase::func_ov00_0208006c(unk32 param_2, unk32 param_3) {
+    this->mUnk_144->func_ov000_0209c2b4(param_2, param_3);
 }
 
-void MapBase::func_ov00_0208007c(s32 param_2, s32 param_3) {
-    /*
-      func_ov000_0209c2d0(param_1->field181_0x144);
-  return;
-    */
+ARM void MapBase::func_ov00_0208007c(unk32 param_2, unk32 param_3) {
+    this->mUnk_144->func_ov000_0209c2d0(param_2, param_3);
 }
 
-void MapBase::func_ov00_0208008c(u32 param_2) {
-    /*
-      func_ov000_0209c8e4((int)param_1->field181_0x144,param_2);
-  return;
-    */
+ARM void MapBase::func_ov00_0208008c(u32 param_2) {
+    this->mUnk_144->func_ov000_0209c8e4(param_2);
 }
 
 unk8 MapBase::AddExit(Exit *param_2) {
@@ -2347,48 +2296,37 @@ bool MapBase::FindViewpoint_Unk_0(s32 param_2, CameraViewpoint *param_3) {
     */
 }
 
+// Non-matching
 void MapBase::GetCurrentViewpoint(CameraViewpoint *param_2, s32 param_3) {
-    /*
-      bool bVar1;
-  undefined4 uVar2;
-  uint uVar3;
-  uint uVar4;
-  CameraViewpoint local_30;
-  char viewId;
+    u32 uVar3;
+    u32 uVar4;
 
-  viewId = param_1->mCurrViewpointId[param_3];
-  if (viewId == '\0') {
-    uVar2 = (**(code **)(param_1->vtable + 0xb8))(param_1,param_3);
-    param_2->field0_0x0 = uVar2;
-    return;
-  }
-  local_30.field0_0x0 = 0;
-  local_30.field1_0x4 = 0xff;
-  local_30.field6_0x14 = 0;
-  local_30.field7_0x16 = 0;
-  uVar3 = 0;
-  do {
-    uVar4 = uVar3 + 1;
-    local_30.field8_0x18[uVar3] = 0;
-    uVar3 = uVar4;
-  } while (uVar4 < 2);
-  bVar1 = FindViewpoint_Unk_4(param_1,viewId,&local_30);
-  if (!bVar1) {
-    uVar2 = (**(code **)(param_1->vtable + 0xb8))(param_1,param_3);
-    param_2->field0_0x0 = uVar2;
-    return;
-  }
-  param_2->field0_0x0 = local_30.field0_0x0;
-  param_2->field1_0x4 = local_30.field1_0x4;
-  (param_2->mPos).x = local_30.mPos.x;
-  (param_2->mPos).y = local_30.mPos.y;
-  (param_2->mPos).z = local_30.mPos.z;
-  param_2->field6_0x14 = local_30.field6_0x14;
-  param_2->field7_0x16 = local_30.field7_0x16;
-  param_2->field8_0x18[0] = local_30.field8_0x18[0];
-  param_2->field8_0x18[1] = local_30.field8_0x18[1];
-  return;
-    */
+    u8 viewId = this->mCurrViewpointId[param_3];
+    if (viewId == 0) {
+        param_2->mUnk_00 = this->vfunc_b8(param_3);
+        return;
+    }
+
+    CameraViewpoint local_30;
+    uVar3 = 0;
+    do {
+        uVar4                   = uVar3 + 1;
+        local_30.mUnk_18[uVar3] = 0;
+        uVar3                   = uVar4;
+    } while (uVar4 < 2);
+    if (!this->FindViewpoint_Unk_4(viewId, &local_30)) {
+        param_2->mUnk_00 = this->vfunc_b8(param_3);
+        return;
+    }
+    param_2->mUnk_00    = local_30.mUnk_00;
+    param_2->mUnk_04    = local_30.mUnk_04;
+    param_2->mPos.x     = local_30.mPos.x;
+    param_2->mPos.y     = local_30.mPos.y;
+    param_2->mPos.z     = local_30.mPos.z;
+    param_2->mUnk_14    = local_30.mUnk_14;
+    param_2->mUnk_16    = local_30.mUnk_16;
+    param_2->mUnk_18[0] = local_30.mUnk_18[0];
+    param_2->mUnk_18[1] = local_30.mUnk_18[1];
 }
 
 // Non-matching
@@ -2406,7 +2344,7 @@ ARM unk32 MapBase::GetCurrentViewpoint_Unk_00(s32 param_2) {
     return local_20.mUnk_00;
 }
 
-ARM unk32 MapBase::vfunc_b8() {
+ARM unk32 MapBase::vfunc_b8(unk32 param_2) {
     int iVar1;
 
     if (gGame.mModeId == 6) {
