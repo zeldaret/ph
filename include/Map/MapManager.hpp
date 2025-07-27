@@ -224,8 +224,8 @@ public:
     static unk8 func_ov00_02084100(unk32 *param_1, MapManager *param_2);
     unk32 GetMapData_Unk_48();
     unk32 GetMapData_Unk_4c();
-    unk32 func_ov00_0208412c();
-    void func_ov00_0208413c(unk32 param_2);
+    unk32 *func_ov00_0208412c();
+    void func_ov00_0208413c(unk32 *param_2);
     unk8 MapData_vfunc_58(TilePos *param_1, int param_2);
     s32 func_ov00_02084164(TilePos *param_2);
     u8 GetMapData_Unk_0a();

@@ -1346,11 +1346,11 @@ unk32 MapManager::GetMapData_Unk_4c() {
     return this->mMap->mUnk_04c;
 }
 
-unk32 MapManager::func_ov00_0208412c() {
+unk32 *MapManager::func_ov00_0208412c() {
     return this->mMap->func_ov00_0207f934();
 }
 
-void MapManager::func_ov00_0208413c(unk32 param_2) {
+void MapManager::func_ov00_0208413c(unk32 *param_2) {
     this->mMap->func_ov00_0207f948(param_2);
 }
 
