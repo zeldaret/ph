@@ -248,469 +248,527 @@ THUMB Actor *EquipBombchu::func_ov058_02199400() {
     return iVar3;
 }
 
-extern "C" void func_ov014_02124ff4(Vec4p *vec);
+extern "C" void func_ov014_02124ff4(Sphere *sphere);
 extern "C" bool func_0202b2f8(Vec3p *param_1, Vec3p *param_2, unk32 param_3);
 THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
-    TilePos tilePos;
-    s32 pEVar3;
-    bool bVar4;
-    bool bVar5;
-    int iVar6;
-    u32 dVar7;
-    s32 pEVar8;
-    void *pvVar9;
-    s32 pEVar10;
-    TilePos local_24c;
-    int local_234;
-    s32 local_230;
-    u32 local_1ec;
-    u32 local_1e8[5];
-    Vec3p local_1d4;
-    Vec3p local_1c8;
-    Vec3p local_1bc;
-    Vec3p local_1b0;
-    Vec3p local_1a4;
-    Vec3p local_198;
-    Vec3p local_18c[2];
-    Vec3p local_174;
-    Vec3p local_168;
-    s32 local_15c;
-    s32 local_158;
-    s32 local_154;
-    Vec3p local_150;
-    Vec3p local_144;
-    Vec3p local_138;
-    Vec3p local_12c;
-    Vec3p local_120;
-    Vec3p local_114;
-    Vec3p local_108;
-    Vec3p local_fc;
-    Vec3p local_f0;
-    Vec3p local_e4;
-    Vec3p local_d8;
-    s32 local_cc;
-    s32 local_c4;
-    Vec3p local_c0;
-    Vec4p VStack_b4;
-    Vec3p local_a4;
-    Vec3p local_98;
-    AABB AStack_8c;
-    Vec3p local_74[3];
-    unk16 local_50;
-    unk16 local_4e;
-    unk16 local_4c;
-    unk16 local_4a;
-    unk16 local_48;
-    unk8 local_26;
-    unk8 local_25;
-    unk8 local_24;
-    unk8 local_23;
-    char local_1c;
-    char local_1b;
-    unk8 local_1a;
-    unk8 local_19;
-    unk8 local_18;
-    unk8 local_17;
+    struct TempStruct1 {
+        /* 00 */ unk8 mUnk_00[0xe];
+        /* 0e */ unk8 mUnk_0e;
+        /* 0f */ unk8 mUnk_0f;
+        /* 10 */ unk8 mUnk_10;
+        /* 11 */ unk8 mUnk_11;
+        /* 12 */ unk8 mUnk_12[0x6];
+        /* 18 */ volatile unk8 mUnk_18;
+        /* 19 */ unk8 mUnk_19;
+        /* 1a */ unk8 mUnk_1a;
+        /* 1b */ unk8 mUnk_1b;
+        /* 1c */ unk8 mUnk_1c;
+        /* 1d */ unk8 mUnk_1d;
+        /* 1e */
+    };
+
+    struct TempStruct2 {
+        union {
+            /* 00 */ Vec3p mUnk_00;
+            struct {
+                /* 00 */ u16 mUnk_00_x;
+                /* 02 */ u16 mUnk_02;
+                /* 04 */ u16 mUnk_04;
+                /* 06 */ u16 mUnk_06;
+                /* 08 */ unk32 mUnk_08;
+            };
+        };
+        /* 0c */ unk8 mUnk_0c[0x34];
+        /* 40 */
+    };
+
+    TempStruct1 sp214;
+    TempStruct2 sp1D4;
+    AABB sp1BC;
+    Vec3p sp1B0;
+    Vec3p sp1A4;
+    Sphere sp194;
+    Vec3p sp188;
+    Vec3p sp17C;
+    Vec3p sp170;
+    Vec3p sp164;
+    Vec3p sp158;
+    Vec3p sp14C;
+    Vec3p sp140;
+    Vec3p sp134;
+    Vec3p sp128;
+    Vec3p sp11C;
+    Vec3p sp110;
+    Vec3p sp104;
+    Vec3p spF8;
+    Vec3p spEC;
+    Vec3p spE0;
+    Vec3p spD4;
+    Vec3p spBC;
+    Vec3p spB0;
+    Vec3p spA4;
+    Vec3p sp98;
+    Vec3p sp8C;
+    Vec3p sp80;
+    Vec3p sp74;
+    unk32 sp64;
+    u32 sp60;
+    u32 sp5C;
+    unk32 sp50;
+    unk32 sp48;
+    unk32 sp44;
+    s32 sp20;
+    s32 sp1C;
+    s32 sp18;
+    s32 sp14;
+    s32 temp_r0_13;
+    s32 temp_r0_16;
+    s32 temp_r0_21;
+    s32 temp_r0_22;
+    s32 temp_r0_23;
+    s32 temp_r0_24;
+    s32 temp_r0_25;
+    s32 temp_r0_27;
+    s32 temp_r0_3;
+    s32 temp_r0_4;
+    s32 temp_r0_5;
+    s32 temp_r0_6;
+    s32 temp_r0_7;
+    s32 temp_r0_8;
+    s32 temp_r0_9;
+    s32 temp_r1;
+    s32 temp_r1_10;
+    s32 temp_r1_14;
+    s32 temp_r1_2;
+    s32 temp_r1_3;
+    s32 temp_r7_2;
+    s32 temp_r7_3;
+    s32 var_r0;
+    s32 var_r0_2;
+    s32 var_r1;
+    s32 var_r1_2;
+    s32 var_r1_3;
+    s32 var_r6;
+    s32 var_r6_2;
+    s32 var_r6_3;
+    s32 var_r7;
 
     data_ov058_0219aee0 = -1;
-    if (mUnk_18 > 99 || !mUnk_47) {
-        return false;
+    if ((mUnk_18 >= 0x64) || (!mUnk_47)) {
+        return 0;
     }
-    gMapManager->func_ov00_0208346c(&AStack_8c);
-    local_120 = *vec;
-    if (!AStack_8c.Contains(&local_120)) {
+    gMapManager->func_ov00_0208346c(&sp1BC);
+    sp128.x = vec->x;
+    sp128.y = vec->y;
+    sp128.z = vec->z;
+    if (!sp1BC.Contains(&sp128)) {
+        var_r0 = 1;
+    } else {
+        var_r0 = 0;
+    }
+    if (var_r0 != 0) {
         if (mUnk_18 > 0) {
             mUnk_47 = 0;
         }
-        return false;
+        return 0;
     }
-    TilePos local_1ee = gMapManager->func_ov00_02083a1c(vec);
-    local_98          = *vec;
-    local_24c         = local_1ee;
-    gMapManager->func_ov00_02083c7c(&local_98, local_24c);
-    local_98.y = vec->y;
-    if (mUnk_18 > 0) {
-        iVar6 = mUnk_18 - 1;
-
-        tilePos = mUnk_1c[iVar6];
-        if (tilePos == local_1ee) {
-            return false;
+    TilePos sp5a = gMapManager->func_ov00_02083a1c(vec);
+    sp1B0.x      = vec->x;
+    sp1B0.y      = vec->y;
+    sp1B0.z      = vec->z;
+    gMapManager->func_ov00_02083c7c(&sp1B0, sp5a);
+    sp1B0.y = vec->y;
+    temp_r1 = mUnk_18;
+    if (temp_r1 > 0) {
+        TilePos sp24_unk1C = sp5a;
+        TilePos sp24_unk6  = mUnk_1c[temp_r1 - 1];
+        TilePos sp24_unk1E = sp24_unk6;
+        if (sp24_unk1E == sp24_unk1C) {
+            return 0;
         }
-        local_24c = tilePos;
-        gMapManager->func_ov00_02083c7c(&local_a4, local_24c);
-        local_a4.x = vec->x - local_a4.x;
-        if (local_a4.x < 0) {
-            local_a4.x = -local_a4.x;
+        gMapManager->func_ov00_02083c7c(&sp1A4, sp24_unk6);
+        var_r1 = vec->x - sp1A4.x;
+        if (var_r1 < 0) {
+            var_r1 = 0 - var_r1;
         }
-        if (local_a4.x < 0x1000) {
-            local_a4.z = vec->z - local_a4.z;
-            if (local_a4.z < 0) {
-                local_a4.z = -local_a4.z;
+        if (var_r1 < 0x1000) {
+            var_r1_2 = vec->z - sp1A4.z;
+            if (var_r1_2 < 0) {
+                var_r1_2 = 0 - var_r1_2;
             }
-            if (local_a4.z < 0x1000) {
-                return false;
+            if (var_r1_2 < 0x1000) {
+                return 0;
             }
         }
     }
-    func_ov014_02124ff4(&VStack_b4);
-    if (mUnk_18 < 1) {
-        local_230  = gPlayerPos.x;
-        local_98.y = gPlayerPos.y;
-        local_234  = gPlayerPos.z;
-        iVar6      = gPlayerPos.y;
+    func_ov014_02124ff4(&sp194);
+    if (mUnk_18 <= 0) {
+        var_r6  = gPlayerPos.y;
+        sp18    = gPlayerPos.x;
+        sp1B0.y = var_r6;
+        sp14    = gPlayerPos.z;
     } else {
-        local_230   = mUnk_2c.x;
-        iVar6       = mUnk_2c.y;
-        local_234   = mUnk_2c.z;
-        local_12c.x = local_98.x;
-        local_12c.y = local_98.y;
-        local_12c.z = local_98.z;
-        gMapManager->MapData_vfunc_68(&local_12c, false);
-        local_98.y = dVar7;
+        var_r6  = mUnk_2c.y;
+        sp18    = mUnk_2c.x;
+        sp14    = mUnk_2c.z;
+        sp11C.x = sp1B0.x;
+        sp11C.y = sp1B0.y;
+        sp11C.z = sp1B0.z;
+        sp1B0.y = gMapManager->MapData_vfunc_68(&sp11C, 0);
     }
-    pEVar10     = iVar6 + VStack_b4.y;
-    local_c0.y  = local_98.y + VStack_b4.y;
-    local_c0.x  = local_98.x;
-    local_c0.z  = local_98.z;
-    local_138.x = (int) local_230;
-    local_138.z = local_234;
-    local_138.y = (int) pEVar10;
-    local_98.y  = local_c0.y;
-    Vec3p_Sub(&local_c0, &local_138, &local_c0);
-    pEVar8     = local_c0.y;
-    local_c0.y = 0;
-    iVar6      = Vec3p_Length(&local_c0);
-    bVar5      = false;
-    bVar4      = Vec3p_TryNormalize(&local_c0);
-    if (!bVar4) {
-        return false;
+    var_r6_2  = var_r6 + sp194.pos.y;
+    temp_r1_2 = sp1B0.y + sp194.pos.y;
+    sp1B0.y   = temp_r1_2;
+    sp188.x   = sp1B0.x;
+    sp188.y   = temp_r1_2;
+    sp188.z   = sp1B0.z;
+    sp110.x   = sp18;
+    sp110.y   = var_r6_2;
+    sp110.z   = sp14;
+    Vec3p_Sub(&sp188, &sp110, &sp188);
+    var_r7  = sp188.y;
+    sp188.y = 0;
+    sp20    = Vec3p_Length(&sp188);
+    sp1C    = 0;
+    if (Vec3p_TryNormalize(&sp188) == 0) {
+        return 0;
     }
-    if (iVar6 < 0x7001) {
-        if (0xfff < iVar6) {
-            if (mUnk_18 > 0) {
-                if ((int) pEVar8 < 0) {
-                    pEVar8 = -pEVar8;
-                }
-                if ((int) pEVar8 < 1) {
-                    goto LAB_arm9_ov058__0219968e;
-                }
-            }
-            Vec3p_Scale(&local_c0, 0x1000);
-            bVar5 = true;
+    if (sp20 > 0x7000) {
+        Vec3p_Scale(&sp188, 0x7000);
+        sp1C = 1;
+    } else if (sp20 >= 0x1000) {
+        if (mUnk_18 > 0 || ABS(var_r7) > 0) {
+            Vec3p_Scale(&sp188, 0x1000);
+            sp1C = 1;
         }
-    } else {
-        Vec3p_Scale(&local_c0, 0x7000);
-        bVar5 = true;
     }
-LAB_arm9_ov058__0219968e:
-    if (bVar5) {
-        local_98.x        = (int) local_230 + local_c0.x;
-        local_98.z        = local_234 + local_c0.z;
-        TilePos local_1f0 = gMapManager->func_ov00_02083a1c(&local_98);
-        local_1ee.x       = local_1f0.x;
-        local_1ee.y       = local_1f0.y;
-        local_24c         = local_1f0;
-        gMapManager->func_ov00_02083c7c(&local_98, local_24c);
-        local_144.y = local_98.y + 0x999;
-        local_144.x = local_98.x;
-        local_144.z = local_98.z;
-        local_98.y  = local_144.y;
-        gMapManager->MapData_vfunc_68(&local_144, false);
-        local_98.y = dVar7 + VStack_b4.y;
-        vec->x     = local_98.x;
-        vec->y     = local_98.y;
-        vec->z     = local_98.z;
+    if (sp1C != 0) {
+        sp1B0.x      = sp18 + sp188.x;
+        sp1B0.z      = sp14 + sp188.z;
+        TilePos sp58 = gMapManager->func_ov00_02083a1c(&sp1B0);
+        gMapManager->func_ov00_02083c7c(&sp1B0, sp58);
+        temp_r1_3 = sp1B0.y + 0x999;
+        sp1B0.y   = temp_r1_3;
+        sp104.x   = sp1B0.x;
+        sp104.x   = temp_r1_3;
+        sp104.x   = sp1B0.z;
+        temp_r0_3 = gMapManager->MapData_vfunc_68(&sp104, 0);
+        sp1B0.y   = temp_r0_3;
+        temp_r0_4 = temp_r0_3 + sp194.pos.y;
+        sp1B0.y   = temp_r0_4;
+        vec->x    = sp1B0.x;
+        vec->y    = temp_r0_4;
+        vec->z    = sp1B0.z;
     }
-    local_24c = local_1ee;
-    if (this->func_ov058_0219a3b4(local_24c)) {
-        local_24c = local_1ee;
-        this->func_ov058_02199ef0(local_24c);
-        local_98.y = pEVar8 + VStack_b4.y;
-        vec->x     = local_98.x;
-        vec->y     = local_98.y;
-        vec->z     = local_98.z;
+    if (this->func_ov058_0219a3b4(sp5a) != 0) {
+        temp_r0_5 = this->func_ov058_02199ef0(sp5a);
+        sp1B0.y   = temp_r0_5;
+        temp_r0_6 = temp_r0_5 + sp194.pos.y;
+        sp1B0.y   = temp_r0_6;
+        vec->x    = sp1B0.x;
+        vec->y    = temp_r0_6;
+        vec->z    = sp1B0.z;
     }
     if (mUnk_18 > 0) {
-        iVar6     = mUnk_18 - 1;
-        local_24c = mUnk_1c[iVar6];
-        if (this->func_ov058_0219a3b4(local_24c)) {
-            iVar6     = mUnk_18 - 1;
-            local_24c = mUnk_1c[iVar6];
-            this->func_ov058_02199ef0(local_24c);
+        if (this->func_ov058_0219a3b4(mUnk_1c[mUnk_18 - 1]) != 0) {
+            var_r6_2 = this->func_ov058_02199ef0(mUnk_1c[mUnk_18 - 1]);
         }
-        iVar6 = gMapManager->MapData_vfunc_54(&mUnk_1c[mUnk_18 - 1]);
-        if (iVar6 == 0x19) {
-            local_150.y = gMapManager->MapData_vfunc_60(&mUnk_1c[mUnk_18 - 1]);
-            local_150.x = (int) local_230;
-            local_150.y = local_150.y + -0x1333;
-            local_150.z = local_234;
-            pEVar10     = gMapManager->MapData_vfunc_68(&local_150, false);
-            if (0x998 < local_98.y - pEVar10) {
-                return false;
+        if (gMapManager->MapData_vfunc_54(&mUnk_1c[mUnk_18 - 1]) == 0x19) {
+            temp_r0_7 = gMapManager->MapData_vfunc_60(&mUnk_1c[mUnk_18 - 1]);
+            spF8.x    = sp18;
+            spF8.y    = temp_r0_7 - 0x1333;
+            spF8.z    = sp14;
+            var_r6_2  = gMapManager->MapData_vfunc_68(&spF8, 0);
+            if ((sp1B0.y - var_r6_2) >= 0x999) {
+                return 0;
             }
         }
     }
-    local_50 = 0xffff;
-    local_4e = 0xffff;
-    local_4c = 0xffff;
-    local_4a = 0xffff;
-    local_48 = 0;
-    local_26 = 0;
-    local_25 = 0;
-    local_24 = 0;
-    local_23 = 0;
-    local_1c = '\0';
-    local_1b = '\0';
-    local_1a = 0;
-    local_19 = 0;
-    local_18 = 0;
-    local_17 = 0;
-    pEVar8   = pEVar10;
-    pEVar3   = pEVar10;
-    if (((int) pEVar10 < local_98.y) && (pEVar8 = local_98.y, pEVar3 = local_98.y, 0x998 < local_98.y - (int) pEVar10)) {
-        local_15c = local_230;
-        local_154 = local_234;
-        local_158 = pEVar10;
-        gMapManager->MapData_vfunc_6c(local_15c, local_154, local_158);
-        pEVar3 = local_98.y;
-        if (((local_cc != 0) || (pEVar8 = pEVar10, local_c4 != 0))) {
-            pEVar8 = pEVar10 + 0x999;
-            if (local_98.y <= (int) pEVar8) {
-                pEVar8 = local_98.y;
-            }
-        }
-    }
-    local_98.y            = (int) pEVar3;
-    sUnk_02198d00.mUnk_10 = false;
-    sUnk_02198d00.mUnk_11 = false;
-    local_168.x           = local_98.x;
-    local_168.y           = local_98.y;
-    local_168.z           = local_98.z;
-    local_174.x           = (int) local_230;
-    local_174.z           = local_234;
-    local_174.y           = (int) pEVar8;
-    bVar5                 = gMapManager->func_01ffbe78(local_74, &local_168, &local_174, &VStack_b4);
-    if (!sUnk_02198d00.mUnk_10) {
-        return false;
-    }
-    if (bVar5) {
-        if (!sUnk_02198d00.mUnk_11) {
-            if (!local_1c) {
-                if (!local_1b) {
-                    return false;
-                }
-                local_f0.x        = local_74[0].x;
-                local_f0.y        = local_74[0].y;
-                local_f0.z        = local_74[0].z;
-                TilePos local_1fc = gMapManager->func_ov00_02083a1c(&local_f0);
-                local_1ee.x       = local_1fc.x;
-                local_1ee.y       = local_1fc.y;
-                iVar6             = mUnk_18 - 1;
-                if (mUnk_1c[iVar6] == local_1fc) {
-                    return false;
-                }
-                local_24c = local_1fc;
-                gMapManager->func_ov00_02083c7c(&local_f0, local_24c);
-                local_98.x  = local_f0.x;
-                local_1b0.x = local_f0.x;
-                local_1b0.y = local_f0.y + 0x999;
-                local_98.z  = local_f0.z;
-                local_1b0.z = local_f0.z;
-                local_98.y  = local_1b0.y;
-                dVar7       = gMapManager->MapData_vfunc_68(&local_1b0, false);
-                local_98.y  = dVar7 + VStack_b4.y;
-            } else {
-                if (mUnk_18 < 1) {
-                    return false;
-                }
-                local_d8.x        = local_74[0].x;
-                local_d8.y        = local_74[0].y;
-                local_d8.z        = local_74[0].z;
-                TilePos local_1f4 = gMapManager->func_ov00_02083a1c(&local_d8);
-                local_1ee.x       = local_1f4.x;
-                local_1ee.y       = local_1f4.y;
-                local_24c         = local_1f4;
-                if (this->func_ov058_0219a3b4(local_24c)) {
-                    return false;
-                }
-                local_24c = local_1ee;
-                gMapManager->func_ov00_02083c7c(&local_d8, local_24c);
-                iVar6 = mUnk_18 - 1;
-                ;
-                if (mUnk_1c[iVar6] == local_1ee) {
-                    local_e4.x     = local_74[0].x;
-                    local_e4.y     = local_74[0].y;
-                    local_e4.z     = local_74[0].z;
-                    local_18c[0].x = (int) local_230;
-                    local_18c[0].z = local_234;
-                    local_18c[0].y = (int) pEVar8;
-                    Vec3p_Sub(&local_e4, local_18c, &local_e4);
-                    iVar6 = local_e4.z;
-                    if (local_e4.z < 0) {
-                        iVar6 = -local_e4.z;
-                    }
-                    pvVar9 = (void *) local_e4.x;
-                    if (local_e4.x < 0) {
-                        pvVar9 = (void *) -local_e4.x;
-                    }
-                    if (iVar6 < (int) pvVar9) {
-                        local_e4.z = 0;
-                    } else {
-                        local_e4.x = 0;
-                    }
-                    bVar5 = Vec3p_TryNormalize(&local_e4);
-                    if (!bVar5) {
-                        return false;
-                    }
-                    local_d8.x = (int) local_230;
-                    local_d8.z = local_234;
-                    local_d8.y = (int) pEVar8;
-                    Vec3p_Add(&local_d8, &local_e4, &local_d8);
-                    TilePos local_1f6 = gMapManager->func_ov00_02083a1c(&local_d8);
-                    local_1ee.x       = local_1f6.x;
-                    local_1ee.y       = local_1f6.y;
-                    local_24c         = local_1f6;
-                    if (this->func_ov058_0219a3b4(local_24c)) {
-                        return false;
-                    }
-                    sUnk_02198d00.mUnk_10 = false;
-                    sUnk_02198d00.mUnk_11 = false;
-                    local_198.x           = (int) local_230;
-                    local_198.z           = local_234;
-                    local_198.y           = (int) pEVar8;
-                    bVar5 = gMapManager->MapManager::func_01ffbe78(local_74, &local_d8, &local_198, &VStack_b4);
-                    if (!sUnk_02198d00.mUnk_10) {
-                        return false;
-                    }
-                    if (bVar5) {
-                        if (local_1c == '\0') {
-                            return false;
-                        }
-                        local_d8.x        = local_74[0].x;
-                        local_d8.y        = local_74[0].y;
-                        local_d8.z        = local_74[0].z;
-                        TilePos local_1fa = gMapManager->func_ov00_02083a1c(&local_d8);
-                        local_1ee.x       = local_1fa.x;
-                        local_1ee.y       = local_1fa.y;
-                        iVar6             = mUnk_18 - 1;
-                        if (mUnk_1c[iVar6] == local_1fa) {
-                            return false;
-                        }
-                        local_24c = local_1fa;
-                        gMapManager->func_ov00_02083c7c(&local_d8, local_24c);
-                    } else {
-                        TilePos local_1f8 = gMapManager->func_ov00_02083a1c(&local_d8);
-                        local_1ee.x       = local_1f8.x;
-                        local_1ee.y       = local_1f8.y;
-                        iVar6             = mUnk_18 - 1;
-                        if (mUnk_1c[iVar6] == local_1f8) {
-                            return false;
-                        }
-                        local_24c = local_1f8;
-                        gMapManager->func_ov00_02083c7c(&local_d8, local_24c);
-                    }
-                }
-                local_98.x  = local_d8.x;
-                local_1a4.x = local_d8.x;
-                local_1a4.y = local_d8.y + 0x999;
-                local_98.z  = local_d8.z;
-                local_1a4.z = local_d8.z;
-                local_98.y  = local_1a4.y;
-                dVar7       = gMapManager->MapData_vfunc_68(&local_1a4, false);
-                local_98.y  = dVar7 + VStack_b4.y;
-                vec->x      = local_98.x;
-                vec->y      = local_98.y;
-                vec->z      = local_98.z;
-            }
+    sp1D4.mUnk_00_x = -1;
+    sp1D4.mUnk_02   = -1;
+    sp1D4.mUnk_04   = -1;
+    sp1D4.mUnk_06   = -1;
+    sp1D4.mUnk_00.z = 0;
+    sp214.mUnk_0e   = 0;
+    sp214.mUnk_0f   = 0;
+    sp214.mUnk_10   = 0;
+    sp214.mUnk_11   = 0;
+    sp214.mUnk_18   = 0U;
+    sp214.mUnk_19   = 0U;
+    sp214.mUnk_1a   = 0;
+    sp214.mUnk_1b   = 0;
+    sp214.mUnk_1c   = 0;
+    sp214.mUnk_1d   = 0;
+    if (var_r6_2 < sp1B0.y) {
+        if ((sp1B0.y - var_r6_2) < 0x999) {
+            var_r6_2 = sp1B0.y;
         } else {
-            local_98.x        = sUnk_02198d00.mUnk_14.x;
-            local_98.z        = sUnk_02198d00.mUnk_14.z;
-            local_98.y        = mUnk_20.y;
-            TilePos local_1f2 = gMapManager->func_ov00_02083a1c(&local_98);
-            local_1ee.x       = local_1f2.x;
-            local_1ee.y       = local_1f2.y;
-            vec->x            = local_98.x;
-            vec->y            = local_98.y;
-            vec->z            = local_98.z;
-            mUnk_38.x         = local_98.x;
-            mUnk_38.y         = local_98.y;
-            mUnk_38.z         = local_98.z;
-            mUnk_47           = false;
-            mUnk_46           = true;
-        }
-    } else {
-        TilePos VStack_1fe = gMapManager->func_ov00_02083a1c(&local_98);
-        iVar6              = gMapManager->MapData_vfunc_54(&VStack_1fe);
-        if (iVar6 == 0x19) {
-            TilePos VStack_200 = gMapManager->func_ov00_02083a1c(&local_98);
-            iVar6              = gMapManager->MapData_vfunc_60(&VStack_200);
-            local_98.y         = iVar6 - 0x1333;
-        }
-        local_1bc.x = local_98.x;
-        local_1bc.y = local_98.y;
-        local_1bc.z = local_98.z;
-        dVar7       = gMapManager->MapData_vfunc_68(&local_1bc, false);
-        local_98.y  = dVar7;
-    }
-    local_fc.x = local_230;
-    local_fc.z = local_234;
-    bVar5      = true;
-    local_fc.y = pEVar8;
-    while (true) {
-        local_108 = local_fc;
-        if (func_0202b2f8(&local_fc, &local_98, 0x1000)) {
-            bVar5 = false;
-        }
-        MapManager::func_ov00_02083fb0(local_1e8, gMapManager, &local_fc);
-        if (((local_1e8[0] >> 5 & 3) == 2) && ((local_1e8[0] & 0x1f) != 10)) {
-            break;
-        }
-        local_108 = local_fc;
-        if (!bVar5) {
-        LAB_arm9_ov058__02199e0c:
-            local_24c = local_1ee;
-            if (this->func_ov058_0219a3b4(local_24c)) {
-                TilePos local_204 = gMapManager->func_ov00_02083a1c(&local_98);
-                local_24c         = local_204;
-                pEVar8            = this->func_ov058_02199ef0(local_24c);
-                local_98.y        = pEVar8 + VStack_b4.y;
-            } else {
-                local_1d4 = local_98;
-                MapManager::func_ov00_02083fb0(&local_1ec, gMapManager, &local_1d4);
-                if (((local_1ec >> 5 & 3) == 2) && ((local_1ec & 0x1f) != 10)) {
-                    return false;
+            spEC.x = sp18;
+            spEC.z = sp14;
+            spEC.y = var_r6_2;
+            gMapManager->MapData_vfunc_6c(&spEC, &sp64, &sp17C);
+            if ((sp17C.x != 0) || (sp17C.z != 0)) {
+                var_r6_2 += 0x99A;
+                if (var_r6_2 >= sp1B0.y) {
+                    var_r6_2 = sp1B0.y;
                 }
             }
-            mUnk_1c[mUnk_18] = local_1ee;
+        }
+    } else {
+        sp1B0.y = var_r6_2;
+    }
+    sUnk_02198d00.mUnk_10 = 0;
+    sUnk_02198d00.mUnk_11 = 0;
+    spD4.y                = var_r6_2;
+    spE0.x                = sp1B0.x;
+    spE0.y                = sp1B0.y;
+    spE0.z                = sp1B0.z;
+    spD4.x                = sp18;
+    spD4.z                = sp14;
+    sp194.pos.y           = 9;
+    sp194.pos.z           = 0xCF;
+    sp194.radius          = 1;
+    temp_r0_8             = gMapManager->func_01ffbe78(&sp1D4.mUnk_00, &spE0, &spD4, &sp194);
+    if (sUnk_02198d00.mUnk_10 != 0) {
+        return 0;
+    }
+    if (temp_r0_8 != 0) {
+        if (sUnk_02198d00.mUnk_11 != 0) {
+            sp1B0.x      = sUnk_02198d00.mUnk_14.x;
+            sp1B0.y      = sUnk_02198d00.mUnk_14.y;
+            sp1B0.z      = sUnk_02198d00.mUnk_14.z;
+            sp1B0.y      = mUnk_20.y;
+            TilePos sp56 = gMapManager->func_ov00_02083a1c(&sp1B0);
+            sp5a.x       = sp56.x;
+            sp5a.y       = sp56.y;
+            vec->x       = sp1B0.x;
+            vec->y       = sp1B0.y;
+            vec->z       = sp1B0.z;
+            mUnk_38.x    = sp1B0.x;
+            mUnk_38.y    = sp1B0.y;
+            mUnk_38.z    = sp1B0.z;
+            mUnk_47      = 0;
+            mUnk_46      = 1;
+        } else {
+            if (sp214.mUnk_18 != 0) {
+                if (mUnk_18 <= 0) {
+                    return 0;
+                }
+                sp170.x      = sp1D4.mUnk_00.x;
+                sp170.y      = sp1D4.mUnk_00.y;
+                sp170.z      = sp1D4.mUnk_00.z;
+                TilePos sp54 = gMapManager->func_ov00_02083a1c(&sp170);
+                sp5a         = sp54;
+                if (this->func_ov058_0219a3b4(sp5a) != 0) {
+                    return 0;
+                }
+                gMapManager->func_ov00_02083c7c(&sp170, sp5a);
+                TilePos sp24_unk18 = sp5a;
+                TilePos sp24_unk1A = mUnk_1c[mUnk_18 - 1];
+                if (sp24_unk1A == sp24_unk18) {
+                    sp164.x = sp1D4.mUnk_00.x;
+                    spBC.y  = var_r6_2;
+                    sp164.y = sp1D4.mUnk_00.y;
+                    sp164.z = sp1D4.mUnk_00.z;
+                    spBC.x  = sp18;
+                    spBC.z  = sp14;
+                    Vec3p_Sub(&sp164, &spBC, &sp164);
+                    var_r0_2 = sp164.z;
+                    if (var_r0_2 < 0) {
+                        var_r0_2 = 0 - var_r0_2;
+                    }
+                    var_r1_3 = sp164.x;
+                    if (var_r1_3 < 0) {
+                        var_r1_3 = 0 - var_r1_3;
+                    }
+                    if (var_r1_3 > var_r0_2) {
+                        sp164.z = 0;
+                    } else {
+                        sp164.x = 0;
+                    }
+                    if (Vec3p_TryNormalize(&sp164) != 0) {
+                        sp170.x = sp18;
+                        sp170.y = var_r6_2;
+                        sp170.z = sp14;
+                        Vec3p_Add(&sp170, &sp164, &sp170);
+                    } else {
+                        return 0;
+                    }
+                    TilePos sp52 = gMapManager->func_ov00_02083a1c(&sp170);
+                    sp5a         = sp52;
+                    if (this->func_ov058_0219a3b4(sp5a) != 0) {
+                        return 0;
+                    }
+                    sUnk_02198d00.mUnk_10 = 0;
+                    sUnk_02198d00.mUnk_11 = 0;
+                    spB0.y                = var_r6_2;
+                    spB0.x                = sp18;
+                    spB0.z                = sp14;
+                    sp194.pos.y           = 9;
+                    sp194.pos.z           = 0xCF;
+                    sp194.radius          = 1;
+                    temp_r0_16            = gMapManager->func_01ffbe78(&sp1D4.mUnk_00, &sp170, &spB0, &sp194);
+                    if (sUnk_02198d00.mUnk_10 != 0) {
+                        return 0;
+                    }
+                    if (temp_r0_16 == 0) {
+                        TilePos sp50       = gMapManager->func_ov00_02083a1c(&sp170);
+                        TilePos sp24_unk4  = sp50;
+                        TilePos sp24_unk14 = sp24_unk4;
+                        TilePos sp24_unk16 = mUnk_1c[mUnk_18 - 1];
+                        if (sp24_unk16 == sp24_unk14) {
+                            return 0;
+                        }
+                        gMapManager->func_ov00_02083c7c(&sp170, sp24_unk4);
+                    } else {
+                        if (sp214.mUnk_18 == 0) {
+                            return false;
+                        }
+                        sp170.x            = sp1D4.mUnk_00.x;
+                        sp170.y            = sp1D4.mUnk_00.y;
+                        sp170.z            = sp1D4.mUnk_00.z;
+                        TilePos sp4E       = gMapManager->func_ov00_02083a1c(&sp170);
+                        sp5a               = sp4E;
+                        TilePos sp24_unk2  = sp5a;
+                        TilePos sp24_unk10 = sp24_unk2;
+                        TilePos sp24_unk12 = mUnk_1c[mUnk_18 - 1];
+                        if (sp24_unk12 == sp24_unk10) {
+                            return 0;
+                        }
+                        gMapManager->func_ov00_02083c7c(&sp170, sp24_unk2);
+                    }
+                }
+                sp1B0.x    = sp170.x;
+                spA4.x     = sp170.x;
+                temp_r1_14 = sp170.y + 0x999;
+                sp1B0.y    = sp170.y;
+                sp1B0.z    = sp170.z;
+                spA4.z     = sp170.z;
+                sp1B0.y    = temp_r1_14;
+                spA4.y     = temp_r1_14;
+                temp_r0_21 = gMapManager->MapData_vfunc_68(&spA4, 0);
+                sp1B0.y    = temp_r0_21;
+                temp_r0_22 = temp_r0_21 + sp194.pos.y;
+                sp1B0.y    = temp_r0_22;
+                vec->x     = sp1B0.x;
+                vec->y     = temp_r0_22;
+                vec->z     = sp1B0.z;
+            } else {
+                if (sp214.mUnk_19 == 0) {
+                    return 0;
+                }
+                sp158.x           = sp1D4.mUnk_00.x;
+                sp158.y           = sp1D4.mUnk_00.y;
+                sp158.z           = sp1D4.mUnk_00.z;
+                TilePos sp4C      = gMapManager->func_ov00_02083a1c(&sp158);
+                sp5a.x            = sp4C.x;
+                sp5a.y            = sp4C.y;
+                TilePos sp24_unk0 = sp5a;
+                TilePos sp24_unkC = sp24_unk0;
+                TilePos sp24_unkE = mUnk_1c[mUnk_18 - 1];
+                if (sp24_unkE == sp24_unkC) {
+                    return 0;
+                }
+                gMapManager->func_ov00_02083c7c(&sp158, sp24_unk0);
+                sp1B0.x    = sp158.x;
+                sp98.x     = sp158.x;
+                temp_r1_10 = sp158.y + 0x999;
+                sp1B0.y    = sp158.y;
+                sp1B0.z    = sp158.z;
+                sp98.z     = sp158.z;
+                sp1B0.y    = temp_r1_10;
+                sp98.y     = temp_r1_10;
+                temp_r0_13 = gMapManager->MapData_vfunc_68(&sp98, 0);
+                sp1B0.y    = temp_r0_13;
+                sp1B0.y    = temp_r0_13 + sp194.pos.y;
+            }
+        }
+    } else {
+        MapManager *temp_r7_2 = gMapManager;
+        TilePos sp4a          = temp_r7_2->func_ov00_02083a1c(&sp1B0);
+        if (temp_r7_2->MapData_vfunc_54(&sp4a) == 0x19) {
+            MapManager *temp_r7_3 = gMapManager;
+            TilePos sp48          = temp_r7_3->func_ov00_02083a1c(&sp1B0);
+            temp_r0_9             = temp_r7_3->MapData_vfunc_60(&sp48);
+            sp1B0.y               = temp_r0_9;
+            sp1B0.y               = temp_r0_9 - 0x1333;
+        }
+        sp8C.x  = sp1B0.x;
+        sp8C.y  = sp1B0.y;
+        sp8C.z  = sp1B0.z;
+        sp1B0.y = gMapManager->MapData_vfunc_68(&sp8C, 0);
+    }
+    sp14C.y  = var_r6_2;
+    sp14C.x  = sp18;
+    sp140.y  = var_r6_2;
+    sp14C.z  = sp14;
+    var_r6_3 = 1;
+    sp140.x  = sp18;
+    sp140.z  = sp14;
+    while (true) {
+        if (func_0202b2f8(&sp14C, &sp1B0, 0x1000) != 0) {
+            var_r6_3 = 0;
+        }
+        MapManager::func_ov00_02083fb0(&sp60, gMapManager, &sp14C);
+        if (((3 & (sp60 >> 5)) == 2) && ((sp60 & 0x1F) != 0xA)) {
+            sp1B0.y           = sp140.y;
+            temp_r0_23        = sp140.y + 0x999;
+            sp1B0.y           = temp_r0_23;
+            sp80.y            = temp_r0_23;
+            sp1B0.z           = sp140.z;
+            sp80.z            = sp140.z;
+            sp1B0.x           = sp140.x;
+            sp80.x            = sp140.x;
+            temp_r0_24        = gMapManager->MapData_vfunc_68(&sp80, 0);
+            sp1B0.y           = temp_r0_24;
+            temp_r0_25        = temp_r0_24 + sp194.pos.y;
+            sp1B0.y           = temp_r0_25;
+            vec->x            = sp1B0.x;
+            vec->y            = temp_r0_25;
+            vec->z            = sp1B0.z;
+            TilePos sp46      = gMapManager->func_ov00_02083a1c(&sp1B0);
+            sp5a              = sp46;
+            TilePos sp24_unk8 = sp5a;
+            TilePos sp24_unkA = mUnk_1c[mUnk_18 - 1];
+            if (sp24_unkA == sp24_unk8) {
+                return 0;
+            }
+            goto block_114;
+        } else {
+            sp140.x = sp14C.x;
+            sp140.y = sp14C.y;
+            sp140.z = sp14C.z;
+        }
+        if (var_r6_3 == 0) {
+        block_114:
+            if (this->func_ov058_0219a3b4(sp5a) != 0) {
+                TilePos sp44 = gMapManager->func_ov00_02083a1c(&sp1B0);
+                temp_r0_27   = this->func_ov058_02199ef0(sp44);
+                sp1B0.y      = temp_r0_27;
+                sp1B0.y      = temp_r0_27 + sp194.pos.y;
+            } else {
+                sp74.x = sp1B0.x;
+                sp74.y = sp1B0.y;
+                sp74.z = sp1B0.z;
+                MapManager::func_ov00_02083fb0(&sp5C, gMapManager, &sp74);
+                if (((3 & (sp5C >> 5)) == 2) && ((0x1F & sp5C) != 0xA)) {
+                    return 0;
+                }
+            }
+            mUnk_1c[mUnk_18] = sp5a;
             mUnk_18 += 1;
-            local_114 = local_98;
-            Vec3p_Sub(&local_114, &mUnk_20, &local_114);
-            mUnk_2c = local_98;
-            if (mUnk_18 < 2) {
-                mUnk_20 = local_98;
+            sp134.x = sp1B0.x;
+            sp134.y = sp1B0.y;
+            sp134.z = sp1B0.z;
+            Vec3p_Sub(&sp134, &mUnk_20, &sp134);
+            mUnk_2c = sp1B0;
+            if (mUnk_18 <= 1) {
+                mUnk_20 = sp1B0;
             }
             mUnk_14 = 1;
-            return true;
+            return 1;
         }
     }
-    local_1c8.y       = 0x999;
-    local_98.z        = local_108.z;
-    local_1c8.z       = local_108.z;
-    local_98.x        = local_108.x;
-    local_1c8.x       = local_108.x;
-    local_98.y        = local_1c8.y;
-    dVar7             = gMapManager->MapData_vfunc_68(&local_1c8, false);
-    local_98.y        = dVar7 + VStack_b4.y;
-    vec->x            = local_98.x;
-    vec->y            = local_98.y;
-    vec->z            = local_98.z;
-    TilePos local_202 = gMapManager->func_ov00_02083a1c(&local_98);
-    local_1ee.x       = local_202.x;
-    local_1ee.y       = local_202.y;
-    if (mUnk_1c[mUnk_18 - 1] == local_202) {
-        return false;
-    }
-    goto LAB_arm9_ov058__02199e0c;
 }
 
 extern "C" void func_ov000_020a61ac(Vec3p *param1, int param2);

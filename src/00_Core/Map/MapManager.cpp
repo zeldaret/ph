@@ -1264,7 +1264,7 @@ ARM unk32 MapManager::func_ov00_02083f44(Vec3p *param_2, bool param_3) {
     return this->func_ov00_02083ef8(param_2, &local_18, param_3);
 }
 
-unk8 MapManager::MapData_vfunc_6c(unk32 param_2, unk32 param_3, unk32 param_4) {
+unk8 MapManager::MapData_vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4) {
     this->mMap->vfunc_6c(param_2, param_3, param_4);
 }
 
@@ -2503,7 +2503,7 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     Vec2p iStack_104;
     Vec3p VStack_f0;
     Vec3p VStack_e4;
-    Vec4p VStack_d8;
+    Sphere VStack_d8;
     Vec3p VStack_c8;
     Vec3p VStack_bc;
     Vec3p VStack_b0;
@@ -2566,11 +2566,11 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
         VStack_b0.z = VStack_bc.z;
         Vec3p_Add(&VStack_b0, &VStack_c8, &VStack_b0);
     }
-    bVar5       = false;
-    VStack_d8.y = param_5 << 1;
-    VStack_d8.x = 0;
-    VStack_d8.z = 0;
-    VStack_d8.w = param_5;
+    bVar5            = false;
+    VStack_d8.pos.y  = param_5 << 1;
+    VStack_d8.pos.x  = 0;
+    VStack_d8.pos.z  = 0;
+    VStack_d8.radius = param_5;
     do {
         bVar4 = func_01ffbe78(param_2, &VStack_b0, &VStack_bc, &VStack_d8);
         if (bVar4) {
