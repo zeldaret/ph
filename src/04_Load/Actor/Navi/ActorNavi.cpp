@@ -1,3 +1,4 @@
 #include "Actor/Navi/ActorNavi.hpp"
 
-ActorNavi::ActorNavi() {}
+ActorNavi::ActorNavi() :
+    mUnk_294(0) {}

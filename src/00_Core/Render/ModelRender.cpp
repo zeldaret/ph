@@ -1,6 +1,6 @@
 #include "Render/ModelRender.hpp"
 
-ModelRender::ModelRender() {}
+ModelRender::ModelRender(unk32 param1) {}
 ModelRender::~ModelRender() {}
 void *ModelRender::GetLcdcAddress() {}
 void ModelRender::vfunc_0c(ItemModel *model) {}

@@ -36,8 +36,8 @@ ARM bool EquipBombchu_Unk_02198d00::vfunc_08(UnkStruct_ov000_020beba8_08 *param1
 
 static unk32 data_ov058_0219aee0 = -1;
 
-ModelRender EquipBombchu::gModelRenderBombchu;
-ModelRender EquipBombchu::gModelRenderBombchuPt;
+ModelRender EquipBombchu::gModelRenderBombchu(0);
+ModelRender EquipBombchu::gModelRenderBombchuPt(0);
 static unk16 data_ov058_0219b090;
 extern UnkStruct_ov000_020c0c08_04 data_ov058_0219b0c4;
 static UnkStruct_ov000_020c0c08 data_ov058_0219b0a0(&data_ov058_0219b0c4, 0);
@@ -61,7 +61,7 @@ struct UnkStruct1 {
 ARM bool EquipBombchu_Unk_02198d00::vfunc_14(u16 *param1, s32 param2) {
     Actor *temp_r0 = gActorManager->FindActorById(param2);
     if ((temp_r0 != NULL) && (temp_r0->mType == ActorTypeId_PWBS)) {
-        mUnk_11 = 1;
+        mUnk_10.y = 1;
         UnkStruct1 unk(*(Vec3p *) ((u32) temp_r0 + 0x820));
         mUnk_14 = unk.mUnk_0c;
     }
@@ -517,23 +517,23 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
     } else {
         sp1B0.y = var_r6_2;
     }
-    sUnk_02198d00.mUnk_10 = 0;
-    sUnk_02198d00.mUnk_11 = 0;
-    spD4.y                = var_r6_2;
-    spE0.x                = sp1B0.x;
-    spE0.y                = sp1B0.y;
-    spE0.z                = sp1B0.z;
-    spD4.x                = sp18;
-    spD4.z                = sp14;
-    sp194.pos.y           = 9;
-    sp194.pos.z           = 0xCF;
-    sp194.radius          = 1;
-    temp_r0_8             = gMapManager->func_01ffbe78(&sp1D4.mUnk_00, &spE0, &spD4, &sp194);
-    if (sUnk_02198d00.mUnk_10 != 0) {
+    sUnk_02198d00.mUnk_10.x = 0;
+    sUnk_02198d00.mUnk_10.y = 0;
+    spD4.y                  = var_r6_2;
+    spE0.x                  = sp1B0.x;
+    spE0.y                  = sp1B0.y;
+    spE0.z                  = sp1B0.z;
+    spD4.x                  = sp18;
+    spD4.z                  = sp14;
+    sp194.pos.y             = 9;
+    sp194.pos.z             = 0xCF;
+    sp194.radius            = 1;
+    temp_r0_8               = gMapManager->func_01ffbe78(&sp1D4.mUnk_00, &spE0, &spD4, &sp194);
+    if (sUnk_02198d00.mUnk_10.x != 0) {
         return 0;
     }
     if (temp_r0_8 != 0) {
-        if (sUnk_02198d00.mUnk_11 != 0) {
+        if (sUnk_02198d00.mUnk_10.y != 0) {
             sp1B0.x      = sUnk_02198d00.mUnk_14.x;
             sp1B0.y      = sUnk_02198d00.mUnk_14.y;
             sp1B0.z      = sUnk_02198d00.mUnk_14.z;
@@ -599,16 +599,16 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
                     if (this->func_ov058_0219a3b4(sp5a) != 0) {
                         return 0;
                     }
-                    sUnk_02198d00.mUnk_10 = 0;
-                    sUnk_02198d00.mUnk_11 = 0;
-                    spB0.y                = var_r6_2;
-                    spB0.x                = sp18;
-                    spB0.z                = sp14;
-                    sp194.pos.y           = 9;
-                    sp194.pos.z           = 0xCF;
-                    sp194.radius          = 1;
-                    temp_r0_16            = gMapManager->func_01ffbe78(&sp1D4.mUnk_00, &sp170, &spB0, &sp194);
-                    if (sUnk_02198d00.mUnk_10 != 0) {
+                    sUnk_02198d00.mUnk_10.x = 0;
+                    sUnk_02198d00.mUnk_10.y = 0;
+                    spB0.y                  = var_r6_2;
+                    spB0.x                  = sp18;
+                    spB0.z                  = sp14;
+                    sp194.pos.y             = 9;
+                    sp194.pos.z             = 0xCF;
+                    sp194.radius            = 1;
+                    temp_r0_16              = gMapManager->func_01ffbe78(&sp1D4.mUnk_00, &sp170, &spB0, &sp194);
+                    if (sUnk_02198d00.mUnk_10.x != 0) {
                         return 0;
                     }
                     if (temp_r0_16 == 0) {
@@ -771,7 +771,7 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
     }
 }
 
-extern "C" void func_ov000_020a61ac(Vec3p *param1, int param2);
+extern "C" void func_ov000_020a61ac(Vec3p *vec, s16 angle);
 ARM unk32 EquipBombchu::func_ov058_02199ef0(TilePos param1) {
     s32 iVar1;
     s32 iVar2;
@@ -807,19 +807,78 @@ ARM unk32 EquipBombchu::func_ov058_02199ef0(TilePos param1) {
 }
 
 ARM unk32 EquipBombchu::func_ov058_02199fd8(TilePos param1) {
-    u32 temp_r0;
-    TilePos spC;
-
-    if (data_ov058_0219aee0 != -1 && data_ov058_0219b110.x == spC.x && data_ov058_0219b110.y == spC.y) {
-        return data_ov058_0219aee0;
+    if (data_ov058_0219aee0 != -1) {
+        if (data_ov058_0219b110 == param1) {
+            return data_ov058_0219aee0;
+        }
     }
-    TilePos temp_r3     = spC;
-    temp_r0             = this->func_ov058_0219a084(temp_r3);
-    data_ov058_0219aee0 = temp_r0;
-    data_ov058_0219b110 = spC;
-    return temp_r0;
+    data_ov058_0219aee0 = this->func_ov058_0219a084(param1);
+    data_ov058_0219b110 = param1;
+    return data_ov058_0219aee0;
 }
 
-unk32 EquipBombchu::func_ov058_0219a084(TilePos param1) {}
-bool EquipBombchu::func_ov058_0219a3b4(TilePos param1) {}
-ARM EquipBombchu_Unk_02198d00::~EquipBombchu_Unk_02198d00() {}
+ARM unk32 EquipBombchu::func_ov058_0219a084(TilePos param1) {
+    Vec3p sp3C[4];
+
+    Vec3p sp30;
+    gMapManager->func_ov00_02083c7c(&sp30, param1);
+    Vec3p sp24;
+    for (s32 i = 0; i < 4; i++) {
+        sp24.x = 0;
+        sp24.y = 0;
+        sp24.z = FLOAT_TO_Q20(0.25);
+        func_ov000_020a61ac(&sp24, 0x4000 * i);
+        sp3C[i] = sp30;
+        Vec3p_Add(&sp3C[i], &sp24, &sp3C[i]);
+        sp3C[i].y = gMapManager->func_ov00_02083f44(&sp3C[i], 0);
+    }
+    if ((sp3C[0].y == sp3C[1].y) && (sp3C[0].y == sp3C[2].y) && (sp3C[0].y == sp3C[3].y)) {
+        UnkStruct sp90;
+        if (gMapManager->func_01ffbf5c(&sp90, &sp3C[0], &sp3C[2], 0x200, 9, 1, &sUnk_02198d00, 0)) {
+            return 7;
+        }
+        if (gMapManager->func_01ffbf5c(&sp90, &sp3C[1], &sp3C[3], 0x200, 9, 1, &sUnk_02198d00, 0)) {
+            return 7;
+        }
+        if (gMapManager->func_01ffbf5c(&sp90, &sp3C[2], &sp3C[0], 0x200, 9, 1, &sUnk_02198d00, 0)) {
+            return 7;
+        }
+        if (gMapManager->func_01ffbf5c(&sp90, &sp3C[3], &sp3C[1], 0x200, 9, 1, &sUnk_02198d00, 0)) {
+            return 7;
+        }
+        return 0;
+    }
+    if ((sp3C[0].y == sp3C[1].y) && (sp3C[2].y == sp3C[3].y)) {
+        if (sp3C[0].y < sp3C[2].y) {
+            return 4;
+        }
+        return 1;
+    }
+    if ((sp3C[0].y == sp3C[3].y) && (sp3C[1].y == sp3C[2].y)) {
+        if (sp3C[0].y < sp3C[1].y) {
+            return 3;
+        }
+        return 2;
+    }
+
+    Vec3p sp18;
+    unk32 sp14;
+    gMapManager->MapData_vfunc_6c(&sp30, &sp14, &sp18);
+    if ((sp18.x != 0) || (sp18.z != 0)) {
+        return 5;
+    }
+    return 7;
+}
+
+bool EquipBombchu::func_ov058_0219a3b4(TilePos param1) {
+    switch (this->func_ov058_02199fd8(param1)) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 7:
+            return true;
+        default:
+            return false;
+    }
+}

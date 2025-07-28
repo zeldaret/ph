@@ -41,7 +41,7 @@ public:
     /* 3c */ virtual void vfunc_3c();
     /* 40 */
 
-    ModelRender();
+    ModelRender(unk32 param1);
     void *func_ov000_020a9624(s32 param1);
     void func_ov000_020a98e8(unk32 param1);
     void func_ov000_020a990c(unk32 param1);

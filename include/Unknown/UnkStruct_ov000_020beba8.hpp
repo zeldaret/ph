@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include "System/SysNew.hpp"
+
 #include <nds/math.h>
 
 struct UnkStruct_ov000_020beba8_08 {
@@ -11,7 +13,7 @@ struct UnkStruct_ov000_020beba8_08 {
     /* 10 */
 };
 
-class UnkStruct_ov000_020beba8 {
+class UnkStruct_ov000_020beba8 : public SysObject {
 public:
     /* 0 (vtable) */
     /* 4 */ unk32 mUnk_4;

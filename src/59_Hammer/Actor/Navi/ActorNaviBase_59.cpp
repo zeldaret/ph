@@ -58,28 +58,6 @@ ARM void ActorNavi::func_ov059_0219aa08() {
     }
 }
 
-struct UnkStruct {
-    /* 00 */ u16 mUnk_00;
-    /* 02 */ unk16 mUnk_02;
-    /* 04 */ unk16 mUnk_04;
-    /* 06 */ unk16 mUnk_06;
-    /* 08 */ unk16 mUnk_08;
-    /* 09 */ unk8 mUnk_09;
-    /* 0a */ unk8 mUnk_0a;
-    /* 0b */ unk8 mUnk_0b;
-    /* 0c */ unk8 mUnk_0c;
-    /* 0d */ unk8 mUnk_0d;
-    /* 0e */ unk8 mUnk_0e;
-    /* 0f */ unk8 mUnk_0f;
-    /* 10 */ unk8 mUnk_10;
-    /* 11 */ unk8 mUnk_11;
-    /* 12 */ unk8 mUnk_12;
-    /* 13 */ unk8 mUnk_13;
-    /* 14 */ Vec3p mUnk_14;
-    /* 14 */ unk8 mUnk_20[4];
-    /* 24 */
-};
-
 // non-matching
 ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
     bool bVar1;
@@ -96,7 +74,6 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
     Vec3p local_104;
     Vec3p local_e4;
 
-    UnkStruct auStack_e0;
     u16 local_bc;
     unk16 local_ba;
     unk16 local_b8;
@@ -112,7 +89,6 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
     unk32 local_85;
     unk32 local_84;
     unk32 local_83;
-    UnkStruct auStack_80;
     u16 local_5c;
     unk16 local_5a;
     unk16 local_58;
@@ -131,7 +107,7 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
     ItemManager *puVar1;
 
     switch (param1) {
-        case 3:
+        case 3: {
             uVar1 = EquipHammer::GetLinkStateItem();
 
             if (uVar1->mUnk_25[2] != 0 && uVar1->mUnk_25[3] != 0) {
@@ -145,22 +121,8 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
             uVar4 = this->mPos.x;
             uVar6 = this->mPos.z;
 
-            auStack_80.mUnk_00 = -1;
-            auStack_80.mUnk_02 = 0;
-            auStack_80.mUnk_04 = 0;
-            auStack_80.mUnk_06 = 0;
-            auStack_80.mUnk_08 = 0;
-            auStack_80.mUnk_09 = 0;
-            auStack_80.mUnk_0a = 0;
-            auStack_80.mUnk_0b = 0;
-            auStack_80.mUnk_0c = 0;
-            auStack_80.mUnk_0d = 0;
-            auStack_80.mUnk_0e = 0;
-            auStack_80.mUnk_0f = 0;
-            auStack_80.mUnk_10 = 0;
-            auStack_80.mUnk_11 = 0;
-            auStack_80.mUnk_12 = 0;
-            local_11c.y        = iVar5;
+            UnkStruct auStack_80;
+            local_11c.y = iVar5;
 
             local_110.x = uVar4;
             local_110.y = iVar5;
@@ -174,7 +136,8 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
             local_58 = local_5c;
             local_56 = local_5c;
 
-            if (gMapManager->func_01ffbf5c(&auStack_80, &local_110, &local_11c, this->mUnk_08c.size) ? false : true) {
+            if (gMapManager->func_01ffbf5c(&auStack_80, &local_110, &local_11c, this->mUnk_08c.size, 0, 0, NULL, 0) ? false
+                                                                                                                    : true) {
                 this->mPos       = local_e4;
                 this->mPrevPos   = local_e4;
                 this->mOffsetPos = local_e4;
@@ -183,79 +146,67 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
                 this->mOffsetPos.y = iVar5;
                 this->mOffsetPos.z = uVar6;
             }
-            break;
-        case 4:
+        } break;
+        case 4: {
             uVar1 = EquipHammer::GetLinkStateItem();
 
             if (uVar1->mUnk_25[2] != 0 && uVar1->mUnk_25[3] != 0) {
                 break;
             }
 
-            auStack_e0.mUnk_14.x = data_027e0fd4->mUnk_020.pos.x;
-            auStack_e0.mUnk_14.y = gPlayerPos.y + FLOAT_TO_Q20(0.5);
-            auStack_e0.mUnk_14.z = data_027e0fd4->mUnk_020.pos.z;
+            UnkStruct auStack_e0;
+            auStack_e0.mUnk_3c.x = data_027e0fd4->mUnk_020.pos.x;
+            auStack_e0.mUnk_3c.y = gPlayerPos.y + FLOAT_TO_Q20(0.5);
+            auStack_e0.mUnk_3c.z = data_027e0fd4->mUnk_020.pos.z;
 
-            bVar1              = gPlayerControl->UpdateAimWorld(&local_104);
-            bVar7              = false;
-            local_104.y        = auStack_e0.mUnk_14.y;
-            auStack_80.mUnk_00 = -1;
-            auStack_80.mUnk_02 = 0;
-            auStack_80.mUnk_04 = 0;
-            auStack_80.mUnk_06 = 0;
-            auStack_80.mUnk_08 = 0;
-            auStack_80.mUnk_09 = 0;
-            auStack_80.mUnk_0a = 0;
-            auStack_80.mUnk_0b = 0;
-            auStack_80.mUnk_0c = 0;
-            auStack_80.mUnk_0d = 0;
-            auStack_80.mUnk_0e = 0;
-            auStack_80.mUnk_0f = 0;
-            auStack_80.mUnk_10 = 0;
-            auStack_80.mUnk_11 = 0;
-            auStack_80.mUnk_12 = 0;
-            local_ba           = local_bc;
-            local_b8           = local_bc;
-            local_b6           = local_bc;
+            bVar1       = gPlayerControl->UpdateAimWorld(&local_104);
+            bVar7       = false;
+            local_104.y = auStack_e0.mUnk_3c.y;
+            UnkStruct auStack_80;
+            local_ba = local_bc;
+            local_b8 = local_bc;
+            local_b6 = local_bc;
 
             if (bVar1) {
-                local_128 = auStack_e0.mUnk_14;
+                local_128 = auStack_e0.mUnk_3c;
 
                 // local_134.x = local_104.x;
                 // local_134.y = auStack_e0.mUnk_14.y;
                 // local_134.z = local_104.z;
 
-                if (!gMapManager->func_01ffbf5c(&auStack_e0, &local_134, &local_128, this->mUnk_08c.size)) {
+                if (!gMapManager->func_01ffbf5c(&auStack_e0, &local_134, &local_128, this->mUnk_08c.size, 0, 0, NULL, 0)) {
                     bVar7 = true;
                 }
+
+                if (!bVar7) {
+                    this->mPos       = auStack_e0.mUnk_3c;
+                    this->mPrevPos   = auStack_e0.mUnk_3c;
+                    this->mOffsetPos = auStack_e0.mUnk_3c;
+                }
+                break;
+                default:
+                    this->func_ov000_020b853c();
+                    break;
             }
 
-            if (!bVar7) {
-                this->mPos       = auStack_e0.mUnk_14;
-                this->mPrevPos   = auStack_e0.mUnk_14;
-                this->mOffsetPos = auStack_e0.mUnk_14;
+            pIVar3 = gItemManager;
+            void *pvVar2;
+            switch (param1) {
+                case 3:
+                    pvVar2 = pIVar3->func_ov00_020ad538(data_ov000_020dc7d0);
+                    this->mUnk_2f0->func_ov000_020c0c44(pvVar2);
+                    this->mUnk_2f0->func_ov000_020c0e5c(0);
+                    break;
+                case 4:
+                    this->mUnk_348 = 0;
+                    pvVar2         = pIVar3->func_ov00_020ad538(data_ov000_020dc7e4);
+                    this->mUnk_2f0->func_ov000_020c0c44(pvVar2);
+                    this->mUnk_2f0->func_ov000_020c0e5c(1);
+                    break;
+                default:
+                    break;
             }
-            break;
-        default:
-            this->func_ov000_020b853c();
-            break;
-    }
-
-    pIVar3 = gItemManager;
-    void *pvVar2;
-    switch (param1) {
-        case 3:
-            pvVar2 = pIVar3->func_ov00_020ad538(data_ov000_020dc7d0);
-            this->mUnk_2f0->func_ov000_020c0c44(pvVar2);
-            this->mUnk_2f0->func_ov000_020c0e5c(0);
-            break;
-        case 4:
-            this->mUnk_348 = 0;
-            pvVar2         = pIVar3->func_ov00_020ad538(data_ov000_020dc7e4);
-            this->mUnk_2f0->func_ov000_020c0c44(pvVar2);
-            this->mUnk_2f0->func_ov000_020c0e5c(1);
-            break;
-        default:
-            break;
+        }
     }
 }
 

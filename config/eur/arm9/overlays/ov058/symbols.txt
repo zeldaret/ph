@@ -20,8 +20,8 @@ _ZN12EquipBombchu19func_ov058_02199ef0E7TilePos kind:function(arm,size=0xe8) add
 _ZN12EquipBombchu19func_ov058_02199fd8E7TilePos kind:function(arm,size=0xac) addr:0x02199fd8
 _ZN12EquipBombchu19func_ov058_0219a084E7TilePos kind:function(arm,size=0x330) addr:0x0219a084
 _ZN12EquipBombchu19func_ov058_0219a3b4E7TilePos kind:function(arm,size=0x70) addr:0x0219a3b4
-_ZN25EquipBombchu_Unk_02198d00D1Ev kind:function(arm,size=0x1c) addr:0x0219a424
-_ZN25EquipBombchu_Unk_02198d00D0Ev kind:function(arm,size=0x14) addr:0x0219a440
+_ZN25EquipBombchu_Unk_02198d00D0Ev kind:function(arm,size=0x1c) addr:0x0219a424
+_ZN25EquipBombchu_Unk_02198d00D1Ev kind:function(arm,size=0x14) addr:0x0219a440
 _ZN13LinkStateItem19func_ov058_0219a454Ev kind:function(arm,size=0x28) addr:0x0219a454
 _ZN13LinkStateItem19func_ov058_0219a47cEv kind:function(arm,size=0x13c) addr:0x0219a47c
 _Z15GetEquipBombchuv kind:function(arm,size=0x10) addr:0x0219a5b8 local
@@ -70,11 +70,10 @@ data_ov058_0219afb0 kind:data(any) addr:0x0219afb0
 _ZN12EquipBombchu19gModelRenderBombchuE kind:bss addr:0x0219afcc
 @912 kind:bss addr:0x0219b028
 _ZN12EquipBombchu21gModelRenderBombchuPtE kind:bss addr:0x0219b034
-data_ov058_0219b090 kind:bss addr:0x0219b090
+data_ov058_0219b090 kind:bss(size=0x2) addr:0x0219b090
 @1716 kind:bss addr:0x0219b094
 data_ov058_0219b0a0 kind:bss addr:0x0219b0a0
 data_ov058_0219b0c4 kind:bss addr:0x0219b0c4
 @913 kind:bss addr:0x0219b0e4
 sUnk_02198d00 kind:bss addr:0x0219b0f0
-data_ov058_0219b110 kind:bss addr:0x0219b110
-data_ov058_0219b111 kind:bss(size=0x1) addr:0x0219b111
+data_ov058_0219b110 kind:bss(size=0x2) addr:0x0219b110

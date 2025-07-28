@@ -15,8 +15,8 @@ public:
     inline TilePos(u8 x, u8 y) :
         x(x),
         y(y) {}
-
-    inline bool operator==(const TilePos &other) const {
-        return (this->x == other.x) && (this->y == other.y);
-    }
 };
+
+inline bool operator==(TilePos a, TilePos b) {
+    return (a.x == b.x && a.y == b.y);
+}
