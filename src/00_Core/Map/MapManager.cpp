@@ -1102,11 +1102,11 @@ ARM void MapManager::func_ov00_02083968(u32 param_2, unk8 *param_3) {
 }
 
 ARM bool MapManager::func_ov00_02083978(Vec3p *param_2, Vec3p *param_3) {
-    s32 iVar1 = this->mMap->func_ov00_02080a78(param_2);
+    TriggerBase *iVar1 = this->mMap->func_ov00_02080a78(param_2);
     if (iVar1 != 0) {
-        param_3->x = *(s32 *) (iVar1 + 0x8);
-        param_3->y = *(s32 *) (iVar1 + 0xc);
-        param_3->z = *(s32 *) (iVar1 + 0x10);
+        param_3->x = iVar1->mUnk_08;
+        param_3->y = iVar1->mUnk_0c;
+        param_3->z = iVar1->mUnk_10;
         return true;
     }
     return false;
