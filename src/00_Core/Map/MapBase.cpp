@@ -5,13 +5,16 @@
 #include "Map/MapBase.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0e58.hpp"
+#include "DTCM/UnkStruct_027e0f6c.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
+#include "DTCM/UnkStruct_027e103c.hpp"
 #include "Game/Game.hpp"
 #include "Map/MapManager.hpp"
 #include "Render/ModelRender.hpp"
 #include "Unknown/UnkStruct_020ee0a0.hpp"
 #include "Unknown/UnkStruct_027e0f88.hpp"
 #include "stdio.h"
+#include "stdlib.h"
 
 extern "C" void Fill32(unk32, u32 *, unk32);
 extern "C" void func_020196bc(ItemModel *param1, unk32 param2);
@@ -1626,215 +1629,200 @@ void MapBase::AddTrigger(TriggerParams *param_2) {
     */
 }
 
-void TriggerBase::vfunc_08() {
-    /*
-      int iVar1;
-  char in_stack_00000000;
-  char in_stack_00000004;
-  TilePos local_5d0 [2];
-  undefined4 local_5cc;
-  undefined4 local_5c8;
-  undefined4 local_5c4;
-  undefined4 local_5c0;
-  int local_5bc;
-  undefined2 local_5b8;
-  undefined1 local_5b6;
-  undefined1 local_5b5;
-  undefined1 local_5b4;
-  undefined1 local_5b3;
-  undefined4 local_5b0;
-  undefined4 local_5ac;
-  undefined2 local_5a8;
-  undefined2 local_5a6;
-  undefined2 local_5a4;
-  undefined4 local_5a0;
-  undefined2 local_59c;
-  char acStack_198 [128];
-  char acStack_118 [128];
-  char acStack_98 [128];
-  Course *pCStack_18;
+void TriggerBase::vfunc_08(/*unk32 *param_1, unk32 param_2, unk32 param_3, unk32 *param_4*/) {
+    /*int iVar1;
+    char in_stack_00000000;
+    char in_stack_00000004;
+    TilePos local_5d0[2];
+    unk32 local_5cc;
+    UnkStruct_027e0d38_UnkC local_5c8;
+    unk32 local_5c4;
+    unk32 local_5c0;
+    int local_5bc;
+    unk16 local_5b8;
+    unk8 local_5b6;
+    unk8 local_5b5;
+    unk8 local_5b4;
+    unk8 local_5b3;
+    unk32 local_5b0;
+    unk32 local_5ac;
+    unk16 local_5a8;
+    unk16 local_5a6;
+    unk16 local_5a4;
+    unk32 local_5a0;
+    unk16 local_59c;
+    char acStack_198[128];
+    char acStack_118[128];
+    char acStack_98[128];
+    Course *pCStack_18;
 
-  pCStack_18 = param_4;
-  if (in_stack_00000004 == '\0') {
-    (**(code **)(param_1->vtable + 0x10))();
-  }
-  func_ov004_0210cb1c(param_1);
-  func_ov004_0210cc58(param_1,param_4,param_2);
-  GetMapFilePath(param_1,param_4->mName,param_2,acStack_98);
-  iVar1 = func_0202d598(0x99,DWORD_027e0ce4,_DAT_020e233c,acStack_98,0x10,1);
-  param_1->field182_0x148 = iVar1;
-  SetBounds(param_1,param_2,param_4);
-  func_ov00_0207ddf8(param_1,false);
-  Course::FindMapGridPos(local_5d0,param_4,param_2);
-  param_1->field16_0x13 = (char)param_2;
-  param_1->field17_0x14 = local_5d0[0].x;
-  param_1->field18_0x15 = local_5d0[0].y;
-  param_1->field28_0x24 = param_3;
-  (**(code **)(param_1->vtable + 0xc))(param_1,param_4);
-  Course::func_ov00_0207ce20(param_4,param_2,param_1->field28_0x24,acStack_118,2);
-  (**(code **)(param_1->vtable + 0x34))(param_1,acStack_118);
-  Course::func_ov00_0207ce20(param_4,param_2,param_1->field28_0x24,acStack_198,1);
-  func_ov004_02102748(data_027e0f6c,acStack_198,param_1);
-  func_ov004_0210cc20(param_1,param_4);
-  Course::func_ov00_0207ce20(param_4,param_2,param_1->field28_0x24,acStack_98,0);
-  local_5cc = 0;
-  local_5b0 = LoadFileFromRom(acStack_98,&local_5cc);
-  local_5ac = local_5cc;
-  local_5a8 = 0;
-  local_5a6 = 0;
-  local_5a4 = 0;
-  local_5a0 = 0;
-  local_59c = 0;
-  func_ov004_02108a04(&local_5b0,param_1);
-  Course::func_ov00_0207ca78(param_4,param_2,1);
-  (**(code **)(param_1->vtable + 0x14))();
-  (**(code **)(param_1->vtable + 0x3c))();
-  func_ov004_0210cb38((int)param_1);
-  if ((in_stack_00000004 != '\0') || (param_4->field26_0x25c == false)) {
-    Course::func_ov00_0207ce20(param_4,param_2,param_1->field28_0x24,acStack_98,3);
-    UnkStruct_027e103c::func_ov000_020cf13c(data_027e103c,acStack_98);
-    if (in_stack_00000000 != '\0') {
-      Course::func_ov00_0207d7bc(param_4);
+    pCStack_18 = (Course *) param_4;
+    if (in_stack_00000004 == '\0') {
+        ((MapBase *) param_1)->vfunc_10();
     }
-  }
-  if (data_027e0d38->field8_0x14 == 1) {
-    local_5c8 = data_027e0d38->field6_0xc;
-    local_5c4 = data_027e0d38->field7_0x10;
-    local_5c0 = data_027e0d38->field8_0x14;
-    local_5bc = data_027e0d38->field9_0x18;
-    local_5b8 = data_027e0d38->field10_0x1c;
-    local_5b6 = data_027e0d38->field11_0x1e;
-    local_5b5 = data_027e0d38->field12_0x1f;
-    local_5b4 = data_027e0d38->field13_0x20;
-    local_5b3 = data_027e0d38->field14_0x21;
-    if ((local_5bc != 0x21) &&
-       (iVar1 = AdventureFlags::Get_FlagsUnk_44(gAdventureFlags,local_5bc), iVar1 != 0x2e)) {
-      func_ov000_0209c474(param_1->field181_0x144,iVar1,1);
+    ((MapBase *) param_1)->func_ov004_0210cb1c();
+    ((MapBase *) param_1)->func_ov004_0210cc58((Course *) param_4, param_2);
+    ((MapBase *) param_1)->GetMapFilePath(((Course *) param_4)->mName, param_2, acStack_98);
+    // iVar1             = func_0202d598(0x99, data_027e0ce4, _DAT_020e233c, acStack_98, 0x10, 1);
+    ((MapBase *) param_1)->mUnk_148 = iVar1;
+    ((MapBase *) param_1)->SetBounds(param_2, (Course *) param_4);
+    ((MapBase *) param_1)->func_ov00_0207ddf8(false);
+    ((Course *) param_4)->FindMapGridPos(local_5d0, param_4, param_2);
+    ((MapBase *) param_1)->mUnk_013 = (char) param_2;
+    ((MapBase *) param_1)->mUnk_014 = local_5d0[0].x;
+    ((MapBase *) param_1)->mUnk_015 = local_5d0[0].y;
+    ((MapBase *) param_1)->mUnk_024 = param_3;
+    ((MapBase *) param_1)->vfunc_0c((Course *) param_4);
+    ((Course *) param_4)->func_ov00_0207ce20(param_2, ((MapBase *) param_1)->mUnk_024, acStack_118, 2);
+    ((MapBase *) param_1)->vfunc_34(acStack_118);
+    ((Course *) param_4)->func_ov00_0207ce20(param_2, ((MapBase *) param_1)->mUnk_024, acStack_198, 1);
+    // data_027e0f6c->func_ov004_02102748(acStack_198, param_1);
+    ((MapBase *) param_1)->func_ov004_0210cc20((Course *) param_4);
+    ((Course *) param_4)->func_ov00_0207ce20(param_2, ((MapBase *) param_1)->mUnk_024, acStack_98, 0);
+    local_5cc = 0;
+    // local_5b0 = LoadFileFromRom(acStack_98, &local_5cc);
+    local_5ac = local_5cc;
+    local_5a8 = 0;
+    local_5a6 = 0;
+    local_5a4 = 0;
+    local_5a0 = 0;
+    local_59c = 0;
+    // func_ov004_02108a04(&local_5b0, param_1);
+    // param_4->func_ov00_0207ca78(param_2, 1);
+    ((MapBase *) param_1)->vfunc_14();
+    ((MapBase *) param_1)->vfunc_3c();
+    ((MapBase *) param_1)->func_ov004_0210cb38();
+    if ((in_stack_00000004 != '\0') || (((Course *) param_4)->mUnk_25c == false)) {
+        ((Course *) param_4)->func_ov00_0207ce20(param_2, ((MapBase *) param_1)->mUnk_024, acStack_98, 3);
+        data_027e103c->func_ov000_020cf13c((s32) acStack_98);
+        if (in_stack_00000000 != '\0') {
+            ((Course *) param_4)->func_ov00_0207d7bc();
+        }
     }
-  }
-  func_ov00_0207dea0(param_1,true);
-  return;
-    */
+    if (data_027e0d38->mUnk_14 == 1) {
+        local_5c8 = data_027e0d38->mUnk_0c;
+        local_5c4 = data_027e0d38->mUnk_10;
+        local_5c0 = data_027e0d38->mUnk_14;
+        local_5bc = data_027e0d38->mUnk_18;
+        local_5b8 = data_027e0d38->mUnk_1c;
+        local_5b6 = data_027e0d38->mUnk_1e;
+        local_5b5 = data_027e0d38->mUnk_1f;
+        local_5b4 = data_027e0d38->mUnk_20;
+        local_5b3 = data_027e0d38->mUnk_21;
+        if ((local_5bc != 0x21) && (iVar1 = AdventureFlags::Get_FlagsUnk_44(gAdventureFlags, local_5bc), iVar1 != 0x2e)) {
+            func_ov000_0209c474(param_1->field181_0x144, iVar1, 1);
+        }
+    }
+    ((MapBase *) param_1)->func_ov00_0207dea0(true);
+    return;*/
 }
 
-s32 MapBase::GetTriggerBoundingBox(unk32 param_2, AABB *param_3) {
-    /*
-      TriggerBase *pTVar1;
-  int iVar2;
-  int iVar3;
-  TriggerBase **ppTVar4;
-  int local_38;
-  int local_34;
-  int local_30;
-  int local_2c;
-  int local_28;
-  int local_24;
+ARM s32 MapBase::GetTriggerBoundingBox(unk32 param_2, AABB *param_3) {
+    int iVar3;
+    TriggerBase **p;
+    AABB local_38;
 
-  ppTVar4 = (param_1->mTriggers).elements;
-  iVar3 = 0;
-  if ((param_1->mTriggers).size * -4 != 0) {
-    do {
-      pTVar1 = *ppTVar4;
-                    // GetBoundingBox
-    if ((param_2 == pTVar1->mId) && (iVar2 = (**(code **) (pTVar1->vtable + 0x18))(pTVar1, &local_38), iVar2 != 0)) {
-        iVar3            = iVar3 + 1;
-        (param_3->min).x = local_38;
-        (param_3->min).y = local_34;
-        (param_3->min).z = local_30;
-        (param_3->max).x = local_2c;
-        (param_3->max).y = local_28;
-        (param_3->max).z = local_24;
+    iVar3 = 0;
+    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+        if (param_2 == (*p)->mId && (*p)->GetBoundingBox(&local_38)) {
+            iVar3++;
+            param_3->min.x = local_38.min.x;
+            param_3->min.y = local_38.min.y;
+            param_3->min.z = local_38.min.z;
+            param_3->max.x = local_38.max.x;
+            param_3->max.y = local_38.max.y;
+            param_3->max.z = local_38.max.z;
+        }
     }
-    ppTVar4 = ppTVar4 + 1;
-}
-while (ppTVar4 != (param_1->mTriggers).elements + (param_1->mTriggers).size)
-    ;
-}
-return iVar3;
-*/
+    return iVar3;
 }
 
 ARM bool TriggerBase::GetBoundingBox(AABB *bbox) {
     return false;
 }
 
-s32 MapBase::GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4) {
-    /*
-      TriggerBase *pTVar1;
-  int iVar2;
-  uint boxesFound;
-  TriggerBase **iter;
-  AABB local_38;
+ARM u32 MapBase::GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4) {
+    u32 boxesFound;
+    TriggerBase **p;
+    AABB local_38;
 
-  iter = (param_1->mTriggers).elements;
-  boxesFound = 0;
-  if ((param_1->mTriggers).size * -4 != 0) {
-    do {
-      pTVar1 = *iter;
-      if ((param_2 == pTVar1->mId) &&
-         (iVar2 = (**(code **)(pTVar1->vtable + 0x18))(pTVar1,&local_38), iVar2 != 0)) {
-        boxesFound = boxesFound + 1;
-        (param_3->min).x = local_38.min.x;
-        (param_3->min).y = local_38.min.y;
-        (param_3->min).z = local_38.min.z;
-        (param_3->max).x = local_38.max.x;
-        (param_3->max).y = local_38.max.y;
-        (param_3->max).z = local_38.max.z;
-        param_3 = param_3 + 1;
-      }
-      if (param_4 <= boxesFound) {
-        return boxesFound;
-      }
-      iter = iter + 1;
-    } while (iter != (param_1->mTriggers).elements + (param_1->mTriggers).size);
-  }
-  return boxesFound;
-    */
-}
-
-unk8 MapBase::GetOverlappingTrigger(Vec3p *param_2) {
-    /*
-      int iVar1;
-  TriggerBase **iter;
-  TriggerBase *pTVar2;
-
-  iter = (param_1->mTriggers).elements;
-  if ((param_1->mTriggers).size * -4 != 0) {
-    do {
-      pTVar2 = *iter;
-                    // Overlaps
-    iVar1 = (**(code **) (pTVar2->vtable + 0x14))(pTVar2, param_2);
-    if (iVar1 != 0) {
-        return (uint) pTVar2->mId;
+    boxesFound = 0;
+    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+        if (param_2 == (*p)->mId && (*p)->GetBoundingBox(&local_38)) {
+            boxesFound++;
+            param_3->min.x = local_38.min.x;
+            param_3->min.y = local_38.min.y;
+            param_3->min.z = local_38.min.z;
+            param_3->max.x = local_38.max.x;
+            param_3->max.y = local_38.max.y;
+            param_3->max.z = local_38.max.z;
+            param_3++;
+        }
+        if (boxesFound >= param_4) {
+            return boxesFound;
+        }
     }
-    iter = iter + 1;
+    return boxesFound;
+
+    /*
+        TriggerBase *pTVar1;
+    int iVar2;
+    uint boxesFound;
+    TriggerBase **iter;
+    AABB local_38;
+
+    iter = (param_1->mTriggers).elements;
+    boxesFound = 0;
+    if ((param_1->mTriggers).size * -4 != 0) {
+      do {
+        pTVar1 = *iter;
+        if ((param_2 == pTVar1->mId) &&
+           (iVar2 = (**(code **)(pTVar1->vtable + 0x18))(pTVar1,&local_38), iVar2 != 0)) {
+          boxesFound = boxesFound + 1;
+          (param_3->min).x = local_38.min.x;
+          (param_3->min).y = local_38.min.y;
+          (param_3->min).z = local_38.min.z;
+          (param_3->max).x = local_38.max.x;
+          (param_3->max).y = local_38.max.y;
+          (param_3->max).z = local_38.max.z;
+          param_3 = param_3 + 1;
+        }
+        if (param_4 <= boxesFound) {
+          return boxesFound;
+        }
+        iter = iter + 1;
+      } while (iter != (param_1->mTriggers).elements + (param_1->mTriggers).size);
+    }
+    return boxesFound;
+      */
 }
-while (iter != (param_1->mTriggers).elements + (param_1->mTriggers).size)
-    ;
-}
-return 0;
-*/
+
+// Non-matching
+ARM u8 MapBase::GetOverlappingTrigger(Vec3p *param_2) {
+    TriggerBase **p;
+
+    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+        if ((*p)->Overlaps(param_2)) {
+            return (*p)->mId;
+        }
+    }
+    return 0;
 }
 
 ARM bool TriggerBase::Overlaps(Vec3p *point) {
     return false;
 }
 
-TriggerBase *MapBase::FindTrigger(unk32 type) {
-    /*
-      TriggerBase **iter;
+// Non-matching
+ARM TriggerBase *MapBase::FindTrigger(unk32 type) {
+    TriggerBase **p;
 
-  iter = (param_1->mTriggers).elements;
-  if ((param_1->mTriggers).size * -4 != 0) {
-    do {
-      if (type == (*iter)->mId) {
-        return *iter;
-      }
-      iter = iter + 1;
-    } while (iter != (param_1->mTriggers).elements + (param_1->mTriggers).size);
-  }
-  return (TriggerBase *)0x0;
-    */
+    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+        if (type == (*p)->mId) {
+            return *p;
+        }
+    }
+    return NULL;
 }
 
 unk8 MapBase::GetOverlappingTriggers(Vec3p *param_2, TriggerBase **triggers, unk32 capacity) {
@@ -1869,71 +1857,39 @@ return uVar2;
 */
 }
 
-bool MapBase::IsTriggerTypeOverlapped(unk32 type, Vec3p *param_3) {
-    /*
-      TriggerBase *pTVar1;
-  int iVar2;
-  TriggerBase **ppTVar3;
+ARM bool MapBase::IsTriggerTypeOverlapped(unk32 type, Vec3p *param_3) {
+    TriggerBase **p;
 
-  if (type == 0) {
-    return true;
-  }
-  ppTVar3 = (param_1->mTriggers).elements;
-  if ((param_1->mTriggers).size * -4 != 0) {
-    do {
-      pTVar1 = *ppTVar3;
-                    // Overlaps
-    if ((type == pTVar1->mId) && (iVar2 = (**(code **) (pTVar1->vtable + 0x14))(pTVar1, param_3), iVar2 != 0)) {
+    if (type == 0) {
         return true;
     }
-    ppTVar3 = ppTVar3 + 1;
-}
-while (ppTVar3 != (param_1->mTriggers).elements + (param_1->mTriggers).size)
-    ;
-}
-return false;
-*/
-}
-
-bool MapBase::AnyTrigger_func_0c(unk32 type) {
-    /*
-      TriggerBase *pTVar1;
-  TriggerBase **ppTVar2;
-
-  ppTVar2 = (param_1->mTriggers).elements;
-  if ((param_1->mTriggers).size * -4 != 0) {
-    do {
-      pTVar1 = *ppTVar2;
-      if (type == pTVar1->mId) {
-        (**(code **)(pTVar1->vtable + 0xc))(pTVar1,1);
-      }
-      ppTVar2 = ppTVar2 + 1;
-    } while (ppTVar2 != (param_1->mTriggers).elements + (param_1->mTriggers).size);
-  }
-  return true;
-    */
+    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+        if (type == (*p)->mId && (*p)->Overlaps(param_3)) {
+            return true;
+        }
+    }
+    return false;
 }
 
-ARM unk32 TriggerBase::vfunc_0c() {
-    return 0;
+ARM bool MapBase::AnyTrigger_func_0c(unk32 type) {
+    TriggerBase **p;
+    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+        if (type == (*p)->mId) {
+            (*p)->vfunc_0c(true);
+        }
+    }
+    return true;
 }
 
-unk8 MapBase::Trigger_vfunc_08() {
-    /*
-      TriggerBase **ppTVar1;
-  TriggerBase **ppTVar2;
+ARM bool TriggerBase::vfunc_0c(bool param_2) {
+    return false;
+}
 
-  ppTVar1 = (param_1->mTriggers).elements;
-  if ((param_1->mTriggers).size * -4 == 0) {
-    return;
-  }
-  do {
-    ppTVar2 = ppTVar1 + 1;
-    (**(code **)((*ppTVar1)->vtable + 8))();
-    ppTVar1 = ppTVar2;
-  } while (ppTVar2 != (param_1->mTriggers).elements + (param_1->mTriggers).size);
-  return;
-    */
+ARM void MapBase::Trigger_vfunc_08() {
+    TriggerBase **p;
+    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+        (*p)->vfunc_08();
+    }
 }
 
 bool MapBase::AddTrigger(TriggerBase *param_2) {
@@ -2036,29 +1992,28 @@ ARM void MapBase::func_ov00_0208008c(u32 param_2) {
     this->mUnk_144->func_ov000_0209c8e4(param_2);
 }
 
-unk8 MapBase::AddExit(Exit *param_2) {
-    /*
-      uint uVar1;
-  Exit *pEVar2;
+// Non-matching
+ARM void MapBase::AddExit(Exit *param_2) {
+    u32 uVar1;
+    Exit *pEVar2;
 
-  uVar1 = (param_1->mExits).size;
-  if (uVar1 < (uint)(param_1->mExits).capacity) {
-    (param_1->mExits).size = uVar1 + 1;
-    pEVar2 = (param_1->mExits).elements;
-    pEVar2[uVar1].mDestCourse = param_2->mDestCourse;
-    pEVar2[uVar1].field1_0x4 = param_2->field1_0x4;
-    pEVar2[uVar1].field2_0x8 = param_2->field2_0x8;
-    pEVar2[uVar1].field3_0xc = param_2->field3_0xc;
-    pEVar2[uVar1].field4_0x10 = param_2->field4_0x10;
-    pEVar2[uVar1].mDestMap = param_2->mDestMap;
-    pEVar2[uVar1].mDestEntrance = param_2->mDestEntrance;
-    pEVar2[uVar1].field7_0x14 = param_2->field7_0x14;
-    pEVar2[uVar1].field8_0x15 = param_2->field8_0x15;
-    return;
-  }
-  std::vector<Exit>::push_back(&param_1->mExits,param_2);
-  return;
-    */
+    uVar1 = this->mExits.mSize;
+    if (uVar1 < this->mExits.mCapacity) {
+        this->mExits.mSize          = uVar1 + 1;
+        uVar1                       = this->mExits.mSize - 1; // why?
+        pEVar2                      = this->mExits.mElements;
+        pEVar2[uVar1].mDestCourse   = param_2->mDestCourse;
+        pEVar2[uVar1].mUnk_04       = param_2->mUnk_04;
+        pEVar2[uVar1].mUnk_08       = param_2->mUnk_08;
+        pEVar2[uVar1].mUnk_0c       = param_2->mUnk_0c;
+        pEVar2[uVar1].mUnk_10       = param_2->mUnk_10;
+        pEVar2[uVar1].mDestMap      = param_2->mDestMap;
+        pEVar2[uVar1].mDestEntrance = param_2->mDestEntrance;
+        pEVar2[uVar1].mUnk_14       = param_2->mUnk_14;
+        pEVar2[uVar1].mUnk_15       = param_2->mUnk_15;
+        return;
+    }
+    this->mExits.push_back(*param_2);
 }
 
 char MapBase::func_ov00_02080140(Exit *param_2) {
@@ -2361,39 +2316,38 @@ ARM unk32 MapBase::vfunc_b8(unk32 param_2) {
     return 0;
 }
 
+// Non-matching
 bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
-    /*
-      int iVar1;
-  int iVar2;
-  int iVar3;
+    int iVar1;
+    int iVar2;
+    int iVar3;
 
-  iVar2 = param_1->field183_0x14c;
-  if (iVar2 == 0) {
+    iVar2 = this->mUnk_14c;
+    if (iVar2 == 0) {
+        return false;
+    }
+    iVar3 = 0;
+    // iVar1 = iVar2;
+    if (*(u16 *) (iVar2 + 4) > 0) {
+        do {
+            if (param_2 == *(u8 *) (iVar1 + 8)) {
+                iVar1                       = iVar2 + 8 + iVar3 * 0x1c;
+                *param_3                    = *(u8 *) (iVar2 + 8 + iVar3 * 0x1c);
+                param_3[1]                  = *(u8 *) (iVar1 + 1);
+                *(unk16 *) (param_3 + 2)    = *(unk16 *) (iVar1 + 2);
+                *(unk32 *) (param_3 + 4)    = *(unk32 *) (iVar1 + 4);
+                *(unk32 *) (param_3 + 8)    = *(unk32 *) (iVar1 + 8);
+                *(unk32 *) (param_3 + 0xc)  = *(unk32 *) (iVar1 + 0xc);
+                *(unk32 *) (param_3 + 0x10) = *(unk32 *) (iVar1 + 0x10);
+                *(unk32 *) (param_3 + 0x14) = *(unk32 *) (iVar1 + 0x14);
+                *(unk32 *) (param_3 + 0x18) = *(unk32 *) (iVar1 + 0x18);
+                return true;
+            }
+            iVar3++;
+            iVar1 += 0x1c;
+        } while (iVar3 < (int) *(u16 *) (iVar2 + 4));
+    }
     return false;
-  }
-  iVar3 = 0;
-  iVar1 = iVar2;
-  if (*(ushort *)(iVar2 + 4) != 0) {
-    do {
-      if (param_2 == *(byte *)(iVar1 + 8)) {
-        iVar1 = iVar2 + 8 + iVar3 * 0x1c;
-        *param_3 = *(undefined1 *)(iVar2 + 8 + iVar3 * 0x1c);
-        param_3[1] = *(undefined1 *)(iVar1 + 1);
-        *(undefined2 *)(param_3 + 2) = *(undefined2 *)(iVar1 + 2);
-        *(undefined4 *)(param_3 + 4) = *(undefined4 *)(iVar1 + 4);
-        *(undefined4 *)(param_3 + 8) = *(undefined4 *)(iVar1 + 8);
-        *(undefined4 *)(param_3 + 0xc) = *(undefined4 *)(iVar1 + 0xc);
-        *(undefined4 *)(param_3 + 0x10) = *(undefined4 *)(iVar1 + 0x10);
-        *(undefined4 *)(param_3 + 0x14) = *(undefined4 *)(iVar1 + 0x14);
-        *(undefined4 *)(param_3 + 0x18) = *(undefined4 *)(iVar1 + 0x18);
-        return true;
-      }
-      iVar3 = iVar3 + 1;
-      iVar1 = iVar1 + 0x1c;
-    } while (iVar3 < (int)(uint)*(ushort *)(iVar2 + 4));
-  }
-  return false;
-    */
 }
 
 bool MapBase::AddUnk_130(s32 param_2) {
@@ -2474,25 +2428,19 @@ bool MapBase::func_ov00_020809b8(s32 param_2) {
     */
 }
 
-unk8 MapBase::func_ov00_02080a78(Vec3p *param_2) {
-    /*
-      TriggerBase *pTVar1;
-  TriggerBase **ppTVar2;
-  MapBase_Unk2 local_18;
+// Non-matching
+TriggerBase *MapBase::func_ov00_02080a78(Vec3p *param_2) {
+    MapBase_Unk2 local_18;
 
-  local_18.mVec.x = param_2->x;
-  local_18.mVec.y = param_2->y;
-  local_18.mVec.z = param_2->z;
-  ppTVar2 = (param_1->mUnk_130).elements;
-  MapBase_Unk2::func_ov00_02080ad0(&local_18,ppTVar2,ppTVar2 + (param_1->mUnk_130).size);
-  if (local_18.mTrigger == (param_1->mUnk_130).elements + (param_1->mUnk_130).size) {
-    pTVar1 = (TriggerBase *)0x0;
-  }
-  else {
-    pTVar1 = *local_18.mTrigger;
-  }
-  return pTVar1;
-    */
+    local_18.mVec    = *param_2;
+    local_18.ppTVar2 = this->mUnk_130.mElements;
+    local_18.ppTVar1 = this->mUnk_130.mElements + this->mUnk_130.mSize;
+
+    local_18.func_ov00_02080ad0(local_18.ppTVar2, local_18.ppTVar1);
+    if (local_18.mTrigger == this->mUnk_130.mElements + this->mUnk_130.mSize) {
+        return NULL;
+    }
+    return *local_18.mTrigger;
 }
 
 void MapBase_Unk2::func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param_3) {
@@ -2508,83 +2456,80 @@ void MapBase_Unk2::func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param
     */
 }
 
-unk8 MapBase::func_ov00_02080b24(TilePos *param_2) {
-    /*
-      int *piVar1;
-  int iVar2;
-  int dx;
-  int dy;
-  int dx_;
-  int dy_;
-  int *piVar3;
-  int x;
-  int y;
-  undefined1 uStack_2c;
-  undefined1 uStack_2b;
-  undefined1 uStack_2a;
-  undefined1 uStack_29;
-  TilePos uStack_28;
-  int dist;
-  ushort height;
-  ushort width;
+struct UnkStruct_02080b24 {
+    virtual unk32 vfunc_1c();
+};
 
-  dist = (**(code **)(param_1->vtable + 0x58))(param_1,param_2,4);
-  if (dist != 0) {
-    return;
-  }
-  if (0x5f < (ushort)param_1->field33_0x30) {
-    piVar3 = (int *)0x0;
-    width = param_1->mWidth;
-    dist = 0;
-    x = 0;
-    height = param_1->mHeight;
-    if (width != 0) {
-      do {
-        y = 0;
-        if (height != 0) {
-          do {
-            uStack_28.x = (byte)x;
-            uStack_28.y = (byte)y;
-            piVar1 = (int *)(**(code **)(param_1->vtable + 0x78))(param_1,&uStack_28);
-            if ((piVar1 != (int *)0x0) && (iVar2 = (**(code **)(*piVar1 + 0x1c))(), iVar2 == 0x42))
-            {
-              if (piVar3 == (int *)0x0) {
-                dx = abs(x - (uint)param_2->x);
-                dy = abs(y - (uint)param_2->y);
-                piVar3 = piVar1;
-                dist = dx + dy;
-              }
-              else {
-                dx_ = abs(x - (uint)param_2->x);
-                dy_ = abs(y - (uint)param_2->y);
-                if (dist < dx_ + dy_) {
-                  piVar3 = piVar1;
-                  dist = dx_ + dy_;
+unk8 MapBase::func_ov00_02080b24(TilePos *param_2) {
+    UnkStruct_02080b24 *piVar1;
+    int iVar2;
+    int dx;
+    int dy;
+    int dx_;
+    int dy_;
+    UnkStruct_02080b24 *piVar3;
+    int x;
+    int y;
+    TilePos uStack_2c;
+    TilePos uStack_2a;
+    TilePos uStack_28;
+    int dist;
+    u16 height;
+    u16 width;
+
+    dist = this->vfunc_58(param_2, 4);
+    if (dist != 0) {
+        return;
+    }
+    if (0x5f < (u16) this->mUnk_030) {
+        piVar3 = NULL;
+        width  = this->mWidth;
+        dist   = 0;
+        x      = 0;
+        height = this->mHeight;
+        if (width != 0) {
+            do {
+                y = 0;
+                if (height != 0) {
+                    do {
+                        uStack_28.x = (u8) x;
+                        uStack_28.y = (u8) y;
+                        piVar1      = (UnkStruct_02080b24 *) this->vfunc_78(&uStack_28);
+                        if ((piVar1 != NULL) && (iVar2 = piVar1->vfunc_1c(), iVar2 == 0x42)) {
+                            if (piVar3 == NULL) {
+                                dx     = ABS(x - (u32) param_2->x);
+                                dy     = ABS(y - (u32) param_2->y);
+                                piVar3 = piVar1;
+                                dist   = dx + dy;
+                            } else {
+                                dx_ = ABS(x - (u32) param_2->x);
+                                dy_ = ABS(y - (u32) param_2->y);
+                                if (dist < dx_ + dy_) {
+                                    piVar3 = piVar1;
+                                    dist   = dx_ + dy_;
+                                }
+                            }
+                        }
+                        y = y + 1;
+                    } while (y < (int) (u32) height);
                 }
-              }
-            }
-            y = y + 1;
-          } while (y < (int)(uint)height);
+                x = x + 1;
+            } while (x < (int) (u32) width);
         }
-        x = x + 1;
-      } while (x < (int)(uint)width);
+        if (piVar3 == NULL) {
+            return;
+        }
+        // piVar3[1] = piVar3[1] & 0xfffffffe;
+        uStack_2a.x = *(unk8 *) ((int) piVar3 + 0x15);
+        // uStack_2a.y = *(unk8 *) piVar3[5];
+        this->vfunc_98(&uStack_2a, 4, 0);
+        uStack_2c.x = *(unk8 *) ((int) piVar3 + 0x15);
+        // uStack_2c.y = (unk8) piVar3[5];
+        this->vfunc_98(&uStack_2c, 6, 1);
+        this->mUnk_030--;
     }
-    if (piVar3 == (int *)0x0) {
-      return;
-    }
-    piVar3[1] = piVar3[1] & 0xfffffffe;
-    uStack_29 = *(undefined1 *)((int)piVar3 + 0x15);
-    uStack_2a = (undefined1)piVar3[5];
-    (**(code **)(param_1->vtable + 0x98))(param_1,&uStack_2a,4,0);
-    uStack_2b = *(undefined1 *)((int)piVar3 + 0x15);
-    uStack_2c = (undefined1)piVar3[5];
-    (**(code **)(param_1->vtable + 0x98))(param_1,&uStack_2c,6,1);
-    param_1->field33_0x30 = param_1->field33_0x30 + -1;
-  }
-  (**(code **)(param_1->vtable + 0x98))(param_1,param_2,4,1);
-  param_1->field33_0x30 = param_1->field33_0x30 + 1;
-  return;
-    */
+    this->vfunc_98(param_2, 4, 1);
+    this->mUnk_030++;
 }
 
 void MapBase::func_ov00_02080d08(TilePos *param_2) {
@@ -2606,21 +2551,15 @@ ARM void MapBase::vfunc_98(TilePos *param_2, unk32 param_3, unk32 param_4) {}
 
 ARM void MapBase::vfunc_c0() {}
 
-bool MapBase::TriggerOfType_vfunc_10(unk32 type) {
-    /*
-      TriggerBase **ppTVar1;
+ARM bool MapBase::TriggerOfType_vfunc_10(unk32 type) {
+    TriggerBase **p;
+    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+        if (type == (*p)->mId) {
+            (*p)->vfunc_10();
+        }
+    }
 
-  ppTVar1 = (param_1->mTriggers).elements;
-  if ((param_1->mTriggers).size * -4 != 0) {
-    do {
-      if (type == (*ppTVar1)->mId) {
-        (**(code **)((*ppTVar1)->vtable + 0x10))();
-      }
-      ppTVar1 = ppTVar1 + 1;
-    } while (ppTVar1 != (param_1->mTriggers).elements + (param_1->mTriggers).size);
-  }
-  return true;
-    */
+    return true;
 }
 
 ARM unk32 TriggerBase::vfunc_10() {

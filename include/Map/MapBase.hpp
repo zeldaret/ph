@@ -65,9 +65,13 @@ struct MapBase_Unk1 {
 };
 
 struct MapBase_Unk2 {
-    /* 00 */ TriggerBase **mTrigger;
-    /* 04 */ Vec3p mVec;
-    /* 10 */
+    /* 00 */
+    /* 04 */ TriggerBase **ppTVar1;
+    /* 08 */
+    /* 18 */ TriggerBase **ppTVar2;
+    TriggerBase **mTrigger;
+    Vec3p mVec;
+    /* 1c */
 
     void func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param_3);
 };
@@ -129,7 +133,7 @@ public:
     /* 140 */ MapBase_Unk_140 *mUnk_140;
     /* 144 */ MapBase_Unk_144 *mUnk_144;
     /* 148 */ s32 mUnk_148;
-    /* 14c */ s32 mUnk_14c;
+    /* 14c */ unk32 mUnk_14c;
     /* 150 */ unk32 mUnk_150;
     /* 154 */ unk32 mUnk_154;
     /* 158 */ unk8 mUnk_158[8];
@@ -229,20 +233,20 @@ public:
     void func_ov00_0207f948(unk32 *param_2);
     void AddTrigger(TriggerParams *param_2);
     s32 GetTriggerBoundingBox(s32 param_2, AABB *param_3);
-    s32 GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4);
-    unk8 GetOverlappingTrigger(Vec3p *param_2);
+    u32 GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4);
+    u8 GetOverlappingTrigger(Vec3p *param_2);
     TriggerBase *FindTrigger(unk32 type);
     unk8 GetOverlappingTriggers(Vec3p *param_2, TriggerBase **triggers, unk32 capacity);
     bool IsTriggerTypeOverlapped(unk32 type, Vec3p *param_3);
     bool AnyTrigger_func_0c(unk32 type);
-    unk8 Trigger_vfunc_08();
+    void Trigger_vfunc_08();
     bool AddTrigger(TriggerBase *param_2);
     bool func_ov00_0207ff88(s32 param_2);
     void func_ov00_0208005c(s32 param_2, s32 param_3, unk32 param_4);
     void func_ov00_0208006c(unk32 param_2, s32 param_3);
     void func_ov00_0208007c(s32 param_2, s32 param_3);
     void func_ov00_0208008c(u32 param_2);
-    unk8 AddExit(Exit *param_2);
+    void AddExit(Exit *param_2);
     char func_ov00_02080140(Exit *param_2);
     bool FindExit(u32 param_2, Exit *param_3);
     unk8 AddCameraViewpoint(CameraViewpoint *param_2);
@@ -253,7 +257,7 @@ public:
     bool func_ov00_02080824(u32 param_2, unk8 *param_3);
     bool AddUnk_130(s32 param_2);
     bool func_ov00_020809b8(s32 param_2);
-    unk8 func_ov00_02080a78(Vec3p *param_2);
+    TriggerBase *func_ov00_02080a78(Vec3p *param_2);
     unk8 func_ov00_02080b24(TilePos *param_2);
     void func_ov00_02080d08(TilePos *param_2);
     bool TriggerOfType_vfunc_10(unk32 type);
