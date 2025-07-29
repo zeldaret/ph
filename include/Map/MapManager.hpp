@@ -111,8 +111,8 @@ public:
     void func_ov00_02082650(s32 param_2, s32 param_3, unk32 param_4);
     void func_ov00_02082660(s32 param_2, s32 param_3);
     void func_ov00_02082670(unk32 param_2, s32 param_3);
-    void func_ov00_02082680(unk32 param_2, unk32 param_3);
-    void func_ov00_020826a0(unk32 param_2, unk32 param_3);
+    void func_ov00_02082680(TilePos *param_2, unk32 param_3);
+    void func_ov00_020826a0(TilePos *param_2, unk32 param_3);
     void CreateMap(unk32 mapType, unk32 param_3, unk32 param_4);
     void DestroyMap();
     void MapData_vfunc_44();
@@ -181,7 +181,7 @@ public:
     unk8 GetOverlappingTrigger(Vec3p *param_2);
     bool func_ov00_02083790(s32 param_2);
     bool func_ov00_02083840(s32 param_2);
-    bool AddTrigger(s32 param_2);
+    bool AddTrigger(TriggerBase *param_2);
     bool func_ov00_020838d8(s32 param_2);
     bool FindExit(u32 param_2, Exit *param_3);
     char func_ov00_020838f8(Exit *param_2);
@@ -224,8 +224,8 @@ public:
     static unk8 func_ov00_02084100(unk32 *param_1, MapManager *param_2);
     unk32 GetMapData_Unk_48();
     unk32 GetMapData_Unk_4c();
-    unk32 func_ov00_0208412c();
-    void func_ov00_0208413c(unk32 param_2);
+    unk32 *func_ov00_0208412c();
+    void func_ov00_0208413c(unk32 *param_2);
     unk8 MapData_vfunc_58(TilePos *param_1, int param_2);
     s32 func_ov00_02084164(TilePos *param_2);
     u8 GetMapData_Unk_0a();

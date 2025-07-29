@@ -20,6 +20,33 @@
 #define MAX_VIEWPOINTS 8
 #define MAX_MAP_UNK_130 0x20
 
+struct MapBase_Unk_13c {
+    /* 00 */ unk32 mUnk_00;
+    /* 04 */ unk32 mUnk_04;
+    /* 08 */ unk32 mUnk_08;
+};
+
+struct MapBase_Unk_140 {
+    /* 00 */ unk8 mUnk_00[0x60];
+    /* 60 */ unk32 *mUnk_60;
+    /* 64 */
+};
+
+struct MapBase_Unk_144 {
+    /* 00 */ unk8 mUnk_00[0xc];
+    /* 0c */ unk32 mUnk_0c;
+    /* 10 */
+
+    unk32 *func_ov000_0209c08c(unk32 param_2, unk32 param_3);
+    void func_ov000_0209c61c(void);
+    unk32 *func_ov000_0209c530(void);
+    void func_ov000_0209c788(void);
+    void func_ov000_0209c8e4(unk32 param_2);
+    void func_ov000_0209c1e4(unk32 param_2, unk32 param_3, unk32 param_4);
+    void func_ov000_0209c2b4(unk32 param_2, unk32 param_3);
+    void func_ov000_0209c2d0(unk32 param_2, unk32 param_3);
+};
+
 struct MapBase_Unk_180 {
     /* 0 */ unk32 mUnk_0;
     /* 4 */
@@ -38,9 +65,13 @@ struct MapBase_Unk1 {
 };
 
 struct MapBase_Unk2 {
-    /* 00 */ TriggerBase **mTrigger;
-    /* 04 */ Vec3p mVec;
-    /* 10 */
+    /* 00 */
+    /* 04 */ TriggerBase **ppTVar1;
+    /* 08 */
+    /* 18 */ TriggerBase **ppTVar2;
+    TriggerBase **mTrigger;
+    Vec3p mVec;
+    /* 1c */
 
     void func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param_3);
 };
@@ -67,7 +98,7 @@ public:
     /* 014 */ unk8 mUnk_014;
     /* 015 */ unk8 mUnk_015;
     /* 016 */ unk8 mCurrViewpointId[2];
-    /* 018 */ unk8 mUnk_018[2];
+    /* 018 */ u8 mUnk_018[2];
     /* 01a */ unk8 mUnk_01a;
     /* 01b */ unk8 mUnk_01b;
     /* 01c */ unk8 mUnk_01c;
@@ -80,7 +111,7 @@ public:
     /* 02a */ s16 mHeight;
     /* 02c */ unk16 mUnk_02c;
     /* 02e */ unk16 mUnk_02e;
-    /* 030 */ s16 mUnk_030;
+    /* 030 */ u16 mUnk_030;
     /* 032 */ unk8 mUnk_032[2];
     /* 034 */ unk32 mUnk_034;
     /* 038 */ unk32 mUnk_038;
@@ -92,17 +123,17 @@ public:
     /* 050 */ unk8 mUnk_050[0x80];
     /* 0d0 */ Vec3p mCenter;
     /* 0dc */ AABB mBounds;
-    /* 0f4 */ Vec3p mUnk_0f4;
+    /* 0f4 */ Vec3p mOffset;
     /* 100 */ std::vector<Entrance> mEntrances;
     /* 10c */ std::vector<TriggerBase *> mTriggers;
     /* 118 */ std::vector<Exit> mExits;
     /* 124 */ std::vector<CameraViewpoint> mViewpoints;
     /* 130 */ std::vector<TriggerBase *> mUnk_130;
-    /* 13c */ unk32 mUnk_13c;
-    /* 140 */ unk32 mUnk_140;
-    /* 144 */ void *mUnk_144;
+    /* 13c */ MapBase_Unk_13c *mUnk_13c;
+    /* 140 */ MapBase_Unk_140 *mUnk_140;
+    /* 144 */ MapBase_Unk_144 *mUnk_144;
     /* 148 */ s32 mUnk_148;
-    /* 14c */ s32 mUnk_14c;
+    /* 14c */ unk32 mUnk_14c;
     /* 150 */ unk32 mUnk_150;
     /* 154 */ unk32 mUnk_154;
     /* 158 */ unk8 mUnk_158[8];
@@ -152,21 +183,21 @@ public:
     /* 8c */ virtual unk32 vfunc_8c();
     /* 90 */ virtual unk8 vfunc_90(TilePos *param_2, unk32 param_3);
     /* 94 */ virtual void vfunc_94();
-    /* 98 */ virtual void vfunc_98(unk32 param_2, unk32 param_3, unk32 param_4);
+    /* 98 */ virtual void vfunc_98(TilePos *param_2, unk32 param_3, unk32 param_4);
     /* 9c */ virtual void vfunc_9c();
     /* a0 */ virtual void vfunc_a0();
     /* a4 */ virtual unk32 vfunc_a4(unk8 *param_1);
     /* a8 */ virtual void vfunc_a8();
     /* ac */ virtual void vfunc_ac();
     /* b0 */ virtual void vfunc_b0(unk32 param_2, unk32 param_3);
-    /* b4 */ virtual void vfunc_b4();
-    /* b8 */ virtual unk32 vfunc_b8();
+    /* b4 */ virtual unk32 *vfunc_b4();
+    /* b8 */ virtual unk32 vfunc_b8(unk32 param_2);
     /* bc */ virtual void vfunc_bc();
     /* c0 */ virtual void vfunc_c0();
     /* c4 */
 
-    void SetBounds(unk32 map, unk32 course);
-    void GetMapFilePath(char *courseName, unk32 num1, unk32 buf);
+    void SetBounds(unk32 map, Course *course);
+    void GetMapFilePath(char *courseName, unk32 num1, char *buf);
     void func_ov00_0207ddf8(bool param_2);
     void func_ov00_0207de68(unk32 param_2);
     void func_ov00_0207de88();
@@ -175,9 +206,9 @@ public:
     s32 func_ov00_0207e0f0(s32 param_2);
     s32 func_ov00_0207e28c(s32 param_2);
     static unk8 func_ov00_0207e940(unk8 *param_1);
-    static unk8 func_ov00_0207e968();
-    static unk8 func_ov00_0207e96c();
-    static unk8 func_ov00_0207f100();
+    static void func_ov00_0207e968();
+    static void func_ov00_0207e96c();
+    static void func_ov00_0207f100();
     bool func_ov00_0207f104(unk32 param_2, unk32 param_3);
     unk32 func_ov00_0207f1f4(Vec3p *param_2, unk32 *param_3);
     bool func_ov00_0207f38c(s32 *param_2);
@@ -185,37 +216,37 @@ public:
     static void func_ov00_0207f53c(Vec2s *param_1, MapBase *param_2, Vec3p *param_3);
     static void func_ov00_0207f588(Vec2s *param_1, MapBase *param_2, TilePos *param_3, unk32 param_4);
     void func_ov00_0207f630(Vec2s *param_2, Vec3p *param_3);
-    unk8 GetTileStartX(unk32 x);
-    unk8 GetTileStartZ(unk32 z);
-    s32 GetTileEndX(unk32 x);
-    s32 GetTileEndZ(unk32 z);
+    unk32 GetTileStartX(unk32 x);
+    unk32 GetTileStartZ(unk32 z);
+    unk32 GetTileEndX(unk32 x);
+    unk32 GetTileEndZ(unk32 z);
     void GetTileBounds(TilePos *tilePos, AABB *bounds);
     s32 GetClampedTileX(s32 worldX);
     s32 GetClampedTileY(s32 worldZ);
-    unk8 GetTileX(s32 worldX);
-    unk8 GetTileY(s32 worldZ);
+    unk32 GetTileX(s32 worldX);
+    unk32 GetTileY(s32 worldZ);
     bool IsInBounds(Vec3p *tileWorldPos);
     s32 AddEntrance(Entrance *param_2);
     Entrance *FindEntrance(unk32 id);
-    void func_ov00_0207f924(s32 param_2);
-    unk8 func_ov00_0207f934();
-    unk8 func_ov00_0207f948(unk32 param_2);
+    void func_ov00_0207f924(unk32 param_2);
+    unk32 *func_ov00_0207f934();
+    void func_ov00_0207f948(unk32 *param_2);
     void AddTrigger(TriggerParams *param_2);
     s32 GetTriggerBoundingBox(s32 param_2, AABB *param_3);
-    s32 GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4);
-    unk8 GetOverlappingTrigger(Vec3p *param_2);
+    u32 GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4);
+    u8 GetOverlappingTrigger(Vec3p *param_2);
     TriggerBase *FindTrigger(unk32 type);
     unk8 GetOverlappingTriggers(Vec3p *param_2, TriggerBase **triggers, unk32 capacity);
     bool IsTriggerTypeOverlapped(unk32 type, Vec3p *param_3);
     bool AnyTrigger_func_0c(unk32 type);
-    unk8 Trigger_vfunc_08();
-    bool AddTrigger(unk32 param_2);
+    void Trigger_vfunc_08();
+    bool AddTrigger(TriggerBase *param_2);
     bool func_ov00_0207ff88(s32 param_2);
     void func_ov00_0208005c(s32 param_2, s32 param_3, unk32 param_4);
     void func_ov00_0208006c(unk32 param_2, s32 param_3);
     void func_ov00_0208007c(s32 param_2, s32 param_3);
     void func_ov00_0208008c(u32 param_2);
-    unk8 AddExit(Exit *param_2);
+    void AddExit(Exit *param_2);
     char func_ov00_02080140(Exit *param_2);
     bool FindExit(u32 param_2, Exit *param_3);
     unk8 AddCameraViewpoint(CameraViewpoint *param_2);
@@ -226,7 +257,7 @@ public:
     bool func_ov00_02080824(u32 param_2, unk8 *param_3);
     bool AddUnk_130(s32 param_2);
     bool func_ov00_020809b8(s32 param_2);
-    unk8 func_ov00_02080a78(Vec3p *param_2);
+    TriggerBase *func_ov00_02080a78(Vec3p *param_2);
     unk8 func_ov00_02080b24(TilePos *param_2);
     void func_ov00_02080d08(TilePos *param_2);
     bool TriggerOfType_vfunc_10(unk32 type);

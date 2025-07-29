@@ -405,11 +405,11 @@ ARM void MapManager::func_ov00_02082670(unk32 param_2, s32 param_3) {
     this->mMap->func_ov00_0208006c(param_2, param_3);
 }
 
-ARM void MapManager::func_ov00_02082680(unk32 param_2, unk32 param_3) {
+ARM void MapManager::func_ov00_02082680(TilePos *param_2, unk32 param_3) {
     this->mMap->vfunc_98(param_2, 5, param_3);
 }
 
-ARM void MapManager::func_ov00_020826a0(unk32 param_2, unk32 param_3) {
+ARM void MapManager::func_ov00_020826a0(TilePos *param_2, unk32 param_3) {
     this->mMap->vfunc_98(param_2, 7, param_3);
 }
 
@@ -1057,7 +1057,7 @@ ARM bool MapManager::func_ov00_02083840(s32 param_2) {
     return this->mMap->TriggerOfType_vfunc_10(param_2);
 }
 
-ARM bool MapManager::AddTrigger(s32 param_2) {
+ARM bool MapManager::AddTrigger(TriggerBase *param_2) {
     return this->mMap->AddTrigger(param_2);
 }
 
@@ -1102,11 +1102,11 @@ ARM void MapManager::func_ov00_02083968(u32 param_2, unk8 *param_3) {
 }
 
 ARM bool MapManager::func_ov00_02083978(Vec3p *param_2, Vec3p *param_3) {
-    s32 iVar1 = this->mMap->func_ov00_02080a78(param_2);
+    TriggerBase *iVar1 = this->mMap->func_ov00_02080a78(param_2);
     if (iVar1 != 0) {
-        param_3->x = *(s32 *) (iVar1 + 0x8);
-        param_3->y = *(s32 *) (iVar1 + 0xc);
-        param_3->z = *(s32 *) (iVar1 + 0x10);
+        param_3->x = iVar1->mUnk_08;
+        param_3->y = iVar1->mUnk_0c;
+        param_3->z = iVar1->mUnk_10;
         return true;
     }
     return false;
@@ -1346,11 +1346,11 @@ unk32 MapManager::GetMapData_Unk_4c() {
     return this->mMap->mUnk_04c;
 }
 
-unk32 MapManager::func_ov00_0208412c() {
+unk32 *MapManager::func_ov00_0208412c() {
     return this->mMap->func_ov00_0207f934();
 }
 
-void MapManager::func_ov00_0208413c(unk32 param_2) {
+void MapManager::func_ov00_0208413c(unk32 *param_2) {
     this->mMap->func_ov00_0207f948(param_2);
 }
 

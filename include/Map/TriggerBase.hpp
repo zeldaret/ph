@@ -35,8 +35,9 @@ public:
     /* 14 */
 
     /* 00 */ virtual ~TriggerBase();
-    /* 08 */ virtual void vfunc_08();
-    /* 0c */ virtual unk32 vfunc_0c();
+    /* 08 */ virtual void
+        vfunc_08(/*unk32 *param_1, unk32 param_2, unk32 param_3, unk32 *param_4*/); // See MapBase::Trigger_vfunc_08
+    /* 0c */ virtual bool vfunc_0c(bool param_2);
     /* 10 */ virtual unk32 vfunc_10();
     /* 14 */ virtual bool Overlaps(Vec3p *point);
     /* 18 */ virtual bool GetBoundingBox(AABB *bbox);
