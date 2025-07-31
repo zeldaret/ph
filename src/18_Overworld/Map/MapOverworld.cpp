@@ -29,7 +29,7 @@ void MapOverworld::vfunc_b0(unk32 param_2, unk32 param_3) {}
 void MapOverworld::func_ov018_0215c650() {}
 void MapOverworld::func_ov018_0215c6ac() {}
 void MapOverworld::func_ov018_0215c6d0() {}
-MapOverworld_Unk1::MapOverworld_Unk1(u32 param1, u8 *param2, unk32 param3) :
+MapOverworld_Unk1::MapOverworld_Unk1(u32 param1, ItemModel *param2, unk32 param3) :
     UnkStruct_ov000_020c0c08(0, param2) {}
 void MapOverworld::func_ov018_0215c9ac() {}
 void func_ov018_0215ca24(s32 param1) {}

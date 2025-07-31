@@ -30,7 +30,7 @@ public:
     /* 00 */ virtual ~UnkStruct_ov000_020c0c08();
     /* 08 */
 
-    UnkStruct_ov000_020c0c08(UnkStruct_ov000_020c0c08_04 *param1, u8 *param2);
+    UnkStruct_ov000_020c0c08(UnkStruct_ov000_020c0c08_04 *param1, ItemModel *param2);
 
     void func_ov000_020c0c44(void *);
     void func_ov000_020c0e04();

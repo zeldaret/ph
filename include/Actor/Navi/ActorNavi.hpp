@@ -24,8 +24,8 @@ public:
 
     /* 000 (base) */
     /* 294 */ ModelRender mUnk_294;
-    /* 2f0 */ UnkStruct_ov000_020c0c08 *mUnk_2f0;
-    /* 2f4 */ unk8 mUnk_2f4[0x40];
+    /* 2f0 */ UnkStruct_ov000_020c0c08 mUnk_2f0;
+    /* 314 */ UnkStruct_ov000_020c0c08_04 mUnk_314;
     /* 334 */ Vec3p mUnk_334;
     /* 340 */ unk16 mUnk_340;
     /* 342 */ unk8 mUnk_342[0x2];
