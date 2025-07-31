@@ -6,6 +6,7 @@
 #include <nds/math.h>
 
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 
 class ItemModel;
 
@@ -31,7 +32,7 @@ public:
     /* 18 */ virtual void SetTranslation(Vec3p *translation);
     /* 1c */ virtual void PushGeometryCommands();
     /* 20 */ virtual void vfunc_20();
-    /* 24 */ virtual void vfunc_24(unk32 param1);
+    /* 24 */ virtual void vfunc_24(UnkStruct_ov000_020c0c08 *param1);
     /* 28 */ virtual void vfunc_28();
     /* 2c */ virtual void vfunc_2c();
     /* 30 */ virtual void vfunc_30();
@@ -40,7 +41,7 @@ public:
     /* 3c */ virtual void vfunc_3c();
     /* 40 */
 
-    ModelRender();
+    ModelRender(unk32 param1);
     void *func_ov000_020a9624(s32 param1);
     void func_ov000_020a98e8(unk32 param1);
     void func_ov000_020a990c(unk32 param1);
@@ -48,4 +49,5 @@ public:
     void func_ov000_020a9960(unk32 param1);
     void func_ov000_020a9998(unk32 param1, unk32 param2);
     void func_ov000_020a99c0();
+    void func_ov000_020b413c(unk16 param1, Vec3p *param2);
 };

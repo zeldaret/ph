@@ -2,6 +2,7 @@
 
 #include "Actor/Navi/ActorNaviBase.hpp"
 #include "Unknown/UnkStruct_ov000_020beba8.hpp"
+#include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 
 class UnkStruct_ov000_020b8110 : public UnkStruct_ov000_020beba8 {
 public:
@@ -10,7 +11,7 @@ public:
 
     /* 00 */ virtual ~UnkStruct_ov000_020b8110() override;
     /* 08 */ virtual void vfunc_08(unk16 *param1) override;
-    /* 14 */ virtual void vfunc_14(u16 *param1) override;
+    /* 14 */ virtual bool vfunc_14(u16 *param1) override;
     /* 18 */ virtual void vfunc_18(s32 *param1) override;
     /* 1c */
 
@@ -23,8 +24,8 @@ public:
 
     /* 000 (base) */
     /* 294 */ ModelRender mUnk_294;
-    /* 2f0 */ void *mUnk_2f0;
-    /* 2f4 */ unk8 mUnk_2f4[0x40];
+    /* 2f0 */ UnkStruct_ov000_020c0c08 mUnk_2f0;
+    /* 314 */ UnkStruct_ov000_020c0c08_04 mUnk_314;
     /* 334 */ Vec3p mUnk_334;
     /* 340 */ unk16 mUnk_340;
     /* 342 */ unk8 mUnk_342[0x2];

@@ -12,6 +12,7 @@
 #include "Physics/Transform.hpp"
 #include "Player/EquipBoomerang.hpp"
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_ov000_020beba8.hpp"
 
 struct Actor_UnkStruct_012 {
     /* 00 */ u16 mUnk_00;
@@ -48,7 +49,7 @@ struct Actor_UnkStruct_09c {
     /* 0 */ u16 mUnk_0;
     /* 2 */ unk8 mUnk_2;
     /* 3 */ unk8 mUnk_3;
-    /* 4 */ unk32 mUnk_4;
+    /* 4 */ UnkStruct_ov000_020beba8 *mUnk_4;
     /* 8 */
 
     Actor_UnkStruct_09c();

@@ -141,7 +141,7 @@ public:
     /* 60 */ virtual unk32 vfunc_60(TilePos *param_1);
     /* 64 */ virtual unk32 vfunc_64();
     /* 68 */ virtual unk32 vfunc_68(Vec3p *param_1, bool param_2);
-    /* 6c */ virtual unk8 vfunc_6c(unk32 param_2, unk32 param_3, unk32 param_4);
+    /* 6c */ virtual unk8 vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4);
     /* 70 */ virtual unk32 vfunc_70(Vec3p *param_2);
     /* 74 */ virtual unk32 *vfunc_74(Vec3p *param_2);
     /* 78 */ virtual unk32 *vfunc_78(TilePos *param_1);

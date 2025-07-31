@@ -54,6 +54,6 @@ class ActorBlast_Unk1 : public UnkStruct_ov000_020beba8 {
     /* 70 */
 
     /* 00 */ virtual ~ActorBlast_Unk1();
-    /* 10 */ virtual void vfunc_10(s32 *param1);
+    /* 10 */ virtual bool vfunc_10(s32 *param1);
     /* 18 */
 };

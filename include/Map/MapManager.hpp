@@ -8,8 +8,10 @@
 #include "Map/Course.hpp"
 #include "Map/MapBase.hpp"
 #include "Physics/AABB.hpp"
+#include "Physics/Sphere.hpp"
 #include "Save/AdventureFlags.hpp"
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_ov000_020beba8.hpp"
 
 struct MapManager_Unk1 {
     /* 0 */ unk32 mUnk_0;
@@ -65,6 +67,57 @@ struct UnkStruct_0208210c_param3 {
     /* 1c4 */
 };
 
+struct UnkStruct {
+    /* 00 */ unk8 mUnk_00[0x24];
+    /* 24 */ u16 mUnk_24;
+    /* 26 */ u16 mUnk_26;
+    /* 28 */ u16 mUnk_28;
+    /* 2a */ u16 mUnk_2a;
+    /* 2c */ u16 mUnk_2c;
+    /* 2e */ unk8 mUnk_2e;
+    /* 2f */ unk8 mUnk_2f;
+    /* 30 */ unk8 mUnk_30;
+    /* 31 */ unk8 mUnk_31;
+    /* 32 */ unk8 mUnk_32;
+    /* 33 */ unk8 mUnk_33;
+    /* 34 */ unk8 mUnk_34;
+    /* 35 */ unk8 mUnk_35;
+    /* 36 */ unk8 mUnk_36;
+    /* 37 */ unk8 mUnk_37;
+    /* 38 */ unk8 mUnk_38;
+    /* 3c */ Vec3p mUnk_3c;
+    /* 48 */ unk8 mUnk_48[0x6];
+    /* 4e */ u8 mUnk_4e;
+    /* 4f */ u8 mUnk_4f;
+    /* 50 */ u8 mUnk_50;
+    /* 51 */ u8 mUnk_51;
+    /* 52 */ unk8 mUnk_52[0x6];
+    /* 58 */ u8 mUnk_58;
+    /* 59 */ u8 mUnk_59;
+    /* 5a */ u8 mUnk_5a;
+    /* 5b */ u8 mUnk_5b;
+    /* 5c */ u8 mUnk_5c;
+    /* 5d */ u8 mUnk_5d;
+    /* 5e */
+
+    inline UnkStruct() :
+        mUnk_24(-1),
+        mUnk_26(-1),
+        mUnk_28(-1),
+        mUnk_2a(-1),
+        mUnk_2c(0),
+        mUnk_4e(0),
+        mUnk_4f(0),
+        mUnk_50(0),
+        mUnk_51(0),
+        mUnk_58(0),
+        mUnk_59(0),
+        mUnk_5a(0),
+        mUnk_5b(0),
+        mUnk_5c(0),
+        mUnk_5d(0) {}
+};
+
 class MapManager : public SysObject {
 public:
     /* 00 */ Course *mCourse;
@@ -79,8 +132,9 @@ public:
     /* 0f */ unk8 mUnk_0f;
     /* 10 */
 
-    bool func_01ffbe78(Vec3p *param1, Vec3p *param2, Vec3p *param3, Vec4p *param4);
-    bool func_01ffbf5c(struct UnkStruct *param1, Vec3p *param2, Vec3p *param3, s32 length);
+    bool func_01ffbe78(Vec3p *param1, Vec3p *param2, Vec3p *param3, Sphere *param4);
+    bool func_01ffbf5c(struct UnkStruct *param1, Vec3p *param2, Vec3p *param3, s32 length, unk32 param5, unk32 param6,
+                       UnkStruct_ov000_020beba8 *param7, unk32 param8);
     bool func_01ffc118(s32 *param1, Vec3p *param2, Vec3p *param3, s32 param4, s32 *param5, u32 param6, s32 *param7);
     bool func_01ffd1e0(s32 *param1, Vec3p *param2, Vec3p *param3, s32 param4, s32 *param5, u32 param6, s32 *param7);
 
@@ -213,7 +267,7 @@ public:
     unk32 MapData_vfunc_68(Vec3p *param_1, bool param_2);
     s32 func_ov00_02083ef8(Vec3p *param_2, Vec3p *param_3, bool param_4);
     unk32 func_ov00_02083f44(Vec3p *param_2, bool param_3);
-    unk8 MapData_vfunc_6c(unk32 param_2, unk32 param_3, unk32 param_4);
+    unk8 MapData_vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4);
     unk32 MapData_vfunc_70(Vec3p *param_2);
     static void func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p *param_3);
     void GetTileWorldBounds(TilePos *tile, AABB *tileBounds);

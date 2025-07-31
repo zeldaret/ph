@@ -1,8 +1,8 @@
 #include "Player/EquipBow.hpp"
 #include "Player/LinkStateItem.hpp"
 
-ModelRender EquipBow::gModelRenderBow;
-ModelRender EquipBow::gModelRenderArrow;
+ModelRender EquipBow::gModelRenderBow(0);
+ModelRender EquipBow::gModelRenderArrow(0);
 
 void EquipBow::vfunc_00() {}
 bool EquipBow::IsUsable(unk32 param1) const {}
