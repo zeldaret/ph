@@ -187,7 +187,7 @@ ARM void LinkStateItem::func_ov059_021990a4() {
     if (CHECK_0219b160(data_ov059_0219b180.mUnk_00)) {
         this->mUnk_38 = gPlayerControl->mAimWorld;
 
-        if (pAVar5->mUnk_3c0[0] != 0 && gPlayerControl->UpdateAimWorld(&this->mUnk_38) && pEVar4->GetState() <= 0) {
+        if (pAVar5->mUnk_3c0 != 0 && gPlayerControl->UpdateAimWorld(&this->mUnk_38) && pEVar4->GetState() <= 0) {
             pEVar4->func_ov059_02198e90();
 
             if (this->mUnk_25[2] != 0 && this->mUnk_25[3] != 0) {

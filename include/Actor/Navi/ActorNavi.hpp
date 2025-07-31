@@ -10,9 +10,9 @@ public:
     /* c */
 
     /* 00 */ virtual ~UnkStruct_ov000_020b8110() override;
-    /* 08 */ virtual void vfunc_08(unk16 *param1) override;
+    /* 08 */ virtual bool vfunc_08(UnkStruct_ov000_020beba8_08 *param1) override;
     /* 14 */ virtual bool vfunc_14(u16 *param1) override;
-    /* 18 */ virtual void vfunc_18(s32 *param1) override;
+    /* 18 */ virtual bool vfunc_18(s32 *param1) override;
     /* 1c */
 
     UnkStruct_ov000_020b8110();
@@ -31,13 +31,19 @@ public:
     /* 342 */ unk8 mUnk_342[0x2];
     /* 344 */ u32 mUnk_344;
     /* 348 */ unk32 mUnk_348;
-    /* 34c */ unk8 mUnk_34c[0x38];
+    /* 34c */ unk32 mUnk_34c[4];
+    /* 35c */ unk8 mUnk_35c[0x28];
     /* 384 */ Mat3p mUnk_384;
     /* 3a8 */ unk8 mUnk_3a8[0xC];
     /* 3b4 */ EquipHammer *mHammer;
     /* 3b8 */ unk32 mUnk_3b8;
     /* 3bc */ unk32 mUnk_3bc;
-    /* 3c0 */ u8 mUnk_3c0[0x8];
+    /* 3c0 */ u8 mUnk_3c0;
+    /* 3c1 */ u8 mUnk_3c1;
+    /* 3c2 */ u8 mUnk_3c2;
+    /* 3c2 */ u8 mUnk_3c3;
+    /* 3c4 */ u16 mUnk_3c4;
+    /* 3c6 */ u16 mUnk_3c6;
     /* 3c8 */
 
     /* 00 */ virtual ~ActorNavi() override;
@@ -47,8 +53,8 @@ public:
     /* b4 */ virtual FairyId GetFairyId() override;
     /* b8 */ virtual s32 vfunc_b8() override;
     /* c0 */ virtual bool vfunc_c0(Vec3p *param1) override;
-    /* c4 */ virtual void vfunc_c4() override;
-    /* c8 */ virtual void vfunc_c8() override;
+    /* c4 */ virtual u16 vfunc_c4() override;
+    /* c8 */ virtual u16 vfunc_c8() override;
     /* cc */ virtual bool vfunc_cc(unk32 *param1) override;
     /* d0 */ virtual void vfunc_d0() override;
     /* d4 */ virtual void vfunc_d4() override;
@@ -64,7 +70,7 @@ public:
 
     bool func_ov059_0219933c(u32 param1);
     void func_ov059_0219a0ac();
-    void func_ov059_0219aa08();
+    void func_ov059_0219aa08(bool param1);
     void func_ov059_0219aba8(u32 param1);
     bool func_ov059_0219af14();
     bool func_ov059_0219afc4();

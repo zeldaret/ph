@@ -65,8 +65,8 @@ public:
     /* b8 */ virtual s32 vfunc_b8();
     /* bc */ virtual bool vfunc_bc(unk32 param1, unk8 param2, s32 param3);
     /* c0 */ virtual bool vfunc_c0(Vec3p *param1);
-    /* c4 */ virtual void vfunc_c4();
-    /* c8 */ virtual void vfunc_c8();
+    /* c4 */ virtual u16 vfunc_c4();
+    /* c8 */ virtual u16 vfunc_c8();
     /* cc */ virtual bool vfunc_cc(unk32 *param1);
     /* d0 */ virtual void vfunc_d0();
     /* d4 */ virtual void vfunc_d4();

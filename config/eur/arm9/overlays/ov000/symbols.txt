@@ -1091,7 +1091,7 @@ func_ov000_0209394c kind:function(arm,size=0xc) addr:0x0209394c
 func_ov000_02093958 kind:function(arm,size=0x10) addr:0x02093958
 func_ov000_02093968 kind:function(arm,size=0x78) addr:0x02093968
 func_ov000_020939e0 kind:function(arm,size=0x3c) addr:0x020939e0
-_Z19func_ov000_02093a1cPjPii kind:function(arm,size=0x20) addr:0x02093a1c
+_ZN18UnkStruct_027e0f6c19func_ov000_02093a1cEPjPS_t kind:function(arm,size=0x20) addr:0x02093a1c
 func_ov000_02093a3c kind:function(arm,size=0x10) addr:0x02093a3c
 func_ov000_02093a4c kind:function(arm,size=0x10) addr:0x02093a4c
 func_ov000_02093a5c kind:function(arm,size=0x94) addr:0x02093a5c
@@ -2398,10 +2398,10 @@ _ZN13PlayerManager4SaveEP15SaveItemManager kind:function(thumb,size=0x50) addr:0
 _ZN13PlayerManager17IncreaseMaxHealthEs kind:function(thumb,size=0x14) addr:0x020b804c
 _ZN13PlayerManager19UpdateShipMaxHealthEv kind:function(thumb,size=0x80) addr:0x020b8060
 _ZN9ActorNavi6CreateEv kind:function(arm,size=0x30) addr:0x020b80e0
-_ZN24UnkStruct_ov000_020b8110C2Ev kind:function(arm,size=0x24) addr:0x020b8110
+_ZN24UnkStruct_ov000_020b8110C1Ev kind:function(arm,size=0x24) addr:0x020b8110
 _ZN24UnkStruct_ov000_020b8110D1Ev kind:function(arm,size=0x14) addr:0x020b8134
 _ZN24UnkStruct_ov000_020b8110D0Ev kind:function(arm,size=0x1c) addr:0x020b8148
-_ZN24UnkStruct_ov000_020b81108vfunc_08EPs kind:function(arm,size=0x50) addr:0x020b8164
+_ZN24UnkStruct_ov000_020b81108vfunc_08EP27UnkStruct_ov000_020beba8_08 kind:function(arm,size=0x50) addr:0x020b8164
 _ZN24UnkStruct_ov000_020b81108vfunc_18EPi kind:function(arm,size=0x40) addr:0x020b81b4
 _ZN24UnkStruct_ov000_020b81108vfunc_14EPt kind:function(arm,size=0xc) addr:0x020b81f4
 _ZN9ActorNavi19func_ov000_020b8200Ev kind:function(arm,size=0x10) addr:0x020b8200
@@ -2411,7 +2411,7 @@ _ZN9ActorNavi10GetFairyIdEv kind:function(arm,size=0x8) addr:0x020b8280
 _ZN9ActorNavi8vfunc_b8Ev kind:function(arm,size=0x8) addr:0x020b8288
 _ZN9ActorNavi8vfunc_d4Ev kind:function(arm,size=0x2c) addr:0x020b8290
 _ZN9ActorNavi8vfunc_d0Ev kind:function(arm,size=0x2c) addr:0x020b82bc
-_ZN9ActorNavi9SetActiveEb kind:function(arm,size=0x58) addr:0x020b82e8
+_ZN9ActorNavi9SetActiveEi kind:function(arm,size=0x58) addr:0x020b82e8
 _ZN9ActorNavi8vfunc_e0Ev kind:function(arm,size=0xb8) addr:0x020b8340
 _ZN9ActorNavi8vfunc_d8Ev kind:function(arm,size=0x20) addr:0x020b83f8
 _ZN9ActorNavi8vfunc_20Eb kind:function(arm,size=0x3c) addr:0x020b8418
@@ -2422,8 +2422,8 @@ _ZN9ActorNavi8vfunc_8cEv kind:function(arm,size=0x8) addr:0x020b84d0
 _ZN9ActorNavi8vfunc_ecEv kind:function(arm,size=0x54) addr:0x020b84d8
 _Z14GetEquipHammerv kind:function(arm,size=0x10) addr:0x020b852c local
 _ZN9ActorNavi19func_ov000_020b853cEv kind:function(arm,size=0x14) addr:0x020b853c
-_ZN9ActorNaviD1Ev kind:function(arm,size=0x48) addr:0x020b8550
-_ZN9ActorNaviD0Ev kind:function(arm,size=0x40) addr:0x020b8598
+_ZN9ActorNaviD0Ev kind:function(arm,size=0x48) addr:0x020b8550
+_ZN9ActorNaviD1Ev kind:function(arm,size=0x40) addr:0x020b8598
 func_ov000_020b85d8 kind:function(thumb,size=0x28) addr:0x020b85d8
 func_ov000_020b8600 kind:function(arm,size=0x10) addr:0x020b8600
 func_ov000_020b8610 kind:function(arm,size=0x1c) addr:0x020b8610
@@ -2650,7 +2650,7 @@ _ZN9EquipItem8GiveAmmoEj kind:function(arm,size=0x34) addr:0x020beb5c
 _ZNK9EquipItem9GetHitboxEP8Cylinder kind:function(arm,size=0x18) addr:0x020beb90
 _ZN24UnkStruct_ov000_020beba8C2Ei kind:function(arm,size=0x18) addr:0x020beba8
 _ZN24UnkStruct_ov000_020beba8C1Ei kind:function(arm,size=0x18) addr:0x020bebc0
-_ZN24UnkStruct_ov000_020beba88vfunc_08EPs kind:function(arm,size=0x84) addr:0x020bebd8
+_ZN24UnkStruct_ov000_020beba88vfunc_08EP27UnkStruct_ov000_020beba8_08 kind:function(arm,size=0x84) addr:0x020bebd8
 _ZN24UnkStruct_ov000_020beba88vfunc_0cEPs kind:function(arm,size=0x84) addr:0x020bec5c
 _ZN24UnkStruct_ov000_020beba88vfunc_10EPi kind:function(arm,size=0x9c) addr:0x020bece0
 _ZN24UnkStruct_ov000_020beba88vfunc_18EPi kind:function(arm,size=0x50) addr:0x020bed7c
@@ -5018,7 +5018,7 @@ data_ov000_020e652c kind:data(any) addr:0x020e652c
 data_ov000_020e6530 kind:data(any) addr:0x020e6530
 data_ov000_020e6534 kind:data(any) addr:0x020e6534
 _ZTV9ActorNavi kind:data(any) addr:0x020e6560
-_ZTV24UnkStruct_ov000_020b8110 kind:data(any) addr:0x020e6658
+_ZTV24UnkStruct_ov000_020b8110 kind:data(any) addr:0x020e6650
 _ZTV14ActorForceNavi kind:data(any) addr:0x020e6674
 data_ov000_020e676c kind:data(any) addr:0x020e676c
 data_ov000_020e6770 kind:data(any) addr:0x020e6770

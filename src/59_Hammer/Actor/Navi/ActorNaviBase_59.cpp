@@ -18,7 +18,7 @@ ARM bool ActorNavi::func_ov059_0219933c(u32 param1) {}
 ARM void ActorNavi::func_ov059_0219a0ac() {}
 
 // non-matching
-ARM void ActorNavi::func_ov059_0219aa08() {
+ARM void ActorNavi::func_ov059_0219aa08(bool param1) {
     int iVar1;
     s64 lVar2;
     u16 uVar3;
@@ -28,7 +28,7 @@ ARM void ActorNavi::func_ov059_0219aa08() {
     Mat3p MStack_48;
     Vec3p VStack_24;
 
-    if (this->mUnk_3c0[0] != 0) {
+    if (this->mUnk_3c0 != 0) {
         VStack_24.x = this->mPos.x;
         VStack_24.y = this->mPos.y + 0x333; // FLOAT_TO_Q20(0.2)?
         VStack_24.z = this->mPos.z;
@@ -160,7 +160,7 @@ ARM void ActorNavi::func_ov059_0219aba8(u32 param1) {
 ARM bool ActorNavi::func_ov059_0219af14() {
     int iVar1;
 
-    if (this->mUnk_3c0[2] != 0) {
+    if (this->mUnk_3c2 != 0) {
         return false;
     }
 
@@ -193,7 +193,7 @@ ARM bool ActorNavi::func_ov059_0219af14() {
 }
 
 ARM bool ActorNavi::func_ov059_0219afc4() {
-    this->mUnk_3c0[2] = 0;
+    this->mUnk_3c2 = 0;
     this->func_ov059_0219933c(0);
 
     switch (this->mUnk_130) {
@@ -220,8 +220,8 @@ ARM void ActorNavi::func_ov059_0219b020() {
 
     gPlayerControl->mAimWorld = this->mOffsetPos;
 
-    this->mHammer     = GetEquipHammer();
-    this->mUnk_3c0[0] = 0x0;
-    this->mUnk_3c0[2] = 0x0;
+    this->mHammer  = GetEquipHammer();
+    this->mUnk_3c0 = 0x0;
+    this->mUnk_3c2 = 0x0;
     this->SetActive(3);
 }
