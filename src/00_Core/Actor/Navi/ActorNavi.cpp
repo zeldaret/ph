@@ -104,11 +104,11 @@ ARM void ActorNavi::vfunc_e0() {
     s32 temp_r0;
     void **temp_r0_2;
 
-    if (mUnk_3b8 != NULL) {
+    if (mUnk_3b8.mUnk_00 != NULL) {
         if (mUnk_130 != 0) {
             this->SetActive(1);
         } else {
-            (*(void (**)())((*(unk32 *) ((s32) this + (mUnk_3bc >> 1))) + mUnk_3b8))();
+            (*(void (**)())((*(unk32 *) ((s32) this + (mUnk_3b8.mUnk_04 >> 1))) + mUnk_3b8.mUnk_00))();
             return;
         }
     }
@@ -145,14 +145,14 @@ ARM void ActorNavi::vfunc_20(bool param1) {
 }
 
 ARM bool ActorNavi::vfunc_cc(unk32 *param1) {
-    if (mHammer != NULL || mUnk_3b8 != 0) {
+    if (mHammer != NULL || mUnk_3b8.mUnk_00 != 0) {
         return false;
     }
     return ActorNaviBase::vfunc_cc(param1);
 }
 
 ARM bool ActorNavi::vfunc_c0(Vec3p *param1) {
-    if (mHammer != NULL || mUnk_3b8 != 0) {
+    if (mHammer != NULL || mUnk_3b8.mUnk_00 != 0) {
         return false;
     }
     return ActorNaviBase::vfunc_c0(param1);
@@ -174,7 +174,7 @@ ARM bool ActorNavi::vfunc_8c() {
 }
 
 ARM void ActorNavi::vfunc_ec() {
-    if (mUnk_3b8 != 0 || mHammer != NULL) {
+    if (mUnk_3b8.mUnk_00 != 0 || mHammer != NULL) {
         return;
     }
     if (gGame.mModeId == GameModeId_Battle) {

@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include <nds/ns.h>
+
 #include "System/SysNew.hpp"
 #include "Unknown/UnkStruct_0202e1a0.hpp"
 

@@ -1986,8 +1986,8 @@ _ZN12TouchGestureD2Ev kind:function(arm,size=0x4) addr:0x020a9544
 _ZN16TouchGestureBaseD2Ev kind:function(arm,size=0x4) addr:0x020a9548
 _ZN16TouchGestureBase17ResetTouchHistoryEv kind:function(arm,size=0xc) addr:0x020a954c
 _ZN16TouchGestureBaseD1Ev kind:function(arm,size=0x14) addr:0x020a9558
-_ZN11ModelRenderC2Ev kind:function(thumb,size=0x1c) addr:0x020a956c
-_ZN11ModelRenderC1Ei kind:function(thumb,size=0x1c) addr:0x020a9588
+_ZN11ModelRenderC2EP9ItemModel kind:function(thumb,size=0x1c) addr:0x020a956c
+_ZN11ModelRenderC1EP9ItemModel kind:function(thumb,size=0x1c) addr:0x020a9588
 _ZN11ModelRenderD1Ev kind:function(thumb,size=0x20) addr:0x020a95a4
 _ZN11ModelRenderD0Ev kind:function(thumb,size=0x28) addr:0x020a95c4
 _ZN11ModelRenderD2Ev kind:function(thumb,size=0x20) addr:0x020a95ec
@@ -2007,7 +2007,7 @@ _ZN11ModelRender8vfunc_30Ev kind:function(arm,size=0x2c) addr:0x020a98bc
 _ZN11ModelRender19func_ov000_020a98e8Ei kind:function(arm,size=0x24) addr:0x020a98e8
 _ZN11ModelRender19func_ov000_020a990cEi kind:function(arm,size=0x2c) addr:0x020a990c
 _ZN11ModelRender19func_ov000_020a9938Ei kind:function(thumb,size=0x28) addr:0x020a9938
-_ZN11ModelRender19func_ov000_020a9960Ei kind:function(arm,size=0x8) addr:0x020a9960
+_ZN11ModelRender19func_ov000_020a9960EPv kind:function(arm,size=0x8) addr:0x020a9960
 _ZN11ModelRender8vfunc_38Ev kind:function(arm,size=0x2c) addr:0x020a9968
 _ZN11ModelRender8vfunc_3cEv kind:function(arm,size=0x4) addr:0x020a9994
 _ZN11ModelRender19func_ov000_020a9998Eii kind:function(arm,size=0x28) addr:0x020a9998
@@ -2018,7 +2018,7 @@ func_ov000_020a9a40 kind:function(thumb,size=0x28) addr:0x020a9a40
 func_ov000_020a9a68 kind:function(thumb,size=0x24) addr:0x020a9a68
 func_ov000_020a9a8c kind:function(thumb,size=0xc) addr:0x020a9a8c
 func_ov000_020a9a98 kind:function(thumb,size=0x12) addr:0x020a9a98
-func_ov000_020a9aac kind:function(thumb,size=0xc) addr:0x020a9aac
+_ZN18ActorNaviBase_Unk2D1Ev kind:function(thumb,size=0xc) addr:0x020a9aac
 func_ov000_020a9ab8 kind:function(thumb,size=0x12) addr:0x020a9ab8
 func_ov000_020a9acc kind:function(thumb,size=0xc) addr:0x020a9acc
 func_ov000_020a9ad8 kind:function(thumb,size=0x12) addr:0x020a9ad8
@@ -2701,7 +2701,7 @@ _ZN15ActorWisdomNavi10GetFairyIdEv kind:function(arm,size=0x8) addr:0x020c0ba4
 _ZN15ActorWisdomNaviD0Ev kind:function(arm,size=0x1c) addr:0x020c0bac
 _ZN15ActorWisdomNaviD1Ev kind:function(arm,size=0x14) addr:0x020c0bc8
 func_ov000_020c0bdc kind:function(arm,size=0x2c) addr:0x020c0bdc
-_ZN24UnkStruct_ov000_020c0c08C1EP27UnkStruct_ov000_020c0c08_04Ph kind:function(thumb,size=0x28) addr:0x020c0c08
+_ZN24UnkStruct_ov000_020c0c08C2EP27UnkStruct_ov000_020c0c08_04P9ItemModel kind:function(thumb,size=0x28) addr:0x020c0c08
 func_ov000_020c0c30 kind:function(thumb,size=0x2) addr:0x020c0c30
 func_ov000_020c0c34 kind:function(thumb,size=0xc) addr:0x020c0c34
 func_ov000_020c0c40 kind:function(thumb,size=0x2) addr:0x020c0c40
@@ -3393,8 +3393,8 @@ func_ov000_020d17a0 kind:function(arm,size=0x74) addr:0x020d17a0
 func_ov000_020d1814 kind:function(arm,size=0x5c) addr:0x020d1814
 func_ov000_020d1870 kind:function(arm,size=0x44) addr:0x020d1870
 func_ov000_020d18b4 kind:function(arm,size=0x40) addr:0x020d18b4
-func_ov000_020d18f4 kind:function(arm,size=0x8c) addr:0x020d18f4
-func_ov000_020d1980 kind:function(arm,size=0x54) addr:0x020d1980
+_ZN24UnkStruct_ov000_020d18f4C1Ei kind:function(arm,size=0x8c) addr:0x020d18f4
+_ZN24UnkStruct_ov000_020d18f4D1Ev kind:function(arm,size=0x54) addr:0x020d1980
 func_ov000_020d19d4 kind:function(arm,size=0x5c) addr:0x020d19d4
 func_ov000_020d1a30 kind:function(arm,size=0x20) addr:0x020d1a30
 func_ov000_020d1a50 kind:function(arm,size=0xa0) addr:0x020d1a50
@@ -5017,7 +5017,7 @@ data_ov000_020e6528 kind:data(any) addr:0x020e6528
 data_ov000_020e652c kind:data(any) addr:0x020e652c
 data_ov000_020e6530 kind:data(any) addr:0x020e6530
 data_ov000_020e6534 kind:data(any) addr:0x020e6534
-_ZTV9ActorNavi kind:data(any) addr:0x020e6560
+_ZTV9ActorNavi kind:data(any) addr:0x020e6558
 _ZTV24UnkStruct_ov000_020b8110 kind:data(any) addr:0x020e6650
 _ZTV14ActorForceNavi kind:data(any) addr:0x020e6674
 data_ov000_020e676c kind:data(any) addr:0x020e676c
@@ -5032,8 +5032,8 @@ data_ov000_020e678c kind:data(any) addr:0x020e678c
 data_ov000_020e67ac kind:data(any) addr:0x020e67ac
 data_ov000_020e67b8 kind:data(any) addr:0x020e67b8
 data_ov000_020e67d8 kind:data(any) addr:0x020e67d8
-vtable_ov000_020e67e4 kind:data(any) addr:0x020e67dc
-vtable_ov000_020e68dc kind:data(any) addr:0x020e68d4
+_ZTV13ActorNaviBase kind:data(any) addr:0x020e67dc
+_ZTV18ActorNaviBase_Unk3 kind:data(any) addr:0x020e68d4
 data_ov000_020e691c kind:data(any) addr:0x020e691c
 data_ov000_020e6934 kind:data(any) addr:0x020e6934
 data_ov000_020e6974 kind:data(any) addr:0x020e6974

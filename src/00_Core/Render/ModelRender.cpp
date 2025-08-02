@@ -1,6 +1,6 @@
 #include "Render/ModelRender.hpp"
 
-ModelRender::ModelRender(unk32 param1) {}
+ModelRender::ModelRender(ItemModel *param1) {}
 ModelRender::~ModelRender() {}
 void *ModelRender::GetLcdcAddress() {}
 void ModelRender::vfunc_0c(ItemModel *model) {}
@@ -18,7 +18,7 @@ void ModelRender::vfunc_30() {}
 void ModelRender::func_ov000_020a98e8(unk32 param1) {}
 void ModelRender::func_ov000_020a990c(unk32 param1) {}
 void ModelRender::func_ov000_020a9938(unk32 param1) {}
-void ModelRender::func_ov000_020a9960(unk32 param1) {}
+void ModelRender::func_ov000_020a9960(void *param1) {}
 void ModelRender::vfunc_38() {}
 void ModelRender::vfunc_3c() {}
 void ModelRender::func_ov000_020a9998(unk32 param1, unk32 param2) {}

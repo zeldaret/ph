@@ -41,12 +41,12 @@ public:
     /* 3c */ virtual void vfunc_3c();
     /* 40 */
 
-    ModelRender(unk32 param1);
+    ModelRender(ItemModel *param1);
     void *func_ov000_020a9624(s32 param1);
     void func_ov000_020a98e8(unk32 param1);
     void func_ov000_020a990c(unk32 param1);
     void func_ov000_020a9938(unk32 param1);
-    void func_ov000_020a9960(unk32 param1);
+    void func_ov000_020a9960(void *param1);
     void func_ov000_020a9998(unk32 param1, unk32 param2);
     void func_ov000_020a99c0();
     void func_ov000_020b413c(unk16 param1, Vec3p *param2);

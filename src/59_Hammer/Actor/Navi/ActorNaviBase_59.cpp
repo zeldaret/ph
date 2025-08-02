@@ -42,17 +42,17 @@ ARM void ActorNavi::func_ov059_0219aa08(bool param1) {
         lVar2 = 0x666 * this->mUnk_344;
         uVar4 = lVar2;
 
-        this->mUnk_334.x =
+        this->mUnk_334.mUnk_00.x =
             ROUND_Q20(uVar4) | ((this->mUnk_344 >> 0x1F) * 0x666 + (lVar2 >> 0x20) + (~0x800 < uVar4)) * 0x100000;
 
-        Mat3p_MultiplyVec(&this->mUnk_334, &this->mUnk_384, &this->mUnk_334);
-        Vec3p_RotateY(uVar3, &this->mUnk_334);
-        Vec3p_Add(&this->mUnk_334, &VStack_24, &this->mUnk_334);
-        VStack_60.z = this->mUnk_334.z;
-        VStack_60.x = this->mUnk_334.x;
+        Mat3p_MultiplyVec(&this->mUnk_334.mUnk_00, &this->mUnk_384, &this->mUnk_334.mUnk_00);
+        Vec3p_RotateY(uVar3, &this->mUnk_334.mUnk_00);
+        Vec3p_Add(&this->mUnk_334.mUnk_00, &VStack_24, &this->mUnk_334.mUnk_00);
+        VStack_60.z = this->mUnk_334.mUnk_00.z;
+        VStack_60.x = this->mUnk_334.mUnk_00.x;
         lVar2       = 0x333 * this->mUnk_344;
         uVar4       = lVar2;
-        VStack_60.y = this->mUnk_334.y + 0x800;
+        VStack_60.y = this->mUnk_334.mUnk_00.y + 0x800;
         uVar4       = ROUND_Q20(uVar4) | ((this->mUnk_344 >> 0x1F) * 0x333 + (lVar2 >> 0x20) + (~0x800 < uVar4)) * 0x100000;
         func_ov005_02102c2c(&data_ov000_020e9370[0], 0, &VStack_60, uVar4, uVar4, 0, 0x10, 0, 0, 0);
     }

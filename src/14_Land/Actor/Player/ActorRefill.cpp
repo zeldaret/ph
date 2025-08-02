@@ -57,18 +57,18 @@ ARM bool ActorRefill::Init() {
             return false;
         }
     }
-    mHitbox.pos.x      = 0;
-    mHitbox.pos.y      = FLOAT_TO_Q20(0.3);
-    mHitbox.pos.z      = 0;
-    mHitbox.size       = FLOAT_TO_Q20(0.3);
-    mUnk_08c.pos.x     = mHitbox.pos.x;
-    mUnk_08c.pos.y     = mHitbox.pos.y;
-    mUnk_08c.pos.z     = mHitbox.pos.z;
-    mUnk_08c.size      = mHitbox.size;
-    mUnk_0a4.mUnk_04.x = 0;
-    mUnk_0a4.mUnk_04.y = FLOAT_TO_Q20(0.3);
-    mUnk_0a4.mUnk_04.z = 0;
-    mUnk_0a4.mUnk_10   = FLOAT_TO_Q20(1.3);
+    mHitbox.pos.x          = 0;
+    mHitbox.pos.y          = FLOAT_TO_Q20(0.3);
+    mHitbox.pos.z          = 0;
+    mHitbox.size           = FLOAT_TO_Q20(0.3);
+    mUnk_08c.pos.x         = mHitbox.pos.x;
+    mUnk_08c.pos.y         = mHitbox.pos.y;
+    mUnk_08c.pos.z         = mHitbox.pos.z;
+    mUnk_08c.size          = mHitbox.size;
+    mUnk_0a4.mUnk_04.pos.x = 0;
+    mUnk_0a4.mUnk_04.pos.y = FLOAT_TO_Q20(0.3);
+    mUnk_0a4.mUnk_04.pos.z = 0;
+    mUnk_0a4.mUnk_04.size  = FLOAT_TO_Q20(1.3);
     mUnk_09c.mUnk_0 &= ~0xa4;
     mUnk_09c.mUnk_3 = 1;
     mMaxFall        = mUnk_08c.size + -1;

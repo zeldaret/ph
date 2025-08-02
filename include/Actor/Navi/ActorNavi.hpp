@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Actor/Navi/ActorNaviBase.hpp"
+#include "Unknown/UnkStruct_02057200.hpp"
 #include "Unknown/UnkStruct_ov000_020beba8.hpp"
 #include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 
@@ -18,26 +19,36 @@ public:
     UnkStruct_ov000_020b8110();
 };
 
+class ActorNavi_Unk_334 {
+public:
+    /* 00 */ Vec3p mUnk_00;
+    /* 0c */
+
+    inline ActorNavi_Unk_334() {
+        mUnk_00.x = 0;
+        mUnk_00.y = 0;
+        mUnk_00.z = 0;
+    }
+};
+
 class ActorNavi : public ActorNaviBase {
 public:
     static ActorType gType;
 
     /* 000 (base) */
     /* 294 */ ModelRender mUnk_294;
-    /* 2f0 */ UnkStruct_ov000_020c0c08 mUnk_2f0;
-    /* 314 */ UnkStruct_ov000_020c0c08_04 mUnk_314;
-    /* 334 */ Vec3p mUnk_334;
+    /* 2f0 */ ActorNaviBase_Unk2 mUnk_2f0;
+    /* 334 */ ActorNavi_Unk_334 mUnk_334;
     /* 340 */ unk16 mUnk_340;
-    /* 342 */ unk8 mUnk_342[0x2];
-    /* 344 */ u32 mUnk_344;
+    /* 342 (padding) */
+    /* 344 */ q20 mUnk_344;
     /* 348 */ unk32 mUnk_348;
-    /* 34c */ unk32 mUnk_34c[4];
+    /* 34c */ ActorNaviBase_Unk1 mUnk_34c[4];
     /* 35c */ unk8 mUnk_35c[0x28];
     /* 384 */ Mat3p mUnk_384;
     /* 3a8 */ unk8 mUnk_3a8[0xC];
     /* 3b4 */ EquipHammer *mHammer;
-    /* 3b8 */ unk32 mUnk_3b8;
-    /* 3bc */ unk32 mUnk_3bc;
+    /* 3b8 */ UnkStruct_02057200 mUnk_3b8;
     /* 3c0 */ u8 mUnk_3c0;
     /* 3c1 */ u8 mUnk_3c1;
     /* 3c2 */ u8 mUnk_3c2;

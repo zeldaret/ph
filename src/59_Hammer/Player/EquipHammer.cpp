@@ -25,7 +25,7 @@ ARM bool EquipHammer::IsUsable(unk32 param1) const {
 
     pAVar3 = (ActorNavi *) gItemManager->GetFairy(FairyId_Courage);
 
-    if (pAVar3 == NULL || pAVar3->mUnk_3b8 != 0) {
+    if (pAVar3 == NULL || pAVar3->mUnk_3b8.mUnk_00 != 0) {
         return false;
     }
 
