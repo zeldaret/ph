@@ -49,6 +49,7 @@ struct UnkStruct_027e0f6c {
     /* 00 */ unk8 mUnk_00[0x20];
     /* 20 */ UnkStruct_027e0f6c_20 *mUnk_20;
 
+    static void func_ov000_02093a1c(u32 *param_1, UnkStruct_027e0f6c *param_2, u16 param_3);
     void func_ov004_02102770();
 };
 

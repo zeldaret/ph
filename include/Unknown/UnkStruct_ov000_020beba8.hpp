@@ -24,8 +24,8 @@ public:
     /* 08 */ virtual bool vfunc_08(UnkStruct_ov000_020beba8_08 *param1);
     /* 0c */ virtual void vfunc_0c(unk16 *param1);
     /* 10 */ virtual bool vfunc_10(s32 *param1);
-    /* 14 */ virtual bool vfunc_14(u16 *param1, s32 param2);
-    /* 18 */ virtual void vfunc_18(s32 *param1);
+    /* 14 */ virtual bool vfunc_14(u16 *param1);
+    /* 18 */ virtual bool vfunc_18(s32 *param1);
     /* 1c */
 
     UnkStruct_ov000_020beba8(unk32 param1);

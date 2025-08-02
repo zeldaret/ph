@@ -1,7 +1,7 @@
 #include "Actor/Navi/ActorNaviBase.hpp"
 
-void ActorNaviBase::vfunc_c4() {}
-void ActorNaviBase::vfunc_c8() {}
+u16 ActorNaviBase::vfunc_c4() {}
+u16 ActorNaviBase::vfunc_c8() {}
 unk32 ActorNaviBase::vfunc_30() {}
 s32 ActorNaviBase::vfunc_b8() {}
 bool ActorNaviBase::vfunc_cc(unk32 *param1) {}

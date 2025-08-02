@@ -6,6 +6,8 @@
 #include "Actor/Actor.hpp"
 #include "Player/EquipHammer.hpp"
 #include "Render/ModelRender.hpp"
+#include "Unknown/UnkStruct_ov000_020b7d74.hpp"
+#include "Unknown/UnkStruct_ov000_020d18f4.hpp"
 
 typedef s32 FairyId;
 enum FairyId_ {
@@ -16,34 +18,62 @@ enum FairyId_ {
     FairyId_COUNT   = 3,
 };
 
-class ActorNaviBase_Unk1 {};
+class ActorNaviBase_Unk1 : public UnkStruct_ov000_020b7d74 {
+public:
+    ActorNaviBase_Unk1();
+};
+
+class ActorNaviBase_Unk2 : public UnkStruct_ov000_020c0c08 {
+public:
+    /* 00 (base) */
+    /* 24 */ UnkStruct_ov000_020c0c08_04 mUnk_24;
+    /* 44 */
+
+    /* 00 */ virtual ~ActorNaviBase_Unk2() override;
+    /* 08 */
+
+    inline ActorNaviBase_Unk2(ItemModel *model) :
+        UnkStruct_ov000_020c0c08(&mUnk_24, model) {}
+    inline ActorNaviBase_Unk2(NsAnimation *param2, ItemModel *model) :
+        UnkStruct_ov000_020c0c08(&mUnk_24, model) {
+        this->func_ov000_020c0c44(param2);
+    }
+};
+
+class ActorNaviBase_Unk3 : public ModelRender {
+public:
+    /* 00 */ virtual ~ActorNaviBase_Unk3() {}
+    /* 3c */ virtual void vfunc_3c() override;
+    /* 40 */
+
+    ActorNaviBase_Unk3(ItemModel *param1);
+};
 
 class ActorNaviBase : public Actor {
 public:
     /* 000 (base) */
     /* 158 */ Vec3p mOffsetPos;
     /* 164 */ unk32 mUnk_164;
-    /* 168 */ ModelRender mUnk_168;
+    /* 168 */ ActorNaviBase_Unk3 mUnk_168;
     /* 1c4 */ unk8 mUnk_1c4[0xc];
-    /* 1d0 */ void *mUnk_1d0;
-    /* 1d4 */ unk8 mUnk_1d4[0x20];
-    /* 1f4 */ unk8 mUnk_1f4[0x20];
+    /* 1d0 */ ActorNaviBase_Unk2 mUnk_1d0;
     /* 214 */ unk16 mUnk_214;
-    /* 216 */ unk8 mUnk_216[0xc];
+    /* 216 */ unk8 mUnk_216[0x2];
+    /* 218 */ ActorNaviBase_Unk1 mUnk_218[2];
+    /* 220 */ unk8 mUnk_220[0x2];
     /* 222 */ unk16 mUnk_222;
-    /* 224 */ unk8 mUnk_224[0x28];
-    /* 24c */ unk32 mUnk_24c;
-    /* 250 */ unk32 mUnk_250;
-    /* 254 */ unk32 mUnk_254;
-    /* 258 */ unk32 mUnk_258;
-    /* 25c */ unk32 mUnk_25c;
-    /* 260 */ unk32 mUnk_260;
-    /* 264 */ unk8 mUnk_264[0x1c];
+    /* 224 */ UnkStruct_ov000_020d18f4 mUnk_224;
     /* 280 */ unk32 mUnk_280;
     /* 284 */ unk32 mUnk_284;
-    /* 288 */ unk8 mUnk_288[0x2];
+    /* 288 */ unk8 mUnk_288;
+    /* 288 */ unk8 mUnk_289;
     /* 28a */ unk16 mUnk_28a;
-    /* 28c */ unk8 mUnk_28c[0x8];
+    /* 28c */ unk8 mUnk_28c;
+    /* 28d */ unk8 mUnk_28d;
+    /* 28e */ unk8 mUnk_28e;
+    /* 28e */ unk8 mUnk_28f;
+    /* 290 */ unk8 mUnk_290;
+    /* 291 */ unk8 mUnk_291;
     /* 294 */
 
     /* 00 */ virtual ~ActorNaviBase() override;
@@ -65,8 +95,8 @@ public:
     /* b8 */ virtual s32 vfunc_b8();
     /* bc */ virtual bool vfunc_bc(unk32 param1, unk8 param2, s32 param3);
     /* c0 */ virtual bool vfunc_c0(Vec3p *param1);
-    /* c4 */ virtual void vfunc_c4();
-    /* c8 */ virtual void vfunc_c8();
+    /* c4 */ virtual u16 vfunc_c4();
+    /* c8 */ virtual u16 vfunc_c8();
     /* cc */ virtual bool vfunc_cc(unk32 *param1);
     /* d0 */ virtual void vfunc_d0();
     /* d4 */ virtual void vfunc_d4();

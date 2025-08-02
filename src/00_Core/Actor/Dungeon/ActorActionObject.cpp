@@ -19,15 +19,14 @@ ARM ActorActionObject::~ActorActionObject() {}
 
 // non-matching
 ARM bool ActorActionObject::Init() {
-    mGravity         = 0;
-    mHitbox.pos      = gVec3p_ZERO;
-    mHitbox.size     = -1;
-    mUnk_08c.pos     = mHitbox.pos;
-    mUnk_08c.size    = mHitbox.size;
-    mUnk_0a4.mUnk_04 = gVec3p_ZERO;
-    mUnk_0a4.mUnk_10 = -1;
-    mVisible         = false;
-    mUnk_130         = 0;
+    mGravity      = 0;
+    mHitbox.pos   = gVec3p_ZERO;
+    mHitbox.size  = -1;
+    mUnk_08c.pos  = mHitbox.pos;
+    mUnk_08c.size = mHitbox.size;
+    mUnk_0a4.mUnk_04.MakeEmpty();
+    mVisible = false;
+    mUnk_130 = 0;
     return true;
 }
 

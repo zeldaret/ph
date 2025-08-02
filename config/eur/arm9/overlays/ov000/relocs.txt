@@ -6473,7 +6473,7 @@ from:0x020b80f8 kind:arm_call to:0x0202e9dc module:main
 from:0x020b8104 kind:arm_call_thumb to:0x02107aa0 module:overlay(4)
 from:0x020b810c kind:load to:0x027e0fe0 module:dtcm
 from:0x020b811c kind:arm_call to:0x020beba8 module:overlay(0)
-from:0x020b8130 kind:load to:0x020e6658 module:overlay(0)
+from:0x020b8130 kind:load to:0x020e6650 add:8 module:overlay(0)
 from:0x020b813c kind:arm_call to:0x02081f4c module:overlay(0)
 from:0x020b8150 kind:arm_call to:0x02081f4c module:overlay(0)
 from:0x020b8158 kind:arm_call to:0x0202ea0c module:main

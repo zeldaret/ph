@@ -60,8 +60,7 @@ struct Actor_UnkStruct_0a4 {
     /* 01 */ bool mUnk_01;
     /* 02 */ bool mUnk_02;
     /* 03 */ bool mUnk_03;
-    /* 04 */ Vec3p mUnk_04;
-    /* 10 */ s32 mUnk_10;
+    /* 04 */ Cylinder mUnk_04;
     /* 14 */
 
     Actor_UnkStruct_0a4(q20 x, q20 y, q20 z, s32 unk_10);

@@ -1,6 +1,7 @@
 #include "Unknown/UnkStruct_020397f8.hpp"
 #include "DTCM/UnkStruct_027e0c38.hpp"
 #include "DTCM/UnkStruct_027e0c54.hpp"
+#include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Game/Game.hpp"
 #include "Message/MessageManager.hpp"

@@ -2,6 +2,7 @@
 #include "Actor/ActorManager.hpp"
 #include "Item/ItemManager.hpp"
 #include "Message/MessageManager.hpp"
+#include "Player/LinkStateBase.hpp"
 #include "Save/AdventureFlags.hpp"
 #include "System/Random.hpp"
 
