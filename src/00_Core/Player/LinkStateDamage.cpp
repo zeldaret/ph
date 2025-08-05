@@ -1,4 +1,5 @@
 #include "Player/LinkStateDamage.hpp"
+#include "Game/Game.hpp"
 
 unk32 LinkStateDamage::data_ov000_020e5ae0 = 0x1000;
 unk32 LinkStateDamage::data_ov000_020e5aec = 6;
@@ -78,19 +79,19 @@ THUMB void LinkStateDamage::CreateDebugHierarchy() {
 void LinkStateDamage::OnStateEnter() {}
 void LinkStateDamage::OnStateLeave(s32 param1) {}
 void LinkStateDamage::func_ov00_020ac9e4(unk32 param1) {}
-ARM void LinkStateDamage::func_ov00_020aca50() {
+ARM void LinkStateDamage::RespawnLink() {
     Vec3p new_pos;
 
     PlayerControlData *ctrlData = GetPlayerControlData();
     Vec3p *pos                  = GetPlayerPos();
-    Vec3p_Add(pos, &ctrlData->mUnk_01c, &new_pos);
+    Vec3p_Add(pos, &ctrlData->lastJumpLocation, &new_pos);
     mUnk_3c.SetTranslation(&new_pos);
     return;
 }
 void LinkStateDamage::func_ov00_020aca94() {}
 void LinkStateDamage::vfunc_30(unk32 param1) {}
 void LinkStateDamage::func_ov00_020acb6c(Vec3p *param1, unk32 param2) {}
-ARM void LinkStateDamage::SetKnockback(Vec3p *knockbackVec, unk32 param2) {
+ARM void LinkStateDamage::Knockback(Vec3p *knockbackVec, unk32 param2) {
     this->mUnk_18     = 2;
     Vec3p *playerVel  = GetPlayerVel();
     playerVel->x      = knockbackVec->x;
@@ -104,15 +105,56 @@ ARM void LinkStateDamage::SetKnockback(Vec3p *knockbackVec, unk32 param2) {
     return;
 }
 ARM bool LinkStateDamage::vfunc_24(s32 param1) {
-    if (param1 != 2) {
-        return mUnk_18 != 13;
+    if (param1 == 2) {
+        return mUnk_18 != 0xd;
+    }
+    if (param1 != 3) {
+        return false;
     }
     return false;
 }
-bool LinkStateDamage::vfunc_20(s32 param1) {}
-void LinkStateDamage::func_ov00_020acfe8(bool param1) {}
+ARM bool LinkStateDamage::vfunc_20(s32 param1) {
+    bool unk1 = LinkStateBase::func_ov00_020a8b80();
+    if (unk1) {
+        s32 health = LinkStateBase::GetCurrentCharacterHealth();
+        if (health <= 0) {
+            if (gGame.mModeId == 2) {
+                Vec3p *vel = LinkStateBase::GetPlayerVel();
+                if (0 >= vel->y) {
+                    u32 unk2;
+                    if (gItemManager->HasPurplePotion()) {
+                        mUnk_18 = 0xe;
+                    } else {
+                        mUnk_18 = 0xf;
+                    }
+                    LinkStateBase::func_ov00_020a82ac();
+                } else {
+                    return 0;
+                }
+            } else {
+                LinkStateBase::func_ov00_020a82ac();
+                mUnk_18 = 0xe;
+            }
+            return 1;
+        }
+        if (0 < mUnk_32) {
+            LinkStateBase::func_ov00_020a82ac();
+            mUnk_18 = 0xe;
+            return 1;
+        }
+    }
+    return 0;
+}
+void LinkStateDamage::func_ov00_020acfe8(bool param1) {
+    if (param1) {
+        LinkStateBase::func_ov00_020a8a4c(&data_ov000_020e5b00, 1);
+        return;
+    }
+    LinkStateBase::func_ov00_020a8a4c(&data_ov000_020e5af0, 1);
+    return;
+}
 ARM LinkStateId LinkStateDamage::GetId() {
     return LinkStateId_Damage;
 }
 
-const char unkString[20] = "link_ice1";
+const char data_ov00_020dc560[20] = "link_ice1";

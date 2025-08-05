@@ -51,11 +51,11 @@ public:
     /* 44 */
 
     void func_ov00_020ac9e4(unk32 param1);
-    void func_ov00_020aca50();
+    void RespawnLink();
     void func_ov00_020aca94();
 
     void func_ov00_020acb6c(Vec3p *param1, unk32 param2);
-    void SetKnockback(Vec3p *knockbackVec, unk32 param2);
+    void Knockback(Vec3p *knockbackVec, unk32 param2);
 
     void func_ov00_020acfe8(bool param1);
 
