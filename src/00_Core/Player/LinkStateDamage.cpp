@@ -1,5 +1,6 @@
 #include "Player/LinkStateDamage.hpp"
 #include "Game/Game.hpp"
+#include "Unknown/UnkStruct_020e9360.hpp"
 #include "Unknown/UnkStruct_ov000_020e9c88.hpp"
 
 unk32 LinkStateDamage::data_ov000_020e5ae0                    = 0x1000;
@@ -10,6 +11,7 @@ LinkStateBase_UnkStruct1 LinkStateDamage::data_ov000_020e5b00 = {13, {0x1800, 0,
 const char linkFrozenMaterialName[20] = "link_ice1";
 
 THUMB void LinkStateDamage::vfunc_00() {}
+
 THUMB void LinkStateDamage::CreateDebugHierarchy() {
     unk32 id = 'LDMG';
 
@@ -73,8 +75,11 @@ THUMB void LinkStateDamage::CreateDebugHierarchy() {
     this->GetDebugHierarchy0();
     this->GetDebugHierarchy1();
 }
+
 void LinkStateDamage::OnStateEnter() {}
+
 void LinkStateDamage::OnStateLeave(s32 param1) {}
+
 ARM void LinkStateDamage::func_ov00_020ac9e4(unk32 param1) {
     bool unkBool = func_ov005_02110f50(this->mUnk_30, param1, this->mUnk_22, (u32 *) this->mUnk_b0);
     if (!unkBool) {
@@ -91,17 +96,29 @@ ARM void LinkStateDamage::func_ov00_020ac9e4(unk32 param1) {
     func_ov005_0210f7b8();
     return;
 }
+
 ARM void RespawnLink(LinkStateDamage *linkState) {
     Vec3p new_pos;
 
     PlayerControlData *ctrlData = linkState->GetPlayerControlData();
     Vec3p *pos                  = linkState->GetPlayerPos();
-    Vec3p_Add(pos, &ctrlData->lastJumpLocation, &new_pos);
+    Vec3p_Add(pos, &ctrlData->mLastJumpLocation, &new_pos);
     linkState->mUnk_3c.SetTranslation(&new_pos);
     return;
 }
 
-void LinkStateDamage::SetLinkFrozen() {}
+extern unk32 func_0201e388(void *param1, const char *param2);
+extern void func_02019534(void *model, unk32 param1, unk32 param2);
+ARM void LinkStateDamage::SetLinkFrozenMaterial() {
+    void *model         = mUnk_3c.GetLcdcAddress();
+    u32 materialsOffset = *(u32 *) ((u32) model + 8);
+    void *materialList  = (void *) ((u32) model + materialsOffset + 4);
+    unk32 unkVar1       = func_0201e388(materialList, linkFrozenMaterialName);
+    unk32 unkVar2       = data_ov000_020e9360.func_ov000_02079e68(1);
+    void *model2        = mUnk_3c.GetLcdcAddress();
+    func_02019534(model2, unkVar1, unkVar2);
+    return;
+}
 
 ARM void LinkStateDamage::vfunc_30(unk32 param1) {
     if (mUnk_18 == 6) {
@@ -118,6 +135,7 @@ ARM void LinkStateDamage::vfunc_30(unk32 param1) {
 }
 
 void LinkStateDamage::func_ov00_020acb6c(Vec3p *param1, unk32 param2) {}
+
 ARM void LinkStateDamage::Knockback(Vec3p *knockbackVec, unk32 param2) {
     this->mUnk_18     = 2;
     Vec3p *playerVel  = GetPlayerVel();
@@ -131,6 +149,7 @@ ARM void LinkStateDamage::Knockback(Vec3p *knockbackVec, unk32 param2) {
     this->mUnk_22     = param2;
     return;
 }
+
 ARM bool LinkStateDamage::vfunc_24(s32 param1) {
     if (param1 == 2) {
         return mUnk_18 != 0xd;
@@ -140,6 +159,7 @@ ARM bool LinkStateDamage::vfunc_24(s32 param1) {
     }
     return false;
 }
+
 ARM bool LinkStateDamage::vfunc_20(s32 param1) {
     bool unk1 = LinkStateBase::func_ov00_020a8b80();
     if (unk1) {
@@ -172,6 +192,7 @@ ARM bool LinkStateDamage::vfunc_20(s32 param1) {
     }
     return 0;
 }
+
 ARM void LinkStateDamage::func_ov00_020acfe8(bool param1) {
     if (param1) {
         LinkStateBase::func_ov00_020a8a4c(&data_ov000_020e5b00, 1);
@@ -180,6 +201,7 @@ ARM void LinkStateDamage::func_ov00_020acfe8(bool param1) {
     LinkStateBase::func_ov00_020a8a4c(&data_ov000_020e5af0, 1);
     return;
 }
+
 ARM LinkStateId LinkStateDamage::GetId() {
     return LinkStateId_Damage;
 }

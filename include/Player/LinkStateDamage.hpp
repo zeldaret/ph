@@ -48,7 +48,7 @@ public:
     /* 44 */
 
     void func_ov00_020ac9e4(unk32 param1);
-    void SetLinkFrozen();
+    void SetLinkFrozenMaterial();
 
     void func_ov00_020acb6c(Vec3p *param1, unk32 param2);
     void Knockback(Vec3p *knockbackVec, unk32 param2);
