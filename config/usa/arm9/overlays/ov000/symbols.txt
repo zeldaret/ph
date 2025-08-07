@@ -4839,25 +4839,24 @@ data_ov000_020e5aa4 kind:data(any) addr:0x020e5a44
 data_ov000_020e5aa8 kind:data(any) addr:0x020e5a48
 data_ov000_020e5aac kind:data(any) addr:0x020e5a4c
 data_ov000_020e5acc kind:data(any) addr:0x020e5a6c
-data_ov000_020e5adc kind:data(any) addr:0x020e5a7c
-data_ov000_020e5ae0 kind:data(any) addr:0x020e5a80
-data_ov000_020e5aec kind:data(any) addr:0x020e5a8c
+_ZN15LinkStateDamage19data_ov000_020e5adcE kind:data(any) addr:0x020e5a7c
+_ZN15LinkStateDamage19data_ov000_020e5aecE kind:data(any) addr:0x020e5a8c
 _ZN15LinkStateDamage19data_ov000_020e5af0E kind:data(any) addr:0x020e5a90
 _ZN15LinkStateDamage19data_ov000_020e5b00E kind:data(any) addr:0x020e5aa0
-data_ov000_020e5b10 kind:data(any) addr:0x020e5ab0
-data_ov000_020e5b20 kind:data(any) addr:0x020e5ac0
-data_ov000_020e5b30 kind:data(any) addr:0x020e5ad0
-data_ov000_020e5b40 kind:data(any) addr:0x020e5ae0
-data_ov000_020e5b50 kind:data(any) addr:0x020e5af0
+_ZN15LinkStateDamage19data_ov000_020e5b10E kind:data(any) addr:0x020e5ab0
+_ZN15LinkStateDamage19data_ov000_020e5b20E kind:data(any) addr:0x020e5ac0
+_ZN15LinkStateDamage19data_ov000_020e5b30E kind:data(any) addr:0x020e5ad0
+_ZN15LinkStateDamage19data_ov000_020e5b40E kind:data(any) addr:0x020e5ae0
+_ZN15LinkStateDamage19data_ov000_020e5b50E kind:data(any) addr:0x020e5af0
 _ZTV15LinkStateDamage kind:data(any) addr:0x020e5b08
-data_ov000_020e5bac kind:data(any) addr:0x020e5b4c
-data_ov000_020e5bc0 kind:data(any) addr:0x020e5b60
-data_ov000_020e5bd8 kind:data(any) addr:0x020e5b78
-data_ov000_020e5bf0 kind:data(any) addr:0x020e5b90
-data_ov000_020e5c04 kind:data(any) addr:0x020e5ba4
-data_ov000_020e5c1c kind:data(any) addr:0x020e5bbc
-data_ov000_020e5c34 kind:data(any) addr:0x020e5bd4
-data_ov000_020e5c44 kind:data(any) addr:0x020e5be4
+@1165 kind:data(any) addr:0x020e5b4c local
+@1166 kind:data(any) addr:0x020e5b60 local
+@1167 kind:data(any) addr:0x020e5b78 local
+@1168 kind:data(any) addr:0x020e5b90 local
+@1169 kind:data(any) addr:0x020e5ba4 local
+@1170 kind:data(any) addr:0x020e5bbc local
+@1171 kind:data(any) addr:0x020e5bd4 local
+@1172 kind:data(any) addr:0x020e5be4 local
 @1542 kind:data(any) addr:0x020e5bf8 local
 @1541 kind:data(any) addr:0x020e5bfc local
 @1540 kind:data(any) addr:0x020e5c00 local

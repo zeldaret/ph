@@ -9,10 +9,15 @@
 
 class LinkStateDamage : public LinkStateBase {
 public:
-    static unk32 data_ov000_020e5ae0;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5adc;
     static unk32 data_ov000_020e5aec;
     static LinkStateBase_UnkStruct1 data_ov000_020e5af0;
     static LinkStateBase_UnkStruct1 data_ov000_020e5b00;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b10;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b20;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b30;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b40;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b50;
 
     /* 00 (base) */
     /* 0c */ Vec3p mUnk_0c;
