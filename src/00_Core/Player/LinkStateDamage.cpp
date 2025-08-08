@@ -2,6 +2,8 @@
 #include "Game/Game.hpp"
 #include "Unknown/UnkStruct_020e9360.hpp"
 #include "Unknown/UnkStruct_ov000_020e9c88.hpp"
+extern "C" unk32 func_0201e388(void *param1, const char *param2);
+extern "C" void func_02019534(void *model, unk32 param1, unk32 param2);
 
 LinkStateBase_UnkStruct1 LinkStateDamage::data_ov000_020e5adc = {43, {0x1000, 0, 0x5000}};
 unk32 LinkStateDamage::data_ov000_020e5aec                    = 6;
@@ -82,30 +84,26 @@ THUMB void LinkStateDamage::CreateDebugHierarchy() {
 }
 
 void LinkStateDamage::OnStateEnter() {
-    func_ov00_020a8a4c(&data_ov000_020e5b10, 1);
-    func_ov00_020a8a4c(&data_ov000_020e5b20, 1);
-    func_ov00_020a8a4c(&data_ov000_020e5b30, 1);
-    func_ov00_020a8a4c(&data_ov000_020e5b40, 1);
-    func_ov00_020a8a4c(&data_ov000_020e5b50, 1);
+    this->func_ov00_020a8a4c(&data_ov000_020e5b10, 1);
+    this->func_ov00_020a8a4c(&data_ov000_020e5b20, 1);
+    this->func_ov00_020a8a4c(&data_ov000_020e5b30, 1);
+    this->func_ov00_020a8a4c(&data_ov000_020e5b40, 1);
+    this->func_ov00_020a8a4c(&data_ov000_020e5b50, 1);
 }
 
 void LinkStateDamage::OnStateLeave(s32 param1) {}
 
 ARM void LinkStateDamage::func_ov00_020ac9e4(unk32 param1) {
-    bool unkBool = func_ov005_02110f50(this->mUnk_30, param1, this->mUnk_22, (u32 *) this->mUnk_b0);
-    if (!unkBool) {
-        ChangeLinkState(LinkStateId_Move);
-        return;
+    if (!this->func_ov005_02110f50(this->mUnk_30, param1, this->mUnk_22, (u32 *) this->mUnk_b0)) {
+        this->ChangeLinkState(LinkStateId_Move);
+    } else {
+        s32 unkInt                 = mUnk_2c;
+        UnkStruct_027e0fd4 *unkPtr = this->func_ov00_020a8d40();
+        unkPtr->mUnk_09c           = unkInt;
+        if (data_027e0d38->mUnk_0c.func_ov000_020a5e9c() == 47) {
+            this->func_ov005_0210f7b8();
+        }
     }
-    s32 unkInt                 = mUnk_2c;
-    UnkStruct_027e0fd4 *unkPtr = func_ov00_020a8d40();
-    unkPtr->mUnk_09c           = unkInt;
-    s32 unkInt_2               = data_027e0d38->mUnk_0c.func_ov000_020a5e9c();
-    if (unkInt_2 != 47) {
-        return;
-    }
-    func_ov005_0210f7b8();
-    return;
 }
 
 ARM void RespawnLink(LinkStateDamage *linkState) {
@@ -115,11 +113,8 @@ ARM void RespawnLink(LinkStateDamage *linkState) {
     Vec3p *pos                  = linkState->GetPlayerPos();
     Vec3p_Add(pos, &ctrlData->mLastJumpLocation, &new_pos);
     linkState->mUnk_3c.SetTranslation(&new_pos);
-    return;
 }
 
-extern unk32 func_0201e388(void *param1, const char *param2);
-extern void func_02019534(void *model, unk32 param1, unk32 param2);
 ARM void LinkStateDamage::SetLinkFrozenMaterial() {
     void *model         = mUnk_3c.GetLcdcAddress();
     u32 materialsOffset = *(u32 *) ((u32) model + 8);
@@ -128,37 +123,33 @@ ARM void LinkStateDamage::SetLinkFrozenMaterial() {
     unk32 unkVar2       = data_ov000_020e9360.func_ov000_02079e68(1);
     void *model2        = mUnk_3c.GetLcdcAddress();
     func_02019534(model2, unkVar1, unkVar2);
-    return;
 }
 
 ARM void LinkStateDamage::vfunc_30(unk32 param1) {
     if (mUnk_18 == 6) {
-        Vec3p *playerPos = GetPlayerPos();
+        Vec3p *playerPos = this->GetPlayerPos();
         Vec3p unkPos;
         unkPos.x = playerPos->x;
         unkPos.y = playerPos->y;
         unkPos.z = playerPos->z;
         unkPos.y += 0x999;
         data_ov000_020e9c88.func_ov000_0207b89c(param1, &unkPos, (void (*)(void *)) &RespawnLink, this);
-        return;
     }
-    return;
 }
 
 void LinkStateDamage::func_ov00_020acb6c(Vec3p *param1, unk32 param2) {}
 
 ARM void LinkStateDamage::Knockback(Vec3p *knockbackVec, unk32 param2) {
     this->mUnk_18     = 2;
-    Vec3p *playerVel  = GetPlayerVel();
+    Vec3p *playerVel  = this->GetPlayerVel();
     playerVel->x      = knockbackVec->x;
     playerVel->y      = knockbackVec->y;
     playerVel->z      = knockbackVec->z;
     s16 groundAngle   = FX_Atan2Idx(knockbackVec->x, knockbackVec->z);
-    s16 *playerAngle  = GetPlayerAngle();
+    s16 *playerAngle  = this->GetPlayerAngle();
     *playerAngle      = groundAngle - 0x8000;
     this->mUnk_24[12] = 0;
     this->mUnk_22     = param2;
-    return;
 }
 
 ARM bool LinkStateDamage::vfunc_24(s32 param1) {
@@ -172,45 +163,40 @@ ARM bool LinkStateDamage::vfunc_24(s32 param1) {
 }
 
 ARM bool LinkStateDamage::vfunc_20(s32 param1) {
-    bool unk1 = func_ov00_020a8b80();
-    if (unk1) {
-        s32 health = GetCurrentCharacterHealth();
-        if (health <= 0) {
+    if (this->func_ov00_020a8b80()) {
+        if (this->GetCurrentCharacterHealth() <= 0) {
             if (gGame.mModeId == 2) {
-                Vec3p *vel = GetPlayerVel();
-                if (0 >= vel->y) {
-                    u32 unk2;
+                if (this->GetPlayerVel()->y <= 0) {
                     if (gItemManager->HasPurplePotion()) {
                         mUnk_18 = 0xe;
                     } else {
                         mUnk_18 = 0xf;
                     }
-                    func_ov00_020a82ac();
+                    this->func_ov00_020a82ac();
                 } else {
-                    return 0;
+                    return false;
                 }
             } else {
-                func_ov00_020a82ac();
+                this->func_ov00_020a82ac();
                 mUnk_18 = 0xe;
             }
-            return 1;
+            return true;
         }
-        if (0 < mUnk_32) {
-            func_ov00_020a82ac();
+        if (mUnk_32 > 0) {
+            this->func_ov00_020a82ac();
             mUnk_18 = 0xe;
-            return 1;
+            return true;
         }
     }
-    return 0;
+    return false;
 }
 
 ARM void LinkStateDamage::func_ov00_020acfe8(bool param1) {
     if (param1) {
-        func_ov00_020a8a4c(&data_ov000_020e5b00, 1);
-        return;
+        this->func_ov00_020a8a4c(&data_ov000_020e5b00, 1);
+    } else {
+        this->func_ov00_020a8a4c(&data_ov000_020e5af0, 1);
     }
-    func_ov00_020a8a4c(&data_ov000_020e5af0, 1);
-    return;
 }
 
 ARM LinkStateId LinkStateDamage::GetId() {

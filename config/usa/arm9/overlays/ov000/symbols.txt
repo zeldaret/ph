@@ -4849,14 +4849,14 @@ _ZN15LinkStateDamage19data_ov000_020e5b30E kind:data(any) addr:0x020e5ad0
 _ZN15LinkStateDamage19data_ov000_020e5b40E kind:data(any) addr:0x020e5ae0
 _ZN15LinkStateDamage19data_ov000_020e5b50E kind:data(any) addr:0x020e5af0
 _ZTV15LinkStateDamage kind:data(any) addr:0x020e5b08
-@1165 kind:data(any) addr:0x020e5b4c local
-@1166 kind:data(any) addr:0x020e5b60 local
-@1167 kind:data(any) addr:0x020e5b78 local
-@1168 kind:data(any) addr:0x020e5b90 local
-@1169 kind:data(any) addr:0x020e5ba4 local
-@1170 kind:data(any) addr:0x020e5bbc local
-@1171 kind:data(any) addr:0x020e5bd4 local
-@1172 kind:data(any) addr:0x020e5be4 local
+@1170 kind:data(any) addr:0x020e5b4c local
+@1171 kind:data(any) addr:0x020e5b60 local
+@1172 kind:data(any) addr:0x020e5b78 local
+@1173 kind:data(any) addr:0x020e5b90 local
+@1174 kind:data(any) addr:0x020e5ba4 local
+@1175 kind:data(any) addr:0x020e5bbc local
+@1176 kind:data(any) addr:0x020e5bd4 local
+@1177 kind:data(any) addr:0x020e5be4 local
 @1542 kind:data(any) addr:0x020e5bf8 local
 @1541 kind:data(any) addr:0x020e5bfc local
 @1540 kind:data(any) addr:0x020e5c00 local
