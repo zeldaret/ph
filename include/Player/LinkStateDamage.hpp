@@ -9,6 +9,7 @@
 
 class LinkStateDamage : public LinkStateBase {
 public:
+    static LinkStateBase_UnkStruct1 data_ov000_020e5acc;
     static LinkStateBase_UnkStruct1 data_ov000_020e5adc;
     static unk32 data_ov000_020e5aec;
     static LinkStateBase_UnkStruct1 data_ov000_020e5af0;
