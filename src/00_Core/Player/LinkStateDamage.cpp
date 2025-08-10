@@ -5,6 +5,8 @@
 extern "C" unk32 func_0201e388(void *param1, const char *param2);
 extern "C" void func_02019534(void *model, unk32 param1, unk32 param2);
 
+static char *sShipTypes[] = {"fnl", "bow", "dco", "can", "hul", "pdl", "anc", "brg"};
+
 LinkStateBase_UnkStruct1 LinkStateDamage::data_ov000_020e5adc = {43, {0x1000, 0, 0x5000}};
 unk32 LinkStateDamage::data_ov000_020e5aec                    = 6;
 LinkStateBase_UnkStruct1 LinkStateDamage::data_ov000_020e5af0 = {12, {0x1800, 0, 0xa000}};
@@ -83,7 +85,7 @@ THUMB void LinkStateDamage::CreateDebugHierarchy() {
     this->GetDebugHierarchy1();
 }
 
-void LinkStateDamage::OnStateEnter() {
+ARM void LinkStateDamage::OnStateEnter() {
     this->func_ov00_020a8a4c(&data_ov000_020e5b10, 1);
     this->func_ov00_020a8a4c(&data_ov000_020e5b20, 1);
     this->func_ov00_020a8a4c(&data_ov000_020e5b30, 1);
@@ -91,7 +93,7 @@ void LinkStateDamage::OnStateEnter() {
     this->func_ov00_020a8a4c(&data_ov000_020e5b50, 1);
 }
 
-void LinkStateDamage::OnStateLeave(s32 param1) {}
+ARM void LinkStateDamage::OnStateLeave(s32 param1) {}
 
 ARM void LinkStateDamage::func_ov00_020ac9e4(unk32 param1) {
     if (!this->func_ov005_02110f50(this->mUnk_30, param1, this->mUnk_22, (u32 *) this->mUnk_b0)) {
@@ -137,7 +139,7 @@ ARM void LinkStateDamage::vfunc_30(unk32 param1) {
     }
 }
 
-void LinkStateDamage::func_ov00_020acb6c(Vec3p *param1, unk32 param2) {}
+ARM void LinkStateDamage::func_ov00_020acb6c(Vec3p *param1, unk32 param2) {}
 
 ARM void LinkStateDamage::Knockback(Vec3p *knockbackVec, unk32 param2) {
     this->mUnk_18     = 2;
@@ -153,12 +155,15 @@ ARM void LinkStateDamage::Knockback(Vec3p *knockbackVec, unk32 param2) {
 }
 
 ARM bool LinkStateDamage::vfunc_24(s32 param1) {
-    if (param1 == 2) {
-        return mUnk_18 != 0xd;
+    switch (param1) {
+        case 3:
+            return false;
+        case 2:
+            return mUnk_18 != 0xd;
+        default:
+            break;
     }
-    if (param1 != 3) {
-        return false;
-    }
+
     return false;
 }
 
