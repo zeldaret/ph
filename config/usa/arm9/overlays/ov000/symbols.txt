@@ -3718,7 +3718,7 @@ data_ov000_020dc550 kind:data(any) addr:0x020dc4f0
 data_ov000_020dc554 kind:data(any) addr:0x020dc4f4
 data_ov000_020dc558 kind:data(any) addr:0x020dc4f8
 data_ov000_020dc55c kind:data(any) addr:0x020dc4fc
-linkFrozenMaterialName kind:data(any) addr:0x020dc500
+@1244 kind:data(any) addr:0x020dc500
 data_ov000_020dc574 kind:data(any) addr:0x020dc514
 data_ov000_020dc674 kind:data(any) addr:0x020dc614
 sQuiverSizes kind:data(any) addr:0x020dc664 local
@@ -4837,8 +4837,8 @@ data_ov000_020e5a9c kind:data(any) addr:0x020e5a3c
 data_ov000_020e5aa0 kind:data(any) addr:0x020e5a40
 data_ov000_020e5aa4 kind:data(any) addr:0x020e5a44
 data_ov000_020e5aa8 kind:data(any) addr:0x020e5a48
-data_ov000_020e5aac kind:data(any) addr:0x020e5a4c
-data_ov000_020e5acc kind:data(any) addr:0x020e5a6c
+gShipParts kind:data(any) addr:0x020e5a4c
+_ZN15LinkStateDamage19data_ov000_020e5accE kind:data(any) addr:0x020e5a6c
 _ZN15LinkStateDamage19data_ov000_020e5adcE kind:data(any) addr:0x020e5a7c
 _ZN15LinkStateDamage19data_ov000_020e5aecE kind:data(any) addr:0x020e5a8c
 _ZN15LinkStateDamage19data_ov000_020e5af0E kind:data(any) addr:0x020e5a90
@@ -4848,7 +4848,7 @@ _ZN15LinkStateDamage19data_ov000_020e5b20E kind:data(any) addr:0x020e5ac0
 _ZN15LinkStateDamage19data_ov000_020e5b30E kind:data(any) addr:0x020e5ad0
 _ZN15LinkStateDamage19data_ov000_020e5b40E kind:data(any) addr:0x020e5ae0
 _ZN15LinkStateDamage19data_ov000_020e5b50E kind:data(any) addr:0x020e5af0
-_ZTV15LinkStateDamage kind:data(any) addr:0x020e5b08
+_ZTV15LinkStateDamage kind:data(any) addr:0x020e5b00
 @1170 kind:data(any) addr:0x020e5b4c local
 @1171 kind:data(any) addr:0x020e5b60 local
 @1172 kind:data(any) addr:0x020e5b78 local
