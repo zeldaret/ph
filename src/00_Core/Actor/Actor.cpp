@@ -359,7 +359,7 @@ ARM bool Actor::IsNearLink() {
 }
 
 ARM void Actor::func_ov00_020c1cf8() {
-    if (mUnk_0a4.mUnk_00 || mUnk_0a4.mUnk_01 || mUnk_129 == true || mUnk_11d == true || mGrabbed) {
+    if (mUnk_0a4.mUnk_00 || mUnk_0a4.mUnk_01 || mUnk_129 == true || mUnk_11d == true || mGrabbed == true) {
         mInactive = 0;
     } else {
         if (this->IsNearLink()) {
