@@ -2,4 +2,4 @@
 
 LinkStateBase::LinkStateBase(PlayerLinkBase *link) {}
 LinkStateBase::~LinkStateBase() {}
-void LinkStateBase::CreateDebugHierarchy() {}
+void LinkStateBase::LoadBhio() {}

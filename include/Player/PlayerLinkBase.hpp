@@ -5,8 +5,8 @@
 #include "types.h"
 
 #include "Actor/ActorManager.hpp"
-#include "Debug/DebugHierarchy.hpp"
 #include "Item/ItemManager.hpp"
+#include "Player/Bhio.hpp"
 #include "Player/MotionParams.hpp"
 #include "Player/PlayerBase.hpp"
 #include "Player/PlayerControlData.hpp"
@@ -40,9 +40,9 @@ public:
     /* 5c */ unk8 mUnk_5c[3];
     /* 5f */ bool mUnk_5f;
     /* 60 */ MotionParams *mMotionParams;
-    /* 64 */ DebugHierarchy *mDebugHierarchy_0;
-    /* 68 */ DebugHierarchy *mDebugHierarchy_1;
-    /* 6c */ DebugHierarchy *mDebugHierarchy_2;
+    /* 64 */ Bhio *mBhio_0;
+    /* 68 */ Bhio *mBhio_1;
+    /* 6c */ Bhio *mBhio_2;
     /* 70 */
 
     /* 00 */ virtual s32 GetMaxHealth() override;

@@ -7,9 +7,9 @@
 
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
-#include "Debug/DebugHierarchy.hpp"
 #include "Item/Item.hpp"
 #include "Map/TilePos.hpp"
+#include "Player/Bhio.hpp"
 #include "Player/TouchControl.hpp"
 #include "Player/TouchGesture.hpp"
 
@@ -72,7 +72,7 @@ public:
     /* c8 */ s32 mUnk_c8;
     /* cc */ s32 mUnk_cc;
     /* d0 */ TouchGesture **mTouchGesture;
-    /* d4 */ DebugHierarchy *mDebug;
+    /* d4 */ Bhio *mBhio;
     /* d8 */
 
     static bool func_ov00_020aeeac();

@@ -3,9 +3,9 @@
 #include "global.h"
 #include "types.h"
 
-#include "Debug/DebugHierarchy.hpp"
 #include "Message/BMG.hpp"
 #include "Message/MsgProc.hpp"
+#include "Player/Bhio.hpp"
 #include "System/SysNew.hpp"
 #include "nds/math.h"
 
@@ -36,7 +36,7 @@ public:
     /* 0x20 */ UnkStruct_02037750 *mUnk_20[2];
     /* 0x28 */ UnkStruct_02038aa0 *mUnk_28[6]; //! TODO: is it the right type?
     /* 0x40 */ UnkStruct_020397f8 *mUnk_40[2]; // is array size 6?
-    /* 0x48 */ DebugHierarchy *mDebug;
+    /* 0x48 */ Bhio *mBhio;
     /* 0x4C */
 
     static void func_0203643c(u32 *param_1, MessageManager *param_2, u32 param_3);

@@ -100,8 +100,8 @@ func_ov004_0210372c kind:function(thumb,size=0x12) addr:0x021036ac
 func_ov004_02103740 kind:function(thumb,size=0x12) addr:0x021036c0
 func_ov004_02103754 kind:function(thumb,size=0xc94) addr:0x021036d4
 func_ov004_021043e8 kind:function(thumb,size=0x2) addr:0x02104368
-_ZN14DebugHierarchyD0Ev kind:function(arm,size=0x1c) addr:0x0210436c
-_ZN14DebugHierarchyD1Ev kind:function(arm,size=0x14) addr:0x02104388
+_ZN4BhioD0Ev kind:function(arm,size=0x1c) addr:0x0210436c
+_ZN4BhioD1Ev kind:function(arm,size=0x14) addr:0x02104388
 _ZN14AdventureFlagsC1Ev kind:function(thumb,size=0x4c) addr:0x0210439c
 _ZN14AdventureFlagsD1Ev kind:function(thumb,size=0x3e) addr:0x021043e8
 _ZN14AdventureFlags6CreateEv kind:function(thumb,size=0x2c) addr:0x02104428
@@ -293,7 +293,7 @@ _ZN13LinkStateBaseC2EP14PlayerLinkBase kind:function(thumb,size=0x10) addr:0x021
 _ZN13LinkStateBaseD1Ev kind:function(thumb,size=0x2) addr:0x0210ad64
 _ZN13LinkStateBaseD0Ev kind:function(thumb,size=0xc) addr:0x0210ad68
 _ZN13LinkStateBaseD2Ev kind:function(thumb,size=0x2) addr:0x0210ad74
-_ZN13LinkStateBase20CreateDebugHierarchyEv kind:function(thumb,size=0x2) addr:0x0210ad78
+_ZN13LinkStateBase8LoadBhioEv kind:function(thumb,size=0x2) addr:0x0210ad78
 _ZN13LinkStateRollC2EP14PlayerLinkBase kind:function(thumb,size=0x84) addr:0x0210ad7c
 _ZN13LinkStateRollD1Ev kind:function(thumb,size=0x28) addr:0x0210ae00
 _ZN13LinkStateRollD0Ev kind:function(thumb,size=0x2c) addr:0x0210ae28
@@ -587,7 +587,7 @@ data_ov004_02110468 kind:data(any) addr:0x021103e8
 data_ov004_0211047c kind:data(any) addr:0x021103fc
 data_ov004_02110484 kind:data(any) addr:0x02110404
 data_ov004_0211048c kind:data(any) addr:0x0211040c
-_ZTV14DebugHierarchy kind:data(any) addr:0x02110420
+_ZTV4Bhio kind:data(any) addr:0x02110420
 data_ov004_021104e0 kind:data(any) addr:0x02110460
 data_ov004_021104f0 kind:data(any) addr:0x02110470
 data_ov004_021104f8 kind:data(any) addr:0x02110478

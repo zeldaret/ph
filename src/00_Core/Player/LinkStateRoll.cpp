@@ -2,7 +2,7 @@
 
 void LinkStateRoll::vfunc_00() {}
 LinkStateId LinkStateRoll::GetId() {}
-void LinkStateRoll::CreateDebugHierarchy() {}
+void LinkStateRoll::LoadBhio() {}
 void LinkStateRoll::OnStateEnter() {}
 void LinkStateRoll::OnStateLeave(s32 param1) {}
 bool LinkStateRoll::vfunc_20(s32 param1) {}

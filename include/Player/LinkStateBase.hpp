@@ -7,7 +7,7 @@
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
-#include "Debug/DebugHierarchy.hpp"
+#include "Player/Bhio.hpp"
 #include "Player/EquipItem.hpp"
 #include "Player/PlayerControlData.hpp"
 #include "Player/PlayerLinkBase.hpp"
@@ -43,7 +43,7 @@ public:
     /* 00 */ virtual void vfunc_00();
     /* 04 */ virtual ~LinkStateBase();
     /* 0c */ virtual LinkStateId GetId() = 0;
-    /* 10 */ virtual void CreateDebugHierarchy();
+    /* 10 */ virtual void LoadBhio();
     /* 14 */ virtual void OnStateEnter();
     /* 18 */ virtual void OnStateLeave(s32 param1);
     /* 1c */ virtual void vfunc_1c();
@@ -122,7 +122,7 @@ public:
     Actor *GetGrabActor();
     ActorRef *GetGrabActorRef();
     unk32 Grab();
-    s32 Get_PlayerLinkBase_Unk44();
+    s32 *Get_PlayerLinkBase_Unk44();
     bool IsEquipBeingUsed(ItemFlag id);
     EquipItem *GetEquipItem(ItemFlag id);
     UnkStruct_027e0fd4 *func_ov00_020a8d40();
@@ -132,8 +132,8 @@ public:
     unk32 Get_PlayerControlData_Unk100();
     unk32 Get_PlayerControlData_Unk120();
     s32 Get_PlayerLinkBase_Unk38();
-    DebugHierarchy *GetDebugHierarchy0();
-    DebugHierarchy *GetDebugHierarchy1();
+    Bhio *GetBhio0();
+    Bhio *GetBhio1();
 
     LinkStateBase(PlayerLinkBase *link);
 
