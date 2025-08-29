@@ -71,7 +71,7 @@ s32 LinkStateBase::Get_PlayerControlData_Unk32() {}
 Actor *LinkStateBase::GetGrabActor() {}
 ActorRef *LinkStateBase::GetGrabActorRef() {}
 unk32 LinkStateBase::Grab() {}
-s32 LinkStateBase::Get_PlayerLinkBase_Unk44() {}
+s32 *LinkStateBase::Get_PlayerLinkBase_Unk44() {}
 bool LinkStateBase::IsEquipBeingUsed(ItemFlag id) {}
 EquipItem *LinkStateBase::GetEquipItem(ItemFlag id) {}
 UnkStruct_027e0fd4 *LinkStateBase::func_ov00_020a8d40() {}

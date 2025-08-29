@@ -122,7 +122,7 @@ public:
     Actor *GetGrabActor();
     ActorRef *GetGrabActorRef();
     unk32 Grab();
-    s32 Get_PlayerLinkBase_Unk44();
+    s32 *Get_PlayerLinkBase_Unk44();
     bool IsEquipBeingUsed(ItemFlag id);
     EquipItem *GetEquipItem(ItemFlag id);
     UnkStruct_027e0fd4 *func_ov00_020a8d40();

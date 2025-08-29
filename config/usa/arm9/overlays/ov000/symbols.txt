@@ -2048,8 +2048,8 @@ func_ov000_020aa0f0 kind:function(arm,size=0x34) addr:0x020aa090
 func_ov000_020aa124 kind:function(arm,size=0x208) addr:0x020aa0c4
 _ZN17LinkStateInteract8vfunc_00Ev kind:function(thumb,size=0x2) addr:0x020aa2cc
 _ZN17LinkStateInteract5GetIdEv kind:function(arm,size=0x8) addr:0x020aa2d0
-_ZN17LinkStateInteract20CreateDebugHierarchyEv kind:function(arm,size=0x24) addr:0x020aa2d8
-_ZN17LinkStateInteract14GetGrabActorIdEv kind:function(thumb,size=0x1d8) addr:0x020aa2fc
+_ZN17LinkStateInteract14GetGrabActorIdEv kind:function(arm,size=0x24) addr:0x020aa2d8
+_ZN17LinkStateInteract20CreateDebugHierarchyEv kind:function(thumb,size=0x1d8) addr:0x020aa2fc
 _ZN17LinkStateInteract12OnStateEnterEv kind:function(arm,size=0x27c) addr:0x020aa4d4
 _ZN17LinkStateInteract12OnStateLeaveEi kind:function(arm,size=0x68) addr:0x020aa750
 _ZN17LinkStateInteract18func_ov00_020aa818Ev kind:function(arm,size=0x2c) addr:0x020aa7b8
@@ -3615,7 +3615,7 @@ func_ov000_020d7880 kind:function(arm,size=0x20) addr:0x020d7820
 func_ov000_020d78a0 kind:function(arm,size=0x1e4) addr:0x020d7840
 func_ov000_020d7a84 kind:function(arm,size=0x50) addr:0x020d7a24
 _ZN18UnkStruct_020eec9c19func_ov000_020d7ad4Ei kind:function(arm,size=0x4c) addr:0x020d7a74
-func_ov000_020d7b20 kind:function(arm,size=0x40) addr:0x020d7ac0
+_ZN18UnkStruct_020eec9c19func_ov000_020d7b20EiP5Vec3p kind:function(arm,size=0x40) addr:0x020d7ac0
 func_ov000_020d7b60 kind:function(arm,size=0x20) addr:0x020d7b00
 func_ov000_020d7b80 kind:function(arm,size=0xec) addr:0x020d7b20
 func_ov000_020d7c6c kind:function(arm,size=0x20) addr:0x020d7c0c
@@ -4821,13 +4821,13 @@ data_ov000_020e5960 kind:data(any) addr:0x020e5900
 data_ov000_020e5964 kind:data(any) addr:0x020e5904
 data_ov000_020e5968 kind:data(any) addr:0x020e5908
 _ZTV17LinkStateInteract kind:data(any) addr:0x020e5914
-data_ov000_020e59b8 kind:data(any) addr:0x020e5958
-data_ov000_020e59cc kind:data(any) addr:0x020e596c
-data_ov000_020e59e4 kind:data(any) addr:0x020e5984
-data_ov000_020e59fc kind:data(any) addr:0x020e599c
-data_ov000_020e5a0c kind:data(any) addr:0x020e59ac
-data_ov000_020e5a20 kind:data(any) addr:0x020e59c0
-data_ov000_020e5a34 kind:data(any) addr:0x020e59d4
+@1235 kind:data(any) addr:0x020e5958 local
+@1236 kind:data(any) addr:0x020e596c local
+@1237 kind:data(any) addr:0x020e5984 local
+@1238 kind:data(any) addr:0x020e599c local
+@1239 kind:data(any) addr:0x020e59ac local
+@1240 kind:data(any) addr:0x020e59c0 local
+@1241 kind:data(any) addr:0x020e59d4 local
 _ZTV13LinkStateItem kind:data(any) addr:0x020e59e0
 @1126 kind:data(any) addr:0x020e5a2c
 @1125 kind:data(any) addr:0x020e5a30
