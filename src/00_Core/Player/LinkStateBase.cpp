@@ -74,7 +74,7 @@ unk32 LinkStateBase::Grab() {}
 s32 LinkStateBase::Get_PlayerLinkBase_Unk44() {}
 bool LinkStateBase::IsEquipBeingUsed(ItemFlag id) {}
 EquipItem *LinkStateBase::GetEquipItem(ItemFlag id) {}
-void *LinkStateBase::func_ov00_020a8d40() {}
+UnkStruct_027e0fd4 *LinkStateBase::func_ov00_020a8d40() {}
 unk32 LinkStateBase::func_ov00_020a8d50() {}
 unk32 LinkStateBase::func_ov00_020a8d6c() {}
 s32 LinkStateBase::PlayerControlData_vfunc_14(s32 param1) {}

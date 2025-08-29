@@ -3,10 +3,10 @@
 #include "global.h"
 #include "types.h"
 
-#include "nds/math.h"
+#include <nds/math.h>
 
 #include "Actor/ActorRef.hpp"
-#include "Actor/ActorType.hpp"
+#include "Actor/ActorTypeId.hpp"
 #include "Actor/FilterActorBase.hpp"
 #include "Physics/Cylinder.hpp"
 #include "Physics/Transform.hpp"
@@ -60,8 +60,7 @@ struct Actor_UnkStruct_0a4 {
     /* 01 */ bool mUnk_01;
     /* 02 */ bool mUnk_02;
     /* 03 */ bool mUnk_03;
-    /* 04 */ Vec3p mUnk_04;
-    /* 10 */ s32 mUnk_10;
+    /* 04 */ Cylinder mUnk_04;
     /* 14 */
 
     Actor_UnkStruct_0a4(q20 x, q20 y, q20 z, s32 unk_10);
@@ -126,20 +125,23 @@ public:
     /* 08c */ Cylinder mUnk_08c;
     /* 09c */ Actor_UnkStruct_09c mUnk_09c;
     /* 0a4 */ Actor_UnkStruct_0a4 mUnk_0a4;
-    /* 0b8 */ unk8 mUnk_0b8[0x24];
+    /* 0b8 */ Vec3p mUnk_0b8; // same as position for some actors
+    /* 0c4 */ unk8 mUnk_0c4[0x18];
     /* 0dc */ u16 mUnk_0dc;
     /* 0de */ u16 mUnk_0de;
     /* 0e0 */ u16 mUnk_0e0;
     /* 0e2 */ u16 mUnk_0e2;
     /* 0e4 */ unk16 mUnk_0e4;
-    /* 0e6 */ unk8 mUnk_0e6[0x20];
+    /* 0e6 */ unk8 mUnk_0e6[0x1a];
+    /* 100 */ void *mUnk_100;
+    /* 104 */ unk16 mUnk_104;
     /* 106 */ unk8 mUnk_106;
     /* 107 */ unk8 mUnk_107;
     /* 108 */ unk8 mUnk_108;
     /* 109 */ unk8 mUnk_109;
     /* 10a */ unk8 mUnk_10a[0x6];
-    /* 110 */ bool mUnk_110;
-    /* 111 */ bool mUnk_111;
+    /* 110 */ bool mTouchingWall;
+    /* 111 */ bool mTouchingFloor;
     /* 112 */ bool mUnk_112;
     /* 113 */ bool mUnk_113;
     /* 114 */ unk8 mUnk_114;
@@ -149,7 +151,7 @@ public:
     /* 118 */ bool mAlive;
     /* 119 */ u8 mUnk_119;
     /* 11a */ bool mVisible;
-    /* 11b */ bool mUnk_11b;
+    /* 11b */ bool mGrabbed;
     /* 11c */ unk8 mUnk_11c;
     /* 11d */ bool mUnk_11d;
     /* 11e */ q4 mYOffset;
@@ -194,8 +196,8 @@ public:
     /* 4c */ virtual bool vfunc_4c(unk32 *param1);
     /* 50 */ virtual Vec3p *GetPos();
     /* 54 */ virtual void vfunc_54();
-    /* 58 */ virtual bool SetUnk_11b();
-    /* 5c */ virtual bool SetVelocity(Vec3p *vel);
+    /* 58 */ virtual bool Grab();
+    /* 5c */ virtual bool Drop(Vec3p *vel);
     /* 60 */ virtual bool vfunc_60();
     /* 64 */ virtual void vfunc_64();
     /* 68 */ virtual void vfunc_68();

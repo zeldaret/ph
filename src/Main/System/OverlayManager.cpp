@@ -2,7 +2,7 @@
 #include "Game/Game.hpp"
 #include "Unknown/UnkStruct_020ee698.hpp"
 #include "global.h"
-#include "nds/overlay.h"
+#include <nds/overlay.h>
 
 extern u32 *data_027e0ce0[];
 extern "C" void func_ov007_02102850(u32 **);

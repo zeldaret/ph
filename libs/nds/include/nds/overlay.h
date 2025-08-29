@@ -1,6 +1,8 @@
 #ifndef _NDS_OVERLAY_H
 #define _NDS_OVERLAY_H
 
+#include "types.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
