@@ -94,11 +94,11 @@ ARM void ActorRefill::vfunc_14(u32 param1) {
                 temp_r0_2 = &mPos;
                 Vec3p_Add(temp_r0_2, &mVel, temp_r0_2);
                 this->func_01fffd04(0);
-                if (mUnk_110 || mUnk_112 || mUnk_113) {
+                if (mTouchingWall || mUnk_112 || mUnk_113) {
                     mVel.x = 0;
                     mVel.z = 0;
                 }
-                if (mUnk_111) {
+                if (mTouchingFloor) {
                     this->func_ov014_02135364(1);
                 } else if (this->func_ov00_020c2c0c()) {
                     this->func_ov014_02135364(4);

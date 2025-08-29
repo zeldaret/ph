@@ -215,7 +215,7 @@ void ActorRupee::Update(bool param1) {
     switch (mUnk_130) {
         case 0:
             Move();
-            if (mUnk_111) {
+            if (mTouchingFloor) {
                 local_1c = mPos;
                 MapManager::func_ov00_02083fb0(&local_20, gMapManager, &local_1c);
                 if (((local_20 >> 5) & 3) == 2) {

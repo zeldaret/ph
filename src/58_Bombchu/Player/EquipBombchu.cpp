@@ -70,7 +70,7 @@ ARM bool EquipBombchu_Unk_02198d00::vfunc_14(u16 *param1, s32 param2) {
 
 ARM bool EquipBombchu_Unk_02198d00::vfunc_10(s32 *param1) {
     Actor *temp_r0 = (Actor *) param1;
-    if (!temp_r0->SetUnk_11b()) {
+    if (!temp_r0->Grab()) {
         return false;
     }
     bool result;

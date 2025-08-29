@@ -16,7 +16,7 @@ void ActorBomb::vfunc_18(u32 param1) {}
 bool ActorBomb::func_ov014_02122bb8(s32 param1) {}
 void ActorBomb::vfunc_54() {}
 void ActorBomb::vfunc_20(bool param1) {}
-bool ActorBomb::SetVelocity(Vec3p *vel) {}
+bool ActorBomb::Drop(Vec3p *vel) {}
 bool ActorBomb::func_ov014_02122e48(unk32 *param1) {}
 bool ActorBomb::func_ov014_02122e7c() {}
 bool ActorBomb::func_ov014_02122e98() {}

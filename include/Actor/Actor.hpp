@@ -196,8 +196,8 @@ public:
     /* 4c */ virtual bool vfunc_4c(unk32 *param1);
     /* 50 */ virtual Vec3p *GetPos();
     /* 54 */ virtual void vfunc_54();
-    /* 58 */ virtual bool SetUnk_11b();
-    /* 5c */ virtual bool SetVelocity(Vec3p *vel);
+    /* 58 */ virtual bool Grab();
+    /* 5c */ virtual bool Drop(Vec3p *vel);
     /* 60 */ virtual bool vfunc_60();
     /* 64 */ virtual void vfunc_64();
     /* 68 */ virtual void vfunc_68();

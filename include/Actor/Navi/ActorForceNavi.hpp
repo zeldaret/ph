@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Actor/ActorType.hpp"
 #include "Actor/Navi/ActorNaviBase.hpp"
 
 class ActorForceNavi : public ActorNaviBase {
