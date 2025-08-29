@@ -268,7 +268,7 @@ public:
     s32 func_ov00_02083ef8(Vec3p *param_2, Vec3p *param_3, bool param_4);
     unk32 func_ov00_02083f44(Vec3p *param_2, bool param_3);
     unk8 MapData_vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4);
-    unk32 MapData_vfunc_70(Vec3p *param_2);
+    u16 MapData_vfunc_70(Vec3p *param_2);
     static void func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p *param_3);
     void GetTileWorldBounds(TilePos *tile, AABB *tileBounds);
     unk32 MapData_vfunc_54(TilePos *a);

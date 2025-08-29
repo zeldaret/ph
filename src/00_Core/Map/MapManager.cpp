@@ -1267,13 +1267,13 @@ unk8 MapManager::MapData_vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4
     this->mMap->vfunc_6c(param_2, param_3, param_4);
 }
 
-ARM unk32 MapManager::MapData_vfunc_70(Vec3p *param_2) {
+ARM u16 MapManager::MapData_vfunc_70(Vec3p *param_2) {
     return this->mMap->vfunc_70(param_2);
 }
 
 ARM void MapManager::func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p *param_3) {
     unk32 *iVar1; // find type with field that exists at offset 0xc
-    s32 dVar2;
+    u16 dVar2;
 
     iVar1 = (unk32 *) param_2->mMap->vfunc_74(param_3);
     if (iVar1 != NULL) {
@@ -2273,7 +2273,7 @@ s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *par
 
 ARM unk32 MapManager::func_ov00_02085594(Vec3p *param_2) {
     UnkStruct_02085594 *piVar1;
-    unk32 dVar3;
+    u16 dVar3;
     unk32 uVar4;
     bool bVar5;
     u32 uStack_24;
