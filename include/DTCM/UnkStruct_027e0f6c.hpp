@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include <nds/math.h>
+
 class UnkStruct_027e0f6c_Unk_1 {
 public:
     /* 00 */ unk32 mUnk_00;

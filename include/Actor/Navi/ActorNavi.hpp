@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Actor/ActorType.hpp"
 #include "Actor/Navi/ActorNaviBase.hpp"
 #include "Unknown/UnkStruct_02057200.hpp"
 #include "Unknown/UnkStruct_ov000_020beba8.hpp"

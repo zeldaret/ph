@@ -3,6 +3,7 @@
 #include "global.h"
 #include "types.h"
 
+#include "Actor/ActorRef.hpp"
 #include "Unknown/UnkStruct_02037750.hpp"
 
 class UnkStruct_ov000_020d18f4 : public UnkStruct_02037750 {
