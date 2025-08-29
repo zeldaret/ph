@@ -81,5 +81,5 @@ s32 LinkStateBase::PlayerControlData_vfunc_14(s32 param1) {}
 unk32 LinkStateBase::Get_PlayerControlData_Unk100() {}
 unk32 LinkStateBase::Get_PlayerControlData_Unk120() {}
 s32 LinkStateBase::Get_PlayerLinkBase_Unk38() {}
-DebugHierarchy *LinkStateBase::GetDebugHierarchy0() {}
-DebugHierarchy *LinkStateBase::GetDebugHierarchy1() {}
+Bhio *LinkStateBase::GetBhio0() {}
+Bhio *LinkStateBase::GetBhio1() {}

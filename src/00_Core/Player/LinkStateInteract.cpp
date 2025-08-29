@@ -27,61 +27,47 @@ static LinkStateBase_UnkStruct1 data_ov000_020e593c = {0x1e, {0x1999, 0x2000, 0x
 static LinkStateBase_UnkStruct1 data_ov000_020e594c = {0x1e, {0xffffe800, 0xa000, 0x0}};
 static LinkStateBase_UnkStruct1 data_ov000_020e595c = {0x22, {0x1000, 0x0, 0xf000}};
 
-THUMB void LinkStateInteract::CreateDebugHierarchy() {
+THUMB void LinkStateInteract::LoadBhio() {
     u32 dVar1;
-    DebugHierarchy *piVar2;
-    DebugHierarchy *piVar3;
+    Bhio *piVar2;
+    Bhio *piVar3;
     int iVar4;
 
     const char *fieldName;
 
-    fieldName = "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb0\x8d\xc4\x90\xb6\x9a\xac\x93x";
-    piVar2    = this->GetDebugHierarchy0();
-    piVar2->vfunc_3c('LGRB', &data_ov000_020e593c.mUnk_04.x);
     // Lift playback speed "持ち上げ再生速度"
-    piVar2->GetChildNode(1, fieldName, 'LGRB', &data_ov000_020e593c.mUnk_04.x, 8, 0, 0x3000, 0);
+    this->GetBhio0()->GetField2(true, 'LGRB', "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb0\x8d\xc4\x90\xb6\x9a\xac\x93x",
+                                &data_ov000_020e593c.mUnk_04.x, 8, 0, 0x3000);
 
-    fieldName = "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb0\x8AJ\x8en\x8et\x8e\x8c\x81[\x83\x80";
-    iVar4     = (int) data_ov000_020e593c.mUnk_04.z / 2;
-    piVar3    = this->GetDebugHierarchy0();
-    piVar3->vfunc_3c('LGRB', &data_ov000_020e593c.mUnk_04.y);
     // Lift start frame "持ち上げ開始フレーム"
-    piVar3->GetChildNode(1, fieldName, 'LGRB', &data_ov000_020e593c.mUnk_04.y, 8, 0, iVar4, 0);
+    this->GetBhio0()->GetField2(true, 'LGRB', "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb0\x8AJ\x8en\x8et\x8e\x8c\x81[\x83\x80",
+                                &data_ov000_020e593c.mUnk_04.y, 8, 0, data_ov000_020e593c.mUnk_04.z / 2);
 
-    fieldName = "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb9\x8fI\x97\xb9\x8et\x83\x8c\x81[\x83\x80";
-    dVar1     = data_ov000_020e593c.mUnk_04.z;
-    piVar3    = this->GetDebugHierarchy0();
-    piVar3->vfunc_3c('LGRB', &data_ov000_020e593c.mUnk_04.z);
     // Lift end frame "持ち上げ終了フレーム"
-    piVar3->GetChildNode(1, fieldName, 'LGRB', &data_ov000_020e593c.mUnk_04.z, 8, (int) dVar1 / 2, dVar1, 0);
+    this->GetBhio0()->GetField2(true, 'LGRB', "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb9\x8fI\x97\xb9\x8et\x83\x8c\x81[\x83\x80",
+                                &data_ov000_020e593c.mUnk_04.z, 8, data_ov000_020e593c.mUnk_04.z / 2,
+                                data_ov000_020e593c.mUnk_04.z);
 
     iVar4 = this->PlayerControlData_vfunc_14(data_ov000_020e595c.mUnk_00);
 
-    fieldName = "\x93\x8a\x82\xb0\x8d\xc4\x90\xb6\x91\xac\x93x";
-    piVar3    = this->GetDebugHierarchy0();
-    piVar3->vfunc_3c('LGRB', &data_ov000_020e595c.mUnk_04.x);
     // Throw playback speed "投げ再生速度"
-    piVar3->GetChildNode(1, fieldName, 'LGRB', &data_ov000_020e595c.mUnk_04.x, 8, 0, 0x3000, 0);
+    this->GetBhio0()->GetField2(true, 'LGRB', "\x93\x8a\x82\xb0\x8d\xc4\x90\xb6\x91\xac\x93x", &data_ov000_020e595c.mUnk_04.x,
+                                8, 0, 0x3000);
 
-    fieldName = "\x93\x8a\x82\xb0\x8aJ\x8en\x83t\x83\x8c\x81[\x83\x80";
-    piVar3    = this->GetDebugHierarchy0();
-    piVar3->vfunc_3c('LGRB', &data_ov000_020e595c.mUnk_04.y);
     // Throw start frame "投げ開始フレーム"
-    piVar3->GetChildNode(1, fieldName, 'LGRB', &data_ov000_020e595c.mUnk_04.y, 8, 0, iVar4 / 2, 0);
+    this->GetBhio0()->GetField2(true, 'LGRB', "\x93\x8a\x82\xb0\x8aJ\x8en\x83t\x83\x8c\x81[\x83\x80",
+                                &data_ov000_020e595c.mUnk_04.y, 8, 0, iVar4 / 2);
 
-    fieldName = "\x93\x8a\x82\xb9\x8fI\x97\xb9\x83t\x83\x8c\x81[\x83\x80";
-    piVar3    = this->GetDebugHierarchy0();
-    piVar3->vfunc_3c('LGRB', &data_ov000_020e595c.mUnk_04.z);
     // Throw end frame "投げ終了フレーム"
-    piVar3->GetChildNode(1, fieldName, 'LGRB', &data_ov000_020e595c.mUnk_04.z, 8, iVar4 / 2, iVar4, 0);
-    this->GetDebugHierarchy0();
+    this->GetBhio0()->GetField2(true, 'LGRB', "\x93\x8a\x82\xb9\x8fI\x97\xb9\x83t\x83\x8c\x81[\x83\x80",
+                                &data_ov000_020e595c.mUnk_04.z, 8, iVar4 / 2, iVar4);
 
-    fieldName = "\x92\xe2\x8e~\x8e\x9e\x8a\xd4";
-    iVar4     = data_ov000_020e5928 << 1;
-    piVar3    = this->GetDebugHierarchy0();
+    this->GetBhio0();
+
     // Stop time "停止時間"
-    piVar3->GetChildNode(0, fieldName, 'LPSH', &data_ov000_020e5928, 6, 0, iVar4, 0);
-    this->LinkStateBase::GetDebugHierarchy0();
+    this->GetBhio0()->GetField2(false, 'LPSH', "\x92\xe2\x8e~\x8e\x9e\x8a\xd4", &data_ov000_020e5928, 6, 0,
+                                data_ov000_020e5928 * 2);
+    this->GetBhio0();
     return;
 }
 
