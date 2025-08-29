@@ -9,19 +9,31 @@
 
 class LinkStateDamage : public LinkStateBase {
 public:
+    static LinkStateBase_UnkStruct1 data_ov000_020e5acc;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5adc;
+    static unk32 data_ov000_020e5aec;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5af0;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b00;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b10;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b20;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b30;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b40;
+    static LinkStateBase_UnkStruct1 data_ov000_020e5b50;
+
     /* 00 (base) */
-    /* 0c */ void *mUnk_0c;
-    /* 10 */ unk32 mUnk_10;
-    /* 14 */ unk32 mUnk_14;
+    /* 0c */ Vec3p mUnk_0c;
     /* 18 */ unk32 mUnk_18;
     /* 1c */ unk32 mUnk_1c;
     /* 20 */ unk8 mUnk_20[2];
     /* 22 */ unk16 mUnk_22;
-    /* 24 */ unk8 mUnk_24[0xe];
+    /* 24 */ unk8 mUnk_24[8];
+    /* 2c */ q20 mUnk_2c; // maybe link's "y" coordinate when entering this state
+    /* 30 */ bool mUnk_30;
+    /* 31 */ unk8 mUnk_31;
     /* 32 */ unk16 mUnk_32;
     /* 34 */ unk32 mUnk_34[2];
     /* 3c */ ModelRender mUnk_3c;
-    /* 98 */ void *mUnk_98;
+    /* 98 */ UnkStruct_ov000_020c0c08 *mUnk_98;
     /* 9c */ void *mUnk_9c;
     /* a0 */ unk32 mUnk_a0[3];
     /* ac */ unk32 mUnk_ac;
@@ -42,11 +54,10 @@ public:
     /* 44 */
 
     void func_ov00_020ac9e4(unk32 param1);
-    void func_ov00_020aca50();
-    void func_ov00_020aca94();
+    void SetLinkFrozenMaterial();
 
     void func_ov00_020acb6c(Vec3p *param1, unk32 param2);
-    void func_ov00_020ace90(Vec3p *param1, unk32 param2);
+    void Knockback(Vec3p *knockbackVec, unk32 param2);
 
     void func_ov00_020acfe8(bool param1);
 

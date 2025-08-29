@@ -2087,11 +2087,11 @@ _ZN15LinkStateDamage20CreateDebugHierarchyEv kind:function(thumb,size=0x218) add
 _ZN15LinkStateDamage12OnStateEnterEv kind:function(arm,size=0x630) addr:0x020ac1c0
 _ZN15LinkStateDamage12OnStateLeaveEi kind:function(arm,size=0x1f4) addr:0x020ac7f0
 _ZN15LinkStateDamage18func_ov00_020ac9e4Ei kind:function(arm,size=0x6c) addr:0x020ac9e4
-_ZN15LinkStateDamage18func_ov00_020aca50Ev kind:function(arm,size=0x44) addr:0x020aca50
-_ZN15LinkStateDamage18func_ov00_020aca94Ev kind:function(arm,size=0x68) addr:0x020aca94
+_Z11RespawnLinkP15LinkStateDamage kind:function(arm,size=0x44) addr:0x020aca50
+_ZN15LinkStateDamage21SetLinkFrozenMaterialEv kind:function(arm,size=0x68) addr:0x020aca94
 _ZN15LinkStateDamage8vfunc_30Ei kind:function(arm,size=0x70) addr:0x020acafc
 _ZN15LinkStateDamage18func_ov00_020acb6cEP5Vec3pi kind:function(arm,size=0x324) addr:0x020acb6c
-_ZN15LinkStateDamage18func_ov00_020ace90EP5Vec3pi kind:function(arm,size=0x68) addr:0x020ace90
+_ZN15LinkStateDamage9KnockbackEP5Vec3pi kind:function(arm,size=0x68) addr:0x020ace90
 _ZN15LinkStateDamage8vfunc_24Ei kind:function(arm,size=0x30) addr:0x020acef8
 _ZN15LinkStateDamage8vfunc_20Ei kind:function(arm,size=0xc0) addr:0x020acf28
 _ZN15LinkStateDamage18func_ov00_020acfe8Eb kind:function(arm,size=0x30) addr:0x020acfe8
@@ -3718,7 +3718,7 @@ data_ov000_020dc550 kind:data(any) addr:0x020dc550
 data_ov000_020dc554 kind:data(any) addr:0x020dc554
 data_ov000_020dc558 kind:data(any) addr:0x020dc558
 data_ov000_020dc55c kind:data(any) addr:0x020dc55c
-data_ov000_020dc560 kind:data(any) addr:0x020dc560
+@1244 kind:data(any) addr:0x020dc560
 data_ov000_020dc574 kind:data(any) addr:0x020dc574
 data_ov000_020dc674 kind:data(any) addr:0x020dc674
 sQuiverSizes kind:data(any) addr:0x020dc6c4 local
@@ -4829,41 +4829,34 @@ data_ov000_020e5a0c kind:data(any) addr:0x020e5a0c
 data_ov000_020e5a20 kind:data(any) addr:0x020e5a20
 data_ov000_020e5a34 kind:data(any) addr:0x020e5a34
 _ZTV13LinkStateItem kind:data(any) addr:0x020e5a40
-data_ov000_020e5a8c kind:data(any) addr:0x020e5a8c
-data_ov000_020e5a90 kind:data(any) addr:0x020e5a90
-data_ov000_020e5a94 kind:data(any) addr:0x020e5a94
-data_ov000_020e5a98 kind:data(any) addr:0x020e5a98
-data_ov000_020e5a9c kind:data(any) addr:0x020e5a9c
-data_ov000_020e5aa0 kind:data(any) addr:0x020e5aa0
-data_ov000_020e5aa4 kind:data(any) addr:0x020e5aa4
-data_ov000_020e5aa8 kind:data(any) addr:0x020e5aa8
-data_ov000_020e5aac kind:data(any) addr:0x020e5aac
-data_ov000_020e5acc kind:data(any) addr:0x020e5acc
-data_ov000_020e5adc kind:data(any) addr:0x020e5adc
-data_ov000_020e5ae0 kind:data(any) addr:0x020e5ae0
-data_ov000_020e5aec kind:data(any) addr:0x020e5aec
-data_ov000_020e5af0 kind:data(any) addr:0x020e5af0
-data_ov000_020e5af4 kind:data(any) addr:0x020e5af4
-data_ov000_020e5af8 kind:data(any) addr:0x020e5af8
-data_ov000_020e5afc kind:data(any) addr:0x020e5afc
-data_ov000_020e5b00 kind:data(any) addr:0x020e5b00
-data_ov000_020e5b04 kind:data(any) addr:0x020e5b04
-data_ov000_020e5b08 kind:data(any) addr:0x020e5b08
-data_ov000_020e5b0c kind:data(any) addr:0x020e5b0c
-data_ov000_020e5b10 kind:data(any) addr:0x020e5b10
-data_ov000_020e5b20 kind:data(any) addr:0x020e5b20
-data_ov000_020e5b30 kind:data(any) addr:0x020e5b30
-data_ov000_020e5b40 kind:data(any) addr:0x020e5b40
-data_ov000_020e5b50 kind:data(any) addr:0x020e5b50
-_ZTV15LinkStateDamage kind:data(any) addr:0x020e5b68
-data_ov000_020e5bac kind:data(any) addr:0x020e5bac
-data_ov000_020e5bc0 kind:data(any) addr:0x020e5bc0
-data_ov000_020e5bd8 kind:data(any) addr:0x020e5bd8
-data_ov000_020e5bf0 kind:data(any) addr:0x020e5bf0
-data_ov000_020e5c04 kind:data(any) addr:0x020e5c04
-data_ov000_020e5c1c kind:data(any) addr:0x020e5c1c
-data_ov000_020e5c34 kind:data(any) addr:0x020e5c34
-data_ov000_020e5c44 kind:data(any) addr:0x020e5c44
+@1126 kind:data(any) addr:0x020e5a8c
+@1125 kind:data(any) addr:0x020e5a90
+@1124 kind:data(any) addr:0x020e5a94
+@1123 kind:data(any) addr:0x020e5a98
+@1122 kind:data(any) addr:0x020e5a9c
+@1121 kind:data(any) addr:0x020e5aa0
+@1120 kind:data(any) addr:0x020e5aa4
+@1119 kind:data(any) addr:0x020e5aa8
+gShipParts kind:data(any) addr:0x020e5aac
+_ZN15LinkStateDamage19data_ov000_020e5accE kind:data(any) addr:0x020e5acc
+_ZN15LinkStateDamage19data_ov000_020e5adcE kind:data(any) addr:0x020e5adc
+_ZN15LinkStateDamage19data_ov000_020e5aecE kind:data(any) addr:0x020e5aec
+_ZN15LinkStateDamage19data_ov000_020e5af0E kind:data(any) addr:0x020e5af0
+_ZN15LinkStateDamage19data_ov000_020e5b00E kind:data(any) addr:0x020e5b00
+_ZN15LinkStateDamage19data_ov000_020e5b10E kind:data(any) addr:0x020e5b10
+_ZN15LinkStateDamage19data_ov000_020e5b20E kind:data(any) addr:0x020e5b20
+_ZN15LinkStateDamage19data_ov000_020e5b30E kind:data(any) addr:0x020e5b30
+_ZN15LinkStateDamage19data_ov000_020e5b40E kind:data(any) addr:0x020e5b40
+_ZN15LinkStateDamage19data_ov000_020e5b50E kind:data(any) addr:0x020e5b50
+_ZTV15LinkStateDamage kind:data(any) addr:0x020e5b60
+@1178 kind:data(any) addr:0x020e5bac local
+@1179 kind:data(any) addr:0x020e5bc0 local
+@1180 kind:data(any) addr:0x020e5bd8 local
+@1181 kind:data(any) addr:0x020e5bf0 local
+@1182 kind:data(any) addr:0x020e5c04 local
+@1183 kind:data(any) addr:0x020e5c1c local
+@1184 kind:data(any) addr:0x020e5c34 local
+@1185 kind:data(any) addr:0x020e5c44 local
 @1542 kind:data(any) addr:0x020e5c58 local
 @1541 kind:data(any) addr:0x020e5c5c local
 @1540 kind:data(any) addr:0x020e5c60 local
