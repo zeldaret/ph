@@ -2460,7 +2460,7 @@ struct UnkStruct_02080b24 {
     virtual unk32 vfunc_1c();
 };
 
-unk8 MapBase::func_ov00_02080b24(TilePos *param_2) {
+void MapBase::func_ov00_02080b24(TilePos *param_2) {
     UnkStruct_02080b24 *piVar1;
     int iVar2;
     int dx;

@@ -258,7 +258,7 @@ public:
     bool AddUnk_130(s32 param_2);
     bool func_ov00_020809b8(s32 param_2);
     TriggerBase *func_ov00_02080a78(Vec3p *param_2);
-    unk8 func_ov00_02080b24(TilePos *param_2);
+    void func_ov00_02080b24(TilePos *param_2);
     void func_ov00_02080d08(TilePos *param_2);
     bool TriggerOfType_vfunc_10(unk32 type);
     void func_ov00_02080de4();
