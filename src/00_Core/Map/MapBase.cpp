@@ -802,7 +802,7 @@ ARM void MapBase::func_ov00_0207e968() {
 
 ARM void MapBase::func_ov00_0207e96c() {}
 
-unk8 MapBase::vfunc_6c(unk32 param_2, unk32 param_3, unk32 param_4) {
+void MapBase::vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4) {
     /*
       int iVar1;
   uint uVar2;
@@ -1021,7 +1021,7 @@ unk8 MapBase::vfunc_6c(unk32 param_2, unk32 param_3, unk32 param_4) {
     */
 }
 
-unk32 MapBase::vfunc_70(Vec3p *param_2) {
+u16 MapBase::vfunc_70(Vec3p *param_2) {
     /*
       int iVar1;
   uint uVar2;
