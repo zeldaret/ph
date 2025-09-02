@@ -5,3 +5,10 @@
     .data       start:0x0219aea0 end:0x0219afc0 kind:data align:32
     .bss        start:0x0219afc0 end:0x0219b120 kind:bss align:32
 
+src/58_Bombchu/Player/EquipBombchu.cpp:
+    .text       start:0x02198d00 end:0x0219a454
+    .rodata     start:0x0219ad68 end:0x0219ad80
+    .init       start:0x0219ad80 end:0x0219ae7c
+    .ctor       start:0x0219ae7c end:0x0219ae80
+    .data       start:0x0219aea0 end:0x0219af18
+    .bss        start:0x0219afc0 end:0x0219b120

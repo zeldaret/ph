@@ -20,6 +20,7 @@ extern "C" {
 #define MAX_HOURGLASS_SECONDS 1500 // 25 minutes
 #define MAX_AMMO_UPGRADE 2
 #define MAX_UNK_0BA 9
+#define MAX_KEYS 8
 
 typedef u32 ItemModelId;
 enum ItemModelId_ {
@@ -49,6 +50,12 @@ enum DungeonItemModelId_ {
     DungeonItemModelId_SquareCrystal,   // switch_cstl_s_c
     DungeonItemModelId_TriangleCrystal, // switch_cstl_t_c
     DungeonItemModelId_COUNT,
+};
+
+struct ItemManager_Unk1 {
+    /* 00 */ char mUnk_00[0x10];
+    /* 10 */ unk32 mUnk_10[2];
+    /* 18 */
 };
 
 class ItemManager : public SysObject {
@@ -149,10 +156,10 @@ public:
     // Item model
     void func_ov00_020ad528();
     ItemModel *GetItemModel(ItemModelId id);
-    void func_ov00_020ad538(unk32 param1) const;
-    void func_ov00_020ad560(unk32 param1) const;
+    void *func_ov00_020ad538(const ItemManager_Unk1 *param1) const;
+    void *func_ov00_020ad560(const ItemManager_Unk1 *param1) const;
     ItemModel *GetDungeonItemModel(DungeonItemModelId id);
-    void func_ov00_020ad594(unk32 param1) const;
+    void *func_ov00_020ad594(const ItemManager_Unk1 *param1) const;
     void LoadFanfareItem(ItemId id);
     bool GetFanfareItemScale(Vec3p *pScale) const;
     void LoadDungeonItemModels();
@@ -209,8 +216,6 @@ public:
 
     // Unknown
     void func_ov00_020ae4dc(s32 param1);
-    void func_ov000_020c0c44(void *);
-    void func_ov000_020c0e5c(void *, unk32);
 };
 
 extern ItemManager *gItemManager;

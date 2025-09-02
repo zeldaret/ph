@@ -1,7 +1,7 @@
 #include "Player/EquipBomb.hpp"
 #include "Player/LinkStateItem.hpp"
 
-ModelRender EquipBomb::gModelRender;
+ModelRender EquipBomb::gModelRender(0);
 
 void EquipBomb::vfunc_00() {}
 bool EquipBomb::IsUsable(unk32 param1) const {}

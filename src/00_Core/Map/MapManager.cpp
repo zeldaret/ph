@@ -44,7 +44,6 @@ extern s32 func_ov000_0208e6f0(Vec3p *param_1);
 extern s32 func_ov000_0208e704(Vec3p *param_1);
 extern s32 func_ov000_0208e87c(AABB *param_1, Vec3p *param_2, Vec3p *param_3);
 extern void func_ov000_0208ed74(AABB *param_1, Vec3p *param_2);
-extern void func_ov000_02093a1c(u32 *param_1, unk32 *param_2, unk32 param_3);
 extern void func_ov000_02096324(unk32 *param_1, unk32 *param_2);
 extern s32 *func_ov000_02096418(s32 *param_1);
 extern void func_ov015_021849a4(unk32 *param_1);
@@ -1264,17 +1263,17 @@ ARM unk32 MapManager::func_ov00_02083f44(Vec3p *param_2, bool param_3) {
     return this->func_ov00_02083ef8(param_2, &local_18, param_3);
 }
 
-unk8 MapManager::MapData_vfunc_6c(unk32 param_2, unk32 param_3, unk32 param_4) {
+unk8 MapManager::MapData_vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4) {
     this->mMap->vfunc_6c(param_2, param_3, param_4);
 }
 
-ARM unk32 MapManager::MapData_vfunc_70(Vec3p *param_2) {
+ARM u16 MapManager::MapData_vfunc_70(Vec3p *param_2) {
     return this->mMap->vfunc_70(param_2);
 }
 
 ARM void MapManager::func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p *param_3) {
     unk32 *iVar1; // find type with field that exists at offset 0xc
-    s32 dVar2;
+    u16 dVar2;
 
     iVar1 = (unk32 *) param_2->mMap->vfunc_74(param_3);
     if (iVar1 != NULL) {
@@ -1284,7 +1283,7 @@ ARM void MapManager::func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p
 
     dVar2 = param_2->MapData_vfunc_70(param_3);
     if (dVar2 != 0xffff) {
-        func_ov000_02093a1c(param_1, (unk32 *) data_027e0f6c, dVar2);
+        UnkStruct_027e0f6c::func_ov000_02093a1c(param_1, data_027e0f6c, dVar2);
         return;
     }
 
@@ -2086,7 +2085,7 @@ unk32 MapManager::func_ov00_02084ebc(Vec3p *param_2) {
     }
     // dVar3 = this->MapData_vfunc_70(); // Missing param.
     if (dVar3 != 0xffff) {
-        func_ov000_02093a1c(&uStack_14, (unk32 *) data_027e0f6c, dVar3);
+        UnkStruct_027e0f6c::func_ov000_02093a1c(&uStack_14, data_027e0f6c, dVar3);
         if ((uStack_14 >> 5 & 3) != 1) {
             return 0;
         }
@@ -2274,7 +2273,7 @@ s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *par
 
 ARM unk32 MapManager::func_ov00_02085594(Vec3p *param_2) {
     UnkStruct_02085594 *piVar1;
-    unk32 dVar3;
+    u16 dVar3;
     unk32 uVar4;
     bool bVar5;
     u32 uStack_24;
@@ -2337,7 +2336,7 @@ ARM unk32 MapManager::func_ov00_02085594(Vec3p *param_2) {
     if (dVar3 == 0xffff) {
         return 0;
     }
-    func_ov000_02093a1c(&uStack_24, (unk32 *) data_027e0f6c, dVar3);
+    UnkStruct_027e0f6c::func_ov000_02093a1c(&uStack_24, data_027e0f6c, dVar3);
     if ((uStack_24 >> 5 & 3) == 1) {
         return bVar5 ? 1 : 2;
     }
@@ -2503,7 +2502,7 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     Vec2p iStack_104;
     Vec3p VStack_f0;
     Vec3p VStack_e4;
-    Vec4p VStack_d8;
+    Sphere VStack_d8;
     Vec3p VStack_c8;
     Vec3p VStack_bc;
     Vec3p VStack_b0;
@@ -2566,11 +2565,11 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
         VStack_b0.z = VStack_bc.z;
         Vec3p_Add(&VStack_b0, &VStack_c8, &VStack_b0);
     }
-    bVar5       = false;
-    VStack_d8.y = param_5 << 1;
-    VStack_d8.x = 0;
-    VStack_d8.z = 0;
-    VStack_d8.w = param_5;
+    bVar5            = false;
+    VStack_d8.pos.y  = param_5 << 1;
+    VStack_d8.pos.x  = 0;
+    VStack_d8.pos.z  = 0;
+    VStack_d8.radius = param_5;
     do {
         bVar4 = func_01ffbe78(param_2, &VStack_b0, &VStack_bc, &VStack_d8);
         if (bVar4) {

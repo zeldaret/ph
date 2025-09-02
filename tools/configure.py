@@ -207,7 +207,7 @@ def check_can_run_dsd() -> bool:
             version = "v" + version
 
         # If it's not the correct version, Ninja will download it and then rerun this script
-        return version == DSD_VERSION
+        return version == DSD_VERSION or args.dsd is not None
     except subprocess.CalledProcessError:
         return False
     except FileNotFoundError:

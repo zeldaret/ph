@@ -227,7 +227,7 @@ ARM bool UnkFilterActor::Filter(Actor *actor) {
     Vec3p sp0;
     Vec3p_Sub(&actor->mPos, &mPos, &sp0);
     s16 angle2 = mAngle;
-    s16 angle1 = (s16) Atan2(sp0.x, sp0.z);
+    s16 angle1 = (s16) FX_Atan2Idx(sp0.x, sp0.z);
     s32 var_r6 = (s16) (angle1 - angle2) >> 3;
     if (var_r6 < 0) {
         var_r6 = -var_r6;

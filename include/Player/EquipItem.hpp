@@ -10,8 +10,8 @@
 class EquipItem : public SysObject {
 public:
     /* 0 (vtable) */
-    /* 4 */ u16 mUnk_00;
-    /* 6 */ u16 mUnk_04;
+    /* 4 */ s16 mUnk_04;
+    /* 6 */ u16 mUnk_06;
     /* 8 */ bool mInUse;
     /* 9 */
 
@@ -40,6 +40,6 @@ public:
 
     Vec3p *GetPlayerPos();
     void func_ov000_020be99c(Vec3p *param1);
-    void func_ov000_020be9e4(s32 param1, s32 param2, s32 param3, s16 param4);
+    void func_ov000_020be9e4(Vec3p param3, s16 param4);
     s16 GetAmmo() const;
 };

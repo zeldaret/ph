@@ -15,7 +15,7 @@ public:
     /* 010 */ unk32 mUnk_010;
     /* 014 */ unk32 mUnk_014;
     /* 018 */ unk32 mStateUnk;
-    /* 01c */ Vec3p mUnk_01c;
+    /* 01c */ Vec3p mLastJumpLocation; // vector from last location of the player before jumping?
     /* 028 */ unk16 mUnk_028;
     /* 02a */ unk16 mUnk_02a;
     /* 02c */ unk16 mUnk_02c;
