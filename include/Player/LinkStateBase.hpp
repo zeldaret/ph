@@ -6,6 +6,7 @@
 
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
+#include "DTCM/UnkStruct_027e0fd4.hpp"
 #include "Debug/DebugHierarchy.hpp"
 #include "Player/EquipItem.hpp"
 #include "Player/PlayerControlData.hpp"
@@ -124,7 +125,7 @@ public:
     s32 Get_PlayerLinkBase_Unk44();
     bool IsEquipBeingUsed(ItemFlag id);
     EquipItem *GetEquipItem(ItemFlag id);
-    void *func_ov00_020a8d40();
+    UnkStruct_027e0fd4 *func_ov00_020a8d40();
     unk32 func_ov00_020a8d50();
     unk32 func_ov00_020a8d6c();
     s32 PlayerControlData_vfunc_14(s32 param1);

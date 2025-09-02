@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Actor/Actor.hpp"
+#include "Actor/ActorType.hpp"
 
 class ActorActionObject : public Actor {
 public:

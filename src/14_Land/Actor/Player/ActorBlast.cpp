@@ -3,7 +3,7 @@
 ActorType ActorBlast::gType = ActorType(ActorTypeId_Blast, (ActorCreateFunc) ActorBlast::Create, NULL);
 
 ActorBlast *ActorBlast::Create() {}
-void ActorBlast_Unk1::vfunc_10(s32 *param1) {}
+bool ActorBlast_Unk1::vfunc_10(s32 *param1) {}
 ActorBlast::ActorBlast() {}
 ActorBlast::~ActorBlast() {}
 bool ActorBlast::Init() {}

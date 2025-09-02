@@ -61,4 +61,4 @@ q20 Vec3p_Distance(Vec3p *a, Vec3p *b) {}
 void Vec3p_func_01fffc94(Vec3p *a, Vec3p *b);
 
 u32 func_01ff9f3c(s32 a, s32 b) {}
-s32 Atan2(s32 x, s32 y) {}
+s32 FX_Atan2Idx(s32 x, s32 y) {}

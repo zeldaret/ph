@@ -69,7 +69,7 @@ func_02003624 kind:function(arm,size=0x68) addr:0x02003624
 func_0200368c kind:function(arm,size=0x12c) addr:0x0200368c
 func_020037b8 kind:function(arm,size=0xd0) addr:0x020037b8
 func_02003888 kind:function(arm,size=0x4) addr:0x02003888
-func_0200388c kind:function(arm,size=0x18) addr:0x0200388c
+FX_Mul kind:function(arm,size=0x18) addr:0x0200388c
 func_020038a4 kind:function(arm,size=0x3c) addr:0x020038a4
 func_020038e0 kind:function(thumb,size=0xd0) addr:0x020038e0
 func_020039b0 kind:function(arm,size=0x34) addr:0x020039b0
@@ -919,8 +919,8 @@ func_0201e5c8 kind:function(arm,size=0x10) addr:0x0201e5c8
 func_0201e5d8 kind:function(arm,size=0x10) addr:0x0201e5d8
 func_0201e5e8 kind:function(arm,size=0x74) addr:0x0201e5e8
 func_0201e65c kind:function(arm,size=0x1c) addr:0x0201e65c
-func_0201e678 kind:function(arm,size=0x20) addr:0x0201e678
-func_0201e698 kind:function(arm,size=0x1c) addr:0x0201e698
+GetJntAnimation kind:function(arm,size=0x20) addr:0x0201e678
+FindJntSection kind:function(arm,size=0x1c) addr:0x0201e698
 func_0201e6b4 kind:function(arm,size=0xac) addr:0x0201e6b4
 func_0201e760 kind:function(arm,size=0x2c) addr:0x0201e760
 func_0201e78c kind:function(arm,size=0x94) addr:0x0201e78c
@@ -2478,7 +2478,7 @@ __sinit_02050eb8 kind:function(arm,size=0x2c) addr:0x02050eb8
 __sinit_02050ee4 kind:function(arm,size=0x1c) addr:0x02050ee4
 __sinit_02050f00 kind:function(arm,size=0x40) addr:0x02050f00
 __sinit_02050f40 kind:function(arm,size=0x14) addr:0x02050f40
-gSinCosTable kind:data(any) addr:0x02050f54
+FX_SinCosTable_ kind:data(any) addr:0x02050f54
 data_02051054 kind:data(any) addr:0x02051054
 data_02051154 kind:data(any) addr:0x02051154
 data_02051254 kind:data(any) addr:0x02051254
@@ -2492,7 +2492,7 @@ data_02054954 kind:data(any) addr:0x02054954
 data_02054b54 kind:data(any) addr:0x02054b54
 data_02054e54 kind:data(any) addr:0x02054e54
 gAngToRadTable kind:data(any) addr:0x02054f54
-gAtan2Table kind:data(any) addr:0x02055058
+FX_AtanIdxTable_ kind:data(any) addr:0x02055058
 data_0205515c kind:data(any) addr:0x0205515c
 data_0205516c kind:data(any) addr:0x0205516c
 data_0205516e kind:data(any) addr:0x0205516e
