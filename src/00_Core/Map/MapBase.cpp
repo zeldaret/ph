@@ -2436,24 +2436,19 @@ TriggerBase *MapBase::func_ov00_02080a78(Vec3p *param_2) {
     local_18.ppTVar2 = this->mUnk_130.mElements;
     local_18.ppTVar1 = this->mUnk_130.mElements + this->mUnk_130.mSize;
 
-    local_18.func_ov00_02080ad0(local_18.ppTVar2, local_18.ppTVar1);
+    // local_18.func_ov00_02080ad0(local_18.ppTVar2, local_18.ppTVar1);
     if (local_18.mTrigger == this->mUnk_130.mElements + this->mUnk_130.mSize) {
         return NULL;
     }
     return *local_18.mTrigger;
 }
 
-void MapBase_Unk2::func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param_3) {
-    /*
-      int iVar1;
-
-                    // ~TriggerBase!Base
-  while ((param_2 != param_3 && (iVar1 = (**(code **)(*param_2)->vtable)(), iVar1 == 0))) {
-    param_2 = param_2 + 1;
-  }
-  param_1->mTrigger = param_2;
-  return;
-    */
+void MapBase_Unk2::func_ov00_02080ad0(MapBase_Unk2_02080ad0 param_2, TriggerBase **param_3) {
+    TriggerBase **i = param_2.mUnk_00;
+    while (i != param_2.mUnk_04 && (*i)->vfunc_00(param_3) == 0) {
+        ++i;
+    }
+    this->ppTVar1 = i;
 }
 
 struct UnkStruct_02080b24 {

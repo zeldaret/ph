@@ -23,7 +23,12 @@ struct TriggerParams {
     /* b */
 };
 
-class TriggerBase : public SysObject {
+class A : public SysObject {
+public:
+    virtual unk32 vfunc_00(void *);
+};
+
+class TriggerBase : public A {
 public:
     /* 00 (vtable) */
     /* 04 */ unk8 mUnk_04;

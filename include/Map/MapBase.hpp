@@ -64,16 +64,20 @@ struct MapBase_Unk1 {
     void func_ov00_02080324(s32 param_2, s32 param_3, s32 param_4);
 };
 
-struct MapBase_Unk2 {
-    /* 00 */
-    /* 04 */ TriggerBase **ppTVar1;
-    /* 08 */
-    /* 18 */ TriggerBase **ppTVar2;
-    TriggerBase **mTrigger;
-    Vec3p mVec;
-    /* 1c */
+struct MapBase_Unk2_02080ad0 {
+    TriggerBase **mUnk_00;
+    TriggerBase **mUnk_04;
+};
 
-    void func_ov00_02080ad0(TriggerBase **param_2, TriggerBase **param_3);
+struct MapBase_Unk2 {
+    /* 00 */ TriggerBase **ppTVar1;
+    /* 04 */ TriggerBase **ppTVar2;
+    /* 08 */ TriggerBase **mTrigger;
+    /* 10 */ Vec3p mVec;
+    /* 14 */
+    /* 20 */
+
+    void func_ov00_02080ad0(MapBase_Unk2_02080ad0 param_2, TriggerBase **param_3);
 };
 
 class MapBase : public SysObject {
