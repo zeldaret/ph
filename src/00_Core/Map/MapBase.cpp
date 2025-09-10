@@ -1457,9 +1457,10 @@ ARM void MapBase::GetTileBounds(TilePos *tilePos, AABB *bounds) {
     start.x = this->GetTileStartX(tilePos->x);
     start.y = FLOAT_TO_Q20(-1.2001); // why not just -1.2?
 
-    end.z       = this->GetTileEndZ(tilePos->y);
-    end.y       = this->vfunc_60(tilePos);
-    end.x       = this->GetTileEndX(tilePos->x);
+    end.z = this->GetTileEndZ(tilePos->y);
+    end.y = this->vfunc_60(tilePos);
+    end.x = this->GetTileEndX(tilePos->x);
+
     bounds->min = start;
     bounds->max = end;
 }
@@ -1538,29 +1539,21 @@ s32 MapBase::AddEntrance(Entrance *param_2) {
     */
 }
 
+// Non-matching
 Entrance *MapBase::FindEntrance(unk32 id) {
-    /*
-      uint uVar1;
-  Entrance *iter;
-  Entrance *begin;
-  Entrance *end;
+    Entrance *iter;
+    Entrance *begin;
+    Entrance *end;
 
-  begin = (param_1->mEntrances).elements;
-  uVar1 = 0x14;
-  end = begin + (param_1->mEntrances).size;
-  iter = begin;
-  while( true ) {
-    if (iter != end) {
-      uVar1 = (uint)iter->mId;
+    begin = this->mEntrances.mElements;
+    end   = begin + this->mEntrances.mSize;
+
+    for (iter = begin; (s32) iter != (s32) end; iter++) {
+        if (id == iter->mId) {
+            return iter;
+        }
     }
-    if (iter == end || id == uVar1) break;
-    iter = iter + 1;
-  }
-  if (iter != end) {
-    begin = iter;
-  }
-  return begin;
-    */
+    return begin;
 }
 
 ARM void MapBase::func_ov00_0207f924(unk32 param_2) {
