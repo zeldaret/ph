@@ -267,8 +267,8 @@ ARM void MapManager::func_ov00_0208230c(FlagsUnk2 *param_2) {
     param_2->mUnk_00.mUnk_00 = this->mCourse->mIndex;
 
     Course *course           = this->mCourse;
-    param_2->mUnk_00.mUnk_0e = course->mMapGrid[course->mCurrMapPos.x][course->mCurrMapPos.y];
-    param_2->mUnk_00.mUnk_0f = this->mUnk_0c;
+    param_2->mUnk_04.mUnk_0e = course->mMapGrid[course->mCurrMapPos.x][course->mCurrMapPos.y];
+    param_2->mUnk_04.mUnk_0f = this->mUnk_0c;
 }
 
 ARM void MapManager::func_ov00_02082348(FlagsUnk2 *param_2) {
