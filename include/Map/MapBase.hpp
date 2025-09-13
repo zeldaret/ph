@@ -7,6 +7,7 @@
 
 #include "nds/math.h"
 
+#include "DTCM/UnkStruct_027e0d38.hpp"
 #include "Map/CameraViewpoint.hpp"
 #include "Map/Course.hpp"
 #include "Map/Entrance.hpp"
@@ -27,7 +28,9 @@ struct MapBase_Unk_13c {
 };
 
 struct MapBase_Unk_140 {
-    /* 00 */ unk8 mUnk_00[0x60];
+    /* 00 */ unk8 mUnk_00[0x5c];
+    /* 5c */ unk8 mUnk_5c;
+    /* 5d */ unk8 mUnk_5d[3];
     /* 60 */ unk32 *mUnk_60;
     /* 64 */
 };
@@ -56,12 +59,13 @@ struct MapBase_Unk_180 {
 };
 
 struct MapBase_Unk1 {
-    /* 00 */ s32 mUnk_00;
+    /* 00 */ UnkStruct_027e0d38_UnkC *mUnk_00;
     /* 04 */ Exit mExit_04;
     /* 1c */ Exit mExit_1c;
     /* 34 */
 
-    void func_ov00_02080324(s32 param_2, s32 param_3, s32 param_4);
+    void func_ov00_02080324(UnkStruct_027e0d38_UnkC *param_2, UnkStruct_027e0d38_UnkC *param_3,
+                            UnkStruct_027e0d38_UnkC *param_4);
 };
 
 struct MapBase_Unk2_02080ad0 {
@@ -253,20 +257,20 @@ public:
     void AddExit(Exit *param_2);
     char func_ov00_02080140(Exit *param_2);
     bool FindExit(u32 param_2, Exit *param_3);
-    unk8 AddCameraViewpoint(CameraViewpoint *param_2);
+    void AddCameraViewpoint(CameraViewpoint *param_2);
     bool FindViewpoint_Unk_4(unk8 id, CameraViewpoint *param_3);
     bool FindViewpoint_Unk_0(s32 param_2, CameraViewpoint *param_3);
     void GetCurrentViewpoint(CameraViewpoint *param_2, s32 param_3);
     unk32 GetCurrentViewpoint_Unk_00(s32 param_2);
     bool func_ov00_02080824(u32 param_2, unk8 *param_3);
-    bool AddUnk_130(s32 param_2);
-    bool func_ov00_020809b8(s32 param_2);
+    bool AddUnk_130(TriggerBase *param_2);
+    bool func_ov00_020809b8(TriggerBase *param_2);
     TriggerBase *func_ov00_02080a78(Vec3p *param_2);
     void func_ov00_02080b24(TilePos *param_2);
     void func_ov00_02080d08(TilePos *param_2);
     bool TriggerOfType_vfunc_10(unk32 type);
     void func_ov00_02080de4();
-    unk8 func_ov00_02080de8(unk32 param_2);
+    void func_ov00_02080de8(unk32 param_2);
     void func_ov00_02080edc();
 
     MapBase(u32 param1, u32 param2);

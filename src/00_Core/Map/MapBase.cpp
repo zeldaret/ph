@@ -5,6 +5,7 @@
 #include "Map/MapBase.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0e58.hpp"
+#include "DTCM/UnkStruct_027e0f64.hpp"
 #include "DTCM/UnkStruct_027e0f6c.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
@@ -23,6 +24,7 @@ extern "C" unk32 *func_0201e4cc(unk32 *param_1);
 
 extern void func_ov000_020a3de0(bool, unk32);
 extern unk32 func_ov000_02079e3c();
+extern unk32 func_ov000_02087dd8(void *);
 
 extern bool data_027e0f8c;
 extern unk32 data_ov000_020ecde4;
@@ -1811,9 +1813,11 @@ ARM TriggerBase *MapBase::FindTrigger(unk32 type) {
     TriggerBase **p;
 
     for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+
         if (type == (*p)->mId) {
             return *p;
         }
+        this->mTriggers.mElements = p; // why does this give a higher match? is this almost correct?
     }
     return NULL;
 }
@@ -2084,164 +2088,167 @@ char MapBase::func_ov00_02080140(Exit *param_2) {
     */
 }
 
-void MapBase_Unk1::func_ov00_02080324(s32 param_2, s32 param_3, s32 param_4) {
-    /*
-      int iVar1;
-  bool bVar2;
-  bool bVar3;
-  bool bVar4;
-  ulonglong uVar5;
+// Non-matching
+void MapBase_Unk1::func_ov00_02080324(UnkStruct_027e0d38_UnkC *param_2, UnkStruct_027e0d38_UnkC *param_3,
+                                      UnkStruct_027e0d38_UnkC *param_4) {
+    int iVar1;
+    bool bVar2;
+    bool bVar3;
+    bool bVar4;
+    u64 uVar5;
 
-  for (; param_2 != param_3; param_2 = param_2 + 0x18) {
-    iVar1 = UnkStruct_027e0d38_UnkC::func_ov000_020a5e9c(param_2);
-    uVar5 = UnkStruct_027e0d38_UnkC::func_ov000_020a5e9c(param_4);
-    bVar2 = iVar1 == (int)uVar5;
-    if (bVar2) {
-      uVar5 = (ulonglong)CONCAT14(*(undefined1 *)(param_2 + 0x12),(uint)*(byte *)(param_4 + 0x12));
+    for (; param_2 != param_3; param_2 += 0x18) {
+        iVar1 = param_2->func_ov000_020a5e9c();
+        uVar5 = param_4->func_ov000_020a5e9c();
+        bVar2 = iVar1 == (int) uVar5;
+        if (bVar2) {
+            uVar5 = (u64) (unk8 *) param_2->mUnk_0c << 4 & (u32) param_4->mUnk_0c; // CONCAT14
+        }
+        bVar3 = (int) (uVar5 >> 0x20) == (int) uVar5;
+        bVar4 = bVar2 && bVar3;
+        if (bVar4) {
+            bVar4 = param_2->mUnk_0d == param_4->mUnk_0d;
+        }
+        if (bVar4) {
+            bVar4 = param_2->mUnk_08 == param_4->mUnk_08;
+        }
+        if (bVar4) {
+            break;
+        }
     }
-    bVar3 = (int)(uVar5 >> 0x20) == (int)uVar5;
-    bVar4 = bVar2 && bVar3;
-    if (bVar2 && bVar3) {
-      bVar4 = *(char *)(param_2 + 0x13) == *(char *)(param_4 + 0x13);
-    }
-    if (bVar4) {
-      bVar4 = *(int *)(param_2 + 8) == *(int *)(param_4 + 8);
-    }
-    if (bVar4) break;
-  }
-  param_1->field0_0x0 = param_2;
-  return;
-    */
-}
-
-bool MapBase::FindExit(u32 param_2, Exit *param_3) {
-    /*
-      uint uVar1;
-  Exit *iter;
-  Exit *end;
-
-  if ((int)param_2 < 1) {
-    return false;
-  }
-  iter = (param_1->mExits).elements;
-  end = iter + (param_1->mExits).size;
-  uVar1 = param_2 & 0xff;
-  while( true ) {
-    if (iter != end) {
-      uVar1 = (uint)(byte)iter->field7_0x14;
-    }
-    if (iter == end || (param_2 & 0xff) == uVar1) break;
-    iter = iter + 1;
-  }
-  if (iter != end) {
-    param_3->mDestCourse = iter->mDestCourse;
-    param_3->field1_0x4 = iter->field1_0x4;
-    param_3->field2_0x8 = iter->field2_0x8;
-    param_3->field3_0xc = iter->field3_0xc;
-    param_3->field4_0x10 = iter->field4_0x10;
-    param_3->mDestMap = iter->mDestMap;
-    param_3->mDestEntrance = iter->mDestEntrance;
-    param_3->field7_0x14 = iter->field7_0x14;
-    param_3->field8_0x15 = iter->field8_0x15;
-    return true;
-  }
-  return false;
-    */
-}
-
-unk8 MapBase::AddCameraViewpoint(CameraViewpoint *param_2) {
-    /*
-      undefined2 uVar1;
-  uint uVar2;
-  CameraViewpoint *pCVar3;
-
-  uVar2 = (param_1->mViewpoints).size;
-  if (uVar2 < (uint)(param_1->mViewpoints).capacity) {
-    (param_1->mViewpoints).size = uVar2 + 1;
-    pCVar3 = (param_1->mViewpoints).elements;
-    pCVar3[uVar2].field0_0x0 = param_2->field0_0x0;
-    pCVar3[uVar2].field1_0x4 = param_2->field1_0x4;
-    pCVar3[uVar2].mPos.x = (param_2->mPos).x;
-    pCVar3[uVar2].mPos.y = (param_2->mPos).y;
-    pCVar3[uVar2].mPos.z = (param_2->mPos).z;
-    pCVar3[uVar2].field6_0x14 = param_2->field6_0x14;
-    pCVar3[uVar2].field7_0x16 = param_2->field7_0x16;
-    uVar1 = param_2->field8_0x18[1];
-    pCVar3[uVar2].field8_0x18[0] = param_2->field8_0x18[0];
-    pCVar3[uVar2].field8_0x18[1] = uVar1;
+    this->mUnk_00 = param_2;
     return;
-  }
-  std::vector<>::push_back(&param_1->mViewpoints,param_2);
-  return;
-    */
 }
 
-bool MapBase::FindViewpoint_Unk_4(char id, CameraViewpoint *param_3) {
-    /*
-      undefined2 uVar1;
-  char cVar2;
-  CameraViewpoint *iter;
-  CameraViewpoint *end;
+// Non-matching
+ARM bool MapBase::FindExit(u32 param_2, Exit *param_3) {
+    u8 uVar1;
+    Exit *iter;
+    Exit *end;
 
-  iter = (param_1->mViewpoints).elements;
-  end = iter + (param_1->mViewpoints).size;
-  cVar2 = id;
-  while( true ) {
-    if (iter != end) {
-      cVar2 = iter->field1_0x4;
+    if ((int) param_2 < 1) {
+        return false;
     }
-    if (iter == end || id == cVar2) break;
-    iter = iter + 1;
-  }
-  if (iter != end) {
-    param_3->field0_0x0 = iter->field0_0x0;
-    param_3->field1_0x4 = iter->field1_0x4;
-    (param_3->mPos).x = (iter->mPos).x;
-    (param_3->mPos).y = (iter->mPos).y;
-    (param_3->mPos).z = (iter->mPos).z;
-    param_3->field6_0x14 = iter->field6_0x14;
-    param_3->field7_0x16 = iter->field7_0x16;
-    uVar1 = iter->field8_0x18[1];
-    param_3->field8_0x18[0] = iter->field8_0x18[0];
-    param_3->field8_0x18[1] = uVar1;
-    return true;
-  }
-  return false;
-    */
+    iter  = this->mExits.mElements;
+    end   = iter + this->mExits.mSize;
+    uVar1 = param_2 & 0xff;
+    while (true) {
+        if (iter != end) {
+            uVar1 = iter->mUnk_14;
+        }
+        if (iter == end || (param_2 & 0xff) == uVar1) {
+            break;
+        }
+        iter++;
+    }
+    if (iter == end) {
+        param_3->mDestCourse   = iter->mDestCourse;
+        param_3->mUnk_04       = iter->mUnk_04;
+        param_3->mUnk_08       = iter->mUnk_08;
+        param_3->mUnk_0c       = iter->mUnk_0c;
+        param_3->mUnk_10       = iter->mUnk_10;
+        param_3->mDestMap      = iter->mDestMap;
+        param_3->mDestEntrance = iter->mDestEntrance;
+        param_3->mUnk_14       = iter->mUnk_14;
+        param_3->mUnk_15       = iter->mUnk_15;
+        return true;
+    }
+    return false;
 }
 
-bool MapBase::FindViewpoint_Unk_0(s32 param_2, CameraViewpoint *param_3) {
-    /*
-      undefined2 uVar1;
-  int iVar2;
-  CameraViewpoint *iter;
-  CameraViewpoint *end;
+// Non-matching
+ARM void MapBase::AddCameraViewpoint(CameraViewpoint *param_2) {
+    unk16 uVar1;
+    u32 uVar2;
+    CameraViewpoint *pCVar3;
 
-  iter = (param_1->mViewpoints).elements;
-  iVar2 = 0x1c;
-  end = iter + (param_1->mViewpoints).size;
-  while( true ) {
-    if (iter != end) {
-      iVar2 = iter->field0_0x0;
+    uVar2 = (this->mViewpoints).mSize;
+    if (uVar2 < (u32) (this->mViewpoints).mCapacity) {
+        (this->mViewpoints).mSize = uVar2 + 1;
+        pCVar3                    = (this->mViewpoints).mElements;
+        pCVar3[uVar2].mUnk_00     = param_2->mUnk_00;
+        pCVar3[uVar2].mUnk_04     = param_2->mUnk_04;
+        pCVar3[uVar2].mPos.x      = (param_2->mPos).x;
+        pCVar3[uVar2].mPos.y      = (param_2->mPos).y;
+        pCVar3[uVar2].mPos.z      = (param_2->mPos).z;
+        pCVar3[uVar2].mUnk_14     = param_2->mUnk_14;
+        pCVar3[uVar2].mUnk_16     = param_2->mUnk_16;
+        uVar1                     = param_2->mUnk_18[1];
+        pCVar3[uVar2].mUnk_18[0]  = param_2->mUnk_18[0];
+        pCVar3[uVar2].mUnk_18[1]  = uVar1;
+        return;
     }
-    if (iter == end || param_2 == iVar2) break;
-    iter = iter + 1;
-  }
-  if (iter != end) {
-    param_3->field0_0x0 = iter->field0_0x0;
-    param_3->field1_0x4 = iter->field1_0x4;
-    (param_3->mPos).x = (iter->mPos).x;
-    (param_3->mPos).y = (iter->mPos).y;
-    (param_3->mPos).z = (iter->mPos).z;
-    param_3->field6_0x14 = iter->field6_0x14;
-    param_3->field7_0x16 = iter->field7_0x16;
-    uVar1 = iter->field8_0x18[1];
-    param_3->field8_0x18[0] = iter->field8_0x18[0];
-    param_3->field8_0x18[1] = uVar1;
-    return true;
-  }
-  return false;
-    */
+    this->mViewpoints.push_back(*param_2);
+}
+
+// Non-matching
+ARM bool MapBase::FindViewpoint_Unk_4(char id, CameraViewpoint *param_3) {
+    unk16 uVar1;
+    char cVar2;
+    CameraViewpoint *iter;
+    CameraViewpoint *end;
+
+    iter  = this->mViewpoints.mElements;
+    end   = iter + this->mViewpoints.mSize;
+    cVar2 = id;
+    while (true) {
+        if (iter != end) {
+            cVar2 = iter->mUnk_04;
+        }
+        if (iter == end || id == cVar2) {
+            break;
+        }
+        iter++;
+    }
+    if (iter != end) {
+        param_3->mUnk_00    = iter->mUnk_00;
+        param_3->mUnk_04    = iter->mUnk_04;
+        (param_3->mPos).x   = (iter->mPos).x;
+        (param_3->mPos).y   = (iter->mPos).y;
+        (param_3->mPos).z   = (iter->mPos).z;
+        param_3->mUnk_14    = iter->mUnk_14;
+        param_3->mUnk_16    = iter->mUnk_16;
+        uVar1               = iter->mUnk_18[1];
+        param_3->mUnk_18[0] = iter->mUnk_18[0];
+        param_3->mUnk_18[1] = uVar1;
+        return true;
+    }
+    return false;
+}
+
+// Non-matching
+ARM bool MapBase::FindViewpoint_Unk_0(s32 param_2, CameraViewpoint *param_3) {
+    unk16 uVar1;
+    int iVar2;
+    CameraViewpoint *iter;
+    CameraViewpoint *end;
+
+    iter  = this->mViewpoints.mElements;
+    iVar2 = 0x1c;
+    end   = iter + this->mViewpoints.mSize;
+    while (true) {
+        if (iter != end) {
+            iVar2 = iter->mUnk_00;
+        }
+        if (iter == end || param_2 == iVar2) {
+            break;
+        }
+        iter++;
+    }
+    if (iter != end) {
+        param_3->mUnk_00    = iter->mUnk_00;
+        param_3->mUnk_04    = iter->mUnk_04;
+        (param_3->mPos).x   = (iter->mPos).x;
+        (param_3->mPos).y   = (iter->mPos).y;
+        (param_3->mPos).z   = (iter->mPos).z;
+        param_3->mUnk_14    = iter->mUnk_14;
+        param_3->mUnk_16    = iter->mUnk_16;
+        uVar1               = iter->mUnk_18[1];
+        param_3->mUnk_18[0] = iter->mUnk_18[0];
+        param_3->mUnk_18[1] = uVar1;
+        return true;
+    }
+    return false;
 }
 
 // Non-matching
@@ -2310,7 +2317,7 @@ ARM unk32 MapBase::vfunc_b8(unk32 param_2) {
 }
 
 // Non-matching
-bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
+ARM bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
     int iVar1;
     int iVar2;
     int iVar3;
@@ -2343,82 +2350,80 @@ bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
     return false;
 }
 
-bool MapBase::AddUnk_130(s32 param_2) {
-    /*
-      TriggerBase *pTVar1;
-  TriggerBase **iter;
-  uint uVar2;
-  TriggerBase **end;
-  TriggerBase *apTStack_c [3];
+// Non-matching
+ARM bool MapBase::AddUnk_130(TriggerBase *param_2) {
+    TriggerBase *pTVar1;
+    TriggerBase **iter;
+    u32 uVar2;
+    TriggerBase **end;
 
-  if (0x1f < (uint)(param_1->mUnk_130).size) {
-    return false;
-  }
-  iter = (param_1->mUnk_130).elements;
-  pTVar1 = (TriggerBase *)(param_1->mUnk_130).size;
-  end = iter + (int)pTVar1;
-  while( true ) {
+    if ((u32) this->mUnk_130.mSize >= 0x20) {
+        return false;
+    }
+    iter   = this->mUnk_130.mElements;
+    pTVar1 = (TriggerBase *) this->mUnk_130.mSize;
+    end    = iter + (int) pTVar1;
+    while (true) {
+        if (iter != end) {
+            pTVar1 = *iter;
+        }
+        if (iter == end || pTVar1 == param_2) {
+            break;
+        }
+        iter++;
+    }
     if (iter != end) {
-      pTVar1 = *iter;
+        return false;
     }
-    if (iter == end || pTVar1 == param_2) break;
-    iter = iter + 1;
-  }
-  if (iter == end) {
-    uVar2 = (param_1->mUnk_130).size;
-    if (uVar2 < (uint)(param_1->mUnk_130).capacity) {
-      (param_1->mUnk_130).size = uVar2 + 1;
-      (param_1->mUnk_130).elements[uVar2] = param_2;
-    }
-    else {
-      apTStack_c[0] = param_2;
-      std::vector<>::push_back(&param_1->mUnk_130,apTStack_c);
+    uVar2 = this->mUnk_130.mSize;
+    if (uVar2 < (u32) this->mUnk_130.mCapacity) {
+        this->mUnk_130.mSize            = uVar2 + 1;
+        this->mUnk_130.mElements[uVar2] = param_2;
+    } else {
+        this->mUnk_130.push_back(param_2);
     }
     return true;
-  }
-  return false;
-    */
 }
 
-bool MapBase::func_ov00_020809b8(s32 param_2) {
-    /*
-      TriggerBase *pTVar1;
-  TriggerBase **end;
-  TriggerBase **iter;
-  TriggerBase **ppTVar2;
-  TriggerBase **ppTVar3;
+// Not-matching
+ARM bool MapBase::func_ov00_020809b8(TriggerBase *param_2) {
+    TriggerBase *pTVar1;
+    TriggerBase **end;
+    TriggerBase **iter;
+    TriggerBase **ppTVar2;
+    TriggerBase **ppTVar3;
 
-  iter = (param_1->mUnk_130).elements;
-  pTVar1 = (TriggerBase *)(param_1->mUnk_130).size;
-  end = iter + (int)pTVar1;
-  while( true ) {
-    if (iter != end) {
-      pTVar1 = *iter;
+    iter   = this->mUnk_130.mElements;
+    pTVar1 = (TriggerBase *) this->mUnk_130.mSize;
+    end    = iter + (int) pTVar1;
+    while (true) {
+        if (iter != end) {
+            pTVar1 = *iter;
+        }
+        if (iter == end || pTVar1 == param_2) {
+            break;
+        }
+        iter = iter + 1;
     }
-    if (iter == end || pTVar1 == param_2) break;
-    iter = iter + 1;
-  }
-  ppTVar2 = iter;
-  if (iter != end) {
-    ppTVar2 = iter + 1;
-  }
-  ppTVar3 = iter;
-  if (iter != end && ppTVar2 != end) {
-    do {
-      pTVar1 = *ppTVar2;
-      ppTVar2 = ppTVar2 + 1;
-      iter = ppTVar3;
-      if (pTVar1 != param_2) {
-        iter = ppTVar3 + 1;
-        *ppTVar3 = pTVar1;
-      }
-      ppTVar3 = iter;
-    } while (ppTVar2 != end);
-  }
-  std::vector<>::erase
-            (&param_1->mUnk_130,iter,(param_1->mUnk_130).elements + (param_1->mUnk_130).size);
-  return true;
-    */
+    ppTVar2 = iter;
+    if (iter != end) {
+        ppTVar2 = iter + 1;
+    }
+    ppTVar3 = iter;
+    if (iter != end && ppTVar2 != end) {
+        do {
+            pTVar1  = *ppTVar2;
+            ppTVar2 = ppTVar2 + 1;
+            iter    = ppTVar3;
+            if (pTVar1 != param_2) {
+                iter     = ppTVar3 + 1;
+                *ppTVar3 = pTVar1;
+            }
+            ppTVar3 = iter;
+        } while (ppTVar2 != end);
+    }
+    this->mUnk_130.erase(iter, (this->mUnk_130).mElements + (this->mUnk_130).mSize);
+    return true;
 }
 
 // Non-matching
@@ -2448,7 +2453,8 @@ struct UnkStruct_02080b24 {
     virtual unk32 vfunc_1c();
 };
 
-void MapBase::func_ov00_02080b24(TilePos *param_2) {
+// Non-matching
+ARM void MapBase::func_ov00_02080b24(TilePos *param_2) {
     UnkStruct_02080b24 *piVar1;
     int iVar2;
     int dx;
@@ -2556,66 +2562,47 @@ ARM unk32 TriggerBase::vfunc_10() {
 
 ARM void MapBase::func_ov00_02080de4() {}
 
-unk8 MapBase::func_ov00_02080de8(unk32 param_2) {
-    /*
-      int iVar1;
-  undefined1 uVar2;
-  int iVar3;
+struct UnkStruct_02080de8_iVar3 {
+    /* 000 */ unk8 mUnk_000[0x15c];
+    /* 15c */ unk32 mUnk_15c;
+    /* 160 */ unk8 mUnk_160[0xc4];
+    /* 224 */ unk16 mUnk_224;
+};
 
-  uVar2 = 0;
-  iVar3 = *(int *)(data_027e0f64 + param_2 * 4 + 4);
-  iVar1 = *(int *)(iVar3 + 0x15c);
-  if (0x16 < iVar1) {
-    if (iVar1 < 0x5b) {
-      if ((iVar1 < 0x5a) && (iVar1 != 0x33)) goto switchD_overlay_d_0::02080e20_caseD_c;
+// Non-matching
+ARM void MapBase::func_ov00_02080de8(unk32 param_2) {
+    unk8 uVar2 = 0;
+    UnkStruct_02080de8_iVar3 *iVar3;
+
+    iVar3 = (UnkStruct_02080de8_iVar3 *) ((unk32 *) data_027e0f64->mUnk_4 + param_2);
+
+    switch (iVar3->mUnk_15c) {
+        case 0:
+        case 1:
+        case 2:
+        case 0x15:
+        case 0x16:
+        case 0x33:
+        case 0xb:
+        case 0x5a:
+        case 0x5b:
+            uVar2 = 0;
+            goto LAB_arm9_ov000__02080ec8;
+        case 3:
+            uVar2 = 0x1f;
+            goto LAB_arm9_ov000__02080ec8;
+        case 10:
+            break;
+        default:
+            goto LAB_02080e20_caseD_c;
     }
-    else if (iVar1 != 0x5b) goto switchD_overlay_d_0::02080e20_caseD_c;
-    goto LAB_arm9_ov000__02080e88;
-  }
-  if (0x15 < iVar1) goto LAB_arm9_ov000__02080e88;
-  if (0xb < iVar1) {
-    if (iVar1 != 0x15) goto switchD_overlay_d_0::02080e20_caseD_c;
-    goto LAB_arm9_ov000__02080e88;
-  }
-  switch(iVar1) {
-  case 0:
-    goto LAB_arm9_ov000__02080e88;
-  case 1:
-    goto LAB_arm9_ov000__02080e88;
-  case 2:
-    goto LAB_arm9_ov000__02080e88;
-  case 3:
-    uVar2 = 0x1f;
-    goto LAB_arm9_ov000__02080ec8;
-  case 4:
-    break;
-  case 5:
-    break;
-  case 6:
-    break;
-  case 7:
-    break;
-  case 8:
-    break;
-  case 9:
-    break;
-  case 10:
-    break;
-  case 0xb:
-LAB_arm9_ov000__02080e88:
-    uVar2 = 0;
-    goto LAB_arm9_ov000__02080ec8;
-  }
-switchD_overlay_d_0::02080e20_caseD_c:
-  iVar1 = func_ov000_02087dd8(iVar3);
-  if ((iVar1 != 0) && ((*(short *)(iVar3 + 0x224) < 0x1c73 || (0x238d < *(short *)(iVar3 + 0x224))))
-     ) {
-    uVar2 = 0x1f;
-  }
+
+LAB_02080e20_caseD_c:
+    if ((func_ov000_02087dd8(iVar3) != 0) && ((iVar3->mUnk_224 <= 0x1c72 || iVar3->mUnk_224 >= 0x4000))) {
+        uVar2 = 0x1f;
+    }
 LAB_arm9_ov000__02080ec8:
-  *(undefined1 *)(param_1->field180_0x140 + 0x5c) = uVar2;
-  return;
-    */
+    this->mUnk_140->mUnk_5c = uVar2;
 }
 
 ARM void MapBase::func_ov00_02080edc() {
