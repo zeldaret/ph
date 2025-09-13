@@ -55,15 +55,6 @@ enum AdventureFlag_ {
 
 struct UnkStruct_027e0d38_UnkC {
     /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 pad_04;
-    /* 08 */ unk32 mUnk_08;
-    /* 0a */ unk32 pad_0a;
-    /* 0c */ unk8 mUnk_0c;
-    /* 0d */ unk8 mUnk_0d;
-    /* 0e */ unk8 mUnk_0e;
-    /* 0f */ unk8 mUnk_0f;
-    /* 10 */ unk8 pad_10[4];
-    /* 14 */ unk8 mUnk_14;
 
     s32 func_ov000_020a5e9c(void);
 };

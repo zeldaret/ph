@@ -17,9 +17,8 @@ namespace std {
         }
 
         int push_back(T &value) {
-            int newCapacity = get_new_capacity(1);
+            get_new_capacity(1);
             append_back(1, &value);
-            return newCapacity;
         }
 
         T *erase(T *first, T *last) {

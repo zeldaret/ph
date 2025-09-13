@@ -1845,6 +1845,7 @@ ARM void MapBase::AddExit(Exit *param_2) {
     this->mExits.push_back(*param_2);
 }
 
+// Non-matching
 ARM u8 MapBase::func_ov00_02080140(Exit *param_2) {
     Exit *pEVar1;
     u32 uVar2;
@@ -1872,8 +1873,7 @@ ARM u8 MapBase::func_ov00_02080140(Exit *param_2) {
     MStack_54.mExit_1c.mDestEntrance = MStack_54.mExit_04.mDestEntrance;
     MStack_54.mExit_1c.mUnk_14       = MStack_54.mExit_04.mUnk_14;
     MStack_54.mExit_1c.mUnk_15       = MStack_54.mExit_04.mUnk_15;
-    MStack_54.func_ov00_02080324((UnkStruct_027e0d38_UnkC *) pEVar1, (UnkStruct_027e0d38_UnkC *) (pEVar1 + this->mExits.mSize),
-                                 (UnkStruct_027e0d38_UnkC *) pEVar3);
+    MStack_54.func_ov00_02080324(pEVar1, (pEVar1 + this->mExits.mSize), pEVar3);
     pEVar1 = this->mExits.mElements;
     pEVar4 = pEVar1 + this->mExits.mSize;
     if ((Exit *) MStack_54.mUnk_00 == pEVar4) {
@@ -1910,40 +1910,50 @@ ARM u8 MapBase::func_ov00_02080140(Exit *param_2) {
             this->mExits.push_back(MStack_54.mExit_1c);
         }
     } else {
-        MStack_54.mExit_1c.mUnk_14 = MStack_54.mUnk_00->mUnk_14;
+        MStack_54.mExit_1c.mUnk_14 = ((Exit *) MStack_54.mUnk_00)->mUnk_14;
     }
     return MStack_54.mExit_1c.mUnk_14;
 }
 
+struct UnkStruct_02080324 { // Is this UnkStruct_027e0d38_UnkC? Members don't match, causes overlay checksum issues, but has
+                            // same method. Could it be Exit?
+    /* 00 */ unk32 mUnk_00[2];
+    /* 08 */ unk32 mUnk_08;
+    /* 0c */ unk8 mUnk_0c;
+    /* 0d */ unk8 mUnk_0d;
+
+    unk32 func_ov000_020a5e9c(void);
+};
+
 // Non-matching
-ARM void MapBase_Unk1::func_ov00_02080324(UnkStruct_027e0d38_UnkC *param_2, UnkStruct_027e0d38_UnkC *param_3,
-                                          UnkStruct_027e0d38_UnkC *param_4) {
+ARM void MapBase_Unk1::func_ov00_02080324(void *param_2, void *param_3, void *param_4) {
     int iVar1;
     bool bVar2;
     bool bVar3;
     bool bVar4;
     u64 uVar5;
 
-    for (; param_2 != param_3; param_2 += 0x18) {
-        iVar1 = param_2->func_ov000_020a5e9c();
-        uVar5 = param_4->func_ov000_020a5e9c();
+    for (; (UnkStruct_02080324 *) param_2 != (UnkStruct_02080324 *) param_3; (UnkStruct_02080324 *) param_2 += 0x18) {
+        iVar1 = ((UnkStruct_02080324 *) param_2)->func_ov000_020a5e9c();
+        uVar5 = ((UnkStruct_02080324 *) param_4)->func_ov000_020a5e9c();
         bVar2 = iVar1 == (int) uVar5;
         if (bVar2) {
-            uVar5 = (u64) (unk8 *) param_2->mUnk_0c << 4 & (u32) param_4->mUnk_0c; // CONCAT14
+            uVar5 = (u64) (unk8 *) ((UnkStruct_02080324 *) param_2)->mUnk_0c << 4 &
+                    (u32) ((UnkStruct_02080324 *) param_4)->mUnk_0c; // CONCAT14
         }
         bVar3 = (int) (uVar5 >> 0x20) == (int) uVar5;
         bVar4 = bVar2 && bVar3;
         if (bVar4) {
-            bVar4 = param_2->mUnk_0d == param_4->mUnk_0d;
+            bVar4 = ((UnkStruct_02080324 *) param_2)->mUnk_0d == ((UnkStruct_02080324 *) param_4)->mUnk_0d;
         }
         if (bVar4) {
-            bVar4 = param_2->mUnk_08 == param_4->mUnk_08;
+            bVar4 = ((UnkStruct_02080324 *) param_2)->mUnk_08 == ((UnkStruct_02080324 *) param_4)->mUnk_08;
         }
         if (bVar4) {
             break;
         }
     }
-    this->mUnk_00 = param_2;
+    this->mUnk_00 = (unk32 *) param_2;
 }
 
 // Non-matching

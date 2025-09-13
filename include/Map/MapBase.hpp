@@ -59,13 +59,12 @@ struct MapBase_Unk_180 {
 };
 
 struct MapBase_Unk1 {
-    /* 00 */ UnkStruct_027e0d38_UnkC *mUnk_00;
+    /* 00 */ unk32 *mUnk_00;
     /* 04 */ Exit mExit_04;
     /* 1c */ Exit mExit_1c;
     /* 34 */
 
-    void func_ov00_02080324(UnkStruct_027e0d38_UnkC *param_2, UnkStruct_027e0d38_UnkC *param_3,
-                            UnkStruct_027e0d38_UnkC *param_4);
+    void func_ov00_02080324(void *param_2, void *param_3, void *param_4);
 };
 
 struct MapBase_Unk2_02080ad0 {
