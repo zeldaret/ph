@@ -267,8 +267,8 @@ ARM void MapManager::func_ov00_0208230c(FlagsUnk2 *param_2) {
     param_2->mUnk_00.mUnk_00 = this->mCourse->mIndex;
 
     Course *course           = this->mCourse;
-    param_2->mUnk_04.mUnk_0e = course->mMapGrid[course->mCurrMapPos.x][course->mCurrMapPos.y];
-    param_2->mUnk_04.mUnk_0f = this->mUnk_0c;
+    param_2->mUnk_00.mUnk_0e = course->mMapGrid[course->mCurrMapPos.x][course->mCurrMapPos.y];
+    param_2->mUnk_00.mUnk_0f = this->mUnk_0c;
 }
 
 ARM void MapManager::func_ov00_02082348(FlagsUnk2 *param_2) {
@@ -1060,7 +1060,7 @@ ARM bool MapManager::AddTrigger(TriggerBase *param_2) {
     return this->mMap->AddTrigger(param_2);
 }
 
-ARM bool MapManager::func_ov00_020838d8(s32 param_2) {
+ARM bool MapManager::func_ov00_020838d8(TriggerBase *param_2) {
     return this->mMap->func_ov00_0207ff88(param_2);
 }
 
@@ -1111,11 +1111,11 @@ ARM bool MapManager::func_ov00_02083978(Vec3p *param_2, Vec3p *param_3) {
     return false;
 }
 
-ARM bool MapManager::func_ov00_020839b4(s32 param_2) {
+ARM bool MapManager::func_ov00_020839b4(TriggerBase *param_2) {
     return this->mMap->AddUnk_130(param_2);
 }
 
-ARM bool MapManager::func_ov00_020839c4(s32 param_2) {
+ARM bool MapManager::func_ov00_020839c4(TriggerBase *param_2) {
     return this->mMap->func_ov00_020809b8(param_2);
 }
 

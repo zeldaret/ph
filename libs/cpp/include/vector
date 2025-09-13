@@ -16,19 +16,20 @@ namespace std {
             }
         }
 
-        void push_back(T &value);/*{
-              get_new_capacity(1);
-              append_back(1, &value);
-          }*/
+        int push_back(T &value) {
+            int newCapacity = get_new_capacity(1);
+            append_back(1, &value);
+            return newCapacity;
+        }
 
-        T *erase(T *first, T *last); /* {
+        T *erase(T *first, T *last) {
             if (first != last) {
                 int bytesToMove = (int) mElements + mSize * sizeof(T) - (int) last;
                 memmove(first, last, bytesToMove);
                 mSize -= (int) last - (int) first;
             }
             return first;
-        }*/
+        }
 
     private:
         void decrease_size(int amount);

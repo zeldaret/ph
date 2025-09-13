@@ -31,7 +31,7 @@ public:
 class TriggerBase : public A {
 public:
     /* 00 (vtable) */
-    /* 04 */ unk8 mUnk_04;
+    /* 04 */ bool mUnk_04;
     /* 05 */ u8 mId;
     /* 06 */ unk8 mUnk_06[2];
     /* 08 */ u32 mUnk_08;

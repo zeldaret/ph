@@ -236,7 +236,7 @@ public:
     bool func_ov00_02083790(s32 param_2);
     bool func_ov00_02083840(s32 param_2);
     bool AddTrigger(TriggerBase *param_2);
-    bool func_ov00_020838d8(s32 param_2);
+    bool func_ov00_020838d8(TriggerBase *param_2);
     bool FindExit(u32 param_2, Exit *param_3);
     char func_ov00_020838f8(Exit *param_2);
     bool func_ov00_02083908(char param_2, CameraViewpoint *param_3);
@@ -247,8 +247,8 @@ public:
     void func_ov00_02083958(s32 param_2);
     void func_ov00_02083968(u32 param_2, unk8 *param_3);
     bool func_ov00_02083978(Vec3p *param_2, Vec3p *param_3);
-    bool func_ov00_020839b4(s32 param_2);
-    bool func_ov00_020839c4(s32 param_2);
+    bool func_ov00_020839b4(TriggerBase *param_2);
+    bool func_ov00_020839c4(TriggerBase *param_2);
     s32 func_ov00_020839d4(s32 param_2);
     s32 func_ov00_020839f8(s32 param_2);
     TilePos func_ov00_02083a1c(Vec3p *param_3);
