@@ -6,6 +6,7 @@
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0e58.hpp"
 #include "DTCM/UnkStruct_027e0f64.hpp"
+#include "DTCM/UnkStruct_027e0f68.hpp"
 #include "DTCM/UnkStruct_027e0f6c.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
@@ -17,13 +18,19 @@
 #include "Render/ModelRender.hpp"
 #include "Unknown/UnkStruct_020ee0a0.hpp"
 #include "Unknown/UnkStruct_027e0f88.hpp"
+#include "cxxabi.h"
 #include "stdio.h"
 #include "stdlib.h"
 
 extern "C" void Fill32(unk32, u32 *, unk32);
+extern "C" void __cxa_vec_ctor(void *, unk32, unk32, void *, void *);
 extern "C" void func_020196bc(ItemModel *param1, unk32 param2);
 extern "C" void func_020196fc(ItemModel *param1, unk32 param2);
+extern "C" unk32 *func_0201e24c(unk32 *, char *);
 extern "C" unk32 *func_0201e4cc(unk32 *param_1);
+extern "C" unk32 func_01ffe904(unk16 *, unk32 *, unk32 *, unk32 *);
+extern "C" unk32 func_01fff084(UnkStruct_027e0f6c *, Vec3p *, unk32, unk32, unk32, unk32);
+extern "C" unk32 func_01fff264(UnkStruct_027e0f6c *, AABB *, unk32, unk32, unk32, unk32);
 
 extern void func_ov000_020a3de0(bool, unk32);
 extern unk32 func_ov000_02079e3c();
@@ -47,6 +54,11 @@ struct UnkStruct_020ec81c {
 
 #pragma section sbss begin
 UnkStruct_020ec81c data_ov000_020ec81c;
+unk32 data_ov000_020ec824;
+unk32 data_ov000_020ec864;
+unk32 data_ov000_020ec8a4;
+unk32 data_ov000_020ec8e4;
+unk32 data_ov000_020ec924;
 #pragma section sbss end
 
 MapBase::~MapBase() {}
@@ -198,152 +210,164 @@ ARM bool MapBase::func_ov00_0207e08c(s32 *param_2, s32 param_3) {
     return true;
 }
 
-s32 MapBase::func_ov00_0207e0f0(s32 param_2) {
-    /*byte bVar1;
-    ushort uVar2;
-    ushort *puVar3;
-    int iVar4;
-    uint uVar5;
+// Non-matching
+ARM s32 MapBase::func_ov00_0207e0f0(s32 param_2) {
+    unk8 bVar1;
+    u16 uVar2;
+    u16 uVar3;
+    u16 *puVar4;
     int iVar6;
+    int *iVar5;
+    int *iVar12;
+    int *iVar11;
+    int *iVar8;
     int iVar7;
-    int iVar8;
-    int iVar9;
-    uint uVar10;
-    int iVar11;
-    int iVar12;
-    uint uStack_30;
+    u32 uVar8;
+    MapBase_Unk_13c *pMVar9;
+    int *iVar9;
+    int iVar13;
+    int *iVar10;
+    u32 uVar14;
+    int iVar15;
+    u32 uStack_30;
 
-    iVar6 = param_1->field179_0x13c;
-    if (iVar6 == 0) {
-      return -1;
-    }
-    puVar3 = (ushort *)(iVar6 + *(int *)(iVar6 + 8));
-    if (puVar3 != (ushort *)0x0) {
-      iVar6 = (int)puVar3 + (uint)*puVar3;
-      if (iVar6 == 0) {
+    pMVar9 = this->mUnk_13c;
+    if (pMVar9 == NULL) {
         return -1;
-      }
-      uStack_30 = 0;
-      if (*(char *)(iVar6 + 1) != '\0') {
-        iVar11 = 0;
-        do {
-          iVar8 = iVar6 + (uint)*(ushort *)(iVar6 + 6);
-          iVar8 = iVar8 + (uint)*(ushort *)(iVar8 + 2);
-          iVar4 = (**(code **)(param_1->vtable + 0xb4))();
-          iVar4 = func_0201e24c((astruct *)(iVar4 + 0x3c),(char *)(iVar8 + iVar11));
-          if (iVar4 != 0) {
-            iVar9 = 0;
-            iVar7 = iVar6 + (uint)*(ushort *)(iVar6 + 6) + 4;
-            iVar4 = *(ushort *)(iVar6 + (uint)*(ushort *)(iVar6 + 6)) * uStack_30;
-            iVar12 = iVar7 + iVar4;
-            uVar2 = *(ushort *)(iVar7 + iVar4);
-            if (*(char *)(iVar12 + 2) != '\0') {
-              do {
-                if (param_2 == (uint)*(byte *)((int)puVar3 + (uint)uVar2) + iVar9) {
-                  iVar4 = (**(code **)(param_1->vtable + 0xb4))();
-                  bVar1 = *(byte *)(iVar4 + 0x3d);
-                  uVar10 = 0;
-                  if (bVar1 != 0) {
-                    iVar4 = iVar4 + 0x3c + (uint)*(ushort *)(iVar4 + 0x42);
-                    do {
-                      iVar7 = strcmp((byte *)(iVar4 + (uint)*(ushort *)(iVar4 + 2) + uVar10 * 0x10),
-                                     (byte *)(iVar8 + iVar11));
-                      if (iVar7 == 0) {
-                        return uVar10;
-                      }
-                      uVar5 = uVar10 + 1;
-                      uVar10 = uVar5 & 0xffff;
-                    } while ((uVar5 & 0xffff) < (uint)bVar1);
-                  }
+    }
+    puVar4 = (u16 *) ((int) &pMVar9->mUnk_00 + pMVar9->mUnk_08);
+    if (puVar4 != (u16 *) 0x0) {
+        iVar6 = (int) puVar4 + (u32) *puVar4;
+        if (iVar6 == 0) {
+            return -1;
+        }
+        uStack_30 = 0;
+        if (*(char *) (iVar6 + 1) != '\0') {
+            iVar15 = 0;
+            do {
+                iVar13 = iVar6 + (u32) * (u16 *) (iVar6 + 6);
+                iVar10 = (int *) (iVar13 + (u32) * (u16 *) (iVar13 + 2));
+                iVar5  = this->vfunc_b4();
+                iVar12 = func_0201e24c((unk32 *) (iVar5 + 0xf), (char *) ((int) iVar10 + iVar15));
+                if (iVar12 != (int *) 0x0) {
+                    iVar13 = 0;
+                    iVar9  = (int *) (iVar6 + (u32) * (u16 *) (iVar6 + 6) + 4);
+                    iVar11 = (int *) (*(u16 *) (iVar6 + (u32) * (u16 *) (iVar6 + 6)) * uStack_30);
+                    uVar2  = *(u16 *) ((int) iVar9 + (int) iVar11);
+                    if (*(char *) ((int) iVar9 + (int) iVar11 + 2) != '\0') {
+                        do {
+                            if (param_2 == (u32) * (unk8 *) ((int) puVar4 + (u32) uVar2) + iVar13) {
+                                iVar8  = this->vfunc_b4();
+                                bVar1  = *(unk8 *) ((int) iVar8 + 0x3d);
+                                uVar14 = 0;
+                                if (bVar1 != 0) {
+                                    uVar3 = *(u16 *) ((int) iVar8 + 0x42);
+                                    do {
+                                        iVar7 = strcmp((unk8 *) ((int) iVar8 + uVar14 * 0x10 +
+                                                                 (u32) * (u16 *) ((int) iVar8 + uVar3 + 0x3e) + uVar3 + 0x3c),
+                                                       (unk8 *) ((int) iVar10 + iVar15));
+                                        if (iVar7 == 0) {
+                                            return uVar14;
+                                        }
+                                        uVar8  = uVar14 + 1;
+                                        uVar14 = uVar8 & 0xffff;
+                                    } while ((uVar8 & 0xffff) < (u32) bVar1);
+                                }
+                            }
+                            iVar13++;
+                        } while (iVar13 < (int) (u32) * (unk8 *) ((int) ((int) iVar9 + (int) iVar11) + 2));
+                    }
                 }
-                iVar9 = iVar9 + 1;
-              } while (iVar9 < (int)(uint)*(byte *)(iVar12 + 2));
-            }
-          }
-          iVar11 = iVar11 + 0x10;
-          uStack_30 = uStack_30 + 1;
-        } while (uStack_30 < *(byte *)(iVar6 + 1));
-      }
-      return -1;
+                iVar15    = iVar15 + 0x10;
+                uStack_30 = uStack_30 + 1;
+            } while (uStack_30 < *(unk8 *) (iVar6 + 1));
+        }
+        return -1;
     }
     return -1;
-    */
 }
 
-s32 MapBase::func_ov00_0207e28c(s32 param_2) {
-    /*
-    byte bVar1;
-    ushort uVar2;
-    int iVar3;
-    int iVar4;
-    uint uVar5;
-    int iVar6;
-    int iVar7;
-    int iVar8;
-    int iVar9;
-    uint uVar10;
-    int iVar11;
+// Non-matching
+ARM s32 MapBase::func_ov00_0207e28c(s32 param_2) {
+    u16 uVar1;
+    u16 uVar2;
     int iVar12;
-    uint uStack_30;
+    int *iVar3;
+    int *iVar4;
+    int *iVar7;
+    int *iVar8;
+    int *iVar9;
+    int *iVar6;
+    int *iVar11;
+    int iVar13;
+    u32 uVar14;
+    int *iVar10;
+    MapBase_Unk_13c *pMVar15;
+    int iVar16;
+    int iVar17;
+    u32 uVar18;
+    int iVar19;
+    u32 uVar20;
+    u32 uStack_30;
+    int *iVar5;
 
-    iVar6 = param_1->field179_0x13c;
-    if (iVar6 == 0) {
+    pMVar15 = this->mUnk_13c;
+    if (pMVar15 == NULL) {
         return -1;
     }
-    iVar6 = iVar6 + *(int *)(iVar6 + 8);
-    if (iVar6 != 0) {
-        iVar3 = iVar6 + (uint)*(ushort *)(iVar6 + 2);
-        if (iVar3 == 0) {
+    iVar3 = (int *) ((int) &pMVar15->mUnk_00 + pMVar15->mUnk_08);
+    if (iVar3 != NULL) {
+        iVar4 = (int *) ((int) iVar3 + (u32) * (u16 *) ((int) iVar3 + 2));
+        if (iVar4 == NULL) {
             return -1;
-    }
-    uStack_30 = 0;
-    if (*(char *)(iVar3 + 1) != '\0') {
-        iVar11 = 0;
-        do {
-        iVar8 = iVar3 + (uint)*(ushort *)(iVar3 + 6);
-        iVar8 = iVar8 + (uint)*(ushort *)(iVar8 + 2);
-        iVar4 = (**(code **)(param_1->vtable + 0xb4))();
-        iVar4 = func_0201e24c((astruct *)(iVar4 + (uint)*(ushort *)(iVar4 + 0x34)),
-                                (char *)(iVar8 + iVar11));
-        if (iVar4 != 0) {
-            iVar9 = 0;
-            iVar7 = iVar3 + (uint)*(ushort *)(iVar3 + 6) + 4;
-            iVar4 = *(ushort *)(iVar3 + (uint)*(ushort *)(iVar3 + 6)) * uStack_30;
-            iVar12 = iVar7 + iVar4;
-            uVar2 = *(ushort *)(iVar7 + iVar4);
-            if (*(char *)(iVar12 + 2) != '\0') {
-            do {
-                if (param_2 == (uint)*(byte *)(iVar6 + (uint)uVar2) + iVar9) {
-                iVar4 = (**(code **)(param_1->vtable + 0xb4))();
-                iVar7 = (**(code **)(param_1->vtable + 0xb4))();
-                uVar10 = 0;
-                iVar4 = iVar4 + (uint)*(ushort *)(iVar7 + 0x34);
-                bVar1 = *(byte *)(iVar4 + 1);
-                if (bVar1 != 0) {
-                    iVar4 = iVar4 + (uint)*(ushort *)(iVar4 + 6);
-                    do {
-                    iVar7 = strcmp((byte *)(iVar4 + (uint)*(ushort *)(iVar4 + 2) + uVar10 * 0x10),
-                                    (byte *)(iVar8 + iVar11));
-                    if (iVar7 == 0) {
-                        return uVar10;
-                    }
-                    uVar5 = uVar10 + 1;
-                    uVar10 = uVar5 & 0xffff;
-                    } while ((uVar5 & 0xffff) < (uint)bVar1);
-                }
-                }
-                iVar9 = iVar9 + 1;
-            } while (iVar9 < (int)(uint)*(byte *)(iVar12 + 2));
-            }
         }
-        iVar11 = iVar11 + 0x10;
-        uStack_30 = uStack_30 + 1;
-        } while (uStack_30 < *(byte *)(iVar3 + 1));
+        uStack_30 = 0;
+        if (*(char *) ((int) iVar4 + 1) != 0) {
+            iVar19 = 0;
+            do {
+                iVar5 = (int *) ((u32) * (u16 *) ((int) iVar4 + *(u16 *) ((int) iVar4 + 6) + 2) +
+                                 (u32) * (u16 *) ((int) iVar4 + 6));
+                iVar7 = this->vfunc_b4();
+                iVar8 = (int *) func_0201e24c((unk32 *) ((int) iVar7 + (u32) * (u16 *) (iVar7 + 0xd)),
+                                              (char *) ((int) iVar4 + iVar19 + (int) iVar5));
+                if (iVar8 != NULL) {
+                    iVar17 = 0;
+                    iVar16 = (int) iVar4 + *(u16 *) ((int) iVar4 + 6) + 4;
+                    iVar9  = (int *) (*(u16 *) ((int) iVar4 + (u32) * (u16 *) ((int) iVar4 + 6)) * uStack_30);
+                    uVar1  = *(u16 *) (iVar16 + (int) iVar9);
+                    if (*(char *) ((int) iVar9 + iVar16 + 2) != 0) {
+                        do {
+                            if (param_2 == (u32) * (unk8 *) ((int) iVar3 + (u32) uVar1) + iVar17) {
+                                iVar6  = this->vfunc_b4();
+                                iVar11 = this->vfunc_b4();
+                                uVar2  = *(u16 *) (iVar11 + 0xd);
+                                uVar18 = 0;
+                                uVar20 = (u32) * (unk8 *) ((int) iVar6 + uVar2 + 1);
+                                if (uVar20 != 0) {
+                                    iVar12 = (u32) * (u16 *) ((int) iVar6 + uVar2 + 6) + (u32) uVar2;
+                                    do {
+                                        iVar13 = strcmp((unk8 *) ((int) iVar6 + uVar18 * 0x10 +
+                                                                  (u32) * (u16 *) ((int) iVar6 + iVar12 + 2) + iVar12),
+                                                        (unk8 *) ((int) iVar4 + iVar19 + (int) iVar5));
+                                        if (iVar13 == 0) {
+                                            return uVar18;
+                                        }
+                                        uVar14 = uVar18 + 1;
+                                        uVar18 = uVar14 & 0xffff;
+                                    } while ((uVar14 & 0xffff) < uVar20);
+                                }
+                            }
+                            iVar17++;
+                        } while (iVar17 < (int) (u32) * (unk8 *) ((int) iVar9 + iVar16 + 2));
+                    }
+                }
+                iVar19    = iVar19 + 0x10;
+                uStack_30 = uStack_30 + 1;
+            } while (uStack_30 < *(unk8 *) ((int) iVar4 + 1));
+        }
+        return -1;
     }
     return -1;
-    }
-    return -1;
-    */
 }
 
 ARM unk32 *MapBase::vfunc_b4() {
@@ -353,907 +377,699 @@ ARM unk32 *MapBase::vfunc_b4() {
     return NULL;
 }
 
-void MapBase::vfunc_48() {
+ARM void MapBase::vfunc_48() {
     this->Trigger_vfunc_08();
     this->mUnk_144->func_ov000_0209c8e4(0);
     return;
 }
 
-unk32 MapBase::vfunc_50() {
+ARM unk32 MapBase::vfunc_50() {
     return 0;
 }
 
-unk32 MapBase::vfunc_54(TilePos *param_1) {
+ARM unk32 MapBase::vfunc_54(TilePos *param_1) {
     return 0;
 }
 
-unk32 MapBase::vfunc_58(TilePos *param_1, int param_2) {
+ARM unk32 MapBase::vfunc_58(TilePos *param_1, int param_2) {
     return 0;
 }
 
-unk32 MapBase::vfunc_5c() {
+ARM unk32 MapBase::vfunc_5c() {
     return 0;
 }
 
-unk32 MapBase::vfunc_60(TilePos *param_1) {
+ARM unk32 MapBase::vfunc_60(TilePos *param_1) {
     return 0;
 }
 
-unk32 MapBase::vfunc_64() {
+ARM unk32 MapBase::vfunc_64() {
     return 0;
 }
 
-unk32 MapBase::vfunc_68(Vec3p *param_1, bool param_2) {
-    /**
-      int iVar1;
-  uint uVar2;
-  uint uVar3;
-  int iVar4;
-  uint uVar5;
-  int iVar6;
-  bool bVar7;
-  TilePos aVStack_98 [2];
-  uint local_94;
-  int iStack_90;
-  int iStack_8c;
-  Vec3p local_88;
-  undefined4 local_7c;
-  undefined4 local_78;
-  undefined4 local_74;
-  undefined2 local_70;
-  undefined2 local_6e;
-  undefined2 local_6c;
-  undefined2 local_6a;
-  undefined4 local_68;
-  undefined4 local_64;
-  undefined4 local_60;
-  undefined4 local_5c;
-  undefined4 local_58;
-  undefined4 local_54;
-  undefined4 local_50;
-  undefined4 local_4c;
-  undefined4 local_48;
-  undefined4 local_44;
-  undefined4 local_40;
-  undefined4 local_3c;
-  undefined4 local_38;
-  undefined4 local_34;
-  undefined4 local_30;
-  undefined4 local_2c;
-  undefined4 local_28;
+ARM unk32 MapBase::vfunc_68(Vec3p *param_2, bool param_3) {
+    int iVar1;
+    u32 uVar2;
+    u32 uVar3;
+    int iVar4;
+    u32 uVar5;
+    int iVar6;
+    bool bVar7;
+    TilePos aVStack_98;
+    u32 local_94;
+    int iStack_90;
+    int iStack_8c;
+    Vec3p local_88;
+    unk32 local_7c;
+    unk32 local_78;
+    unk32 local_74;
+    unk16 local_70;
+    unk16 local_6e;
+    unk16 local_6c;
+    unk16 local_6a;
+    unk32 local_68;
+    unk32 local_64;
+    unk32 local_60;
+    unk32 local_5c;
+    unk32 local_58;
+    unk32 local_54;
+    unk32 local_50;
+    unk32 local_4c;
+    unk32 local_48;
+    unk32 local_44;
+    unk32 local_40;
+    unk32 local_3c;
+    unk32 local_38;
+    unk32 local_34;
+    unk32 local_30;
+    unk32 local_2c;
+    unk32 local_28;
 
-  MapManager::func_ov00_02083a1c(aVStack_98,(MapManager *)gMapManager,param_2);
-  iVar1 = (**(code **)(param_1->vtable + 0x54))(param_1,aVStack_98);
-  if (0x1e < iVar1) {
-    if (iVar1 < 0x36) {
-      if (0x34 < iVar1) {
-        if (param_3 != 0) {
-          bVar7 = func_ov00_0207f104(param_1,param_2,&iStack_8c);
-          if (bVar7) {
-            return iStack_8c;
-          }
-          iVar1 = func_ov00_0207f1f4(param_1,param_2,&iStack_8c);
-          if ((iVar1 != 0) && (iStack_8c <= param_2->y)) {
-            return iStack_8c;
-          }
+    aVStack_98 = gMapManager->func_ov00_02083a1c(param_2);
+    iVar1      = this->vfunc_54(&aVStack_98);
+    if (0x1e < iVar1) {
+        if (iVar1 < 0x36) {
+            if (0x34 < iVar1) {
+                if (param_3 != 0) {
+                    bVar7 = this->func_ov00_0207f104(param_2, &iStack_8c);
+                    if (bVar7) {
+                        return iStack_8c;
+                    }
+                    iVar1 = this->func_ov00_0207f1f4(param_2, &iStack_8c);
+                    if ((iVar1 != 0) && (iStack_8c <= param_2->y)) {
+                        return iStack_8c;
+                    }
+                }
+                goto LAB_arm9_ov000__0207e724;
+            }
+            if (iVar1 < 0x2a) {
+                if (-1 < iVar1 + -0x1f) {
+                    // iVar1 = (*(code *) ((iVar1 + -0x1f) * 4 + 0x207e590))();
+                    return iVar1;
+                }
+            } else if (iVar1 == 0x30) {
+                goto LAB_arm9_ov000__0207e724;
+            }
+        } else if (iVar1 < 0x41) {
+            if (iVar1 == 0x40) {
+                goto LAB_arm9_ov000__0207e724;
+            }
+        } else if (iVar1 == 0x50) {
+            goto LAB_arm9_ov000__0207e724;
         }
+        goto LAB_0207e518_caseD_a;
+    }
+    if (0x1d < iVar1) {
         goto LAB_arm9_ov000__0207e724;
-      }
-      if (iVar1 < 0x2a) {
-                    if (-1 < iVar1 + -0x1f) {
-                        iVar1 = (*(code *)((iVar1 + -0x1f) * 4 + 0x207e590))();
-                        return iVar1;
-                      }
-                    }
-                    else if (iVar1 == 0x30) goto LAB_arm9_ov000__0207e724;
-                  }
-                  else if (iVar1 < 0x41) {
-                    if (iVar1 == 0x40) goto LAB_arm9_ov000__0207e724;
-                  }
-                  else if (iVar1 == 0x50) goto LAB_arm9_ov000__0207e724;
-                  goto switchD_overlay_d_0::0207e518_caseD_a;
-                }
-                if (0x1d < iVar1) goto LAB_arm9_ov000__0207e724;
-                if (0x17 < iVar1) {
-                  if (iVar1 < 0x1a) {
-                    if (iVar1 == 0x19) goto LAB_arm9_ov000__0207e724;
-                  }
-                  else if (iVar1 == 0x1d) goto LAB_arm9_ov000__0207e724;
-                  goto switchD_overlay_d_0::0207e518_caseD_a;
-                }
-                if (0x16 < iVar1) goto LAB_arm9_ov000__0207e724;
-                if (9 < iVar1) {
-                  if (iVar1 == 0x16) goto LAB_arm9_ov000__0207e724;
-                  goto switchD_overlay_d_0::0207e518_caseD_a;
-                }
-                switch(iVar1) {
-                case 0:
-                default:
-              switchD_overlay_d_0::0207e518_caseD_a:
-                  if (param_1->field11_0xe == '\0') {
-                    if (param_3 == 0) {
-                      uVar2 = (**(code **)(param_1->vtable + 0x58))(param_1,aVStack_98,5);
-                      bVar7 = uVar2 == 0;
-                      if (bVar7) {
-                        uVar2 = (uint)param_1->field5_0x8;
-                      }
-                      if (bVar7 && uVar2 == 0) {
-                        iVar1 = (**(code **)(param_1->vtable + 0x60))(param_1,aVStack_98);
-                        return iVar1;
-                      }
-                    }
-                    else {
-                      bVar7 = func_ov00_0207f104(param_1,param_2,&iStack_90);
-                      if (bVar7) {
-                        return iStack_90;
-                      }
-                      iVar1 = func_ov00_0207f1f4(param_1,param_2,&iStack_90);
-                      if ((iVar1 != 0) && (iStack_90 <= param_2->y)) {
-                        return iStack_90;
-                      }
-                      uVar2 = (**(code **)(param_1->vtable + 0x58))(param_1,aVStack_98,5);
-                      bVar7 = uVar2 == 0;
-                      if (bVar7) {
-                        uVar2 = (uint)param_1->field5_0x8;
-                      }
-                      if (bVar7 && uVar2 == 0) {
-                        iVar1 = (**(code **)(param_1->vtable + 0x60))(param_1,aVStack_98);
-                        return iVar1;
-                      }
-                    }
-                  }
-                  break;
-                case 1:
-                  break;
-                case 2:
-                  break;
-                case 3:
-                  break;
-                case 4:
-                  break;
-                case 5:
-                  goto switchD_overlay_d_0::0207e518_caseD_a;
-                case 6:
-                  goto switchD_overlay_d_0::0207e518_caseD_a;
-                case 7:
-                  goto switchD_overlay_d_0::0207e518_caseD_a;
-                case 8:
-                  break;
-                case 9:
-                }
-              LAB_arm9_ov000__0207e724:
-                iVar1 = func_01fff084(data_027e0f6c,param_2,2,0x20ec824);
-                uVar5 = 0x2000;
-                __cxa_vec_ctor(&local_58,3,0x10,func_ov00_0207e96c);
-                uVar2 = 0;
-                local_7c = 0;
-                local_74 = 0;
-                local_78 = 0xffff0000;
-                local_88.x = param_2->x;
-                local_88.y = param_2->y;
-                local_88.z = param_2->z;
-                if (0 < iVar1) {
-                  do {
-                    iVar4 = (uint)*(ushort *)(uVar2 * 2 + 0x20ec824) * 0x4c;
-                    iVar6 = *(int *)(data_027e0f6c + 0x20) + iVar4;
-                    local_70 = *(undefined2 *)(*(int *)(data_027e0f6c + 0x20) + iVar4);
-                    local_6e = *(undefined2 *)(iVar6 + 2);
-                    local_6c = *(undefined2 *)(iVar6 + 4);
-                    local_6a = *(undefined2 *)(iVar6 + 6);
-                    local_68 = *(undefined4 *)(iVar6 + 8);
-                    local_64 = *(undefined4 *)(iVar6 + 0xc);
-                    local_60 = *(undefined4 *)(iVar6 + 0x10);
-                    local_5c = *(undefined4 *)(iVar6 + 0x14);
-                    local_58 = *(undefined4 *)(iVar6 + 0x18);
-                    local_54 = *(undefined4 *)(iVar6 + 0x1c);
-                    local_50 = *(undefined4 *)(iVar6 + 0x20);
-                    local_4c = *(undefined4 *)(iVar6 + 0x24);
-                    local_48 = *(undefined4 *)(iVar6 + 0x28);
-                    local_44 = *(undefined4 *)(iVar6 + 0x2c);
-                    local_40 = *(undefined4 *)(iVar6 + 0x30);
-                    local_3c = *(undefined4 *)(iVar6 + 0x34);
-                    local_38 = *(undefined4 *)(iVar6 + 0x38);
-                    local_34 = *(undefined4 *)(iVar6 + 0x3c);
-                    local_30 = *(undefined4 *)(iVar6 + 0x40);
-                    local_2c = *(undefined4 *)(iVar6 + 0x44);
-                    local_28 = *(undefined4 *)(iVar6 + 0x48);
-                    iVar4 = func_01ffe904(&local_70,&local_88,&local_7c,&local_94);
-                    if ((iVar4 != 0) && ((int)local_94 < (int)uVar5)) {
-                      uVar5 = local_94;
-                    }
-                    uVar3 = uVar2 + 1;
-                    uVar2 = uVar3 & 0xffff;
-                  } while ((int)(uVar3 & 0xffff) < iVar1);
-                }
-                iVar1 = local_88.y;
-                if ((int)uVar5 < 0x1001) {
-                  uVar2 = (uint)((ulonglong)uVar5 * 0xffff0000);
-                  __cxa_vec_cleanup(&local_58,3,0x10,func_ov00_0207e968);
-                  return iVar1 + (uVar2 + 0x800 >> 0xc |
-                                 (((int)((ulonglong)uVar5 * 0xffff0000 >> 0x20) - uVar5) +
-                                 (uint)(0xfffff7ff < uVar2)) * 0x100000);
-                }
-                iVar1 = (**(code **)(param_1->vtable + 0x60))(param_1,aVStack_98);
-                __cxa_vec_cleanup(&local_58,3,0x10,func_ov00_0207e968);
-                return iVar1;
-    **/
-}
-
-unk8 MapBase::func_ov00_0207e940(unk8 *param_1) {
-    /*
-      __cxa_vec_cleanup(param_1 + 0x18,3,0x10,func_ov00_0207e968);
-  return param_1;
-    */
-}
-
-ARM void MapBase::func_ov00_0207e968() {
-    /*
-      int iVar1;
-  uint uVar2;
-  uint uVar3;
-  int iVar4;
-  uint uVar5;
-  int iVar6;
-  bool bVar7;
-  TilePos aVStack_dc [2];
-  uint local_d8;
-  int local_d4;
-  int local_d0;
-  int iStack_cc;
-  undefined4 local_c8;
-  undefined4 local_c4;
-  undefined4 local_c0;
-  undefined2 local_bc;
-  undefined2 local_ba;
-  undefined2 local_b8;
-  undefined2 local_b6;
-  undefined4 local_b4;
-  undefined4 local_b0;
-  undefined4 local_ac;
-  undefined4 local_a8;
-  undefined4 local_a4;
-  undefined4 local_a0;
-  undefined4 local_9c;
-  undefined4 local_98;
-  undefined4 local_94;
-  undefined4 local_90;
-  undefined4 local_8c;
-  undefined4 local_88;
-  undefined4 local_84;
-  undefined4 local_80;
-  undefined4 local_7c;
-  undefined4 local_78;
-  undefined4 local_74;
-  undefined2 local_70;
-  undefined2 local_6e;
-  undefined2 local_6c;
-  undefined2 local_6a;
-  undefined4 local_68;
-  undefined4 local_64;
-  undefined4 local_60;
-  undefined4 local_5c;
-  undefined4 local_58;
-  undefined4 local_54;
-  undefined4 local_50;
-  undefined4 local_4c;
-  undefined4 local_48;
-  undefined4 local_44;
-  undefined4 local_40;
-  undefined4 local_3c;
-  undefined4 local_38;
-  undefined4 local_34;
-  undefined4 local_30;
-  undefined4 local_2c;
-  undefined4 local_28;
-
-  MapManager::func_ov00_02083a1c(aVStack_dc,(MapManager *)gMapManager,param_2);
-  iVar1 = (**(code **)(param_1->vtable + 0x54))(param_1,aVStack_dc);
-  if (0x1e < iVar1) {
-    if (iVar1 < 0x36) {
-      if (0x34 < iVar1) goto LAB_arm9_ov000__0207eb04;
-      if (iVar1 < 0x2a) {
-                    if (-1 < iVar1 + -0x1f) {
-                        (*(code *)((iVar1 + -0x1f) * 4 + 0x207ea4c))();
-                        return;
-                      }
-                    }
-                    else if (iVar1 == 0x30) goto LAB_arm9_ov000__0207eb04;
-                  }
-                  else if (iVar1 < 0x41) {
-                    if (iVar1 == 0x40) goto LAB_arm9_ov000__0207eb04;
-                  }
-                  else if (iVar1 == 0x50) goto LAB_arm9_ov000__0207eb04;
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                }
-                if (0x1d < iVar1) goto LAB_arm9_ov000__0207eb04;
-                if (0x17 < iVar1) {
-                  if (iVar1 < 0x1a) {
-                    if (iVar1 == 0x19) goto LAB_arm9_ov000__0207eb04;
-                  }
-                  else if (iVar1 == 0x1d) goto LAB_arm9_ov000__0207eb04;
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                }
-                if (0x16 < iVar1) goto LAB_arm9_ov000__0207eb04;
-                if (9 < iVar1) {
-                  if (iVar1 == 0x16) goto LAB_arm9_ov000__0207eb04;
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                }
-                switch(iVar1) {
-                case 0:
-                default:
-              switchD_overlay_d_0::0207e9d4_caseD_a:
-                  if (param_1->field11_0xe == '\0') {
-                    uVar2 = (**(code **)(param_1->vtable + 0x58))(param_1,aVStack_dc,5);
+    }
+    if (0x17 < iVar1) {
+        if (iVar1 < 0x1a) {
+            if (iVar1 == 0x19) {
+                goto LAB_arm9_ov000__0207e724;
+            }
+        } else if (iVar1 == 0x1d) {
+            goto LAB_arm9_ov000__0207e724;
+        }
+        goto LAB_0207e518_caseD_a;
+    }
+    if (0x16 < iVar1) {
+        goto LAB_arm9_ov000__0207e724;
+    }
+    if (9 < iVar1) {
+        if (iVar1 == 0x16) {
+            goto LAB_arm9_ov000__0207e724;
+        }
+        goto LAB_0207e518_caseD_a;
+    }
+    switch (iVar1) {
+        case 0:
+        default:
+        LAB_0207e518_caseD_a:
+            if (this->mUnk_00e == 0) {
+                if (param_3 == 0) {
+                    uVar2 = this->vfunc_58(&aVStack_98, 5);
                     bVar7 = uVar2 == 0;
                     if (bVar7) {
-                      uVar2 = (uint)param_1->field5_0x8;
+                        uVar2 = (u32) this->mUnk_008;
                     }
                     if (bVar7 && uVar2 == 0) {
-                      iVar1 = (**(code **)(param_1->vtable + 0x60))(param_1,aVStack_dc);
-                      *param_3 = iVar1;
-                      *param_4 = 0;
-                      param_4[1] = 0x1000;
-                      param_4[2] = 0;
-                      return;
+                        iVar1 = this->vfunc_60(&aVStack_98);
+                        return iVar1;
                     }
-                  }
-                  break;
-                case 1:
-                  break;
-                case 2:
-                  break;
-                case 3:
-                  break;
-                case 4:
-                  break;
-                case 5:
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                case 6:
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                case 7:
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                case 8:
-                  break;
-                case 9:
-                }
-              LAB_arm9_ov000__0207eb04:
-                iVar1 = func_01fff084(data_027e0f6c,param_2,2,0x20ec864,0x20,0);
-                uVar5 = 0x2000;
-                __cxa_vec_ctor(&local_58,3,0x10,func_ov00_0207e96c,func_ov00_0207e968);
-                __cxa_vec_ctor(&local_a4,3,0x10,func_ov00_0207e96c,func_ov00_0207e968);
-                uVar2 = 0;
-                local_c8 = 0;
-                local_c0 = 0;
-                local_c4 = 0xffff0000;
-                local_d4 = param_2->x;
-                local_d0 = param_2->y;
-                iStack_cc = param_2->z;
-                if (0 < iVar1) {
-                  do {
-                    iVar4 = (uint)*(ushort *)(uVar2 * 2 + 0x20ec864) * 0x4c;
-                    iVar6 = *(int *)(data_027e0f6c + 0x20) + iVar4;
-                    local_70 = *(undefined2 *)(*(int *)(data_027e0f6c + 0x20) + iVar4);
-                    local_6e = *(undefined2 *)(iVar6 + 2);
-                    local_6c = *(undefined2 *)(iVar6 + 4);
-                    local_6a = *(undefined2 *)(iVar6 + 6);
-                    local_68 = *(undefined4 *)(iVar6 + 8);
-                    local_64 = *(undefined4 *)(iVar6 + 0xc);
-                    local_60 = *(undefined4 *)(iVar6 + 0x10);
-                    local_5c = *(undefined4 *)(iVar6 + 0x14);
-                    local_58 = *(undefined4 *)(iVar6 + 0x18);
-                    local_54 = *(undefined4 *)(iVar6 + 0x1c);
-                    local_50 = *(undefined4 *)(iVar6 + 0x20);
-                    local_4c = *(undefined4 *)(iVar6 + 0x24);
-                    local_48 = *(undefined4 *)(iVar6 + 0x28);
-                    local_44 = *(undefined4 *)(iVar6 + 0x2c);
-                    local_40 = *(undefined4 *)(iVar6 + 0x30);
-                    local_3c = *(undefined4 *)(iVar6 + 0x34);
-                    local_38 = *(undefined4 *)(iVar6 + 0x38);
-                    local_34 = *(undefined4 *)(iVar6 + 0x3c);
-                    local_30 = *(undefined4 *)(iVar6 + 0x40);
-                    local_2c = *(undefined4 *)(iVar6 + 0x44);
-                    local_28 = *(undefined4 *)(iVar6 + 0x48);
-                    iVar4 = func_01ffe904(&local_70,&local_d4,&local_c8,&local_d8);
-                    if ((iVar4 != 0) && ((int)local_d8 < (int)uVar5)) {
-                      local_bc = local_70;
-                      local_ba = local_6e;
-                      local_b8 = local_6c;
-                      local_b6 = local_6a;
-                      local_b4 = local_68;
-                      local_b0 = local_64;
-                      local_ac = local_60;
-                      local_a8 = local_5c;
-                      local_a4 = local_58;
-                      local_a0 = local_54;
-                      local_9c = local_50;
-                      local_98 = local_4c;
-                      local_94 = local_48;
-                      local_90 = local_44;
-                      local_8c = local_40;
-                      local_88 = local_3c;
-                      local_84 = local_38;
-                      local_80 = local_34;
-                      local_7c = local_30;
-                      local_78 = local_2c;
-                      local_74 = local_28;
-                      uVar5 = local_d8;
+                } else {
+                    bVar7 = this->func_ov00_0207f104(param_2, &iStack_90);
+                    if (bVar7) {
+                        return iStack_90;
                     }
-                    uVar3 = uVar2 + 1;
-                    uVar2 = uVar3 & 0xffff;
-                  } while ((int)(uVar3 & 0xffff) < iVar1);
+                    iVar1 = this->func_ov00_0207f1f4(param_2, &iStack_90);
+                    if ((iVar1 != 0) && (iStack_90 <= param_2->y)) {
+                        return iStack_90;
+                    }
+                    uVar2 = this->vfunc_58(&aVStack_98, 5);
+                    bVar7 = uVar2 == 0;
+                    if (bVar7) {
+                        uVar2 = (u32) this->mUnk_008;
+                    }
+                    if (bVar7 && uVar2 == 0) {
+                        iVar1 = this->vfunc_60(&aVStack_98);
+                        return iVar1;
+                    }
                 }
-                if ((int)uVar5 < 0x1001) {
-                  uVar2 = (uint)((ulonglong)uVar5 * 0xffff0000);
-                  *param_4 = local_b4;
-                  param_4[1] = local_b0;
-                  param_4[2] = local_ac;
-                  *param_3 = local_d0 +
-                             (uVar2 + 0x800 >> 0xc |
-                             (((int)((ulonglong)uVar5 * 0xffff0000 >> 0x20) - uVar5) + (uint)(0xfffff7ff < uVar2))
-                             * 0x100000);
-                }
-                else {
-                  iVar1 = (**(code **)(param_1->vtable + 0x60))(param_1,aVStack_dc);
-                  *param_3 = iVar1;
-                  *param_4 = 0;
-                  param_4[1] = 0x1000;
-                  param_4[2] = 0;
-                }
-                __cxa_vec_cleanup(&local_a4,3,0x10,func_ov00_0207e968);
-                __cxa_vec_cleanup(&local_58,3,0x10,func_ov00_0207e968);
-                return;
-    */
+            }
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            goto LAB_0207e518_caseD_a;
+        case 6:
+            goto LAB_0207e518_caseD_a;
+        case 7:
+            goto LAB_0207e518_caseD_a;
+        case 8:
+            break;
+        case 9:
+    }
+LAB_arm9_ov000__0207e724:
+    // iVar1 = func_01fff084(data_027e0f6c, param_2, 2, data_ov000_020ec824);
+    uVar5 = 0x2000;
+    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    uVar2      = 0;
+    local_7c   = 0;
+    local_74   = 0;
+    local_78   = 0xffff0000;
+    local_88.x = param_2->x;
+    local_88.y = param_2->y;
+    local_88.z = param_2->z;
+    if (0 < iVar1) {
+        do {
+            iVar4    = (u32) * (u16 *) (uVar2 * 2 + 0x20ec824) * 0x4c;
+            iVar6    = *(int *) (data_027e0f6c + 0x20) + iVar4;
+            local_70 = *(unk16 *) (*(int *) (data_027e0f6c + 0x20) + iVar4);
+            local_6e = *(unk16 *) (iVar6 + 2);
+            local_6c = *(unk16 *) (iVar6 + 4);
+            local_6a = *(unk16 *) (iVar6 + 6);
+            local_68 = *(unk32 *) (iVar6 + 8);
+            local_64 = *(unk32 *) (iVar6 + 0xc);
+            local_60 = *(unk32 *) (iVar6 + 0x10);
+            local_5c = *(unk32 *) (iVar6 + 0x14);
+            local_58 = *(unk32 *) (iVar6 + 0x18);
+            local_54 = *(unk32 *) (iVar6 + 0x1c);
+            local_50 = *(unk32 *) (iVar6 + 0x20);
+            local_4c = *(unk32 *) (iVar6 + 0x24);
+            local_48 = *(unk32 *) (iVar6 + 0x28);
+            local_44 = *(unk32 *) (iVar6 + 0x2c);
+            local_40 = *(unk32 *) (iVar6 + 0x30);
+            local_3c = *(unk32 *) (iVar6 + 0x34);
+            local_38 = *(unk32 *) (iVar6 + 0x38);
+            local_34 = *(unk32 *) (iVar6 + 0x3c);
+            local_30 = *(unk32 *) (iVar6 + 0x40);
+            local_2c = *(unk32 *) (iVar6 + 0x44);
+            local_28 = *(unk32 *) (iVar6 + 0x48);
+            iVar4    = func_01ffe904(&local_70, (unk32 *) &local_88, &local_7c, (unk32 *) &local_94);
+            if ((iVar4 != 0) && ((int) local_94 < (int) uVar5)) {
+                uVar5 = local_94;
+            }
+            uVar3 = uVar2 + 1;
+            uVar2 = uVar3 & 0xffff;
+        } while ((int) (uVar3 & 0xffff) < iVar1);
+    }
+    iVar1 = local_88.y;
+    if ((int) uVar5 < 0x1001) {
+        uVar2 = (u32) ((u64) uVar5 * 0xffff0000);
+        //__cxa_vec_cleanup(&local_58, 3, 0x10, func_ov00_0207e968);
+        return iVar1 + (uVar2 + 0x800 >> 0xc |
+                        (((int) ((u64) uVar5 * 0xffff0000 >> 0x20) - uVar5) + (u32) (0xfffff7ff < uVar2)) * 0x100000);
+    }
+    iVar1 = this->vfunc_60(&aVStack_98);
+    //__cxa_vec_cleanup(&local_58, 3, 0x10, func_ov00_0207e968);
+    return iVar1;
 }
+
+ARM unk8 *MapBase::func_ov00_0207e940(unk8 *param_1) {
+    //__cxa_vec_cleanup(param_1 + 0x18, 3, 0x10, func_ov00_0207e968);
+    return param_1;
+}
+
+ARM void MapBase::func_ov00_0207e968() {}
 
 ARM void MapBase::func_ov00_0207e96c() {}
 
-void MapBase::vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4) {
-    /*
-      int iVar1;
-  uint uVar2;
-  uint uVar3;
-  int iVar4;
-  uint uVar5;
-  int iVar6;
-  bool bVar7;
-  TilePos aVStack_dc [2];
-  uint local_d8;
-  int local_d4;
-  int local_d0;
-  int iStack_cc;
-  undefined4 local_c8;
-  undefined4 local_c4;
-  undefined4 local_c0;
-  undefined2 local_bc;
-  undefined2 local_ba;
-  undefined2 local_b8;
-  undefined2 local_b6;
-  undefined4 local_b4;
-  undefined4 local_b0;
-  undefined4 local_ac;
-  undefined4 local_a8;
-  undefined4 local_a4;
-  undefined4 local_a0;
-  undefined4 local_9c;
-  undefined4 local_98;
-  undefined4 local_94;
-  undefined4 local_90;
-  undefined4 local_8c;
-  undefined4 local_88;
-  undefined4 local_84;
-  undefined4 local_80;
-  undefined4 local_7c;
-  undefined4 local_78;
-  undefined4 local_74;
-  undefined2 local_70;
-  undefined2 local_6e;
-  undefined2 local_6c;
-  undefined2 local_6a;
-  undefined4 local_68;
-  undefined4 local_64;
-  undefined4 local_60;
-  undefined4 local_5c;
-  undefined4 local_58;
-  undefined4 local_54;
-  undefined4 local_50;
-  undefined4 local_4c;
-  undefined4 local_48;
-  undefined4 local_44;
-  undefined4 local_40;
-  undefined4 local_3c;
-  undefined4 local_38;
-  undefined4 local_34;
-  undefined4 local_30;
-  undefined4 local_2c;
-  undefined4 local_28;
+// Non-matching
+ARM void MapBase::vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4) {
+    int iVar1;
+    u32 uVar2;
+    u32 uVar3;
+    int iVar4;
+    u32 uVar5;
+    int iVar6;
+    bool bVar7;
+    TilePos aVStack_dc;
+    u32 local_d8;
+    int local_d4;
+    int local_d0;
+    int iStack_cc;
+    unk32 local_c8;
+    unk32 local_c4;
+    unk32 local_c0;
+    unk16 local_bc;
+    unk16 local_ba;
+    unk16 local_b8;
+    unk16 local_b6;
+    unk32 local_b4;
+    unk32 local_b0;
+    unk32 local_ac;
+    unk32 local_a8;
+    unk32 local_a4;
+    unk32 local_a0;
+    unk32 local_9c;
+    unk32 local_98;
+    unk32 local_94;
+    unk32 local_90;
+    unk32 local_8c;
+    unk32 local_88;
+    unk32 local_84;
+    unk32 local_80;
+    unk32 local_7c;
+    unk32 local_78;
+    unk32 local_74;
+    unk16 local_70;
+    unk16 local_6e;
+    unk16 local_6c;
+    unk16 local_6a;
+    unk32 local_68;
+    unk32 local_64;
+    unk32 local_60;
+    unk32 local_5c;
+    unk32 local_58;
+    unk32 local_54;
+    unk32 local_50;
+    unk32 local_4c;
+    unk32 local_48;
+    unk32 local_44;
+    unk32 local_40;
+    unk32 local_3c;
+    unk32 local_38;
+    unk32 local_34;
+    unk32 local_30;
+    unk32 local_2c;
+    unk32 local_28;
 
-  MapManager::func_ov00_02083a1c(aVStack_dc,(MapManager *)gMapManager,param_2);
-  iVar1 = (**(code **)(param_1->vtable + 0x54))(param_1,aVStack_dc);
-  if (0x1e < iVar1) {
-    if (iVar1 < 0x36) {
-      if (0x34 < iVar1) goto LAB_arm9_ov000__0207eb04;
-      if (iVar1 < 0x2a) {
-                    if (-1 < iVar1 + -0x1f) {
-                        (*(code *)((iVar1 + -0x1f) * 4 + 0x207ea4c))();
-                        return;
-                      }
-                    }
-                    else if (iVar1 == 0x30) goto LAB_arm9_ov000__0207eb04;
-                  }
-                  else if (iVar1 < 0x41) {
-                    if (iVar1 == 0x40) goto LAB_arm9_ov000__0207eb04;
-                  }
-                  else if (iVar1 == 0x50) goto LAB_arm9_ov000__0207eb04;
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
+    aVStack_dc = gMapManager->func_ov00_02083a1c(param_2);
+    iVar1      = this->vfunc_54(&aVStack_dc);
+    if (0x1e < iVar1) {
+        if (iVar1 < 0x36) {
+            if (0x34 < iVar1) {
+                goto LAB_arm9_ov000__0207eb04;
+            }
+            if (iVar1 < 0x2a) {
+                if (-1 < iVar1 + -0x1f) {
+                    //(*(code *) ((iVar1 + -0x1f) * 4 + 0x207ea4c))();
+                    return;
                 }
-                if (0x1d < iVar1) goto LAB_arm9_ov000__0207eb04;
-                if (0x17 < iVar1) {
-                  if (iVar1 < 0x1a) {
-                    if (iVar1 == 0x19) goto LAB_arm9_ov000__0207eb04;
-                  }
-                  else if (iVar1 == 0x1d) goto LAB_arm9_ov000__0207eb04;
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
+            } else if (iVar1 == 0x30) {
+                goto LAB_arm9_ov000__0207eb04;
+            }
+        } else if (iVar1 < 0x41) {
+            if (iVar1 == 0x40) {
+                goto LAB_arm9_ov000__0207eb04;
+            }
+        } else if (iVar1 == 0x50) {
+            goto LAB_arm9_ov000__0207eb04;
+        }
+        goto LAB_0207e9d4_caseD_a;
+    }
+    if (0x1d < iVar1) {
+        goto LAB_arm9_ov000__0207eb04;
+    }
+    if (0x17 < iVar1) {
+        if (iVar1 < 0x1a) {
+            if (iVar1 == 0x19) {
+                goto LAB_arm9_ov000__0207eb04;
+            }
+        } else if (iVar1 == 0x1d) {
+            goto LAB_arm9_ov000__0207eb04;
+        }
+        goto LAB_0207e9d4_caseD_a;
+    }
+    if (0x16 < iVar1) {
+        goto LAB_arm9_ov000__0207eb04;
+    }
+    if (9 < iVar1) {
+        if (iVar1 == 0x16) {
+            goto LAB_arm9_ov000__0207eb04;
+        }
+        goto LAB_0207e9d4_caseD_a;
+    }
+    switch (iVar1) {
+        case 0:
+        default:
+        LAB_0207e9d4_caseD_a:
+            if (this->mUnk_00e == 0) {
+                uVar2 = this->vfunc_58(&aVStack_dc, 5);
+                bVar7 = uVar2 == 0;
+                if (bVar7) {
+                    uVar2 = (u32) this->mUnk_008;
                 }
-                if (0x16 < iVar1) goto LAB_arm9_ov000__0207eb04;
-                if (9 < iVar1) {
-                  if (iVar1 == 0x16) goto LAB_arm9_ov000__0207eb04;
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
+                if (bVar7 && uVar2 == 0) {
+                    iVar1      = this->vfunc_60(&aVStack_dc);
+                    *param_3   = iVar1;
+                    param_4->x = 0;
+                    param_4->y = 0x1000;
+                    param_4->z = 0;
+                    return;
                 }
-                switch(iVar1) {
-                case 0:
-                default:
-              switchD_overlay_d_0::0207e9d4_caseD_a:
-                  if (param_1->field11_0xe == '\0') {
-                    uVar2 = (**(code **)(param_1->vtable + 0x58))(param_1,aVStack_dc,5);
-                    bVar7 = uVar2 == 0;
-                    if (bVar7) {
-                      uVar2 = (uint)param_1->field5_0x8;
-                    }
-                    if (bVar7 && uVar2 == 0) {
-                      iVar1 = (**(code **)(param_1->vtable + 0x60))(param_1,aVStack_dc);
-                      *param_3 = iVar1;
-                      *param_4 = 0;
-                      param_4[1] = 0x1000;
-                      param_4[2] = 0;
-                      return;
-                    }
-                  }
-                  break;
-                case 1:
-                  break;
-                case 2:
-                  break;
-                case 3:
-                  break;
-                case 4:
-                  break;
-                case 5:
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                case 6:
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                case 7:
-                  goto switchD_overlay_d_0::0207e9d4_caseD_a;
-                case 8:
-                  break;
-                case 9:
-                }
-              LAB_arm9_ov000__0207eb04:
-                iVar1 = func_01fff084(data_027e0f6c,param_2,2,0x20ec864,0x20,0);
-                uVar5 = 0x2000;
-                __cxa_vec_ctor(&local_58,3,0x10,func_ov00_0207e96c,func_ov00_0207e968);
-                __cxa_vec_ctor(&local_a4,3,0x10,func_ov00_0207e96c,func_ov00_0207e968);
-                uVar2 = 0;
-                local_c8 = 0;
-                local_c0 = 0;
-                local_c4 = 0xffff0000;
-                local_d4 = param_2->x;
-                local_d0 = param_2->y;
-                iStack_cc = param_2->z;
-                if (0 < iVar1) {
-                  do {
-                    iVar4 = (uint)*(ushort *)(uVar2 * 2 + 0x20ec864) * 0x4c;
-                    iVar6 = *(int *)(data_027e0f6c + 0x20) + iVar4;
-                    local_70 = *(undefined2 *)(*(int *)(data_027e0f6c + 0x20) + iVar4);
-                    local_6e = *(undefined2 *)(iVar6 + 2);
-                    local_6c = *(undefined2 *)(iVar6 + 4);
-                    local_6a = *(undefined2 *)(iVar6 + 6);
-                    local_68 = *(undefined4 *)(iVar6 + 8);
-                    local_64 = *(undefined4 *)(iVar6 + 0xc);
-                    local_60 = *(undefined4 *)(iVar6 + 0x10);
-                    local_5c = *(undefined4 *)(iVar6 + 0x14);
-                    local_58 = *(undefined4 *)(iVar6 + 0x18);
-                    local_54 = *(undefined4 *)(iVar6 + 0x1c);
-                    local_50 = *(undefined4 *)(iVar6 + 0x20);
-                    local_4c = *(undefined4 *)(iVar6 + 0x24);
-                    local_48 = *(undefined4 *)(iVar6 + 0x28);
-                    local_44 = *(undefined4 *)(iVar6 + 0x2c);
-                    local_40 = *(undefined4 *)(iVar6 + 0x30);
-                    local_3c = *(undefined4 *)(iVar6 + 0x34);
-                    local_38 = *(undefined4 *)(iVar6 + 0x38);
-                    local_34 = *(undefined4 *)(iVar6 + 0x3c);
-                    local_30 = *(undefined4 *)(iVar6 + 0x40);
-                    local_2c = *(undefined4 *)(iVar6 + 0x44);
-                    local_28 = *(undefined4 *)(iVar6 + 0x48);
-                    iVar4 = func_01ffe904(&local_70,&local_d4,&local_c8,&local_d8);
-                    if ((iVar4 != 0) && ((int)local_d8 < (int)uVar5)) {
-                      local_bc = local_70;
-                      local_ba = local_6e;
-                      local_b8 = local_6c;
-                      local_b6 = local_6a;
-                      local_b4 = local_68;
-                      local_b0 = local_64;
-                      local_ac = local_60;
-                      local_a8 = local_5c;
-                      local_a4 = local_58;
-                      local_a0 = local_54;
-                      local_9c = local_50;
-                      local_98 = local_4c;
-                      local_94 = local_48;
-                      local_90 = local_44;
-                      local_8c = local_40;
-                      local_88 = local_3c;
-                      local_84 = local_38;
-                      local_80 = local_34;
-                      local_7c = local_30;
-                      local_78 = local_2c;
-                      local_74 = local_28;
-                      uVar5 = local_d8;
-                    }
-                    uVar3 = uVar2 + 1;
-                    uVar2 = uVar3 & 0xffff;
-                  } while ((int)(uVar3 & 0xffff) < iVar1);
-                }
-                if ((int)uVar5 < 0x1001) {
-                  uVar2 = (uint)((ulonglong)uVar5 * 0xffff0000);
-                  *param_4 = local_b4;
-                  param_4[1] = local_b0;
-                  param_4[2] = local_ac;
-                  *param_3 = local_d0 +
-                             (uVar2 + 0x800 >> 0xc |
-                             (((int)((ulonglong)uVar5 * 0xffff0000 >> 0x20) - uVar5) + (uint)(0xfffff7ff < uVar2))
-                             * 0x100000);
-                }
-                else {
-                  iVar1 = (**(code **)(param_1->vtable + 0x60))(param_1,aVStack_dc);
-                  *param_3 = iVar1;
-                  *param_4 = 0;
-                  param_4[1] = 0x1000;
-                  param_4[2] = 0;
-                }
-                __cxa_vec_cleanup(&local_a4,3,0x10,func_ov00_0207e968);
-                __cxa_vec_cleanup(&local_58,3,0x10,func_ov00_0207e968);
-                return;
-    */
+            }
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            goto LAB_0207e9d4_caseD_a;
+        case 6:
+            goto LAB_0207e9d4_caseD_a;
+        case 7:
+            goto LAB_0207e9d4_caseD_a;
+        case 8:
+            break;
+        case 9:
+    }
+LAB_arm9_ov000__0207eb04:
+    iVar1 = func_01fff084(data_027e0f6c, param_2, 2, data_ov000_020ec864, 0x20, 0);
+    uVar5 = 0x2000;
+    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    __cxa_vec_ctor(&local_a4, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    uVar2     = 0;
+    local_c8  = 0;
+    local_c0  = 0;
+    local_c4  = 0xffff0000;
+    local_d4  = param_2->x;
+    local_d0  = param_2->y;
+    iStack_cc = param_2->z;
+    if (0 < iVar1) {
+        do {
+            iVar4    = (u32) * (u16 *) (uVar2 * 2 + data_ov000_020ec864) * 0x4c;
+            iVar6    = *(int *) (data_027e0f6c + 0x20) + iVar4;
+            local_70 = *(unk16 *) (*(int *) (data_027e0f6c + 0x20) + iVar4);
+            local_6e = *(unk16 *) (iVar6 + 2);
+            local_6c = *(unk16 *) (iVar6 + 4);
+            local_6a = *(unk16 *) (iVar6 + 6);
+            local_68 = *(unk32 *) (iVar6 + 8);
+            local_64 = *(unk32 *) (iVar6 + 0xc);
+            local_60 = *(unk32 *) (iVar6 + 0x10);
+            local_5c = *(unk32 *) (iVar6 + 0x14);
+            local_58 = *(unk32 *) (iVar6 + 0x18);
+            local_54 = *(unk32 *) (iVar6 + 0x1c);
+            local_50 = *(unk32 *) (iVar6 + 0x20);
+            local_4c = *(unk32 *) (iVar6 + 0x24);
+            local_48 = *(unk32 *) (iVar6 + 0x28);
+            local_44 = *(unk32 *) (iVar6 + 0x2c);
+            local_40 = *(unk32 *) (iVar6 + 0x30);
+            local_3c = *(unk32 *) (iVar6 + 0x34);
+            local_38 = *(unk32 *) (iVar6 + 0x38);
+            local_34 = *(unk32 *) (iVar6 + 0x3c);
+            local_30 = *(unk32 *) (iVar6 + 0x40);
+            local_2c = *(unk32 *) (iVar6 + 0x44);
+            local_28 = *(unk32 *) (iVar6 + 0x48);
+            iVar4    = func_01ffe904(&local_70, &local_d4, &local_c8, (unk32 *) &local_d8);
+            if ((iVar4 != 0) && ((int) local_d8 < (int) uVar5)) {
+                local_bc = local_70;
+                local_ba = local_6e;
+                local_b8 = local_6c;
+                local_b6 = local_6a;
+                local_b4 = local_68;
+                local_b0 = local_64;
+                local_ac = local_60;
+                local_a8 = local_5c;
+                local_a4 = local_58;
+                local_a0 = local_54;
+                local_9c = local_50;
+                local_98 = local_4c;
+                local_94 = local_48;
+                local_90 = local_44;
+                local_8c = local_40;
+                local_88 = local_3c;
+                local_84 = local_38;
+                local_80 = local_34;
+                local_7c = local_30;
+                local_78 = local_2c;
+                local_74 = local_28;
+                uVar5    = local_d8;
+            }
+            uVar3 = uVar2 + 1;
+            uVar2 = uVar3 & 0xffff;
+        } while ((int) (uVar3 & 0xffff) < iVar1);
+    }
+    if (uVar5 <= 0x1000) {
+        uVar2      = (u32) ((u64) uVar5 * 0xffff0000);
+        param_4->x = local_b4;
+        param_4->y = local_b0;
+        param_4->z = local_ac;
+        *param_3   = local_d0 + (uVar2 + 0x800 >> 0xc |
+                               (((int) ((u64) uVar5 * 0xffff0000 >> 0x20) - uVar5) + (u32) (0xfffff7ff < uVar2)) * 0x100000);
+    } else {
+        iVar1      = this->vfunc_60(&aVStack_dc);
+        *param_3   = iVar1;
+        param_4->x = 0;
+        param_4->y = 0x1000;
+        param_4->z = 0;
+    }
+    //__cxa_vec_cleanup(&local_a4,3,0x10,func_ov00_0207e968);
+    //__cxa_vec_cleanup(&local_58,3,0x10,func_ov00_0207e968);
 }
 
+// Non-matching
 u16 MapBase::vfunc_70(Vec3p *param_2) {
-    /*
-      int iVar1;
-  uint uVar2;
-  int iVar3;
-  int iVar4;
-  dword dVar5;
-  uint uVar6;
-  int iVar7;
-  TilePos aVStack_90 [2];
-  int local_8c;
-  int local_88;
-  int iStack_84;
-  int iStack_80;
-  undefined4 local_7c;
-  undefined4 local_78;
-  undefined4 local_74;
-  undefined2 local_70;
-  undefined2 local_6e;
-  undefined2 local_6c;
-  undefined2 local_6a;
-  undefined4 local_68;
-  undefined4 local_64;
-  undefined4 local_60;
-  undefined4 local_5c;
-  undefined4 local_58;
-  undefined4 local_54;
-  undefined4 local_50;
-  undefined4 local_4c;
-  undefined4 local_48;
-  undefined4 local_44;
-  undefined4 local_40;
-  undefined4 local_3c;
-  undefined4 local_38;
-  undefined4 local_34;
-  undefined4 local_30;
-  undefined4 local_2c;
-  undefined4 local_28;
+    int iVar1;
+    u32 uVar2;
+    int iVar3;
+    int iVar4;
+    unk32 dVar5; // dword
+    u32 uVar6;
+    int iVar7;
+    TilePos aVStack_90;
+    int local_8c;
+    int local_88;
+    int iStack_84;
+    int iStack_80;
+    unk32 local_7c;
+    unk32 local_78;
+    unk32 local_74;
+    unk16 local_70;
+    unk16 local_6e;
+    unk16 local_6c;
+    unk16 local_6a;
+    unk32 local_68;
+    unk32 local_64;
+    unk32 local_60;
+    unk32 local_5c;
+    unk32 local_58;
+    unk32 local_54;
+    unk32 local_50;
+    unk32 local_4c;
+    unk32 local_48;
+    unk32 local_44;
+    unk32 local_40;
+    unk32 local_3c;
+    unk32 local_38;
+    unk32 local_34;
+    unk32 local_30;
+    unk32 local_2c;
+    unk32 local_28;
 
-  MapManager::func_ov00_02083a1c(aVStack_90,(MapManager *)gMapManager,param_2);
-  iVar1 = func_01fff084(data_027e0f6c,param_2,2,0x20ec8a4,0x20,0);
-  iVar4 = 0x2000;
-  dVar5 = 0xffff;
-  __cxa_vec_ctor(&local_58,3,0x10,func_ov00_0207e96c,func_ov00_0207e968);
-  uVar6 = 0;
-  local_7c = 0;
-  local_74 = 0;
-  local_78 = 0xffff0000;
-  local_88 = param_2->x;
-  iStack_84 = param_2->y;
-  iStack_80 = param_2->z;
-  if (0 < iVar1) {
-    do {
-      iVar3 = (uint)*(ushort *)(uVar6 * 2 + 0x20ec8a4) * 0x4c;
-      iVar7 = *(int *)(data_027e0f6c + 0x20) + iVar3;
-      local_70 = *(undefined2 *)(*(int *)(data_027e0f6c + 0x20) + iVar3);
-      local_6e = *(undefined2 *)(iVar7 + 2);
-      local_6c = *(undefined2 *)(iVar7 + 4);
-      local_6a = *(undefined2 *)(iVar7 + 6);
-      local_68 = *(undefined4 *)(iVar7 + 8);
-      local_64 = *(undefined4 *)(iVar7 + 0xc);
-      local_60 = *(undefined4 *)(iVar7 + 0x10);
-      local_5c = *(undefined4 *)(iVar7 + 0x14);
-      local_58 = *(undefined4 *)(iVar7 + 0x18);
-      local_54 = *(undefined4 *)(iVar7 + 0x1c);
-      local_50 = *(undefined4 *)(iVar7 + 0x20);
-      local_4c = *(undefined4 *)(iVar7 + 0x24);
-      local_48 = *(undefined4 *)(iVar7 + 0x28);
-      local_44 = *(undefined4 *)(iVar7 + 0x2c);
-      local_40 = *(undefined4 *)(iVar7 + 0x30);
-      local_3c = *(undefined4 *)(iVar7 + 0x34);
-      local_38 = *(undefined4 *)(iVar7 + 0x38);
-      local_34 = *(undefined4 *)(iVar7 + 0x3c);
-      local_30 = *(undefined4 *)(iVar7 + 0x40);
-      local_2c = *(undefined4 *)(iVar7 + 0x44);
-      local_28 = *(undefined4 *)(iVar7 + 0x48);
-      iVar3 = func_01ffe904(&local_70,&local_88,&local_7c,&local_8c);
-      if ((iVar3 != 0) && (local_8c < iVar4)) {
-        dVar5 = (dword)*(ushort *)(uVar6 * 2 + 0x20ec8a4);
-        iVar4 = local_8c;
-      }
-      uVar2 = uVar6 + 1;
-      uVar6 = uVar2 & 0xffff;
-    } while ((int)(uVar2 & 0xffff) < iVar1);
-  }
-  __cxa_vec_cleanup(&local_58,3,0x10,func_ov00_0207e968);
-  return dVar5;
-    */
+    aVStack_90 = gMapManager->func_ov00_02083a1c(param_2);
+    iVar1      = func_01fff084(data_027e0f6c, param_2, 2, 0x20ec8a4, 0x20, 0);
+    iVar4      = 0x2000;
+    dVar5      = 0xffff;
+    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    uVar6     = 0;
+    local_7c  = 0;
+    local_74  = 0;
+    local_78  = 0xffff0000;
+    local_88  = param_2->x;
+    iStack_84 = param_2->y;
+    iStack_80 = param_2->z;
+    if (0 < iVar1) {
+        do {
+            iVar3    = (u32) * (u16 *) (uVar6 * 2 + data_ov000_020ec8a4) * 0x4c;
+            iVar7    = *(int *) (data_027e0f6c + 0x20) + iVar3;
+            local_70 = *(unk16 *) (*(int *) (data_027e0f6c + 0x20) + iVar3);
+            local_6e = *(unk16 *) (iVar7 + 2);
+            local_6c = *(unk16 *) (iVar7 + 4);
+            local_6a = *(unk16 *) (iVar7 + 6);
+            local_68 = *(unk32 *) (iVar7 + 8);
+            local_64 = *(unk32 *) (iVar7 + 0xc);
+            local_60 = *(unk32 *) (iVar7 + 0x10);
+            local_5c = *(unk32 *) (iVar7 + 0x14);
+            local_58 = *(unk32 *) (iVar7 + 0x18);
+            local_54 = *(unk32 *) (iVar7 + 0x1c);
+            local_50 = *(unk32 *) (iVar7 + 0x20);
+            local_4c = *(unk32 *) (iVar7 + 0x24);
+            local_48 = *(unk32 *) (iVar7 + 0x28);
+            local_44 = *(unk32 *) (iVar7 + 0x2c);
+            local_40 = *(unk32 *) (iVar7 + 0x30);
+            local_3c = *(unk32 *) (iVar7 + 0x34);
+            local_38 = *(unk32 *) (iVar7 + 0x38);
+            local_34 = *(unk32 *) (iVar7 + 0x3c);
+            local_30 = *(unk32 *) (iVar7 + 0x40);
+            local_2c = *(unk32 *) (iVar7 + 0x44);
+            local_28 = *(unk32 *) (iVar7 + 0x48);
+            iVar3    = func_01ffe904(&local_70, &local_88, &local_7c, &local_8c);
+
+            if ((iVar3 != 0) && (local_8c < iVar4)) {
+                dVar5 = (unk32) * (u16 *) (uVar6 * 2 + data_ov000_020ec8a4);
+                iVar4 = local_8c;
+            }
+            uVar2 = uVar6 + 1;
+            uVar6 = uVar2 & 0xffff;
+        } while ((int) (uVar2 & 0xffff) < iVar1);
+    }
+    //__cxa_vec_cleanup(&local_58, 3, 0x10, func_ov00_0207e968);
+    return dVar5;
 }
 
 unk32 *MapBase::vfunc_74(Vec3p *param_2) {
-    /*
-      int iVar1;
-  uint uVar2;
-  int iVar3;
-  int iVar4;
-  int *piVar5;
-  bool bVar6;
-  bool bVar7;
-  TilePos aVStack_38 [2];
-  AABB local_34;
+    int iVar1;
+    u32 uVar2;
+    int iVar3;
+    int iVar4;
+    int *piVar5;
+    bool bVar6;
+    bool bVar7;
+    TilePos aVStack_38;
+    AABB local_34;
 
-  MapManager::func_ov00_02083a1c(aVStack_38,(MapManager *)gMapManager,param_2);
-  local_34.min.x = param_2->x;
-  local_34.min.y = param_2->y;
-  local_34.min.z = param_2->z;
-  local_34.max.x = param_2->x;
-  local_34.max.y = param_2->y;
-  local_34.max.z = param_2->z;
-  AABB::GrowScalar(&local_34,0x800);
-  iVar1 = func_01fff264(data_027e0f6c,&local_34,8,0x20ec8e4,0x20,0);
-  iVar4 = 0;
-  if (0 < iVar1) {
-    do {
-      uVar2 = (uint)*(ushort *)(iVar4 * 2 + 0x20ec8e4);
-      piVar5 = *(int **)(*(int *)(data_027e0f6c + 0x40) + uVar2 * 4);
-      bVar6 = piVar5 != (int *)0x0;
-      if (bVar6) {
-        uVar2 = (uint)*(byte *)(piVar5 + 1);
-      }
-      bVar7 = uVar2 != 0;
-      if (bVar6 && bVar7) {
-        uVar2 = (uint)*(byte *)((int)piVar5 + 5);
-      }
-      if ((((bVar6 && bVar7) && uVar2 != 0) && (2 < (piVar5[3] & 0x1fU))) &&
-         (iVar3 = (**(code **)(*piVar5 + 0x48))(piVar5,param_2), iVar3 != 0)) {
-        return piVar5;
-      }
-      iVar4 = iVar4 + 1;
-    } while (iVar4 < iVar1);
-  }
-  return (int *)0x0;
-    */
+    aVStack_38     = gMapManager->func_ov00_02083a1c(param_2);
+    local_34.min.x = param_2->x;
+    local_34.min.y = param_2->y;
+    local_34.min.z = param_2->z;
+    local_34.max.x = param_2->x;
+    local_34.max.y = param_2->y;
+    local_34.max.z = param_2->z;
+    local_34.GrowScalar(0x800);
+    iVar1 = func_01fff264(data_027e0f6c, &local_34, 8, data_ov000_020ec8e4, 0x20, 0);
+    iVar4 = 0;
+    if (0 < iVar1) {
+        do {
+            uVar2  = (u32) * (u16 *) (iVar4 * 2 + data_ov000_020ec8e4);
+            piVar5 = *(int **) (*(int *) (data_027e0f6c + 0x40) + uVar2 * 4);
+            bVar6  = piVar5 != (int *) 0x0;
+            if (bVar6) {
+                uVar2 = (u32) * (unk8 *) (piVar5 + 1);
+            }
+            bVar7 = uVar2 != 0;
+            if (bVar6 && bVar7) {
+                uVar2 = (u32) * (unk8 *) ((int) piVar5 + 5);
+            }
+            /*if ((((bVar6 && bVar7) && uVar2 != 0) && (2 < (piVar5[3] & 0x1fU))) &&
+                (iVar3 = (**(code **) (*piVar5 + 0x48))(piVar5, param_2), iVar3 != 0)) {
+                return piVar5;
+            }*/
+            iVar4++;
+        } while (iVar4 < iVar1);
+    }
+    return NULL;
 }
 
 ARM void MapBase::func_ov00_0207f100() {}
 
-bool MapBase::func_ov00_0207f104(unk32 param_2, unk32 param_3) {
-    /*
-      char cVar1;
-  int *piVar2;
-  int iVar3;
-  int iVar4;
-  TilePos aVStack_18 [2];
+// Non-matching
+ARM bool MapBase::func_ov00_0207f104(Vec3p *param_2, unk32 *param_3) {
+    char cVar1;
+    int *piVar2;
+    int iVar3;
+    int iVar4;
+    TilePos aVStack_18;
 
-  MapManager::func_ov00_02083a1c(aVStack_18,(MapManager *)gMapManager,param_2);
-  piVar2 = (int *)(**(code **)(param_1->vtable + 0x78))(param_1,aVStack_18);
-  if (piVar2 == (int *)0x0) {
-    return false;
-  }
-  iVar3 = (**(code **)(*piVar2 + 0x58))();
-  if (iVar3 != 0) {
-    iVar3 = (**(code **)(*piVar2 + 0x54))();
-    if (iVar3 == 0) {
-      cVar1 = '\0';
+    aVStack_18 = gMapManager->func_ov00_02083a1c(param_2);
+    piVar2     = this->vfunc_78(&aVStack_18);
+    if (piVar2 == NULL) {
+        return false;
     }
-    else {
-      cVar1 = *(char *)(iVar3 + 5);
-    }
-    if (cVar1 != '\0') {
-      iVar3 = func_ov000_0208b79c(piVar2,param_2);
-      if (iVar3 != 0) {
-        piVar2 = (int *)(**(code **)(*piVar2 + 0x54))();
-        if (piVar2 == (int *)0x0) {
-          iVar3 = 0;
+    // iVar3 = (**(code **) (*piVar2 + 0x58))();
+    if (iVar3 != 0) {
+        // iVar3 = (**(code **) (*piVar2 + 0x54))();
+        if (iVar3 == 0) {
+            cVar1 = 0;
+        } else {
+            cVar1 = *(char *) (iVar3 + 5);
         }
-        else {
-          iVar3 = (**(code **)(*piVar2 + 0x44))();
+        if (cVar1 != 0) {
+            // iVar3 = func_ov000_0208b79c(piVar2, param_2);
+            if (iVar3 != 0) {
+                // piVar2 = (int *) (**(code **) (*piVar2 + 0x54))();
+                if (piVar2 == NULL) {
+                    iVar3 = 0;
+                } else {
+                    // iVar3 = (**(code **) (*piVar2 + 0x44))();
+                }
+                iVar4    = this->vfunc_60(&aVStack_18);
+                *param_3 = iVar4 + iVar3;
+                return true;
+            }
+            return false;
         }
-        iVar4 = (**(code **)(param_1->vtable + 0x60))(param_1,aVStack_18);
-        *param_3 = iVar4 + iVar3;
-        return true;
-      }
-      return false;
+        return false;
     }
     return false;
-  }
-  return false;
-    */
 }
 
-unk32 MapBase::func_ov00_0207f1f4(Vec3p *param_2, unk32 *param_3) {
-    /*
-      int iVar1;
-  uint uVar2;
-  int iVar3;
-  int iVar4;
-  int *piVar5;
-  bool bVar6;
-  bool bVar7;
-  TilePos aVStack_58 [2];
-  undefined1 auStack_54 [16];
-  undefined4 local_44;
-  AABB local_3c;
+// Non-matching
+ARM unk32 MapBase::func_ov00_0207f1f4(Vec3p *param_2, unk32 *param_3) {
+    int iVar1;
+    u32 uVar2;
+    int iVar3;
+    int iVar4;
+    int *piVar5;
+    bool bVar6;
+    bool bVar7;
+    TilePos aVStack_58;
+    unk8 auStack_54[16];
+    unk32 local_44;
+    AABB local_3c;
 
-  MapManager::func_ov00_02083a1c(aVStack_58,(MapManager *)gMapManager,param_2);
-  local_3c.min.x = param_2->x;
-  local_3c.min.y = param_2->y;
-  local_3c.min.z = param_2->z;
-  local_3c.max.x = param_2->x;
-  local_3c.max.y = param_2->y;
-  local_3c.max.z = param_2->z;
-  AABB::GrowScalar(&local_3c,0x800);
-  iVar1 = func_01fff264(data_027e0f6c,&local_3c,8,0x20ec924,0x20,0);
-  iVar4 = 0;
-  if (0 < iVar1) {
-    do {
-      uVar2 = (uint)*(ushort *)(iVar4 * 2 + 0x20ec924);
-      piVar5 = *(int **)(*(int *)(data_027e0f6c + 0x40) + uVar2 * 4);
-      bVar6 = piVar5 != (int *)0x0;
-      if (bVar6) {
-        uVar2 = (uint)*(byte *)(piVar5 + 1);
-      }
-      bVar7 = uVar2 != 0;
-      if (bVar6 && bVar7) {
-        uVar2 = (uint)*(byte *)((int)piVar5 + 5);
-      }
-      if ((((bVar6 && bVar7) && uVar2 != 0) && (2 < (piVar5[3] & 0x1fU))) &&
-         (iVar3 = (**(code **)(*piVar5 + 0x48))(piVar5,param_2), iVar3 != 0)) {
-        (**(code **)(*piVar5 + 0x2c))(piVar5,auStack_54);
-        *param_3 = local_44;
-        return 1;
-      }
-      iVar4 = iVar4 + 1;
-    } while (iVar4 < iVar1);
-  }
-  return 0;
-    */
+    aVStack_58     = gMapManager->func_ov00_02083a1c(param_2);
+    local_3c.min.x = param_2->x;
+    local_3c.min.y = param_2->y;
+    local_3c.min.z = param_2->z;
+    local_3c.max.x = param_2->x;
+    local_3c.max.y = param_2->y;
+    local_3c.max.z = param_2->z;
+    local_3c.GrowScalar(0x800);
+    iVar1 = func_01fff264(data_027e0f6c, &local_3c, 8, data_ov000_020ec924, 0x20, 0);
+    iVar4 = 0;
+    if (0 < iVar1) {
+        do {
+            uVar2  = (u32) * (u16 *) (iVar4 * 2 + data_ov000_020ec924);
+            piVar5 = *(int **) (*(int *) (data_027e0f6c + 0x40) + uVar2 * 4);
+            bVar6  = piVar5 != (int *) 0x0;
+            if (bVar6) {
+                uVar2 = (u32) * (unk8 *) (piVar5 + 1);
+            }
+            bVar7 = uVar2 != 0;
+            if (bVar6 && bVar7) {
+                uVar2 = (u32) * (unk8 *) ((int) piVar5 + 5);
+            }
+            /*if ((((bVar6 && bVar7) && uVar2 != 0) && (2 < (piVar5[3] & 0x1fU))) &&
+                (iVar3 = (**(code **) (*piVar5 + 0x48))(piVar5, param_2), iVar3 != 0)) {
+                (**(code **) (*piVar5 + 0x2c))(piVar5, auStack_54);
+                *param_3 = local_44;
+                return 1;
+            }*/
+            iVar4++;
+        } while (iVar4 < iVar1);
+    }
+    return 0;
 }
 
 ARM unk32 MapBase::vfunc_88() {
@@ -1284,39 +1100,28 @@ ARM s32 MapBase::vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, short param_
     return 1;
 }
 
-ARM unk32 MapBase::vfunc_80() {
-    return 1;
+ARM bool MapBase::vfunc_80(TilePos *param_2) {
+    return true;
 }
 
-void MapBase::vfunc_84(unk32 param_2) {
-    /*
-      undefined4 in_r3;
-  undefined1 local_8;
-  undefined1 local_7 [7];
-
-  local_7._1_2_ = (undefined2)((uint)in_r3 >> 0x10);
-  _local_8 = CONCAT31(CONCAT21(local_7._1_2_,*(undefined1 *)(param_2 + 0x15)),
-                      *(undefined1 *)(param_2 + 0x14));
-  (**(code **)(param_1->vtable + 0x80))(param_1,&local_8);
-  return;
-    */
+ARM bool MapBase::vfunc_84(void *param_2) {
+    TilePos tilePos(*(u8 *) ((int) param_2 + 0x14), *(u8 *) ((int) param_2 + 0x15));
+    return this->vfunc_80(&tilePos);
 }
 
-bool MapBase::func_ov00_0207f38c(s32 *param_2) {
-    /*
-      bool bVar1;
-  int iVar2;
-  code *pcVar3;
-  undefined4 in_r3;
+// Non-matching
+ARM bool MapBase::func_ov00_0207f38c(void *param_2, void *param_3) {
+    bool bVar1;
+    int iVar2;
+    void *pcVar3;
+    // undefined4 in_r3;
 
-  pcVar3 = *(code **)(param_1->vtable + 0x84);
-  iVar2 = (*pcVar3)();
-  if (iVar2 != 0) {
-    bVar1 = func_ov000_0208d820(data_027e0f68,param_2,pcVar3,in_r3);
-    return bVar1;
-  }
-  return false;
-    */
+    iVar2 = this->vfunc_84(pcVar3);
+    // iVar2 = (*pcVar3)();
+    if (iVar2 != 0) {
+        return data_027e0f68->func_ov000_0208d820(param_2, pcVar3);
+    }
+    return false;
 }
 
 // Non-matching

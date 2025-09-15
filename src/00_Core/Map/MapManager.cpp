@@ -10,6 +10,7 @@
 #include "DTCM/UnkStruct_027e0c68.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0f64.hpp"
+#include "DTCM/UnkStruct_027e0f68.hpp"
 #include "DTCM/UnkStruct_027e0f6c.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
@@ -120,13 +121,6 @@ public:
     virtual void vfunc_34();
     virtual unk32 vfunc_38(unk32 param_2);
     virtual unk32 vfunc_3c(unk32 param_2);
-};
-
-struct UnkStruct_027e0f68 {
-    void func_ov000_0208cc88();
-    void func_ov000_0208d620();
-    void func_ov000_0208d680();
-    void func_ov004_02102b28();
 };
 
 extern u32 *data_027e0ce0[];
@@ -478,12 +472,12 @@ ARM s32 MapManager::MapData_vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, s
     return this->mMap->vfunc_7c(param_1, param_2, param_3, param_4);
 }
 
-ARM void MapManager::MapData_vfunc_84(unk32 param_2) {
+ARM void MapManager::MapData_vfunc_84(void *param_2) {
     this->mMap->vfunc_84(param_2);
 }
 
-ARM bool MapManager::func_ov00_020828f8(s32 *param_2) {
-    return this->mMap->func_ov00_0207f38c(param_2);
+ARM bool MapManager::func_ov00_020828f8(void *param_2, void *param_3) {
+    return this->mMap->func_ov00_0207f38c(param_2, param_3);
 }
 
 ARM u8 MapManager::GetNumMaps() {
@@ -2458,7 +2452,7 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
             return -1;
         }
         piVar1->mUnk_04.x &= -2;
-        this->func_ov00_020828f8((s32 *) piVar1);
+        this->func_ov00_020828f8((void *) piVar1, (void *) piVar1->mUnk_00);
     }
     this->mMap->func_ov00_02080b24(aVStack_28);
     uStack_14 = 0xffff;

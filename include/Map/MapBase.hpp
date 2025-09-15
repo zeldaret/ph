@@ -184,8 +184,8 @@ public:
     /* 74 */ virtual unk32 *vfunc_74(Vec3p *param_2);
     /* 78 */ virtual unk32 *vfunc_78(TilePos *param_1);
     /* 7c */ virtual s32 vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, short param_4[4]);
-    /* 80 */ virtual unk32 vfunc_80();
-    /* 84 */ virtual void vfunc_84(unk32 param_2);
+    /* 80 */ virtual bool vfunc_80(TilePos *param_2);
+    /* 84 */ virtual bool vfunc_84(void *param_2);
     /* 88 */ virtual unk32 vfunc_88();
     /* 8c */ virtual unk32 vfunc_8c();
     /* 90 */ virtual void vfunc_90(TilePos *param_2, unk32 param_3);
@@ -212,13 +212,13 @@ public:
     bool func_ov00_0207e08c(s32 *param_2, s32 param_3);
     s32 func_ov00_0207e0f0(s32 param_2);
     s32 func_ov00_0207e28c(s32 param_2);
-    static unk8 func_ov00_0207e940(unk8 *param_1);
+    static unk8 *func_ov00_0207e940(unk8 *param_1);
     static void func_ov00_0207e968();
     static void func_ov00_0207e96c();
     static void func_ov00_0207f100();
-    bool func_ov00_0207f104(unk32 param_2, unk32 param_3);
+    bool func_ov00_0207f104(Vec3p *param_2, unk32 *param_3);
     unk32 func_ov00_0207f1f4(Vec3p *param_2, unk32 *param_3);
-    bool func_ov00_0207f38c(s32 *param_2);
+    bool func_ov00_0207f38c(void *param_2, void *param_3);
     void func_ov00_0207f4a4(Vec2s *param_2, unk32 param_3);
     static void func_ov00_0207f53c(Vec2s *param_1, MapBase *param_2, Vec3p *param_3);
     static void func_ov00_0207f588(Vec2s *param_1, MapBase *param_2, TilePos *param_3, unk32 param_4);
