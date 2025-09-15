@@ -1,4 +1,3 @@
-// TODO: Make sure every function has either ARM or THUMB
 // TODO: Optimise functions' bodies as much as possible (without affecting asm)
 // Clear these comments when done
 
@@ -54,6 +53,7 @@ struct UnkStruct_020ec81c {
 
 #pragma section sbss begin
 UnkStruct_020ec81c data_ov000_020ec81c;
+unk32 data_ov000_020ec820;
 unk32 data_ov000_020ec824;
 unk32 data_ov000_020ec864;
 unk32 data_ov000_020ec8a4;
@@ -91,7 +91,7 @@ ARM void MapBase::SetBounds(unk32 map, Course *course) {
     (this->mOffset).z     = -iVar2;
 }
 
-MapManager_Unk2::~MapManager_Unk2() {}
+ARM MapManager_Unk2::~MapManager_Unk2() {}
 
 ARM void MapBase::GetMapFilePath(char *courseName, unk32 num1, char *buf) {
     sprintf(buf, "Map/%s/map%d%d.bin\0", courseName, num1 / 10, num1 % 10);
@@ -849,7 +849,7 @@ LAB_arm9_ov000__0207eb04:
 }
 
 // Non-matching
-u16 MapBase::vfunc_70(Vec3p *param_2) {
+ARM u16 MapBase::vfunc_70(Vec3p *param_2) {
     int iVar1;
     u32 uVar2;
     int iVar3;
@@ -938,7 +938,8 @@ u16 MapBase::vfunc_70(Vec3p *param_2) {
     return dVar5;
 }
 
-unk32 *MapBase::vfunc_74(Vec3p *param_2) {
+// Non-matching
+ARM unk32 *MapBase::vfunc_74(Vec3p *param_2) {
     int iVar1;
     u32 uVar2;
     int iVar3;
@@ -1109,17 +1110,9 @@ ARM bool MapBase::vfunc_84(void *param_2) {
     return this->vfunc_80(&tilePos);
 }
 
-// Non-matching
-ARM bool MapBase::func_ov00_0207f38c(void *param_2, void *param_3) {
-    bool bVar1;
-    int iVar2;
-    void *pcVar3;
-    // undefined4 in_r3;
-
-    iVar2 = this->vfunc_84(pcVar3);
-    // iVar2 = (*pcVar3)();
-    if (iVar2 != 0) {
-        return data_027e0f68->func_ov000_0208d820(param_2, pcVar3);
+ARM bool MapBase::func_ov00_0207f38c(void *param_2) {
+    if (this->vfunc_84(param_2)) {
+        return data_027e0f68->func_ov000_0208d820(param_2);
     }
     return false;
 }
@@ -1214,7 +1207,7 @@ ARM void MapBase::func_ov00_0207f588(Vec2s *param_1, MapBase *param_2, TilePos *
 }
 
 // Non-matching
-void MapBase::func_ov00_0207f630(Vec2s *param_2, Vec3p *param_3) {
+ARM void MapBase::func_ov00_0207f630(Vec2s *param_2, Vec3p *param_3) {
     u32 uVar1;
     u32 uVar2;
     u32 uVar3;
@@ -1311,7 +1304,7 @@ ARM bool MapBase::IsInBounds(Vec3p *tileWorldPos) {
 }
 
 // Non-matching
-unk32 MapBase::AddEntrance(Entrance *param_2) {
+ARM unk32 MapBase::AddEntrance(Entrance *param_2) {
     int iVar1;
     int iVar2;
     u32 uVar3;
@@ -1331,7 +1324,7 @@ unk32 MapBase::AddEntrance(Entrance *param_2) {
 }
 
 // Non-matching
-Entrance *MapBase::FindEntrance(unk32 id) {
+ARM Entrance *MapBase::FindEntrance(unk32 id) {
     Entrance *iter;
     Entrance *begin;
     Entrance *end;
@@ -1893,7 +1886,7 @@ ARM bool MapBase::FindViewpoint_Unk_0(s32 param_2, CameraViewpoint *param_3) {
 }
 
 // Non-matching
-void MapBase::GetCurrentViewpoint(CameraViewpoint *param_2, s32 param_3) {
+ARM void MapBase::GetCurrentViewpoint(CameraViewpoint *param_2, s32 param_3) {
     u32 uVar3;
     u32 uVar4;
 
@@ -2068,7 +2061,7 @@ ARM bool MapBase::func_ov00_020809b8(TriggerBase *param_2) {
 }
 
 // Non-matching
-TriggerBase *MapBase::func_ov00_02080a78(Vec3p *param_2) {
+ARM TriggerBase *MapBase::func_ov00_02080a78(Vec3p *param_2) {
     MapBase_Unk2 local_18;
 
     local_18.mVec    = *param_2;
@@ -2082,7 +2075,7 @@ TriggerBase *MapBase::func_ov00_02080a78(Vec3p *param_2) {
     return *local_18.mTrigger;
 }
 
-void MapBase_Unk2::func_ov00_02080ad0(MapBase_Unk2_02080ad0 param_2, TriggerBase **param_3) {
+ARM void MapBase_Unk2::func_ov00_02080ad0(MapBase_Unk2_02080ad0 param_2, TriggerBase **param_3) {
     TriggerBase **i = param_2.mUnk_00;
     while (i != param_2.mUnk_04 && (*i)->vfunc_00(param_3) == 0) {
         ++i;
@@ -2167,7 +2160,7 @@ ARM void MapBase::func_ov00_02080b24(TilePos *param_2) {
     this->mUnk_030++;
 }
 
-void MapBase::func_ov00_02080d08(TilePos *param_2) {
+ARM void MapBase::func_ov00_02080d08(TilePos *param_2) {
 
     int iVar1;
 
@@ -2232,8 +2225,6 @@ ARM void MapBase::func_ov00_02080de8(unk32 param_2) {
         case 3:
             uVar2 = 0x1f;
             goto LAB_arm9_ov000__02080ec8;
-        case 10:
-            break;
         default:
             goto LAB_02080e20_caseD_c;
     }

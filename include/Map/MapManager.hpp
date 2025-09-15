@@ -173,7 +173,7 @@ public:
     void func_ov00_02082808(bool param_2);
     s32 MapData_vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, short param_4[4]);
     void MapData_vfunc_84(void *param_2);
-    bool func_ov00_020828f8(void *param_2, void *param_3);
+    bool func_ov00_020828f8(void *param_2);
     u8 GetNumMaps();
     s32 func_ov00_02082914(unk32 param_2);
     void func_ov00_02082acc();

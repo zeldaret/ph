@@ -476,8 +476,8 @@ ARM void MapManager::MapData_vfunc_84(void *param_2) {
     this->mMap->vfunc_84(param_2);
 }
 
-ARM bool MapManager::func_ov00_020828f8(void *param_2, void *param_3) {
-    return this->mMap->func_ov00_0207f38c(param_2, param_3);
+ARM bool MapManager::func_ov00_020828f8(void *param_2) {
+    return this->mMap->func_ov00_0207f38c(param_2);
 }
 
 ARM u8 MapManager::GetNumMaps() {
@@ -2452,7 +2452,7 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
             return -1;
         }
         piVar1->mUnk_04.x &= -2;
-        this->func_ov00_020828f8((void *) piVar1, (void *) piVar1->mUnk_00);
+        this->func_ov00_020828f8((void *) piVar1);
     }
     this->mMap->func_ov00_02080b24(aVStack_28);
     uStack_14 = 0xffff;

@@ -218,7 +218,7 @@ public:
     static void func_ov00_0207f100();
     bool func_ov00_0207f104(Vec3p *param_2, unk32 *param_3);
     unk32 func_ov00_0207f1f4(Vec3p *param_2, unk32 *param_3);
-    bool func_ov00_0207f38c(void *param_2, void *param_3);
+    bool func_ov00_0207f38c(void *param_2);
     void func_ov00_0207f4a4(Vec2s *param_2, unk32 param_3);
     static void func_ov00_0207f53c(Vec2s *param_1, MapBase *param_2, Vec3p *param_3);
     static void func_ov00_0207f588(Vec2s *param_1, MapBase *param_2, TilePos *param_3, unk32 param_4);
