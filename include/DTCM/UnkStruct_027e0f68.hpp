@@ -8,7 +8,7 @@ public:
     void func_ov000_0208cc88();
     void func_ov000_0208d620();
     void func_ov000_0208d680();
-    bool func_ov000_0208d820(void *);
+    bool func_ov000_0208d820(void *param_1);
     void func_ov004_02102b28();
 };
 

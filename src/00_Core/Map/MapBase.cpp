@@ -51,6 +51,7 @@ struct UnkStruct_020ec81c {
     /* 08 */
 };
 
+// reverse and remove pragma, possibly arrays or structs (size 0x40)
 #pragma section sbss begin
 UnkStruct_020ec81c data_ov000_020ec81c;
 unk32 data_ov000_020ec820;
@@ -75,26 +76,26 @@ ARM void MapBase::SetBounds(unk32 map, Course *course) {
     int iVar1 = (unk32) ((u32) uVar3 << 0xc) >> 1;
     int iVar2 = (unk32) ((u32) uVar4 << 0xc) >> 1;
 
-    pVVar5                = course->FindMapCenter(map);
-    vec                   = *pVVar5;
-    (this->mBounds).min.x = vec.x - iVar1;
-    (this->mBounds).min.y = vec.y;
-    (this->mBounds).min.z = vec.z - iVar2;
-    (this->mCenter).x     = vec.x;
-    (this->mCenter).y     = vec.y;
-    (this->mCenter).z     = vec.z;
-    (this->mBounds).max.x = vec.x + iVar1;
-    (this->mBounds).max.y = vec.y;
-    (this->mBounds).max.z = vec.z + iVar2;
-    (this->mOffset).x     = -iVar1;
-    (this->mOffset).y     = 0;
-    (this->mOffset).z     = -iVar2;
+    pVVar5              = course->FindMapCenter(map);
+    vec                 = *pVVar5;
+    this->mBounds.min.x = vec.x - iVar1;
+    this->mBounds.min.y = vec.y;
+    this->mBounds.min.z = vec.z - iVar2;
+    this->mCenter.x     = vec.x;
+    this->mCenter.y     = vec.y;
+    this->mCenter.z     = vec.z;
+    this->mBounds.max.x = vec.x + iVar1;
+    this->mBounds.max.y = vec.y;
+    this->mBounds.max.z = vec.z + iVar2;
+    this->mOffset.x     = -iVar1;
+    this->mOffset.y     = 0;
+    this->mOffset.z     = -iVar2;
 }
 
 ARM MapManager_Unk2::~MapManager_Unk2() {}
 
 ARM void MapBase::GetMapFilePath(char *courseName, unk32 num1, char *buf) {
-    sprintf(buf, "Map/%s/map%d%d.bin\0", courseName, num1 / 10, num1 % 10);
+    sprintf(buf, "Map/%s/map%d%d.bin", courseName, num1 / 10, num1 % 10);
 }
 
 ARM void MapBase::vfunc_18() {}
@@ -1105,12 +1106,12 @@ ARM bool MapBase::vfunc_80(TilePos *param_2) {
     return true;
 }
 
-ARM bool MapBase::vfunc_84(void *param_2) {
-    TilePos tilePos(*(u8 *) ((int) param_2 + 0x14), *(u8 *) ((int) param_2 + 0x15));
+ARM bool MapBase::vfunc_84(UnkStruct_0207f38c *param_2) {
+    TilePos tilePos(param_2->mUnk_14.x, param_2->mUnk_14.y);
     return this->vfunc_80(&tilePos);
 }
 
-ARM bool MapBase::func_ov00_0207f38c(void *param_2) {
+ARM bool MapBase::func_ov00_0207f38c(UnkStruct_0207f38c *param_2) {
     if (this->vfunc_84(param_2)) {
         return data_027e0f68->func_ov000_0208d820(param_2);
     }
@@ -1223,11 +1224,11 @@ ARM void MapBase::func_ov00_0207f630(Vec2s *param_2, Vec3p *param_3) {
 }
 
 ARM unk32 MapBase::GetTileStartX(unk32 x) {
-    return (this->mOffset).x + x * 0x1000;
+    return this->mOffset.x + x * 0x1000;
 }
 
 ARM unk32 MapBase::GetTileStartZ(unk32 z) {
-    return (this->mOffset).z + z * 0x1000;
+    return this->mOffset.z + z * 0x1000;
 }
 
 ARM unk32 MapBase::GetTileEndX(unk32 x) {
@@ -1796,20 +1797,20 @@ ARM void MapBase::AddCameraViewpoint(CameraViewpoint *param_2) {
     u32 uVar2;
     CameraViewpoint *pCVar3;
 
-    uVar2 = (this->mViewpoints).mSize;
-    if (uVar2 < (u32) (this->mViewpoints).mCapacity) {
-        (this->mViewpoints).mSize = uVar2 + 1;
-        pCVar3                    = (this->mViewpoints).mElements;
-        pCVar3[uVar2].mUnk_00     = param_2->mUnk_00;
-        pCVar3[uVar2].mUnk_04     = param_2->mUnk_04;
-        pCVar3[uVar2].mPos.x      = (param_2->mPos).x;
-        pCVar3[uVar2].mPos.y      = (param_2->mPos).y;
-        pCVar3[uVar2].mPos.z      = (param_2->mPos).z;
-        pCVar3[uVar2].mUnk_14     = param_2->mUnk_14;
-        pCVar3[uVar2].mUnk_16     = param_2->mUnk_16;
-        uVar1                     = param_2->mUnk_18[1];
-        pCVar3[uVar2].mUnk_18[0]  = param_2->mUnk_18[0];
-        pCVar3[uVar2].mUnk_18[1]  = uVar1;
+    uVar2 = this->mViewpoints.mSize;
+    if (uVar2 < (u32) this->mViewpoints.mCapacity) {
+        this->mViewpoints.mSize  = uVar2 + 1;
+        pCVar3                   = this->mViewpoints.mElements;
+        pCVar3[uVar2].mUnk_00    = param_2->mUnk_00;
+        pCVar3[uVar2].mUnk_04    = param_2->mUnk_04;
+        pCVar3[uVar2].mPos.x     = param_2->mPos.x;
+        pCVar3[uVar2].mPos.y     = param_2->mPos.y;
+        pCVar3[uVar2].mPos.z     = param_2->mPos.z;
+        pCVar3[uVar2].mUnk_14    = param_2->mUnk_14;
+        pCVar3[uVar2].mUnk_16    = param_2->mUnk_16;
+        uVar1                    = param_2->mUnk_18[1];
+        pCVar3[uVar2].mUnk_18[0] = param_2->mUnk_18[0];
+        pCVar3[uVar2].mUnk_18[1] = uVar1;
         return;
     }
     this->mViewpoints.push_back(*param_2);
@@ -1837,9 +1838,9 @@ ARM bool MapBase::FindViewpoint_Unk_4(char id, CameraViewpoint *param_3) {
     if (iter != end) {
         param_3->mUnk_00    = iter->mUnk_00;
         param_3->mUnk_04    = iter->mUnk_04;
-        (param_3->mPos).x   = (iter->mPos).x;
-        (param_3->mPos).y   = (iter->mPos).y;
-        (param_3->mPos).z   = (iter->mPos).z;
+        param_3->mPos.x     = iter->mPos.x;
+        param_3->mPos.y     = iter->mPos.y;
+        param_3->mPos.z     = iter->mPos.z;
         param_3->mUnk_14    = iter->mUnk_14;
         param_3->mUnk_16    = iter->mUnk_16;
         uVar1               = iter->mUnk_18[1];
@@ -1872,9 +1873,9 @@ ARM bool MapBase::FindViewpoint_Unk_0(s32 param_2, CameraViewpoint *param_3) {
     if (iter != end) {
         param_3->mUnk_00    = iter->mUnk_00;
         param_3->mUnk_04    = iter->mUnk_04;
-        (param_3->mPos).x   = (iter->mPos).x;
-        (param_3->mPos).y   = (iter->mPos).y;
-        (param_3->mPos).z   = (iter->mPos).z;
+        param_3->mPos.x     = iter->mPos.x;
+        param_3->mPos.y     = iter->mPos.y;
+        param_3->mPos.z     = iter->mPos.z;
         param_3->mUnk_14    = iter->mUnk_14;
         param_3->mUnk_16    = iter->mUnk_16;
         uVar1               = iter->mUnk_18[1];
@@ -2056,7 +2057,7 @@ ARM bool MapBase::func_ov00_020809b8(TriggerBase *param_2) {
             ppTVar3 = iter;
         } while (ppTVar2 != end);
     }
-    this->mUnk_130.erase(iter, (this->mUnk_130).mElements + (this->mUnk_130).mSize);
+    this->mUnk_130.erase(iter, this->mUnk_130.mElements + this->mUnk_130.mSize);
     return true;
 }
 

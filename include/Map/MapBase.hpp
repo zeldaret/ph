@@ -25,6 +25,7 @@ struct MapBase_Unk_13c {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk32 mUnk_04;
     /* 08 */ unk32 mUnk_08;
+    /* 0c */
 };
 
 struct MapBase_Unk_140 {
@@ -81,6 +82,11 @@ struct MapBase_Unk2 {
     /* 20 */
 
     void func_ov00_02080ad0(MapBase_Unk2_02080ad0 param_2, TriggerBase **param_3);
+};
+
+struct UnkStruct_0207f38c {
+    /* 00 */ unk8 mUnk_00[0x14];
+    /* 14 */ TilePos mUnk_14;
 };
 
 class MapBase : public SysObject {
@@ -185,7 +191,7 @@ public:
     /* 78 */ virtual unk32 *vfunc_78(TilePos *param_1);
     /* 7c */ virtual s32 vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, short param_4[4]);
     /* 80 */ virtual bool vfunc_80(TilePos *param_2);
-    /* 84 */ virtual bool vfunc_84(void *param_2);
+    /* 84 */ virtual bool vfunc_84(UnkStruct_0207f38c *param_2);
     /* 88 */ virtual unk32 vfunc_88();
     /* 8c */ virtual unk32 vfunc_8c();
     /* 90 */ virtual void vfunc_90(TilePos *param_2, unk32 param_3);
@@ -218,7 +224,7 @@ public:
     static void func_ov00_0207f100();
     bool func_ov00_0207f104(Vec3p *param_2, unk32 *param_3);
     unk32 func_ov00_0207f1f4(Vec3p *param_2, unk32 *param_3);
-    bool func_ov00_0207f38c(void *param_2);
+    bool func_ov00_0207f38c(UnkStruct_0207f38c *param_2);
     void func_ov00_0207f4a4(Vec2s *param_2, unk32 param_3);
     static void func_ov00_0207f53c(Vec2s *param_1, MapBase *param_2, Vec3p *param_3);
     static void func_ov00_0207f588(Vec2s *param_1, MapBase *param_2, TilePos *param_3, unk32 param_4);
