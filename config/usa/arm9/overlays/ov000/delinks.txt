@@ -142,7 +142,7 @@ src/00_Core/Player/PlayerControl.cpp:
     .data       start:0x020e60a4 end:0x020e60f0
     .sbss       start:0x020ee138 end:0x020ee140
 
-src/00_Core/Player/TouchControl.cpp:
+src/00_Core/Player/TouchControl_00.cpp:
     .text       start:0x0207abc4 end:0x0207af40
     .init       start:0x020df32c end:0x020df358
     .ctor       start:0x020e1e30 end:0x020e1e34
