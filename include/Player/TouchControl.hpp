@@ -41,14 +41,14 @@ public:
     TouchControl(unk32 param_1);
     ~TouchControl();
 
-    void Init();
-    void IncreaseSpeed(s16 increase);
-    void UpdateFlags(u16 speed);
-    void UpdateWithStateFlags(TouchStateFlags *state, u16 speed);
-    void Update(TouchState *state, u16 speed);
-    bool func_ov00_0207aeac();
-    void UpdateConditionally(TouchState *state, u16 speed);
-    void func_ov00_0207af38(u16 speedIncrease, bool shouldIncrease);
+    THUMB void Init();
+    ARM void IncreaseSpeed(s16 increase);
+    ARM void UpdateFlags(u16 speed);
+    ARM void UpdateWithStateFlags(TouchStateFlags *state, u16 speed);
+    ARM void Update(TouchState *state, u16 speed);
+    ARM bool func_ov00_0207aeac();
+    ARM void UpdateConditionally(TouchState *state, u16 speed);
+    ARM void func_ov00_0207af38(u16 speedIncrease, bool shouldIncrease);
 
     static bool func_0202b864(Vec3p *param1, s32 size, unk8 param3);
     static bool func_0202b894(Vec3p *param1, s32 size, unk8 param3);
