@@ -9,6 +9,8 @@
 #include "Player/PlayerManager.hpp"
 #include "Save/AdventureFlags.hpp"
 #include "System/OverlayManager.hpp"
+#include "Unknown/UnkStruct_020eec68.hpp"
+#include "flags.h"
 
 static const char *sShipPartTypes[] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
@@ -165,24 +167,24 @@ ARM ItemModel *ItemManager::GetItemModel(ItemModelId id) {
     return mItemModels[id];
 }
 
-extern "C" void func_ov000_020c0bdc(unk32 param1, unk32 param2);
-ARM void ItemManager::func_ov00_020ad538(unk32 param1) const {
+extern "C" void *func_ov000_020c0bdc(unk32 param1, const ItemManager_Unk1 *param2);
+ARM void *ItemManager::func_ov00_020ad538(const ItemManager_Unk1 *param1) const {
     unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(6);
-    func_ov000_020c0bdc(unk1, param1);
+    return func_ov000_020c0bdc(unk1, param1);
 }
 
-ARM void ItemManager::func_ov00_020ad560(unk32 param1) const {
+ARM void *ItemManager::func_ov00_020ad560(const ItemManager_Unk1 *param1) const {
     unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(7);
-    func_ov000_020c0bdc(unk1, param1);
+    return func_ov000_020c0bdc(unk1, param1);
 }
 
 ARM ItemModel *ItemManager::GetDungeonItemModel(u32 index) {
     return mDungeonItemModels[index];
 }
 
-ARM void ItemManager::func_ov00_020ad594(unk32 param1) const {
+ARM void *ItemManager::func_ov00_020ad594(const ItemManager_Unk1 *param1) const {
     unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(11);
-    func_ov000_020c0bdc(unk1, param1);
+    return func_ov000_020c0bdc(unk1, param1);
 }
 
 ARM void ItemManager::Sword_vfunc_38(unk32 param1) {
@@ -407,7 +409,7 @@ THUMB void ItemManager::SetTreasureSalvaged(u32 index) {
 }
 
 THUMB void ItemManager::RemoveItem(ItemFlag item) {
-    RESET_FLAG(mItemFlags.flags, item);
+    UNSET_FLAG(mItemFlags.flags, item);
     if (item >= ItemFlag_EQUIP_START && item <= ItemFlag_EQUIP_END) {
         (*mAmmo)[item] = 0;
     }
@@ -992,7 +994,7 @@ ARM void ItemManager::func_ov00_020ae4dc(s32 param1) {
 ARM void ItemManager::SetPotion(u32 index, Potion potion) {
     mPotions[index] = potion;
     if (potion == Potion_None) {
-        RESET_FLAG(mItemFlags.flags, index + ItemFlag_PotionA);
+        UNSET_FLAG(mItemFlags.flags, index + ItemFlag_PotionA);
     } else {
         SET_FLAG(mItemFlags.flags, index + ItemFlag_PotionA);
     }
@@ -1056,8 +1058,6 @@ THUMB void ItemManager::LoadDungeonItemModels() {
     }
 }
 
-extern unk32 data_ov000_020eec68;
-extern "C" void PlaySoundEffect(void *param1, SfxId sfx);
 THUMB void ItemManager::PlayItemFanfareSfx(ItemId item) {
     if (gItemManager->mMuteNextFanfare == true) {
         gItemManager->mMuteNextFanfare = false;
@@ -1105,7 +1105,7 @@ THUMB void ItemManager::PlayItemFanfareSfx(ItemId item) {
 
         gItemManager->mFanfareSfx = SfxId_None;
     }
-    PlaySoundEffect(&data_ov000_020eec68, sfx);
+    data_ov000_020eec68.PlaySoundEffect(sfx);
 }
 
 THUMB bool ItemManager::HasShipPartPriceShown(ShipPart part, ShipType type) const {

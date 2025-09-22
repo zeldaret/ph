@@ -79,10 +79,8 @@ extern "C" u32 func_01ff9b4c(unk32, unk32);
 extern "C" unk32 func_0203c084(void);
 extern "C" unk32 func_ov000_02079e04(void);
 extern "C" unk32 func_02016fcc(unk32);
-extern "C" void func_02032304(unk32 *, char *, unk32, unk32, unk32);
 extern "C" unk32 func_0202d5b4(char *, char *, unk32, unk32, unk32);
 extern unk32 data_020691a0;
-extern unk32 *data_02068894;
 extern unk32 data_02056af0;
 extern unk32 *data_02056a00;
 extern char *data_02057f08; // "MSP"
@@ -94,7 +92,10 @@ struct Struct_027e0db0 {
     /* 0x04 */ unk32 mUnk_04;
 
     void func_ov000_0207b288(GameModeId modeId);
+    void func_ov000_0207b2f0(unk32 param_1, bool param_2);
+    void func_ov000_0207b334(unk32 param_1);
     void func_ov000_0207b378(unk32 param_1);
+    void func_ov000_0207b43c();
 };
 extern Struct_027e0db0 data_027e0db0;
 
@@ -104,6 +105,7 @@ public:
     void func_0203d5c0();
     void func_0203d64c(s32);
     void func_0203d664(s32);
+    void func_0203d67c(u16 *);
     void func_0203d6d0();
     unk32 func_0203d7e0(unk32);
     unk32 func_0203d77c(unk32, s32, s32);
@@ -117,7 +119,6 @@ extern "C" void func_020347b0(unk32, unk16, unk32 *, unk32 *, unk32, unk32);
 extern THUMB unk32 func_0202ab48(void);
 extern "C" void func_02034984(unk32, u8, unk32, unk32);
 extern "C" void func_02034698(unk32, unk32, unk32 *, unk32 *);
-extern struct TouchControl gTouchControl;
 
 class UnkClass_027e0e28 {
 public:
@@ -182,6 +183,8 @@ extern UnkClass_ov000_027e0d04 data_027e0d04;
 
 class UnkClass_data_027e0f7c {
 public:
+    void func_ov000_0209d6e8(unk32 *param_2);
+    char *func_ov000_0209d71c(s32 param_2);
     u8 *func_ov000_0209d90c(s8, s8);
 };
-extern UnkClass_data_027e0f7c data_027e0f7c;
+extern UnkClass_data_027e0f7c *data_027e0f7c;

@@ -15,6 +15,7 @@ extern "C" {
 #include "Player/PlayerLinkBase.hpp"
 #include "Player/TouchControl.hpp"
 #include "Save/AdventureFlags.hpp"
+#include "Unknown/UnkStruct_ov000_020e9c88.hpp"
 
 static char *sShipTypes[] = {"brg", "anc", "bow", "hul", "can", "dco", "pdl", "fnl"};
 
@@ -69,8 +70,8 @@ ARM Actor::Actor() :
     mUnk_107(0),
     mUnk_108(0),
     mUnk_109(0),
-    mUnk_110(0),
-    mUnk_111(0),
+    mTouchingWall(false),
+    mTouchingFloor(false),
     mUnk_112(0),
     mUnk_113(0),
     mUnk_114(0),
@@ -78,7 +79,7 @@ ARM Actor::Actor() :
     mAlive(true),
     mUnk_119(1),
     mVisible(true),
-    mUnk_11b(false),
+    mGrabbed(false),
     mUnk_11c(0),
     mUnk_11d(false),
     mYOffset(0),
@@ -201,21 +202,21 @@ ARM void Actor::SetUnk_129(bool value) {
     }
 }
 
-ARM bool Actor::SetUnk_11b() {
-    if (mUnk_11b) {
+ARM bool Actor::Grab() {
+    if (mGrabbed) {
         return false;
     }
-    mUnk_11b = true;
+    mGrabbed = true;
     return true;
 }
 
-ARM bool Actor::SetVelocity(Vec3p *vel) {
-    if (!mUnk_11b) {
-        return false;
+ARM bool Actor::Drop(Vec3p *vel) {
+    if (mGrabbed) {
+        mVel     = *vel;
+        mGrabbed = false;
+        return true;
     }
-    mVel     = *vel;
-    mUnk_11b = false;
-    return true;
+    return false;
 }
 
 ARM bool Actor::vfunc_60() {
@@ -262,7 +263,7 @@ ARM bool Actor::vfunc_98() {}
 ARM bool Actor::vfunc_9c() {}
 
 ARM bool Actor::func_ov00_020c195c() {
-    if (!mUnk_11b) {
+    if (!mGrabbed) {
         return false;
     }
     gPlayerLink->func_ov000_020bc854(&mPos);
@@ -358,7 +359,7 @@ ARM bool Actor::IsNearLink() {
 }
 
 ARM void Actor::func_ov00_020c1cf8() {
-    if (mUnk_0a4.mUnk_00 || mUnk_0a4.mUnk_01 || mUnk_129 == true || mUnk_11d == true || mUnk_11b == true) {
+    if (mUnk_0a4.mUnk_00 || mUnk_0a4.mUnk_01 || mUnk_129 == true || mUnk_11d == true || mGrabbed == true) {
         mInactive = 0;
     } else {
         if (this->IsNearLink()) {
@@ -491,7 +492,7 @@ ARM bool Actor::CollidesWithShield(Cylinder *param1) {
     Vec3p vecFromPlayer;
     Vec3p_Sub(&mPos, &gPlayerPos, &vecFromPlayer);
     s32 currAngle = gPlayerAngle;
-    s32 angle     = Atan2(vecFromPlayer.x, vecFromPlayer.z);
+    s32 angle     = FX_Atan2Idx(vecFromPlayer.x, vecFromPlayer.z);
     s32 angleDiff = (s16) angle - currAngle;
     if (angleDiff < 0) {
         angleDiff = -angleDiff;
@@ -647,7 +648,7 @@ ARM bool Actor::CollidesWith(Actor *other) {
 }
 
 ARM bool Actor::func_ov00_020c27a8(unk32 param1) {
-    if (mUnk_11b) {
+    if (mGrabbed) {
         return false;
     }
     if (param1 == 0) {
@@ -705,7 +706,7 @@ ARM s16 Actor::GetAngleTo(Vec3p *vec) {
     q20 dz = vec->z - mPos.z;
     q20 dx = vec->x - mPos.x;
     if (dx != 0 || dz != 0) {
-        angle = Atan2(dx, dz);
+        angle = FX_Atan2Idx(dx, dz);
     }
     return angle;
 }
@@ -973,11 +974,9 @@ ARM void Actor::KillInBounds() {
     this->Kill();
 }
 
-extern unk32 data_ov00_020e9c88;
-extern "C" void func_ov00_0207b89c(unk32 *param1, s32 param2, Vec3p *param3, void *param4, Actor *param5);
 void vfunc_ac_Thunk(Actor *actor);
 ARM void Actor::func_ov00_020c31c0(unk32 param1) {
-    func_ov00_0207b89c(&data_ov00_020e9c88, param1, &mPos, &vfunc_ac_Thunk, this);
+    data_ov000_020e9c88.func_ov000_0207b89c(param1, &mPos, (void (*)(void *)) &vfunc_ac_Thunk, this);
 }
 
 ARM void vfunc_ac_Thunk(Actor *actor) {
@@ -1004,8 +1003,7 @@ ARM void Actor::GetLinkPos(Vec3p *result) {
 }
 
 ARM void Actor::GetLinkDummyPos(Vec3p *result) {
-    ActorRef dummyRef;
-    ActorManager::FindActorByType(&dummyRef, gActorManager, ActorTypeId_PlayerDummy);
+    ActorRef dummyRef       = gActorManager->FindActorByType(ActorTypeId_PlayerDummy);
     ActorPlayerDummy *dummy = (ActorPlayerDummy *) gActorManager->GetActor(&dummyRef);
     if (dummy != NULL && dummy->mUnk_16e == 0) {
         *result = dummy->mPos;

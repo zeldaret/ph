@@ -28,7 +28,8 @@ typedef s16 q4;
 #define COS(n) (gSinCosTable[2 * ((n) >> 4) + 1])
 
 u32 func_01ff9f3c(s32 a, s32 b);
-s32 Atan2(s32 x, s32 y);
+s32 FX_Atan2Idx(s32 x, s32 y);
+q20 FX_Mul(q20 a, q20 b);
 
 u32 CoDivide64By32(u32 a, u32 b);
 u32 func_01ff98f0(u32 a, u32 b);
@@ -49,12 +50,6 @@ u32 CoRemainder(u32 a, u32 b);
 bool Approach(unk32 *src, unk32 dest, unk32 step);
 bool Approach_thunk(unk32 *src, unk32 dest, unk32 step);
 extern q4 gSinCosTable[];
-
-typedef struct {
-    /* 0 */ u8 x;
-    /* 1 */ u8 y;
-    /* 2 */
-} Vec2b;
 
 typedef struct {
     /* 0 */ s16 x;

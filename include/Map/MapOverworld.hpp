@@ -12,7 +12,7 @@ public:
     /* 00 (base) */
     /* 24 */
 
-    MapOverworld_Unk1(u32 param1, u8 *param2, unk32 param3);
+    MapOverworld_Unk1(u32 param1, ItemModel *param2, unk32 param3);
 };
 
 class MapOverworld : public MapBase {

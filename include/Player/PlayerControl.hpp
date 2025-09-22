@@ -1,13 +1,15 @@
 #pragma once
 
 #include "global.h"
-#include "nds/math.h"
 #include "types.h"
+
+#include <nds/math.h>
 
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
 #include "Debug/DebugHierarchy.hpp"
 #include "Item/Item.hpp"
+#include "Map/TilePos.hpp"
 #include "Player/TouchControl.hpp"
 #include "Player/TouchGesture.hpp"
 
@@ -57,7 +59,7 @@ public:
     /* 84 */ ActorRef mFollowRef;
     /* 8c */ ActorRef mNextFollowRef;
     /* 94 */ ActorRef mLastFollowRef;
-    /* 9c */ Vec2b mUnk_9c;
+    /* 9c */ TilePos mUnk_9c;
     /* 9e */ unk8 mUnk_9e[2];
     /* a0 */ void *mFollowObject;
     /* a4 */ q20 mFollowDist;
@@ -78,7 +80,7 @@ public:
     void func_ov00_020aef30();
     void UpdateAim();
     Actor *GetFollowActor();
-    bool func_ov00_020af01c(Vec2b *param1);
+    bool func_ov00_020af01c(TilePos *param1);
     void SetUnk_80();
     void StopFollowing();
     void func_ov00_020af06c();

@@ -3,95 +3,80 @@
 #include "Map/MapManager.hpp"
 #include "Player/PlayerLinkBase.hpp"
 #include "System/Random.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 
 extern "C" {
 void func_0202bc38(unk32 param_1, Vec3p *param_2, u32 param_3, Actor_UnkStruct_012 *param_4, bool);
 void func_ov005_02102c2c(u32 *param_1, int param_2, Vec3p *param_3, int param_4, int param_5, u32 param_6, int param_7,
                          char param_8, char param_9, char param_10);
-void func_ov000_020d7ad4(u32 *param1, u32 param2);
 }
 u16 GetRupeeValue(RupeeId id);
 
-char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
+static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
 extern u32 *data_ov014_021589d8;
 extern u32 data_ov000_020e9370[];
-extern u32 data_ov000_020eec9c[];
 extern u32 **data_027e0fe0[];
 
 ActorType ActorRupee::gType = ActorType(ActorTypeId_Rupee, (ActorCreateFunc) ActorRupee::Create, NULL);
-
-#pragma section force_data begin
-ActorType_UnkClass data_ov014_021589f4 = ActorType_UnkClass(FLOAT_TO_Q21(0.4662), FLOAT_TO_Q19(0.4661));
-#pragma section force_data end
 
 ActorRupee *ActorRupee::Create() {
     ActorRupee *newRupee = new(*data_027e0fe0[0], 4) ActorRupee();
     return newRupee;
 }
 
+static const ActorType_UnkClass data_ov014_021589f4 = ActorType_UnkClass(FLOAT_TO_Q21(0.4662), FLOAT_TO_Q19(0.4661));
+
 ActorRupee::ActorRupee() {
     mRupeeId = 8;
     mUnk_15c = 0;
 }
 
-// https://decomp.me/scratch/1qjCc
 bool ActorRupee::Init() {
-    u32 dVar5;
-    u32 iVar7;
-
-    mRupeeId = mUnk_020.mUnk_00[0];
-
-    dVar5 = func_ov14_0213b70c(mRupeeId) ? *data_ov014_021589d8 : FLOAT_TO_Q20(0.666);
-    iVar7 = (s32) dVar5 >> 1;
-
-    mHitbox.pos.x      = 0;
-    mHitbox.pos.y      = iVar7;
-    mHitbox.pos.z      = 0;
-    mHitbox.size       = iVar7;
-    mUnk_08c.pos       = mHitbox.pos;
-    mUnk_08c.size      = mHitbox.size;
-    mUnk_0a4.mUnk_04.x = 0;
-    mUnk_0a4.mUnk_04.y = iVar7;
-    mUnk_0a4.mUnk_04.z = 0;
-    mUnk_0a4.mUnk_10   = iVar7 + FLOAT_TO_Q20(1.0);
-    mUnk_09c.mUnk_0 &= 0xFFFFFF4F;
-    mUnk_09c.mUnk_3 = 1;
-    mMaxFall        = mUnk_08c.size - 1;
-
+    RupeeId rupeeId        = (RupeeId) mUnk_020.mUnk_00[0];
+    mRupeeId               = rupeeId;
+    s32 iVar1              = (func_ov14_0213b70c(rupeeId) ? data_ov014_021589f4.mUnk_4 : 0xaa8) >> 1;
+    mHitbox.pos.x          = 0;
+    mHitbox.pos.y          = iVar1;
+    mHitbox.pos.z          = 0;
+    mHitbox.size           = iVar1;
+    mUnk_08c.pos.x         = mHitbox.pos.x;
+    mUnk_08c.pos.y         = mHitbox.pos.y;
+    mUnk_08c.pos.z         = mHitbox.pos.z;
+    mUnk_08c.size          = mHitbox.size;
+    mUnk_0a4.mUnk_04.pos.x = 0;
+    mUnk_0a4.mUnk_04.pos.y = iVar1;
+    mUnk_0a4.mUnk_04.pos.z = 0;
+    mUnk_0a4.mUnk_04.size  = iVar1 + 0x1000;
+    mUnk_09c.mUnk_0        = mUnk_09c.mUnk_0 & ~0xb0;
+    mUnk_09c.mUnk_3        = 1;
+    mMaxFall               = mUnk_08c.size + -1;
     if (mUnk_03c >= 0) {
-        func_ov14_0213b204(1);
+        this->func_ov14_0213b204(1);
     } else {
         switch (mUnk_144) {
             case 0:
                 mVel.x = 0;
                 mVel.y = 0;
                 mVel.z = 0;
-                func_ov14_0213b204(0);
+                this->func_ov14_0213b204(0);
                 break;
             case 1:
-                q20 x = gRandom.Next(FLOAT_TO_Q20(0.1335));
-                q20 y = gRandom.Next(FLOAT_TO_Q20(0.2));
-                q20 z = gRandom.Next(FLOAT_TO_Q20(0.1335));
-
-                mVel.x = x - FLOAT_TO_Q20(0.0666);
-                mVel.y = y + FLOAT_TO_Q20(0.3333);
-                mVel.z = z - FLOAT_TO_Q20(0.0666);
-
-                func_ov14_0213b204(0);
+                mVel.x = gRandom.Next(FLOAT_TO_Q20(-0.0666), FLOAT_TO_Q20(0.0666));
+                mVel.y = gRandom.Next(FLOAT_TO_Q20(0.3333), FLOAT_TO_Q20(0.5333));
+                mVel.z = gRandom.Next(FLOAT_TO_Q20(-0.0666), FLOAT_TO_Q20(0.0666));
+                this->func_ov14_0213b204(0);
                 break;
             case 2:
                 mVel.x = 0;
                 mVel.y = FLOAT_TO_Q20(0.5);
                 mVel.z = 0;
-                func_ov14_0213b204(0);
+                this->func_ov14_0213b204(0);
                 break;
             case 3:
-                func_ov14_0213b204(5);
-                break;
+                this->func_ov14_0213b204(5);
         }
     }
-
     return true;
 }
 
@@ -214,7 +199,7 @@ void ActorRupee::Update(bool param1) {
                     break;
             }
 
-            func_ov000_020d7ad4(data_ov000_020eec9c, uVar3);
+            data_ov000_020eec9c.func_ov000_020d7ad4(uVar3);
             Kill();
         }
     }
@@ -230,7 +215,7 @@ void ActorRupee::Update(bool param1) {
     switch (mUnk_130) {
         case 0:
             Move();
-            if (mUnk_111) {
+            if (mTouchingFloor) {
                 local_1c = mPos;
                 MapManager::func_ov00_02083fb0(&local_20, gMapManager, &local_1c);
                 if (((local_20 >> 5) & 3) == 2) {
@@ -240,12 +225,12 @@ void ActorRupee::Update(bool param1) {
                 }
             }
             break;
-        case 3:
+        case 3: {
             PlayerLinkBase *pLink = gPlayerLink;
             if (pLink->PlayItemCutscene(GetRupeeCutsceneItemId())) {
                 Kill();
             }
-            break;
+        } break;
         case 1:
             if (param1) {
                 mActiveFrames = 0;
@@ -329,8 +314,8 @@ void ActorRupee::func_ov14_0213b6a4(RupeeId id, Actor_UnkStruct_012 *param2) {
     if (func_ov14_0213b70c(id)) {
         param2->mUnk_08 = 2;
         param2->mUnk_0c = 2;
-        param2->mUnk_14 = data_ov014_021589f4.unk_00;
-        param2->mUnk_18 = data_ov014_021589f4.unk_04;
+        param2->mUnk_14 = data_ov014_021589f4.mUnk_0;
+        param2->mUnk_18 = data_ov014_021589f4.mUnk_4;
     } else {
         param2->mUnk_08 = 2;
         param2->mUnk_0c = 2;

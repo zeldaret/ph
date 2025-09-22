@@ -32,12 +32,12 @@ public:
     /* 00c */ unk8 mUnk_00c[0xc0];
     /* 0cc */ FadeControl mFadeControl;
     /* 0f0 */ u16 mUnk_0f0;
-    /* 0f2 */ u16 mUnk_0f2;
+    /* 0f2 */ vu16 mUnk_0f2;
     /* 0f4 */ s32 mUnk_0f4;
-    /* 0f8 */ s32 mUnk_0f8;
+    /* 0f8 */ vs32 mUnk_0f8;
     /* 0fc */ u16 mUnk_0fc;
     /* 0fe */ u16 mUnk_0fe;
-    /* 100 */ unk8 mUnk_100;
+    /* 100 */ bool mUnk_100;
     /* 101 */ u8 mUnk_101;
     /* 102 */ bool mUnk_102;
     /* 103 */ u8 mUnk_103;
@@ -46,12 +46,14 @@ public:
     Game();
     ~Game();
 
+    void func_0202c678();
+    void func_0202c69c();
     void EndGameMode();
     bool StartGameMode();
-    void func_0202c974();
+    static void func_0202c974(Game *game);
     void func_0202c97c();
     void Run();
-    void func_0202cec8(s32 param1, unk32 param2);
+    bool func_0202cec8(s32 param1, bool param2);
     void func_0202cf34();
     void func_0202cf44();
 

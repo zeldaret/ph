@@ -22,7 +22,7 @@ public:
     /* 0x00 */ u8 mUnk_00[2];
     /* 0x02 */ u8 mUnk_02;
     /* 0x03 */ u8 mUnk_03;
-    /* 0x04 */ u8 mUnk_04; // halts actors and hides the item menu
+    /* 0x04 */ bool mUnk_04; // halts actors and hides the item menu
     /* 0x05 */ u8 mUnk_05;
     /* 0x06 */ unk16 mUnk_06;
     /* 0x08 */ UnkStruct_020397f8 *mUnk_08;
@@ -58,7 +58,7 @@ public:
     bool func_020368f4(UnkStruct_02037750 *param_2);
     void func_0203690c(unk32 param_2);
     void func_02036bbc(void);
-    void func_02036c50(unk32 param_2);
+    void func_02036c50(u16 *param_2);
     void func_02036ca4(unk32 param_2);
     bool func_02036ce4(UnkStruct_020386d8 *param_2, unk32 param_3);
     bool func_02036d30(UnkStruct_02037750 *param_2);
@@ -73,6 +73,7 @@ public:
     UnkStruct_02038aa0 *func_02037178(UnkSubClass1_02256FF8 *param_2);
 
     void func_ov004_021069c4(void);
+    void func_ov004_02106db8(void);
 };
 
 extern MessageManager gMessageManager;

@@ -54,6 +54,7 @@ public:
     static bool func_0202b864(Vec3p *param1, s32 size, unk8 param3);
     static bool func_0202b894(Vec3p *param1, s32 size, unk8 param3);
 };
+extern TouchControl gTouchControl;
 
 extern TouchControl gTouchControl;
 

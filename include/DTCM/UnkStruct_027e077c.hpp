@@ -15,6 +15,7 @@ public:
     bool func_0202e740(unk32 param1);
 
     void func_ov009_02116364();
+    void func_ov009_0211653c();
 
     inline volatile unk32 GetUnk0() const {
         return mUnk_0;

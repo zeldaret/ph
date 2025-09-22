@@ -45,10 +45,10 @@ As a starting point, we look at the decompiler output in Ghidra. You can request
 
 Looking at this output, we might try writing something like this:
 ```cpp
-ARM bool Actor::SetVelocity(Vec3p *vel) {
-    if (mUnk_11b) {
-        mVel = *vel;
-        mUnk_11b = false;
+ARM bool Actor::Drop(Vec3p *vel) {
+    if (mGrabbed) {
+        mVel     = *vel;
+        mGrabbed = false;
         return true;
     }
     return false;

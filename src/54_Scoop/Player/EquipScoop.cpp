@@ -1,7 +1,7 @@
 #include "Player/EquipScoop.hpp"
 #include "Player/LinkStateItem.hpp"
 
-ModelRender EquipScoop::gModelRender;
+ModelRender EquipScoop::gModelRender(0);
 
 void EquipScoop::vfunc_00() {}
 void EquipScoop::vfunc_18() {}

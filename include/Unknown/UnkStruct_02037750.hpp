@@ -3,9 +3,11 @@
 #include "global.h"
 #include "types.h"
 
-#include "Player/LinkStateInteract.hpp"
+#include <nds/math.h>
+
 #include "System/SysNew.hpp"
 
+class LinkStateInteract;
 class UnkStruct_020397f8;
 typedef unk32 (*UnkStruct_02037750_Callback1)(unk32);
 
@@ -43,9 +45,9 @@ public:
 class UnkStruct_020386d8_24 {
 public:
     /* 00 */ u8 mUnk_00;
-    /* 00 */ u8 mUnk_01;
-    /* 00 */ u8 mUnk_02;
-    /* 00 */ u8 mUnk_03;
+    /* 01 */ u8 mUnk_01;
+    /* 02 */ u8 mUnk_02;
+    /* 03 */ u8 mUnk_03;
     /* 04 */
 
     void func_020376c0(const Vec3p *param_2);
