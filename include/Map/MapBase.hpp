@@ -181,8 +181,8 @@ public:
     /* 50 */ virtual unk32 vfunc_50();
     /* 54 */ virtual unk32 vfunc_54(TilePos *param_1);
     /* 58 */ virtual unk32 vfunc_58(TilePos *param_1, int param_2);
-    /* 5c */ virtual unk32 vfunc_5c();
-    /* 60 */ virtual unk32 vfunc_60(TilePos *param_1);
+    /* 5c */ virtual unk32 vfunc_5c(TilePos *param_2);
+    /* 60 */ virtual unk32 vfunc_60(TilePos *param_2);
     /* 64 */ virtual unk32 vfunc_64();
     /* 68 */ virtual unk32 vfunc_68(Vec3p *param_1, bool param_2);
     /* 6c */ virtual void vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4);
@@ -205,8 +205,8 @@ public:
     /* b0 */ virtual void vfunc_b0(unk32 param_2, unk32 param_3);
     /* b4 */ virtual unk32 *vfunc_b4();
     /* b8 */ virtual unk32 vfunc_b8(unk32 param_2);
-    /* bc */ virtual void vfunc_bc();
-    /* c0 */ virtual void vfunc_c0();
+    /* bc */ virtual void vfunc_bc(TilePos *param_2, unk32 param_3);
+    /* c0 */ virtual void vfunc_c0(TilePos *param_2, unk32 param_3);
     /* c4 */
 
     void SetBounds(unk32 map, Course *course);

@@ -66,18 +66,25 @@ MapBase::~MapBase() {}
 
 MapBase_Unk_180::~MapBase_Unk_180() {}
 
+struct Test {
+    unk32 mUnk_00;
+    unk32 mUnk_04;
+};
+
 // Non-matching
 ARM void MapBase::SetBounds(unk32 map, Course *course) {
-    Vec3p *pVVar5;
     Vec3p vec;
+    AABB mBounds;
+    Vec3p mCenter;
+    Vec3p mOffset;
 
     u16 uVar3 = this->mWidth;
     u16 uVar4 = this->mHeight;
-    int iVar1 = (unk32) ((u32) uVar3 << 0xc) >> 1;
-    int iVar2 = (unk32) ((u32) uVar4 << 0xc) >> 1;
+    u32 iVar1 = (uVar3 << 0xc) >> 1;
+    int iVar2 = (uVar4 << 0xc) >> 1;
 
-    pVVar5              = course->FindMapCenter(map);
-    vec                 = *pVVar5;
+    vec = *course->FindMapCenter(map);
+
     this->mBounds.min.x = vec.x - iVar1;
     this->mBounds.min.y = vec.y;
     this->mBounds.min.z = vec.z - iVar2;
@@ -396,11 +403,11 @@ ARM unk32 MapBase::vfunc_58(TilePos *param_1, int param_2) {
     return 0;
 }
 
-ARM unk32 MapBase::vfunc_5c() {
+ARM unk32 MapBase::vfunc_5c(TilePos *param_2) {
     return 0;
 }
 
-ARM unk32 MapBase::vfunc_60(TilePos *param_1) {
+ARM unk32 MapBase::vfunc_60(TilePos *param_2) {
     return 0;
 }
 
@@ -1118,28 +1125,49 @@ ARM bool MapBase::func_ov00_0207f38c(UnkStruct_0207f38c *param_2) {
     return false;
 }
 
-// Non-matching
+class UnkStruct_vfunc_90 {
+public:
+    /* 00 */ virtual void vfunc_00();
+    /* 04 */ virtual void vfunc_04();
+    /* 08 */ virtual void vfunc_08();
+    /* 0c */ virtual void vfunc_0c();
+    /* 10 */ virtual void vfunc_10();
+    /* 14 */ virtual void vfunc_14();
+    /* 18 */ virtual void vfunc_18();
+    /* 1c */ virtual void vfunc_1c();
+    /* 20 */ virtual void vfunc_20();
+    /* 24 */ virtual void vfunc_24();
+    /* 28 */ virtual void vfunc_28();
+    /* 2c */ virtual void vfunc_2c();
+    /* 30 */ virtual void vfunc_30();
+    /* 34 */ virtual bool vfunc_34();
+    /* 38 */ virtual void vfunc_38();
+    /* 3c */ virtual void vfunc_3c();
+    /* 40 */ virtual void vfunc_40();
+    /* 44 */ virtual void vfunc_44(unk32 param_2);
+};
+
 ARM void MapBase::vfunc_90(TilePos *param_2, unk32 param_3) {
     int iVar1;
     int iVar2;
-    int *piVar3;
+    UnkStruct_vfunc_90 *piVar3;
 
     iVar1 = this->vfunc_54(param_2);
     if (iVar1 == param_3) {
         return;
     }
-    this->vfunc_bc(/*param_2,param_3,*(code **)(param_1->vtable + 0xbc),param_4*/);
-    iVar2 = this->vfunc_5c(/*param_2*/);
+    this->vfunc_bc(param_2, param_3);
+    iVar2 = this->vfunc_5c(param_2);
     if (param_3 == 0x14) {
-        this->vfunc_c0(/*param_2,(iVar2 + -3) * 0x1000000 >> 0x18*/);
+        this->vfunc_c0(param_2, (iVar2 - 3) * 0x1000000 >> 0x18);
     } else if (iVar1 == 0x14) {
-        this->vfunc_c0(/*param_2,(iVar2 + 3) * 0x1000000 >> 0x18*/);
+        this->vfunc_c0(param_2, (iVar2 + 3) * 0x1000000 >> 0x18);
     }
-    piVar3 = (int *) this->vfunc_78(param_2);
+    piVar3 = (UnkStruct_vfunc_90 *) this->vfunc_78(param_2);
     if (piVar3 == NULL) {
         return;
     }
-    //(**(code **)(*piVar3 + 0x44))(piVar3,param_3);
+    piVar3->vfunc_44(param_3);
 }
 
 ARM void MapBase::vfunc_94() {}
@@ -2174,11 +2202,11 @@ ARM void MapBase::func_ov00_02080d08(TilePos *param_2) {
     this->mUnk_030--;
 }
 
-ARM void MapBase::vfunc_bc() {}
+ARM void MapBase::vfunc_bc(TilePos *param_2, unk32 param_3) {}
 
 ARM void MapBase::vfunc_98(TilePos *param_2, unk32 param_3, unk32 param_4) {}
 
-ARM void MapBase::vfunc_c0() {}
+ARM void MapBase::vfunc_c0(TilePos *param_2, unk32 param_3) {}
 
 ARM bool MapBase::TriggerOfType_vfunc_10(unk32 type) {
     TriggerBase **p;
