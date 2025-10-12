@@ -10,7 +10,7 @@
 
 static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
-extern "C" void ApproachAngle_thunk(s16 *src, s16 dst, u32 param3);
+extern "C" void ApproachAngle_thunk(u16 *src, s16 dst, u32 param3);
 
 ARM bool EquipHammer::IsUsable(unk32 param1) const {
     ActorNavi *pAVar3;

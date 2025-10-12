@@ -132,7 +132,7 @@ ARM void LinkStateDamage::Knockback(Vec3p *knockbackVec, unk32 param2) {
     playerVel->y      = knockbackVec->y;
     playerVel->z      = knockbackVec->z;
     s16 groundAngle   = FX_Atan2Idx(knockbackVec->x, knockbackVec->z);
-    s16 *playerAngle  = this->GetPlayerAngle();
+    u16 *playerAngle  = this->GetPlayerAngle();
     *playerAngle      = groundAngle - 0x8000;
     this->mUnk_24[12] = 0;
     this->mUnk_22     = param2;

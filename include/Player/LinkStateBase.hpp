@@ -64,7 +64,7 @@ public:
     void ChangeLinkSubState(LinkStateId id, s32 subState);
     void EquipItem_vfunc_28();
     void UpdateSwordShieldInUse();
-    void func_ov00_020a81b8(unk32 param1, unk32 param2);
+    void func_ov00_020a81b8(unk32 param1, Vec3p *param2);
     LinkStateItem *GetLinkItemState();
     void LookAt(Vec3p *target);
     void func_ov00_020a81fc(Vec3p *param1, unk32 param2);
@@ -116,7 +116,7 @@ public:
     Vec3p *GetPlayerPos();
     Vec3p *GetPlayerVel();
     unk8 *func_ov00_020a8c64();
-    s16 *GetPlayerAngle();
+    u16 *GetPlayerAngle();
     void *GetPlayer_Unk18();
     s32 Get_PlayerControlData_Unk32();
     Actor *GetGrabActor();

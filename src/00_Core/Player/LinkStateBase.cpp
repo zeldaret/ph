@@ -13,7 +13,7 @@ void LinkStateBase::ChangeLinkState(LinkStateId id) {}
 void LinkStateBase::ChangeLinkSubState(LinkStateId id, s32 subState) {}
 void LinkStateBase::EquipItem_vfunc_28() {}
 void LinkStateBase::UpdateSwordShieldInUse() {}
-void LinkStateBase::func_ov00_020a81b8(unk32 param1, unk32 param2) {}
+void LinkStateBase::func_ov00_020a81b8(unk32 param1, Vec3p *param2) {}
 LinkStateItem *LinkStateBase::GetLinkItemState() {}
 void LinkStateBase::LookAt(Vec3p *target) {}
 void LinkStateBase::func_ov00_020a81fc(Vec3p *param1, unk32 param2) {}
@@ -65,7 +65,7 @@ bool LinkStateBase::func_ov00_020a8c34() {}
 Vec3p *LinkStateBase::GetPlayerPos() {}
 Vec3p *LinkStateBase::GetPlayerVel() {}
 unk8 *LinkStateBase::func_ov00_020a8c64() {}
-s16 *LinkStateBase::GetPlayerAngle() {}
+u16 *LinkStateBase::GetPlayerAngle() {}
 void *LinkStateBase::GetPlayer_Unk18() {}
 s32 LinkStateBase::Get_PlayerControlData_Unk32() {}
 Actor *LinkStateBase::GetGrabActor() {}

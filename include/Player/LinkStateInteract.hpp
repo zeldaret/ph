@@ -51,7 +51,7 @@ public:
     void func_ov00_020ab934(Vec3p *target);
     void func_ov00_020ab97c(Vec3p *target);
     void func_ov00_020ab9b8(u32 param1, bool param2);
-    void Grab(ActorRef *ref);
+    bool Grab(ActorRef *ref);
     void func_ov00_020abba0(ActorRef *ref);
     void func_ov00_020abbdc(ActorRef *ref); // duplicate of func_ov00_020abba0
     void func_ov00_020abc18(ActorRef *ref);
