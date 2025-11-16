@@ -40,7 +40,7 @@ public:
     s32 GetGrabActorId();
     bool func_ov00_020aa818();
     void func_ov00_020aa844(Actor *param1);
-    LinkStateRoll *GetLinkStateRoll();
+    static LinkStateRoll *GetLinkStateRoll();
     void SetGrabActorVelocity(Vec3p *velocity);
     void SetBombVelocity(Vec3p *velocity);
     void func_ov00_020ab6c8();
@@ -50,7 +50,7 @@ public:
     void SetThrowOffset(Vec3p *target);
     void func_ov00_020ab934(Vec3p *target);
     void func_ov00_020ab97c(Vec3p *target);
-    void func_ov00_020ab9b8(u32 param1, bool param2);
+    void func_ov00_020ab9b8(s32 param1, bool param2);
     bool Grab(ActorRef *ref);
     void func_ov00_020abba0(ActorRef *ref);
     void func_ov00_020abbdc(ActorRef *ref); // duplicate of func_ov00_020abba0

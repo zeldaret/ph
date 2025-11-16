@@ -604,8 +604,8 @@ ARM bool Actor::func_ov00_020c243c(ActorTypeId *actorTypes, Actor **out) {
                 case ActorTypeId_BTRF:
                 case ActorTypeId_STNE:
                 case ActorTypeId_TARU:
-                case ActorTypeId_BKEY:
-                case ActorTypeId_FORC:
+                case ActorTypeId_BossKey:
+                case ActorTypeId_ForceGem:
                 case ActorTypeId_FLTB:
                 case ActorTypeId_TSUB:
                     knockback.mUnk_10 = 10;

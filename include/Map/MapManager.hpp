@@ -68,7 +68,8 @@ struct UnkStruct_0208210c_param3 {
 };
 
 struct UnkStruct {
-    /* 00 */ unk8 mUnk_00[0x24];
+    /* 00 */ Vec3p mUnk_00;
+    /* 0c */ unk8 mUnk_0c[0x24 - 0x0c];
     /* 24 */ u16 mUnk_24;
     /* 26 */ u16 mUnk_26;
     /* 28 */ u16 mUnk_28;
@@ -132,7 +133,7 @@ public:
     /* 0f */ unk8 mUnk_0f;
     /* 10 */
 
-    bool func_01ffbe78(Vec3p *param1, Vec3p *param2, Vec3p *param3, Sphere *param4, s32 actorId, u16 param6, unk32 param7,
+    bool func_01ffbe78(UnkStruct *param1, Vec3p *param2, Vec3p *param3, Sphere *param4, s32 actorId, u16 param6, unk32 param7,
                        unk32 param8);
     bool func_01ffbf5c(struct UnkStruct *param1, Vec3p *param2, Vec3p *param3, s32 length, unk32 param5, unk32 param6,
                        UnkStruct_ov000_020beba8 *param7, unk32 param8);

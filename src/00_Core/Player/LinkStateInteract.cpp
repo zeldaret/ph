@@ -3,7 +3,7 @@
 #include "Player/PlayerControl.hpp"
 #include "Unknown/UnkStruct_020eec9c.hpp"
 
-static char *sShipTypes[] = {"brg", "anc", "bow", "hul", "can", "dco", "pdl", "fnl"};
+static char *sShipTypes[] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
 THUMB void LinkStateInteract::vfunc_00() {}
 
@@ -36,38 +36,32 @@ THUMB void LinkStateInteract::LoadBhio() {
 
     const char *fieldName;
 
-    // Lift playback speed "持ち上げ再生速度"
-    this->GetBhio0()->GetField2(true, 'LGRB', "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb0\x8d\xc4\x90\xb6\x9a\xac\x93x",
-                                &data_ov000_020e593c.mUnk_04.x, 8, 0, 0x3000);
+    // Lift playback speed
+    this->GetBhio0()->GetField2(true, 'LGRB', "持ち上げ再生速度", &data_ov000_020e593c.mUnk_04.x, 8, 0, 0x3000);
 
-    // Lift start frame "持ち上げ開始フレーム"
-    this->GetBhio0()->GetField2(true, 'LGRB', "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb0\x8AJ\x8en\x8et\x8e\x8c\x81[\x83\x80",
-                                &data_ov000_020e593c.mUnk_04.y, 8, 0, data_ov000_020e593c.mUnk_04.z / 2);
+    // Lift start frame
+    this->GetBhio0()->GetField2(true, 'LGRB', "持ち上げ開始フレーム", &data_ov000_020e593c.mUnk_04.y, 8, 0,
+                                data_ov000_020e593c.mUnk_04.z / 2);
 
-    // Lift end frame "持ち上げ終了フレーム"
-    this->GetBhio0()->GetField2(true, 'LGRB', "\x8e\x9d\x82\xbf\x8f\xe3\x82\xb9\x8fI\x97\xb9\x8et\x83\x8c\x81[\x83\x80",
-                                &data_ov000_020e593c.mUnk_04.z, 8, data_ov000_020e593c.mUnk_04.z / 2,
-                                data_ov000_020e593c.mUnk_04.z);
+    // Lift end frame
+    this->GetBhio0()->GetField2(true, 'LGRB', "持ち上げ終了フレーム", &data_ov000_020e593c.mUnk_04.z, 8,
+                                data_ov000_020e593c.mUnk_04.z / 2, data_ov000_020e593c.mUnk_04.z);
 
     iVar4 = this->PlayerControlData_vfunc_14(data_ov000_020e595c.mUnk_00);
 
-    // Throw playback speed "投げ再生速度"
-    this->GetBhio0()->GetField2(true, 'LGRB', "\x93\x8a\x82\xb0\x8d\xc4\x90\xb6\x91\xac\x93x", &data_ov000_020e595c.mUnk_04.x,
-                                8, 0, 0x3000);
+    // Throw playback speed
+    this->GetBhio0()->GetField2(true, 'LGRB', "投げ再生速度", &data_ov000_020e595c.mUnk_04.x, 8, 0, 0x3000);
 
-    // Throw start frame "投げ開始フレーム"
-    this->GetBhio0()->GetField2(true, 'LGRB', "\x93\x8a\x82\xb0\x8aJ\x8en\x83t\x83\x8c\x81[\x83\x80",
-                                &data_ov000_020e595c.mUnk_04.y, 8, 0, iVar4 / 2);
+    // Throw start frame
+    this->GetBhio0()->GetField2(true, 'LGRB', "投げ開始フレーム", &data_ov000_020e595c.mUnk_04.y, 8, 0, iVar4 / 2);
 
-    // Throw end frame "投げ終了フレーム"
-    this->GetBhio0()->GetField2(true, 'LGRB', "\x93\x8a\x82\xb9\x8fI\x97\xb9\x83t\x83\x8c\x81[\x83\x80",
-                                &data_ov000_020e595c.mUnk_04.z, 8, iVar4 / 2, iVar4);
+    // Throw end frame
+    this->GetBhio0()->GetField2(true, 'LGRB', "投げ終了フレーム", &data_ov000_020e595c.mUnk_04.z, 8, iVar4 / 2, iVar4);
 
     this->GetBhio0();
 
-    // Stop time "停止時間"
-    this->GetBhio0()->GetField2(false, 'LPSH', "\x92\xe2\x8e~\x8e\x9e\x8a\xd4", &data_ov000_020e5928, 6, 0,
-                                data_ov000_020e5928 * 2);
+    // Stop time
+    this->GetBhio0()->GetField2(false, 'LPSH', "停止時間", &data_ov000_020e5928, 6, 0, data_ov000_020e5928 * 2);
     this->GetBhio0();
     return;
 }
@@ -182,7 +176,7 @@ ARM void LinkStateInteract::func_ov00_020aa844(Actor *actor) {
     this->GetPlayerVel()->x = 0;
     this->GetPlayerVel()->z = 0;
 
-    const q20 unk = FLOAT_TO_Q20(1 / 12.0);
+    q20 unk = FLOAT_TO_Q20(1 / 12.0);
     if (rx > 0) {
         q20 var_r6 = unk;
         if (rx <= unk) {
@@ -235,149 +229,81 @@ extern "C" unk32 GetCardinal(s16 angle);
 extern "C" u16 func_0202bba8(unk32);
 extern "C" void func_ov023_02171410(LinkStateRoll *, Actor *, Vec3p *);
 ARM bool LinkStateInteract::vfunc_20(s32 param1) {
-    s8 spC5;
-    s8 spC4;
-    s8 spC3;
-    s8 spC2;
-    s8 spC1;
-    s8 spC0;
-    s8 spB9;
-    s8 spB8;
-    s8 spB7;
-    s8 spB6;
-    s16 sp94;
-    s16 sp92;
-    s16 sp90;
-    s16 sp8E;
-    s16 sp8C;
-    Vec3p sp68;
-    Vec3p sp5C;
-    Vec3p sp50;
-    Cylinder sp40;
-    Vec3p sp34;
-    Vec3p sp28;
-    unk32 var_r2;
-    s16 *temp_mem_loc;
-    s16 *temp_mem_loc_2;
-    s16 temp_ip;
-    s16 temp_r0_5;
-    s16 temp_r1;
-    s16 temp_r2;
-    s16 temp_r6_2;
-    s16 var_r1_2;
-    s32 temp_r0_4;
-    s32 temp_r3;
-    s32 var_r1;
-    s32 var_r5;
-    s32 var_r6;
-    u16 temp_r0_6;
-    u32 temp_r0_2;
-    u32 temp_r6;
-    u32 temp_r8;
-    Actor *temp_r0;
-    EquipSword *temp_r0_3;
-    ActorRef *temp_r0_7;
-    Actor *var_r6_2;
-
     if (this->HasFlags_PlayerLinkBase_Unk48(2) || !this->func_ov00_020a8b80()) {
         return false;
     }
-    temp_r0 = this->GetGrabActor();
+    Actor *temp_r0 = this->GetGrabActor();
     if ((temp_r0 != NULL) && (param1 == 0)) {
-        var_r6 = 0;
-        if ((gItemManager->mEquippedItem - 9) <= 1) {
+        bool var_r6 = false;
+        if ((u32) (gItemManager->mEquippedItem - 9) <= 1) {
             mThrowOffset = gVec3p_ZERO;
-            temp_r3      = *this->GetPlayerAngle();
-            temp_ip      = SIN(temp_r3);
-            temp_r2      = COS(temp_r3);
+            s32 temp_r3  = *this->GetPlayerAngle();
+            s16 temp_ip  = SIN(temp_r3);
+            s16 temp_r2  = COS(temp_r3);
             mThrowOffset.x += MUL_Q20(temp_ip, 0x4cd);
             mThrowOffset.z += MUL_Q20(temp_r2, 0x4cd);
-            var_r6 = 1;
+            var_r6 = true;
         }
-        if (temp_r0->vfunc_2c() != -1) {
-            var_r5 = 1;
-        } else {
-            var_r5 = 0;
-        }
-        if (var_r5 == 0 && (var_r6 != 0 || gPlayerControl->func_ov00_020b05e8(&mThrowOffset))) {
-            gPlayerControl->mUsingEquipItem = false;
-            gPlayerControl->mUnk_7b         = false;
+        bool var_r5 = temp_r0->vfunc_2c() != -1;
+        if (!var_r5 && (var_r6 || gPlayerControl->func_ov00_020b05e8(&mThrowOffset))) {
+            PlayerControl *pPlayerControl   = gPlayerControl;
+            pPlayerControl->mUsingEquipItem = false;
+            pPlayerControl->mUnk_7b         = false;
 
             mSubState = 5;
             return true;
         }
-        if (var_r6 != 0 || gPlayerControl->func_ov00_020b049c(&mThrowOffset, var_r5)) {
-            gPlayerControl->mUsingEquipItem = false;
-            gPlayerControl->mUnk_7b         = false;
+        if (var_r6 || gPlayerControl->func_ov00_020b049c(&mThrowOffset, var_r5)) {
+            PlayerControl *pPlayerControl   = gPlayerControl;
+            pPlayerControl->mUsingEquipItem = false;
+            pPlayerControl->mUnk_7b         = false;
 
             mSubState = 3;
             return true;
         }
         return false;
     }
-    ActorRef sp14 = gPlayerControl->mFollowRef;
-    var_r6_2      = gActorManager->GetActor(&sp14);
+    ActorRef sp14   = gPlayerControl->mFollowRef;
+    Actor *var_r6_2 = gActorManager->GetActor(&sp14);
     if (var_r6_2 == NULL) {
         if (gPlayerControl->func_ov00_020b0ad0(this->func_ov00_020a8d40()->mUnk_0ec)) {
             var_r6_2 = this->func_ov00_020a8d40()->mUnk_0ec;
             sp14     = var_r6_2->mRef;
-            goto block_24;
+        } else {
+            return false;
         }
+    } else if (gPlayerControl->mUnk_80) {
         return false;
     }
-    if (gPlayerControl->mUnk_80) {
-        return false;
-    }
-block_24:
-    if (temp_r0 != NULL) {
-        var_r2 = 1;
-    } else {
-        var_r2 = 0;
-    }
-    if (!gPlayerControl->func_ov00_020afe88(var_r6_2->mUnk_12c, var_r2)) {
+    if (!gPlayerControl->func_ov00_020afe88(var_r6_2->mUnk_12c, temp_r0 != NULL)) {
         gPlayerControl->StopFollowing();
         return false;
     }
+    Vec3p sp5C;
     if ((var_r6_2->mUnk_12c == 2) && (this->GetGrabActor() == NULL)) {
         Vec3p_Axpy(0x6000, &var_r6_2->mVel, &var_r6_2->mPos, &sp5C);
-        sp94 = 0;
-        spB6 = 0;
-        spB7 = 0;
-        spB8 = 0;
-        spB9 = 0;
-        spC0 = 0;
-        spC1 = 0;
-        spC2 = 0;
-        spC3 = 0;
-        spC4 = 0;
-        spC5 = 0;
-        sp8C = 0xFFFF;
-        sp8E = 0xFFFF;
-        sp90 = 0xFFFF;
-        sp92 = 0xFFFF;
+        UnkStruct sp68;
+        Vec3p sp28;
         sp28 = var_r6_2->mPos;
         if (gMapManager->func_01ffbe78(&sp68, &sp5C, &sp28, (Sphere *) &var_r6_2->mUnk_08c, var_r6_2->mRef.id,
                                        (s32) var_r6_2->mUnk_09c.mUnk_0, 0, 0)) {
-            sp5C = sp68;
+            sp5C = sp68.mUnk_00;
         }
     } else {
         this->func_ov00_020ab7bc(&sp5C, var_r6_2);
     }
+    Vec3p sp50;
     Vec3p_Sub(&sp5C, this->GetPlayerPos(), &sp50);
+    Cylinder sp40;
     var_r6_2->GetHitbox(&sp40);
-    temp_r0_2 = var_r6_2->mUnk_12c;
-    switch (temp_r0_2) {
-        default:
-        case 0:
-            return false;
+    switch (var_r6_2->mUnk_12c) {
         case 1:
             if (Vec3p_Length(&sp50) < 0x800) {
                 gPlayerControl->SetUnk_80();
             }
             return false;
         case 2:
-            temp_r0_3 = PlayerBase::GetEquipSword();
-            if (!temp_r0_3->UpdateInUse(1)) {
+            if (!PlayerBase::GetEquipSword()->UpdateInUse(1)) {
                 return false;
             }
             if (this->GetGrabActor() == NULL) {
@@ -385,45 +311,35 @@ block_24:
                     func_ov023_02171410(this->GetLinkStateRoll(), var_r6_2, &sp50);
                     return 0;
                 }
-                temp_r0_4 = Vec3p_Length(&sp50);
+                q20 temp_r0_4 = Vec3p_Length(&sp50);
                 if (temp_r0_4 < (s32) (sp40.size + 0x3800)) {
-                    temp_r6_2 = (s16) FX_Atan2Idx(sp50.x, sp50.z);
+                    s16 temp_r6_2 = (s16) FX_Atan2Idx(sp50.x, sp50.z);
                     if (temp_r0_4 < 0x1CCD) {
-                        temp_r1 = temp_r6_2 - *this->GetPlayerAngle();
+                        s16 temp_r1 = temp_r6_2 - *(s16 *) this->GetPlayerAngle();
                         if ((s32) temp_r1 > 0x4000) {
-                            this->func_ov00_020a81b8(1, 0);
+                            this->func_ov00_020a81b8(1, &sp5C);
                         } else if ((s32) temp_r1 >= -0x4000) {
-                            this->func_ov00_020a81b8(0, 0);
+                            this->func_ov00_020a81b8(0, &sp5C);
                         } else {
-                            this->func_ov00_020a81b8(2, 0);
+                            this->func_ov00_020a81b8(2, &sp5C);
                         }
-                        goto block_67;
-                    }
-                    if (temp_r0_4 < 0x2B33) {
-                        var_r1 = sp50.y;
-                        if (var_r1 < 0) {
-                            var_r1 = 0 - var_r1;
-                        }
-                        if (var_r1 < 0x1333) {
+                    } else {
+                        if (temp_r0_4 < 0x2B33 && ABS(sp50.y) < 0x1333) {
                             this->func_ov00_020a81b8(3, &sp5C);
-                            goto block_67;
+                        } else {
+                            if (this->func_ov00_020a8d40()->mUnk_05a != 0) {
+                                return false;
+                            }
+                            this->func_ov00_020a81b8(4, &sp5C);
                         }
-                        goto block_64;
                     }
-                block_64:
-                    if (this->func_ov00_020a8d40()->mUnk_05a != 0) {
-                        return false;
-                    }
-                    this->func_ov00_020a81b8(4, &sp5C);
-                block_67:
                     *this->GetPlayerAngle() = temp_r6_2;
                 }
-                return false;
-            }
-            if (Vec3p_Length(&sp50) < 0x4000) {
+            } else if (Vec3p_Length(&sp50) < 0x4000) {
                 Vec3p_Sub(&var_r6_2->mPos, this->GetPlayerPos(), &mThrowOffset);
-                gPlayerControl->mUsingEquipItem = false;
-                gPlayerControl->mUnk_7b         = false;
+                PlayerControl *pPlayerControl   = gPlayerControl;
+                pPlayerControl->mUsingEquipItem = false;
+                pPlayerControl->mUnk_7b         = false;
                 gPlayerControl->SetUnk_80();
                 mSubState = 3;
                 mGrabRef  = sp14;
@@ -432,11 +348,12 @@ block_24:
             return false;
         case 3:
             if (Vec3p_Length(&sp50) < 0x400) {
+                Vec3p sp34;
                 Vec3p_Sub(&sp40.pos, this->GetPlayerPos(), &sp34);
                 if ((sp34.x != 0) || (sp34.z != 0)) {
-                    temp_r0_5 = (s16) FX_Atan2Idx(sp34.x, sp34.z);
-                    temp_r0_6 = func_0202bba8(GetCardinal(temp_r0_5));
-                    var_r1_2  = temp_r0_5 - temp_r0_6;
+                    s16 temp_r0_5 = (s16) FX_Atan2Idx(sp34.x, sp34.z);
+                    u16 temp_r0_6 = func_0202bba8(GetCardinal(temp_r0_5));
+                    s16 var_r1_2  = temp_r0_5 - temp_r0_6;
                     if ((s32) var_r1_2 < 0) {
                         var_r1_2 = 0 - var_r1_2;
                     }
@@ -453,9 +370,8 @@ block_24:
             return false;
         case 4:
             if ((Vec3p_Length(&sp50) < (s32) (sp40.size + 0xC00)) && !this->func_ov005_0211139c()) {
-                temp_r0_7  = this->GetGrabActorRef();
-                *temp_r0_7 = var_r6_2->mRef;
-                mSubState  = 1;
+                *this->GetGrabActorRef() = var_r6_2->mRef;
+                mSubState                = 1;
                 this->LookAt(&var_r6_2->mPos);
                 mGrabRef = sp14;
                 return true;
@@ -474,6 +390,7 @@ block_24:
             gPlayerControl->StopFollowing();
             return true;
     }
+    return false;
 }
 
 ARM LinkStateRoll *LinkStateInteract::GetLinkStateRoll() {
@@ -536,9 +453,9 @@ ARM bool LinkStateInteract::vfunc_34(Vec3p *param1) {
         s32 var_ip      = ((s64) COS(playerAngle));
 
         // WIP xyz values
-        param1->x = var_r3;
-        param1->y = var_r9;
-        param1->z = var_ip;
+        param1->x += var_r3;
+        param1->y += var_r9;
+        param1->z += var_ip;
     } else {
         param1->y += 0xB33;
     }
@@ -666,7 +583,7 @@ ARM void LinkStateInteract::func_ov00_020ab97c(Vec3p *target) {
 
 extern "C" unk32 func_ov017_0215dff0(Actor *param1, Vec3p *param2);
 extern "C" unk32 func_ov017_0215e338(Actor *param1, Vec3p *param2);
-ARM void LinkStateInteract::func_ov00_020ab9b8(u32 param1, bool param2) {
+ARM void LinkStateInteract::func_ov00_020ab9b8(s32 param1, bool param2) {
     Actor *grabActor = this->GetGrabActor();
     if (grabActor == NULL) {
         return;
@@ -676,13 +593,13 @@ ARM void LinkStateInteract::func_ov00_020ab9b8(u32 param1, bool param2) {
         Vec3p spC = *this->GetPlayerPos();
         Vec3p_Add(this->GetPlayerPos(), &mThrowOffset, &spC);
         switch (grabActor->mType) {
-            case ActorTypeId_BKEY:
+            case ActorTypeId_BossKey:
                 if (func_ov017_0215dff0(grabActor, &spC) != 0) {
                     var_r5 = false;
                     this->func_ov00_020aa818();
                 }
                 break;
-            case ActorTypeId_SmallKey:
+            case ActorTypeId_ForceGem:
                 if (func_ov017_0215e338(grabActor, &spC) != 0) {
                     this->func_ov00_020aa818();
                 }
@@ -698,8 +615,8 @@ ARM void LinkStateInteract::func_ov00_020ab9b8(u32 param1, bool param2) {
         u16 playerAngle = *this->GetPlayerAngle();
         s32 temp_r1_3   = MUL_Q20(param1, FLOAT_TO_Q20(0.16));
 
-        sp0.z += MUL_Q20(COS(playerAngle), temp_r1_3);
         sp0.x += MUL_Q20(SIN(playerAngle), temp_r1_3);
+        sp0.z += MUL_Q20(COS(playerAngle), temp_r1_3);
         grabActor->Drop(&sp0);
     }
     this->GetGrabActorRef()->Reset();
