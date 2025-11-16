@@ -108,7 +108,7 @@ ARM void LinkStateMove::vfunc_1c() {
         if (mUnk_0c > 0) {
 
             q4 temp_r8  = data_ov005_02112be4;
-            s16 temp_r1 = *this->GetPlayerAngle() + this->Get_PlayerControlData_Unk32();
+            s16 temp_r1 = *(s16 *) this->GetPlayerAngle() + this->Get_PlayerControlData_Unk32();
             this->TurnTo(temp_r1, temp_r1, temp_r8);
             s32 temp_r1_2 = mUnk_0c;
             if (temp_r7_2 > temp_r1_2) {
@@ -143,7 +143,7 @@ ARM void LinkStateMove::vfunc_1c() {
                 filter.mUnk_08 = FLOAT_TO_Q20(4.0);
                 Vec3p pos      = *this->GetPlayerPos();
                 filter.mPos    = pos;
-                filter.mAngle  = *this->GetPlayerAngle();
+                filter.mAngle  = *(s16 *) this->GetPlayerAngle();
                 if (gActorManager->FilterActors(&filter, NULL) > 0) {
                     q20 temp_r1_4 = FLOAT_TO_Q20(4.0) - filter.mUnk_08;
                     Vec3p spC     = filter.mActor->mPos;
