@@ -10,10 +10,8 @@ ARM LinkStateId LinkStateMove::GetId() {
 }
 
 THUMB void LinkStateMove::LoadBhio() {
-    // Breath volume decay rate "息吹きボリューム低下率"
-    this->GetBhio0()->GetField2(true, 'LMOV',
-                                "\x91\xa7\x90\x81\x82\xab\x83{\x83\x8a\x83\x85\x81[\x83\x80\x92\xe1\x89\xba\x97\xa6",
-                                &data_ov000_020e56f0, 8, 0, 0x1000);
+    // Breath volume decay rate
+    this->GetBhio0()->GetField2(true, 'LMOV', "息吹きボリューム低下率", &data_ov000_020e56f0, 8, 0, 0x1000);
 }
 
 ARM void LinkStateMove::OnStateEnter() {

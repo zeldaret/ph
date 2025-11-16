@@ -24,40 +24,31 @@ LinkStateBase_UnkStruct1 LinkStateDamage::data_ov000_020e5b50 = {84, {0x1000, 0,
 THUMB void LinkStateDamage::LoadBhio() {
     s32 unk1 = this->PlayerControlData_vfunc_14(data_ov000_020e5af0.mUnk_00);
 
-    // Front minor damage regeneration speed "前小ダメ再生速度"
-    this->GetBhio0()->GetField2(true, 'LDMG', "\x91O\x8f\xac\x83_\x83\x81\x8d\xc4\x90\xb6\x91\xac\x93x\x00\x00\x00",
-                                &data_ov000_020e5af0.mUnk_04.x, 8, 0, 0x2000);
+    // Front minor damage regeneration speed
+    this->GetBhio0()->GetField2(true, 'LDMG', "前小ダメ再生速度", &data_ov000_020e5af0.mUnk_04.x, 8, 0, 0x2000);
 
-    // Front minor damage start frame "前小ダメ開始フレーム"
-    this->GetBhio0()->GetField2(true, 'LDMG', "\x91O\x8f\xac\x83_\x83\x81\x8aJ\x8en\x83t\x83\x8c\x81[\x83\x80\x00\x00\x00",
-                                &data_ov000_020e5af0.mUnk_04.y, 8, 0, unk1 / 2);
+    // Front minor damage start frame
+    this->GetBhio0()->GetField2(true, 'LDMG', "前小ダメ開始フレーム", &data_ov000_020e5af0.mUnk_04.y, 8, 0, unk1 / 2);
 
-    // Front minor damage end frame "前小ダメ終了フレーム"
-    this->GetBhio0()->GetField2(true, 'LDMG', "\x91O\x8F\xAC\x83_\x83\x81\x8FI\x97\xB9\x83t\x83\x8c\x81[\x83\x80\x00\x00\x00",
-                                &data_ov000_020e5af0.mUnk_04.z, 8, unk1 / 2, unk1);
+    // Front minor damage end frame
+    this->GetBhio0()->GetField2(true, 'LDMG', "前小ダメ終了フレーム", &data_ov000_020e5af0.mUnk_04.z, 8, unk1 / 2, unk1);
 
     unk1 = this->PlayerControlData_vfunc_14(data_ov000_020e5b00.mUnk_00);
 
-    // Back minor damage regeneration speed "後小ダメ再生速度"
-    this->GetBhio0()->GetField2(true, 'LDMG', "\x8c\xE3\x8F\xAC\x83_\x83\x81\x8D\xC4\x90\xB6\x91\xAC\x93x\x00\x00\x00",
-                                &data_ov000_020e5b00.mUnk_04.x, 8, 0, 0x2000);
+    // Back minor damage regeneration speed
+    this->GetBhio0()->GetField2(true, 'LDMG', "後小ダメ再生速度", &data_ov000_020e5b00.mUnk_04.x, 8, 0, 0x2000);
 
-    // Back minor damage start frame "後小ダメ開始フレーム"
-    this->GetBhio0()->GetField2(true, 'LDMG', "\x8C\xE3\x8F\xAC\x83_\x83\x81\x8AJ\x8En\x83t\x83\x8c\x81[\x83\x80\x00\x00\x00",
-                                &data_ov000_020e5b00.mUnk_04.y, 8, 0, unk1 / 2);
+    // Back minor damage start frame
+    this->GetBhio0()->GetField2(true, 'LDMG', "後小ダメ開始フレーム", &data_ov000_020e5b00.mUnk_04.y, 8, 0, unk1 / 2);
 
-    // Back minor damage end frame "後小ダメ終了フレーム"
-    this->GetBhio0()->GetField2(true, 'LDMG',
-                                "\x8C\xE3\x8F\xAC\x83_\x83\x81\x8FI\x97\xB9\x83t\x83\x8c\x81[\x83\x80\x00\x00\x00",
-                                &data_ov000_020e5b00.mUnk_04.z, 8, unk1 / 2, unk1);
+    // Back minor damage end frame
+    this->GetBhio0()->GetField2(true, 'LDMG', "後小ダメ終了フレーム", &data_ov000_020e5b00.mUnk_04.z, 8, unk1 / 2, unk1);
 
-    // Number of tears [verb] "ビリビリ回数"
-    this->GetBhio0()->GetField2(false, 'LDMG', "\x83r\x83\x8A\x83r\x83\x8A\x89\xF1\x90\x94\x00\x00\x00", &data_ov000_020e5aec,
-                                6, 0, 0x14);
+    // Number of tears [verb]
+    this->GetBhio0()->GetField2(false, 'LDMG', "ビリビリ回数", &data_ov000_020e5aec, 6, 0, 0x14);
 
-    // Tear [verb] playback speed "ビリビリ再生速度"
-    this->GetBhio0()->GetField2(true, 'LDMG', "\x83r\x83\x8A\x83r\x83\x8A\x8D\xC4\x90\xB6\x91\xAC\x93x\x00\x00\x00",
-                                &data_ov000_020e5adc.mUnk_04.x, 8, 0, 0x2000);
+    // Tear [verb] playback speed
+    this->GetBhio0()->GetField2(true, 'LDMG', "ビリビリ再生速度", &data_ov000_020e5adc.mUnk_04.x, 8, 0, 0x2000);
 
     this->GetBhio0();
     this->GetBhio0();
