@@ -251,39 +251,6 @@ THUMB Actor *EquipBombchu::func_ov058_02199400() {
 extern "C" void func_ov014_02124ff4(Sphere *sphere);
 extern "C" bool func_0202b2f8(Vec3p *param_1, Vec3p *param_2, unk32 param_3);
 THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
-    struct TempStruct1 {
-        /* 00 */ unk8 mUnk_00[0xe];
-        /* 0e */ unk8 mUnk_0e;
-        /* 0f */ unk8 mUnk_0f;
-        /* 10 */ unk8 mUnk_10;
-        /* 11 */ unk8 mUnk_11;
-        /* 12 */ unk8 mUnk_12[0x6];
-        /* 18 */ volatile unk8 mUnk_18;
-        /* 19 */ unk8 mUnk_19;
-        /* 1a */ unk8 mUnk_1a;
-        /* 1b */ unk8 mUnk_1b;
-        /* 1c */ unk8 mUnk_1c;
-        /* 1d */ unk8 mUnk_1d;
-        /* 1e */
-    };
-
-    struct TempStruct2 {
-        union {
-            /* 00 */ Vec3p mUnk_00;
-            struct {
-                /* 00 */ u16 mUnk_00_x;
-                /* 02 */ u16 mUnk_02;
-                /* 04 */ u16 mUnk_04;
-                /* 06 */ u16 mUnk_06;
-                /* 08 */ unk32 mUnk_08;
-            };
-        };
-        /* 0c */ unk8 mUnk_0c[0x34];
-        /* 40 */
-    };
-
-    TempStruct1 sp214;
-    TempStruct2 sp1D4;
     AABB sp1BC;
     Vec3p sp1B0;
     Vec3p sp1A4;
@@ -484,21 +451,7 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
             }
         }
     }
-    sp1D4.mUnk_00_x = -1;
-    sp1D4.mUnk_02   = -1;
-    sp1D4.mUnk_04   = -1;
-    sp1D4.mUnk_06   = -1;
-    sp1D4.mUnk_00.z = 0;
-    sp214.mUnk_0e   = 0;
-    sp214.mUnk_0f   = 0;
-    sp214.mUnk_10   = 0;
-    sp214.mUnk_11   = 0;
-    sp214.mUnk_18   = 0U;
-    sp214.mUnk_19   = 0U;
-    sp214.mUnk_1a   = 0;
-    sp214.mUnk_1b   = 0;
-    sp214.mUnk_1c   = 0;
-    sp214.mUnk_1d   = 0;
+    UnkStruct sp1D4;
     if (var_r6_2 < sp1B0.y) {
         if ((sp1B0.y - var_r6_2) < 0x999) {
             var_r6_2 = sp1B0.y;
@@ -528,7 +481,7 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
     sp194.pos.y             = 9;
     sp194.pos.z             = 0xCF;
     sp194.radius            = 1;
-    temp_r0_8               = gMapManager->func_01ffbe78(&sp1D4.mUnk_00, &spE0, &spD4, &sp194);
+    temp_r0_8               = gMapManager->func_01ffbe78(&sp1D4, &spE0, &spD4, &sp194, 0, 0, 0, 0);
     if (sUnk_02198d00.mUnk_10.x != 0) {
         return 0;
     }
@@ -550,7 +503,7 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
             mUnk_47      = 0;
             mUnk_46      = 1;
         } else {
-            if (sp214.mUnk_18 != 0) {
+            if (sp1D4.mUnk_58 != 0) {
                 if (mUnk_18 <= 0) {
                     return 0;
                 }
@@ -607,7 +560,7 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
                     sp194.pos.y             = 9;
                     sp194.pos.z             = 0xCF;
                     sp194.radius            = 1;
-                    temp_r0_16              = gMapManager->func_01ffbe78(&sp1D4.mUnk_00, &sp170, &spB0, &sp194);
+                    temp_r0_16              = gMapManager->func_01ffbe78(&sp1D4, &sp170, &spB0, &sp194, 0, 0, 0, 0);
                     if (sUnk_02198d00.mUnk_10.x != 0) {
                         return 0;
                     }
@@ -621,7 +574,7 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
                         }
                         gMapManager->func_ov00_02083c7c(&sp170, sp24_unk4);
                     } else {
-                        if (sp214.mUnk_18 == 0) {
+                        if (sp1D4.mUnk_58 == 0) {
                             return false;
                         }
                         sp170.x            = sp1D4.mUnk_00.x;
@@ -654,7 +607,7 @@ THUMB bool EquipBombchu::func_ov058_02199498(Vec3p *vec) {
                 vec->y     = temp_r0_22;
                 vec->z     = sp1B0.z;
             } else {
-                if (sp214.mUnk_19 == 0) {
+                if (sp1D4.mUnk_59 == 0) {
                     return 0;
                 }
                 sp158.x           = sp1D4.mUnk_00.x;
