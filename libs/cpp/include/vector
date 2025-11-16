@@ -16,7 +16,7 @@ namespace std {
             }
         }
 
-        void push_back(T &value) {
+        int push_back(T &value) {
             get_new_capacity(1);
             append_back(1, &value);
         }
