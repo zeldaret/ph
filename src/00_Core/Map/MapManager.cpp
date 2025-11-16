@@ -2570,8 +2570,8 @@ unk8 MapManager::func_ov00_02085c60(UnkStruct *param_2, unk32 *param_3, unk32 *p
                 VStack_e4.z = aVStack_8c.mUnk_00.z;
             }
             func_ov000_0207920c(data_027e0d3c, &VStack_e4, (unk32 *) &iStack_104, 0);
-            param_2->mUnk_60.x = iStack_104.x;
-            param_2->mUnk_60.y = iStack_104.y;
+            ((Vec3p *) param_2 + 8)->x = iStack_104.x;
+            ((Vec3p *) param_2 + 8)->y = iStack_104.y;
             return 1;
         }
         VStack_bc.x = VStack_b0.x;
@@ -2587,8 +2587,8 @@ unk8 MapManager::func_ov00_02085c60(UnkStruct *param_2, unk32 *param_3, unk32 *p
     param_2->mUnk_00.y = VStack_98.y;
     param_2->mUnk_00.z = VStack_98.z;
     func_ov000_0207920c(puVar2, &VStack_98, &iStack_10c, 0);
-    param_2->mUnk_60.x = iStack_10c;
-    param_2->mUnk_60.y = iStack_108;
+    ((Vec3p *) param_2 + 8)->x = iStack_10c;
+    ((Vec3p *) param_2 + 8)->y = iStack_108;
     return 0;
 }
 

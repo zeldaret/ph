@@ -109,9 +109,7 @@ struct UnkStruct {
     /* 5b */ u8 mUnk_5b;
     /* 5c */ u8 mUnk_5c;
     /* 5d */ u8 mUnk_5d;
-    /* 5e */ u8 mUnk_5e[0x60 - 0x5e];
-    /* 60 */ Vec3p mUnk_60;
-    /* 6c */
+    /* 5e */
 
     inline UnkStruct() :
         mUnk_24(-1),
