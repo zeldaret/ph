@@ -10,6 +10,7 @@
 #include "DTCM/UnkStruct_027e0c68.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0f64.hpp"
+#include "DTCM/UnkStruct_027e0f68.hpp"
 #include "DTCM/UnkStruct_027e0f6c.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
@@ -120,13 +121,6 @@ public:
     virtual void vfunc_34();
     virtual unk32 vfunc_38(unk32 param_2);
     virtual unk32 vfunc_3c(unk32 param_2);
-};
-
-struct UnkStruct_027e0f68 {
-    void func_ov000_0208cc88();
-    void func_ov000_0208d620();
-    void func_ov000_0208d680();
-    void func_ov004_02102b28();
 };
 
 extern u32 *data_027e0ce0[];
@@ -404,11 +398,11 @@ ARM void MapManager::func_ov00_02082670(unk32 param_2, s32 param_3) {
     this->mMap->func_ov00_0208006c(param_2, param_3);
 }
 
-ARM void MapManager::func_ov00_02082680(unk32 param_2, unk32 param_3) {
+ARM void MapManager::func_ov00_02082680(TilePos *param_2, unk32 param_3) {
     this->mMap->vfunc_98(param_2, 5, param_3);
 }
 
-ARM void MapManager::func_ov00_020826a0(unk32 param_2, unk32 param_3) {
+ARM void MapManager::func_ov00_020826a0(TilePos *param_2, unk32 param_3) {
     this->mMap->vfunc_98(param_2, 7, param_3);
 }
 
@@ -478,11 +472,11 @@ ARM s32 MapManager::MapData_vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, s
     return this->mMap->vfunc_7c(param_1, param_2, param_3, param_4);
 }
 
-ARM void MapManager::MapData_vfunc_84(unk32 param_2) {
+ARM void MapManager::MapData_vfunc_84(UnkStruct_0207f38c *param_2) {
     this->mMap->vfunc_84(param_2);
 }
 
-ARM bool MapManager::func_ov00_020828f8(s32 *param_2) {
+ARM bool MapManager::func_ov00_020828f8(UnkStruct_0207f38c *param_2) {
     return this->mMap->func_ov00_0207f38c(param_2);
 }
 
@@ -1056,11 +1050,11 @@ ARM bool MapManager::func_ov00_02083840(s32 param_2) {
     return this->mMap->TriggerOfType_vfunc_10(param_2);
 }
 
-ARM bool MapManager::AddTrigger(s32 param_2) {
+ARM bool MapManager::AddTrigger(TriggerBase *param_2) {
     return this->mMap->AddTrigger(param_2);
 }
 
-ARM bool MapManager::func_ov00_020838d8(s32 param_2) {
+ARM bool MapManager::func_ov00_020838d8(TriggerBase *param_2) {
     return this->mMap->func_ov00_0207ff88(param_2);
 }
 
@@ -1101,21 +1095,21 @@ ARM void MapManager::func_ov00_02083968(u32 param_2, unk8 *param_3) {
 }
 
 ARM bool MapManager::func_ov00_02083978(Vec3p *param_2, Vec3p *param_3) {
-    s32 iVar1 = this->mMap->func_ov00_02080a78(param_2);
+    TriggerBase *iVar1 = this->mMap->func_ov00_02080a78(param_2);
     if (iVar1 != 0) {
-        param_3->x = *(s32 *) (iVar1 + 0x8);
-        param_3->y = *(s32 *) (iVar1 + 0xc);
-        param_3->z = *(s32 *) (iVar1 + 0x10);
+        param_3->x = iVar1->mUnk_08;
+        param_3->y = iVar1->mUnk_0c;
+        param_3->z = iVar1->mUnk_10;
         return true;
     }
     return false;
 }
 
-ARM bool MapManager::func_ov00_020839b4(s32 param_2) {
+ARM bool MapManager::func_ov00_020839b4(TriggerBase *param_2) {
     return this->mMap->AddUnk_130(param_2);
 }
 
-ARM bool MapManager::func_ov00_020839c4(s32 param_2) {
+ARM bool MapManager::func_ov00_020839c4(TriggerBase *param_2) {
     return this->mMap->func_ov00_020809b8(param_2);
 }
 
@@ -1345,11 +1339,11 @@ unk32 MapManager::GetMapData_Unk_4c() {
     return this->mMap->mUnk_04c;
 }
 
-unk32 MapManager::func_ov00_0208412c() {
+unk32 *MapManager::func_ov00_0208412c() {
     return this->mMap->func_ov00_0207f934();
 }
 
-void MapManager::func_ov00_0208413c(unk32 param_2) {
+void MapManager::func_ov00_0208413c(unk32 *param_2) {
     this->mMap->func_ov00_0207f948(param_2);
 }
 
@@ -2458,7 +2452,7 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
             return -1;
         }
         piVar1->mUnk_04.x &= -2;
-        this->func_ov00_020828f8((s32 *) piVar1);
+        this->func_ov00_020828f8((UnkStruct_0207f38c *) piVar1);
     }
     this->mMap->func_ov00_02080b24(aVStack_28);
     uStack_14 = 0xffff;
