@@ -68,7 +68,18 @@ struct UnkStruct_0208210c_param3 {
 };
 
 struct UnkStruct {
-    /* 00 */ unk8 mUnk_00[0x24];
+    union {
+        /* 00 */ Vec3p mUnk_00;
+        struct {
+            /* 00 */ u16 mUnk_00_x;
+            /* 02 */ u16 mUnk_02;
+            /* 04 */ u16 mUnk_04;
+            /* 06 */ u16 mUnk_06;
+            /* 08 */ unk32 mUnk_08;
+        };
+    };
+    /* 0c */ Vec3p mUnk_0c;
+    /* 18 */ unk8 mUnk_18[0x24 - 0x18];
     /* 24 */ u16 mUnk_24;
     /* 26 */ u16 mUnk_26;
     /* 28 */ u16 mUnk_28;
@@ -92,7 +103,7 @@ struct UnkStruct {
     /* 50 */ u8 mUnk_50;
     /* 51 */ u8 mUnk_51;
     /* 52 */ unk8 mUnk_52[0x6];
-    /* 58 */ u8 mUnk_58;
+    /* 58 */ volatile u8 mUnk_58;
     /* 59 */ u8 mUnk_59;
     /* 5a */ u8 mUnk_5a;
     /* 5b */ u8 mUnk_5b;
@@ -132,7 +143,8 @@ public:
     /* 0f */ unk8 mUnk_0f;
     /* 10 */
 
-    bool func_01ffbe78(Vec3p *param1, Vec3p *param2, Vec3p *param3, Sphere *param4);
+    bool func_01ffbe78(UnkStruct *param1, Vec3p *param2, Vec3p *param3, Sphere *param4, s32 actorId, u16 param6, unk32 param7,
+                       unk32 param8);
     bool func_01ffbf5c(struct UnkStruct *param1, Vec3p *param2, Vec3p *param3, s32 length, unk32 param5, unk32 param6,
                        UnkStruct_ov000_020beba8 *param7, unk32 param8);
     bool func_01ffc118(s32 *param1, Vec3p *param2, Vec3p *param3, s32 param4, s32 *param5, u32 param6, s32 *param7);
@@ -332,7 +344,7 @@ public:
     static unk32 func_ov00_0208583c(MapManager *param_1, Vec3p *param_2, unk32 param_3);
     static unk32 func_ov00_020858b0(MapManager *param_1, Vec3p *param_2, unk32 param_3);
     s32 func_ov00_02085a34(Vec3p *param_2, unk32 param_3);
-    unk8 func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param_4, u32 param_5);
+    unk8 func_ov00_02085c60(UnkStruct *param_2, unk32 *param_3, unk32 *param_4, u32 param_5);
     unk8 func_ov00_02086044(Vec3p *param_2, Vec3p *param_3, unk32 param_4);
     bool func_ov00_02086284(s32 *param_2, Vec3p *param_3, Vec3p *param_4, s32 param_5, u16 param_6, Vec3p *param_7,
                             Vec3p *param_8);

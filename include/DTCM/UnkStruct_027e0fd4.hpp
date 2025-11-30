@@ -80,7 +80,7 @@ public:
     /* 0e0 */ Actor *mUnk_0e0;
     /* 0e4 */ unk32 mUnk_0e4;
     /* 0e8 */ unk32 mUnk_0e8;
-    /* 0ec */ unk32 mUnk_0ec;
+    /* 0ec */ Actor *mUnk_0ec;
     /* 0f0 */ unk32 mUnk_0f0;
     /* 0f4 */ unk32 mUnk_0f4;
     /* 0f8 */ unk32 mUnk_0f8;

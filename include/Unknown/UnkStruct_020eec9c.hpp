@@ -4,6 +4,8 @@
 #include "global.h"
 #include "types.h"
 
+#include <nds/math.h>
+
 struct UnkStruct_020eec9c_28 {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk16 mUnk_04;
@@ -38,7 +40,9 @@ public:
 
     void func_ov000_020d77e4(unk32);
     unk32 func_ov000_020d7f18(unk32);
+    void func_ov000_020d7a84(unk32, Vec3p *);
     void func_ov000_020d7ad4(unk32);
+    void func_ov000_020d7b20(unk32, Vec3p *);
     void func_ov008_0211337c();
 };
 

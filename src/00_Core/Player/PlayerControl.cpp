@@ -37,9 +37,9 @@ ARM bool PlayerControl::func_ov00_020aeef8() {
 
 THUMB void PlayerControl::func_ov00_020aef30() {
     this->ResetTouchWorld();
-    if (mDebug) {
+    if (mBhio) {
         // 操作 = Operation
-        mDebug->vfunc_20(0, "\x91\x80\x8d\xec", 'PCTL', 'PLYR', 0, 0);
+        mBhio->vfunc_20(0, "\x91\x80\x8d\xec", 'PCTL', 'PLYR', 0, 0);
     }
 }
 
