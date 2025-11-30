@@ -1011,7 +1011,7 @@ ARM bool MapManager::IsTriggerTypeOverlapped(u32 type, Vec3p *pos) {
     return this->mMap->IsTriggerTypeOverlapped(type, pos);
 }
 
-ARM unk8 MapManager::GetOverlappingTrigger(Vec3p *param_2) {
+ARM u8 MapManager::GetOverlappingTrigger(Vec3p *param_2) {
     return this->mMap->GetOverlappingTrigger(param_2);
 }
 
@@ -1062,7 +1062,7 @@ ARM bool MapManager::FindExit(u32 param_2, Exit *param_3) {
     return this->mMap->FindExit(param_2, param_3);
 }
 
-ARM char MapManager::func_ov00_020838f8(Exit *param_2) {
+ARM u8 MapManager::func_ov00_020838f8(Exit *param_2) {
     return this->mMap->func_ov00_02080140(param_2);
 }
 
