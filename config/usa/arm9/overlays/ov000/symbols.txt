@@ -682,7 +682,7 @@ _ZN10MapManager18func_ov00_02085594EP5Vec3p kind:function(arm,size=0x2a8) addr:0
 _ZN10MapManager18func_ov00_0208583cEPS_P5Vec3pi kind:function(arm,size=0x74) addr:0x020857dc
 _ZN10MapManager18func_ov00_020858b0EPS_P5Vec3pi kind:function(arm,size=0x184) addr:0x02085850
 _ZN10MapManager18func_ov00_02085a34EP5Vec3pi kind:function(arm,size=0x22c) addr:0x020859d4
-_ZN10MapManager18func_ov00_02085c60EP5Vec3pPiS2_j kind:function(arm,size=0x3e4) addr:0x02085c00
+_ZN10MapManager18func_ov00_02085c60EP9UnkStructPiS2_j kind:function(arm,size=0x3e4) addr:0x02085c00
 _ZN10MapManager18func_ov00_02086044EP5Vec3pS1_i kind:function(arm,size=0x240) addr:0x02085fe4
 _ZN10MapManager18func_ov00_02086284EPiP5Vec3pS2_itS2_S2_ kind:function(arm,size=0x800) addr:0x02086224
 _ZN10MapManager18func_ov00_02086a84EPiP5Vec3pS2_iiiS2_S2_ kind:function(arm,size=0x24c) addr:0x02086a24
@@ -1890,7 +1890,7 @@ _ZN13LinkStateBase15ChangeLinkStateEi kind:function(arm,size=0x10) addr:0x020a80
 _ZN13LinkStateBase18ChangeLinkSubStateEii kind:function(arm,size=0x10) addr:0x020a80e8
 _ZN13LinkStateBase18EquipItem_vfunc_28Ev kind:function(arm,size=0x48) addr:0x020a80f8
 _ZN13LinkStateBase22UpdateSwordShieldInUseEv kind:function(arm,size=0x18) addr:0x020a8140
-_ZN13LinkStateBase18func_ov00_020a81b8Eii kind:function(arm,size=0x24) addr:0x020a8158
+_ZN13LinkStateBase18func_ov00_020a81b8EiP5Vec3p kind:function(arm,size=0x24) addr:0x020a8158
 _ZN13LinkStateBase16GetLinkItemStateEv kind:function(arm,size=0x10) addr:0x020a817c
 _ZN13LinkStateBase6LookAtEP5Vec3p kind:function(arm,size=0x10) addr:0x020a818c
 _ZN13LinkStateBase18func_ov00_020a81fcEP5Vec3pi kind:function(arm,size=0x10) addr:0x020a819c
@@ -1958,11 +1958,11 @@ _ZN13LinkStateBase26PlayerControlData_vfunc_14Ei kind:function(arm,size=0x30) ad
 _ZN13LinkStateBase28Get_PlayerControlData_Unk100Ev kind:function(arm,size=0x14) addr:0x020a8d58
 _ZN13LinkStateBase28Get_PlayerControlData_Unk120Ev kind:function(arm,size=0x14) addr:0x020a8d6c
 _ZN13LinkStateBase24Get_PlayerLinkBase_Unk38Ev kind:function(arm,size=0xc) addr:0x020a8d80
-_ZN13LinkStateBase18GetDebugHierarchy0Ev kind:function(arm,size=0xc) addr:0x020a8d8c
-_ZN13LinkStateBase18GetDebugHierarchy1Ev kind:function(arm,size=0xc) addr:0x020a8d98
+_ZN13LinkStateBase8GetBhio0Ev kind:function(arm,size=0xc) addr:0x020a8d8c
+_ZN13LinkStateBase8GetBhio1Ev kind:function(arm,size=0xc) addr:0x020a8d98
 _ZN13LinkStateMove8vfunc_00Ev kind:function(thumb,size=0x2) addr:0x020a8da4
 _ZN13LinkStateMove5GetIdEv kind:function(arm,size=0x8) addr:0x020a8da8
-_ZN13LinkStateMove20CreateDebugHierarchyEv kind:function(thumb,size=0x48) addr:0x020a8db0
+_ZN13LinkStateMove8LoadBhioEv kind:function(thumb,size=0x48) addr:0x020a8db0
 _ZN13LinkStateMove12OnStateEnterEv kind:function(arm,size=0x74) addr:0x020a8df8
 _ZN13LinkStateMove12OnStateLeaveEi kind:function(arm,size=0x20) addr:0x020a8e6c
 _ZN13LinkStateMove8vfunc_24Ei kind:function(arm,size=0x40) addr:0x020a8e8c
@@ -2048,8 +2048,8 @@ func_ov000_020aa0f0 kind:function(arm,size=0x34) addr:0x020aa090
 func_ov000_020aa124 kind:function(arm,size=0x208) addr:0x020aa0c4
 _ZN17LinkStateInteract8vfunc_00Ev kind:function(thumb,size=0x2) addr:0x020aa2cc
 _ZN17LinkStateInteract5GetIdEv kind:function(arm,size=0x8) addr:0x020aa2d0
-_ZN17LinkStateInteract20CreateDebugHierarchyEv kind:function(arm,size=0x24) addr:0x020aa2d8
-_ZN17LinkStateInteract14GetGrabActorIdEv kind:function(thumb,size=0x1d8) addr:0x020aa2fc
+_ZN17LinkStateInteract14GetGrabActorIdEv kind:function(arm,size=0x24) addr:0x020aa2d8
+_ZN17LinkStateInteract8LoadBhioEv kind:function(thumb,size=0x1d8) addr:0x020aa2fc
 _ZN17LinkStateInteract12OnStateEnterEv kind:function(arm,size=0x27c) addr:0x020aa4d4
 _ZN17LinkStateInteract12OnStateLeaveEi kind:function(arm,size=0x68) addr:0x020aa750
 _ZN17LinkStateInteract18func_ov00_020aa818Ev kind:function(arm,size=0x2c) addr:0x020aa7b8
@@ -2083,7 +2083,7 @@ _ZN13LinkStateItem16GetLinkStateMoveEv kind:function(arm,size=0x10) addr:0x020ab
 _ZN13LinkStateItem18func_ov00_020abf70Ev kind:function(arm,size=0x20) addr:0x020abf10
 _ZN13LinkStateItem8vfunc_28Ev kind:function(arm,size=0x14) addr:0x020abf30
 _ZN15LinkStateDamage8vfunc_00Ev kind:function(thumb,size=0x2) addr:0x020abf44
-_ZN15LinkStateDamage20CreateDebugHierarchyEv kind:function(thumb,size=0x218) addr:0x020abf48
+_ZN15LinkStateDamage8LoadBhioEv kind:function(thumb,size=0x218) addr:0x020abf48
 _ZN15LinkStateDamage12OnStateEnterEv kind:function(arm,size=0x630) addr:0x020ac160
 _ZN15LinkStateDamage12OnStateLeaveEi kind:function(arm,size=0x1f4) addr:0x020ac790
 _ZN15LinkStateDamage18func_ov00_020ac9e4Ei kind:function(arm,size=0x6c) addr:0x020ac984
@@ -2172,7 +2172,7 @@ _ZNK11ItemManager21HasTreasurePriceShownEj kind:function(thumb,size=0x26) addr:0
 _ZN11ItemManager21AddTreasurePriceShownEj kind:function(thumb,size=0x22) addr:0x020ae70c
 _ZN13LinkStateRoll8vfunc_00Ev kind:function(thumb,size=0x2) addr:0x020ae730
 _ZN13LinkStateRoll5GetIdEv kind:function(arm,size=0x8) addr:0x020ae734
-_ZN13LinkStateRoll20CreateDebugHierarchyEv kind:function(thumb,size=0x8) addr:0x020ae73c
+_ZN13LinkStateRoll8LoadBhioEv kind:function(thumb,size=0x8) addr:0x020ae73c
 _ZN13LinkStateRoll12OnStateEnterEv kind:function(arm,size=0x394) addr:0x020ae744
 _ZN13LinkStateRoll12OnStateLeaveEi kind:function(arm,size=0xd8) addr:0x020aead8
 _ZN13LinkStateRoll8vfunc_20Ei kind:function(arm,size=0x180) addr:0x020aebb0
@@ -2257,7 +2257,7 @@ _ZN24UnkStruct_ov004_0210abb88vfunc_08Ei kind:function(arm,size=0x28) addr:0x020
 _ZN17LinkStateCutscene19func_ov000_020b1e98Ei kind:function(arm,size=0x20) addr:0x020b1e38
 _ZN17LinkStateCutscene19func_ov000_020b1eb8Ev kind:function(arm,size=0x34) addr:0x020b1e58
 _ZN17LinkStateCutscene19func_ov000_020b1eecEv kind:function(arm,size=0x58) addr:0x020b1e8c
-_ZN17LinkStateCutscene20CreateDebugHierarchyEv kind:function(thumb,size=0x168) addr:0x020b1ee4
+_ZN17LinkStateCutscene8LoadBhioEv kind:function(thumb,size=0x168) addr:0x020b1ee4
 _ZN17LinkStateCutscene12OnStateEnterEv kind:function(arm,size=0x3f4) addr:0x020b204c
 _ZN17LinkStateCutscene12OnStateLeaveEi kind:function(arm,size=0x60) addr:0x020b2440
 _ZN17LinkStateCutscene5GetIdEv kind:function(arm,size=0x8) addr:0x020b24a0
@@ -3613,9 +3613,9 @@ func_ov000_020d75dc kind:function(arm,size=0x208) addr:0x020d757c
 _ZN18UnkStruct_020eec9c19func_ov000_020d77e4Ei kind:function(arm,size=0x9c) addr:0x020d7784
 func_ov000_020d7880 kind:function(arm,size=0x20) addr:0x020d7820
 func_ov000_020d78a0 kind:function(arm,size=0x1e4) addr:0x020d7840
-func_ov000_020d7a84 kind:function(arm,size=0x50) addr:0x020d7a24
+_ZN18UnkStruct_020eec9c19func_ov000_020d7a84EiP5Vec3p kind:function(arm,size=0x50) addr:0x020d7a24
 _ZN18UnkStruct_020eec9c19func_ov000_020d7ad4Ei kind:function(arm,size=0x4c) addr:0x020d7a74
-func_ov000_020d7b20 kind:function(arm,size=0x40) addr:0x020d7ac0
+_ZN18UnkStruct_020eec9c19func_ov000_020d7b20EiP5Vec3p kind:function(arm,size=0x40) addr:0x020d7ac0
 func_ov000_020d7b60 kind:function(arm,size=0x20) addr:0x020d7b00
 func_ov000_020d7b80 kind:function(arm,size=0xec) addr:0x020d7b20
 func_ov000_020d7c6c kind:function(arm,size=0x20) addr:0x020d7c0c
@@ -4821,13 +4821,13 @@ data_ov000_020e5960 kind:data(any) addr:0x020e5900
 data_ov000_020e5964 kind:data(any) addr:0x020e5904
 data_ov000_020e5968 kind:data(any) addr:0x020e5908
 _ZTV17LinkStateInteract kind:data(any) addr:0x020e5914
-data_ov000_020e59b8 kind:data(any) addr:0x020e5958
-data_ov000_020e59cc kind:data(any) addr:0x020e596c
-data_ov000_020e59e4 kind:data(any) addr:0x020e5984
-data_ov000_020e59fc kind:data(any) addr:0x020e599c
-data_ov000_020e5a0c kind:data(any) addr:0x020e59ac
-data_ov000_020e5a20 kind:data(any) addr:0x020e59c0
-data_ov000_020e5a34 kind:data(any) addr:0x020e59d4
+@1235 kind:data(any) addr:0x020e5958 local
+@1236 kind:data(any) addr:0x020e596c local
+@1237 kind:data(any) addr:0x020e5984 local
+@1238 kind:data(any) addr:0x020e599c local
+@1239 kind:data(any) addr:0x020e59ac local
+@1240 kind:data(any) addr:0x020e59c0 local
+@1241 kind:data(any) addr:0x020e59d4 local
 _ZTV13LinkStateItem kind:data(any) addr:0x020e59e0
 @1126 kind:data(any) addr:0x020e5a2c
 @1125 kind:data(any) addr:0x020e5a30

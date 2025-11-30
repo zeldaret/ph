@@ -43,7 +43,7 @@ public:
     /* 00 */ virtual void vfunc_00() override;
     /* 04 */ virtual ~LinkStateDamage() override;
     /* 0c */ virtual LinkStateId GetId() override;
-    /* 10 */ virtual void CreateDebugHierarchy() override;
+    /* 10 */ virtual void LoadBhio() override;
     /* 14 */ virtual void OnStateEnter() override;
     /* 18 */ virtual void OnStateLeave(s32 param1) override;
     /* 1c */ virtual void vfunc_1c() override;

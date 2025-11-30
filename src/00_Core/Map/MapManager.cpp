@@ -2483,7 +2483,7 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
     return 0;
 }
 
-unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param_4, u32 param_5) {
+unk8 MapManager::func_ov00_02085c60(UnkStruct *param_2, unk32 *param_3, unk32 *param_4, u32 param_5) {
     s64 lVar1;
     s32 *puVar2;
     unk32 dVar3; // dword
@@ -2502,24 +2502,6 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     Vec3p VStack_b0;
     Vec3p VStack_a4;
     Vec3p VStack_98;
-    Vec3p aVStack_8c[3];
-    unk16 uStack_68;
-    unk16 uStack_66;
-    unk16 uStack_64;
-    unk16 uStack_62;
-    unk16 uStack_60;
-    unk8 uStack_3e;
-    unk8 uStack_3d;
-    unk8 uStack_3c;
-    unk8 uStack_3b;
-    unk8 uStack_34;
-    unk8 uStack_33;
-    unk8 uStack_32;
-    unk8 uStack_31;
-    unk8 uStack_30;
-    unk8 uStack_2f;
-    unk32 uStack_2c;
-    unk32 uStack_28;
 
     if (param_5 == 0) {
         return 0;
@@ -2565,47 +2547,31 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     VStack_d8.pos.z  = 0;
     VStack_d8.radius = param_5;
     do {
-        bVar4 = func_01ffbe78(param_2, &VStack_b0, &VStack_bc, &VStack_d8);
+        bVar4 = func_01ffbe78(param_2, &VStack_b0, &VStack_bc, &VStack_d8, 0, 0, 0, 0);
         if (bVar4) {
-            VStack_e4.x = param_2->x;
-            VStack_e4.y = param_2->y;
-            VStack_e4.z = param_2->z;
-            VStack_f0.x = param_2[1].x;
-            VStack_f0.y = param_2[1].y;
-            VStack_f0.z = param_2[1].z;
+            VStack_e4.x = param_2->mUnk_00.x;
+            VStack_e4.y = param_2->mUnk_00.y;
+            VStack_e4.z = param_2->mUnk_00.z;
+            VStack_f0.x = param_2->mUnk_0c.x;
+            VStack_f0.y = param_2->mUnk_0c.y;
+            VStack_f0.z = param_2->mUnk_0c.z;
             Vec3p_Normalize(&VStack_f0, &VStack_f0);
             Vec3p_Scale(&VStack_f0, param_5);
             Vec3p_Add(&VStack_e4, &VStack_f0, &VStack_e4);
-            dVar3      = 0xffff;
-            param_2->x = VStack_e4.x;
-            param_2->y = VStack_e4.y;
-            param_2->z = VStack_e4.z;
-            uStack_68  = (u16) dVar3;
-            uStack_60  = 0;
-            uStack_3e  = 0;
-            uStack_3d  = 0;
-            uStack_3c  = 0;
-            uStack_3b  = 0;
-            uStack_34  = 0;
-            uStack_33  = 0;
-            uStack_32  = 0;
-            uStack_31  = 0;
-            uStack_30  = 0;
-            uStack_2f  = 0;
-            uStack_2c  = 0xffffffff;
-            uStack_28  = 0xffffffff;
-            uStack_66  = uStack_68;
-            uStack_64  = uStack_68;
-            uStack_62  = uStack_68;
-            bVar5      = func_01ffbe78(aVStack_8c, &VStack_e4, &VStack_e4, &VStack_d8);
+            dVar3              = 0xffff;
+            param_2->mUnk_00.x = VStack_e4.x;
+            param_2->mUnk_00.y = VStack_e4.y;
+            param_2->mUnk_00.z = VStack_e4.z;
+            UnkStruct aVStack_8c;
+            bVar5 = func_01ffbe78(&aVStack_8c, &VStack_e4, &VStack_e4, &VStack_d8, 0, 0, 0, 0);
             if (bVar5) {
-                VStack_e4.x = aVStack_8c[0].x;
-                VStack_e4.y = aVStack_8c[0].y;
-                VStack_e4.z = aVStack_8c[0].z;
+                VStack_e4.x = aVStack_8c.mUnk_00.x;
+                VStack_e4.y = aVStack_8c.mUnk_00.y;
+                VStack_e4.z = aVStack_8c.mUnk_00.z;
             }
             func_ov000_0207920c(data_027e0d3c, &VStack_e4, (unk32 *) &iStack_104, 0);
-            param_2[8].x = iStack_104.x;
-            param_2[8].y = iStack_104.y;
+            ((Vec3p *) param_2 + 8)->x = iStack_104.x;
+            ((Vec3p *) param_2 + 8)->y = iStack_104.y;
             return 1;
         }
         VStack_bc.x = VStack_b0.x;
@@ -2617,12 +2583,12 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
             bVar5 = true;
         }
     } while (!bVar5);
-    param_2->x = VStack_98.x;
-    param_2->y = VStack_98.y;
-    param_2->z = VStack_98.z;
+    param_2->mUnk_00.x = VStack_98.x;
+    param_2->mUnk_00.y = VStack_98.y;
+    param_2->mUnk_00.z = VStack_98.z;
     func_ov000_0207920c(puVar2, &VStack_98, &iStack_10c, 0);
-    param_2[8].x = iStack_10c;
-    param_2[8].y = iStack_108;
+    ((Vec3p *) param_2 + 8)->x = iStack_10c;
+    ((Vec3p *) param_2 + 8)->y = iStack_108;
     return 0;
 }
 

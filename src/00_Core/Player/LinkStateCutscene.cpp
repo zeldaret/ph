@@ -5,7 +5,7 @@ void UnkStruct_ov004_0210abb8::vfunc_08(unk32 param1) {}
 bool LinkStateCutscene::func_ov000_020b1e98(s32 param1) {}
 bool LinkStateCutscene::func_ov000_020b1eb8() {}
 bool LinkStateCutscene::func_ov000_020b1eec() {}
-void LinkStateCutscene::CreateDebugHierarchy() {}
+void LinkStateCutscene::LoadBhio() {}
 void LinkStateCutscene::OnStateEnter() {}
 void LinkStateCutscene::OnStateLeave(s32 param1) {}
 LinkStateId LinkStateCutscene::GetId() {}
