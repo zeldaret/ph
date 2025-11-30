@@ -20,6 +20,7 @@
 #include "cxxabi.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include "string.h"
 
 extern "C" void Fill32(unk32, u32 *, unk32);
 extern "C" void __cxa_vec_ctor(void *, unk32, unk32, void *, void *);
@@ -41,7 +42,7 @@ extern unk32 data_ov000_020ecde4;
 struct UnkStruct_020ec81c_04 {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 *mUnk_08;
+    /* 08 */ unk32 *mUnk_08; // Address to nsbtx
     /* 0c */
 };
 
@@ -198,18 +199,19 @@ ARM void MapBase::vfunc_b0(unk32 param_2, unk32 param_3) {
 
 // Non-matching
 ARM bool MapBase::func_ov00_0207e08c(s32 *param_2, s32 param_3) {
-    int iVar1;
-    int iVar2;
-
     if (this->mUnk_13c == NULL) {
         return false;
     }
-    iVar1 = this->mUnk_13c->mUnk_00 + this->mUnk_13c->mUnk_08;
+    unk32 iVar1 = (unk32) this->mUnk_13c + this->mUnk_13c->mUnk_08;
     if (iVar1 == 0) {
         return false;
     }
-    iVar2 = iVar1 + *(s32 *) ((u32) * (u16 *) (iVar1 + 4 + (u32) * (u16 *) (iVar1 + 10)) * param_3 + iVar1 + 4 +
-                              (u32) * (u16 *) (iVar1 + 10) + 4);
+
+    unk32 r0  = *(u16 *) (iVar1 + 10);
+    unk32 r12 = iVar1 + 4;
+    unk32 a   = *(u16 *) (r12 + r0) * param_3;
+
+    unk32 iVar2 = iVar1 + *(unk32 *) (r12 + r0 + a + 4);
     if (iVar1 == 0) {
         return false;
     }
@@ -218,84 +220,94 @@ ARM bool MapBase::func_ov00_0207e08c(s32 *param_2, s32 param_3) {
     return true;
 }
 
+struct UnkStruct_func_b4 {
+    /* 00 */ unk8 pad[0x3c];
+    /* 3c */ u8 mUnk_3c[4];
+    /* 40 */ unk16 pad2;
+    /* 42 */ unk16 mUnk_42;
+    /* 44 */
+};
+
+struct UnkStruct2 {
+    unk16 mUnk_00;
+    u16 mUnk_02;
+};
+
 // Non-matching
+// Get appropriate index in NSBTX texture names surrounding cave entrances
 ARM s32 MapBase::func_ov00_0207e0f0(s32 param_2) {
-    unk8 bVar1;
+    int *iVar9;
+    int *iVar10;
+    int *iVar11;
+    u8 bVar1;
     u16 uVar2;
     u16 uVar3;
-    u16 *puVar4;
+    int iVar12;
+    u32 i;
+    int j;
     int iVar6;
-    int *iVar5;
-    int *iVar12;
-    int *iVar11;
-    int *iVar8;
-    int iVar7;
-    u32 uVar8;
-    MapBase_Unk_13c *pMVar9;
-    int *iVar9;
-    int iVar13;
-    int *iVar10;
-    u32 uVar14;
+    UnkStruct_func_b4 *iVar8;
+    u16 uVar14;
     int iVar15;
-    u32 uStack_30;
 
-    pMVar9 = this->mUnk_13c;
-    if (pMVar9 == NULL) {
+    MapBase_Unk_13c *pMapUnk_13c = this->mUnk_13c;
+    if (pMapUnk_13c == NULL) {
         return -1;
     }
-    puVar4 = (u16 *) ((int) &pMVar9->mUnk_00 + pMVar9->mUnk_08);
-    if (puVar4 != (u16 *) 0x0) {
-        iVar6 = (int) puVar4 + (u32) *puVar4;
-        if (iVar6 == 0) {
-            return -1;
-        }
-        uStack_30 = 0;
-        if (*(char *) (iVar6 + 1) != '\0') {
-            iVar15 = 0;
-            do {
-                iVar13 = iVar6 + (u32) * (u16 *) (iVar6 + 6);
-                iVar10 = (int *) (iVar13 + (u32) * (u16 *) (iVar13 + 2));
-                iVar5  = this->vfunc_b4();
-                iVar12 = func_0201e24c((unk32 *) (iVar5 + 0xf), (char *) ((int) iVar10 + iVar15));
-                if (iVar12 != (int *) 0x0) {
-                    iVar13 = 0;
-                    iVar9  = (int *) (iVar6 + (u32) * (u16 *) (iVar6 + 6) + 4);
-                    iVar11 = (int *) (*(u16 *) (iVar6 + (u32) * (u16 *) (iVar6 + 6)) * uStack_30);
-                    uVar2  = *(u16 *) ((int) iVar9 + (int) iVar11);
-                    if (*(char *) ((int) iVar9 + (int) iVar11 + 2) != '\0') {
-                        do {
-                            if (param_2 == (u32) * (unk8 *) ((int) puVar4 + (u32) uVar2) + iVar13) {
-                                iVar8  = this->vfunc_b4();
-                                bVar1  = *(unk8 *) ((int) iVar8 + 0x3d);
-                                uVar14 = 0;
-                                if (bVar1 != 0) {
-                                    uVar3 = *(u16 *) ((int) iVar8 + 0x42);
-                                    do {
-                                        iVar7 = strcmp((unk8 *) ((int) iVar8 + uVar14 * 0x10 +
-                                                                 (u32) * (u16 *) ((int) iVar8 + uVar3 + 0x3e) + uVar3 + 0x3c),
-                                                       (unk8 *) ((int) iVar10 + iVar15));
-                                        if (iVar7 == 0) {
-                                            return uVar14;
-                                        }
-                                        uVar8  = uVar14 + 1;
-                                        uVar14 = uVar8 & 0xffff;
-                                    } while ((uVar8 & 0xffff) < (u32) bVar1);
-                                }
-                            }
-                            iVar13++;
-                        } while (iVar13 < (int) (u32) * (unk8 *) ((int) ((int) iVar9 + (int) iVar11) + 2));
-                    }
-                }
-                iVar15    = iVar15 + 0x10;
-                uStack_30 = uStack_30 + 1;
-            } while (uStack_30 < *(unk8 *) (iVar6 + 1));
-        }
+    u16 *puVar4 = (u16 *) ((int) pMapUnk_13c + pMapUnk_13c->mUnk_08);
+    if (puVar4 == NULL) {
         return -1;
+    }
+    iVar6 = (unk32) puVar4 + *puVar4;
+    if (iVar6 == 0) {
+        return -1;
+    }
+    i = 0;
+    if (i < *(u8 *) (iVar6 + 1)) {
+        iVar15 = 0;
+        do {
+            iVar12 = iVar6 + *(u16 *) (iVar6 + 6);
+            iVar10 = (int *) (iVar12 + *(u16 *) (iVar12 + 2));
+            if (func_0201e24c((unk32 *) ((int) this->vfunc_b4() + 0x3c), (char *) ((int) iVar10 + iVar15)) != NULL) {
+                j      = 0;
+                iVar9  = (int *) (iVar6 + (u32) * (u16 *) (iVar6 + 6) + 4);
+                iVar11 = (int *) (*(u16 *) (iVar6 + *(u16 *) (iVar6 + 6)) * i);
+                uVar2  = *(u16 *) ((int) iVar9 + (int) iVar11);
+                if (j < *(u8 *) ((int) iVar9 + (int) iVar11 + 2)) {
+                    do {
+                        if (param_2 == (u32) * (u8 *) ((int) puVar4 + (u32) uVar2) + j) {
+                            iVar8    = (UnkStruct_func_b4 *) this->vfunc_b4();
+                            unk32 *a = (unk32 *) iVar8->mUnk_3c;
+                            bVar1    = *(u8 *) ((int) a + 1);
+                            uVar14   = 0;
+                            if ((unk32) bVar1 > 0) {
+                                uVar3 = *(u16 *) ((int) a + 6);
+                                do {
+                                    // compare both texture names to match the two that are used (top and bottom)
+                                    // to surround cave entrance
+                                    UnkStruct2 *b = (UnkStruct2 *) ((int) a + uVar3);
+                                    if (strcmp((char *) ((unk32) b + b->mUnk_02 + uVar14 * 0x10),
+                                               (char *) ((int) iVar10 + iVar15)) == 0) {
+                                        return uVar14;
+                                    }
+                                    // iterate through the texture names
+                                    uVar14++;
+                                } while (bVar1 > uVar14);
+                            }
+                        }
+                        j++;
+                    } while (j < *(u8 *) (((int) iVar9 + (int) iVar11) + 2));
+                }
+            }
+            iVar15 += 0x10; // 0x10 size of nbstx texture name
+            i++;
+        } while (i < *(u8 *) (iVar6 + 1));
     }
     return -1;
 }
 
 // Non-matching
+// Get appropriate index in NSBTX texture palette names surrounding cave entrances
 ARM s32 MapBase::func_ov00_0207e28c(s32 param_2) {
     u16 uVar1;
     u16 uVar2;
@@ -378,6 +390,7 @@ ARM s32 MapBase::func_ov00_0207e28c(s32 param_2) {
     return -1;
 }
 
+// Get address to the course's TEX0 section in texture file (.NSBTX)
 ARM unk32 *MapBase::vfunc_b4() {
     if (data_ov000_020ec81c.mUnk_04 != NULL) {
         return func_0201e4cc(data_ov000_020ec81c.mUnk_04->mUnk_08);
@@ -1269,20 +1282,27 @@ ARM unk32 MapBase::GetTileEndZ(unk32 z) {
 
 // Non-matching
 ARM void MapBase::GetTileBounds(TilePos *tilePos, AABB *bounds) {
-    Vec3p start;
-    Vec3p end;
+    AABB newBounds;
 
     this->GetTileStartX(tilePos->x); // what's the purpose of this?
-    start.z = this->GetTileStartZ(tilePos->y);
-    start.x = this->GetTileStartX(tilePos->x);
-    start.y = FLOAT_TO_Q20(-1.2001); // why not just -1.2?
 
-    end.z = this->GetTileEndZ(tilePos->y);
-    end.y = this->vfunc_60(tilePos);
-    end.x = this->GetTileEndX(tilePos->x);
+    q20 z = this->GetTileStartZ(tilePos->y);
 
-    bounds->min = start;
-    bounds->max = end;
+    q20 x = this->GetTileStartX(tilePos->x);
+
+    newBounds.max.z = z;
+    newBounds.max.x = x;
+    newBounds.max.y = -FLOAT_TO_Q20(1.2);
+
+    q20 z2 = this->GetTileEndZ(tilePos->y);
+    q20 y2 = this->vfunc_60(tilePos);
+    q20 x2 = this->GetTileEndX(tilePos->x);
+
+    *bounds = newBounds;
+
+    bounds->max.x = x2;
+    bounds->max.y = y2;
+    bounds->max.z = z2;
 }
 
 ARM s32 MapBase::GetClampedTileX(s32 worldX) {

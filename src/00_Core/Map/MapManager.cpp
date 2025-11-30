@@ -302,8 +302,8 @@ ARM s32 MapManager::func_ov00_020823e4(s32 param_2) {
     return this->mMap->func_ov00_0207e28c(param_2);
 }
 
-ARM void MapManager::MapData_vfunc_b4() {
-    this->mMap->vfunc_b4();
+ARM unk32 *MapManager::MapData_vfunc_b4() {
+    return this->mMap->vfunc_b4();
 }
 
 ARM void MapManager::MapData_vfunc_9c() {
@@ -2660,8 +2660,8 @@ unk8 MapManager::func_ov00_02086044(Vec3p *param_2, Vec3p *param_3, unk32 param_
     local_88.x     = param_2->x;
     local_88.y     = param_2->y;
     local_88.z     = param_2->z;
-    func_ov000_0208ed74(&local_40, &local_88);
-    // AABB_Grow(&local_40, param_4);
+    local_40.GrowToPoint(&local_88);
+    local_40.GrowScalar(param_4);
     iVar3      = this->func_ov00_020839d4(local_40.min.x);
     iVar4      = this->func_ov00_020839f8(local_40.min.z);
     iVar5      = this->func_ov00_020839d4(local_40.max.x);
@@ -2679,7 +2679,7 @@ unk8 MapManager::func_ov00_02086044(Vec3p *param_2, Vec3p *param_3, unk32 param_
     Vec3p_Sub(&local_94, pVVar10, &VStack_58);
     uVar1 = this->func_ov00_020839d4(param_3->x);
     uVar2 = this->func_ov00_020839f8(param_3->z);
-    // iVar7 = this->func_ov00_02083e34(uVar1, uVar2, pVVar10);
+    iVar7 = this->func_ov00_02083e34(uVar1, uVar2, (unk32) pVVar10);
     do {
         if (iVar5 < iVar3) {
             return 0;
@@ -2687,7 +2687,7 @@ unk8 MapManager::func_ov00_02086044(Vec3p *param_2, Vec3p *param_3, unk32 param_
         if (iVar4 <= iVar6) {
             iVar11 = iVar4;
             do {
-                // iVar8 = this->func_ov00_02083e34((char) iVar3, (char) iVar11, pVVar10);
+                iVar8 = this->func_ov00_02083e34((char) iVar3, (char) iVar11, (unk32) pVVar10);
                 if (iVar7 < iVar8) {
                     local_c6.x = (char) iVar3;
                     local_c6.y = (char) iVar11;

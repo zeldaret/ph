@@ -148,7 +148,7 @@ public:
     bool func_ov00_020823c4(unk32 *param_2, s32 param_3);
     s32 func_ov00_020823d4(s32 param_2);
     s32 func_ov00_020823e4(s32 param_2);
-    void MapData_vfunc_b4();
+    unk32 *MapData_vfunc_b4();
     void MapData_vfunc_9c();
     s32 func_ov00_02082424();
     bool func_ov00_02082454(Vec3p *param_2, Vec3p *param_3);

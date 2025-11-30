@@ -21,10 +21,10 @@
 #define MAX_VIEWPOINTS 8
 #define MAX_MAP_UNK_130 0x20
 
-struct MapBase_Unk_13c {
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
+struct MapBase_Unk_13c { // Related to map's ground texture
+    /* 00 */ unk32 mUnk_00; // ?
+    /* 04 */ unk32 mUnk_04; // Place map texture on ...?
+    /* 08 */ unk32 mUnk_08; // Offset to ground texture ?
     /* 0c */
 };
 
