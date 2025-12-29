@@ -89,6 +89,19 @@ struct UnkStruct_0207f38c {
     /* 14 */ TilePos mUnk_14;
 };
 
+class MapBase_func_ov00_0207e968 {
+public:
+    unk8 mUnk_00[0x10];
+    ~MapBase_func_ov00_0207e968();
+};
+
+class MapBase_func_ov00_0207e940 {
+public:
+    /* 00 */ unk8 mUnk_00[0x18];
+    /* 18 */ MapBase_func_ov00_0207e968 mUnk_18[3];
+    ~MapBase_func_ov00_0207e940();
+};
+
 class MapBase : public SysObject {
 public:
     /* 000 (vtable) */
@@ -146,7 +159,7 @@ public:
     /* 140 */ MapBase_Unk_140 *mUnk_140;
     /* 144 */ MapBase_Unk_144 *mUnk_144;
     /* 148 */ s32 mUnk_148;
-    /* 14c */ unk32 mUnk_14c;
+    /* 14c */ unk8 *mUnk_14c; // pointer to MFCB data
     /* 150 */ unk32 mUnk_150;
     /* 154 */ unk32 mUnk_154;
     /* 158 */ unk8 mUnk_158[8];
@@ -169,7 +182,7 @@ public:
     /* 20 */ virtual void vfunc_20(s32 param_2);
     /* 24 */ virtual void vfunc_24();
     /* 28 */ virtual void vfunc_28(s32 param_2);
-    /* 2c */ virtual void vfunc_2c();
+    /* 2c */ virtual void vfunc_2c(); // Runs when exiting Oshus's house
     /* 30 */ virtual void vfunc_30(s32 param_2);
     /* 34 */ virtual bool vfunc_34(char *param_2);
     /* 38 */ virtual void vfunc_38();
@@ -218,8 +231,8 @@ public:
     bool func_ov00_0207e08c(s32 *param_2, s32 param_3);
     s32 func_ov00_0207e0f0(s32 param_2);
     s32 func_ov00_0207e28c(s32 param_2);
-    static unk8 *func_ov00_0207e940(unk8 *param_1);
-    static void func_ov00_0207e968();
+    // static unk8 *func_ov00_0207e940(unk8 *param_1);
+    // static void func_ov00_0207e968();
     static void func_ov00_0207e96c();
     static void func_ov00_0207f100();
     bool func_ov00_0207f104(Vec3p *param_2, unk32 *param_3);

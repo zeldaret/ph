@@ -579,7 +579,7 @@ ARM unk32 MapBase::vfunc_68(Vec3p *param_2, bool param_3) {
 LAB_arm9_ov000__0207e724:
     // iVar1 = func_01fff084(data_027e0f6c, param_2, 2, data_ov000_020ec824);
     uVar5 = 0x2000;
-    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    //__cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
     uVar2      = 0;
     local_7c   = 0;
     local_74   = 0;
@@ -632,12 +632,9 @@ LAB_arm9_ov000__0207e724:
     return iVar1;
 }
 
-ARM unk8 *MapBase::func_ov00_0207e940(unk8 *param_1) {
-    //__cxa_vec_cleanup(param_1 + 0x18, 3, 0x10, func_ov00_0207e968);
-    return param_1;
-}
+ARM MapBase_func_ov00_0207e940::~MapBase_func_ov00_0207e940() {}
 
-ARM void MapBase::func_ov00_0207e968() {}
+ARM MapBase_func_ov00_0207e968::~MapBase_func_ov00_0207e968() {}
 
 ARM void MapBase::func_ov00_0207e96c() {}
 
@@ -788,8 +785,8 @@ ARM void MapBase::vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4) {
 LAB_arm9_ov000__0207eb04:
     iVar1 = func_01fff084(data_027e0f6c, param_2, 2, data_ov000_020ec864, 0x20, 0);
     uVar5 = 0x2000;
-    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
-    __cxa_vec_ctor(&local_a4, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    //__cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    //__cxa_vec_ctor(&local_a4, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
     uVar2     = 0;
     local_c8  = 0;
     local_c0  = 0;
@@ -912,7 +909,7 @@ ARM u16 MapBase::vfunc_70(Vec3p *param_2) {
     iVar1      = func_01fff084(data_027e0f6c, param_2, 2, 0x20ec8a4, 0x20, 0);
     iVar4      = 0x2000;
     dVar5      = 0xffff;
-    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    //__cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
     uVar6     = 0;
     local_7c  = 0;
     local_74  = 0;
@@ -1352,6 +1349,7 @@ ARM bool MapBase::IsInBounds(Vec3p *tileWorldPos) {
     return true;
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM unk32 MapBase::AddEntrance(Entrance *param_2) {
     int iVar1;
@@ -1371,6 +1369,7 @@ ARM unk32 MapBase::AddEntrance(Entrance *param_2) {
     }
     return this->mEntrances.push_back(*param_2);
 }
+#pragma dont_inline reset
 
 // Non-matching
 ARM Entrance *MapBase::FindEntrance(unk32 id) {
@@ -1403,6 +1402,7 @@ ARM void MapBase::func_ov00_0207f948(unk32 *param_2) {
     }
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM void MapBase::AddTrigger(TriggerParams *param_2) {
     void *pTVar1;
@@ -1430,6 +1430,7 @@ ARM void MapBase::AddTrigger(TriggerParams *param_2) {
     }
     this->mTriggers.push_back(local_14);
 }
+#pragma dont_inline reset
 
 ARM void TriggerBase::vfunc_08() {}
 
@@ -1572,6 +1573,7 @@ ARM void MapBase::Trigger_vfunc_08() {
     }
 }
 
+#pragma dont_inline on
 ARM bool MapBase::AddTrigger(TriggerBase *param_2) {
     TriggerBase *pTVar1;
     TriggerBase **iter;
@@ -1608,7 +1610,9 @@ ARM bool MapBase::AddTrigger(TriggerBase *param_2) {
     }
     return true;
 }
+#pragma dont_inline reset
 
+#pragma dont_inline on
 ARM bool MapBase::func_ov00_0207ff88(TriggerBase *param_2) {
     TriggerBase *pTVar1;
     TriggerBase **ppTVar2;
@@ -1651,6 +1655,7 @@ ARM bool MapBase::func_ov00_0207ff88(TriggerBase *param_2) {
     this->mTriggers.erase(first, this->mTriggers.mElements + this->mTriggers.mSize);
     return true;
 }
+#pragma dont_inline reset
 
 ARM void MapBase::func_ov00_0208005c(unk32 param_2, unk32 param_3, unk32 param_4) {
     this->mUnk_144->func_ov000_0209c1e4(param_2, param_3, param_4);
@@ -1668,6 +1673,7 @@ ARM void MapBase::func_ov00_0208008c(u32 param_2) {
     this->mUnk_144->func_ov000_0209c8e4(param_2);
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM void MapBase::AddExit(Exit *param_2) {
     u32 uVar1;
@@ -1691,7 +1697,9 @@ ARM void MapBase::AddExit(Exit *param_2) {
     }
     this->mExits.push_back(*param_2);
 }
+#pragma dont_inline reset
 
+#pragma dont_inline on
 // Non-matching
 ARM u8 MapBase::func_ov00_02080140(Exit *param_2) {
     Exit *pEVar1;
@@ -1761,6 +1769,7 @@ ARM u8 MapBase::func_ov00_02080140(Exit *param_2) {
     }
     return MStack_54.mExit_1c.mUnk_14;
 }
+#pragma dont_inline reset
 
 struct UnkStruct_02080324 { // Is this UnkStruct_027e0d38_UnkC? Members don't match, causes overlay checksum issues, but has
                             // same method. Could it be Exit?
@@ -1839,6 +1848,7 @@ ARM bool MapBase::FindExit(u32 param_2, Exit *param_3) {
     return false;
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM void MapBase::AddCameraViewpoint(CameraViewpoint *param_2) {
     unk16 uVar1;
@@ -1863,6 +1873,7 @@ ARM void MapBase::AddCameraViewpoint(CameraViewpoint *param_2) {
     }
     this->mViewpoints.push_back(*param_2);
 }
+#pragma dont_inline reset
 
 // Non-matching
 ARM bool MapBase::FindViewpoint_Unk_4(char id, CameraViewpoint *param_3) {
@@ -2001,18 +2012,19 @@ ARM unk32 MapBase::vfunc_b8(unk32 param_2) {
 
 // Non-matching
 ARM bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
-    int iVar1;
-    int iVar2;
+    unk8 *iVar1;
+    unk8 *iVar2;
     int iVar3;
 
     iVar2 = this->mUnk_14c;
-    if (iVar2 == 0) {
+    if (iVar2 == NULL) {
         return false;
     }
     iVar3 = 0;
     // iVar1 = iVar2;
-    if (*(u16 *) (iVar2 + 4) > 0) {
-        do {
+
+    if (*(u16 *) (iVar2 + 4) >= 0) {
+        for (; iVar3 < (unk32) * (u16 *) (iVar2 + 4); iVar3++) {
             if (param_2 == *(u8 *) (iVar1 + 8)) {
                 iVar1                       = iVar2 + 8 + iVar3 * 0x1c;
                 *param_3                    = *(u8 *) (iVar2 + 8 + iVar3 * 0x1c);
@@ -2026,13 +2038,13 @@ ARM bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
                 *(unk32 *) (param_3 + 0x18) = *(unk32 *) (iVar1 + 0x18);
                 return true;
             }
-            iVar3++;
             iVar1 += 0x1c;
-        } while (iVar3 < (int) *(u16 *) (iVar2 + 4));
+        }
     }
     return false;
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM bool MapBase::AddUnk_130(TriggerBase *param_2) {
     TriggerBase *pTVar1;
@@ -2067,7 +2079,9 @@ ARM bool MapBase::AddUnk_130(TriggerBase *param_2) {
     }
     return true;
 }
+#pragma dont_inline reset
 
+#pragma dont_inline on
 // Not-matching
 ARM bool MapBase::func_ov00_020809b8(TriggerBase *param_2) {
     TriggerBase *pTVar1;
@@ -2108,6 +2122,7 @@ ARM bool MapBase::func_ov00_020809b8(TriggerBase *param_2) {
     this->mUnk_130.erase(iter, this->mUnk_130.mElements + this->mUnk_130.mSize);
     return true;
 }
+#pragma dont_inline reset
 
 // Non-matching
 ARM TriggerBase *MapBase::func_ov00_02080a78(Vec3p *param_2) {
@@ -2210,11 +2225,7 @@ ARM void MapBase::func_ov00_02080b24(TilePos *param_2) {
 }
 
 ARM void MapBase::func_ov00_02080d08(TilePos *param_2) {
-
-    int iVar1;
-
-    iVar1 = this->vfunc_58(param_2, 4);
-    if (iVar1 == 0) {
+    if (this->vfunc_58(param_2, 4) == 0) {
         return;
     }
     this->vfunc_98(param_2, 4, 0);
@@ -2228,14 +2239,14 @@ ARM void MapBase::vfunc_98(TilePos *param_2, unk32 param_3, unk32 param_4) {}
 
 ARM void MapBase::vfunc_c0(TilePos *param_2, unk32 param_3) {}
 
+// Non-matching: weird vfunc_10 offset
 ARM bool MapBase::TriggerOfType_vfunc_10(unk32 type) {
-    TriggerBase **p;
-    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+    for (TriggerBase **p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize);
+         p++) {
         if (type == (*p)->mId) {
             (*p)->vfunc_10();
         }
     }
-
     return true;
 }
 
