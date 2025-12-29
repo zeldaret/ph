@@ -18,3 +18,4 @@ build.ninja
 .ninja_lock
 .ninja_deps
 /wibo
+/sjiswrap.exe

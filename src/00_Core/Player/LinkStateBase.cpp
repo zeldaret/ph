@@ -13,7 +13,7 @@ void LinkStateBase::ChangeLinkState(LinkStateId id) {}
 void LinkStateBase::ChangeLinkSubState(LinkStateId id, s32 subState) {}
 void LinkStateBase::EquipItem_vfunc_28() {}
 void LinkStateBase::UpdateSwordShieldInUse() {}
-void LinkStateBase::func_ov00_020a81b8(unk32 param1, unk32 param2) {}
+void LinkStateBase::func_ov00_020a81b8(unk32 param1, Vec3p *param2) {}
 LinkStateItem *LinkStateBase::GetLinkItemState() {}
 void LinkStateBase::LookAt(Vec3p *target) {}
 void LinkStateBase::func_ov00_020a81fc(Vec3p *param1, unk32 param2) {}
@@ -65,13 +65,13 @@ bool LinkStateBase::func_ov00_020a8c34() {}
 Vec3p *LinkStateBase::GetPlayerPos() {}
 Vec3p *LinkStateBase::GetPlayerVel() {}
 unk8 *LinkStateBase::func_ov00_020a8c64() {}
-s16 *LinkStateBase::GetPlayerAngle() {}
+u16 *LinkStateBase::GetPlayerAngle() {}
 void *LinkStateBase::GetPlayer_Unk18() {}
 s32 LinkStateBase::Get_PlayerControlData_Unk32() {}
 Actor *LinkStateBase::GetGrabActor() {}
 ActorRef *LinkStateBase::GetGrabActorRef() {}
 unk32 LinkStateBase::Grab() {}
-s32 LinkStateBase::Get_PlayerLinkBase_Unk44() {}
+s32 *LinkStateBase::Get_PlayerLinkBase_Unk44() {}
 bool LinkStateBase::IsEquipBeingUsed(ItemFlag id) {}
 EquipItem *LinkStateBase::GetEquipItem(ItemFlag id) {}
 UnkStruct_027e0fd4 *LinkStateBase::func_ov00_020a8d40() {}
@@ -81,5 +81,5 @@ s32 LinkStateBase::PlayerControlData_vfunc_14(s32 param1) {}
 unk32 LinkStateBase::Get_PlayerControlData_Unk100() {}
 unk32 LinkStateBase::Get_PlayerControlData_Unk120() {}
 s32 LinkStateBase::Get_PlayerLinkBase_Unk38() {}
-DebugHierarchy *LinkStateBase::GetDebugHierarchy0() {}
-DebugHierarchy *LinkStateBase::GetDebugHierarchy1() {}
+Bhio *LinkStateBase::GetBhio0() {}
+Bhio *LinkStateBase::GetBhio1() {}
