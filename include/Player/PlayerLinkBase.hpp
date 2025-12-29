@@ -1,13 +1,13 @@
 #pragma once
 
 #include "global.h"
+#include "lib/files.hpp"
 #include "nds/math.h"
 #include "types.h"
 
 #include "Actor/ActorManager.hpp"
 #include "Item/ItemManager.hpp"
 #include "Player/Bhio.hpp"
-#include "Player/MotionParams.hpp"
 #include "Player/PlayerBase.hpp"
 #include "Player/PlayerControlData.hpp"
 
@@ -39,7 +39,7 @@ public:
     /* 5a */ s16 mUnk_5a;
     /* 5c */ unk8 mUnk_5c[3];
     /* 5f */ bool mUnk_5f;
-    /* 60 */ MotionParams *mMotionParams;
+    /* 60 */ FileEntryFlag *mMotionParams;
     /* 64 */ Bhio *mBhio_0;
     /* 68 */ Bhio *mBhio_1;
     /* 6c */ Bhio *mBhio_2;
