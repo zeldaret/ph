@@ -20,6 +20,7 @@
 #include "cxxabi.h"
 #include "stdio.h"
 #include "stdlib.h"
+#include "string.h"
 
 extern "C" void Fill32(unk32, u32 *, unk32);
 extern "C" void __cxa_vec_ctor(void *, unk32, unk32, void *, void *);
@@ -41,7 +42,7 @@ extern unk32 data_ov000_020ecde4;
 struct UnkStruct_020ec81c_04 {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 *mUnk_08;
+    /* 08 */ unk32 *mUnk_08; // Address to nsbtx
     /* 0c */
 };
 
@@ -66,18 +67,25 @@ MapBase::~MapBase() {}
 
 MapBase_Unk_180::~MapBase_Unk_180() {}
 
+struct Test {
+    unk32 mUnk_00;
+    unk32 mUnk_04;
+};
+
 // Non-matching
 ARM void MapBase::SetBounds(unk32 map, Course *course) {
-    Vec3p *pVVar5;
     Vec3p vec;
+    AABB mBounds;
+    Vec3p mCenter;
+    Vec3p mOffset;
 
     u16 uVar3 = this->mWidth;
     u16 uVar4 = this->mHeight;
-    int iVar1 = (unk32) ((u32) uVar3 << 0xc) >> 1;
-    int iVar2 = (unk32) ((u32) uVar4 << 0xc) >> 1;
+    u32 iVar1 = (uVar3 << 0xc) >> 1;
+    int iVar2 = (uVar4 << 0xc) >> 1;
 
-    pVVar5              = course->FindMapCenter(map);
-    vec                 = *pVVar5;
+    vec = *course->FindMapCenter(map);
+
     this->mBounds.min.x = vec.x - iVar1;
     this->mBounds.min.y = vec.y;
     this->mBounds.min.z = vec.z - iVar2;
@@ -191,18 +199,19 @@ ARM void MapBase::vfunc_b0(unk32 param_2, unk32 param_3) {
 
 // Non-matching
 ARM bool MapBase::func_ov00_0207e08c(s32 *param_2, s32 param_3) {
-    int iVar1;
-    int iVar2;
-
     if (this->mUnk_13c == NULL) {
         return false;
     }
-    iVar1 = this->mUnk_13c->mUnk_00 + this->mUnk_13c->mUnk_08;
+    unk32 iVar1 = (unk32) this->mUnk_13c + this->mUnk_13c->mUnk_08;
     if (iVar1 == 0) {
         return false;
     }
-    iVar2 = iVar1 + *(s32 *) ((u32) * (u16 *) (iVar1 + 4 + (u32) * (u16 *) (iVar1 + 10)) * param_3 + iVar1 + 4 +
-                              (u32) * (u16 *) (iVar1 + 10) + 4);
+
+    unk32 r0  = *(u16 *) (iVar1 + 10);
+    unk32 r12 = iVar1 + 4;
+    unk32 a   = *(u16 *) (r12 + r0) * param_3;
+
+    unk32 iVar2 = iVar1 + *(unk32 *) (r12 + r0 + a + 4);
     if (iVar1 == 0) {
         return false;
     }
@@ -211,84 +220,94 @@ ARM bool MapBase::func_ov00_0207e08c(s32 *param_2, s32 param_3) {
     return true;
 }
 
+struct UnkStruct_func_b4 {
+    /* 00 */ unk8 pad[0x3c];
+    /* 3c */ u8 mUnk_3c[4];
+    /* 40 */ unk16 pad2;
+    /* 42 */ unk16 mUnk_42;
+    /* 44 */
+};
+
+struct UnkStruct2 {
+    unk16 mUnk_00;
+    u16 mUnk_02;
+};
+
 // Non-matching
+// Get appropriate index in NSBTX texture names surrounding cave entrances
 ARM s32 MapBase::func_ov00_0207e0f0(s32 param_2) {
-    unk8 bVar1;
+    int *iVar9;
+    int *iVar10;
+    int *iVar11;
+    u8 bVar1;
     u16 uVar2;
     u16 uVar3;
-    u16 *puVar4;
+    int iVar12;
+    u32 i;
+    int j;
     int iVar6;
-    int *iVar5;
-    int *iVar12;
-    int *iVar11;
-    int *iVar8;
-    int iVar7;
-    u32 uVar8;
-    MapBase_Unk_13c *pMVar9;
-    int *iVar9;
-    int iVar13;
-    int *iVar10;
-    u32 uVar14;
+    UnkStruct_func_b4 *iVar8;
+    u16 uVar14;
     int iVar15;
-    u32 uStack_30;
 
-    pMVar9 = this->mUnk_13c;
-    if (pMVar9 == NULL) {
+    MapBase_Unk_13c *pMapUnk_13c = this->mUnk_13c;
+    if (pMapUnk_13c == NULL) {
         return -1;
     }
-    puVar4 = (u16 *) ((int) &pMVar9->mUnk_00 + pMVar9->mUnk_08);
-    if (puVar4 != (u16 *) 0x0) {
-        iVar6 = (int) puVar4 + (u32) *puVar4;
-        if (iVar6 == 0) {
-            return -1;
-        }
-        uStack_30 = 0;
-        if (*(char *) (iVar6 + 1) != '\0') {
-            iVar15 = 0;
-            do {
-                iVar13 = iVar6 + (u32) * (u16 *) (iVar6 + 6);
-                iVar10 = (int *) (iVar13 + (u32) * (u16 *) (iVar13 + 2));
-                iVar5  = this->vfunc_b4();
-                iVar12 = func_0201e24c((unk32 *) (iVar5 + 0xf), (char *) ((int) iVar10 + iVar15));
-                if (iVar12 != (int *) 0x0) {
-                    iVar13 = 0;
-                    iVar9  = (int *) (iVar6 + (u32) * (u16 *) (iVar6 + 6) + 4);
-                    iVar11 = (int *) (*(u16 *) (iVar6 + (u32) * (u16 *) (iVar6 + 6)) * uStack_30);
-                    uVar2  = *(u16 *) ((int) iVar9 + (int) iVar11);
-                    if (*(char *) ((int) iVar9 + (int) iVar11 + 2) != '\0') {
-                        do {
-                            if (param_2 == (u32) * (unk8 *) ((int) puVar4 + (u32) uVar2) + iVar13) {
-                                iVar8  = this->vfunc_b4();
-                                bVar1  = *(unk8 *) ((int) iVar8 + 0x3d);
-                                uVar14 = 0;
-                                if (bVar1 != 0) {
-                                    uVar3 = *(u16 *) ((int) iVar8 + 0x42);
-                                    do {
-                                        iVar7 = strcmp((unk8 *) ((int) iVar8 + uVar14 * 0x10 +
-                                                                 (u32) * (u16 *) ((int) iVar8 + uVar3 + 0x3e) + uVar3 + 0x3c),
-                                                       (unk8 *) ((int) iVar10 + iVar15));
-                                        if (iVar7 == 0) {
-                                            return uVar14;
-                                        }
-                                        uVar8  = uVar14 + 1;
-                                        uVar14 = uVar8 & 0xffff;
-                                    } while ((uVar8 & 0xffff) < (u32) bVar1);
-                                }
-                            }
-                            iVar13++;
-                        } while (iVar13 < (int) (u32) * (unk8 *) ((int) ((int) iVar9 + (int) iVar11) + 2));
-                    }
-                }
-                iVar15    = iVar15 + 0x10;
-                uStack_30 = uStack_30 + 1;
-            } while (uStack_30 < *(unk8 *) (iVar6 + 1));
-        }
+    u16 *puVar4 = (u16 *) ((int) pMapUnk_13c + pMapUnk_13c->mUnk_08);
+    if (puVar4 == NULL) {
         return -1;
+    }
+    iVar6 = (unk32) puVar4 + *puVar4;
+    if (iVar6 == 0) {
+        return -1;
+    }
+    i = 0;
+    if (i < *(u8 *) (iVar6 + 1)) {
+        iVar15 = 0;
+        do {
+            iVar12 = iVar6 + *(u16 *) (iVar6 + 6);
+            iVar10 = (int *) (iVar12 + *(u16 *) (iVar12 + 2));
+            if (func_0201e24c((unk32 *) ((int) this->vfunc_b4() + 0x3c), (char *) ((int) iVar10 + iVar15)) != NULL) {
+                j      = 0;
+                iVar9  = (int *) (iVar6 + (u32) * (u16 *) (iVar6 + 6) + 4);
+                iVar11 = (int *) (*(u16 *) (iVar6 + *(u16 *) (iVar6 + 6)) * i);
+                uVar2  = *(u16 *) ((int) iVar9 + (int) iVar11);
+                if (j < *(u8 *) ((int) iVar9 + (int) iVar11 + 2)) {
+                    do {
+                        if (param_2 == (u32) * (u8 *) ((int) puVar4 + (u32) uVar2) + j) {
+                            iVar8    = (UnkStruct_func_b4 *) this->vfunc_b4();
+                            unk32 *a = (unk32 *) iVar8->mUnk_3c;
+                            bVar1    = *(u8 *) ((int) a + 1);
+                            uVar14   = 0;
+                            if ((unk32) bVar1 > 0) {
+                                uVar3 = *(u16 *) ((int) a + 6);
+                                do {
+                                    // compare both texture names to match the two that are used (top and bottom)
+                                    // to surround cave entrance
+                                    UnkStruct2 *b = (UnkStruct2 *) ((int) a + uVar3);
+                                    if (strcmp((char *) ((unk32) b + b->mUnk_02 + uVar14 * 0x10),
+                                               (char *) ((int) iVar10 + iVar15)) == 0) {
+                                        return uVar14;
+                                    }
+                                    // iterate through the texture names
+                                    uVar14++;
+                                } while (bVar1 > uVar14);
+                            }
+                        }
+                        j++;
+                    } while (j < *(u8 *) (((int) iVar9 + (int) iVar11) + 2));
+                }
+            }
+            iVar15 += 0x10; // 0x10 size of nbstx texture name
+            i++;
+        } while (i < *(u8 *) (iVar6 + 1));
     }
     return -1;
 }
 
 // Non-matching
+// Get appropriate index in NSBTX texture palette names surrounding cave entrances
 ARM s32 MapBase::func_ov00_0207e28c(s32 param_2) {
     u16 uVar1;
     u16 uVar2;
@@ -371,6 +390,7 @@ ARM s32 MapBase::func_ov00_0207e28c(s32 param_2) {
     return -1;
 }
 
+// Get address to the course's TEX0 section in texture file (.NSBTX)
 ARM unk32 *MapBase::vfunc_b4() {
     if (data_ov000_020ec81c.mUnk_04 != NULL) {
         return func_0201e4cc(data_ov000_020ec81c.mUnk_04->mUnk_08);
@@ -396,11 +416,11 @@ ARM unk32 MapBase::vfunc_58(TilePos *param_1, int param_2) {
     return 0;
 }
 
-ARM unk32 MapBase::vfunc_5c() {
+ARM unk32 MapBase::vfunc_5c(TilePos *param_2) {
     return 0;
 }
 
-ARM unk32 MapBase::vfunc_60(TilePos *param_1) {
+ARM unk32 MapBase::vfunc_60(TilePos *param_2) {
     return 0;
 }
 
@@ -559,7 +579,7 @@ ARM unk32 MapBase::vfunc_68(Vec3p *param_2, bool param_3) {
 LAB_arm9_ov000__0207e724:
     // iVar1 = func_01fff084(data_027e0f6c, param_2, 2, data_ov000_020ec824);
     uVar5 = 0x2000;
-    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    //__cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
     uVar2      = 0;
     local_7c   = 0;
     local_74   = 0;
@@ -612,12 +632,9 @@ LAB_arm9_ov000__0207e724:
     return iVar1;
 }
 
-ARM unk8 *MapBase::func_ov00_0207e940(unk8 *param_1) {
-    //__cxa_vec_cleanup(param_1 + 0x18, 3, 0x10, func_ov00_0207e968);
-    return param_1;
-}
+ARM MapBase_func_ov00_0207e940::~MapBase_func_ov00_0207e940() {}
 
-ARM void MapBase::func_ov00_0207e968() {}
+ARM MapBase_func_ov00_0207e968::~MapBase_func_ov00_0207e968() {}
 
 ARM void MapBase::func_ov00_0207e96c() {}
 
@@ -768,8 +785,8 @@ ARM void MapBase::vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4) {
 LAB_arm9_ov000__0207eb04:
     iVar1 = func_01fff084(data_027e0f6c, param_2, 2, data_ov000_020ec864, 0x20, 0);
     uVar5 = 0x2000;
-    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
-    __cxa_vec_ctor(&local_a4, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    //__cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    //__cxa_vec_ctor(&local_a4, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
     uVar2     = 0;
     local_c8  = 0;
     local_c0  = 0;
@@ -892,7 +909,7 @@ ARM u16 MapBase::vfunc_70(Vec3p *param_2) {
     iVar1      = func_01fff084(data_027e0f6c, param_2, 2, 0x20ec8a4, 0x20, 0);
     iVar4      = 0x2000;
     dVar5      = 0xffff;
-    __cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
+    //__cxa_vec_ctor(&local_58, 3, 0x10, func_ov00_0207e96c, func_ov00_0207e968);
     uVar6     = 0;
     local_7c  = 0;
     local_74  = 0;
@@ -1118,28 +1135,49 @@ ARM bool MapBase::func_ov00_0207f38c(UnkStruct_0207f38c *param_2) {
     return false;
 }
 
-// Non-matching
+class UnkStruct_vfunc_90 {
+public:
+    /* 00 */ virtual void vfunc_00();
+    /* 04 */ virtual void vfunc_04();
+    /* 08 */ virtual void vfunc_08();
+    /* 0c */ virtual void vfunc_0c();
+    /* 10 */ virtual void vfunc_10();
+    /* 14 */ virtual void vfunc_14();
+    /* 18 */ virtual void vfunc_18();
+    /* 1c */ virtual void vfunc_1c();
+    /* 20 */ virtual void vfunc_20();
+    /* 24 */ virtual void vfunc_24();
+    /* 28 */ virtual void vfunc_28();
+    /* 2c */ virtual void vfunc_2c();
+    /* 30 */ virtual void vfunc_30();
+    /* 34 */ virtual bool vfunc_34();
+    /* 38 */ virtual void vfunc_38();
+    /* 3c */ virtual void vfunc_3c();
+    /* 40 */ virtual void vfunc_40();
+    /* 44 */ virtual void vfunc_44(unk32 param_2);
+};
+
 ARM void MapBase::vfunc_90(TilePos *param_2, unk32 param_3) {
     int iVar1;
     int iVar2;
-    int *piVar3;
+    UnkStruct_vfunc_90 *piVar3;
 
     iVar1 = this->vfunc_54(param_2);
     if (iVar1 == param_3) {
         return;
     }
-    this->vfunc_bc(/*param_2,param_3,*(code **)(param_1->vtable + 0xbc),param_4*/);
-    iVar2 = this->vfunc_5c(/*param_2*/);
+    this->vfunc_bc(param_2, param_3);
+    iVar2 = this->vfunc_5c(param_2);
     if (param_3 == 0x14) {
-        this->vfunc_c0(/*param_2,(iVar2 + -3) * 0x1000000 >> 0x18*/);
+        this->vfunc_c0(param_2, (iVar2 - 3) * 0x1000000 >> 0x18);
     } else if (iVar1 == 0x14) {
-        this->vfunc_c0(/*param_2,(iVar2 + 3) * 0x1000000 >> 0x18*/);
+        this->vfunc_c0(param_2, (iVar2 + 3) * 0x1000000 >> 0x18);
     }
-    piVar3 = (int *) this->vfunc_78(param_2);
+    piVar3 = (UnkStruct_vfunc_90 *) this->vfunc_78(param_2);
     if (piVar3 == NULL) {
         return;
     }
-    //(**(code **)(*piVar3 + 0x44))(piVar3,param_3);
+    piVar3->vfunc_44(param_3);
 }
 
 ARM void MapBase::vfunc_94() {}
@@ -1241,20 +1279,27 @@ ARM unk32 MapBase::GetTileEndZ(unk32 z) {
 
 // Non-matching
 ARM void MapBase::GetTileBounds(TilePos *tilePos, AABB *bounds) {
-    Vec3p start;
-    Vec3p end;
+    AABB newBounds;
 
     this->GetTileStartX(tilePos->x); // what's the purpose of this?
-    start.z = this->GetTileStartZ(tilePos->y);
-    start.x = this->GetTileStartX(tilePos->x);
-    start.y = FLOAT_TO_Q20(-1.2001); // why not just -1.2?
 
-    end.z = this->GetTileEndZ(tilePos->y);
-    end.y = this->vfunc_60(tilePos);
-    end.x = this->GetTileEndX(tilePos->x);
+    q20 z = this->GetTileStartZ(tilePos->y);
 
-    bounds->min = start;
-    bounds->max = end;
+    q20 x = this->GetTileStartX(tilePos->x);
+
+    newBounds.max.z = z;
+    newBounds.max.x = x;
+    newBounds.max.y = -FLOAT_TO_Q20(1.2);
+
+    q20 z2 = this->GetTileEndZ(tilePos->y);
+    q20 y2 = this->vfunc_60(tilePos);
+    q20 x2 = this->GetTileEndX(tilePos->x);
+
+    *bounds = newBounds;
+
+    bounds->max.x = x2;
+    bounds->max.y = y2;
+    bounds->max.z = z2;
 }
 
 ARM s32 MapBase::GetClampedTileX(s32 worldX) {
@@ -1304,6 +1349,7 @@ ARM bool MapBase::IsInBounds(Vec3p *tileWorldPos) {
     return true;
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM unk32 MapBase::AddEntrance(Entrance *param_2) {
     int iVar1;
@@ -1323,6 +1369,7 @@ ARM unk32 MapBase::AddEntrance(Entrance *param_2) {
     }
     return this->mEntrances.push_back(*param_2);
 }
+#pragma dont_inline reset
 
 // Non-matching
 ARM Entrance *MapBase::FindEntrance(unk32 id) {
@@ -1355,6 +1402,7 @@ ARM void MapBase::func_ov00_0207f948(unk32 *param_2) {
     }
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM void MapBase::AddTrigger(TriggerParams *param_2) {
     void *pTVar1;
@@ -1382,6 +1430,7 @@ ARM void MapBase::AddTrigger(TriggerParams *param_2) {
     }
     this->mTriggers.push_back(local_14);
 }
+#pragma dont_inline reset
 
 ARM void TriggerBase::vfunc_08() {}
 
@@ -1524,6 +1573,7 @@ ARM void MapBase::Trigger_vfunc_08() {
     }
 }
 
+#pragma dont_inline on
 ARM bool MapBase::AddTrigger(TriggerBase *param_2) {
     TriggerBase *pTVar1;
     TriggerBase **iter;
@@ -1560,7 +1610,9 @@ ARM bool MapBase::AddTrigger(TriggerBase *param_2) {
     }
     return true;
 }
+#pragma dont_inline reset
 
+#pragma dont_inline on
 ARM bool MapBase::func_ov00_0207ff88(TriggerBase *param_2) {
     TriggerBase *pTVar1;
     TriggerBase **ppTVar2;
@@ -1603,6 +1655,7 @@ ARM bool MapBase::func_ov00_0207ff88(TriggerBase *param_2) {
     this->mTriggers.erase(first, this->mTriggers.mElements + this->mTriggers.mSize);
     return true;
 }
+#pragma dont_inline reset
 
 ARM void MapBase::func_ov00_0208005c(unk32 param_2, unk32 param_3, unk32 param_4) {
     this->mUnk_144->func_ov000_0209c1e4(param_2, param_3, param_4);
@@ -1620,6 +1673,7 @@ ARM void MapBase::func_ov00_0208008c(u32 param_2) {
     this->mUnk_144->func_ov000_0209c8e4(param_2);
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM void MapBase::AddExit(Exit *param_2) {
     u32 uVar1;
@@ -1643,7 +1697,9 @@ ARM void MapBase::AddExit(Exit *param_2) {
     }
     this->mExits.push_back(*param_2);
 }
+#pragma dont_inline reset
 
+#pragma dont_inline on
 // Non-matching
 ARM u8 MapBase::func_ov00_02080140(Exit *param_2) {
     Exit *pEVar1;
@@ -1713,6 +1769,7 @@ ARM u8 MapBase::func_ov00_02080140(Exit *param_2) {
     }
     return MStack_54.mExit_1c.mUnk_14;
 }
+#pragma dont_inline reset
 
 struct UnkStruct_02080324 { // Is this UnkStruct_027e0d38_UnkC? Members don't match, causes overlay checksum issues, but has
                             // same method. Could it be Exit?
@@ -1791,6 +1848,7 @@ ARM bool MapBase::FindExit(u32 param_2, Exit *param_3) {
     return false;
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM void MapBase::AddCameraViewpoint(CameraViewpoint *param_2) {
     unk16 uVar1;
@@ -1815,6 +1873,7 @@ ARM void MapBase::AddCameraViewpoint(CameraViewpoint *param_2) {
     }
     this->mViewpoints.push_back(*param_2);
 }
+#pragma dont_inline reset
 
 // Non-matching
 ARM bool MapBase::FindViewpoint_Unk_4(char id, CameraViewpoint *param_3) {
@@ -1953,18 +2012,19 @@ ARM unk32 MapBase::vfunc_b8(unk32 param_2) {
 
 // Non-matching
 ARM bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
-    int iVar1;
-    int iVar2;
+    unk8 *iVar1;
+    unk8 *iVar2;
     int iVar3;
 
     iVar2 = this->mUnk_14c;
-    if (iVar2 == 0) {
+    if (iVar2 == NULL) {
         return false;
     }
     iVar3 = 0;
     // iVar1 = iVar2;
-    if (*(u16 *) (iVar2 + 4) > 0) {
-        do {
+
+    if (*(u16 *) (iVar2 + 4) >= 0) {
+        for (; iVar3 < (unk32) * (u16 *) (iVar2 + 4); iVar3++) {
             if (param_2 == *(u8 *) (iVar1 + 8)) {
                 iVar1                       = iVar2 + 8 + iVar3 * 0x1c;
                 *param_3                    = *(u8 *) (iVar2 + 8 + iVar3 * 0x1c);
@@ -1978,13 +2038,13 @@ ARM bool MapBase::func_ov00_02080824(u32 param_2, unk8 *param_3) {
                 *(unk32 *) (param_3 + 0x18) = *(unk32 *) (iVar1 + 0x18);
                 return true;
             }
-            iVar3++;
             iVar1 += 0x1c;
-        } while (iVar3 < (int) *(u16 *) (iVar2 + 4));
+        }
     }
     return false;
 }
 
+#pragma dont_inline on
 // Non-matching
 ARM bool MapBase::AddUnk_130(TriggerBase *param_2) {
     TriggerBase *pTVar1;
@@ -2019,7 +2079,9 @@ ARM bool MapBase::AddUnk_130(TriggerBase *param_2) {
     }
     return true;
 }
+#pragma dont_inline reset
 
+#pragma dont_inline on
 // Not-matching
 ARM bool MapBase::func_ov00_020809b8(TriggerBase *param_2) {
     TriggerBase *pTVar1;
@@ -2060,6 +2122,7 @@ ARM bool MapBase::func_ov00_020809b8(TriggerBase *param_2) {
     this->mUnk_130.erase(iter, this->mUnk_130.mElements + this->mUnk_130.mSize);
     return true;
 }
+#pragma dont_inline reset
 
 // Non-matching
 ARM TriggerBase *MapBase::func_ov00_02080a78(Vec3p *param_2) {
@@ -2162,11 +2225,7 @@ ARM void MapBase::func_ov00_02080b24(TilePos *param_2) {
 }
 
 ARM void MapBase::func_ov00_02080d08(TilePos *param_2) {
-
-    int iVar1;
-
-    iVar1 = this->vfunc_58(param_2, 4);
-    if (iVar1 == 0) {
+    if (this->vfunc_58(param_2, 4) == 0) {
         return;
     }
     this->vfunc_98(param_2, 4, 0);
@@ -2174,20 +2233,20 @@ ARM void MapBase::func_ov00_02080d08(TilePos *param_2) {
     this->mUnk_030--;
 }
 
-ARM void MapBase::vfunc_bc() {}
+ARM void MapBase::vfunc_bc(TilePos *param_2, unk32 param_3) {}
 
 ARM void MapBase::vfunc_98(TilePos *param_2, unk32 param_3, unk32 param_4) {}
 
-ARM void MapBase::vfunc_c0() {}
+ARM void MapBase::vfunc_c0(TilePos *param_2, unk32 param_3) {}
 
+// Non-matching: weird vfunc_10 offset
 ARM bool MapBase::TriggerOfType_vfunc_10(unk32 type) {
-    TriggerBase **p;
-    for (p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize); p++) {
+    for (TriggerBase **p = this->mTriggers.mElements; (s32) p != (s32) (this->mTriggers.mElements + this->mTriggers.mSize);
+         p++) {
         if (type == (*p)->mId) {
             (*p)->vfunc_10();
         }
     }
-
     return true;
 }
 
