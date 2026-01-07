@@ -68,7 +68,18 @@ struct UnkStruct_0208210c_param3 {
 };
 
 struct UnkStruct {
-    /* 00 */ unk8 mUnk_00[0x24];
+    union {
+        /* 00 */ Vec3p mUnk_00;
+        struct {
+            /* 00 */ u16 mUnk_00_x;
+            /* 02 */ u16 mUnk_02;
+            /* 04 */ u16 mUnk_04;
+            /* 06 */ u16 mUnk_06;
+            /* 08 */ unk32 mUnk_08;
+        };
+    };
+    /* 0c */ Vec3p mUnk_0c;
+    /* 18 */ unk8 mUnk_18[0x24 - 0x18];
     /* 24 */ u16 mUnk_24;
     /* 26 */ u16 mUnk_26;
     /* 28 */ u16 mUnk_28;
@@ -92,7 +103,7 @@ struct UnkStruct {
     /* 50 */ u8 mUnk_50;
     /* 51 */ u8 mUnk_51;
     /* 52 */ unk8 mUnk_52[0x6];
-    /* 58 */ u8 mUnk_58;
+    /* 58 */ volatile u8 mUnk_58;
     /* 59 */ u8 mUnk_59;
     /* 5a */ u8 mUnk_5a;
     /* 5b */ u8 mUnk_5b;
@@ -132,7 +143,8 @@ public:
     /* 0f */ unk8 mUnk_0f;
     /* 10 */
 
-    bool func_01ffbe78(Vec3p *param1, Vec3p *param2, Vec3p *param3, Sphere *param4);
+    bool func_01ffbe78(UnkStruct *param1, Vec3p *param2, Vec3p *param3, Sphere *param4, s32 actorId, u16 param6, unk32 param7,
+                       unk32 param8);
     bool func_01ffbf5c(struct UnkStruct *param1, Vec3p *param2, Vec3p *param3, s32 length, unk32 param5, unk32 param6,
                        UnkStruct_ov000_020beba8 *param7, unk32 param8);
     bool func_01ffc118(s32 *param1, Vec3p *param2, Vec3p *param3, s32 param4, s32 *param5, u32 param6, s32 *param7);
@@ -165,15 +177,15 @@ public:
     void func_ov00_02082650(s32 param_2, s32 param_3, unk32 param_4);
     void func_ov00_02082660(s32 param_2, s32 param_3);
     void func_ov00_02082670(unk32 param_2, s32 param_3);
-    void func_ov00_02082680(unk32 param_2, unk32 param_3);
-    void func_ov00_020826a0(unk32 param_2, unk32 param_3);
+    void func_ov00_02082680(TilePos *param_2, unk32 param_3);
+    void func_ov00_020826a0(TilePos *param_2, unk32 param_3);
     void CreateMap(unk32 mapType, unk32 param_3, unk32 param_4);
     void DestroyMap();
     void MapData_vfunc_44();
     void func_ov00_02082808(bool param_2);
     s32 MapData_vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, short param_4[4]);
-    void MapData_vfunc_84(unk32 param_2);
-    bool func_ov00_020828f8(s32 *param_2);
+    void MapData_vfunc_84(UnkStruct_0207f38c *param_2);
+    bool func_ov00_020828f8(UnkStruct_0207f38c *param_2);
     u8 GetNumMaps();
     s32 func_ov00_02082914(unk32 param_2);
     void func_ov00_02082acc();
@@ -235,8 +247,8 @@ public:
     unk8 GetOverlappingTrigger(Vec3p *param_2);
     bool func_ov00_02083790(s32 param_2);
     bool func_ov00_02083840(s32 param_2);
-    bool AddTrigger(s32 param_2);
-    bool func_ov00_020838d8(s32 param_2);
+    bool AddTrigger(TriggerBase *param_2);
+    bool func_ov00_020838d8(TriggerBase *param_2);
     bool FindExit(u32 param_2, Exit *param_3);
     char func_ov00_020838f8(Exit *param_2);
     bool func_ov00_02083908(char param_2, CameraViewpoint *param_3);
@@ -247,8 +259,8 @@ public:
     void func_ov00_02083958(s32 param_2);
     void func_ov00_02083968(u32 param_2, unk8 *param_3);
     bool func_ov00_02083978(Vec3p *param_2, Vec3p *param_3);
-    bool func_ov00_020839b4(s32 param_2);
-    bool func_ov00_020839c4(s32 param_2);
+    bool func_ov00_020839b4(TriggerBase *param_2);
+    bool func_ov00_020839c4(TriggerBase *param_2);
     s32 func_ov00_020839d4(s32 param_2);
     s32 func_ov00_020839f8(s32 param_2);
     TilePos func_ov00_02083a1c(Vec3p *param_3);
@@ -268,7 +280,7 @@ public:
     s32 func_ov00_02083ef8(Vec3p *param_2, Vec3p *param_3, bool param_4);
     unk32 func_ov00_02083f44(Vec3p *param_2, bool param_3);
     unk8 MapData_vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4);
-    unk32 MapData_vfunc_70(Vec3p *param_2);
+    u16 MapData_vfunc_70(Vec3p *param_2);
     static void func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p *param_3);
     void GetTileWorldBounds(TilePos *tile, AABB *tileBounds);
     unk32 MapData_vfunc_54(TilePos *a);
@@ -278,8 +290,8 @@ public:
     static unk8 func_ov00_02084100(unk32 *param_1, MapManager *param_2);
     unk32 GetMapData_Unk_48();
     unk32 GetMapData_Unk_4c();
-    unk32 func_ov00_0208412c();
-    void func_ov00_0208413c(unk32 param_2);
+    unk32 *func_ov00_0208412c();
+    void func_ov00_0208413c(unk32 *param_2);
     unk8 MapData_vfunc_58(TilePos *param_1, int param_2);
     s32 func_ov00_02084164(TilePos *param_2);
     u8 GetMapData_Unk_0a();
@@ -332,7 +344,7 @@ public:
     static unk32 func_ov00_0208583c(MapManager *param_1, Vec3p *param_2, unk32 param_3);
     static unk32 func_ov00_020858b0(MapManager *param_1, Vec3p *param_2, unk32 param_3);
     s32 func_ov00_02085a34(Vec3p *param_2, unk32 param_3);
-    unk8 func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param_4, u32 param_5);
+    unk8 func_ov00_02085c60(UnkStruct *param_2, unk32 *param_3, unk32 *param_4, u32 param_5);
     unk8 func_ov00_02086044(Vec3p *param_2, Vec3p *param_3, unk32 param_4);
     bool func_ov00_02086284(s32 *param_2, Vec3p *param_3, Vec3p *param_4, s32 param_5, u16 param_6, Vec3p *param_7,
                             Vec3p *param_8);

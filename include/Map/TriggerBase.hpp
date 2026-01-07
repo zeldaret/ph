@@ -23,10 +23,15 @@ struct TriggerParams {
     /* b */
 };
 
-class TriggerBase : public SysObject {
+class UnkStruct_TriggerBase : public SysObject {
+public:
+    virtual unk32 vfunc_00(void *);
+};
+
+class TriggerBase : public UnkStruct_TriggerBase {
 public:
     /* 00 (vtable) */
-    /* 04 */ unk8 mUnk_04;
+    /* 04 */ bool mUnk_04;
     /* 05 */ u8 mId;
     /* 06 */ unk8 mUnk_06[2];
     /* 08 */ u32 mUnk_08;
@@ -36,7 +41,7 @@ public:
 
     /* 00 */ virtual ~TriggerBase();
     /* 08 */ virtual void vfunc_08();
-    /* 0c */ virtual unk32 vfunc_0c();
+    /* 0c */ virtual bool vfunc_0c(bool param_2);
     /* 10 */ virtual unk32 vfunc_10();
     /* 14 */ virtual bool Overlaps(Vec3p *point);
     /* 18 */ virtual bool GetBoundingBox(AABB *bbox);

@@ -10,6 +10,7 @@
 #include "DTCM/UnkStruct_027e0c68.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0f64.hpp"
+#include "DTCM/UnkStruct_027e0f68.hpp"
 #include "DTCM/UnkStruct_027e0f6c.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
@@ -44,7 +45,6 @@ extern s32 func_ov000_0208e6f0(Vec3p *param_1);
 extern s32 func_ov000_0208e704(Vec3p *param_1);
 extern s32 func_ov000_0208e87c(AABB *param_1, Vec3p *param_2, Vec3p *param_3);
 extern void func_ov000_0208ed74(AABB *param_1, Vec3p *param_2);
-extern void func_ov000_02093a1c(u32 *param_1, unk32 *param_2, unk32 param_3);
 extern void func_ov000_02096324(unk32 *param_1, unk32 *param_2);
 extern s32 *func_ov000_02096418(s32 *param_1);
 extern void func_ov015_021849a4(unk32 *param_1);
@@ -121,13 +121,6 @@ public:
     virtual void vfunc_34();
     virtual unk32 vfunc_38(unk32 param_2);
     virtual unk32 vfunc_3c(unk32 param_2);
-};
-
-struct UnkStruct_027e0f68 {
-    void func_ov000_0208cc88();
-    void func_ov000_0208d620();
-    void func_ov000_0208d680();
-    void func_ov004_02102b28();
 };
 
 extern u32 *data_027e0ce0[];
@@ -405,11 +398,11 @@ ARM void MapManager::func_ov00_02082670(unk32 param_2, s32 param_3) {
     this->mMap->func_ov00_0208006c(param_2, param_3);
 }
 
-ARM void MapManager::func_ov00_02082680(unk32 param_2, unk32 param_3) {
+ARM void MapManager::func_ov00_02082680(TilePos *param_2, unk32 param_3) {
     this->mMap->vfunc_98(param_2, 5, param_3);
 }
 
-ARM void MapManager::func_ov00_020826a0(unk32 param_2, unk32 param_3) {
+ARM void MapManager::func_ov00_020826a0(TilePos *param_2, unk32 param_3) {
     this->mMap->vfunc_98(param_2, 7, param_3);
 }
 
@@ -479,11 +472,11 @@ ARM s32 MapManager::MapData_vfunc_7c(s32 param_1, unk32 *param_2, s32 param_3, s
     return this->mMap->vfunc_7c(param_1, param_2, param_3, param_4);
 }
 
-ARM void MapManager::MapData_vfunc_84(unk32 param_2) {
+ARM void MapManager::MapData_vfunc_84(UnkStruct_0207f38c *param_2) {
     this->mMap->vfunc_84(param_2);
 }
 
-ARM bool MapManager::func_ov00_020828f8(s32 *param_2) {
+ARM bool MapManager::func_ov00_020828f8(UnkStruct_0207f38c *param_2) {
     return this->mMap->func_ov00_0207f38c(param_2);
 }
 
@@ -1057,11 +1050,11 @@ ARM bool MapManager::func_ov00_02083840(s32 param_2) {
     return this->mMap->TriggerOfType_vfunc_10(param_2);
 }
 
-ARM bool MapManager::AddTrigger(s32 param_2) {
+ARM bool MapManager::AddTrigger(TriggerBase *param_2) {
     return this->mMap->AddTrigger(param_2);
 }
 
-ARM bool MapManager::func_ov00_020838d8(s32 param_2) {
+ARM bool MapManager::func_ov00_020838d8(TriggerBase *param_2) {
     return this->mMap->func_ov00_0207ff88(param_2);
 }
 
@@ -1102,21 +1095,21 @@ ARM void MapManager::func_ov00_02083968(u32 param_2, unk8 *param_3) {
 }
 
 ARM bool MapManager::func_ov00_02083978(Vec3p *param_2, Vec3p *param_3) {
-    s32 iVar1 = this->mMap->func_ov00_02080a78(param_2);
+    TriggerBase *iVar1 = this->mMap->func_ov00_02080a78(param_2);
     if (iVar1 != 0) {
-        param_3->x = *(s32 *) (iVar1 + 0x8);
-        param_3->y = *(s32 *) (iVar1 + 0xc);
-        param_3->z = *(s32 *) (iVar1 + 0x10);
+        param_3->x = iVar1->mUnk_08;
+        param_3->y = iVar1->mUnk_0c;
+        param_3->z = iVar1->mUnk_10;
         return true;
     }
     return false;
 }
 
-ARM bool MapManager::func_ov00_020839b4(s32 param_2) {
+ARM bool MapManager::func_ov00_020839b4(TriggerBase *param_2) {
     return this->mMap->AddUnk_130(param_2);
 }
 
-ARM bool MapManager::func_ov00_020839c4(s32 param_2) {
+ARM bool MapManager::func_ov00_020839c4(TriggerBase *param_2) {
     return this->mMap->func_ov00_020809b8(param_2);
 }
 
@@ -1268,13 +1261,13 @@ unk8 MapManager::MapData_vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4
     this->mMap->vfunc_6c(param_2, param_3, param_4);
 }
 
-ARM unk32 MapManager::MapData_vfunc_70(Vec3p *param_2) {
+ARM u16 MapManager::MapData_vfunc_70(Vec3p *param_2) {
     return this->mMap->vfunc_70(param_2);
 }
 
 ARM void MapManager::func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p *param_3) {
     unk32 *iVar1; // find type with field that exists at offset 0xc
-    s32 dVar2;
+    u16 dVar2;
 
     iVar1 = (unk32 *) param_2->mMap->vfunc_74(param_3);
     if (iVar1 != NULL) {
@@ -1284,7 +1277,7 @@ ARM void MapManager::func_ov00_02083fb0(u32 *param_1, MapManager *param_2, Vec3p
 
     dVar2 = param_2->MapData_vfunc_70(param_3);
     if (dVar2 != 0xffff) {
-        func_ov000_02093a1c(param_1, (unk32 *) data_027e0f6c, dVar2);
+        UnkStruct_027e0f6c::func_ov000_02093a1c(param_1, data_027e0f6c, dVar2);
         return;
     }
 
@@ -1346,11 +1339,11 @@ unk32 MapManager::GetMapData_Unk_4c() {
     return this->mMap->mUnk_04c;
 }
 
-unk32 MapManager::func_ov00_0208412c() {
+unk32 *MapManager::func_ov00_0208412c() {
     return this->mMap->func_ov00_0207f934();
 }
 
-void MapManager::func_ov00_0208413c(unk32 param_2) {
+void MapManager::func_ov00_0208413c(unk32 *param_2) {
     this->mMap->func_ov00_0207f948(param_2);
 }
 
@@ -2086,7 +2079,7 @@ unk32 MapManager::func_ov00_02084ebc(Vec3p *param_2) {
     }
     // dVar3 = this->MapData_vfunc_70(); // Missing param.
     if (dVar3 != 0xffff) {
-        func_ov000_02093a1c(&uStack_14, (unk32 *) data_027e0f6c, dVar3);
+        UnkStruct_027e0f6c::func_ov000_02093a1c(&uStack_14, data_027e0f6c, dVar3);
         if ((uStack_14 >> 5 & 3) != 1) {
             return 0;
         }
@@ -2274,7 +2267,7 @@ s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *par
 
 ARM unk32 MapManager::func_ov00_02085594(Vec3p *param_2) {
     UnkStruct_02085594 *piVar1;
-    unk32 dVar3;
+    u16 dVar3;
     unk32 uVar4;
     bool bVar5;
     u32 uStack_24;
@@ -2337,7 +2330,7 @@ ARM unk32 MapManager::func_ov00_02085594(Vec3p *param_2) {
     if (dVar3 == 0xffff) {
         return 0;
     }
-    func_ov000_02093a1c(&uStack_24, (unk32 *) data_027e0f6c, dVar3);
+    UnkStruct_027e0f6c::func_ov000_02093a1c(&uStack_24, data_027e0f6c, dVar3);
     if ((uStack_24 >> 5 & 3) == 1) {
         return bVar5 ? 1 : 2;
     }
@@ -2459,7 +2452,7 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
             return -1;
         }
         piVar1->mUnk_04.x &= -2;
-        this->func_ov00_020828f8((s32 *) piVar1);
+        this->func_ov00_020828f8((UnkStruct_0207f38c *) piVar1);
     }
     this->mMap->func_ov00_02080b24(aVStack_28);
     uStack_14 = 0xffff;
@@ -2490,7 +2483,7 @@ s32 MapManager::func_ov00_02085a34(Vec3p *param_2, s32 param_3) {
     return 0;
 }
 
-unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param_4, u32 param_5) {
+unk8 MapManager::func_ov00_02085c60(UnkStruct *param_2, unk32 *param_3, unk32 *param_4, u32 param_5) {
     s64 lVar1;
     s32 *puVar2;
     unk32 dVar3; // dword
@@ -2509,24 +2502,6 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     Vec3p VStack_b0;
     Vec3p VStack_a4;
     Vec3p VStack_98;
-    Vec3p aVStack_8c[3];
-    unk16 uStack_68;
-    unk16 uStack_66;
-    unk16 uStack_64;
-    unk16 uStack_62;
-    unk16 uStack_60;
-    unk8 uStack_3e;
-    unk8 uStack_3d;
-    unk8 uStack_3c;
-    unk8 uStack_3b;
-    unk8 uStack_34;
-    unk8 uStack_33;
-    unk8 uStack_32;
-    unk8 uStack_31;
-    unk8 uStack_30;
-    unk8 uStack_2f;
-    unk32 uStack_2c;
-    unk32 uStack_28;
 
     if (param_5 == 0) {
         return 0;
@@ -2572,47 +2547,31 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
     VStack_d8.pos.z  = 0;
     VStack_d8.radius = param_5;
     do {
-        bVar4 = func_01ffbe78(param_2, &VStack_b0, &VStack_bc, &VStack_d8);
+        bVar4 = func_01ffbe78(param_2, &VStack_b0, &VStack_bc, &VStack_d8, 0, 0, 0, 0);
         if (bVar4) {
-            VStack_e4.x = param_2->x;
-            VStack_e4.y = param_2->y;
-            VStack_e4.z = param_2->z;
-            VStack_f0.x = param_2[1].x;
-            VStack_f0.y = param_2[1].y;
-            VStack_f0.z = param_2[1].z;
+            VStack_e4.x = param_2->mUnk_00.x;
+            VStack_e4.y = param_2->mUnk_00.y;
+            VStack_e4.z = param_2->mUnk_00.z;
+            VStack_f0.x = param_2->mUnk_0c.x;
+            VStack_f0.y = param_2->mUnk_0c.y;
+            VStack_f0.z = param_2->mUnk_0c.z;
             Vec3p_Normalize(&VStack_f0, &VStack_f0);
             Vec3p_Scale(&VStack_f0, param_5);
             Vec3p_Add(&VStack_e4, &VStack_f0, &VStack_e4);
-            dVar3      = 0xffff;
-            param_2->x = VStack_e4.x;
-            param_2->y = VStack_e4.y;
-            param_2->z = VStack_e4.z;
-            uStack_68  = (u16) dVar3;
-            uStack_60  = 0;
-            uStack_3e  = 0;
-            uStack_3d  = 0;
-            uStack_3c  = 0;
-            uStack_3b  = 0;
-            uStack_34  = 0;
-            uStack_33  = 0;
-            uStack_32  = 0;
-            uStack_31  = 0;
-            uStack_30  = 0;
-            uStack_2f  = 0;
-            uStack_2c  = 0xffffffff;
-            uStack_28  = 0xffffffff;
-            uStack_66  = uStack_68;
-            uStack_64  = uStack_68;
-            uStack_62  = uStack_68;
-            bVar5      = func_01ffbe78(aVStack_8c, &VStack_e4, &VStack_e4, &VStack_d8);
+            dVar3              = 0xffff;
+            param_2->mUnk_00.x = VStack_e4.x;
+            param_2->mUnk_00.y = VStack_e4.y;
+            param_2->mUnk_00.z = VStack_e4.z;
+            UnkStruct aVStack_8c;
+            bVar5 = func_01ffbe78(&aVStack_8c, &VStack_e4, &VStack_e4, &VStack_d8, 0, 0, 0, 0);
             if (bVar5) {
-                VStack_e4.x = aVStack_8c[0].x;
-                VStack_e4.y = aVStack_8c[0].y;
-                VStack_e4.z = aVStack_8c[0].z;
+                VStack_e4.x = aVStack_8c.mUnk_00.x;
+                VStack_e4.y = aVStack_8c.mUnk_00.y;
+                VStack_e4.z = aVStack_8c.mUnk_00.z;
             }
             func_ov000_0207920c(data_027e0d3c, &VStack_e4, (unk32 *) &iStack_104, 0);
-            param_2[8].x = iStack_104.x;
-            param_2[8].y = iStack_104.y;
+            ((Vec3p *) param_2 + 8)->x = iStack_104.x;
+            ((Vec3p *) param_2 + 8)->y = iStack_104.y;
             return 1;
         }
         VStack_bc.x = VStack_b0.x;
@@ -2624,12 +2583,12 @@ unk8 MapManager::func_ov00_02085c60(Vec3p *param_2, unk32 *param_3, unk32 *param
             bVar5 = true;
         }
     } while (!bVar5);
-    param_2->x = VStack_98.x;
-    param_2->y = VStack_98.y;
-    param_2->z = VStack_98.z;
+    param_2->mUnk_00.x = VStack_98.x;
+    param_2->mUnk_00.y = VStack_98.y;
+    param_2->mUnk_00.z = VStack_98.z;
     func_ov000_0207920c(puVar2, &VStack_98, &iStack_10c, 0);
-    param_2[8].x = iStack_10c;
-    param_2[8].y = iStack_108;
+    ((Vec3p *) param_2 + 8)->x = iStack_10c;
+    ((Vec3p *) param_2 + 8)->y = iStack_108;
     return 0;
 }
 

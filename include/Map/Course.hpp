@@ -9,8 +9,6 @@
 #include "Physics/AABB.hpp"
 #include "System/SysNew.hpp"
 
-#define MAX_KEYS 8
-
 typedef unk32 CourseType;
 enum CourseType_ {
     CourseType_Normal               = 0,

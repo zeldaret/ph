@@ -59,7 +59,7 @@ public:
     /* 18 */ virtual void vfunc_18(u32 param1) override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
     /* 54 */ virtual void vfunc_54() override;
-    /* 5c */ virtual bool SetVelocity(Vec3p *vel) override;
+    /* 5c */ virtual bool Drop(Vec3p *vel) override;
     /* b4 */
 
     static ActorBomb *Create();

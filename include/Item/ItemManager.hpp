@@ -20,6 +20,7 @@ extern "C" {
 #define MAX_HOURGLASS_SECONDS 1500 // 25 minutes
 #define MAX_AMMO_UPGRADE 2
 #define MAX_UNK_0BA 9
+#define MAX_KEYS 8
 
 typedef u32 ItemModelId;
 enum ItemModelId_ {

@@ -106,7 +106,7 @@ src/00_Core/Player/LinkStateBase.cpp:
 
 src/00_Core/Player/LinkStateDamage.cpp:
     .text       start:0x020abfa4 end:0x020ad020
-    .rodata     start:0x020dc560 end:0x020dc574
+    .rodata     start:0x020dc528 end:0x020dc574
     .data       start:0x020e5a8c end:0x020e5c58
 
 src/00_Core/Player/LinkStateFollow.cpp:
@@ -115,7 +115,6 @@ src/00_Core/Player/LinkStateFollow.cpp:
 
 src/00_Core/Player/LinkStateInteract.cpp:
     .text       start:0x020aa32c end:0x020abd78
-    .rodata     start:0x020dc528 end:0x020dc560
     .data       start:0x020e58e8 end:0x020e5a40
 
 src/00_Core/Player/LinkStateItem.cpp:

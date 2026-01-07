@@ -33,24 +33,24 @@ ActorRupee::ActorRupee() {
 }
 
 bool ActorRupee::Init() {
-    RupeeId rupeeId    = (RupeeId) mUnk_020.mUnk_00[0];
-    mRupeeId           = rupeeId;
-    s32 iVar1          = (func_ov14_0213b70c(rupeeId) ? data_ov014_021589f4.mUnk_4 : 0xaa8) >> 1;
-    mHitbox.pos.x      = 0;
-    mHitbox.pos.y      = iVar1;
-    mHitbox.pos.z      = 0;
-    mHitbox.size       = iVar1;
-    mUnk_08c.pos.x     = mHitbox.pos.x;
-    mUnk_08c.pos.y     = mHitbox.pos.y;
-    mUnk_08c.pos.z     = mHitbox.pos.z;
-    mUnk_08c.size      = mHitbox.size;
-    mUnk_0a4.mUnk_04.x = 0;
-    mUnk_0a4.mUnk_04.y = iVar1;
-    mUnk_0a4.mUnk_04.z = 0;
-    mUnk_0a4.mUnk_10   = iVar1 + 0x1000;
-    mUnk_09c.mUnk_0    = mUnk_09c.mUnk_0 & ~0xb0;
-    mUnk_09c.mUnk_3    = 1;
-    mMaxFall           = mUnk_08c.size + -1;
+    RupeeId rupeeId        = (RupeeId) mUnk_020.mUnk_00[0];
+    mRupeeId               = rupeeId;
+    s32 iVar1              = (func_ov14_0213b70c(rupeeId) ? data_ov014_021589f4.mUnk_4 : 0xaa8) >> 1;
+    mHitbox.pos.x          = 0;
+    mHitbox.pos.y          = iVar1;
+    mHitbox.pos.z          = 0;
+    mHitbox.size           = iVar1;
+    mUnk_08c.pos.x         = mHitbox.pos.x;
+    mUnk_08c.pos.y         = mHitbox.pos.y;
+    mUnk_08c.pos.z         = mHitbox.pos.z;
+    mUnk_08c.size          = mHitbox.size;
+    mUnk_0a4.mUnk_04.pos.x = 0;
+    mUnk_0a4.mUnk_04.pos.y = iVar1;
+    mUnk_0a4.mUnk_04.pos.z = 0;
+    mUnk_0a4.mUnk_04.size  = iVar1 + 0x1000;
+    mUnk_09c.mUnk_0        = mUnk_09c.mUnk_0 & ~0xb0;
+    mUnk_09c.mUnk_3        = 1;
+    mMaxFall               = mUnk_08c.size + -1;
     if (mUnk_03c >= 0) {
         this->func_ov14_0213b204(1);
     } else {
@@ -215,7 +215,7 @@ void ActorRupee::Update(bool param1) {
     switch (mUnk_130) {
         case 0:
             Move();
-            if (mUnk_111) {
+            if (mTouchingFloor) {
                 local_1c = mPos;
                 MapManager::func_ov00_02083fb0(&local_20, gMapManager, &local_1c);
                 if (((local_20 >> 5) & 3) == 2) {
