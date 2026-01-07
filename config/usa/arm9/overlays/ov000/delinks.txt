@@ -111,7 +111,7 @@ src/00_Core/Player/LinkStateDamage.cpp:
 
 src/00_Core/Player/LinkStateFollow.cpp:
     .text       start:0x020a8f14 end:0x020a9244
-    .data       start:0x020e56fc end:0x020e5888
+    .data       start:0x020e56fc end:0x020e5790
 
 src/00_Core/Player/LinkStateInteract.cpp:
     .text       start:0x020aa2cc end:0x020abd18
@@ -156,3 +156,4 @@ src/00_Core/Game/GameModePlay.cpp:
 
 src/00_Core/Render/ModelRender.cpp:
     .text       start:0x020a950c end:0x020a9980
+    .data       start:0x020e57b8 end:0x020e5800
