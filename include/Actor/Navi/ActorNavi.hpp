@@ -45,7 +45,8 @@ public:
     /* 344 */ q20 mUnk_344;
     /* 348 */ unk32 mUnk_348;
     /* 34c */ ActorNaviBase_Unk1 mUnk_34c[4];
-    /* 35c */ unk8 mUnk_35c[0x28];
+    /* 35c */ ModelRender_UnkBoneMatrixStruct *unkBoneMatrixStruct;
+    /* 360 */ unk8 mUnk_360[0x24];
     /* 384 */ Mat3p mUnk_384;
     /* 3a8 */ unk8 mUnk_3a8[0xC];
     /* 3b4 */ EquipHammer *mHammer;
