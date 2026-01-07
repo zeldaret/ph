@@ -34,7 +34,6 @@ struct ModelRender_UnkStruct_4 {
     /* 38 */ unk32 mUnk_38[3];
     /* 44 */ unk32 mUnk_44[2];
     /* 4c */ unk32 mUnk_4c[2];
-    /* 54 */ ModelRender_UnkBoneMatrixStruct *unkBoneMatrixArray2;
 };
 
 struct ModelRenderCommandsData {
@@ -48,8 +47,7 @@ class ModelRender : public SysObject {
 public:
     /* 00 (vtable) */
     /* 04 */ ModelRender_UnkStruct_4 mUnk_04;
-    /* 58 */ void *mUnk_58;
-    /* 5c */ unk8 mUnk_5c;
+    /* 58 */ ModelRender_UnkBoneMatrixStruct *unkBoneMatrixArray2;
 
     /* 00 */ virtual ~ModelRender();
     /* 08 */ virtual void *GetLcdcAddress();

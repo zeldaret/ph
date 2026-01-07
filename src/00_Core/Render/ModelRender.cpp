@@ -24,13 +24,13 @@ extern "C" Mat3p gDefaultMatrix;
 extern "C" u32 *data_027e0ce0[];
 
 THUMB ModelRender::ModelRender(ItemModel *itemModel) {
-    this->mUnk_04.unkBoneMatrixArray2 = NULL;
+    this->unkBoneMatrixArray2 = NULL;
     this->Init_ModelRender_UnkStruct_4(itemModel);
 }
 
 THUMB ModelRender::~ModelRender() {
-    if (this->mUnk_04.unkBoneMatrixArray2 != NULL) {
-        SysObject::operator delete[](this->mUnk_04.unkBoneMatrixArray2);
+    if (this->unkBoneMatrixArray2 != NULL) {
+        SysObject::operator delete[](this->unkBoneMatrixArray2);
     }
     func_ov000_020b3ea8(this);
 }
@@ -44,8 +44,8 @@ void ModelRender::Init_ModelRender_UnkStruct_4(ItemModel *model) {
 }
 
 ModelRender_UnkBoneMatrixStruct *ModelRender::UnkGetBoneMatrix(s32 index) {
-    if (this->mUnk_04.unkBoneMatrixArray2 != NULL) {
-        return &this->mUnk_04.unkBoneMatrixArray2[index];
+    if (this->unkBoneMatrixArray2 != NULL) {
+        return &this->unkBoneMatrixArray2[index];
     }
     if (this->mUnk_04.unkBoneMatrixArray1 != NULL) {
         return &this->mUnk_04.unkBoneMatrixArray1[index];
@@ -147,7 +147,7 @@ THUMB void ModelRender::InitBoneMatrixArrays(u32 idLength) {
 
     ModelRender_UnkBoneMatrixStruct *boneMatrixArray =
         (ModelRender_UnkBoneMatrixStruct *) SysObject::operator new[](boneMatrixCount * 0x58, id, idLength);
-    this->mUnk_04.unkBoneMatrixArray2 = boneMatrixArray;
+    this->unkBoneMatrixArray2         = boneMatrixArray;
     this->mUnk_04.unkBoneMatrixArray1 = boneMatrixArray;
 }
 
