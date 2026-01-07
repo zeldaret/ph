@@ -45,7 +45,7 @@ ARM void ActorNavi::func_ov059_0219aa08(bool param1) {
         this->mUnk_334.mUnk_00.x =
             ROUND_Q20(uVar4) | ((this->mUnk_344 >> 0x1F) * 0x666 + (lVar2 >> 0x20) + (~0x800 < uVar4)) * 0x100000;
 
-        Mat3p_MultiplyVec(&this->mUnk_334.mUnk_00, &this->mUnk_384, &this->mUnk_334.mUnk_00);
+        Mat3p_MultiplyVec(&this->mUnk_334.mUnk_00, &this->unkBoneMatrixStruct.mUnk_28, &this->mUnk_334.mUnk_00);
         Vec3p_RotateY(uVar3, &this->mUnk_334.mUnk_00);
         Vec3p_Add(&this->mUnk_334.mUnk_00, &VStack_24, &this->mUnk_334.mUnk_00);
         VStack_60.z = this->mUnk_334.mUnk_00.z;

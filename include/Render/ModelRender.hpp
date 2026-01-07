@@ -11,7 +11,9 @@
 class ModelRender;
 
 struct ModelRender_UnkBoneMatrixStruct {
-    /* 00 */ unk8 mUnk_00[0x58];
+    /* 00 */ unk8 mUnk_00[0x28];
+    /* 28 */ Mat3p mUnk_28;
+    /* 4c */ unk8 mUnk_4c[0xC];
 };
 
 struct ModelRender_UnkStruct_4 {
