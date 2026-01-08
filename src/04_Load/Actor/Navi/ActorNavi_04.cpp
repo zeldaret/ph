@@ -50,7 +50,7 @@ THUMB bool ActorNaviBase::Init() {
 
 ActorNaviBase_Unk3::ActorNaviBase_Unk3(ItemModel *param1) :
     ModelRender(param1) {
-    this->func_ov000_020a9998(6, 3);
+    this->UnkInit_Struct4_Params(6, 3);
 }
 
 THUMB ActorNavi::ActorNavi() :

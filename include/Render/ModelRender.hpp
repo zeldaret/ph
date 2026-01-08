@@ -14,6 +14,7 @@ struct ModelRender_UnkBoneMatrixStruct {
     /* 00 */ unk8 mUnk_00[0x28];
     /* 28 */ Mat3p mUnk_28;
     /* 4c */ unk8 mUnk_4c[0xC];
+    /* 58 */
 };
 
 struct ModelRender_UnkStruct_4 {
@@ -36,11 +37,13 @@ struct ModelRender_UnkStruct_4 {
     /* 38 */ unk32 mUnk_38[3];
     /* 44 */ unk32 mUnk_44[2];
     /* 4c */ unk32 mUnk_4c[2];
+    /* 54 */
 };
 
 struct ModelRenderCommandsData {
     /* 00 */ u8 command;
     /* 04 */ ModelRender_UnkStruct_4 *unkStruct4;
+    /* 08 */
 };
 
 class ItemModel;
@@ -50,6 +53,7 @@ public:
     /* 00 (vtable) */
     /* 04 */ ModelRender_UnkStruct_4 mUnk_04;
     /* 58 */ ModelRender_UnkBoneMatrixStruct *unkBoneMatrixArray2;
+    /* 5c */
 
     /* 00 */ virtual ~ModelRender();
     /* 08 */ virtual void *GetLcdcAddress();
@@ -65,7 +69,7 @@ public:
     /* 30 */ virtual void vfunc_30();
     /* 34 */ virtual void vfunc_34();
     /* 38 */ virtual void vfunc_38();
-    /* 3c */ virtual void vfunc_3c();
+    /* 3c */ virtual void vfunc_3c(ModelRenderCommandsData *renderData);
     /* 40 */
 
     ModelRender(ItemModel *itemModel);
@@ -74,6 +78,6 @@ public:
     s32 GetMaterialIndex(char *materialName);
     void InitBoneMatrixArrays(u32 idLength);
     void SetUnkBoneMatrixArray1(ModelRender_UnkBoneMatrixStruct *boneMatrix);
-    void func_ov000_020a9998(unk32 param1, unk32 param2);
+    void UnkInit_Struct4_Params(u8 param1, u8 param2);
     void func_ov000_020b413c(unk16 param1, Vec3p *param2);
 };

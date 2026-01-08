@@ -3,8 +3,9 @@
 
 extern "C" void func_020189dc(ModelRender_UnkStruct_4 *unkStruct4, ItemModel *model);
 extern "C" void func_02018c3c(ModelRender_UnkStruct_4 *unkStruct4, void *param2);
-extern "C" void func_02018c90(ModelRender_UnkStruct_4 *unkStruct4, void (*func)(ModelRenderCommandsData *), unk32 param3,
-                              void *param4, unk32 param5);
+extern "C" void UnkInit_ModelRender_Struct4_Params(ModelRender_UnkStruct_4 *unkStruct4,
+                                                   void (*func)(ModelRenderCommandsData *), unk32 param3, u8 param4,
+                                                   u8 param5);
 extern "C" void ExecModelRenderCommands(ModelRender_UnkStruct_4 *unkStruct4);
 extern "C" void CopySingle288(Mat3p *src, Mat3p *dest);
 extern "C" void SetGeometryScale(Vec3p *scale);
@@ -161,13 +162,13 @@ void ModelRender::vfunc_38() {
     this->mUnk_04.flags &= 0xfffffffd;
 }
 
-void ModelRender::vfunc_3c() {}
+void ModelRender::vfunc_3c(ModelRenderCommandsData *renderData) {}
 
 void func_ov000_020a99c0(ModelRenderCommandsData *renderData) {
-    renderData->unkStruct4->mUnk_2c->vfunc_3c();
+    renderData->unkStruct4->mUnk_2c->vfunc_3c(renderData);
 }
 
-void ModelRender::func_ov000_020a9998(unk32 param1, unk32 param2) {
+void ModelRender::UnkInit_Struct4_Params(u8 param1, u8 param2) {
     this->mUnk_04.mUnk_2c = this;
-    func_02018c90(&this->mUnk_04, &func_ov000_020a99c0, 0, (void *) param1, param2);
+    UnkInit_ModelRender_Struct4_Params(&this->mUnk_04, &func_ov000_020a99c0, 0, param1, param2);
 }
