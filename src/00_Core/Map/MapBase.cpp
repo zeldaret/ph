@@ -181,11 +181,11 @@ ARM void MapBase::func_ov00_0207dea0(bool param_2) {
 }
 
 ARM void MapBase::vfunc_b0(unk32 param_2, unk32 param_3) {
-    if (this->mUnk_13c == NULL) {
+    if (this->modelFile == NULL) {
         return;
     }
-    func_020196fc((ItemModel *) this->mUnk_13c, param_2);
-    func_020196bc((ItemModel *) this->mUnk_13c, param_3);
+    func_020196fc((ItemModel *) this->modelFile, param_2);
+    func_020196bc((ItemModel *) this->modelFile, param_3);
     return;
 }
 
@@ -194,10 +194,10 @@ ARM bool MapBase::func_ov00_0207e08c(s32 *param_2, s32 param_3) {
     int iVar1;
     int iVar2;
 
-    if (this->mUnk_13c == NULL) {
+    if (this->modelFile == NULL) {
         return false;
     }
-    iVar1 = this->mUnk_13c->mUnk_00 + this->mUnk_13c->mUnk_08;
+    iVar1 = this->modelFile->mUnk_00 + this->modelFile->mUnk_08;
     if (iVar1 == 0) {
         return false;
     }
@@ -224,7 +224,7 @@ ARM s32 MapBase::func_ov00_0207e0f0(s32 param_2) {
     int *iVar8;
     int iVar7;
     u32 uVar8;
-    MapBase_Unk_13c *pMVar9;
+    ItemModel *pMVar9;
     int *iVar9;
     int iVar13;
     int *iVar10;
@@ -232,7 +232,7 @@ ARM s32 MapBase::func_ov00_0207e0f0(s32 param_2) {
     int iVar15;
     u32 uStack_30;
 
-    pMVar9 = this->mUnk_13c;
+    pMVar9 = this->modelFile;
     if (pMVar9 == NULL) {
         return -1;
     }
@@ -303,7 +303,7 @@ ARM s32 MapBase::func_ov00_0207e28c(s32 param_2) {
     int iVar13;
     u32 uVar14;
     int *iVar10;
-    MapBase_Unk_13c *pMVar15;
+    ItemModel *pMVar15;
     int iVar16;
     int iVar17;
     u32 uVar18;
@@ -312,7 +312,7 @@ ARM s32 MapBase::func_ov00_0207e28c(s32 param_2) {
     u32 uStack_30;
     int *iVar5;
 
-    pMVar15 = this->mUnk_13c;
+    pMVar15 = this->modelFile;
     if (pMVar15 == NULL) {
         return -1;
     }
@@ -1346,12 +1346,12 @@ ARM void MapBase::func_ov00_0207f924(unk32 param_2) {
 }
 
 ARM unk32 *MapBase::func_ov00_0207f934() {
-    return !this->mUnk_140 ? NULL : this->mUnk_140->mUnk_60;
+    return !this->modelRender ? NULL : this->modelRender->mUnk_60;
 }
 
 ARM void MapBase::func_ov00_0207f948(unk32 *param_2) {
-    if (this->mUnk_140 != NULL) {
-        this->mUnk_140->mUnk_60 = param_2;
+    if (this->modelRender != NULL) {
+        this->modelRender->mUnk_60 = param_2;
     }
 }
 
@@ -2235,7 +2235,7 @@ LAB_02080e20_caseD_c:
         uVar2 = 0x1f;
     }
 LAB_arm9_ov000__02080ec8:
-    this->mUnk_140->mUnk_5c = uVar2;
+    this->modelRender->mUnk_5c = uVar2;
 }
 
 ARM void MapBase::func_ov00_02080edc() {

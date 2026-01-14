@@ -1475,10 +1475,10 @@ func_ov000_0209d8d8 kind:function(arm,size=0x1c) addr:0x0209d878
 func_ov000_0209d8f4 kind:function(arm,size=0x18) addr:0x0209d894
 func_ov000_0209d90c kind:function(arm,size=0x1c) addr:0x0209d8ac
 func_ov000_0209d928 kind:function(arm,size=0x1c) addr:0x0209d8c8
-func_ov000_0209d944 kind:function(arm,size=0x40) addr:0x0209d8e4
-func_ov000_0209d984 kind:function(arm,size=0x14) addr:0x0209d924
-func_ov000_0209d998 kind:function(arm,size=0x1c) addr:0x0209d938
-func_ov000_0209d9b4 kind:function(arm,size=0x2c) addr:0x0209d954
+_ZN14MapModelRenderC2EP9ItemModel kind:function(arm,size=0x40) addr:0x0209d8e4
+_ZN14MapModelRenderD1Ev kind:function(arm,size=0x14) addr:0x0209d924
+_ZN14MapModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x0209d938
+_ZN14MapModelRender15HideModelCoversEP23ModelRenderCommandsData kind:function(arm,size=0x2c) addr:0x0209d954
 func_ov000_0209d9e0 kind:function(arm,size=0x18) addr:0x0209d980
 func_ov000_0209d9f8 kind:function(arm,size=0x18) addr:0x0209d998
 func_ov000_0209da10 kind:function(arm,size=0x34) addr:0x0209d9b0
@@ -4693,9 +4693,9 @@ data_ov000_020e4ad0 kind:data(any) addr:0x020e4a70
 data_ov000_020e4b00 kind:data(any) addr:0x020e4aa0
 data_ov000_020e4b18 kind:data(any) addr:0x020e4ab8
 data_ov000_020e4b68 kind:data(any) addr:0x020e4b08
-data_ov000_020e4bb8 kind:data(any) addr:0x020e4b58
-data_ov000_020e4c00 kind:data(any) addr:0x020e4ba0
-data_ov000_020e4c50 kind:data(any) addr:0x020e4bf0
+_ZTV14MapModelRender kind:data(any) addr:0x020e4b50
+data_ov000_020e4c00 kind:data(any) addr:0x020e4b98
+data_ov000_020e4c50 kind:data(any) addr:0x020e4be8
 data_ov000_020e4d0c kind:data(any) addr:0x020e4cac
 data_ov000_020e4d30 kind:data(any) addr:0x020e4cd0
 data_ov000_020e4d4c kind:data(any) addr:0x020e4cec

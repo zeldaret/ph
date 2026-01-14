@@ -40,10 +40,39 @@ struct ModelRender_UnkStruct_4 {
     /* 54 */
 };
 
+struct ModelRender_MaterialData {
+    /* 00 */ u32 flags;
+    /* 04 */ u32 dif_amb;
+    /* 08 */ u32 spe_emi;
+    /* 0c */ u32 polygon_attr;
+    /* 10 */ u32 teximage_params;
+    /* 14 */ u32 pltt_base;
+    /* 18 */ u8 mUnk_18[0x14];
+    /* 2c */ u16 width;
+    /* 2e */ u16 height;
+    /* 30 */ u8 mUnk_30[0x8];
+    /* 38 */
+};
+
+// Struct containing data used to render an NSBMD model
 struct ModelRenderCommandsData {
-    /* 00 */ u8 command;
+    /* 00 */ u8 *currentCommand;
     /* 04 */ ModelRender_UnkStruct_4 *unkStruct4;
-    /* 08 */
+    /* 08 */ u32 flags;
+    /* 0c */ unk8 mUnk_0c[0xa4];
+    /* b0 */ ModelRender_MaterialData *unkMaterialDataPTR;
+    /* b4 */ unk8 mUnk_b4[0x20];
+    /* d4 */ void *boneList;
+    /* d8 */ void *materialList;
+    /* dc */ void *meshList;
+    /* e0 */ u32 modelUpScale;
+    /* e4 */ u32 modelDownScale;
+    /* e8 */ void *scalingHandler;
+    /* ec */ void *transformationsHandler;
+    /* f0 */ void *materialHandler;
+    /* f4 */ ModelRender_MaterialData materialData;
+    /* 12c */ unk8 mUnk_12c[0x5c];
+    /* 188 */
 };
 
 class ItemModel;

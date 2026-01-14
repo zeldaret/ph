@@ -19,7 +19,12 @@ struct UnkStruct_ov000_020c0c08_04 {
     /* 20 */
 };
 
-class ItemModel;
+class ItemModel {
+public:
+    /* 00 */ unk32 mUnk_00;
+    /* 04 */ unk32 mUnk_04;
+    /* 08 */ unk32 mUnk_08;
+};
 
 class UnkStruct_ov000_020c0c08 : public SysObject {
 public:
