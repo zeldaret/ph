@@ -1,14 +1,23 @@
 #include "Render/MapModelRender.hpp"
 
-extern "C" void func_02018cb8(ModelRender_UnkStruct_4 *param_1, void *param_2);
-extern "C" void func_ov000_0209d9e0(ModelRenderCommandsData *param_1);
+extern "C" void func_02018cb8(ModelRender_UnkStruct_4 *param_1, void (*param_2)(ModelRenderCommandsData *));
+
+void func_ov000_0209d9f8(ModelRenderCommandsData *renderData) {
+    ((MapModelRender *) renderData->unkStruct4->mUnk_2c)->HideModelCovers(renderData);
+    return;
+}
+
+void func_ov000_0209d9e0(ModelRenderCommandsData *renderData) {
+    renderData->mUnkFunc_1c = &func_ov000_0209d9f8;
+    renderData->mUnk_90     = 2;
+}
 
 ARM MapModelRender::MapModelRender(ItemModel *itemModel) :
     ModelRender(itemModel) {
     this->modelCoverTransparency = 0;
     this->mUnk_60                = NULL;
     this->mUnk_04.mUnk_2c        = this;
-    func_02018cb8(&this->mUnk_04, func_ov000_0209d9e0);
+    func_02018cb8(&this->mUnk_04, &func_ov000_0209d9e0);
 }
 
 void MapModelRender::HideModelCovers(ModelRenderCommandsData *renderData) {

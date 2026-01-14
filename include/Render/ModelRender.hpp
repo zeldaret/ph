@@ -59,7 +59,11 @@ struct ModelRenderCommandsData {
     /* 00 */ u8 *currentCommand;
     /* 04 */ ModelRender_UnkStruct_4 *unkStruct4;
     /* 08 */ u32 flags;
-    /* 0c */ unk8 mUnk_0c[0xa4];
+    /* 0c */ unk8 mUnk_0c[0x10];
+    /* 1c */ void *mUnkFunc_1c;
+    /* 20 */ unk8 mUnk_20[0x70];
+    /* 90 */ unk8 mUnk_90;
+    /* 91 */ unk8 mUnk_91[0x1f];
     /* b0 */ ModelRender_MaterialData *unkMaterialDataPTR;
     /* b4 */ unk8 mUnk_b4[0x20];
     /* d4 */ void *boneList;
