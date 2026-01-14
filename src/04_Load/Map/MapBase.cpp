@@ -9,7 +9,7 @@ void MapBase::vfunc_0c(Course *param_2) {}
 void MapBase::vfunc_10() {}
 void MapBase::vfunc_2c() {}
 void MapBase::vfunc_30(s32 param_2) {}
-bool MapBase::vfunc_34(char *param_2) {}
+bool MapBase::LoadModelFromFile(char *filename) {}
 void MapBase::vfunc_38() {}
 void MapBase::vfunc_3c() {}
 void MapBase::vfunc_40() {}
