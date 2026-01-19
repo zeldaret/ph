@@ -5028,7 +5028,7 @@ data_ov000_020e67ac kind:data(any) addr:0x020e674c
 data_ov000_020e67b8 kind:data(any) addr:0x020e6758
 data_ov000_020e67d8 kind:data(any) addr:0x020e6778
 _ZTV13ActorNaviBase kind:data(any) addr:0x020e677c
-_ZTV18ActorNaviBase_Unk3 kind:data(any) addr:0x020e6874
+_ZTV15NaviModelRender kind:data(any) addr:0x020e6874
 data_ov000_020e691c kind:data(any) addr:0x020e68bc
 data_ov000_020e6934 kind:data(any) addr:0x020e68d4
 data_ov000_020e6974 kind:data(any) addr:0x020e6914
