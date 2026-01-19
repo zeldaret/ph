@@ -2,13 +2,13 @@
 
 extern "C" void func_02018cb8(ModelRender_UnkStruct_4 *param_1, void (*param_2)(ModelRenderCommandsData *));
 
-void func_ov000_0209d9f8(ModelRenderCommandsData *renderData) {
+void HideMapModelCover(ModelRenderCommandsData *renderData) {
     ((MapModelRender *) renderData->unkStruct4->mUnk_2c)->HideModelCovers(renderData);
     return;
 }
 
 void func_ov000_0209d9e0(ModelRenderCommandsData *renderData) {
-    renderData->mUnkFunc_1c = &func_ov000_0209d9f8;
+    renderData->mUnkFunc_1c = &HideMapModelCover;
     renderData->mUnk_90     = 2;
 }
 

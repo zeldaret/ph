@@ -2235,7 +2235,7 @@ LAB_02080e20_caseD_c:
         uVar2 = 0x1f;
     }
 LAB_arm9_ov000__02080ec8:
-    this->modelRender->mUnk_5c = uVar2;
+    this->modelRender->modelCoverTransparency = uVar2;
 }
 
 ARM void MapBase::func_ov00_02080edc() {
