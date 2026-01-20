@@ -2298,7 +2298,7 @@ from:0x0210b336 kind:thumb_call_arm to:0x0202e9f4 module:main
 from:0x0210b362 kind:thumb_call_arm to:0x020aa084 module:overlay(0)
 from:0x0210b36c kind:thumb_call_arm to:0x020aa0f0 module:overlay(0)
 from:0x0210b376 kind:thumb_call_arm to:0x020aa0f0 module:overlay(0)
-from:0x0210b380 kind:load to:0x020e5878 module:overlay(0)
+from:0x0210b380 kind:load to:0x020e5870 add:8 module:overlay(0)
 from:0x0210b384 kind:load to:0x02110c14 module:overlay(4)
 from:0x0210b388 kind:load to:0x02110bc4 module:overlay(4)
 from:0x0210b38c kind:load to:0x027e0ce0 module:dtcm

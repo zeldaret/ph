@@ -4801,7 +4801,7 @@ data_ov000_020e5808 kind:data(any) addr:0x020e5808
 _ZTV11ModelRender kind:data(any) addr:0x020e5818
 data_ov000_020e5868_pad kind:data(any) addr:0x020e5860
 data_ov000_020e5868 kind:data(any) addr:0x020e5868
-data_ov000_020e5878 kind:data(any) addr:0x020e5878
+_ZTV15LinkModelRender kind:data(any) addr:0x020e5870
 data_ov000_020e58e8 kind:data(any) addr:0x020e58e8
 data_ov000_020e58ec kind:data(any) addr:0x020e58ec
 data_ov000_020e58f0 kind:data(any) addr:0x020e58f0

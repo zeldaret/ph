@@ -79,8 +79,6 @@ struct ModelRenderCommandsData {
     /* 188 */
 };
 
-class ItemModel;
-
 class ModelRender : public SysObject {
 public:
     /* 00 (vtable) */

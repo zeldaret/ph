@@ -4892,11 +4892,11 @@ from:0x020a9b1c kind:thumb_call to:0x020c0be0 module:overlay(0)
 from:0x020a9b22 kind:thumb_call_arm to:0x0202ea08 module:main
 from:0x020a9b40 kind:arm_call to:0x0202ea14 module:main
 from:0x020a9b48 kind:arm_call_thumb to:0x020a958c module:overlay(0)
-from:0x020a9b54 kind:load to:0x020e5818 module:overlay(0)
+from:0x020a9b54 kind:load to:0x020e5810 add:8 module:overlay(0)
 from:0x020a9b6c kind:arm_call to:0x0202ea14 module:main
 from:0x020a9b74 kind:arm_call_thumb to:0x020a958c module:overlay(0)
 from:0x020a9b7c kind:arm_call to:0x0202ea08 module:main
-from:0x020a9b88 kind:load to:0x020e5818 module:overlay(0)
+from:0x020a9b88 kind:load to:0x020e5810 add:8 module:overlay(0)
 from:0x020a9ba0 kind:arm_call to:0x020a9938 module:overlay(0)
 from:0x020a9bac kind:arm_call to:0x02018ca4 module:main
 from:0x020a9bdc kind:arm_call to:0x020a95c4 module:overlay(0)
