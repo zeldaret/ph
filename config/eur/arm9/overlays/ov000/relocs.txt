@@ -4217,7 +4217,7 @@ from:0x020a4bf8 kind:arm_call to:0x0202ea0c module:main
 from:0x020a4c0c kind:arm_call_thumb to:0x020a95ec module:overlay(0)
 from:0x020a4c40 kind:arm_call_thumb to:0x020a956c module:overlay(0)
 from:0x020a4c6c kind:arm_call to:0x020a9998 module:overlay(0)
-from:0x020a4c78 kind:load to:0x020e51f0 module:overlay(0)
+from:0x020a4c78 kind:load to:0x020e51e8 add:8 module:overlay(0)
 from:0x020a4c84 kind:arm_call_thumb to:0x020a95ec module:overlay(0)
 from:0x020a4c98 kind:arm_call_thumb to:0x020a95ec module:overlay(0)
 from:0x020a4ca0 kind:arm_call to:0x0202ea0c module:main

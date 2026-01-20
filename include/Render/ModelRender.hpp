@@ -47,7 +47,9 @@ struct ModelRender_MaterialData {
     /* 0c */ u32 polygon_attr;
     /* 10 */ u32 teximage_params;
     /* 14 */ u32 pltt_base;
-    /* 18 */ u8 mUnk_18[0x14];
+    /* 18 */ u8 mUnk_18[0xc];
+    /* 24 */ unk32 mUnk_24;
+    /* 28 */ unk32 mUnk_28;
     /* 2c */ u16 width;
     /* 2e */ u16 height;
     /* 30 */ u8 mUnk_30[0x8];

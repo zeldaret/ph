@@ -1752,10 +1752,10 @@ _ZN17SkyboxModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x020a4b88
 _ZN17SkyboxModelRenderD2Ev kind:function(arm,size=0x14) addr:0x020a4ba4
 _ZN17SkyboxModelRender8vfunc_40Ev kind:function(arm,size=0x18) addr:0x020a4bb8
 _ZN17SkyboxModelRender8vfunc_44Ev kind:function(arm,size=0x8) addr:0x020a4bd0
-func_ov000_020a4c38 kind:function(arm,size=0x44) addr:0x020a4bd8
-func_ov000_020a4c7c kind:function(arm,size=0x14) addr:0x020a4c1c
-func_ov000_020a4c90 kind:function(arm,size=0x1c) addr:0x020a4c30
-func_ov000_020a4cac kind:function(arm,size=0x90) addr:0x020a4c4c
+_ZN15MistModelRenderC1EP9ItemModel kind:function(arm,size=0x44) addr:0x020a4bd8
+_ZN15MistModelRenderD1Ev kind:function(arm,size=0x14) addr:0x020a4c1c
+_ZN15MistModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x020a4c30
+_ZN15MistModelRender8vfunc_3cEP23ModelRenderCommandsData kind:function(arm,size=0x90) addr:0x020a4c4c
 func_ov000_020a4d3c kind:function(arm,size=0x80) addr:0x020a4cdc
 func_ov000_020a4dbc kind:function(arm,size=0x14) addr:0x020a4d5c
 func_ov000_020a4dd0 kind:function(arm,size=0x3c) addr:0x020a4d70
@@ -4728,8 +4728,7 @@ data_ov000_020e5134 kind:data(any) addr:0x020e50d4
 data_ov000_020e5144 kind:data(any) addr:0x020e50e4
 _ZN17SkyboxModelRender19data_ov000_020e518cE kind:data(any) addr:0x020e512c
 _ZTV17SkyboxModelRender kind:data(any) addr:0x020e5138
-data_ov000_020e51e8 kind:data(any) addr:0x020e5188
-data_ov000_020e51f0 kind:data(any) addr:0x020e5190
+_ZTV15MistModelRender kind:data(any) addr:0x020e5188
 data_ov000_020e5230 kind:data(any) addr:0x020e51d0
 data_ov000_020e5234 kind:data(any) addr:0x020e51d4
 data_ov000_020e5238 kind:data(any) addr:0x020e51d8
