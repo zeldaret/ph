@@ -314,7 +314,7 @@ _ZN10PlayerBaseC2Ev kind:function(thumb,size=0x48) addr:0x0210b210
 _ZN10PlayerBaseD1Ev kind:function(thumb,size=0x28) addr:0x0210b258
 _ZN10PlayerBaseD0Ev kind:function(thumb,size=0x30) addr:0x0210b280
 _ZN10PlayerBaseD2Ev kind:function(thumb,size=0x28) addr:0x0210b2b0
-func_ov004_0210b2d8 kind:function(thumb,size=0xb8) addr:0x0210b2d8
+_ZN15LinkModelRenderC1EP9ItemModel kind:function(thumb,size=0xb8) addr:0x0210b2d8
 func_ov004_0210b390 kind:function(thumb,size=0x12) addr:0x0210b390
 func_ov004_0210b3a4 kind:function(thumb,size=0x2c) addr:0x0210b3a4
 func_ov004_0210b3d0 kind:function(arm,size=0x4) addr:0x0210b3d0
@@ -735,8 +735,8 @@ data_ov004_02110b88 kind:data(any) addr:0x02110b88
 data_ov004_02110b98 kind:data(any) addr:0x02110b98
 data_ov004_02110ba8 kind:data(any) addr:0x02110ba8
 data_ov004_02110bb4 kind:data(any) addr:0x02110bb4
-data_ov004_02110bc4 kind:data(any) addr:0x02110bc4
-data_ov004_02110c14 kind:data(any) addr:0x02110c14
+gLinkMaterials kind:data(any) addr:0x02110bc4
+gLinkBodyParts kind:data(any) addr:0x02110c14
 data_ov004_02110cb4 kind:data(any) addr:0x02110cb4
 data_ov004_02110cb8 kind:data(any) addr:0x02110cb8
 data_ov004_02110ccc kind:data(any) addr:0x02110ccc

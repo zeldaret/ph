@@ -21,9 +21,15 @@ struct UnkStruct_ov000_020c0c08_04 {
 
 class ItemModel {
 public:
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
+    /* 00 */ s32 fileSize;
+    /* 04 */ s32 renderCmdsOffset;
+    /* 08 */ s32 materialsOffset;
+    /* 0c */ s32 meshesOffset;
+    /* 10 */ s32 invBindsOffset;
+    /* 14 */ unk8 mUnk_14[3];
+    /* 17 */ u8 numBoneMatrices;
+    /* 18 */ u8 numMaterials;
+    /* 19 */
 };
 
 class UnkStruct_ov000_020c0c08 : public SysObject {

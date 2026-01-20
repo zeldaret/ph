@@ -9,6 +9,8 @@ public:
     /* 5d */ unk8 mUnk_5d[3];
     /* 60 */ unk32 *mUnk_60;
 
+    virtual ~MapModelRender();
+
     MapModelRender(ItemModel *itemModel);
     void HideModelCovers(ModelRenderCommandsData *renderData);
 };

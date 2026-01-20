@@ -197,7 +197,7 @@ ARM bool MapBase::func_ov00_0207e08c(s32 *param_2, s32 param_3) {
     if (this->modelFile == NULL) {
         return false;
     }
-    iVar1 = this->modelFile->mUnk_00 + this->modelFile->mUnk_08;
+    iVar1 = this->modelFile->fileSize + this->modelFile->materialsOffset;
     if (iVar1 == 0) {
         return false;
     }
@@ -236,7 +236,7 @@ ARM s32 MapBase::func_ov00_0207e0f0(s32 param_2) {
     if (pMVar9 == NULL) {
         return -1;
     }
-    puVar4 = (u16 *) ((int) &pMVar9->mUnk_00 + pMVar9->mUnk_08);
+    puVar4 = (u16 *) ((int) &pMVar9->fileSize + pMVar9->materialsOffset);
     if (puVar4 != (u16 *) 0x0) {
         iVar6 = (int) puVar4 + (u32) *puVar4;
         if (iVar6 == 0) {
@@ -316,7 +316,7 @@ ARM s32 MapBase::func_ov00_0207e28c(s32 param_2) {
     if (pMVar15 == NULL) {
         return -1;
     }
-    iVar3 = (int *) ((int) &pMVar15->mUnk_00 + pMVar15->mUnk_08);
+    iVar3 = (int *) ((int) &pMVar15->fileSize + pMVar15->materialsOffset);
     if (iVar3 != NULL) {
         iVar4 = (int *) ((int) iVar3 + (u32) * (u16 *) ((int) iVar3 + 2));
         if (iVar4 == NULL) {
