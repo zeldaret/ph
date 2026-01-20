@@ -167,3 +167,8 @@ src/00_Core/Render/SkyboxModelRender.cpp:
     .text       start:0x020a4aec end:0x020a4bd8
     .data       start:0x020e512c end:0x020e5188
     .init       start:0x020e11ac end:0x020e11f0
+
+src/00_Core/Render/MistModelRender.cpp:
+    complete
+    .text       start:0x020a4bd8 end:0x020a4cdc
+    .data       start:0x020e5188 end:0x020e51d0
