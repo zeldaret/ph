@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include "lib/files.hpp"
+
 #include "Actor/Actor.hpp"
 #include "Actor/ActorRef.hpp"
 #include "Actor/FilterActorBase.hpp"
@@ -41,7 +43,18 @@ struct ActorList {
     /* c */
 };
 
-class ActorManager {
+class ActorManager_Unk14 : public SysObject {
+public:
+    /* 00 */ unk8 mUnk_00[4];
+    /* 04 */ void *mUnk_04;
+    /* 08 */ unk8 mUnk_08[4];
+    /* 0c */
+
+    ActorManager_Unk14(u32 maxActors);
+    ~ActorManager_Unk14();
+};
+
+class ActorManager : public SysObject {
 public:
     /* 00 */ u16 mMaxActors;
     /* 02 */ u16 mNumActors;
@@ -49,32 +62,39 @@ public:
     /* 08 */ s32 mCacheEmptyActorIndex;
     /* 0c */ unk32 mNextActorId;
     /* 10 */ Actor **mActorTable;
-    /* 14 */ void *mUnk_14;
-    /* 18 */ unk8 mUnk_18[4];
+    /* 14 */ ActorManager_Unk14 *mUnk_14;
+    /* 18 */ bool mUnk_18;
     /* 1c */ unk32 mUnk_1c;
     /* 20 */ unk32 mUnk_20;
     /* 24 */ unk32 mUnk_24;
-    /* 28 */ unk8 mUnk_28;
+    /* 28 */ u8 mUnk_28;
     /* 29 */ bool mUnk_29;
     /* 2a */ unk8 mUnk_2a;
     /* 2b */ unk8 mUnk_2b;
     /* 2c */ unk32 mUnk_2c;
     /* 30 */ unk32 mUnk_30;
     /* 34 */ unk32 mUnk_34;
-    /* 38 */ unk8 mUnk_38[4];
+    /* 38 */ u8 mUnk_38;
+    /* 39 */ unk8 mUnk_39[3];
     /* 3c */ u32 mUnk_3c;
     /* 40 */ unk32 mUnk_40;
     /* 44 */ unk32 mUnk_44;
     /* 48 */ u32 mUnk_48;
     /* 4c */ unk32 mUnk_4c;
     /* 50 */ unk32 mUnk_50;
-    /* 54 */ unk8 mUnk_54[4];
+    /* 54 */ u8 mUnk_54;
+    /* 55 */ u8 mUnk_55;
+    /* 56 */ u8 mUnk_56;
+    /* 57 */ unk8 mUnk_57;
     /* 58 */ u32 mUnk_58;
     /* 5c */ unk32 mUnk_5c;
     /* 60 */ unk32 mUnk_60;
-    /* 64 */ unk8 mUnk_64[4];
+    /* 64 */ u8 mUnk_64;
+    /* 65 */ unk8 mUnk_65;
+    /* 66 */ unk8 mUnk_66[2];
     /* 68 */ ActorManager_UnkStruct_68 mUnk_68[5];
-    /* a4 */ unk8 mUnk_a4[0x20];
+    /* a4 */ unk8 mUnk_a4[0x1f];
+    /* a4 */ u8 mUnk_c3;
     /* c4 */
 
     void DeleteActor(u32 index, bool param2);
@@ -100,7 +120,7 @@ public:
     ~ActorManager();
     void func_ov004_0210532c();
     void func_ov004_021053dc();
-    void func_ov004_021054a4(s32 *param1, s32 param2, unk32 param3);
+    void func_ov004_021054a4(FileEntryFlag *param1, s32 param2, unk32 param3);
     void func_ov004_0210554c();
     bool func_ov004_02105578(unk32 param1);
     bool func_ov004_02105608(unk32 param1, unk32 param2, unk32 param3);

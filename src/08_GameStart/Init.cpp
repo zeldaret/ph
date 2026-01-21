@@ -32,7 +32,6 @@ void func_02021714(unk32, u32 *);
 void func_020209a4(unk32, u32 *);
 void func_0201f1ac(u32 *);
 void func_0201f96c(unk32, unk32);
-void Fill256(int value, int *dst, int size);
 void Fill32(unk32, u32 *, unk32);
 void Fill(unsigned char *dst, int value, int size);
 void func_0200afac();
