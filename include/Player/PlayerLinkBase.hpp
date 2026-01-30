@@ -58,7 +58,7 @@ public:
     /* 2c */ virtual void vfunc_2c(s32 param1, unk8 param2) override;
     /* 30 */ virtual bool vfunc_30(s32 param1, Vec3p *param2, s32 param3) override;
     /* 34 */ virtual bool Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5) override;
-    /* 38 */ virtual bool TeleportToEntrance(Vec3p *pos, unk32 entranceId) override;
+    /* 38 */ virtual bool TeleportToEntrance(u16 entranceId, bool param2) override;
     /* 3c */ virtual bool TeleportToLastEntrance(bool param1) override;
     /* 50 */ virtual ~PlayerLinkBase() override;
     /* 58 */ virtual bool vfunc_58(unk32 param1, ActorRef *param2);

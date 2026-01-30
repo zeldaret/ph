@@ -1,5 +1,6 @@
 #include "Player/LinkStateBase.hpp"
 #include "Actor/ActorSpawner.hpp"
+#include "DTCM/UnkStruct_027e0e58.hpp"
 #include "DTCM/UnkStruct_027e0f64.hpp"
 #include "Item/ItemManager.hpp"
 #include "Message/MessageManager.hpp"
@@ -10,8 +11,6 @@ extern "C" bool func_01ffe468(unk32 param1, Vec3p *param2, s32 *param3, s32 *par
 extern "C" void ApproachAngle_thunk(s16 *src, s16 dst, u32 param3);
 extern "C" void func_ov000_020b1a4c(Vec3p *, Vec3p *);
 extern "C" void func_ov000_020b1498(s32, s32, s16);
-extern "C" void func_ov000_0207c5d4(unk32 *, unk32, s32);
-extern unk32 *data_027e0e58;
 extern unk32 data_027e0fb0;
 
 static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
@@ -196,30 +195,25 @@ ARM void LinkStateBase::func_ov00_020a8360(ActorTypeId type) {
 ARM Actor *LinkStateBase::func_ov00_020a8390(ActorTypeId type, Actor_UnkStruct_020 *param2) {
     Actor *pActor;
     ActorRef *pGrabRef;
+
     ActorSpawnOptions local_44;
-    ActorRef local_4c;
-    ActorSpawner *pActorSpawner;
-
-    local_44.mUnk_1c.id    = -1;
-    local_44.mUnk_1c.index = -1;
-    local_44.func_ov000_020c3348();
-
-    pActorSpawner = gActorSpawner;
-
     local_44.mUnk_00    = *param2;
     local_44.mUnk_1c.id = 0;
 
+    ActorRef local_4c;
     local_4c.id    = -1;
     local_4c.index = -1;
 
+    ActorSpawner *pActorSpawner = gActorSpawner;
     pActorSpawner->Spawn(type, this->GetPlayerPos(), &local_44, &local_4c);
+
     pActor = gActorManager->GetActor(&local_4c);
 
     if (pActor != NULL) {
         pGrabRef        = this->GetGrabActorRef();
         pGrabRef->id    = pActor->mRef.id;
         pGrabRef->index = pActor->mRef.index;
-        // pActor->SetUnk_11b();
+        pActor->Grab();
     }
 
     return pActor;
@@ -232,7 +226,7 @@ ARM void LinkStateBase::func_ov00_020a84bc(bool isVisible) {
     sVar1                                 = isVisible ? 0x1F : 0;
     PlayerBase::GetEquipSword()->mUnk_5c  = sVar1;
     PlayerBase::GetEquipShield()->mUnk_0e = sVar1;
-    func_ov000_0207c5d4(data_027e0e58, 1, isVisible);
+    data_027e0e58->func_ov000_0207c5d4(1, isVisible);
 }
 
 ARM void LinkStateBase::func_ov00_020a8508(unk32 param_1) {
@@ -255,13 +249,12 @@ ARM void LinkStateBase::func_ov00_020a853c(Vec3p *param1) {
     func_ov000_020b1a4c(param1, &VStack_18);
 }
 
-// non-matching
-ARM void LinkStateBase::Teleport(Vec3p *pos, s16 angle, unk32 param3, unk32 param4, unk32 param5) {
-    this->mLink->Teleport(pos, angle, param3, 0, 1);
+ARM void LinkStateBase::Teleport(Vec3p *pos) {
+    this->mLink->Teleport(pos, 0, 0, 0, 1);
 }
 
-ARM void LinkStateBase::TeleportToEntrance(Vec3p *pos) {
-    this->mLink->TeleportToEntrance(pos, false);
+ARM void LinkStateBase::TeleportToEntrance(u16 entranceId) {
+    this->mLink->TeleportToEntrance(entranceId, false);
 }
 
 ARM void LinkStateBase::PlayerLinkBase_vfunc_74() {
@@ -318,10 +311,8 @@ ARM bool LinkStateBase::func_ov00_020a8704(s16 *pAngle) {
     iVar3 = func_ov00_020a8d40();
 
     if (iVar3->mUnk_05c > 0 && (iVar3->mUnk_064 != 0 || iVar2->mUnk_06c != 0)) {
-        s16 uVar1  = FX_Atan2Idx(iVar2->mUnk_064, iVar2->mUnk_06c);
-        s16 *angle = (s16 *) GetPlayerAngle();
-
-        *pAngle = *angle - uVar1;
+        s16 uVar1 = FX_Atan2Idx(iVar2->mUnk_064, iVar2->mUnk_06c);
+        *pAngle   = *GetPlayerAngle() - uVar1;
         return true;
     }
 
@@ -347,7 +338,7 @@ ARM void LinkStateBase::func_ov00_020a8844(Vec3p *param1, bool param2, bool para
 
     uStack_1c = *param1;
 
-    if (func_01ffe468(data_027e0f64->func_ov000_0208b180(), &uStack_1c, &uStack_20, &uStack_24, false)) {
+    if (func_01ffe468(data_027e0f64->func_ov000_0208b180(), &uStack_1c, &uStack_20, &uStack_24, false) ? false : true) {
         return;
     }
 
@@ -448,7 +439,7 @@ ARM void LinkStateBase::func_ov00_020a8b04(s32 param1, bool param2) {
 ARM unk32 LinkStateBase::func_ov00_020a8b3c(s32 param1) {
     PlayerControlData *pPlayerControlData = gPlayerControlData;
     unk32 uVar2                           = 0;
-    PlayerControlData_118 *iVar3;
+    UnkStruct_ov000_020c0c08 *iVar3;
 
     if (param1 != 0) {
         iVar3 = pPlayerControlData->mUnk_118;
@@ -517,8 +508,8 @@ ARM UnkStruct_027e0fd4_90 *LinkStateBase::func_ov00_020a8c64() {
     return &data_027e0fd4->mUnk_090;
 }
 
-ARM u16 *LinkStateBase::GetPlayerAngle() {
-    return (u16 *) &gPlayerAngle;
+ARM s16 *LinkStateBase::GetPlayerAngle() {
+    return &gPlayerAngle;
 }
 
 ARM void *LinkStateBase::GetPlayer_Unk18() {

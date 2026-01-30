@@ -81,8 +81,8 @@ public:
     void func_ov00_020a84bc(bool isVisible);
     void func_ov00_020a8508(unk32 param_1);
     void func_ov00_020a853c(Vec3p *param1);
-    void Teleport(Vec3p *pos, s16 angle, unk32 param3, unk32 param4, unk32 param5);
-    void TeleportToEntrance(Vec3p *pos);
+    void Teleport(Vec3p *pos);
+    void TeleportToEntrance(u16 entranceId);
     void PlayerLinkBase_vfunc_74();
     void PlayerLinkBase_vfunc_88(unk32 param_1);
     u16 Get_PlayerLinkBase_Unk48();
@@ -117,7 +117,7 @@ public:
     Vec3p *GetPlayerPos();
     Vec3p *GetPlayerVel();
     UnkStruct_027e0fd4_90 *func_ov00_020a8c64();
-    u16 *GetPlayerAngle();
+    s16 *GetPlayerAngle();
     void *GetPlayer_Unk18();
     s32 Get_PlayerControlData_Unk32();
     Actor *GetGrabActor();

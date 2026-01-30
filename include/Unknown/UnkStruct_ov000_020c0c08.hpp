@@ -34,7 +34,9 @@ public:
 
     UnkStruct_ov000_020c0c08(UnkStruct_ov000_020c0c08_04 *param1, ItemModel *param2);
 
-    void func_ov000_020c0c44(void *);
+    void func_ov000_020c0c44(void *param1);
+    unk32 func_ov000_020c0d68();
     void func_ov000_020c0e04();
-    void func_ov000_020c0e5c(unk32);
+    void func_ov000_020c0e24(unk32 param1);
+    void func_ov000_020c0e5c(unk32 param1);
 };

@@ -1874,7 +1874,7 @@ _ZN10PlayerBase17EquipCollidesWithEP8Cylinderi kind:function(arm,size=0x18) addr
 _ZN10PlayerBase18EquipItem_vfunc_2cEv kind:function(arm,size=0x38) addr:0x020a7c9c
 _ZN10PlayerBase9SetHealthEs kind:function(arm,size=0x58) addr:0x020a7cd4
 _ZN10PlayerBase9AddHealthEs kind:function(arm,size=0x68) addr:0x020a7d2c
-_ZN10PlayerBase18TeleportToEntranceEib kind:function(arm,size=0x7c) addr:0x020a7d94
+_ZN10PlayerBase18TeleportToEntranceEtb kind:function(arm,size=0x7c) addr:0x020a7d94
 _ZN10PlayerBase8TeleportEP5Vec3psibb kind:function(arm,size=0x118) addr:0x020a7e10
 _ZN10PlayerBase22TeleportToLastEntranceEb kind:function(arm,size=0x1c) addr:0x020a7f28
 _ZN13LinkStateBase8vfunc_00Ev kind:function(thumb,size=0x2) addr:0x020a7f44
@@ -1906,8 +1906,8 @@ _ZN13LinkStateBase18func_ov00_020a8390EjP19Actor_UnkStruct_020 kind:function(arm
 _ZN13LinkStateBase18func_ov00_020a84bcEb kind:function(arm,size=0x4c) addr:0x020a845c
 _ZN13LinkStateBase18func_ov00_020a8508Ei kind:function(arm,size=0x34) addr:0x020a84a8
 _ZN13LinkStateBase18func_ov00_020a853cEP5Vec3p kind:function(arm,size=0x70) addr:0x020a84dc
-_ZN13LinkStateBase8TeleportEP5Vec3psibb kind:function(arm,size=0x34) addr:0x020a854c
-_ZN13LinkStateBase18TeleportToEntranceEP5Vec3p kind:function(arm,size=0x1c) addr:0x020a8580
+_ZN13LinkStateBase8TeleportEP5Vec3p kind:function(arm,size=0x34) addr:0x020a854c
+_ZN13LinkStateBase18TeleportToEntranceEt kind:function(arm,size=0x1c) addr:0x020a8580
 _ZN13LinkStateBase23PlayerLinkBase_vfunc_74Ev kind:function(arm,size=0x18) addr:0x020a859c
 _ZN13LinkStateBase23PlayerLinkBase_vfunc_88Ei kind:function(arm,size=0x18) addr:0x020a85b4
 _ZN13LinkStateBase24Get_PlayerLinkBase_Unk48Ev kind:function(arm,size=0xc) addr:0x020a85cc
@@ -2712,11 +2712,11 @@ func_ov000_020c0cc8 kind:function(arm,size=0x54) addr:0x020c0c68
 func_ov000_020c0d1c kind:function(arm,size=0x30) addr:0x020c0cbc
 func_ov000_020c0d4c kind:function(arm,size=0x8) addr:0x020c0cec
 func_ov000_020c0d54 kind:function(arm,size=0x14) addr:0x020c0cf4
-_ZN21PlayerControlData_11819func_ov000_020c0d68Ev kind:function(arm,size=0x8) addr:0x020c0d08
+_ZN24UnkStruct_ov000_020c0c0819func_ov000_020c0d68Ev kind:function(arm,size=0x8) addr:0x020c0d08
 func_ov000_020c0d70 kind:function(arm,size=0x24) addr:0x020c0d10
 func_ov000_020c0d94 kind:function(arm,size=0x70) addr:0x020c0d34
 _ZN24UnkStruct_ov000_020c0c0819func_ov000_020c0e04Ev kind:function(arm,size=0x20) addr:0x020c0da4
-_ZN21PlayerControlData_11819func_ov000_020c0e24Ei kind:function(arm,size=0x38) addr:0x020c0dc4
+_ZN24UnkStruct_ov000_020c0c0819func_ov000_020c0e24Ei kind:function(arm,size=0x38) addr:0x020c0dc4
 _ZN24UnkStruct_ov000_020c0c0819func_ov000_020c0e5cEi kind:function(arm,size=0x38) addr:0x020c0dfc
 func_ov000_020c0e94 kind:function(arm,size=0xc) addr:0x020c0e34
 func_ov000_020c0ea0 kind:function(arm,size=0x20) addr:0x020c0e40
@@ -4777,7 +4777,7 @@ data_ov000_020e5640 kind:data(any) addr:0x020e55e0
 data_ov000_020e5644 kind:data(any) addr:0x020e55e4
 data_ov000_020e5648 kind:data(any) addr:0x020e55e8
 data_ov000_020e564c kind:data(any) addr:0x020e55ec
-gShipParts kind:data(any) addr:0x020e55f0
+gShipParts kind:data(any) addr:0x020e55f0 local
 data_ov000_020e5670$2102 kind:data(any) addr:0x020e5610
 data_ov000_020e5674$2103 kind:data(any) addr:0x020e5614
 data_ov000_020e5684 kind:data(any) addr:0x020e5624
@@ -4839,7 +4839,7 @@ _ZTV13LinkStateItem kind:data(any) addr:0x020e59e0
 @1121 kind:data(any) addr:0x020e5a40
 @1120 kind:data(any) addr:0x020e5a44
 @1119 kind:data(any) addr:0x020e5a48
-gShipParts kind:data(any) addr:0x020e5a4c
+gShipParts kind:data(any) addr:0x020e5a4c local
 _ZN15LinkStateDamage19data_ov000_020e5accE kind:data(any) addr:0x020e5a6c
 _ZN15LinkStateDamage19data_ov000_020e5adcE kind:data(any) addr:0x020e5a7c
 _ZN15LinkStateDamage19data_ov000_020e5aecE kind:data(any) addr:0x020e5a8c

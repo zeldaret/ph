@@ -6,18 +6,7 @@
 
 #include "System/SysNew.hpp"
 #include "Unknown/UnkStruct_0202e1a0.hpp"
-
-class PlayerControlData_118 {
-public:
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
-    /* 0c */ UnkStruct_0202e1a0 mUnk_0c;
-    /* 24 */
-
-    void func_ov000_020c0e24(unk32 param1);
-    unk32 func_ov000_020c0d68();
-};
+#include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 
 class PlayerControlData : public SysObject {
 public:
@@ -39,11 +28,11 @@ public:
     /* 040 */ unk8 mUnk_040[0xc0];
     /* 100 */ unk32 mUnk_100;
     /* 104 */ unk8 mUnk_104[0x14];
-    /* 118 */ PlayerControlData_118 *mUnk_118;
+    /* 118 */ UnkStruct_ov000_020c0c08 *mUnk_118;
     /* 11c */ unk8 mUnk_11c[4];
     /* 120 */ unk32 mUnk_120;
     /* 124 */ unk8 mUnk_124[0x14];
-    /* 138 */ PlayerControlData_118 *mUnk_138;
+    /* 138 */ UnkStruct_ov000_020c0c08 *mUnk_138;
     /* 13c */ unk8 mUnk_13c[4];
     /* 140 */ unk32 mUnk_140;
     /* 144 */ unk32 mUnk_144;
