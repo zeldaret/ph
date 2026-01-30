@@ -24,6 +24,8 @@ public:
     void func_ov000_0207b9dc();
     void func_ov000_0207b9c8();
     void func_ov000_0207b988(GameModeId modeId);
+
+    unk32 func_ov003_020f3d5c(unk32 param1);
 };
 
 extern UnkStruct_027e0dbc data_027e0dbc;

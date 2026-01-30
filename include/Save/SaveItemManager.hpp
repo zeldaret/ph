@@ -81,7 +81,7 @@ public:
 
 extern "C" void Fill16(int value, unsigned short *dst, int size);
 extern "C" void Fill32(unk32, u32 *, unk32);
-extern "C" void Fill256(int value, int *dst, int size);
+extern "C" void Fill256(int value, void *dst, int size);
 
 class SaveInventory {
 public:

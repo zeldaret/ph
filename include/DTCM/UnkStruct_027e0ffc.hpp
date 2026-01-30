@@ -3,6 +3,7 @@
 #include "global.h"
 #include "types.h"
 
+#include "Actor/Actor.hpp"
 #include "Physics/Cylinder.hpp"
 
 struct UnkStruct_027e0ffc {
@@ -22,7 +23,9 @@ struct UnkStruct_027e0ffc {
     /* 39 */
 
     void func_ov000_020ce704();
+    void func_ov000_020ceacc(unk32 param1, Vec3p *param2, unk32 param3);
     void func_ov000_020cebcc(u32 param1, unk16 param2, unk32 param3);
+    void func_ov000_020cec60(u16, Vec3p *, Actor *, unk32);
     void func_ov000_020ced64(Cylinder *param1, u32 param2, u32 param3);
     void func_ov000_020ced7c(Vec3p *param1, s32 param2, s32 param3, unk32 param4);
 };

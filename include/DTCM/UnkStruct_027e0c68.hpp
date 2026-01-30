@@ -3,7 +3,7 @@
 #include "global.h"
 #include "types.h"
 
-#include "Debug/DebugHierarchyBase.hpp"
+#include "Player/Bhio.hpp"
 
 struct UnkStruct_027e0c68 {
     /* 00 */ unk8 mUnk_00[4];
@@ -20,7 +20,7 @@ struct UnkStruct_027e0c68 {
     /* 24 */ unk32 mUnk_24;
     /* 28 */ s32 *mUnk_28;
     /* 2c */ unk8 mUnk_2c[0x1c];
-    /* 48 */ DebugHierarchyBase *mDebug;
+    /* 48 */ BhioBase *mDebug;
     /* 4c */
 };
 

@@ -44,6 +44,9 @@ src/Main/Unknown/UnkStruct_02037750.cpp:
 src/Main/Unknown/UnkStruct_02038aa0.cpp:
     .text       start:0x0203881c end:0x02039578
 
+src/Main/Unknown/UnkStruct_020397f8.cpp:
+    .text       start:0x020395b4 end:0x0203c358
+
 src/Main/Message/func_0203c358.cpp:
     .text       start:0x0203c358 end:0x0203c72c
 
@@ -64,6 +67,7 @@ src/Main/Unknown/UnkStruct_02063220.cpp:
 src/Main/Game/Game.cpp:
     .text       start:0x0202c6c8 end:0x0202d0cc
     .rodata     start:0x020561f4 end:0x020562d4
+    .bss        start:0x02062d40 end:0x02062e20
 
 src/Main/Game/GameMode.cpp:
     complete

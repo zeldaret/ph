@@ -10,6 +10,8 @@ public:
     /* 0f */ unk8 mUnk_0f;
 
     UnkStruct_020e9360();
+
+    unk32 func_ov000_02079e68(unk32 param1);
 };
 
 extern UnkStruct_020e9360 data_ov000_020e9360;

@@ -8,7 +8,7 @@
 #include "Actor/ActorManager.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
-#include "Debug/DebugHierarchy.hpp"
+#include "Player/Bhio.hpp"
 #include "Player/EquipItem.hpp"
 #include "Player/PlayerControlData.hpp"
 #include "Player/PlayerLinkBase.hpp"
@@ -44,7 +44,7 @@ public:
     /* 00 */ virtual void vfunc_00();
     /* 04 */ virtual ~LinkStateBase();
     /* 0c */ virtual LinkStateId GetId() = 0;
-    /* 10 */ virtual void CreateDebugHierarchy();
+    /* 10 */ virtual void LoadBhio();
     /* 14 */ virtual void OnStateEnter();
     /* 18 */ virtual void OnStateLeave(s32 param1);
     /* 1c */ virtual void vfunc_1c();
@@ -65,7 +65,7 @@ public:
     void ChangeLinkSubState(LinkStateId id, s32 subState);
     void EquipItem_vfunc_28();
     void UpdateSwordShieldInUse();
-    void func_ov00_020a81b8(unk32 param1, s32 *param2);
+    void func_ov00_020a81b8(unk32 param1, Vec3p *param2);
     LinkStateItem *GetLinkItemState();
     void LookAt(Vec3p *target);
     void func_ov00_020a81fc(Vec3p *param1, unk32 param2);
@@ -117,8 +117,8 @@ public:
     Vec3p *GetPlayerPos();
     Vec3p *GetPlayerVel();
     UnkStruct_027e0fd4_90 *func_ov00_020a8c64();
-    s16 *GetPlayerAngle();
-    unk32 *GetPlayer_Unk18();
+    u16 *GetPlayerAngle();
+    void *GetPlayer_Unk18();
     s32 Get_PlayerControlData_Unk32();
     Actor *GetGrabActor();
     ActorRef *GetGrabActorRef();
@@ -133,8 +133,8 @@ public:
     unk32 Get_PlayerControlData_Unk100();
     unk32 Get_PlayerControlData_Unk120();
     s32 *Get_PlayerLinkBase_Unk38();
-    DebugHierarchy *GetDebugHierarchy0();
-    DebugHierarchy *GetDebugHierarchy1();
+    Bhio *GetBhio0();
+    Bhio *GetBhio1();
 
     LinkStateBase(PlayerLinkBase *link);
 

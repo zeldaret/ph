@@ -8,3 +8,10 @@
 src/04_Load/Player/LinkStateMove_04.cpp:
     complete
     .text       start:0x0210aed4 end:0x0210af14
+
+src/04_Load/Actor/Navi/ActorNavi_04.cpp:
+    .text       start:0x02107810 end:0x02107c00
+
+src/04_Load/Actor/ActorManager_04.cpp:
+    complete
+    .text       start:0x021051e0 end:0x021056c8

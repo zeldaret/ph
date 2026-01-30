@@ -10,7 +10,7 @@
 
 static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
-extern "C" void ApproachAngle_thunk(s16 *src, s16 dst, u32 param3);
+extern "C" void ApproachAngle_thunk(u16 *src, s16 dst, u32 param3);
 
 ARM bool EquipHammer::IsUsable(unk32 param1) const {
     ActorNavi *pAVar3;
@@ -25,7 +25,7 @@ ARM bool EquipHammer::IsUsable(unk32 param1) const {
 
     pAVar3 = (ActorNavi *) gItemManager->GetFairy(FairyId_Courage);
 
-    if (pAVar3 == NULL || pAVar3->mUnk_3b8 != 0) {
+    if (pAVar3 == NULL || pAVar3->mUnk_3b8.mUnk_00 != 0) {
         return false;
     }
 
@@ -161,7 +161,7 @@ ARM void LinkStateItem::func_ov059_02198ffc() {
     local_20 = *this->GetPlayerPos();
 
     Vec3p_Sub(&local_14, &local_20, &local_14);
-    dest = Atan2(local_14.x, local_14.z);
+    dest = FX_Atan2Idx(local_14.x, local_14.z);
     ApproachAngle_thunk(this->GetPlayerAngle(), dest, 0x2000);
 }
 
@@ -187,7 +187,7 @@ ARM void LinkStateItem::func_ov059_021990a4() {
     if (CHECK_0219b160(data_ov059_0219b180.mUnk_00)) {
         this->mUnk_38 = gPlayerControl->mAimWorld;
 
-        if (pAVar5->mUnk_3c0[0] != 0 && gPlayerControl->UpdateAimWorld(&this->mUnk_38) && pEVar4->GetState() <= 0) {
+        if (pAVar5->mUnk_3c0 != 0 && gPlayerControl->UpdateAimWorld(&this->mUnk_38) && pEVar4->GetState() <= 0) {
             pEVar4->func_ov059_02198e90();
 
             if (this->mUnk_25[2] != 0 && this->mUnk_25[3] != 0) {

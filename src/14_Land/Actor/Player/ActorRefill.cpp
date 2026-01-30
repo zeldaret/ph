@@ -1,8 +1,10 @@
 #include "Actor/Player/ActorRefill.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
+#include "DTCM/UnkStruct_027e0e58.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Item/ItemManager.hpp"
 #include "System/Random.hpp"
+#include "Unknown/UnkStruct_020eec9c.hpp"
 
 static char *sShipTypes[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
@@ -55,18 +57,18 @@ ARM bool ActorRefill::Init() {
             return false;
         }
     }
-    mHitbox.pos.x      = 0;
-    mHitbox.pos.y      = FLOAT_TO_Q20(0.3);
-    mHitbox.pos.z      = 0;
-    mHitbox.size       = FLOAT_TO_Q20(0.3);
-    mUnk_08c.pos.x     = mHitbox.pos.x;
-    mUnk_08c.pos.y     = mHitbox.pos.y;
-    mUnk_08c.pos.z     = mHitbox.pos.z;
-    mUnk_08c.size      = mHitbox.size;
-    mUnk_0a4.mUnk_04.x = 0;
-    mUnk_0a4.mUnk_04.y = FLOAT_TO_Q20(0.3);
-    mUnk_0a4.mUnk_04.z = 0;
-    mUnk_0a4.mUnk_10   = FLOAT_TO_Q20(1.3);
+    mHitbox.pos.x          = 0;
+    mHitbox.pos.y          = FLOAT_TO_Q20(0.3);
+    mHitbox.pos.z          = 0;
+    mHitbox.size           = FLOAT_TO_Q20(0.3);
+    mUnk_08c.pos.x         = mHitbox.pos.x;
+    mUnk_08c.pos.y         = mHitbox.pos.y;
+    mUnk_08c.pos.z         = mHitbox.pos.z;
+    mUnk_08c.size          = mHitbox.size;
+    mUnk_0a4.mUnk_04.pos.x = 0;
+    mUnk_0a4.mUnk_04.pos.y = FLOAT_TO_Q20(0.3);
+    mUnk_0a4.mUnk_04.pos.z = 0;
+    mUnk_0a4.mUnk_04.size  = FLOAT_TO_Q20(1.3);
     mUnk_09c.mUnk_0 &= ~0xa4;
     mUnk_09c.mUnk_3 = 1;
     mMaxFall        = mUnk_08c.size + -1;
@@ -74,8 +76,6 @@ ARM bool ActorRefill::Init() {
     return true;
 }
 
-extern unk32 data_ov000_020eec9c;
-extern "C" void func_ov000_020d7ad4(unk32 *param1, unk32 param2);
 ARM void ActorRefill::vfunc_14(u32 param1) {
     s32 temp_r0_4;
     s32 temp_r6;
@@ -94,11 +94,11 @@ ARM void ActorRefill::vfunc_14(u32 param1) {
                 temp_r0_2 = &mPos;
                 Vec3p_Add(temp_r0_2, &mVel, temp_r0_2);
                 this->func_01fffd04(0);
-                if (mUnk_110 || mUnk_112 || mUnk_113) {
+                if (mTouchingWall || mUnk_112 || mUnk_113) {
                     mVel.x = 0;
                     mVel.z = 0;
                 }
-                if (mUnk_111) {
+                if (mTouchingFloor) {
                     this->func_ov014_02135364(1);
                 } else if (this->func_ov00_020c2c0c()) {
                     this->func_ov014_02135364(4);
@@ -117,7 +117,7 @@ ARM void ActorRefill::vfunc_14(u32 param1) {
                         ItemManager *itemManager = gItemManager;
                         itemManager->GiveAmmo(this->GetAmmoItem(), mUnk_158);
                     }
-                    func_ov000_020d7ad4(&data_ov000_020eec9c, 0x100);
+                    data_ov000_020eec9c.func_ov000_020d7ad4(0x100);
                     this->func_ov014_02135364(3);
                 } else {
                     temp_r0_3 = mUnk_130;
@@ -212,13 +212,11 @@ ARM void ActorRefill::vfunc_20(bool param1) {
     }
 }
 
-extern unk32 *data_027e0e58;
-extern "C" void func_ov000_0207c1b0(unk32 *param1, unk32 param2, Vec3p *param3, unk32 param4, unk32 param5, unk32 param6);
 ARM void ActorRefill::func_ov014_02135474() {
     s32 iVar1 = mUnk_130;
     if (iVar1 != 4 && iVar1 != 5) {
-        func_ov000_0207c1b0(data_027e0e58, 0x241, &mPos, 2, 0, 0);
-        func_ov000_0207c1b0(data_027e0e58, 0x242, &mPos, 2, 0, 0);
+        data_027e0e58->func_ov000_0207c1b0(0x241, &mPos, 2, 0, 0);
+        data_027e0e58->func_ov000_0207c1b0(0x242, &mPos, 2, 0, 0);
         mAlive = false;
     }
 }
@@ -285,7 +283,7 @@ ARM bool ActorRefillTime::Init() {
         case 0:
         case 1:
         case 3:
-            s32 temp_ip = gRandom.Next(10);
+            s32 temp_ip = gRandom.Next(0, 10);
             if (temp_ip >= 9) {
                 mUnk_158 = 30;
             } else if (temp_ip >= 6) {
@@ -339,7 +337,7 @@ ARM bool ActorLSTM::Init() {
         case 0:
         case 1:
         case 3:
-            s32 temp_ip = gRandom.Next(10);
+            s32 temp_ip = gRandom.Next(0, 10);
             if (temp_ip >= 9) {
                 mUnk_158 = -30;
             } else if (temp_ip >= 6) {

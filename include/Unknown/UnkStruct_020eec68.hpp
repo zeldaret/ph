@@ -1,8 +1,10 @@
 #pragma once
 
-#include "Unknown/UnkStruct_func_0201f704.hpp"
 #include "global.h"
 #include "types.h"
+
+#include "Sound/Sfx.hpp"
+#include "Unknown/UnkStruct_func_0201f704.hpp"
 
 struct UnkStruct_020eec68_0c {
     unk32 mUnk_00;
@@ -30,6 +32,12 @@ public:
     /* 2c */ unk32 mUnk_2c;
 
     UnkStruct_020eec68();
+
+    void func_ov000_020d70a4(unk32 param1, unk32 param2, unk32 param3);
+    void func_ov000_020d716c(unk32 param1);
+    void func_ov000_020d72b8();
+    void PlaySoundEffect(SfxId sfx);
+    unk32 func_ov000_020d7424();
 
     void func_ov008_021132cc();
 };

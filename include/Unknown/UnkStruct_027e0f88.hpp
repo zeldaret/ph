@@ -39,6 +39,7 @@ public:
 
     static void func_ov008_02113678(u32 *param_1);
     void func_ov008_021136c0();
+    void func_ov000_020a1a0c(unk32 param_1, unk16 param_2);
 };
 
 extern UnkStruct_027e0f88 *data_027e0f88;

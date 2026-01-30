@@ -4,7 +4,7 @@ ActorType ActorBomb::gType = ActorType(ActorTypeId_Bomb, (ActorCreateFunc) Actor
 
 ActorBomb *ActorBomb::Create() {}
 void ActorBomb_Unk1::vfunc_0c(unk16 *param1) {}
-void ActorBomb_Unk1::vfunc_10(s32 *param1) {}
+bool ActorBomb_Unk1::vfunc_10(s32 *param1) {}
 ActorBomb::ActorBomb() {}
 ActorBomb_Unk2::~ActorBomb_Unk2() {}
 ActorBomb::~ActorBomb() {}
@@ -16,7 +16,7 @@ void ActorBomb::vfunc_18(u32 param1) {}
 bool ActorBomb::func_ov014_02122bb8(s32 param1) {}
 void ActorBomb::vfunc_54() {}
 void ActorBomb::vfunc_20(bool param1) {}
-bool ActorBomb::SetVelocity(Vec3p *vel) {}
+bool ActorBomb::Drop(Vec3p *vel) {}
 bool ActorBomb::func_ov014_02122e48(unk32 *param1) {}
 bool ActorBomb::func_ov014_02122e7c() {}
 bool ActorBomb::func_ov014_02122e98() {}

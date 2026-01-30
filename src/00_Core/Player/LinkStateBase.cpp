@@ -50,9 +50,12 @@ ARM bool LinkStateBase::vfunc_24(s32 param1) {
     }
 
     switch (param1) {
-        case 0: break;
-        case 1: break;
-        case 2: break;
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
         case 3:
         case 6:
         case 7:
@@ -81,7 +84,8 @@ ARM bool LinkStateBase::vfunc_24(s32 param1) {
             }
 
             return false;
-        default: break;
+        default:
+            break;
     }
 
     return true;
@@ -123,8 +127,8 @@ ARM void LinkStateBase::UpdateSwordShieldInUse() {
     gItemManager->UpdateSwordShieldInUse();
 }
 
-ARM void LinkStateBase::func_ov00_020a81b8(unk32 param1, s32 *param2) {
-    this->GetLinkItemState()->func_ov005_02106980(0, param1, param2);
+ARM void LinkStateBase::func_ov00_020a81b8(unk32 param1, Vec3p *param2) {
+    this->GetLinkItemState()->func_ov005_02106980(0, param1, (s32 *) param2);
 }
 
 ARM LinkStateItem *LinkStateBase::GetLinkItemState() {
@@ -215,7 +219,7 @@ ARM Actor *LinkStateBase::func_ov00_020a8390(ActorTypeId type, Actor_UnkStruct_0
         pGrabRef        = this->GetGrabActorRef();
         pGrabRef->id    = pActor->mRef.id;
         pGrabRef->index = pActor->mRef.index;
-        pActor->SetUnk_11b();
+        // pActor->SetUnk_11b();
     }
 
     return pActor;
@@ -314,8 +318,8 @@ ARM bool LinkStateBase::func_ov00_020a8704(s16 *pAngle) {
     iVar3 = func_ov00_020a8d40();
 
     if (iVar3->mUnk_05c > 0 && (iVar3->mUnk_064 != 0 || iVar2->mUnk_06c != 0)) {
-        s16 uVar1  = Atan2(iVar2->mUnk_064, iVar2->mUnk_06c);
-        s16 *angle = GetPlayerAngle();
+        s16 uVar1  = FX_Atan2Idx(iVar2->mUnk_064, iVar2->mUnk_06c);
+        s16 *angle = (s16 *) GetPlayerAngle();
 
         *pAngle = *angle - uVar1;
         return true;
@@ -513,11 +517,11 @@ ARM UnkStruct_027e0fd4_90 *LinkStateBase::func_ov00_020a8c64() {
     return &data_027e0fd4->mUnk_090;
 }
 
-ARM s16 *LinkStateBase::GetPlayerAngle() {
-    return &gPlayerAngle;
+ARM u16 *LinkStateBase::GetPlayerAngle() {
+    return (u16 *) &gPlayerAngle;
 }
 
-ARM unk32 *LinkStateBase::GetPlayer_Unk18() {
+ARM void *LinkStateBase::GetPlayer_Unk18() {
     return &data_027e0fb0;
 }
 
@@ -579,10 +583,10 @@ ARM s32 *LinkStateBase::Get_PlayerLinkBase_Unk38() {
     return &this->mLink->mUnk_38;
 }
 
-ARM DebugHierarchy *LinkStateBase::GetDebugHierarchy0() {
-    return this->mLink->mDebugHierarchy_0;
+ARM Bhio *LinkStateBase::GetBhio0() {
+    return this->mLink->mBhio_0;
 }
 
-ARM DebugHierarchy *LinkStateBase::GetDebugHierarchy1() {
-    return this->mLink->mDebugHierarchy_1;
+ARM Bhio *LinkStateBase::GetBhio1() {
+    return this->mLink->mBhio_1;
 }

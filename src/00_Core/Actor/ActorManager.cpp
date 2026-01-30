@@ -45,17 +45,17 @@ ARM void ActorManager::DeleteActor(u32 index, bool param2) {
     return;
 }
 
-ARM void ActorManager::func_ov00_020c3484(ActorRef *ref, ActorManager *actorMgr, unk32 param3) {
-    ref->Reset();
+ARM ActorRef ActorManager::func_ov00_020c3484(unk32 param3) {
+    ActorRef ref;
     if (data_027e103c->mUnk_24 == 0) {
-        return;
+        return ref;
     }
 
     q20 minDistance       = 0x7fffffff;
-    Actor **actorIter     = actorMgr->mActorTable;
+    Actor **actorIter     = this->mActorTable;
     u8 unkByte            = data_02056be4[data_027e077c.GetUnk0()];
     bool unk1             = (unkByte & 1) != 0;
-    Actor **actorTableEnd = actorIter + actorMgr->mMaxActorIndex;
+    Actor **actorTableEnd = actorIter + this->mMaxActorIndex;
 
     for (; actorIter < actorTableEnd; actorIter++) {
         Actor *actor = *actorIter;
@@ -65,7 +65,7 @@ ARM void ActorManager::func_ov00_020c3484(ActorRef *ref, ActorManager *actorMgr,
                     if ((*actorIter)->IsHitboxTouched(false)) {
                         q20 distance = (*actorIter)->DistanceToLink();
                         if (distance < minDistance) {
-                            *ref        = (*actorIter)->mRef;
+                            ref         = (*actorIter)->mRef;
                             minDistance = distance;
                         }
                     }
@@ -73,6 +73,7 @@ ARM void ActorManager::func_ov00_020c3484(ActorRef *ref, ActorManager *actorMgr,
             }
         }
     }
+    return ref;
 }
 
 ARM void ActorManager::Actor_vfunc_10(u32 param1) {
@@ -217,39 +218,42 @@ ARM s32 ActorManager::FilterActors(FilterActorBase *filter, ActorList *filteredA
     return numApplied;
 }
 
-ARM void ActorManager::FindActorByType(ActorRef *ref, ActorManager *actorMgr, ActorTypeId type) {
-    ref->Reset();
+ARM ActorRef ActorManager::FindActorByType(ActorTypeId type) {
+    ActorRef ref;
 
-    Actor **actorIter     = actorMgr->mActorTable;
-    Actor **actorTableEnd = actorIter + actorMgr->mMaxActorIndex;
+    Actor **actorIter     = this->mActorTable;
+    Actor **actorTableEnd = actorIter + this->mMaxActorIndex;
 
     for (; actorIter < actorTableEnd; actorIter++) {
         Actor *actor = *actorIter;
         if (actor != NULL && actor->mAlive && type == actor->mType) {
-            *ref = actor->mRef;
-            return;
+            ref = actor->mRef;
+            return ref;
         }
     }
+    return ref;
 }
 
-ARM void ActorManager::FindNearestActorOfType(ActorRef *ref, ActorManager *actorMgr, ActorTypeId type, Vec3p *pos) {
-    ref->Reset();
+ARM ActorRef ActorManager::FindNearestActorOfType(ActorTypeId type, Vec3p *pos) {
+    ActorRef ref;
 
     q20 minDistance = 0x7fffffff;
 
-    Actor **actorIter     = actorMgr->mActorTable;
-    Actor **actorTableEnd = actorIter + actorMgr->mMaxActorIndex;
+    Actor **actorIter     = this->mActorTable;
+    Actor **actorTableEnd = actorIter + this->mMaxActorIndex;
 
     for (; actorIter < actorTableEnd; actorIter++) {
         Actor *actor = *actorIter;
         if (actor != NULL && actor->mAlive && type == actor->mType) {
             q20 distance = Vec3p_Distance(&actor->mPos, pos);
             if (distance < minDistance) {
-                *ref        = (*actorIter)->mRef;
+                ref         = (*actorIter)->mRef;
                 minDistance = distance;
             }
         }
     }
+
+    return ref;
 }
 
 ARM bool ActorManager::func_ov00_020c398c(u32 index) {

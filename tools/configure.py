@@ -28,7 +28,8 @@ args = parser.parse_args()
 GAME = "ph"
 DSD_VERSION = 'v0.10.1'
 WIBO_VERSION = '0.6.16'
-OBJDIFF_VERSION = 'v3.0.0-beta.6'
+SJISWRAP_VERSION = 'v1.2.2'
+OBJDIFF_VERSION = 'v3.4.0'
 MWCC_VERSION = "2.0/sp1p5"
 DECOMP_ME_COMPILER = "mwcc_30_131"
 CC_FLAGS = " ".join([
@@ -112,6 +113,7 @@ EXE = platform.exe
 WINE = args.wine if platform.system != "windows" else ""
 DSD = str(args.dsd or os.path.join('.', str(root_path / f"dsd{EXE}")))
 OBJDIFF = os.path.join('.', str(root_path / f"objdiff-cli{EXE}"))
+SJISWRAP = os.path.join('.', "sjiswrap.exe")
 CC = os.path.join('.', str(mwcc_path / "mwccarm.exe"))
 LD = os.path.join('.', str(mwcc_path / "mwldarm.exe"))
 PYTHON = sys.executable
@@ -207,7 +209,7 @@ def check_can_run_dsd() -> bool:
             version = "v" + version
 
         # If it's not the correct version, Ninja will download it and then rerun this script
-        return version == DSD_VERSION
+        return version == DSD_VERSION or args.dsd is not None
     except subprocess.CalledProcessError:
         return False
     except FileNotFoundError:
@@ -236,7 +238,7 @@ def main():
     project = Project(args.version, platform=platform, delinks_json=delinks_json)
 
 
-    with build_ninja_path.open("w") as file:
+    with build_ninja_path.open("w", encoding="utf-8") as file:
         n = ninja_syntax.Writer(file)
 
         n.rule(
@@ -270,8 +272,8 @@ def main():
         n.newline()
 
         # -MMD excludes all includes instead of just system includes for some reason, so use -MD instead.
-        mwcc_cmd = f'{WINE} "{CC}" {CC_FLAGS} {CC_INCLUDES} $cc_flags -d $game_version -MD -c $in -o $basedir'
-        mwcc_implicit = [CC]
+        mwcc_cmd = f'{WINE} {SJISWRAP} "{CC}" {CC_FLAGS} {CC_INCLUDES} $cc_flags -d $game_version -MD -c $in -o $basedir'
+        mwcc_implicit = [CC, SJISWRAP]
         if platform.system != "windows":
             transform_dep = "tools/transform_dep.py"
             mwcc_cmd += f" && $python {transform_dep} $basefile.d $basefile.d"
@@ -430,6 +432,17 @@ def add_download_tool_builds(n: ninja_syntax.Writer, project: Project):
             },
         )
         n.newline()
+
+    downloads.append(SJISWRAP)
+    n.build(
+        rule="download_tool",
+        outputs=SJISWRAP,
+        variables={
+            "tool": "sjiswrap",
+            "tag": SJISWRAP_VERSION,
+            "path": SJISWRAP,
+        }
+    )
 
     n.build(
         inputs=downloads,

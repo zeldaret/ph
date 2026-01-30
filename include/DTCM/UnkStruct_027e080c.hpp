@@ -19,11 +19,12 @@ public:
     /* 02 */ u8 mUnk_02;
     /* 04 */ unk32 mUnk_04;
     /* 08 */ unk32 mUnk_08;
-    /* 0c */ unk8 mUnk_0c[0x4];
+    /* 0c */ unk32 mUnk_0c;
     /* 10 */ UnkStruct_027e080c_010 mUnk_10[2];
     /* d8 */
 
     void func_0202eebc(unk32);
+    unk32 func_0202eef8();
 };
 
 extern UnkStruct_027e080c data_027e080c;

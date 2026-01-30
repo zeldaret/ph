@@ -1,4 +1,5 @@
 #include "DTCM/UnkStruct_027e0d38.hpp"
+#include "DTCM/UnkStruct_027e0ffc.hpp"
 #include "Game/Game.hpp"
 #include "Player/LinkStateDamage.hpp"
 #include "Player/LinkStateFollow.hpp"
@@ -53,7 +54,6 @@ static const volatile q20 data_ov005_021123b8 = FLOAT_TO_Q20(15.0);
 
 extern LinkStateFollow *GetLinkStateFollow();
 extern "C" bool Lerp(s32 *pValue, s32 dest, s32 factor, unk32 param4, u32 step);
-extern unk32 data_027e0ffc;
 extern "C" void func_ov000_020ceacc(unk32 *param1, unk32 param2, Vec3p *param3, unk32 param4);
 ARM void LinkStateMove::vfunc_1c() {
     Actor *grabActor = this->GetGrabActor();
@@ -109,7 +109,7 @@ ARM void LinkStateMove::vfunc_1c() {
         if (mUnk_0c > 0) {
 
             q4 temp_r8  = data_ov005_02112be4;
-            s16 temp_r1 = *this->GetPlayerAngle() + this->Get_PlayerControlData_Unk32();
+            s16 temp_r1 = *(s16 *) this->GetPlayerAngle() + this->Get_PlayerControlData_Unk32();
             this->TurnTo(temp_r1, temp_r1, temp_r8);
             s32 temp_r1_2 = mUnk_0c;
             if (temp_r7_2 > temp_r1_2) {
@@ -144,7 +144,7 @@ ARM void LinkStateMove::vfunc_1c() {
                 filter.mUnk_08 = FLOAT_TO_Q20(4.0);
                 Vec3p pos      = *this->GetPlayerPos();
                 filter.mPos    = pos;
-                filter.mAngle  = *this->GetPlayerAngle();
+                filter.mAngle  = *(s16 *) this->GetPlayerAngle();
                 if (gActorManager->FilterActors(&filter, NULL) > 0) {
                     q20 temp_r1_4 = FLOAT_TO_Q20(4.0) - filter.mUnk_08;
                     Vec3p spC     = filter.mActor->mPos;
@@ -170,7 +170,7 @@ ARM void LinkStateMove::vfunc_1c() {
                 } else if (mUnk_10 > 0) {
                     *(unk16 *) ((u32) this->func_ov00_020a8d40() + 0xa8) = 0x4CD;
                     if (mUnk_10 == 0x19) {
-                        func_ov000_020ceacc(&data_027e0ffc, 0x23D, this->GetPlayerPos(), 0);
+                        data_027e0ffc.func_ov000_020ceacc(0x23D, this->GetPlayerPos(), 0);
                     }
                     mUnk_10 -= 1;
                 } else {
@@ -228,7 +228,7 @@ ARM bool UnkFilterActor::Filter(Actor *actor) {
     Vec3p sp0;
     Vec3p_Sub(&actor->mPos, &mPos, &sp0);
     s16 angle2 = mAngle;
-    s16 angle1 = (s16) Atan2(sp0.x, sp0.z);
+    s16 angle1 = (s16) FX_Atan2Idx(sp0.x, sp0.z);
     s32 var_r6 = (s16) (angle1 - angle2) >> 3;
     if (var_r6 < 0) {
         var_r6 = -var_r6;

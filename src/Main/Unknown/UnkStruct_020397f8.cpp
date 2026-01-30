@@ -1,12 +1,14 @@
 #include "Unknown/UnkStruct_020397f8.hpp"
 #include "DTCM/UnkStruct_027e0c38.hpp"
 #include "DTCM/UnkStruct_027e0c54.hpp"
+#include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Game/Game.hpp"
 #include "Message/MessageManager.hpp"
 #include "Message/MsgProc.hpp"
 #include "Player/TouchControl.hpp"
 #include "Save/AdventureFlags.hpp"
+#include "Unknown/UnkStruct_02068894.hpp"
 
 extern "C" void func_ov000_020d0460(void *);
 extern "C" void func_0203efd8(void *, void *);
@@ -92,7 +94,7 @@ THUMB void UnkStruct_020397f8::vfunc_4c() {
 
 // non-matching
 ARM void UnkStruct_020397f8::vfunc_2c() {
-    if (gGame.mUnk_101 != 0) {
+    if (gGame.mUnk_101) {
         if (((data_02056be4[data_027e077c.mUnk_0] & 1) != 0) != this->mUnk_50) {
             return;
         }
@@ -174,14 +176,14 @@ ARM void UnkStruct_020397f8::func_02039ca8() {
     }
 }
 
-ARM void UnkStruct_020397f8::vfunc_3c(unk32 param1) {
+ARM void UnkStruct_020397f8::vfunc_3c(u16 *param1) {
     if (this->mUnk_15c > 0 && this->func_0203de14(param1) != 0) {
         if (this->mUnk_124->mUnk_29 != 3) {
             if ((this->mUnk_50 == 0) && func_ov000_02079e04() != 0) {
                 return;
             }
 
-            if (gGame.mUnk_101 != 0) {
+            if (gGame.mUnk_101) {
                 if (((data_02056be4[data_027e077c.mUnk_0] & 1) != 0) != this->mUnk_50) {
                     return;
                 }
@@ -412,7 +414,7 @@ ARM void UnkStruct_020397f8::vfunc_44(s32 touchLastX, s32 touchLastY) {
         if ((gTouchControl.mFlags & 1) != 0) {
             if (this->mUnk_50 == 0 && data_027e0d38 != 0) {
                 if (func_ov000_02079e04() == 0 && data_027e0e28->func_ov000_0207bc48() == 0) {
-                    if (gGame.mUnk_101 == 0 && data_027e103c->mUnk_24 == 0) {
+                    if (!gGame.mUnk_101 && data_027e103c->mUnk_24 == 0) {
                         return;
                     }
                 }
@@ -814,7 +816,7 @@ ARM void UnkStruct_020397f8::vfunc_60(func_0203b410_param1 *param1, unk32 param2
 
     if (this->mUnk_15e == 7) {
         uVar5 = func_0202d5b4(data_02057f08, data_02057eec, data_020691a0, 0xCC00, 1);
-        func_02032304(data_02068894, data_02057ed8, data_02056af0, 1, param3);
+        data_02068894.func_02032304(data_02057ed8, data_02056af0, 1, param3);
         iVar3 = func_02016fcc(uVar5);
     } else {
         if (this->func_02032fa4() != 0) {
@@ -947,7 +949,7 @@ ARM bool UnkStruct_020397f8::func_0203c084() {
             bVar1 = false;
         }
 
-        if (!bVar1 && gGame.mUnk_101 == 0) {
+        if (!bVar1 && !gGame.mUnk_101) {
             if ((data_027e0d38 != NULL && data_027e0d38->mUnk_14 == 1) == 0) {
                 bVar2 = false;
             }
@@ -987,7 +989,7 @@ ARM bool UnkStruct_020397f8::func_0203c1a0() {
         this->mUnk_584 = 1;
 
         pVar1 = (s8 *) data_027e103c->func_ov000_020cef9c();
-        iVar3 = data_027e0f7c.func_ov000_0209d90c(pVar1[0x24F], 0);
+        iVar3 = data_027e0f7c->func_ov000_0209d90c(pVar1[0x24F], 0);
         data_027e1054->func_ov003_020f4760(iVar3[1], 0);
         data_ov000_020eec9c.func_ov000_020d77e4(6);
         data_027e103c->func_ov000_020cfb58();

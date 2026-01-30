@@ -53,7 +53,7 @@ THUMB void MsgProc_Type2::func_0203c39c(unk32 param_2, unk32 param_3) {
     }
 }
 
-ARM void MsgProc_Type2::vfunc_3C(unk32 param_2) {
+ARM void MsgProc_Type2::vfunc_3C(u16 *param_2) {
     if (this->mUnk_15c > 0 && this->mUnk_122 != 1) {
         if (this->func_0203de14(param_2) != 0) {
             this->vfunc_40(0, 0);
