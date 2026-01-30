@@ -106,16 +106,15 @@ src/00_Core/Player/LinkStateBase.cpp:
 
 src/00_Core/Player/LinkStateDamage.cpp:
     .text       start:0x020abf44 end:0x020acfc0
-    .rodata     start:0x020dc500 end:0x020dc514
+    .rodata     start:0x020dc4c8 end:0x020dc514
     .data       start:0x020e5a2c end:0x020e5bf8
 
 src/00_Core/Player/LinkStateFollow.cpp:
     .text       start:0x020a8f14 end:0x020a9244
-    .data       start:0x020e56fc end:0x020e5888
+    .data       start:0x020e56fc end:0x020e5790
 
 src/00_Core/Player/LinkStateInteract.cpp:
     .text       start:0x020aa2cc end:0x020abd18
-    .rodata     start:0x020dc4c8 end:0x020dc500
     .data       start:0x020e5888 end:0x020e59e0
 
 src/00_Core/Player/LinkStateItem.cpp:
@@ -154,3 +153,7 @@ src/00_Core/Save/AdventureFlags.cpp:
 
 src/00_Core/Game/GameModePlay.cpp:
     .text       start:0x02079cc8 end:0x02079d7c
+
+src/00_Core/Render/ModelRender.cpp:
+    .text       start:0x020a950c end:0x020a9980
+    .data       start:0x020e57b8 end:0x020e5800

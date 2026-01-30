@@ -604,8 +604,8 @@ ARM bool Actor::func_ov00_020c243c(ActorTypeId *actorTypes, Actor **out) {
                 case ActorTypeId_BTRF:
                 case ActorTypeId_STNE:
                 case ActorTypeId_TARU:
-                case ActorTypeId_BKEY:
-                case ActorTypeId_FORC:
+                case ActorTypeId_BossKey:
+                case ActorTypeId_ForceGem:
                 case ActorTypeId_FLTB:
                 case ActorTypeId_TSUB:
                     knockback.mUnk_10 = 10;
@@ -748,8 +748,8 @@ ARM void Actor::GetHitbox(Cylinder *hitbox) {
     hitbox->pos.z = mPos.z;
     hitbox->pos.y += mHitbox.pos.y;
 
-    q20 sin = gSinCosTable[angle];
-    q20 cos = gSinCosTable[angle + 1];
+    q20 sin = FX_SinCosTable_[angle];
+    q20 cos = FX_SinCosTable_[angle + 1];
     Vec3p_Rotate(&mHitbox.pos, sin, cos, &hitbox->pos);
 }
 
@@ -761,8 +761,8 @@ ARM void Actor::GetUnk_08c(Cylinder *param1) {
     param1->pos.z = mPos.z;
     param1->pos.y += mUnk_08c.pos.y;
 
-    q20 sin = gSinCosTable[angle];
-    q20 cos = gSinCosTable[angle + 1];
+    q20 sin = FX_SinCosTable_[angle];
+    q20 cos = FX_SinCosTable_[angle + 1];
     Vec3p_Rotate(&mUnk_08c.pos, sin, cos, &param1->pos);
 }
 

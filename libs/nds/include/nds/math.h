@@ -24,8 +24,8 @@ typedef s16 q4;
 #define DIV_Q20(a, b) (((a) << 12) / (b))
 
 #define DEG_TO_ANG(n) ((n) * 0x10000 / 360)
-#define SIN(n) (gSinCosTable[2 * ((n) >> 4)])
-#define COS(n) (gSinCosTable[2 * ((n) >> 4) + 1])
+#define SIN(n) (FX_SinCosTable_[2 * ((n) >> 4)])
+#define COS(n) (FX_SinCosTable_[2 * ((n) >> 4) + 1])
 
 u32 func_01ff9f3c(s32 a, s32 b);
 s32 FX_Atan2Idx(s32 x, s32 y);
@@ -49,7 +49,7 @@ u32 CoRemainder(u32 a, u32 b);
 
 bool Approach(unk32 *src, unk32 dest, unk32 step);
 bool Approach_thunk(unk32 *src, unk32 dest, unk32 step);
-extern q4 gSinCosTable[];
+extern q4 FX_SinCosTable_[];
 
 typedef struct {
     /* 0 */ s16 x;
@@ -121,6 +121,7 @@ bool Vec3p_TryNormalize(Vec3p *vec);
 q20 Vec3p_DistanceSquared(Vec3p *a, Vec3p *b);
 void Vec3p_Scale(Vec3p *vec, q20 scale);
 bool Vec3p_CalculateNormal(Vec3p *vec, Vec3p *a, Vec3p *b, Vec3p *c);
+void Vec3p_SetLength(Vec3p *vec, q20 len, Vec3p *out);
 
 inline void Vec3p_Rotate(Vec3p *vec, q20 sin, q20 cos, Vec3p *out) {
     out->x += MUL_Q20(vec->z, sin);

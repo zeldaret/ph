@@ -45,6 +45,8 @@ enum ActorTypeId_ {
     ActorTypeId_StorageDrum = 'DRUM',
 
     ActorTypeId_SmallKey     = 'NKEY',
+    ActorTypeId_BossKey      = 'BKEY',
+    ActorTypeId_ForceGem     = 'FORC',
     ActorTypeId_SwitchObject = 'SWOB',
     ActorTypeId_EventIcon    = 'EVIC',
     ActorTypeId_ActionObject = 'ACOB',
@@ -74,7 +76,6 @@ enum ActorTypeId_ {
     ActorTypeId_Postman  = 'PSTM',
 
     ActorTypeId_BIGR = 'BIGR',
-    ActorTypeId_BKEY = 'BKEY',
     ActorTypeId_BMRN = 'BMRN',
     ActorTypeId_BMTY = 'BMTY',
     ActorTypeId_BTRF = 'BTRF',
@@ -85,7 +86,6 @@ enum ActorTypeId_ {
     ActorTypeId_FLBT = 'FLBT',
     ActorTypeId_FLTB = 'FLTB',
     ActorTypeId_FLTM = 'FLTM',
-    ActorTypeId_FORC = 'FORC',
     ActorTypeId_PWBS = 'PWBS',
     ActorTypeId_SBEM = 'SBEM',
     ActorTypeId_STNE = 'STNE',

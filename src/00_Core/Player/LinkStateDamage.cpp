@@ -21,68 +21,41 @@ LinkStateBase_UnkStruct1 LinkStateDamage::data_ov000_020e5b30 = {39, {0x1000, 0,
 LinkStateBase_UnkStruct1 LinkStateDamage::data_ov000_020e5b40 = {10, {0x800, 0, 0x4000}};
 LinkStateBase_UnkStruct1 LinkStateDamage::data_ov000_020e5b50 = {84, {0x1000, 0, 0x19000}};
 
-THUMB void LinkStateDamage::CreateDebugHierarchy() {
-    unk32 id = 'LDMG';
-
+THUMB void LinkStateDamage::LoadBhio() {
     s32 unk1 = this->PlayerControlData_vfunc_14(data_ov000_020e5af0.mUnk_00);
 
-    // Front minor damage regeneration speed "前小ダメ再生速度"
-    const char *description1 = "\x91O\x8f\xac\x83_\x83\x81\x8d\xc4\x90\xb6\x91\xac\x93x\x00\x00\x00";
+    // Front minor damage regeneration speed
+    this->GetBhio0()->GetField2(true, 'LDMG', "前小ダメ再生速度", &data_ov000_020e5af0.mUnk_04.x, 8, 0, 0x2000);
 
-    // Front minor damage start frame "前小ダメ開始フレーム"
-    const char *description2 = "\x91O\x8f\xac\x83_\x83\x81\x8aJ\x8en\x83t\x83\x8c\x81[\x83\x80\x00\x00\x00";
+    // Front minor damage start frame
+    this->GetBhio0()->GetField2(true, 'LDMG', "前小ダメ開始フレーム", &data_ov000_020e5af0.mUnk_04.y, 8, 0, unk1 / 2);
 
-    // Front minor damage end frame "前小ダメ終了フレーム"
-    const char *description3 = "\x91O\x8F\xAC\x83_\x83\x81\x8FI\x97\xB9\x83t\x83\x8c\x81[\x83\x80\x00\x00\x00";
+    // Front minor damage end frame
+    this->GetBhio0()->GetField2(true, 'LDMG', "前小ダメ終了フレーム", &data_ov000_020e5af0.mUnk_04.z, 8, unk1 / 2, unk1);
 
-    DebugHierarchy *debugHierarchy = this->GetDebugHierarchy0();
-    debugHierarchy->vfunc_3c(id, &data_ov000_020e5af0.mUnk_04.x);
-    debugHierarchy->GetChildNode(1, description1, id, &data_ov000_020e5af0.mUnk_04.x, 8, 0, 0x2000, 0);
-    debugHierarchy = this->GetDebugHierarchy0();
-    debugHierarchy->vfunc_3c(id, &data_ov000_020e5af0.mUnk_04.y);
-    debugHierarchy->GetChildNode(1, description2, id, &data_ov000_020e5af0.mUnk_04.y, 8, 0, unk1 / 2, 0);
-    debugHierarchy = this->GetDebugHierarchy0();
-    debugHierarchy->vfunc_3c(id, &data_ov000_020e5af0.mUnk_04.z);
-    debugHierarchy->GetChildNode(1, description3, id, &data_ov000_020e5af0.mUnk_04.z, 8, unk1 / 2, unk1, 0);
     unk1 = this->PlayerControlData_vfunc_14(data_ov000_020e5b00.mUnk_00);
 
-    // Back minor damage regeneration speed "後小ダメ再生速度"
-    const char *description4 = "\x8c\xE3\x8F\xAC\x83_\x83\x81\x8D\xC4\x90\xB6\x91\xAC\x93x\x00\x00\x00";
+    // Back minor damage regeneration speed
+    this->GetBhio0()->GetField2(true, 'LDMG', "後小ダメ再生速度", &data_ov000_020e5b00.mUnk_04.x, 8, 0, 0x2000);
 
-    // Back minor damage start frame "後小ダメ開始フレーム"
-    const char *description5 = "\x8C\xE3\x8F\xAC\x83_\x83\x81\x8AJ\x8En\x83t\x83\x8c\x81[\x83\x80\x00\x00\x00";
+    // Back minor damage start frame
+    this->GetBhio0()->GetField2(true, 'LDMG', "後小ダメ開始フレーム", &data_ov000_020e5b00.mUnk_04.y, 8, 0, unk1 / 2);
 
-    // Back minor damage end frame "後小ダメ終了フレーム"
-    const char *description6 = "\x8C\xE3\x8F\xAC\x83_\x83\x81\x8FI\x97\xB9\x83t\x83\x8c\x81[\x83\x80\x00\x00\x00";
+    // Back minor damage end frame
+    this->GetBhio0()->GetField2(true, 'LDMG', "後小ダメ終了フレーム", &data_ov000_020e5b00.mUnk_04.z, 8, unk1 / 2, unk1);
 
-    debugHierarchy = this->GetDebugHierarchy0();
-    debugHierarchy->vfunc_3c(id, &data_ov000_020e5b00.mUnk_04.x);
-    debugHierarchy->GetChildNode(1, description4, id, &data_ov000_020e5b00.mUnk_04.x, 8, 0, 0x2000, 0);
-    debugHierarchy = this->GetDebugHierarchy0();
-    debugHierarchy->vfunc_3c(id, &data_ov000_020e5b00.mUnk_04.y);
-    debugHierarchy->GetChildNode(1, description5, id, &data_ov000_020e5b00.mUnk_04.y, 8, 0, unk1 / 2, 0);
-    debugHierarchy = this->GetDebugHierarchy0();
-    debugHierarchy->vfunc_3c(id, &data_ov000_020e5b00.mUnk_04.z);
-    debugHierarchy->GetChildNode(1, description6, id, &data_ov000_020e5b00.mUnk_04.z, 8, unk1 / 2, unk1, 0);
+    // Number of tears [verb]
+    this->GetBhio0()->GetField2(false, 'LDMG', "ビリビリ回数", &data_ov000_020e5aec, 6, 0, 0x14);
 
-    // Number of tears [verb] "ビリビリ回数"
-    const char *description7 = "\x83r\x83\x8A\x83r\x83\x8A\x89\xF1\x90\x94\x00\x00\x00";
+    // Tear [verb] playback speed
+    this->GetBhio0()->GetField2(true, 'LDMG', "ビリビリ再生速度", &data_ov000_020e5adc.mUnk_04.x, 8, 0, 0x2000);
 
-    debugHierarchy = this->GetDebugHierarchy0();
-    debugHierarchy->GetChildNode(0, description7, id, &data_ov000_020e5aec, 6, 0, 0x14, 0);
-
-    // Tear [verb] playback speed "ビリビリ再生速度"
-    const char *description8 = "\x83r\x83\x8A\x83r\x83\x8A\x8D\xC4\x90\xB6\x91\xAC\x93x\x00\x00\x00";
-
-    debugHierarchy = this->GetDebugHierarchy0();
-    debugHierarchy->vfunc_3c(id, &data_ov000_020e5adc.mUnk_04.x);
-    debugHierarchy->GetChildNode(1, description8, id, &data_ov000_020e5adc.mUnk_04.x, 8, 0, 0x2000, 0);
-    this->GetDebugHierarchy0();
-    this->GetDebugHierarchy0();
-    this->GetDebugHierarchy0();
-    this->GetDebugHierarchy0();
-    this->GetDebugHierarchy0();
-    this->GetDebugHierarchy1();
+    this->GetBhio0();
+    this->GetBhio0();
+    this->GetBhio0();
+    this->GetBhio0();
+    this->GetBhio0();
+    this->GetBhio1();
 }
 
 ARM void LinkStateDamage::OnStateEnter() {
@@ -150,7 +123,7 @@ ARM void LinkStateDamage::Knockback(Vec3p *knockbackVec, unk32 param2) {
     playerVel->y      = knockbackVec->y;
     playerVel->z      = knockbackVec->z;
     s16 groundAngle   = FX_Atan2Idx(knockbackVec->x, knockbackVec->z);
-    s16 *playerAngle  = this->GetPlayerAngle();
+    u16 *playerAngle  = this->GetPlayerAngle();
     *playerAngle      = groundAngle - 0x8000;
     this->mUnk_24[12] = 0;
     this->mUnk_22     = param2;
