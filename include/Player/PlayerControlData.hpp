@@ -5,6 +5,8 @@
 #include "types.h"
 
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_0202e1a0.hpp"
+#include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 
 class PlayerControlData : public SysObject {
 public:
@@ -26,11 +28,11 @@ public:
     /* 040 */ unk8 mUnk_040[0xc0];
     /* 100 */ unk32 mUnk_100;
     /* 104 */ unk8 mUnk_104[0x14];
-    /* 118 */ unk32 mUnk_118;
+    /* 118 */ UnkStruct_ov000_020c0c08 *mUnk_118;
     /* 11c */ unk8 mUnk_11c[4];
     /* 120 */ unk32 mUnk_120;
     /* 124 */ unk8 mUnk_124[0x14];
-    /* 138 */ unk32 mUnk_138;
+    /* 138 */ UnkStruct_ov000_020c0c08 *mUnk_138;
     /* 13c */ unk8 mUnk_13c[4];
     /* 140 */ unk32 mUnk_140;
     /* 144 */ unk32 mUnk_144;
@@ -63,7 +65,7 @@ public:
     /* 04 */ virtual ~PlayerControlData();
     /* 0c */ virtual unk32 vfunc_0c();
     /* 10 */ virtual unk32 GetCharacterId()    = 0;
-    /* 14 */ virtual void vfunc_14(s32 param1) = 0;
+    /* 14 */ virtual u16 *vfunc_14(s32 param1) = 0;
     /* 18 */ virtual void vfunc_18();
     /* 1c */ virtual void vfunc_1c();
     /* 20 */ virtual void vfunc_20();
@@ -86,7 +88,7 @@ public:
     /* 64 */ virtual void vfunc_64(u32 param1);
     /* 68 */ virtual void vfunc_68(unk32 param1, unk32 param2);
     /* 6c */ virtual void vfunc_6c(s32 param1, Vec3p *param2);
-    /* 70 */ virtual void vfunc_70(s32 param1);
+    /* 70 */ virtual void vfunc_70(s32 param1, Vec3p *param2);
     /* 74 */ virtual unk32 vfunc_74(s32 param1);
     /* 78 */ virtual unk32 vfunc_78(s32 param1);
     /* 7c */ virtual unk32 vfunc_7c();
@@ -97,7 +99,7 @@ public:
     void func_ov000_020b44d4(s32 param1, u32 param2);
     void func_ov000_020b4558(s32 param1, u32 param2);
     void func_ov000_020b45e0();
-    void func_ov000_020b45f8(unk32 *param1, unk8 param2, unk8 param3);
+    void func_ov000_020b45f8(struct LinkStateBase_UnkStruct1 *param1, unk8 param2, unk8 param3);
     void func_ov000_020b464c(unk32 *param1, unk8 param2, unk8 param3);
     void func_ov000_020b484c(s32 param1, s32 param2, s32 param3);
     void func_ov000_020b4944(unk32 param1, u32 param2, s32 param3);

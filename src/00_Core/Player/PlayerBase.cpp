@@ -122,13 +122,16 @@ ARM void PlayerBase::AddHealth(s16 amount) {
     }
 }
 
-ARM bool PlayerBase::TeleportToEntrance(unk32 entranceId, bool param2) {
+ARM bool PlayerBase::TeleportToEntrance(u16 entranceId, bool param2) {
     Entrance entrance;
+
     gMapManager->GetEntrancePos(&entrance, entranceId);
+
     if (this->Teleport(&entrance.mPos, entrance.mAngle, entrance.mUnk_10, param2, false)) {
         mEntranceId = entranceId;
         return true;
     }
+
     return false;
 }
 

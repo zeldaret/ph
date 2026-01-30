@@ -6,6 +6,7 @@
 
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
+#include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
 #include "Player/Bhio.hpp"
 #include "Player/EquipItem.hpp"
@@ -75,16 +76,16 @@ public:
     void func_ov00_020a8294(s32 param1, u32 param2);
     void func_ov00_020a82ac();
     void ApplyImpulse(s32 angle, s32 power);
-    void func_ov00_020a8360(unk32 param1);
-    void func_ov00_020a8390(unk32 param1, void *param2);
-    void func_ov00_020a84bc(s32 param1);
-    void func_ov00_020a8508();
+    void func_ov00_020a8360(ActorTypeId type);
+    Actor *func_ov00_020a8390(ActorTypeId type, Actor_UnkStruct_020 *param2);
+    void func_ov00_020a84bc(bool isVisible);
+    void func_ov00_020a8508(unk32 param_1);
     void func_ov00_020a853c(Vec3p *param1);
-    void Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5);
-    void PlayerBase_vfunc_38(Vec3p *pos);
+    void Teleport(Vec3p *pos);
+    void TeleportToEntrance(u16 entranceId);
     void PlayerLinkBase_vfunc_74();
-    void PlayerLinkBase_vfunc_88();
-    unk16 Get_PlayerLinkBase_Unk48();
+    void PlayerLinkBase_vfunc_88(unk32 param_1);
+    u16 Get_PlayerLinkBase_Unk48();
     bool func_ov00_020a8638(unk32 param1);
     void Clear_PlayerLinkBase_Unk48(u16 flags);
     void func_ov00_020a8680(unk32 param1, unk16 param2, bool param3);
@@ -95,28 +96,28 @@ public:
     void func_ov00_020a8844(Vec3p *param1, bool param2, bool param3);
     void func_ov00_020a8954(bool param1, unk32 *param2);
     void func_ov00_020a8994();
-    void func_ov00_020a89bc(LinkStateBase_UnkStruct1 *param1, unk32 param2);
-    void func_ov00_020a8a08(unk32 param1);
-    void func_ov00_020a8a4c(const void *param1, unk32 param2);
-    void func_ov00_020a8a90(unk32 param1);
-    void func_ov00_020a8ab0(unk32 param1);
+    void func_ov00_020a89bc(LinkStateBase_UnkStruct1 *param1, unk8 param2);
+    void func_ov00_020a8a08(LinkStateBase_UnkStruct1 *param1);
+    void func_ov00_020a8a4c(LinkStateBase_UnkStruct1 *param1, unk8 param2);
+    void func_ov00_020a8a90(LinkStateBase_UnkStruct1 *param1);
+    void func_ov00_020a8ab0(unk32 *param1);
     void func_ov00_020a8ad0(unk32 param1);
     void func_ov00_020a8b04(s32 param1, bool param2);
     unk32 func_ov00_020a8b3c(s32 param1);
     bool func_ov00_020a8b80();
     bool HasFlags_PlayerLinkBase_Unk48(u16 flags);
-    unk8 Get_PlayerLinkBase_Unk5e();
-    unk32 Get_PlayerControlData_Unk004();
+    u8 Get_PlayerLinkBase_Unk5e(); // bool?
+    unk32 *Get_PlayerControlData_Unk004();
     PlayerCharacter GetCurrentCharacter();
     PlayerControlData *GetPlayerControlData();
     LinkStateId GetStateId();
     s32 GetHealth();
     s32 GetCurrentCharacterHealth();
-    bool func_ov00_020a8c34();
+    bool func_ov00_020a8c34(unk32 param1, Vec3p *param2, unk32 param3);
     Vec3p *GetPlayerPos();
     Vec3p *GetPlayerVel();
-    unk8 *func_ov00_020a8c64();
-    u16 *GetPlayerAngle();
+    UnkStruct_027e0fd4_90 *func_ov00_020a8c64();
+    s16 *GetPlayerAngle();
     void *GetPlayer_Unk18();
     s32 Get_PlayerControlData_Unk32();
     Actor *GetGrabActor();
@@ -131,7 +132,7 @@ public:
     s32 PlayerControlData_vfunc_14(s32 param1);
     unk32 Get_PlayerControlData_Unk100();
     unk32 Get_PlayerControlData_Unk120();
-    s32 Get_PlayerLinkBase_Unk38();
+    s32 *Get_PlayerLinkBase_Unk38();
     Bhio *GetBhio0();
     Bhio *GetBhio1();
 
@@ -144,7 +145,7 @@ public:
     bool func_ov005_0211058c(s32 param1);
     void func_ov005_021107fc();
     void func_ov005_0211086c(s32 param1);
-    void func_ov005_0211097c(unk32 param1, unk8 param2, unk8 param3);
+    void func_ov005_0211097c(LinkStateBase_UnkStruct1 *param1, unk8 param2, unk8 param3);
     unk32 func_ov005_021109c0();
     void func_ov005_02110b40(s32 param1);
     void func_ov005_02110bb4();
@@ -157,6 +158,8 @@ public:
     bool func_ov005_0211139c();
     bool func_ov005_021113b4();
     void func_ov005_021113c4(bool param1);
+
+    void func_ov023_02177ba0(Vec3p *param_1);
 };
 
 LinkStateBase *GetLinkState(LinkStateId index);

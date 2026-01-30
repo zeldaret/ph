@@ -1,4 +1,5 @@
 #include "Player/PlayerControlData.hpp"
+#include "Player/LinkStateBase.hpp"
 
 void PlayerControlData::vfunc_00() {}
 void PlayerControlData::func_ov000_020b4440() {}
@@ -6,7 +7,7 @@ void PlayerControlData::func_ov000_020b4460(s32 param1) {}
 void PlayerControlData::func_ov000_020b44d4(s32 param1, u32 param2) {}
 void PlayerControlData::func_ov000_020b4558(s32 param1, u32 param2) {}
 void PlayerControlData::func_ov000_020b45e0() {}
-void PlayerControlData::func_ov000_020b45f8(unk32 *param1, unk8 param2, unk8 param3) {}
+void PlayerControlData::func_ov000_020b45f8(LinkStateBase_UnkStruct1 *param1, unk8 param2, unk8 param3) {}
 void PlayerControlData::func_ov000_020b464c(unk32 *param1, unk8 param2, unk8 param3) {}
 void PlayerControlData::vfunc_60(unk32 param1, unk32 param2, s32 param3) {}
 void PlayerControlData::vfunc_68(unk32 param1, unk32 param2) {}
@@ -28,7 +29,7 @@ void PlayerControlData::vfunc_40(u16 *param1, Vec3p *param2, unk32 param3, char 
 void PlayerControlData::vfunc_44(unk32 param1, unk32 *param2, unk32 param3, unk16 param4) {}
 void PlayerControlData::vfunc_48(unk32 param1, unk32 param2, unk32 param3, s16 param4) {}
 void PlayerControlData::vfunc_4c(unk32 param1, Vec3p *param2) {}
-void PlayerControlData::vfunc_70(s32 param1) {}
+void PlayerControlData::vfunc_70(s32 param1, Vec3p *param2) {}
 void PlayerControlData::vfunc_50() {}
 void PlayerControlData::vfunc_54() {}
 void PlayerControlData::vfunc_58() {}

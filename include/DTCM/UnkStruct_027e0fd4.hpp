@@ -22,6 +22,10 @@ public:
     /* 18 */
 };
 
+struct UnkStruct_027e0fd4_90 {
+    /* 00 */ unk32 mUnk_00;
+};
+
 class UnkStruct_027e0fd4 : public UnkStruct_ov000_020b1528 {
 public:
     /* 000 (base) */
@@ -46,7 +50,7 @@ public:
     /* 070 */ unk32 mUnk_070;
     /* 074 */ unk32 mUnk_074;
     /* 078 */ unk8 mUnk_078[0x18];
-    /* 090 */ unk32 mUnk_090;
+    /* 090 */ UnkStruct_027e0fd4_90 mUnk_090;
     /* 094 */ u32 mUnk_094;
     /* 098 */ s32 mUnk_098;
     /* 09c */ unk32 mUnk_09c;

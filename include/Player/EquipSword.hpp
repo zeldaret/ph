@@ -40,7 +40,6 @@ public:
     /* 6f */ unk8 mUnk_6f;
     /* 70 */
 
-public:
     EquipSword();
 
     /* 00 */ virtual void vfunc_00() override;

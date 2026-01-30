@@ -21,6 +21,7 @@ struct ActorSpawnOptions {
     /* 2c */
 
     void func_ov000_020c3348();
+
     inline ActorSpawnOptions() :
         mUnk_1c(-1, -1) {
         func_ov000_020c3348();

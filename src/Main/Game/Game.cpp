@@ -225,7 +225,7 @@ THUMB bool Game::StartGameMode() {
     func_02017cb0(data_02062d4c, 0xc);
     mUnk_0f0 = 0;
     mUnk_0f4 = 0;
-    mUnk_101 = 0;
+    mUnk_101 = false;
     mUnk_103 = GetGameMode(mModeId)->mUnk_03;
     mUnk_0f2 = GetGameMode(mModeId)->mUnk_00;
 
@@ -352,7 +352,7 @@ ARM void Game::Run() {
             }
             if (!bVar6) {
                 gFadeController.ProcessFade((u32) this->mUnk_0f2);
-                if ((this->mUnk_101 == 0) && (ov00Loaded)) {
+                if (!this->mUnk_101 && (ov00Loaded)) {
                     data_027e0e2c.func_ov000_0207be84(bVar2);
                     data_027e0db0.func_ov000_0207b378(bVar2);
                 }

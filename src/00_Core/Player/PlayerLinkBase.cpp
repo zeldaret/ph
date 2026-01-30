@@ -22,7 +22,7 @@ bool PlayerLinkBase::func_ov000_020bba28() {}
 void PlayerLinkBase::func_ov000_020bba48() {}
 bool PlayerLinkBase::vfunc_18(s32 param1) {}
 bool PlayerLinkBase::CanMove() {}
-bool PlayerLinkBase::vfunc_58() {}
+bool PlayerLinkBase::vfunc_58(unk32 param1, ActorRef *param2) {}
 bool PlayerLinkBase::vfunc_5c() {}
 bool PlayerLinkBase::vfunc_60() {}
 void PlayerLinkBase::vfunc_64() {}
@@ -51,7 +51,7 @@ unk32 PlayerLinkBase::func_ov000_020bc320(unk32 param1, unk32 param2, unk32 para
 void PlayerLinkBase::func_ov000_020bc398(unk32 param1, s32 param2) {}
 PlayerCharacter PlayerLinkBase::GetCurrentCharacter() {}
 s32 PlayerLinkBase::GetHealth(PlayerCharacter character) {}
-void PlayerLinkBase::AddHealth(s16 amount, PlayerCharacter character) {}
+void PlayerLinkBase::AddHealth2(s16 amount, PlayerCharacter character) {}
 void PlayerLinkBase::func_ov000_020bc4ac() {}
 s32 PlayerLinkBase::GetStateId() {}
 s32 PlayerLinkBase::func_ov000_020bc520(Vec3p *param1) {}
@@ -63,10 +63,10 @@ s32 PlayerLinkBase::func_ov000_020bc808() {}
 unk32 PlayerLinkBase::func_ov000_020bc84c() {}
 void PlayerLinkBase::func_ov000_020bc854(Vec3p *param1) {}
 void PlayerLinkBase::UpdateTilePos(Vec3p *param1, PlayerCharacter character) {}
-void PlayerLinkBase::func_ov000_020bc90c(unk32 *param1, s32 param2) {}
+void PlayerLinkBase::func_ov000_020bc90c(Vec3p *param1, s32 param2) {}
 bool PlayerLinkBase::func_ov000_020bc960(unk32 param1, unk32 param2, unk32 param3) {}
 bool PlayerLinkBase::TeleportToLastEntrance(bool param1) {}
-bool PlayerLinkBase::TeleportToEntrance(unk32 entranceId, bool param2) {}
+bool PlayerLinkBase::TeleportToEntrance(u16 entranceId, bool param2) {}
 bool PlayerLinkBase::Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5) {}
 void PlayerLinkBase::vfunc_74() {}
 bool PlayerLinkBase::GongoronCollidesWith(Cylinder *hitbox) {}
@@ -92,7 +92,7 @@ bool PlayerLinkBase::func_ov000_020bd304() {}
 bool PlayerLinkBase::func_ov000_020bd318() {}
 void PlayerLinkBase::vfunc_7c() {}
 void PlayerLinkBase::SetPlayerCharacter(PlayerCharacter character) {}
-bool PlayerLinkBase::func_ov000_020bd3b0(unk32 param1, unk32 param2, unk32 param3, unk16 param4) {}
+bool PlayerLinkBase::func_ov000_020bd3b0(unk32 param1, ActorRef *param2, unk32 param3, unk16 param4) {}
 void PlayerLinkBase::SetPosition(Vec3p *position) {}
 void PlayerLinkBase::SetAngle(s16 *angle) {}
 bool PlayerLinkBase::func_ov000_020bd510(s32 param1, unk32 *param2) {}
