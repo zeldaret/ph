@@ -180,7 +180,7 @@ func_ov000_0207a938 kind:function(thumb,size=0x18) addr:0x0207a938
 func_ov000_0207a950 kind:function(arm,size=0x29c) addr:0x0207a950
 func_ov000_0207abec kind:function(arm,size=0x38) addr:0x0207abec
 _ZN12TouchControl4InitEv kind:function(thumb,size=0x3c) addr:0x0207ac24
-_ZN12TouchControl13IncreaseSpeedEs kind:function(arm,size=0x18) addr:0x0207ac60
+_ZN12TouchControl13IncreaseSpeedEt kind:function(arm,size=0x18) addr:0x0207ac60
 _ZN12TouchControl11UpdateFlagsEt kind:function(arm,size=0x118) addr:0x0207ac78
 _ZN12TouchControl20UpdateWithStateFlagsEP15TouchStateFlagst kind:function(arm,size=0xdc) addr:0x0207ad90
 _ZN12TouchControl6UpdateEP10TouchStatet kind:function(arm,size=0x40) addr:0x0207ae6c
@@ -3928,7 +3928,7 @@ data_ov000_020df330 kind:data(any) addr:0x020df330
 __sinit_ov000_020df338 kind:function(arm,size=0x14) addr:0x020df338
 __sinit_ov000_020df34c kind:function(arm,size=0x2c) addr:0x020df34c
 __sinit_ov000_020df378 kind:function(arm,size=0x14) addr:0x020df378
-__sinit_ov000_020df38c kind:function(arm,size=0x2c) addr:0x020df38c
+__sinit_TouchControl_00.cpp kind:function(arm,size=0x2c) addr:0x020df38c
 __sinit_ov000_020df3b8 kind:function(arm,size=0x14) addr:0x020df3b8
 __sinit_ov000_020df3cc kind:function(arm,size=0x14) addr:0x020df3cc
 __sinit_ov000_020df3e0 kind:function(arm,size=0x14) addr:0x020df3e0
@@ -3983,8 +3983,8 @@ __sinit_ov000_020e1e60 kind:function(arm,size=0x14) addr:0x020e1e60
 __sinit_ov000_020e1e74 kind:function(arm,size=0x14) addr:0x020e1e74
 .p__sinit_ov000_020df338 kind:data(word) addr:0x020e1e88
 .p__sinit_ov000_020df34c kind:data(word) addr:0x020e1e8c
-.p__sinit_ov000_020df378 kind:data(word) addr:0x020e1e90
-.p__sinit_ov000_020df38c kind:data(word) addr:0x020e1e94
+.p__sinit_ov000_020e1e90.cpp kind:data(word) addr:0x020e1e90
+.p__sinit_TouchControl_00.cpp kind:data(word) addr:0x020e1e94
 .p__sinit_ov000_020df3b8 kind:data(word) addr:0x020e1e98
 .p__sinit_ov000_020df3cc kind:data(word) addr:0x020e1e9c
 .p__sinit_ov000_020df3e0 kind:data(word) addr:0x020e1ea0
