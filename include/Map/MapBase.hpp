@@ -21,10 +21,10 @@
 #define MAX_VIEWPOINTS 8
 #define MAX_MAP_UNK_130 0x20
 
-struct MapBase_Unk_13c {
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
+struct MapBase_Unk_13c { // Related to map's ground texture
+    /* 00 */ unk32 mUnk_00; // ?
+    /* 04 */ unk32 mUnk_04; // Place map texture on ...?
+    /* 08 */ unk32 mUnk_08; // Offset to ground texture ?
     /* 0c */
 };
 
@@ -89,6 +89,19 @@ struct UnkStruct_0207f38c {
     /* 14 */ TilePos mUnk_14;
 };
 
+class MapBase_func_ov00_0207e968 {
+public:
+    unk8 mUnk_00[0x10];
+    ~MapBase_func_ov00_0207e968();
+};
+
+class MapBase_func_ov00_0207e940 {
+public:
+    /* 00 */ unk8 mUnk_00[0x18];
+    /* 18 */ MapBase_func_ov00_0207e968 mUnk_18[3];
+    ~MapBase_func_ov00_0207e940();
+};
+
 class MapBase : public SysObject {
 public:
     /* 000 (vtable) */
@@ -146,7 +159,7 @@ public:
     /* 140 */ MapBase_Unk_140 *mUnk_140;
     /* 144 */ MapBase_Unk_144 *mUnk_144;
     /* 148 */ s32 mUnk_148;
-    /* 14c */ unk32 mUnk_14c;
+    /* 14c */ unk8 *mUnk_14c; // pointer to MFCB data
     /* 150 */ unk32 mUnk_150;
     /* 154 */ unk32 mUnk_154;
     /* 158 */ unk8 mUnk_158[8];
@@ -169,7 +182,7 @@ public:
     /* 20 */ virtual void vfunc_20(s32 param_2);
     /* 24 */ virtual void vfunc_24();
     /* 28 */ virtual void vfunc_28(s32 param_2);
-    /* 2c */ virtual void vfunc_2c();
+    /* 2c */ virtual void vfunc_2c(); // Runs when exiting Oshus's house
     /* 30 */ virtual void vfunc_30(s32 param_2);
     /* 34 */ virtual bool vfunc_34(char *param_2);
     /* 38 */ virtual void vfunc_38();
@@ -181,8 +194,8 @@ public:
     /* 50 */ virtual unk32 vfunc_50();
     /* 54 */ virtual unk32 vfunc_54(TilePos *param_1);
     /* 58 */ virtual unk32 vfunc_58(TilePos *param_1, int param_2);
-    /* 5c */ virtual unk32 vfunc_5c();
-    /* 60 */ virtual unk32 vfunc_60(TilePos *param_1);
+    /* 5c */ virtual unk32 vfunc_5c(TilePos *param_2);
+    /* 60 */ virtual unk32 vfunc_60(TilePos *param_2);
     /* 64 */ virtual unk32 vfunc_64();
     /* 68 */ virtual unk32 vfunc_68(Vec3p *param_1, bool param_2);
     /* 6c */ virtual void vfunc_6c(Vec3p *param_2, unk32 *param_3, Vec3p *param_4);
@@ -205,8 +218,8 @@ public:
     /* b0 */ virtual void vfunc_b0(unk32 param_2, unk32 param_3);
     /* b4 */ virtual unk32 *vfunc_b4();
     /* b8 */ virtual unk32 vfunc_b8(unk32 param_2);
-    /* bc */ virtual void vfunc_bc();
-    /* c0 */ virtual void vfunc_c0();
+    /* bc */ virtual void vfunc_bc(TilePos *param_2, unk32 param_3);
+    /* c0 */ virtual void vfunc_c0(TilePos *param_2, unk32 param_3);
     /* c4 */
 
     void SetBounds(unk32 map, Course *course);
@@ -218,8 +231,8 @@ public:
     bool func_ov00_0207e08c(s32 *param_2, s32 param_3);
     s32 func_ov00_0207e0f0(s32 param_2);
     s32 func_ov00_0207e28c(s32 param_2);
-    static unk8 *func_ov00_0207e940(unk8 *param_1);
-    static void func_ov00_0207e968();
+    // static unk8 *func_ov00_0207e940(unk8 *param_1);
+    // static void func_ov00_0207e968();
     static void func_ov00_0207e96c();
     static void func_ov00_0207f100();
     bool func_ov00_0207f104(Vec3p *param_2, unk32 *param_3);
