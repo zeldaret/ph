@@ -87,8 +87,8 @@ static const ItemManager_Unk1 sEquipBombchu_Unk1 = {
 };
 
 THUMB void EquipBombchu::vfunc_00() {
-    gModelRenderBombchu.vfunc_0c(gItemManager->GetItemModel(ItemModelId_Bombchu));
-    gModelRenderBombchuPt.vfunc_0c(gItemManager->GetItemModel(ItemModelId_BombchuPt));
+    gModelRenderBombchu.Init_ModelRender_UnkStruct_4(gItemManager->GetItemModel(ItemModelId_Bombchu));
+    gModelRenderBombchuPt.Init_ModelRender_UnkStruct_4(gItemManager->GetItemModel(ItemModelId_BombchuPt));
     data_ov058_0219b0a0.mUnk_08 = gItemManager->GetItemModel(ItemModelId_BombchuPt);
     data_ov058_0219b0a0.func_ov000_020c0c44(gItemManager->func_ov00_020ad538(&sEquipBombchu_Unk1));
     data_ov058_0219b0a0.func_ov000_020c0e5c(0);
