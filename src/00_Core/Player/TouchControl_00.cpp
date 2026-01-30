@@ -1,11 +1,9 @@
 #include "Player/TouchControl.hpp"
 #include "global.h"
 
-void TouchControl::Init() {}
-
 TouchControl gTouchControl;
 
-THUMB TouchControl::TouchControl() {
+THUMB void TouchControl::Init() {
     this->mSpeed              = 1;
     this->mTimeBetweenTouches = -1;
     this->mTimeSinceTouch     = -1;
@@ -25,7 +23,7 @@ THUMB TouchControl::TouchControl() {
     this->mFlags              = TouchFlag_None;
 }
 
-ARM void TouchControl::IncreaseSpeed(s16 increase) {
+ARM void TouchControl::IncreaseSpeed(u16 increase) {
     this->mFlags = TouchFlag_None;
     this->mSpeed += increase;
 }
@@ -50,7 +48,7 @@ ARM void TouchControl::UpdateFlags(u16 speed) {
         this->mRepeatTimer = this->mRepeatStart;
     } else {
         if (this->mTouch != false) {
-            if (this->mRepeatTimer - this->mSpeed > 1) {
+            if (this->mRepeatTimer - this->mSpeed > 0) {
                 this->mRepeatTimer -= this->mSpeed;
             } else {
                 this->mFlags |= TouchFlag_Repeat;

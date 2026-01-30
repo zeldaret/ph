@@ -35,7 +35,7 @@ public:
     /* 28 */ s32 mTouchLastY;
     /* 2c */ s32 mTouchStartX;
     /* 30 */ s32 mTouchStartY;
-    /* 34 */ TouchFlags mFlags;
+    /* 34 */ volatile TouchFlags mFlags;
     /* 36 */
 
     TouchControl();
@@ -43,7 +43,7 @@ public:
     ~TouchControl();
 
     void Init();
-    void IncreaseSpeed(s16 increase);
+    void IncreaseSpeed(u16 increase);
     void UpdateFlags(u16 speed);
     void UpdateWithStateFlags(TouchStateFlags *state, u16 speed);
     void Update(TouchState *state, u16 speed);
@@ -54,7 +54,6 @@ public:
     static bool func_0202b864(Vec3p *param1, s32 size, unk8 param3);
     static bool func_0202b894(Vec3p *param1, s32 size, unk8 param3);
 };
-extern TouchControl gTouchControl;
 
 extern TouchControl gTouchControl;
 
