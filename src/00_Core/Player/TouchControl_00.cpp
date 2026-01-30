@@ -143,8 +143,6 @@ ARM void TouchControl::func_ov00_0207af38(u16 speedIncrease, bool shouldIncrease
     TouchStateFlags touchState;
 
     if (shouldIncrease) {
-        //! TODO: `IncreaseSpeed` expects an s16 variable, while `speedIncrease` is a u16.
-        //! As a result, the function performs a conversion that is not present in the binary.
         this->IncreaseSpeed(speedIncrease);
         return;
     }
