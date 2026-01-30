@@ -141,10 +141,10 @@ src/00_Core/Player/PlayerControl.cpp:
     .data       start:0x020e6104 end:0x020e6150
     .sbss       start:0x020ee198 end:0x020ee1a0
 
-src/00_Core/Player/TouchControl.cpp:
+src/00_Core/Player/TouchControl_00.cpp:
     .text       start:0x0207ac24 end:0x0207afa0
     .init       start:0x020df38c end:0x020df3b8
-    .ctor       start:0x020e1e90 end:0x020e1e94
+    .ctor       start:0x020e1e94 end:0x020e1e98
 
 src/00_Core/Save/AdventureFlags.cpp:
     .text       start:0x02097628 end:0x020980f4

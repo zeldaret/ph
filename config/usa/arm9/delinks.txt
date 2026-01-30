@@ -61,6 +61,9 @@ src/Main/Unknown/UnkStruct_02063220.cpp:
     .rodata     start:0x0205629c end:0x020562bc
     .data       start:0x020576e4 end:0x020577c0
 
+src/Main/Player/TouchControl.cpp:
+    .text       start:0x0202b84c end:0x0202b8cc
+
 src/Main/Game/Game.cpp:
     .text       start:0x0202c6b0 end:0x0202d0b4
     .rodata     start:0x020561b0 end:0x02056290
