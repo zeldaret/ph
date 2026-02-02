@@ -112,7 +112,6 @@ src/00_Core/Player/LinkStateDamage.cpp:
 src/00_Core/Player/LinkStateFollow.cpp:
     .text       start:0x020a8f14 end:0x020a9244
     .data       start:0x020e56fc end:0x020e5790
-    .data       start:0x020e56fc end:0x020e5790
 
 src/00_Core/Player/LinkStateInteract.cpp:
     .text       start:0x020aa2cc end:0x020abd18
@@ -142,10 +141,10 @@ src/00_Core/Player/PlayerControl.cpp:
     .data       start:0x020e60a4 end:0x020e60f0
     .sbss       start:0x020ee138 end:0x020ee140
 
-src/00_Core/Player/TouchControl_00.cpp:
+src/00_Core/Player/TouchControl.cpp:
     .text       start:0x0207abc4 end:0x0207af40
     .init       start:0x020df32c end:0x020df358
-    .ctor       start:0x020e1e34 end:0x020e1e38
+    .ctor       start:0x020e1e30 end:0x020e1e34
 
 src/00_Core/Save/AdventureFlags.cpp:
     .text       start:0x020975c8 end:0x02098094

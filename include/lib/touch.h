@@ -16,7 +16,5 @@ struct TouchState {
     s32 touchY;
 };
 
-extern "C" {
 void WaitForTouchUpdate(u16 param1);
 bool GetTouchStateFlags(TouchStateFlags *pState);
-}
