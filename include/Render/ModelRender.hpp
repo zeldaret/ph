@@ -19,7 +19,7 @@ struct ModelRender_UnkBoneMatrixStruct {
 
 struct ModelRender_UnkStruct_4 {
     /* 00 */ unk32 flags;
-    /* 04 */ void *mLcdcAddr;
+    /* 04 */ ItemModel *mLcdcAddr;
     /* 08 */ void *mUnk_08; // this attribute is related to UnkStruct_ov000_020c0c08
     /* 0c */ void *mUnkTransformFunc;
     /* 10 */ void *mUnk_10; // also related to UnkStruct_ov000_020c0c08
@@ -67,7 +67,9 @@ struct ModelRenderCommandsData {
     /* 90 */ unk8 mUnk_90;
     /* 91 */ unk8 mUnk_91[0x1f];
     /* b0 */ ModelRender_MaterialData *unkMaterialDataPTR;
-    /* b4 */ unk8 mUnk_b4[0x20];
+    /* b4 */ unk8 mUnk_b4[0x4];
+    /* b8 */ u32 *boneVisibilityPtr;
+    /* bc */ unk8 mUnk_bc[0x18];
     /* d4 */ void *boneList;
     /* d8 */ void *materialList;
     /* dc */ void *meshList;

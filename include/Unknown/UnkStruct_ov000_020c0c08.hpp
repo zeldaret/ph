@@ -29,7 +29,17 @@ public:
     /* 14 */ unk8 mUnk_14[3];
     /* 17 */ u8 numBoneMatrices;
     /* 18 */ u8 numMaterials;
-    /* 19 */
+    /* 19 */ u8 numMeshes;
+    /* 1a */ unk8 mUnk_1a[2];
+    /* 1c */ s32 up_scale;
+    /* 20 */ s32 down_scale;
+    /* 24 */ s16 numVertices;
+    /* 26 */ s16 numPolygons;
+    /* 28 */ s16 numTriangles;
+    /* 2a */ s16 numQuads;
+    /* 2c */ unk8 boundingBox[0xc];
+    /* 38 */ unk8 mUnk_38[0x8];
+    /* 40 */ void *boneList;
 };
 
 class UnkStruct_ov000_020c0c08 : public SysObject {
