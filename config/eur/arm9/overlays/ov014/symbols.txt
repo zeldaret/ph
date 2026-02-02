@@ -130,7 +130,7 @@ func_ov014_02125130 kind:function(arm,size=0x14) addr:0x02125130
 func_ov014_02125144 kind:function(arm,size=0x8) addr:0x02125144
 func_ov014_0212514c kind:function(arm,size=0x1c) addr:0x0212514c
 func_ov014_02125168 kind:function(arm,size=0xbc) addr:0x02125168
-func_ov014_02125224 kind:function(arm,size=0x14) addr:0x02125224
+_ZN14BoxModelRenderD1Ev kind:function(arm,size=0x14) addr:0x02125224
 func_ov014_02125238 kind:function(arm,size=0x28) addr:0x02125238
 func_ov014_02125260 kind:function(arm,size=0x30) addr:0x02125260
 func_ov014_02125290 kind:function(arm,size=0x28) addr:0x02125290
@@ -153,9 +153,9 @@ func_ov014_02125e60 kind:function(arm,size=0x68) addr:0x02125e60
 func_ov014_02125ec8 kind:function(arm,size=0x14) addr:0x02125ec8
 func_ov014_02125edc kind:function(arm,size=0x8) addr:0x02125edc
 func_ov014_02125ee4 kind:function(arm,size=0x1c) addr:0x02125ee4
-func_ov014_02125f00 kind:function(arm,size=0x38) addr:0x02125f00
-func_ov014_02125f38 kind:function(arm,size=0x48) addr:0x02125f38
-func_ov014_02125f80 kind:function(arm,size=0x1c) addr:0x02125f80
+_ZN14BoxModelRenderC2EP9ItemModel kind:function(arm,size=0x38) addr:0x02125f00
+_ZN14BoxModelRender8vfunc_3cEP23ModelRenderCommandsData kind:function(arm,size=0x48) addr:0x02125f38
+_ZN14BoxModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x02125f80
 func_ov014_02125f9c kind:function(arm,size=0x60) addr:0x02125f9c
 func_ov014_02125ffc kind:function(arm,size=0x20) addr:0x02125ffc
 func_ov014_0212601c kind:function(arm,size=0x28) addr:0x0212601c
@@ -1550,7 +1550,7 @@ data_ov014_02153be8 kind:data(any) addr:0x02153be8
 data_ov014_02153bfc kind:data(any) addr:0x02153bfc
 data_ov014_02153c04 kind:data(any) addr:0x02153c04
 data_ov014_02153c18 kind:data(any) addr:0x02153c18
-data_ov014_02153c24 kind:data(any) addr:0x02153c24
+boxBModelName kind:data(any) addr:0x02153c24
 data_ov014_02153c38 kind:data(any) addr:0x02153c38
 data_ov014_02153c4c kind:data(any) addr:0x02153c4c
 data_ov014_02153c64 kind:data(any) addr:0x02153c64
@@ -1844,8 +1844,8 @@ data_ov014_02155fb0 kind:data(any) addr:0x02155fb0
 data_ov014_02155fd4 kind:data(any) addr:0x02155fd4
 data_ov014_02156078 kind:data(any) addr:0x02156078
 data_ov014_0215611c kind:data(any) addr:0x0215611c
-data_ov014_021561c0 kind:data(any) addr:0x021561c0
-data_ov014_02156208 kind:data(any) addr:0x02156208
+_ZTV14BoxModelRender kind:data(any) addr:0x021561b8
+data_ov014_02156208 kind:data(any) addr:0x02156200
 data_ov014_021562ac kind:data(any) addr:0x021562ac
 data_ov014_02156350 kind:data(any) addr:0x02156350
 data_ov014_021563f4 kind:data(any) addr:0x021563f4
