@@ -238,7 +238,7 @@ def main():
     project = Project(args.version, platform=platform, delinks_json=delinks_json)
 
 
-    with build_ninja_path.open("w") as file:
+    with build_ninja_path.open("w", encoding="utf-8") as file:
         n = ninja_syntax.Writer(file)
 
         n.rule(
