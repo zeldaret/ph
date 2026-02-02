@@ -1844,7 +1844,7 @@ data_ov014_02155fb0 kind:data(any) addr:0x02155f10
 data_ov014_02155fd4 kind:data(any) addr:0x02155f34
 data_ov014_02156078 kind:data(any) addr:0x02155fd8
 data_ov014_0215611c kind:data(any) addr:0x0215607c
-_ZTV14BoxModelRender kind:data(any) addr:0x02156118
+_ZTV24TreasureChestModelRender kind:data(any) addr:0x02156118
 data_ov014_02156208 kind:data(any) addr:0x02156160
 data_ov014_021562ac kind:data(any) addr:0x0215620c
 data_ov014_02156350 kind:data(any) addr:0x021562b0

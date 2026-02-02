@@ -153,9 +153,9 @@ func_ov014_02125e60 kind:function(arm,size=0x68) addr:0x02125e60
 func_ov014_02125ec8 kind:function(arm,size=0x14) addr:0x02125ec8
 func_ov014_02125edc kind:function(arm,size=0x8) addr:0x02125edc
 func_ov014_02125ee4 kind:function(arm,size=0x1c) addr:0x02125ee4
-_ZN14TreasureChestModelRenderC2EP9ItemModel kind:function(arm,size=0x38) addr:0x02125f00
-_ZN14TreasureChestModelRender8vfunc_3cEP23ModelRenderCommandsData kind:function(arm,size=0x48) addr:0x02125f38
-_ZN14TreasureChestModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x02125f80
+_ZN24TreasureChestModelRenderC2EP9ItemModel kind:function(arm,size=0x38) addr:0x02125f00
+_ZN24TreasureChestModelRender8vfunc_3cEP23ModelRenderCommandsData kind:function(arm,size=0x48) addr:0x02125f38
+_ZN24TreasureChestModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x02125f80
 func_ov014_02125f9c kind:function(arm,size=0x60) addr:0x02125f9c
 func_ov014_02125ffc kind:function(arm,size=0x20) addr:0x02125ffc
 func_ov014_0212601c kind:function(arm,size=0x28) addr:0x0212601c
@@ -1844,7 +1844,7 @@ data_ov014_02155fb0 kind:data(any) addr:0x02155fb0
 data_ov014_02155fd4 kind:data(any) addr:0x02155fd4
 data_ov014_02156078 kind:data(any) addr:0x02156078
 data_ov014_0215611c kind:data(any) addr:0x0215611c
-_ZTV14BoxModelRender kind:data(any) addr:0x021561b8
+_ZTV24TreasureChestModelRender kind:data(any) addr:0x021561b8
 data_ov014_02156208 kind:data(any) addr:0x02156200
 data_ov014_021562ac kind:data(any) addr:0x021562ac
 data_ov014_02156350 kind:data(any) addr:0x02156350
