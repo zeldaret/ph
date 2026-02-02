@@ -503,7 +503,7 @@ from:0x021033d8 kind:thumb_call_arm to:0x0202e9dc module:main
 from:0x02103418 kind:load to:0x020e2b5c add:8 module:overlay(0)
 from:0x0210341c kind:load to:0x020e4b68 module:overlay(0)
 from:0x02103420 kind:load to:0x027e0ce0 module:dtcm
-from:0x02103424 kind:load to:0x020e4c00 add:8 module:overlay(0)
+from:0x02103424 kind:load to:0x020e4bf8 add:8 module:overlay(0)
 from:0x02103428 kind:load to:0x027e0618 module:dtcm
 from:0x0210342c kind:load to:0x02136cc0 module:overlay(12)
 from:0x02103430 kind:load to:0x020e4fb4 module:overlay(0)

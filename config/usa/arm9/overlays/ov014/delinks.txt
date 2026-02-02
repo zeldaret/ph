@@ -21,7 +21,7 @@ src/14_Land/Actor/Player/ActorRefill.cpp:
     .data       start:0x02157810 end:0x02157cd0
     .bss        start:0x0215aef4 end:0x0215af94
 
-src/14_Land/Render/BoxModelRender.cpp:
+src/14_Land/Render/TreasureChestModelRender.cpp:
     .text       start:0x02125e80 end:0x02125f1c
     .rodata     start:0x02153b80 end:0x02153b94
     .data       start:0x02156118 end:0x02156160
