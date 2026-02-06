@@ -29,5 +29,7 @@ src/14_Land/Render/TreasureChestModelRender.cpp:
 src/14_Land/Render/SignModelRender.cpp:
     .text       start:0x0212d198 end:0x0212d518
 
-src/14_Land/Render/BombModelRender.cpp:
+src/14_Land/Render/FlowerModelRender.cpp:
     .text       start:0x0212e174 end:0x0212e3c8
+    .rodata     start:0x02153c7c end:0x02153cf4
+    .data       start:0x02157068 end:0x021570b0

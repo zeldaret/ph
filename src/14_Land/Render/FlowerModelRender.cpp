@@ -1,18 +1,18 @@
-#include "Render/BombModelRender.hpp"
+#include "Render/FlowerModelRender.hpp"
 
 extern "C" unk32 func_0201e388(void *param1, const char *param2);
 
 void func_ov014_0212e234();
 
-BombModelRender::BombModelRender(ItemModel *itemModel, unk32 param2, unk32 param3) :
+FlowerModelRender::FlowerModelRender(ItemModel *itemModel, unk32 param2, unk32 param3) :
     ModelRender(itemModel),
     mUnk_5c(param3),
     mUnk_60(param2),
-    mUnk_64(0x1000) {
+    mUnk_64(INT_TO_Q20(1)) {
     this->func_ov014_0212e234();
 }
 
-void BombModelRender::func_ov014_0212e234() {
+void FlowerModelRender::func_ov014_0212e234() {
     if (this->mUnk_60 != 0) {
         this->UnkInit_Struct4_Params(2, 2);
     } else {
@@ -20,7 +20,8 @@ void BombModelRender::func_ov014_0212e234() {
     }
 }
 
-void BombModelRender::vfunc_3c(ModelRenderCommandsData *renderData) {
+#pragma readonly_strings on
+void FlowerModelRender::vfunc_3c(ModelRenderCommandsData *renderData) {
     u32 boneIndex;
     u32 visibilityIndex;
 
@@ -89,7 +90,9 @@ void BombModelRender::vfunc_3c(ModelRenderCommandsData *renderData) {
                     renderData->transformations->translationVector.z = 0;
                 }
             }
+            break;
     }
 }
+#pragma readonly_strings reset
 
-BombModelRender::~BombModelRender() {}
+FlowerModelRender::~FlowerModelRender() {}

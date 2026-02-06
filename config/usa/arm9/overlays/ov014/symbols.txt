@@ -413,7 +413,7 @@ func_ov014_0212d8d0 kind:function(arm,size=0x20) addr:0x0212d850
 func_ov014_0212d8f0 kind:function(arm,size=0x8) addr:0x0212d870
 func_ov014_0212d8f8 kind:function(arm,size=0x38) addr:0x0212d878
 func_ov014_0212d930 kind:function(arm,size=0xa4) addr:0x0212d8b0
-func_ov014_0212d9d4 kind:function(arm,size=0x14) addr:0x0212d954
+_ZN17FlowerModelRenderD1Ev kind:function(arm,size=0x14) addr:0x0212d954
 func_ov014_0212d9e8 kind:function(arm,size=0x28) addr:0x0212d968
 func_ov014_0212da10 kind:function(arm,size=0x30) addr:0x0212d990
 func_ov014_0212da40 kind:function(arm,size=0xa0) addr:0x0212d9c0
@@ -429,10 +429,10 @@ func_ov014_0212e110 kind:function(arm,size=0x2c) addr:0x0212e090
 func_ov014_0212e13c kind:function(arm,size=0x74) addr:0x0212e0bc
 func_ov014_0212e1b0 kind:function(arm,size=0x3c) addr:0x0212e130
 func_ov014_0212e1ec kind:function(arm,size=0x8) addr:0x0212e16c
-func_ov014_0212e1f4 kind:function(arm,size=0x40) addr:0x0212e174
-func_ov014_0212e234 kind:function(arm,size=0x30) addr:0x0212e1b4
-_ZN15BombModelRender8vfunc_3cEP23ModelRenderCommandsData kind:function(arm,size=0x1c8) addr:0x0212e1e4
-_ZN15BombModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x0212e3ac
+_ZN17FlowerModelRenderC1EP9ItemModelii kind:function(arm,size=0x40) addr:0x0212e174
+_ZN17FlowerModelRender19func_ov014_0212e234Ev kind:function(arm,size=0x30) addr:0x0212e1b4
+_ZN17FlowerModelRender8vfunc_3cEP23ModelRenderCommandsData kind:function(arm,size=0x1c8) addr:0x0212e1e4
+_ZN17FlowerModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x0212e3ac
 func_ov014_0212e448 kind:function(arm,size=0x38) addr:0x0212e3c8
 func_ov014_0212e480 kind:function(arm,size=0x80) addr:0x0212e400
 func_ov014_0212e500 kind:function(arm,size=0x28) addr:0x0212e480
@@ -1904,7 +1904,7 @@ data_ov014_02157054 kind:data(any) addr:0x02156fb4
 data_ov014_021570e0 kind:data(any) addr:0x02157040
 data_ov014_021570e8 kind:data(any) addr:0x02157048
 data_ov014_021570f0 kind:data(any) addr:0x02157050
-data_ov014_02157110 kind:data(any) addr:0x02157070
+_ZTV17FlowerModelRender kind:data(any) addr:0x02157068
 data_ov014_02157150 kind:data(any) addr:0x021570b0
 data_ov014_02157160 kind:data(any) addr:0x021570c0
 data_ov014_021571f4 kind:data(any) addr:0x02157154
