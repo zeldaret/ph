@@ -6,7 +6,7 @@ extern NsFile *data_ov000_020e67ac;
 
 THUMB ActorNaviBase::ActorNaviBase() :
     mUnk_164(0),
-    mUnk_168(data_ov000_020ee1f8),
+    modelRender(data_ov000_020ee1f8),
     mUnk_1d0(GetJntAnimation(FindJntSection(data_ov000_020e67ac), 0), data_ov000_020ee1f8),
     mUnk_214(0),
     mUnk_222(-1),
@@ -48,7 +48,7 @@ THUMB bool ActorNaviBase::Init() {
     return true;
 }
 
-ActorNaviBase_Unk3::ActorNaviBase_Unk3(ItemModel *param1) :
+THUMB NaviModelRender::NaviModelRender(ItemModel *param1) :
     ModelRender(param1) {
     this->UnkInit_Struct4_Params(6, 3);
 }

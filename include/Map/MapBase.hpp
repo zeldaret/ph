@@ -13,6 +13,7 @@
 #include "Map/Entrance.hpp"
 #include "Map/Exit.hpp"
 #include "Map/TriggerBase.hpp"
+#include "Render/MapModelRender.hpp"
 #include "System/SysNew.hpp"
 
 #define MAX_ENTRANCES 0x40
@@ -20,21 +21,6 @@
 #define MAX_EXITS 0x40
 #define MAX_VIEWPOINTS 8
 #define MAX_MAP_UNK_130 0x20
-
-struct MapBase_Unk_13c {
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
-    /* 0c */
-};
-
-struct MapBase_Unk_140 {
-    /* 00 */ unk8 mUnk_00[0x5c];
-    /* 5c */ unk8 mUnk_5c;
-    /* 5d */ unk8 mUnk_5d[3];
-    /* 60 */ unk32 *mUnk_60;
-    /* 64 */
-};
 
 struct MapBase_Unk_144 {
     /* 00 */ unk8 mUnk_00[0xc];
@@ -142,8 +128,8 @@ public:
     /* 118 */ std::vector<Exit> mExits;
     /* 124 */ std::vector<CameraViewpoint> mViewpoints;
     /* 130 */ std::vector<TriggerBase *> mUnk_130;
-    /* 13c */ MapBase_Unk_13c *mUnk_13c;
-    /* 140 */ MapBase_Unk_140 *mUnk_140;
+    /* 13c */ ItemModel *modelFile;
+    /* 140 */ MapModelRender *modelRender;
     /* 144 */ MapBase_Unk_144 *mUnk_144;
     /* 148 */ s32 mUnk_148;
     /* 14c */ unk32 mUnk_14c;
@@ -171,7 +157,7 @@ public:
     /* 28 */ virtual void vfunc_28(s32 param_2);
     /* 2c */ virtual void vfunc_2c();
     /* 30 */ virtual void vfunc_30(s32 param_2);
-    /* 34 */ virtual bool vfunc_34(char *param_2);
+    /* 34 */ virtual bool LoadModelFromFile(char *filename);
     /* 38 */ virtual void vfunc_38();
     /* 3c */ virtual void vfunc_3c();
     /* 40 */ virtual void vfunc_40();

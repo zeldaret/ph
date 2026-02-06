@@ -10,6 +10,15 @@
 
 class ModelRender;
 
+struct TransformationsStruct {
+    /* 00 */ u32 flags;
+    /* 04 */ Vec3p scaleVector;
+    /* 10 */ unk8 mUnk_10[0x18];
+    /* 28 */ Mat3p rotationMatrix;
+    /* 4c */ Vec3p translationVector;
+    /* 50 */
+};
+
 struct ModelRender_UnkBoneMatrixStruct {
     /* 00 */ unk8 mUnk_00[0x28];
     /* 28 */ Mat3p mUnk_28;
@@ -19,7 +28,7 @@ struct ModelRender_UnkBoneMatrixStruct {
 
 struct ModelRender_UnkStruct_4 {
     /* 00 */ unk32 flags;
-    /* 04 */ void *mLcdcAddr;
+    /* 04 */ ItemModel *mLcdcAddr;
     /* 08 */ void *mUnk_08; // this attribute is related to UnkStruct_ov000_020c0c08
     /* 0c */ void *mUnkTransformFunc;
     /* 10 */ void *mUnk_10; // also related to UnkStruct_ov000_020c0c08
@@ -40,13 +49,56 @@ struct ModelRender_UnkStruct_4 {
     /* 54 */
 };
 
-struct ModelRenderCommandsData {
-    /* 00 */ u8 command;
-    /* 04 */ ModelRender_UnkStruct_4 *unkStruct4;
-    /* 08 */
+struct ModelRender_MaterialData {
+    /* 00 */ u32 flags;
+    /* 04 */ u32 dif_amb;
+    /* 08 */ u32 spe_emi;
+    /* 0c */ u32 polygon_attr;
+    /* 10 */ u32 teximage_params;
+    /* 14 */ u32 pltt_base;
+    /* 18 */ u8 mUnk_18[0xc];
+    /* 24 */ unk32 mUnk_24;
+    /* 28 */ unk32 mUnk_28;
+    /* 2c */ u16 width;
+    /* 2e */ u16 height;
+    /* 30 */ u8 mUnk_30[0x8];
+    /* 38 */
 };
 
-class ItemModel;
+// Struct containing data used to render an NSBMD model
+struct ModelRenderCommandsData {
+    /* 00 */ u8 *currentCommand;
+    /* 04 */ ModelRender_UnkStruct_4 *unkStruct4;
+    /* 08 */ u32 flags;
+    /* 0c */ unk8 mUnk_0c[0x10];
+    /* 1c */ void *mUnkFunc_1c;
+    /* 20 */ unk8 mUnk_20[0x4];
+    /* 24 */ void *mUnkFunc_24;
+    /* 28 */ unk8 mUnk_28[0x68];
+    /* 90 */ unk8 mUnk_90;
+    /* 91 */ unk8 mUnk_91;
+    /* 92 */ unk8 mUnk_92;
+    /* 93 */ unk8 mUnk_93[0x19];
+    /* ac */ u8 boneVisibilityIndex;
+    /* ad */ u8 currentMaterial;
+    /* ae */ u8 boneMatrixIndex;
+    /* af */ unk8 mUnk_af;
+    /* b0 */ ModelRender_MaterialData *unkMaterialDataPTR;
+    /* b4 */ TransformationsStruct *transformations;
+    /* b8 */ u32 *boneVisibilityPtr;
+    /* bc */ unk8 mUnk_bc[0x18];
+    /* d4 */ void *boneList;
+    /* d8 */ void *materialList;
+    /* dc */ void *meshList;
+    /* e0 */ u32 modelUpScale;
+    /* e4 */ u32 modelDownScale;
+    /* e8 */ void *scalingHandler;
+    /* ec */ void *transformationsHandler;
+    /* f0 */ void *materialHandler;
+    /* f4 */ ModelRender_MaterialData materialData;
+    /* 12c */ unk8 mUnk_12c[0x5c];
+    /* 188 */
+};
 
 class ModelRender : public SysObject {
 public:

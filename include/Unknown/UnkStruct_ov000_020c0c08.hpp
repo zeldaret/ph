@@ -19,7 +19,28 @@ struct UnkStruct_ov000_020c0c08_04 {
     /* 20 */
 };
 
-class ItemModel;
+class ItemModel {
+public:
+    /* 00 */ s32 fileSize;
+    /* 04 */ s32 renderCmdsOffset;
+    /* 08 */ s32 materialsOffset;
+    /* 0c */ s32 meshesOffset;
+    /* 10 */ s32 invBindsOffset;
+    /* 14 */ unk8 mUnk_14[3];
+    /* 17 */ u8 numBoneMatrices;
+    /* 18 */ u8 numMaterials;
+    /* 19 */ u8 numMeshes;
+    /* 1a */ unk8 mUnk_1a[2];
+    /* 1c */ s32 up_scale;
+    /* 20 */ s32 down_scale;
+    /* 24 */ s16 numVertices;
+    /* 26 */ s16 numPolygons;
+    /* 28 */ s16 numTriangles;
+    /* 2a */ s16 numQuads;
+    /* 2c */ unk8 boundingBox[0xc];
+    /* 38 */ unk8 mUnk_38[0x8];
+    /* 40 */ void *boneList;
+};
 
 class UnkStruct_ov000_020c0c08 : public SysObject {
 public:
