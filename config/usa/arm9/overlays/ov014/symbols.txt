@@ -476,7 +476,7 @@ func_ov014_0213067c kind:function(arm,size=0x64) addr:0x021305d8
 func_ov014_021306e0 kind:function(arm,size=0x64) addr:0x0213063c
 func_ov014_02130744 kind:function(arm,size=0x38) addr:0x021306a0
 func_ov014_0213077c kind:function(arm,size=0xb4) addr:0x021306d8
-func_ov014_02130830 kind:function(arm,size=0x14) addr:0x0213078c
+_ZN16SpikeModelRenderD1Ev kind:function(arm,size=0x14) addr:0x0213078c
 func_ov014_02130844 kind:function(arm,size=0x28) addr:0x021307a0
 func_ov014_0213086c kind:function(arm,size=0x30) addr:0x021307c8
 func_ov014_0213089c kind:function(arm,size=0x120) addr:0x021307f8
@@ -491,9 +491,9 @@ func_ov014_02131450 kind:function(arm,size=0x68) addr:0x021313ac
 func_ov014_021314b8 kind:function(arm,size=0x20c) addr:0x02131414
 func_ov014_021316c4 kind:function(arm,size=0x80) addr:0x02131620
 func_ov014_02131744 kind:function(arm,size=0x8) addr:0x021316a0
-func_ov014_0213174c kind:function(arm,size=0x40) addr:0x021316a8
-func_ov014_0213178c kind:function(arm,size=0x7c) addr:0x021316e8
-func_ov014_02131808 kind:function(arm,size=0x1c) addr:0x02131764
+_ZN16SpikeModelRenderC1EP9ItemModel kind:function(arm,size=0x40) addr:0x021316a8
+_ZN16SpikeModelRender8vfunc_3cEP23ModelRenderCommandsData kind:function(arm,size=0x7c) addr:0x021316e8
+_ZN16SpikeModelRenderD0Ev kind:function(arm,size=0x1c) addr:0x02131764
 func_ov014_02131824 kind:function(arm,size=0x38) addr:0x02131780
 func_ov014_0213185c kind:function(arm,size=0x98) addr:0x021317b8
 func_ov014_021318f4 kind:function(arm,size=0x28) addr:0x02131850
@@ -1570,7 +1570,7 @@ data_ov014_02153cf8 kind:data(any) addr:0x02153c54
 @323 kind:data(any) addr:0x02153ccc
 @324 kind:data(any) addr:0x02153ce0
 data_ov014_02153d98 kind:data(any) addr:0x02153cf4
-data_ov014_02153dc0 kind:data(any) addr:0x02153d1c
+@242 kind:data(any) addr:0x02153d1c
 data_ov014_02153dd4 kind:data(any) addr:0x02153d30
 data_ov014_02153de4 kind:data(any) addr:0x02153d40
 data_ov014_02153df8 kind:data(any) addr:0x02153d54
@@ -1913,8 +1913,8 @@ data_ov014_02157314 kind:data(any) addr:0x02157274
 data_ov014_02157320 kind:data(any) addr:0x02157280
 data_ov014_0215732c kind:data(any) addr:0x0215728c
 data_ov014_02157340 kind:data(any) addr:0x021572a0
-data_ov014_021573d4 kind:data(any) addr:0x02157334
-data_ov014_0215741c kind:data(any) addr:0x0215737c
+_ZTV16SpikeModelRender kind:data(any) addr:0x0215732c
+data_ov014_0215741c kind:data(any) addr:0x02157374
 data_ov014_021574b0 kind:data(any) addr:0x02157410
 data_ov014_02157544 kind:data(any) addr:0x021574a4
 data_ov014_02157554 kind:data(any) addr:0x021574b4

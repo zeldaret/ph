@@ -33,3 +33,8 @@ src/14_Land/Render/FlowerModelRender.cpp:
     .text       start:0x0212e174 end:0x0212e3c8
     .rodata     start:0x02153c7c end:0x02153cf4
     .data       start:0x02157068 end:0x021570b0
+
+src/14_Land/Render/SpikeModelRender.cpp:
+    .text       start:0x021316a8 end:0x02131780
+    .rodata     start:0x02153d1c end:0x02153d30
+    .data       start:0x0215732c end:0x02157374
