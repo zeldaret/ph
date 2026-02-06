@@ -12,9 +12,11 @@ class ModelRender;
 
 struct TransformationsStruct {
     /* 00 */ u32 flags;
-    /* 04 */ unk8 mUnk_04[0x24];
+    /* 04 */ Vec3p scaleVector;
+    /* 10 */ unk8 mUnk_10[0x18];
     /* 28 */ Mat3p rotationMatrix;
     /* 4c */ Vec3p translationVector;
+    /* 50 */
 };
 
 struct ModelRender_UnkBoneMatrixStruct {
@@ -76,9 +78,11 @@ struct ModelRenderCommandsData {
     /* 90 */ unk8 mUnk_90;
     /* 91 */ unk8 mUnk_91;
     /* 92 */ unk8 mUnk_92;
-    /* 93 */ unk8 mUnk_93[0x1a];
+    /* 93 */ unk8 mUnk_93[0x19];
+    /* ac */ u8 boneVisibilityIndex;
     /* ad */ u8 currentMaterial;
-    /* ae */ unk8 mUnk_ae[2];
+    /* ae */ u8 boneMatrixIndex;
+    /* af */ unk8 mUnk_af;
     /* b0 */ ModelRender_MaterialData *unkMaterialDataPTR;
     /* b4 */ TransformationsStruct *transformations;
     /* b8 */ u32 *boneVisibilityPtr;

@@ -28,3 +28,6 @@ src/14_Land/Render/TreasureChestModelRender.cpp:
 
 src/14_Land/Render/SignModelRender.cpp:
     .text       start:0x0212d198 end:0x0212d518
+
+src/14_Land/Render/BombModelRender.cpp:
+    .text       start:0x0212e174 end:0x0212e3c8
