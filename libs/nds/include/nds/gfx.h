@@ -8,6 +8,7 @@
 extern "C" {
 #endif
 
+#define REG_GFX_FIFO (*(volatile u32 *) 0x04000400)
 #define GFX_FIFO_SWAP_BUFFERS (*(volatile u32 *) 0x04000540)
 #define GFX_FIFO_VIEWPORT (*(volatile u32 *) 0x04000580)
 #define REG_GFX_RAM_COUNT (*(volatile u16 *) 0x04000604)

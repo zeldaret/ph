@@ -52,6 +52,7 @@ data_027e0424 kind:bss addr:0x027e0424
 gGeomMatrix kind:bss addr:0x027e0438
 gGeomTranslation kind:bss addr:0x027e045c
 gGeomScale kind:bss addr:0x027e0468
+data_027e0478 kind:bss addr:0x027e0478
 data_027e047c kind:bss addr:0x027e047c
 data_027e04ac kind:bss addr:0x027e04ac
 data_027e04dc kind:bss addr:0x027e04dc

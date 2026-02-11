@@ -18,7 +18,7 @@ extern "C" Mat3p gGeomMatrix;
 extern "C" Vec3p gGeomTranslation;
 extern "C" Vec3p gGeomScale;
 extern "C" UnkStruct_027e037c data_027e037c;
-extern "C" void *data_027e03c8;
+extern "C" const Mat4x3p *data_027e03c8;
 extern "C" Vec3p gDefaultScale;
 extern "C" Mat3p gDefaultMatrix;
 extern "C" u32 *data_027e0ce0[];
