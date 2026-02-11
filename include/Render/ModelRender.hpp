@@ -3,6 +3,7 @@
 #include "global.h"
 #include "types.h"
 
+#include "nds/g3d/sbc.h"
 #include <nds/math.h>
 
 #include "System/SysNew.hpp"
@@ -10,39 +11,9 @@
 
 class ModelRender;
 
-struct ModelRender_UnkBoneMatrixStruct {
-    /* 00 */ unk8 mUnk_00[0x28];
-    /* 28 */ Mat3p mUnk_28;
-    /* 4c */ unk8 mUnk_4c[0xC];
-    /* 58 */
-};
-
-struct ModelRender_UnkStruct_4 {
-    /* 00 */ unk32 flags;
-    /* 04 */ void *mLcdcAddr;
-    /* 08 */ void *mUnk_08; // this attribute is related to UnkStruct_ov000_020c0c08
-    /* 0c */ void *mUnkTransformFunc;
-    /* 10 */ void *mUnk_10; // also related to UnkStruct_ov000_020c0c08
-    /* 14 */ void *mUnkMaterialFunc;
-    /* 18 */ void *mUnk_18; // also related to UnkStruct_ov000_020c0c08
-    /* 1c */ void *mUnkVisibilityFunc;
-    /* 20 */ void *mUnkFunc_20;
-    /* 24 */ unk8 mUnk_24;
-    /* 25 */ unk8 mUnk_25;
-    /* 26 */ unk8 mUnk_26[2];
-    /* 28 */ void *mUnk_28;
-    /* 2c */ ModelRender *mUnk_2c; // pointer to self?
-    /* 30 */ unk32 mUnk_30;
-    /* 34 */ ModelRender_UnkBoneMatrixStruct *unkBoneMatrixArray1;
-    /* 38 */ unk32 mUnk_38[3];
-    /* 44 */ unk32 mUnk_44[2];
-    /* 4c */ unk32 mUnk_4c[2];
-    /* 54 */
-};
-
 struct ModelRenderCommandsData {
     /* 00 */ u8 command;
-    /* 04 */ ModelRender_UnkStruct_4 *unkStruct4;
+    /* 04 */ G3d_RenderObject *unkStruct4;
     /* 08 */
 };
 
@@ -51,13 +22,13 @@ class ItemModel;
 class ModelRender : public SysObject {
 public:
     /* 00 (vtable) */
-    /* 04 */ ModelRender_UnkStruct_4 mUnk_04;
-    /* 58 */ ModelRender_UnkBoneMatrixStruct *unkBoneMatrixArray2;
+    /* 04 */ G3d_RenderObject renderObj;
+    /* 58 */ G3d_BoneMtxStruct *unkBoneMatrixArray2;
     /* 5c */
 
     /* 00 */ virtual ~ModelRender();
     /* 08 */ virtual void *GetLcdcAddress();
-    /* 0c */ virtual void Init_ModelRender_UnkStruct_4(ItemModel *model);
+    /* 0c */ virtual void Init_RenderObject(ItemModel *model);
     /* 10 */ virtual void SetTransform(Vec3p *scale, Mat3p *rotation, Vec3p *translation);
     /* 14 */ virtual void SetRotationTranslation(Mat3p *rotation, Vec3p *translation);
     /* 18 */ virtual void SetTranslation(Vec3p *translation);
@@ -73,11 +44,11 @@ public:
     /* 40 */
 
     ModelRender(ItemModel *itemModel);
-    ModelRender_UnkBoneMatrixStruct *UnkGetBoneMatrix(s32 index);
+    G3d_BoneMtxStruct *UnkGetBoneMatrix(s32 index);
     s32 GetObjectIndex(char *objectName);
     s32 GetMaterialIndex(char *materialName);
     void InitBoneMatrixArrays(u32 idLength);
-    void SetUnkBoneMatrixArray1(ModelRender_UnkBoneMatrixStruct *boneMatrix);
+    void SetUnkBoneMatrixArray1(G3d_BoneMtxStruct *boneMatrix);
     void UnkInit_Struct4_Params(u8 param1, u8 param2);
     void func_ov000_020b413c(unk16 param1, Vec3p *param2);
 };

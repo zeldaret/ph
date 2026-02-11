@@ -5,6 +5,7 @@
 #include "Unknown/UnkStruct_02057200.hpp"
 #include "Unknown/UnkStruct_ov000_020beba8.hpp"
 #include "Unknown/UnkStruct_ov000_020c0c08.hpp"
+#include "nds/g3d/sbc.h"
 
 class UnkStruct_ov000_020b8110 : public UnkStruct_ov000_020beba8 {
 public:
@@ -45,7 +46,7 @@ public:
     /* 344 */ q20 mUnk_344;
     /* 348 */ unk32 mUnk_348;
     /* 34c */ ActorNaviBase_Unk1 mUnk_34c[4];
-    /* 35c */ ModelRender_UnkBoneMatrixStruct unkBoneMatrixStruct;
+    /* 35c */ G3d_BoneMtxStruct unkBoneMatrixStruct;
     /* 3b4 */ EquipHammer *mHammer;
     /* 3b8 */ UnkStruct_02057200 mUnk_3b8;
     /* 3c0 */ u8 mUnk_3c0;

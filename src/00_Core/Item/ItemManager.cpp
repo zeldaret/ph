@@ -556,7 +556,7 @@ THUMB void ItemManager::LoadFanfareItem(ItemId id) {
         strcat(textureName, sSpecialItemModelNames[6]);
         model = LoadNsbTexturedModel(mFanfareItemModel, modelName, textureName, 0, 0, 0, true);
     }
-    mUnk_114->Init_ModelRender_UnkStruct_4(model);
+    mUnk_114->Init_RenderObject(model);
 }
 
 THUMB bool ItemManager::GetFanfareItemScale(Vec3p *scale) const {
