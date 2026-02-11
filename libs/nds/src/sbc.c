@@ -12,8 +12,7 @@ extern s32 func_0200598c(Mat4p *matrix);
 extern Mat4x3p *func_02018450();
 extern Mat4x3p *func_02018738();
 extern Mat4x3p *func_02018770();
-extern u32 data_027e0478;
-extern const Mat4x3p data_027e03c8;
+extern UnkStruct_027e037c data_027e037c;
 
 G3d_RenderState *G3d_gRenderState = NULL;
 
@@ -204,14 +203,14 @@ void G3d_SBCRender_007(G3d_RenderState *renderState, u32 opCode) {
         while (func_0200598c(&currentMtx))
             ;
 
-        if (data_027e0478 & 1) {
+        if (data_027e037c.flag & 1) {
             const Mat4x3p *mtx1 = func_02018738();
             Mat4p mtx2;
 
             Mat4x3p_CopyToMat4p(mtx1, &mtx2);
             Mat4p_Multiply(&currentMtx, &mtx2, &currentMtx);
-        } else if (data_027e0478 & 2) {
-            const Mat4x3p *mtx1 = &data_027e03c8;
+        } else if (data_027e037c.flag & 2) {
+            const Mat4x3p *mtx1 = &data_027e037c.mUnk_4c;
             Mat4p mtx2;
 
             Mat4x3p_CopyToMat4p(mtx1, &mtx2);
@@ -226,14 +225,14 @@ void G3d_SBCRender_007(G3d_RenderState *renderState, u32 opCode) {
         scaleVec->y = Vec3p_Length((Vec3p *) &currentMtx.yColumn);
         scaleVec->z = Vec3p_Length((Vec3p *) &currentMtx.zColumn);
 
-        if (data_027e0478 & 1) {
+        if (data_027e037c.flag & 1) {
             REG_GFX_FIFO = 0x171012; // MTX_POP | MTX_MODE | MTX_LOAD_4x3
             Stream32(&funcArgs[1], &REG_GFX_FIFO, 8); // MTX_MODE = Position MTX
             Stream32(func_02018770(), &REG_GFX_FIFO, 0x30);
 
             REG_GFX_FIFO = 0x1b19; // MTX_MULT_4x3 | MTX_SCALE
             Stream32(&funcArgs[3], &REG_GFX_FIFO, 0x3c); // Identity MTX
-        } else if (data_027e0478 & 2) {
+        } else if (data_027e037c.flag & 2) {
             REG_GFX_FIFO = 0x171012; // MTX_POP | MTX_MODE | MTX_LOAD_4x3
             Stream32(&funcArgs[1], &REG_GFX_FIFO, 8); // MTX_MODE = Position MTX
             Stream32(func_02018450(), &REG_GFX_FIFO, 0x30);
@@ -241,7 +240,7 @@ void G3d_SBCRender_007(G3d_RenderState *renderState, u32 opCode) {
             REG_GFX_FIFO = 0x1b19; // MTX_MULT_4x3 | MTX_SCALE
             Stream32(&funcArgs[3], &REG_GFX_FIFO, 0x3c); // Identity MTX
         } else {
-            Stream32(&funcArgs, REG_GFX_FIFO, 0x48);
+            Stream32(&funcArgs, &REG_GFX_FIFO, 0x48);
         }
     }
 

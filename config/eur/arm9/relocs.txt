@@ -1629,7 +1629,7 @@ from:0x020182c2 kind:thumb_call_arm to:0x01ff91f8 module:itcm
 from:0x02018300 kind:thumb_call_arm to:0x01ff80d4 module:itcm
 from:0x02018334 kind:load to:0x027e037c module:dtcm
 from:0x02018340 kind:load to:0x027e03fc module:dtcm
-from:0x0201834c kind:load to:0x027e03c8 module:dtcm
+from:0x0201834c kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x02018350 kind:load to:0x027e0384 module:dtcm
 from:0x02018380 kind:load to:0x027e0438 module:dtcm
 from:0x02018384 kind:load to:0x027e057c module:dtcm
@@ -1642,7 +1642,7 @@ from:0x02018428 kind:load to:0x027e0424 module:dtcm
 from:0x0201844c kind:load to:0x027e037c module:dtcm
 from:0x0201846c kind:arm_call to:0x01ff8af8 module:itcm
 from:0x02018488 kind:load to:0x027e037c module:dtcm
-from:0x0201848c kind:load to:0x027e03c8 module:dtcm
+from:0x0201848c kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x02018490 kind:load to:0x027e047c module:dtcm
 from:0x020184a4 kind:arm_call to:0x02007a18 module:main
 from:0x020184ac kind:arm_call to:0x01ff91f8 module:itcm
@@ -1655,7 +1655,7 @@ from:0x020186f0 kind:arm_call to:0x01ff8e84 module:itcm
 from:0x02018710 kind:arm_call to:0x01ff8a4c module:itcm
 from:0x0201871c kind:arm_call to:0x01ff8af8 module:itcm
 from:0x02018724 kind:load to:0x027e0438 module:dtcm
-from:0x02018728 kind:load to:0x027e03c8 module:dtcm
+from:0x02018728 kind:load to:to:0x027e037c add:0x4c module:dtcm
 from:0x0201872c kind:load to:0x027e04ac module:dtcm
 from:0x02018730 kind:load to:0x027e037c module:dtcm
 from:0x02018734 kind:load to:0x027e04dc module:dtcm
@@ -1754,12 +1754,12 @@ from:0x02019e44 kind:arm_call to:0x02007920 module:main
 from:0x02019e5c kind:arm_call to:0x02007920 module:main
 from:0x02019e6c kind:arm_call to:0x02007920 module:main
 from:0x02019ed8 kind:arm_call to:0x01ffa9fc module:itcm
-from:0x02019ef0 kind:load to:0x02057384 module:main
-from:0x02019ef4 kind:load to:0x02057390 module:main
+from:0x02019ef0 kind:load to:0x02057354 add:0x30 module:main
+from:0x02019ef4 kind:load to:0x02057354 add:0x3c module:main
 from:0x02019f00 kind:load to:0x027e037c module:dtcm
-from:0x02019f04 kind:load to:0x027e03c8 module:dtcm
-from:0x02019f0c kind:load to:0x02057358 module:main
-from:0x02019f14 kind:load to:0x02057360 module:main
+from:0x02019f04 kind:load to:0x027e037c add:0x4c module:dtcm
+from:0x02019f0c kind:load to:0x02057354 add:4 module:main
+from:0x02019f14 kind:load to:0x02057354 add:0xc module:main
 from:0x02019f18 kind:load to:0x02057354 module:main
 from:0x02019fb0 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201a014 kind:arm_call to:0x01ffa8d4 module:itcm
@@ -1788,7 +1788,7 @@ from:0x0201a254 kind:load to:0x020573cc module:main
 from:0x0201a258 kind:load to:0x020573d8 module:main
 from:0x0201a25c kind:load to:0x020573a8 module:main
 from:0x0201a268 kind:load to:0x027e037c module:dtcm
-from:0x0201a26c kind:load to:0x027e03c8 module:dtcm
+from:0x0201a26c kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x0201a274 kind:load to:0x020573a0 module:main
 from:0x0201a27c kind:load to:0x0205739c module:main
 from:0x0201a2c4 kind:arm_call to:0x02007938 module:main
@@ -1821,7 +1821,7 @@ from:0x0201ae10 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201ae28 kind:load to:0x02057354 module:main
 from:0x0201ae2c kind:load to:0x020573e8 module:main
 from:0x0201ae30 kind:load to:0x027e037c module:dtcm
-from:0x0201ae34 kind:load to:0x027e03c8 module:dtcm
+from:0x0201ae34 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x0201ae38 kind:load to:0x027e0438 module:dtcm
 from:0x0201ae64 kind:arm_call to:0x0201b1bc module:main
 from:0x0201ae7c kind:arm_call to:0x01ffa9fc module:itcm
@@ -1880,7 +1880,7 @@ from:0x0201b638 kind:arm_call to:0x01ff9a50 module:itcm
 from:0x0201b698 kind:arm_call to:0x01ff99f4 module:itcm
 from:0x0201b714 kind:arm_call to:0x02018810 module:main
 from:0x0201b764 kind:load to:0x027e0384 module:dtcm
-from:0x0201b768 kind:load to:0x027e03c8 module:dtcm
+from:0x0201b768 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x0201b794 kind:arm_call to:0x02018810 module:main
 from:0x0201b7bc kind:arm_call to:0x01ff98e0 module:itcm
 from:0x0201b7dc kind:arm_call to:0x01ff98e0 module:itcm

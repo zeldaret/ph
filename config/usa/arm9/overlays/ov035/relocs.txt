@@ -312,7 +312,7 @@ from:0x0217e604 kind:load to:0x027e0438 module:dtcm
 from:0x0217e608 kind:load to:0x027e037c module:dtcm
 from:0x0217e60c kind:load to:0x027e045c module:dtcm
 from:0x0217e610 kind:load to:0x027e0468 module:dtcm
-from:0x0217e614 kind:load to:0x027e03c8 module:dtcm
+from:0x0217e614 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x0217e618 kind:load to:0x027e0194 module:dtcm
 from:0x0217e630 kind:arm_call to:0x01ff80d4 module:itcm
 from:0x0217e660 kind:arm_call_thumb to:0x01ff8214 module:itcm

@@ -2633,11 +2633,7 @@ data_020572fc kind:data(any) addr:0x0205729c
 data_02057300 kind:data(any) addr:0x020572a0
 data_02057304 kind:data(any) addr:0x020572a4
 data_02057308 kind:data(any) addr:0x020572a8
-data_02057354 kind:data(any) addr:0x020572f4
-data_02057358 kind:data(any) addr:0x020572f8
-data_02057360 kind:data(any) addr:0x02057300
-data_02057384 kind:data(any) addr:0x02057324
-data_02057390 kind:data(any) addr:0x02057330
+funcArgs$344 kind:data(any) addr:0x020572f4
 data_0205739c kind:data(any) addr:0x0205733c
 data_020573a0 kind:data(any) addr:0x02057340
 data_020573a8 kind:data(any) addr:0x02057348

@@ -51,6 +51,14 @@ typedef struct G3d_RenderState_ {
     /* 188 */
 } G3d_RenderState;
 
+typedef struct UnkStruct_027e037c_ {
+    /* 00 */ u8 mUnk_00[0x4c];
+    /* 4c */ Mat4x3p mUnk_4c;
+    /* 7c */ u8 mUnk_7c[0x80];
+    /* fc */ u32 flag;
+    /* 100 */
+} UnkStruct_027e037c;
+
 typedef void (*G3d_FuncSbc)(G3d_RenderState *, u32);
 extern G3d_FuncSbc G3d_FuncSbcTable[32];
 void G3d_Render(G3d_RenderObject *renderObj);

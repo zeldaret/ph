@@ -106,7 +106,7 @@ from:0x021019f0 kind:arm_call to:0x02005dcc module:main
 from:0x02101a28 kind:load to:0x027e0384 module:dtcm
 from:0x02101a2c kind:load to:0x02050f10 module:main
 from:0x02101a30 kind:load to:0x027e037c module:dtcm
-from:0x02101a34 kind:load to:0x027e03c8 module:dtcm
+from:0x02101a34 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x02101a74 kind:load to:0x02112214 module:overlay(5)
 from:0x02101a84 kind:arm_call to:0x02101a94 module:overlay(5)
 from:0x02101a8c kind:arm_call to:0x021121b4 module:overlay(5)

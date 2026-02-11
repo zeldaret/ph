@@ -1772,7 +1772,7 @@ from:0x0211cd5c kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0211cdc4 kind:arm_call to:0x02005dcc module:main
 from:0x0211cde0 kind:load to:0x02050f10 module:main
 from:0x0211cde8 kind:load to:0x027e037c module:dtcm
-from:0x0211cdec kind:load to:0x027e03c8 module:dtcm
+from:0x0211cdec kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x0211ce08 kind:arm_call to:0x02087cd4 module:overlay(0)
 from:0x0211ce38 kind:load to:0x027e0f64 module:dtcm
 from:0x0211cebc kind:thumb_call_arm to:0x01ff98e0 module:itcm
