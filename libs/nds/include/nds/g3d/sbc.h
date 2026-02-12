@@ -36,9 +36,9 @@ typedef struct G3d_RenderState_ {
     /* b0 */ void *mUnk_15;
     /* b4 */ void *mUnk_19;
     /* b8 */ u8 *visibilityPtr; // points to isVisible (0x187)
-    /* bc */ u32 mUnk_21[2];
-    /* c4 */ u32 mUnk_25[2];
-    /* cc */ u32 mUnk_29[2];
+    /* bc */ u32 mUnk_bc[2];
+    /* c4 */ u32 mUnk_c4[2];
+    /* cc */ u32 mUnk_cc[2];
     /* d4 */ G3d_NameList *boneList;
     /* d8 */ const void *materialList;
     /* dc */ G3d_NameList *meshList;
@@ -52,6 +52,22 @@ typedef struct G3d_RenderState_ {
     /* 188 */
 } G3d_RenderState;
 
+typedef struct UnkStruct_0205ae08_ {
+    /* 00 */ u8 mUnk_00[0x1400];
+    /* 1400 */ struct {
+        Mat4p mtx1;
+        Mat3p mtx2;
+    } mUnk_1400[64];
+} UnkStruct_0205ae08;
+
 typedef void (*G3d_FuncSbc)(G3d_RenderState *, u32);
 extern G3d_FuncSbc G3d_FuncSbcTable[32];
 void G3d_Render(G3d_RenderObject *renderObj);
+
+static inline u32 G3d_FindInBitArray(const u32 *arr, u32 idx) {
+    return (u32) (arr[idx >> 5] & (1 << (idx & 31)));
+}
+
+static inline void G3d_SetBitArray(u32 *arr, u32 idx) {
+    arr[idx >> 5] |= 1 << (idx & 31);
+}

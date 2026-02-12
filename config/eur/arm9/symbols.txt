@@ -852,7 +852,7 @@ G3d_SBCRender_NOP kind:function(arm,size=0x28) addr:0x02019bc4
 G3d_SBCRender_END kind:function(arm,size=0x28) addr:0x02019bec
 G3d_SBCRender_007 kind:function(arm,size=0x308) addr:0x02019c14
 G3d_SBCRender_008 kind:function(arm,size=0x364) addr:0x02019f1c
-func_0201a280 kind:function(arm,size=0x75c) addr:0x0201a280
+G3d_SBCRender_SKN kind:function(arm,size=0x75c) addr:0x0201a280
 func_0201a9dc kind:function(arm,size=0xdc) addr:0x0201a9dc
 func_0201aab8 kind:function(arm,size=0x70) addr:0x0201aab8
 func_0201ab28 kind:function(arm,size=0x314) addr:0x0201ab28
@@ -2634,8 +2634,8 @@ data_020572fc kind:data(any) addr:0x020572fc
 data_02057300 kind:data(any) addr:0x02057300
 data_02057304 kind:data(any) addr:0x02057304
 data_02057308 kind:data(any) addr:0x02057308
-funcArgs$344 kind:data(any) addr:0x02057354
-funcArgs$442 kind:data(any) addr:0x0205739c
+funcArgs$357 kind:data(any) addr:0x02057354
+funcArgs$455 kind:data(any) addr:0x0205739c
 data_020573e8 kind:data(any) addr:0x020573e8
 data_020573f0 kind:data(any) addr:0x020573f0
 data_020573f4 kind:data(any) addr:0x020573f4
@@ -3023,8 +3023,6 @@ data_0205ae08 kind:bss addr:0x0205ae08
 data_0205bc14 kind:bss addr:0x0205bc14
 data_0205bc18 kind:bss addr:0x0205bc18
 data_0205bc1c kind:bss addr:0x0205bc1c
-data_0205c208 kind:bss addr:0x0205c208
-data_0205c248 kind:bss addr:0x0205c248
 data_0205db08 kind:bss addr:0x0205db08
 data_0205db0c kind:bss addr:0x0205db0c
 data_0205db10 kind:bss addr:0x0205db10

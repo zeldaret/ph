@@ -13,6 +13,12 @@ typedef struct G3d_NameList_ {
     /* 0c */
 } G3d_NameList;
 
+typedef struct G3d_InvBindMtx_ {
+    /* 00 */ Mat4x3p mtx;
+    /* 30 */ Mat3p unkMtx;
+    /* 54 */
+} G3d_InvBindMtx;
+
 typedef struct G3d_BoneMtxStruct_ {
     /* 00 */ u32 flag;
     /* 04 */ u8 mUnk_04[0x24];

@@ -1799,8 +1799,8 @@ from:0x0201a5cc kind:arm_call to:0x02005698 module:main
 from:0x0201a74c kind:arm_call to:0x020059bc module:main
 from:0x0201a960 kind:arm_call to:0x02005644 module:main
 from:0x0201a974 kind:arm_call to:0x02005644 module:main
-from:0x0201a9d0 kind:load to:0x0205c208 module:main
-from:0x0201a9d8 kind:load to:0x0205c248 module:main
+from:0x0201a9d0 kind:load to:0x0205ae08 add:0x1400 module:main
+from:0x0201a9d8 kind:load to:0x0205ae08 add:0x1440 module:main
 from:0x0201aa84 kind:arm_call to:0x01ffa94c module:itcm
 from:0x0201ab10 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201ab90 kind:arm_call to:0x01ffa9fc module:itcm

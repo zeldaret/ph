@@ -13,8 +13,12 @@ extern s32 func_0200598c(Mat4p *matrix);
 extern Mat4x3p *func_02018450();
 extern Mat4x3p *func_02018738();
 extern Mat4x3p *func_02018770();
+extern s32 func_020059bc(Mat3p *matrix);
+extern void func_0200567c(unk32 param1);
+extern void func_02005644(Mat4x3p *matrix);
 
 G3d_RenderState *G3d_gRenderState = NULL;
+UnkStruct_0205ae08 data_0205ae08;
 
 // Renders all SBC commands until the end of the list
 static void G3d_RenderSBCCommands(G3d_RenderState *renderState) {
@@ -28,7 +32,7 @@ static void G3d_RenderSBCCommands(G3d_RenderState *renderState) {
 // Initializes the render state and starts rendering the SBC command list
 static void G3d_InitRenderState(G3d_RenderState *renderState, G3d_RenderObject *renderObj) {
     Fill256(0, (short *) renderState, sizeof(*renderState));
-    renderState->mUnk_25[0] = 1;
+    renderState->mUnk_c4[0] = 1;
     renderState->flag       = G3D_RENDERST_FLAG_BONE_VISIBLE;
 
     if (renderObj->unkCommandsList) {
@@ -410,4 +414,109 @@ void G3d_SBCRender_008(G3d_RenderState *renderState, u32 opCode) {
     }
 
     renderState->currentCmd += totalArgs;
+}
+
+// Renders the Skinning Equation SBC command
+void G3d_SBCRender_SKN(G3d_RenderState *renderState) {
+    G3d_InvBindMtx *invBMtx =
+        (G3d_InvBindMtx *) ((u8 *) renderState->renderObj->model + renderState->renderObj->model->offInvBMtx);
+    u32 numTerms = *(renderState->currentCmd + 2);
+    s64 weight   = 0;
+    u8 *termPtr  = renderState->currentCmd + 3;
+    u32 i;
+    struct {
+        Mat4x3p mtx1;
+        Mat3p mtx2;
+    } mtxStruct;
+    Mat4p *mat4x;
+    Mat3p *mat3x;
+
+    Fill256(0, (unk16 *) &mtxStruct, sizeof(mtxStruct));
+    FlushGfxQueue();
+
+    GFX_FIFO_MTX_MODE     = 0; // Projection
+    GFX_FIFO_MTX_STORE    = 1;
+    GFX_FIFO_MTX_IDENTITY = 0;
+    GFX_FIFO_MTX_MODE     = 2; // Position + Vector
+
+    for (i = 0; i < numTerms; i++) {
+        u32 jntIndex = *(termPtr + 1);
+        u32 unk      = G3d_FindInBitArray(&renderState->mUnk_cc[0], jntIndex);
+
+        mat4x = &data_0205ae08.mUnk_1400[jntIndex].mtx1;
+        if (!unk) {
+            G3d_SetBitArray(&renderState->mUnk_cc[0], jntIndex);
+
+            GFX_FIFO_MTX_RESTORE = (*termPtr);
+            GFX_FIFO_MTX_MODE    = 1; // Position
+            func_0200567c(&invBMtx[jntIndex].mtx);
+        }
+
+        if (i != 0) {
+            mtxStruct.mtx2.xColumn.x += (weight * mat3x->xColumn.x) >> 0xc;
+            mtxStruct.mtx2.xColumn.y += (weight * mat3x->xColumn.y) >> 0xc;
+            mtxStruct.mtx2.xColumn.z += (weight * mat3x->xColumn.z) >> 0xc;
+
+            mtxStruct.mtx2.yColumn.x += (weight * mat3x->yColumn.x) >> 0xc;
+            mtxStruct.mtx2.yColumn.y += (weight * mat3x->yColumn.y) >> 0xc;
+            mtxStruct.mtx2.yColumn.z += (weight * mat3x->yColumn.z) >> 0xc;
+
+            mtxStruct.mtx2.zColumn.x += (weight * mat3x->zColumn.x) >> 0xc;
+            mtxStruct.mtx2.zColumn.y += (weight * mat3x->zColumn.y) >> 0xc;
+            mtxStruct.mtx2.zColumn.z += (weight * mat3x->zColumn.z) >> 0xc;
+        }
+
+        if (!unk) {
+            while (func_0200598c(mat4x))
+                ;
+            GFX_FIFO_MTX_MODE = 2; // Position + Vector
+            func_02005698(&invBMtx[jntIndex].unkMtx);
+        }
+
+        weight = *(termPtr + 2) << 4;
+
+        mtxStruct.mtx1.xColumn.x += (weight * mat4x->xColumn.x) >> 0xc;
+        mtxStruct.mtx1.xColumn.y += (weight * mat4x->xColumn.y) >> 0xc;
+        mtxStruct.mtx1.xColumn.z += (weight * mat4x->xColumn.z) >> 0xc;
+
+        mtxStruct.mtx1.yColumn.x += (weight * mat4x->yColumn.x) >> 0xc;
+        mtxStruct.mtx1.yColumn.y += (weight * mat4x->yColumn.y) >> 0xc;
+        mtxStruct.mtx1.yColumn.z += (weight * mat4x->yColumn.z) >> 0xc;
+
+        mtxStruct.mtx1.zColumn.x += (weight * mat4x->zColumn.x) >> 0xc;
+        mtxStruct.mtx1.zColumn.y += (weight * mat4x->zColumn.y) >> 0xc;
+        mtxStruct.mtx1.zColumn.z += (weight * mat4x->zColumn.z) >> 0xc;
+
+        mtxStruct.mtx1.wColumn.x += (weight * mat4x->wColumn.x) >> 0xc;
+        mtxStruct.mtx1.wColumn.y += (weight * mat4x->wColumn.y) >> 0xc;
+        mtxStruct.mtx1.wColumn.z += (weight * mat4x->wColumn.z) >> 0xc;
+
+        termPtr += 3;
+        mat3x = &data_0205ae08.mUnk_1400[jntIndex].mtx2;
+
+        if (!unk) {
+            while (func_020059bc(mat3x))
+                ;
+        }
+    }
+    mtxStruct.mtx2.xColumn.x += (weight * mat3x->xColumn.x) >> 0xc;
+    mtxStruct.mtx2.xColumn.y += (weight * mat3x->xColumn.y) >> 0xc;
+    mtxStruct.mtx2.xColumn.z += (weight * mat3x->xColumn.z) >> 0xc;
+
+    mtxStruct.mtx2.yColumn.x += (weight * mat3x->yColumn.x) >> 0xc;
+    mtxStruct.mtx2.yColumn.y += (weight * mat3x->yColumn.y) >> 0xc;
+    mtxStruct.mtx2.yColumn.z += (weight * mat3x->yColumn.z) >> 0xc;
+
+    mtxStruct.mtx2.zColumn.x += (weight * mat3x->zColumn.x) >> 0xc;
+    mtxStruct.mtx2.zColumn.y += (weight * mat3x->zColumn.y) >> 0xc;
+    mtxStruct.mtx2.zColumn.z += (weight * mat3x->zColumn.z) >> 0xc;
+
+    func_02005644((const Mat4x3p *) &mtxStruct.mtx2);
+    GFX_FIFO_MTX_MODE = 1; // Position
+    func_02005644(&mtxStruct.mtx1);
+    GFX_FIFO_MTX_MODE    = 0; // Projection
+    GFX_FIFO_MTX_RESTORE = 1;
+    GFX_FIFO_MTX_MODE    = 2; // Position + Vector
+    GFX_FIFO_MTX_STORE   = (*(renderState->currentCmd + 1));
+    renderState->currentCmd += 3 + *(renderState->currentCmd + 2) * 3;
 }
