@@ -3,7 +3,7 @@
 #include <nds/gfx.h>
 #include <nds/irq.h>
 
-#include "DTCM/UnkStruct_027e037c.hpp"
+#include "DTCM/UnkStruct_027e037c.h"
 #include "DTCM/UnkStruct_027e05f8.hpp"
 #include "DTCM/UnkStruct_027e077c.hpp"
 #include "DTCM/UnkStruct_027e080c.hpp"

@@ -851,7 +851,7 @@ G3d_Render kind:function(arm,size=0xdc) addr:0x02019ae8
 G3d_SBCRender_NOP kind:function(arm,size=0x28) addr:0x02019bc4
 G3d_SBCRender_END kind:function(arm,size=0x28) addr:0x02019bec
 G3d_SBCRender_007 kind:function(arm,size=0x308) addr:0x02019c14
-func_02019f1c kind:function(arm,size=0x364) addr:0x02019f1c
+G3d_SBCRender_008 kind:function(arm,size=0x364) addr:0x02019f1c
 func_0201a280 kind:function(arm,size=0x75c) addr:0x0201a280
 func_0201a9dc kind:function(arm,size=0xdc) addr:0x0201a9dc
 func_0201aab8 kind:function(arm,size=0x70) addr:0x0201aab8
@@ -2635,11 +2635,7 @@ data_02057300 kind:data(any) addr:0x02057300
 data_02057304 kind:data(any) addr:0x02057304
 data_02057308 kind:data(any) addr:0x02057308
 funcArgs$344 kind:data(any) addr:0x02057354
-data_0205739c kind:data(any) addr:0x0205739c
-data_020573a0 kind:data(any) addr:0x020573a0
-data_020573a8 kind:data(any) addr:0x020573a8
-data_020573cc kind:data(any) addr:0x020573cc
-data_020573d8 kind:data(any) addr:0x020573d8
+funcArgs$442 kind:data(any) addr:0x0205739c
 data_020573e8 kind:data(any) addr:0x020573e8
 data_020573f0 kind:data(any) addr:0x020573f0
 data_020573f4 kind:data(any) addr:0x020573f4

@@ -1,5 +1,5 @@
 #include "Render/ModelRender.hpp"
-#include "DTCM/UnkStruct_027e037c.hpp"
+#include "DTCM/UnkStruct_027e037c.h"
 #include "nds/g3d/sbc.h"
 
 extern "C" void func_020189dc(G3d_RenderObject *unkStruct4, ItemModel *model);
@@ -17,7 +17,6 @@ extern "C" u8 *GetModelUnknownHeader(ModelRender *modelRender);
 extern "C" Mat3p gGeomMatrix;
 extern "C" Vec3p gGeomTranslation;
 extern "C" Vec3p gGeomScale;
-extern "C" UnkStruct_027e037c data_027e037c;
 extern "C" const Mat4x3p *data_027e03c8;
 extern "C" Vec3p gDefaultScale;
 extern "C" Mat3p gDefaultMatrix;

@@ -85,4 +85,4 @@ src/Main/DTCM/UnkStruct_027e05f8_2.cpp:
     .dtcm       start:0x027e05f8 end:0x027e060c
 
 libs/nds/src/sbc.c:
-    .text       start:0x020198bc end:0x02019f1c
+    .text       start:0x020198bc end:0x0201a280
