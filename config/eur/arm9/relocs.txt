@@ -1655,7 +1655,7 @@ from:0x020186f0 kind:arm_call to:0x01ff8e84 module:itcm
 from:0x02018710 kind:arm_call to:0x01ff8a4c module:itcm
 from:0x0201871c kind:arm_call to:0x01ff8af8 module:itcm
 from:0x02018724 kind:load to:0x027e0438 module:dtcm
-from:0x02018728 kind:load to:to:0x027e037c add:0x4c module:dtcm
+from:0x02018728 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x0201872c kind:load to:0x027e04ac module:dtcm
 from:0x02018730 kind:load to:0x027e037c module:dtcm
 from:0x02018734 kind:load to:0x027e04dc module:dtcm
