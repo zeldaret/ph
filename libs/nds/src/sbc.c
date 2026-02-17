@@ -4,10 +4,12 @@
 
 #define G3D_SBC_CMD_MASK 0x1f
 #define G3D_SBC_FLG_MASK 0xe0
+// #define GX_FX16ST(x)                   (s16)((x) >> 8)
+#define GX_ST(s, t) ((u32) ((u16) (s16) (s >> 8) | ((u16) (s16) (t >> 8) << 16)))
+#define GX_PACK_TEXCOORD_PARAM(s, t) (GX_ST((s), (t)))
 
 extern void Fill256(unk32, unk16 *, unk32);
 extern void Fill32(unk32, u32 *, unk32);
-extern void PushGeometryCommand(u32 command, void *data, s32 length);
 extern void FlushGfxQueue();
 extern s32 func_0200598c(Mat4p *matrix);
 extern Mat4x3p *func_02018450();
@@ -16,6 +18,9 @@ extern Mat4x3p *func_02018770();
 extern s32 func_020059bc(Mat3p *matrix);
 extern void func_0200567c(unk32 param1);
 extern void func_02005644(Mat4x3p *matrix);
+extern void func_01ffa94c(const void *param1, u32 param2);
+extern void func_0201b1bc(unk32 param1, Mat3p *param2);
+extern Mat3p gGeomMatrix;
 
 G3d_RenderState *G3d_gRenderState = NULL;
 UnkStruct_0205ae08 data_0205ae08;
@@ -519,4 +524,189 @@ void G3d_SBCRender_SKN(G3d_RenderState *renderState) {
     GFX_FIFO_MTX_MODE    = 2; // Position + Vector
     GFX_FIFO_MTX_STORE   = (*(renderState->currentCmd + 1));
     renderState->currentCmd += 3 + *(renderState->currentCmd + 2) * 3;
+}
+
+// Renders the SBC command 0xA (unknown)
+void G3d_SBCRender_00A(G3d_RenderState *renderState) {
+    u32 callbackSkip;
+    u32 callbackSegment;
+
+    if (renderState->callbackFuncs[G3D_SBC_CMD_00A]) {
+        callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00A];
+    } else {
+        callbackSegment = 0;
+    }
+
+    if (callbackSegment == 1) {
+        renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
+        (*renderState->callbackFuncs[G3D_SBC_CMD_00A])(renderState);
+        if (renderState->callbackFuncs[G3D_SBC_CMD_00A]) {
+            callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00A];
+        } else {
+            callbackSegment = 0;
+        }
+        callbackSkip = (renderState->flag & G3D_RENDERST_FLAG_SKIP_CALLBACK);
+    } else {
+        callbackSkip = 0;
+    }
+
+    if (!(renderState->flag & G3D_RENDERST_FLAG_SKIP_CMD) && !callbackSkip) {
+        u32 int1;
+        u32 int2;
+        int1 = (u32) ((*(renderState->currentCmd + 1)) | (*(renderState->currentCmd + 2) << 8) |
+                      (*(renderState->currentCmd + 3) << 16) | (*(renderState->currentCmd + 4) << 24));
+
+        int2 = (u32) ((*(renderState->currentCmd + 5) << 0) | (*(renderState->currentCmd + 6) << 8) |
+                      (*(renderState->currentCmd + 7) << 16) | (*(renderState->currentCmd + 8) << 24));
+
+        func_01ffa94c(renderState->currentCmd + int1, int2);
+    }
+
+    if (callbackSegment == 3) {
+        renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
+        (*renderState->callbackFuncs[G3D_SBC_CMD_00A])(renderState);
+        callbackSkip = renderState->flag & G3D_RENDERST_FLAG_SKIP_CALLBACK;
+    } else {
+        callbackSkip = 0;
+    }
+
+    renderState->currentCmd += 1 + sizeof(u32) + sizeof(u32);
+}
+
+// Renders the Scale SBC command
+void G3d_SBCRender_SCL(G3d_RenderState *renderState, u32 opCode) {
+    Vec3p scaleVector;
+
+    if (!(renderState->flag & G3D_RENDERST_FLAG_SKIP_CMD) && !(renderState->flag & G3D_RENDERST_FLAG_SKIP_SBC_RENDER)) {
+        if (opCode == 0) {
+            scaleVector.x = scaleVector.y = scaleVector.z = renderState->upScale;
+        } else {
+            scaleVector.x = scaleVector.y = scaleVector.z = renderState->downScale;
+        }
+        PushGeometryCommand(0x1b, &scaleVector.x, 3); // MTX_SCALE
+    }
+    renderState->currentCmd += 1;
+}
+
+// Renders the SBC command 0xC (unknown)
+void G3d_SBCRender_00C(G3d_RenderState *renderState) {
+    if (!(renderState->flag & G3D_RENDERST_FLAG_SKIP_SBC_RENDER) && (renderState->flag & G3D_RENDERST_FLAG_BONE_VISIBLE)) {
+        u32 callbackSkip;
+        u32 callbackSegment;
+
+        if ((renderState->matAnim->teximage_params & G3D_TEXIMAGE_PARM_TEX_COORD_MODE) != 0x80000000) { // Normal source
+            static u32 funcArgs[] = {0x2a, 0};
+            renderState->matAnim->teximage_params &= ~G3D_TEXIMAGE_PARM_TEX_COORD_MODE;
+            renderState->matAnim->teximage_params |= 0x80000000; // Normal source
+
+            funcArgs[1] = renderState->matAnim->teximage_params;
+            PushGeometryCommand(funcArgs[0], &funcArgs[1], 1);
+        }
+
+        G3d_SetMtxMode_inline(3); // MTX_MODE = Texture
+
+        if (renderState->callbackFuncs[G3D_SBC_CMD_00C]) {
+            callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00C];
+        } else {
+            callbackSegment = 0;
+        }
+
+        if (callbackSegment == 1) {
+            renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
+            (*renderState->callbackFuncs[G3D_SBC_CMD_00C])(renderState);
+            if (renderState->callbackFuncs[G3D_SBC_CMD_00C]) {
+                callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00C];
+            } else {
+                callbackSegment = 0;
+            }
+            callbackSkip = (renderState->flag & G3D_RENDERST_FLAG_SKIP_CALLBACK);
+        } else {
+            callbackSkip = 0;
+        }
+
+        if (!callbackSkip) {
+            s32 width  = renderState->matAnim->width;
+            s32 height = renderState->matAnim->height;
+            Vec3p vec;
+            u32 tmp;
+
+            vec.x = width << 15;
+            vec.y = -height << 15;
+            vec.z = INT_TO_Q20(1) << 4;
+
+            PushGeometryCommand(0x1b, (u32 *) &vec, 3); // MTX_SCALE
+
+            tmp = GX_PACK_TEXCOORD_PARAM(width << 11, height << 11);
+            PushGeometryCommand(0x22, (u32 *) &tmp, 1); // TEXCOORD
+        }
+
+        if (callbackSegment == 2) {
+            renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
+            (*renderState->callbackFuncs[G3D_SBC_CMD_00C])(renderState);
+            if (renderState->callbackFuncs[G3D_SBC_CMD_00C]) {
+                callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00C];
+            } else {
+                callbackSegment = 0;
+            }
+            callbackSkip = (u32) (renderState->flag & G3D_RENDERST_FLAG_SKIP_CALLBACK);
+        } else {
+            callbackSkip = 0;
+        }
+
+        if (!callbackSkip) {
+            u32 matIndex            = *(renderState->currentCmd + 1);
+            G3d_NameList_Header *h  = (G3d_NameList_Header *) ((u8 *) &renderState->materialList->materials +
+                                                              renderState->materialList->materials.ofsHeader);
+            u32 *materialOffset     = (u32 *) (&h->data[0] + h->element_size * matIndex);
+            const G3d_Material *mat = (G3d_Material *) ((u8 *) renderState->materialList + *materialOffset);
+
+            if (mat->flag & 0x2000) {
+                const u8 *p = (const u8 *) mat + sizeof(G3d_Material);
+
+                if (!(mat->flag & 2)) {
+                    p += 8;
+                }
+
+                if (!(mat->flag & 4)) {
+                    p += 4;
+                }
+
+                if (!(mat->flag & 8)) {
+                    p += 8;
+                }
+
+                G3d_MtxMult44_inline((const Mat4p *) p); // MTX_MULT_4x4
+            }
+        }
+
+        if (callbackSegment == 3) {
+            renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
+            (*renderState->callbackFuncs[G3D_SBC_CMD_00C])(renderState);
+            callbackSkip = renderState->flag & G3D_RENDERST_FLAG_SKIP_CALLBACK;
+        } else {
+            callbackSkip = 0;
+        }
+
+        if (!callbackSkip) {
+            Mat3p m;
+            G3d_SetMtxMode_inline(2);
+            ; // MTX_MODE = Position + Vector
+            func_0201b1bc(0, &m);
+            G3d_SetMtxMode_inline(3); // MTX_MODE = Texture
+
+            if (data_027e037c.flags & 1) {
+                G3d_MtxMult33_inline((const Mat3p *) &data_027e037c.mUnk_04c); // MTX_MULT_3x3
+                G3d_MtxMult33_inline(&gGeomMatrix);            // MTX_MULT_3x3
+                G3d_MtxMult33_inline(&m);                      // MTX_MULT_3x3
+            } else if (data_027e037c.flags & 2) {
+                G3d_MtxMult33_inline((const Mat3p *) &data_027e037c.mUnk_04c); // MTX_MULT_3x3
+                G3d_MtxMult33_inline(&m);                      // MTX_MULT_3x3
+            } else {
+                G3d_MtxMult33_inline(&m); // MTX_MULT_3x3
+            }
+        }
+
+        G3d_SetMtxMode_inline(2); // MTX_MODE = Position + Vector
+    }
+    renderState->currentCmd += 3;
 }

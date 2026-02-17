@@ -1,12 +1,18 @@
 #pragma once
 #include "g3d.h"
 
+extern void PushGeometryCommand(u32 command, void *data, s32 length);
+
 typedef enum {
     G3D_SBC_CMD_NOP = 0x0,
     G3D_SBC_CMD_END = 0x1,
     G3D_SBC_CMD_VIS = 0x2,
     G3D_SBC_CMD_007 = 0x7,
-    G3D_SBC_CMD_008 = 0x8
+    G3D_SBC_CMD_008 = 0x8,
+    G3D_SBC_CMD_SKN = 0x9,
+    G3D_SBC_CMD_00A = 0xa,
+    G3D_SBC_CMD_SCL = 0xb,
+    G3D_SBC_CMD_00C = 0xc
 } G3d_SBC_Commands;
 
 typedef enum {
@@ -32,15 +38,15 @@ typedef struct G3d_RenderState_ {
     /* ac */ u8 currentBoneId;
     /* ad */ u8 currentMaterialId;
     /* ae */ u8 currentBoneMtxId;
-    /* af */ u8 dummy_;
-    /* b0 */ void *mUnk_15;
+    /* af */ u8 dummy;
+    /* b0 */ G3d_MaterialAnimation *matAnim;
     /* b4 */ void *mUnk_19;
     /* b8 */ u8 *visibilityPtr; // points to isVisible (0x187)
     /* bc */ u32 mUnk_bc[2];
     /* c4 */ u32 mUnk_c4[2];
     /* cc */ u32 mUnk_cc[2];
     /* d4 */ G3d_NameList *boneList;
-    /* d8 */ const void *materialList;
+    /* d8 */ const G3d_Material_List *materialList;
     /* dc */ G3d_NameList *meshList;
     /* e0 */ q20 upScale;
     /* e4 */ q20 downScale;
@@ -70,4 +76,16 @@ static inline u32 G3d_FindInBitArray(const u32 *arr, u32 idx) {
 
 static inline void G3d_SetBitArray(u32 *arr, u32 idx) {
     arr[idx >> 5] |= 1 << (idx & 31);
+}
+
+static inline void G3d_SetMtxMode_inline(u32 mode) {
+    PushGeometryCommand(0x10, &mode, 1);
+}
+
+static inline void G3d_MtxMult33_inline(const Mat3p *m) {
+    PushGeometryCommand(0x1a, (u32 *) m, 9);
+}
+
+static inline void G3d_MtxMult44_inline(const Mat4p *m) {
+    PushGeometryCommand(0x18, (u32 *) m, 0x10);
 }

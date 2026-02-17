@@ -1819,7 +1819,7 @@ from:0x0201adec kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201adf8 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201ae10 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201ae28 kind:load to:0x020572f4 module:main
-from:0x0201ae2c kind:load to:0x02057388 module:main
+from:0x0201ae2c kind:load to:0x02057384 add:4 module:main
 from:0x0201ae30 kind:load to:0x027e037c module:dtcm
 from:0x0201ae34 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x0201ae38 kind:load to:0x027e0438 module:dtcm

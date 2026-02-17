@@ -5,13 +5,20 @@ typedef void (*G3d_CallbackFunction)(struct G3d_RenderState_ *);
 
 typedef struct G3d_NameList_ {
     /* 00 */ u8 dummy;
-    /* 01 */ u8 numElmnts;  // number of elements
+    /* 01 */ u8 numElmnts;   // number of elements
     /* 02 */ u16 size;       // size of this NameList in bytes
     /* 04 */ u16 dummy2;
-    /* 06 */ u16 ofsEntry;
+    /* 06 */ u16 ofsHeader;  // offset to the G3d_NameList_Header
     /* 08 */ void *entry[1]; // variable size
     /* 0c */
 } G3d_NameList;
+
+typedef struct G3d_NameList_Header_ {
+    /* 00 */ u16 element_size;
+    /* 02 */ u16 data_section_size;
+    /* 04 */ u8 data[4];
+    /* 08 */
+} G3d_NameList_Header;
 
 typedef struct G3d_InvBindMtx_ {
     /* 00 */ Mat4x3p mtx;
@@ -114,6 +121,45 @@ typedef struct G3d_RenderObject_ {
     /* 4c */ u32 unkAnimBindMap[2];
     /* 54 */
 } G3d_RenderObject;
+
+typedef struct G3d_Material_List_ {
+    /* 00 */ u16 texture_pairings_off;
+    /* 02 */ u16 palette_pairings_off;
+    /* 04 */ G3d_NameList materials;
+    /* 10 */
+} G3d_Material_List;
+
+typedef struct G3d_Material_ {
+    /* 00 */ u32 mUnk_00;
+    /* 04 */ u32 dif_amb;
+    /* 08 */ u32 spe_emi;
+    /* 0c */ u32 polygon_attr;
+    /* 10 */ u32 mUnk_10;
+    /* 14 */ u32 teximage_params;
+    /* 18 */ u32 mUnk_18;
+    /* 1c */ u16 pltt_base;
+    /* 1e */ u16 flag;
+    /* 20 */ u16 width;
+    /* 22 */ u16 height;
+    /* 24 */ u8 mUnk_24[0x8];
+    /* 2c */
+} G3d_Material;
+
+typedef struct G3d_MaterialAnimation_ {
+    /* 00 */ u32 flag;
+    /* 04 */ u32 dif_amb;
+    /* 08 */ u32 spe_emi;
+    /* 0c */ u32 polygon_attr;
+    /* 10 */ u32 teximage_params;
+    /* 14 */ u32 pltt_base;
+    /* 18 */ u8 mUnk_18[0x14];
+    /* 2c */ u16 width;
+    /* 2e */ u16 height;
+    /* 30 */ u8 mUnk_30[0x8];
+    /* 38 */
+} G3d_MaterialAnimation;
+
+#define G3D_TEXIMAGE_PARM_TEX_COORD_MODE 0xc0000000
 
 extern void *G3d_gScaleHandlers[3];
 extern void *G3d_gSRTTransformHandlers[3];
