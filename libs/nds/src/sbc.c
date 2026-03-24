@@ -4,7 +4,6 @@
 
 #define G3D_SBC_CMD_MASK 0x1f
 #define G3D_SBC_FLG_MASK 0xe0
-// #define GX_FX16ST(x)                   (s16)((x) >> 8)
 #define GX_ST(s, t) ((u32) ((u16) (s16) (s >> 8) | ((u16) (s16) (t >> 8) << 16)))
 #define GX_PACK_TEXCOORD_PARAM(s, t) (GX_ST((s), (t)))
 
@@ -19,15 +18,14 @@ extern s32 func_020059bc(Mat3p *matrix);
 extern void func_0200567c(unk32 param1);
 extern void func_02005644(Mat4x3p *matrix);
 extern void func_01ffa94c(const void *param1, u32 param2);
-extern void func_0201b1bc(unk32 param1, Mat3p *param2);
 extern Mat3p gGeomMatrix;
 extern Vec3p gGeomTranslation;
+extern void G3d_GetCurrentMtx(Mat4x3p *mtx1, Mat3p *mtx2);
 
-G3d_RenderState *G3d_gRenderState = NULL;
 UnkStruct_0205ae08 data_0205ae08;
 
 // Renders all SBC commands until the end of the list
-static void G3d_RenderSBCCommands(G3d_RenderState *renderState) {
+void G3d_RenderSBCCommands(G3d_RenderState *renderState) {
     do {
         renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
         (*G3d_FuncSbcTable[(*renderState->currentCmd) & G3D_SBC_CMD_MASK])(renderState, (*renderState->currentCmd) &
@@ -36,7 +34,7 @@ static void G3d_RenderSBCCommands(G3d_RenderState *renderState) {
 }
 
 // Initializes the render state and starts rendering the SBC command list
-static void G3d_InitRenderState(G3d_RenderState *renderState, G3d_RenderObject *renderObj) {
+void G3d_InitRenderState(G3d_RenderState *renderState, G3d_RenderObject *renderObj) {
     Fill256(0, (short *) renderState, sizeof(*renderState));
     renderState->mUnk_c4[0] = 1;
     renderState->flag       = G3D_RENDERST_FLAG_BONE_VISIBLE;
@@ -87,7 +85,7 @@ static void G3d_InitRenderState(G3d_RenderState *renderState, G3d_RenderObject *
 }
 
 // Sets the bits in the anim array according to the map data of the animation
-static void G3d_SetRenderObjAnimationMap(u32 *arr, const G3d_Animation *anim) {
+void G3d_SetRenderObjAnimationMap(u32 *arr, const G3d_Animation *anim) {
     while (anim) {
         int i;
         for (i = 0; i < anim->numElmnts; i++) {
@@ -129,7 +127,7 @@ void G3d_Render(G3d_RenderObject *renderObj) {
 }
 
 // Renders the NOP SBC command
-void G3d_SBCRender_NOP(G3d_RenderState *renderState) {
+void G3d_SBCRender_NOP(G3d_RenderState *renderState, u32) {
     if (renderState->callbackFuncs[G3D_SBC_CMD_NOP]) {
         (*renderState->callbackFuncs[G3D_SBC_CMD_NOP])(renderState);
     }
@@ -137,7 +135,7 @@ void G3d_SBCRender_NOP(G3d_RenderState *renderState) {
 }
 
 // Renders the END SBC command
-void G3d_SBCRender_END(G3d_RenderState *renderState) {
+void G3d_SBCRender_END(G3d_RenderState *renderState, u32) {
     if (renderState->callbackFuncs[G3D_SBC_CMD_END]) {
         (*renderState->callbackFuncs[G3D_SBC_CMD_END])(renderState);
     }
@@ -423,7 +421,7 @@ void G3d_SBCRender_008(G3d_RenderState *renderState, u32 opCode) {
 }
 
 // Renders the Skinning Equation SBC command
-void G3d_SBCRender_SKN(G3d_RenderState *renderState) {
+void G3d_SBCRender_SKN(G3d_RenderState *renderState, u32) {
     G3d_InvBindMtx *invBMtx =
         (G3d_InvBindMtx *) ((u8 *) renderState->renderObj->model + renderState->renderObj->model->offInvBMtx);
     u32 numTerms = *(renderState->currentCmd + 2);
@@ -528,7 +526,7 @@ void G3d_SBCRender_SKN(G3d_RenderState *renderState) {
 }
 
 // Renders the SBC command 0xA (unknown)
-void G3d_SBCRender_00A(G3d_RenderState *renderState) {
+void G3d_SBCRender_00A(G3d_RenderState *renderState, u32) {
     u32 callbackSkip;
     u32 callbackSegment;
 
@@ -590,10 +588,11 @@ void G3d_SBCRender_SCL(G3d_RenderState *renderState, u32 opCode) {
 }
 
 // Renders the SBC command 0xC (unknown)
-void G3d_SBCRender_00C(G3d_RenderState *renderState) {
+void G3d_SBCRender_00C(G3d_RenderState *renderState, u32) {
     if (!(renderState->flag & G3D_RENDERST_FLAG_SKIP_SBC_RENDER) && (renderState->flag & G3D_RENDERST_FLAG_BONE_VISIBLE)) {
         u32 callbackSkip;
         u32 callbackSegment;
+        u32 mtxModeTex;
 
         if ((renderState->matAnim->teximage_params & G3D_TEXIMAGE_PARM_TEX_COORD_MODE) != 0x80000000) { // Normal source
             static u32 funcArgs[] = {0x2a, 0};
@@ -604,7 +603,8 @@ void G3d_SBCRender_00C(G3d_RenderState *renderState) {
             PushGeometryCommand(funcArgs[0], &funcArgs[1], 1);
         }
 
-        G3d_SetMtxMode_inline(3); // MTX_MODE = Texture
+        mtxModeTex = 3;
+        PushGeometryCommand(0x10, &mtxModeTex, 1);
 
         if (renderState->callbackFuncs[G3D_SBC_CMD_00C]) {
             callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00C];
@@ -631,11 +631,7 @@ void G3d_SBCRender_00C(G3d_RenderState *renderState) {
             Vec3p vec;
             u32 tmp;
 
-            vec.x = width << 15;
-            vec.y = -height << 15;
-            vec.z = INT_TO_Q20(1) << 4;
-
-            PushGeometryCommand(0x1b, (u32 *) &vec, 3); // MTX_SCALE
+            G3d_Scale_inline(width << 15, -height << 15, INT_TO_Q20(1) << 4);
 
             tmp = GX_PACK_TEXCOORD_PARAM(width << 11, height << 11);
             PushGeometryCommand(0x22, (u32 *) &tmp, 1); // TEXCOORD
@@ -691,7 +687,7 @@ void G3d_SBCRender_00C(G3d_RenderState *renderState) {
         if (!callbackSkip) {
             Mat3p m;
             G3d_SetMtxMode_inline(2); // MTX_MODE = Position + Vector
-            func_0201b1bc(0, &m);
+            G3d_GetCurrentMtx(0, &m);
             G3d_SetMtxMode_inline(3); // MTX_MODE = Texture
 
             if (data_027e037c.flags & 1) {
@@ -711,14 +707,15 @@ void G3d_SBCRender_00C(G3d_RenderState *renderState) {
     renderState->currentCmd += 3;
 }
 
-void G3d_SBCRender_00D(G3d_RenderState *renderState) {
+// Renders the SBC command 0xD (unknown)
+void G3d_SBCRender_00D(G3d_RenderState *renderState, u32) {
     if (!(renderState->flag & G3D_RENDERST_FLAG_SKIP_SBC_RENDER) && (renderState->flag & G3D_RENDERST_FLAG_BONE_VISIBLE)) {
         u32 callbackSkip;
         u32 callbackSegment;
         u32 num;
         Mat4x3p m;
 
-        func_0201b1bc(&m, 0);
+        G3d_GetCurrentMtx(&m, 0);
         num = 30;
         PushGeometryCommand(0x13, &num, 1); // MTX_STORE
 

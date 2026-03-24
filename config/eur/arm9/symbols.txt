@@ -857,7 +857,7 @@ G3d_SBCRender_00A kind:function(arm,size=0xdc) addr:0x0201a9dc
 G3d_SBCRender_SCL kind:function(arm,size=0x70) addr:0x0201aab8
 G3d_SBCRender_00C kind:function(arm,size=0x314) addr:0x0201ab28
 G3d_SBCRender_00D kind:function(arm,size=0x380) addr:0x0201ae3c
-func_0201b1bc kind:function(arm,size=0x8c) addr:0x0201b1bc
+G3d_GetCurrentMtx kind:function(arm,size=0x8c) addr:0x0201b1bc
 func_0201b248 kind:function(thumb,size=0x24) addr:0x0201b248
 func_0201b26c kind:function(arm,size=0x44) addr:0x0201b26c
 func_0201b2b0 kind:function(arm,size=0x48) addr:0x0201b2b0
@@ -2634,11 +2634,11 @@ data_020572fc kind:data(any) addr:0x020572fc
 data_02057300 kind:data(any) addr:0x02057300
 data_02057304 kind:data(any) addr:0x02057304
 data_02057308 kind:data(any) addr:0x02057308
-funcArgs$381 kind:data(any) addr:0x02057354
-funcArgs$479 kind:data(any) addr:0x0205739c
-funcArgs$740 kind:data(any) addr:0x020573e4
-cmd$835 kind:data(any) addr:0x020573ec
-mtx$849 kind:data(any) addr:0x020573f4
+funcArgs$383 kind:data(any) addr:0x02057354 local
+funcArgs$481 kind:data(any) addr:0x0205739c local
+funcArgs$745 kind:data(any) addr:0x020573e4 local
+cmd$841 kind:data(any) addr:0x020573ec local
+mtx$855 kind:data(any) addr:0x020573f4 local
 data_02057434 kind:data(any) addr:0x02057434
 data_02057454 kind:data(any) addr:0x02057454
 data_02057458 kind:data(any) addr:0x02057458
@@ -3020,9 +3020,6 @@ data_0205ade4 kind:bss addr:0x0205ade4
 data_0205ade8 kind:bss addr:0x0205ade8
 data_0205adf4 kind:bss addr:0x0205adf4
 data_0205ae08 kind:bss addr:0x0205ae08
-data_0205bc14 kind:bss addr:0x0205bc14
-data_0205bc18 kind:bss addr:0x0205bc18
-data_0205bc1c kind:bss addr:0x0205bc1c
 data_0205db08 kind:bss addr:0x0205db08
 data_0205db0c kind:bss addr:0x0205db0c
 data_0205db10 kind:bss addr:0x0205db10

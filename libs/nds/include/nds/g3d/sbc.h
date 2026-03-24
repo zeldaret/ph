@@ -69,6 +69,8 @@ typedef struct UnkStruct_0205ae08_ {
 
 typedef void (*G3d_FuncSbc)(G3d_RenderState *, u32);
 extern G3d_FuncSbc G3d_FuncSbcTable[32];
+extern G3d_RenderState *G3d_gRenderState;
+extern UnkStruct_0205ae08 data_0205ae08;
 void G3d_Render(G3d_RenderObject *renderObj);
 
 static inline u32 G3d_FindInBitArray(const u32 *arr, u32 idx) {
@@ -97,4 +99,12 @@ static inline void G3d_MtxMult43_inline(const Mat4x3p *m) {
 
 static inline void G3d_MtxMult44_inline(const Mat4p *m) {
     PushGeometryCommand(0x18, (u32 *) m, 0x10);
+}
+
+static inline void G3d_Scale_inline(q20 x, q20 y, q20 z) {
+    Vec3p vec;
+    vec.x = x;
+    vec.y = y;
+    vec.z = z;
+    PushGeometryCommand(0x1b, (u32 *) &vec, 3);
 }

@@ -1981,9 +1981,9 @@ from:0x0201dad8 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201daf4 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201db10 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0201dc58 kind:load to:0x027e05e0 module:dtcm
-from:0x0201dc5c kind:load to:0x0205bc14 module:main
-from:0x0201dc60 kind:load to:0x0205bc18 module:main
-from:0x0201dc64 kind:load to:0x0205bc1c module:main
+from:0x0201dc5c kind:load to:0x0205ae08 add:0xe0c module:main
+from:0x0201dc60 kind:load to:0x0205ae08 add:0xe10 module:main
+from:0x0201dc64 kind:load to:0x0205ae08 add:0xe14 module:main
 from:0x0201dc8c kind:arm_call to:0x01ff9b24 module:itcm
 from:0x0201dcd8 kind:arm_call to:0x01ff9a18 module:itcm
 from:0x0201dcf4 kind:arm_call to:0x01ff9b24 module:itcm
