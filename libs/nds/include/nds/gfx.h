@@ -10,6 +10,8 @@ extern "C" {
 
 #define REG_GFX_FIFO (*(volatile u32 *) 0x04000400)
 #define GFX_FIFO_MTX_MODE (*(volatile u32 *) 0x04000440)
+#define GFX_FIFO_MTX_PUSH (*(volatile u32 *) 0x04000444)
+#define GFX_FIFO_MTX_POP (*(volatile u32 *) 0x04000448)
 #define GFX_FIFO_MTX_STORE (*(volatile u32 *) 0x0400044c)
 #define GFX_FIFO_MTX_RESTORE (*(volatile u32 *) 0x04000450)
 #define GFX_FIFO_MTX_IDENTITY (*(volatile u32 *) 0x04000454)

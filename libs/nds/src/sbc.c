@@ -21,6 +21,7 @@ extern void func_02005644(Mat4x3p *matrix);
 extern void func_01ffa94c(const void *param1, u32 param2);
 extern void func_0201b1bc(unk32 param1, Mat3p *param2);
 extern Mat3p gGeomMatrix;
+extern Vec3p gGeomTranslation;
 
 G3d_RenderState *G3d_gRenderState = NULL;
 UnkStruct_0205ae08 data_0205ae08;
@@ -689,8 +690,7 @@ void G3d_SBCRender_00C(G3d_RenderState *renderState) {
 
         if (!callbackSkip) {
             Mat3p m;
-            G3d_SetMtxMode_inline(2);
-            ; // MTX_MODE = Position + Vector
+            G3d_SetMtxMode_inline(2); // MTX_MODE = Position + Vector
             func_0201b1bc(0, &m);
             G3d_SetMtxMode_inline(3); // MTX_MODE = Texture
 
@@ -707,6 +707,152 @@ void G3d_SBCRender_00C(G3d_RenderState *renderState) {
         }
 
         G3d_SetMtxMode_inline(2); // MTX_MODE = Position + Vector
+    }
+    renderState->currentCmd += 3;
+}
+
+void G3d_SBCRender_00D(G3d_RenderState *renderState) {
+    if (!(renderState->flag & G3D_RENDERST_FLAG_SKIP_SBC_RENDER) && (renderState->flag & G3D_RENDERST_FLAG_BONE_VISIBLE)) {
+        u32 callbackSkip;
+        u32 callbackSegment;
+        u32 num;
+        Mat4x3p m;
+
+        func_0201b1bc(&m, 0);
+        num = 30;
+        PushGeometryCommand(0x13, &num, 1); // MTX_STORE
+
+        if ((renderState->matAnim->teximage_params & 0xc0000000) != (3 << 30)) {
+            static u32 cmd[] = {0x2a, 0};
+            renderState->matAnim->teximage_params &= ~0xc0000000;
+            renderState->matAnim->teximage_params |= 3 << 30;
+
+            cmd[1] = renderState->matAnim->teximage_params;
+            PushGeometryCommand(cmd[0], &cmd[1], 1);
+        }
+
+        if (renderState->callbackFuncs[G3D_SBC_CMD_00D]) {
+            callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00D];
+        } else {
+            callbackSegment = 0;
+        }
+
+        if (callbackSegment == 1) {
+            renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
+            (*renderState->callbackFuncs[G3D_SBC_CMD_00D])(renderState);
+            if (renderState->callbackFuncs[G3D_SBC_CMD_00D]) {
+                callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00D];
+            } else {
+                callbackSegment = 0;
+            }
+            callbackSkip = (renderState->flag & G3D_RENDERST_FLAG_SKIP_CALLBACK);
+        } else {
+            callbackSkip = 0;
+        }
+
+        if (!callbackSkip) {
+            s32 w, h;
+            w = (s32) renderState->matAnim->width;
+            h = (s32) renderState->matAnim->height;
+
+            {
+                static Mat4p mtx = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x10000, 0, 0, 0, 0, 0x10000};
+
+                mtx.xColumn.x = w << 15;
+                mtx.yColumn.y = -h << 15;
+                mtx.wColumn.x = w << 15;
+                mtx.wColumn.y = h << 15;
+
+                PushGeometryCommand(0x16, &mtx, 0x10);
+            }
+        }
+
+        if (callbackSegment == 2) {
+            renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
+            (*renderState->callbackFuncs[G3D_SBC_CMD_00D])(renderState);
+            if (renderState->callbackFuncs[G3D_SBC_CMD_00D]) {
+                callbackSegment = renderState->callbackSegment[G3D_SBC_CMD_00D];
+            } else {
+                callbackSegment = 0;
+            }
+            callbackSkip = (u32) (renderState->flag & G3D_RENDERST_FLAG_SKIP_CALLBACK);
+        } else {
+            callbackSkip = 0;
+        }
+
+        if (!callbackSkip) {
+            u32 idxMat              = *(renderState->currentCmd + 1);
+            u32 matIndex            = *(renderState->currentCmd + 1);
+            G3d_NameList_Header *h  = (G3d_NameList_Header *) ((u8 *) &renderState->materialList->materials +
+                                                              renderState->materialList->materials.ofsHeader);
+            u32 *materialOffset     = (u32 *) (&h->data[0] + h->element_size * matIndex);
+            const G3d_Material *mat = (G3d_Material *) ((u8 *) renderState->materialList + *materialOffset);
+
+            if (mat->flag & 0x2000) {
+                const Mat4p *effect_mtx;
+                const u8 *p = (const u8 *) mat + sizeof(G3d_Material);
+
+                if (!(mat->flag & 2)) {
+                    p += 8;
+                }
+
+                if (!(mat->flag & 4)) {
+                    p += 4;
+                }
+
+                if (!(mat->flag & 8)) {
+                    p += 8;
+                }
+
+                G3d_MtxMult44_inline((const Mat4p *) p); // MTX_MULT_4x4
+            }
+        }
+
+        if (callbackSegment == 3) {
+            renderState->flag &= ~G3D_RENDERST_FLAG_SKIP_CALLBACK;
+            (*renderState->callbackFuncs[G3D_SBC_CMD_00D])(renderState);
+            callbackSkip = renderState->flag & G3D_RENDERST_FLAG_SKIP_CALLBACK;
+        } else {
+            callbackSkip = 0;
+        }
+
+        if (!callbackSkip) {
+            Mat4p mtx;
+            u32 tmp;
+
+            if (data_027e037c.flags & 1) {
+                PushGeometryCommand(0x1c, &gGeomTranslation, 3); // MTX_TRANS
+                G3d_MtxMult33_inline(&gGeomMatrix); // MTX_MULT_3x3
+                G3d_MtxMult43_inline(&m);  // MTX_MULT_4x3
+
+            } else if (data_027e037c.flags & 2) {
+                G3d_MtxMult43_inline(&m);
+            } else {
+                G3d_MtxMult43_inline(func_02018450());
+                G3d_MtxMult43_inline(&m);
+            }
+
+            {
+                FlushGfxQueue();
+
+                GFX_FIFO_MTX_MODE     = 0; // Projection
+                GFX_FIFO_MTX_PUSH     = 0;
+                GFX_FIFO_MTX_IDENTITY = 0;
+
+                while (func_0200598c(&mtx))
+                    ;
+
+                GFX_FIFO_MTX_POP  = 1;
+                GFX_FIFO_MTX_MODE = 3; // Texture
+            }
+
+            PushGeometryCommand(0x16, &mtx, 0x10);
+            tmp = GX_PACK_TEXCOORD_PARAM((q20) (mtx.wColumn.x >> 4), (q20) (mtx.wColumn.y >> 4));
+            PushGeometryCommand(0x22, (u32 *) &tmp, 1); // TEXCOORD
+        }
+
+        G3d_SetMtxMode_inline(2); // MTX_MODE = Position + Vector
+        G3d_RestoreMtx_inline(30);
     }
     renderState->currentCmd += 3;
 }
