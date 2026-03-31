@@ -83,3 +83,6 @@ src/Main/DTCM/UnkStruct_027e05f8_2.cpp:
     .init       start:0x02050cb4 end:0x02050ce0
     .ctor       start:0x02057260 end:0x02057264
     .dtcm       start:0x027e05f8 end:0x027e060c
+
+libs/nds/src/heap.c:
+    .text       start:0x02017034 end:0x02017530
