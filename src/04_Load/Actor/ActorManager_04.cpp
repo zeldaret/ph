@@ -129,7 +129,7 @@ THUMB void ActorManager::func_ov004_0210532c() {
     return;
 }
 
-extern "C" void func_020174a4(u32 *, void *);
+extern "C" void Heap_EXPHFreeBlock(u32 *, void *);
 extern "C" void func_ov017_02168a90();
 extern "C" void func_ov025_0216d6dc();
 extern "C" void func_ov029_0216d6f0(unk32 *);
@@ -147,7 +147,7 @@ THUMB void ActorManager::func_ov004_021053dc() {
             this->DeleteActor(i, true);
         }
     }
-    func_020174a4(data_027e0ce0[1], this->mActorTable);
+    Heap_EXPHFreeBlock(data_027e0ce0[1], this->mActorTable);
     this->mActorTable = NULL;
     delete this->mUnk_14;
     this->mUnk_14 = NULL;
@@ -179,7 +179,7 @@ THUMB void ActorManager::func_ov004_021053dc() {
 }
 
 extern "C" void func_ov000_020c3388(unk32);
-extern "C" void *NewEXPH(u32 *id, s32 length, s32 param_3);
+extern "C" void *Heap_EXPHNew(u32 *id, s32 length, s32 param_3);
 THUMB void ActorManager::func_ov004_021054a4(FileEntryFlag *param1, s32 param2, unk32 param3) {
     u16 sVar1;
     u16 sVar2;
@@ -205,7 +205,7 @@ THUMB void ActorManager::func_ov004_021054a4(FileEntryFlag *param1, s32 param2, 
     }
     param1->vfunc_0c();
     func_ov000_020c3388(sVar2);
-    this->mActorTable = (Actor **) NewEXPH(data_027e0ce0[1], this->mMaxActors * 4, 4);
+    this->mActorTable = (Actor **) Heap_EXPHNew(data_027e0ce0[1], this->mMaxActors * 4, 4);
     Fill256(0, this->mActorTable, this->mMaxActors * 4);
     this->mUnk_14 = new(data_027e0ce0[1], 4) ActorManager_Unk14(this->mMaxActors);
 }

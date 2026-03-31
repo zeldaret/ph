@@ -22,9 +22,9 @@ void func_0200a318(u8 *);
 unk32 func_0200dd94();
 unk32 func_0200a284(u8 *);
 u16 func_ov001_020efdac();
-void *NewEXPH(char *id, s32 length, s32 param_3);
+void *Heap_EXPHNew(char *id, s32 length, s32 param_3);
 unk32 func_ov000_020773c0();
-void func_020174a4(u32 *, void *);
+void Heap_EXPHFreeBlock(u32 *, void *);
 void func_0201f378();
 void func_0202019c(void *, const char *, u32 *, unk32);
 void func_020213f0(u32 *);
@@ -165,13 +165,13 @@ ARM UnkStruct_020ee698::UnkStruct_020ee698() :
     mUnk_02(0),
     mUnk_04(func_ov001_020efdac()),
     mUnk_08(0x0D) {
-    void *newHeap = NewEXPH((char *) data_027e0ce0[1], 0x700, 0x20);
+    void *newHeap = Heap_EXPHNew((char *) data_027e0ce0[1], 0x700, 0x20);
 
     if (func_ov000_020773c0() == 3) {
         this->mUnk_00 = 1;
     }
 
-    func_020174a4(data_027e0ce0[1], newHeap);
+    Heap_EXPHFreeBlock(data_027e0ce0[1], newHeap);
 }
 
 // --- data_ov000_020ee734 ---
