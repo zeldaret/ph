@@ -4,3 +4,6 @@
     .ctor       start:0x02182080 end:0x02182090 kind:rodata align:4
     .data       start:0x021820a0 end:0x02183e80 kind:data align:32
     .bss        start:0x02183e80 end:0x02184200 kind:bss align:32
+
+src/31_Shop/Actor/ActorShopItem.cpp:
+    .text       start:0x0217dbdc end:0x02180708
