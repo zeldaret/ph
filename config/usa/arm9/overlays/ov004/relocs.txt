@@ -2213,7 +2213,7 @@ from:0x0210ad36 kind:thumb_call_arm to:0x020377c8 module:main
 from:0x0210ad3e kind:thumb_call_arm to:0x02035068 module:main
 from:0x0210ad44 kind:thumb_call to:0x0210ad74 module:overlay(4)
 from:0x0210ad4a kind:thumb_call_arm to:0x0202ea08 module:main
-from:0x0210ad60 kind:load to:0x020e564c module:overlay(0)
+from:0x0210ad60 kind:load to:0x020e5644 add:8 module:overlay(0)
 from:0x0210ad6c kind:thumb_call_arm to:0x0202ea08 module:main
 from:0x0210ad82 kind:thumb_call to:0x0210ad54 module:overlay(4)
 from:0x0210adc0 kind:thumb_call_arm to:0x0204f5d0 module:main

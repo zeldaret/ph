@@ -6,7 +6,9 @@
 #include "Player/Bhio.hpp"
 
 struct UnkStruct_027e0f64_04 {
-    /* 000 */ u8 pad[0x1B4 - 0x00];
+    /* 000 */ unk8 mUnk_00[0x15c];
+    /* 15c */ unk32 mUnk_15c;
+    /* 160 */ unk8 mUnk_160[0x1B4 - 0x160];
     /* 1b4 */ unk32 mUnk_1b4;
 };
 

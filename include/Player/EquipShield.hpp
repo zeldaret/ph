@@ -7,7 +7,11 @@
 class EquipShield : public EquipItem {
 public:
     /* 00 (base) */
-    /* 09 */ unk8 mUnk_09[5];
+    /* 09 */ unk8 mUnk_09;
+    /* 0a */ unk8 mUnk_0a;
+    /* 0b */ unk8 mUnk_0b;
+    /* 0c */ unk8 mUnk_0c;
+    /* 0d */ unk8 mUnk_0d;
     /* 0e */ unk16 mUnk_0e;
     /* 10 */ void *mUnk_10;
     /* 14 */ void *mUnk_14;
@@ -18,7 +22,6 @@ public:
     /* 28 */ void *mUnk_28;
     /* 2c */
 
-public:
     EquipShield();
 
     /* 00 */ virtual void vfunc_00() override;

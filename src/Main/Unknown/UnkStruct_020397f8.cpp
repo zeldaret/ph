@@ -94,7 +94,7 @@ THUMB void UnkStruct_020397f8::vfunc_4c() {
 
 // non-matching
 ARM void UnkStruct_020397f8::vfunc_2c() {
-    if (gGame.mUnk_101 != 0) {
+    if (gGame.mUnk_101) {
         if (((data_02056be4[data_027e077c.mUnk_0] & 1) != 0) != this->mUnk_50) {
             return;
         }
@@ -183,7 +183,7 @@ ARM void UnkStruct_020397f8::vfunc_3c(u16 *param1) {
                 return;
             }
 
-            if (gGame.mUnk_101 != 0) {
+            if (gGame.mUnk_101) {
                 if (((data_02056be4[data_027e077c.mUnk_0] & 1) != 0) != this->mUnk_50) {
                     return;
                 }
@@ -414,7 +414,7 @@ ARM void UnkStruct_020397f8::vfunc_44(s32 touchLastX, s32 touchLastY) {
         if ((gTouchControl.mFlags & 1) != 0) {
             if (this->mUnk_50 == 0 && data_027e0d38 != 0) {
                 if (func_ov000_02079e04() == 0 && data_027e0e28->func_ov000_0207bc48() == 0) {
-                    if (gGame.mUnk_101 == 0 && data_027e103c->mUnk_24 == 0) {
+                    if (!gGame.mUnk_101 && data_027e103c->mUnk_24 == 0) {
                         return;
                     }
                 }
@@ -949,7 +949,7 @@ ARM bool UnkStruct_020397f8::func_0203c084() {
             bVar1 = false;
         }
 
-        if (!bVar1 && gGame.mUnk_101 == 0) {
+        if (!bVar1 && !gGame.mUnk_101) {
             if ((data_027e0d38 != NULL && data_027e0d38->mUnk_14 == 1) == 0) {
                 bVar2 = false;
             }
