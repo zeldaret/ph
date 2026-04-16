@@ -1,7 +1,7 @@
     .text       start:0x02000000 end:0x02050ca0 kind:code align:32
     .init       start:0x02050ca0 end:0x02050f54 kind:code align:4
     .rodata     start:0x02050f54 end:0x0205725c kind:rodata align:4
-    .ctor       start:0x0205725c end:0x020572c4 kind:rodata align:4
+    .ctor       start:0x0205725c end:0x020572c0 kind:rodata align:4
     .data       start:0x020572e0 end:0x02058e20 kind:data align:32
     .bss        start:0x02058e20 end:0x020773c0 kind:bss align:32
 
@@ -34,8 +34,8 @@ src/Main/Message/MessageManager.cpp:
 
 src/Main/Message/BMG.cpp:
     .text       start:0x020371b4 end:0x0203744c
-    .data       start:0x02057b78 end:0x02057cb8
     .rodata     start:0x02056958 end:0x020569e0
+    .data       start:0x02057b78 end:0x02057cb8
 
 src/Main/Unknown/UnkStruct_02037750.cpp:
     .text       start:0x02037750 end:0x020387e0

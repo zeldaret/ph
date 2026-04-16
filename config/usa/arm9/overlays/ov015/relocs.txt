@@ -5876,7 +5876,7 @@ from:0x02152228 kind:arm_call to:0x021524c8 module:overlay(15)
 from:0x02152258 kind:arm_call to:0x020c3614 module:overlay(0)
 from:0x02152264 kind:arm_call to:0x02183b44 module:overlay(15)
 from:0x021522c8 kind:load to:0x027e0fe4 module:dtcm
-from:0x021522cc kind:load to:0x020e7288 add:8 module:overlay(0)
+from:0x021522cc kind:load to:0x020e7288 add:0x8 module:overlay(0)
 from:0x021522d4 kind:load to:0x027e1060 module:dtcm
 from:0x021522ec kind:arm_call to:0x020ada18 module:overlay(0)
 from:0x02152328 kind:arm_call to:0x020c3614 module:overlay(0)

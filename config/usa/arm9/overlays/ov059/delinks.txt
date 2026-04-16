@@ -1,14 +1,14 @@
     .text       start:0x02198c60 end:0x0219b070 kind:code align:32
     .rodata     start:0x0219b070 end:0x0219b084 kind:rodata align:4
-    .ctor       start:0x0219b084 end:0x0219b088 kind:rodata align:4
+    .ctor       start:0x0219b084 end:0x0219b084 kind:rodata align:4
     .data       start:0x0219b0a0 end:0x0219b120 kind:data align:32
     .bss        start:0x0219b120 end:0x0219b120 kind:bss align:32
 
 src/59_Hammer/Player/EquipHammer.cpp:
     complete
-    .text        start:0x02198c60 end:0x0219929c
-    .data        start:0x0219b0a0 end:0x0219b120
+    .text       start:0x02198c60 end:0x0219929c
+    .data       start:0x0219b0a0 end:0x0219b120
 
 src/59_Hammer/Actor/Navi/ActorNaviBase_59.cpp:
-    .text        start:0x0219929c end:0x0219b070
-    .rodata      start:0x0219b070 end:0x0219b084
+    .text       start:0x0219929c end:0x0219b070
+    .rodata     start:0x0219b070 end:0x0219b084
