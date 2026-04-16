@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include "Game/GameMode.hpp"
+
 class UnkStruct_027e0dbc {
 public:
     /* 00 */ unk32 mUnk_00;

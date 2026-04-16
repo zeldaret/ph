@@ -1,6 +1,9 @@
 #pragma once
 
+#include "global.h"
 #include "types.h"
+
+#include "Item/Item.hpp"
 
 struct UnkStruct_027e105c {
     /* 0 */ const char **unk_0;

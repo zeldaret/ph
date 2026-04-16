@@ -1,9 +1,9 @@
 #include "nds/math.h"
 
-struct G3d_RenderState_;
-typedef void (*G3d_CallbackFunction)(struct G3d_RenderState_ *);
+struct G3d_RenderState;
+typedef void (*G3d_CallbackFunction)(struct G3d_RenderState *);
 
-typedef struct G3d_NameList_ {
+typedef struct G3d_NameList {
     /* 00 */ u8 dummy;
     /* 01 */ u8 numElmnts;   // number of elements
     /* 02 */ u16 size;       // size of this NameList in bytes
@@ -13,20 +13,20 @@ typedef struct G3d_NameList_ {
     /* 0c */
 } G3d_NameList;
 
-typedef struct G3d_NameList_Header_ {
+typedef struct G3d_NameList_Header {
     /* 00 */ u16 element_size;
     /* 02 */ u16 data_section_size;
     /* 04 */ u8 data[4];
     /* 08 */
 } G3d_NameList_Header;
 
-typedef struct G3d_InvBindMtx_ {
+typedef struct G3d_InvBindMtx {
     /* 00 */ Mat4x3p mtx;
     /* 30 */ Mat3p unkMtx;
     /* 54 */
 } G3d_InvBindMtx;
 
-typedef struct G3d_BoneMtxStruct_ {
+typedef struct G3d_BoneMtxStruct {
     /* 00 */ u32 flag;
     /* 04 */ u8 mUnk_04[0x24];
     /* 28 */ Mat3p rot;
@@ -40,9 +40,9 @@ typedef enum {
     G3D_ANIMBIND_OFF    = 0x200
 } G3d_AnimationBinds;
 
-typedef struct G3d_Animation_ {
+typedef struct G3d_Animation {
     /* 00 */ u8 mUnk_00[0x10];
-    /* 10 */ struct G3d_Animation_ *next; // next animation in the list
+    /* 10 */ struct G3d_Animation *next; // next animation in the list
     /* 14 */ u8 mUnk_14[0x5];
     /* 19 */ u8 numElmnts; // number of elements in the elementBinds array
     /* 1a */ u16 elementBinds[1]; // each bit corresponds to a bone/material and determines whether an animation exists for it
@@ -50,7 +50,7 @@ typedef struct G3d_Animation_ {
 } G3d_Animation;
 
 // Structure representing the NSBMD model file
-typedef struct G3d_Model_ {
+typedef struct G3d_Model {
     /* 00 */ u32 size; // size of the model in bytes
     /* 04 */ u32 offSbc; // offset of the SBC commands list
     /* 08 */ u32 offMat; // offset of the material list
@@ -98,7 +98,7 @@ typedef enum {
 } G3d_RenderObjFlag;
 
 // Structure that handles the parameters for drawing a model
-typedef struct G3d_RenderObject_ {
+typedef struct G3d_RenderObject {
     /* 00 */ u32 flag; // G3d_RenderObjFlag
     /* 04 */ G3d_Model *model;
     /* 08 */ G3d_Animation *matAnim; // material animation
@@ -122,14 +122,14 @@ typedef struct G3d_RenderObject_ {
     /* 54 */
 } G3d_RenderObject;
 
-typedef struct G3d_Material_List_ {
+typedef struct G3d_Material_List {
     /* 00 */ u16 texture_pairings_off;
     /* 02 */ u16 palette_pairings_off;
     /* 04 */ G3d_NameList materials;
     /* 10 */
 } G3d_Material_List;
 
-typedef struct G3d_Material_ {
+typedef struct G3d_Material {
     /* 00 */ u32 mUnk_00;
     /* 04 */ u32 dif_amb;
     /* 08 */ u32 spe_emi;
@@ -145,7 +145,7 @@ typedef struct G3d_Material_ {
     /* 2c */
 } G3d_Material;
 
-typedef struct G3d_MaterialAnimation_ {
+typedef struct G3d_MaterialAnimation {
     /* 00 */ u32 flag;
     /* 04 */ u32 dif_amb;
     /* 08 */ u32 spe_emi;

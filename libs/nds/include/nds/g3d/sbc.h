@@ -30,7 +30,7 @@ typedef enum {
     G3D_RENDERST_FLAG_SKIP_SBC_MTXCALC = 0x400  // skips the execution of matrix calculation commands
 } G3d_RenderStateFlag;
 
-typedef struct G3d_RenderState_ {
+typedef struct G3d_RenderState {
     /* 00 */ u8 *currentCmd; // current command being processed
     /* 04 */ G3d_RenderObject *renderObj; // current render object being processed
     /* 08 */ u32 flag; // G3d_RenderStateFlag
