@@ -45,7 +45,6 @@ func_02001fb0 kind:function(arm,size=0x5c) addr:0x02001fb0
 func_0200200c kind:function(arm,size=0x5c) addr:0x0200200c
 func_02002068 kind:function(arm,size=0x5c) addr:0x02002068
 func_020020d0 kind:function(arm,size=0x3b8) addr:0x020020d0
-.L_02002184 kind:data(byte[256]) addr:0x02002184
 func_02002488 kind:function(arm,size=0x84) addr:0x02002488
 func_0200250c kind:function(arm,size=0x34) addr:0x0200250c
 func_02002540 kind:function(arm,size=0x48) addr:0x02002540
@@ -60,7 +59,6 @@ _s32_div_f kind:function(arm,size=0x20c) addr:0x02002c14
 _u32_div_f kind:function(arm,size=0x1e4) addr:0x02002e20
 .L_02002e28 kind:label(arm) addr:0x02002e28
 _ddiv kind:function(arm,size=0x544) addr:0x0200301c
-.L_02003154 kind:data(byte[256]) addr:0x02003154
 func_02003560 kind:function(arm,size=0x4) addr:0x02003560
 func_02003564 kind:function(arm,size=0x40) addr:0x02003564
 func_020035a4 kind:function(arm,size=0x3c) addr:0x020035a4
