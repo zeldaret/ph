@@ -1,0 +1,10 @@
+CompileFlags:
+  Add:
+  - -m32
+  - -nostdinc
+  - -Iinclude
+  - -Ilibs/c/include
+  - -Ilibs/cpp/include
+  - -Ilibs/nds/include
+  - -Ilibs/nitro/include
+  - -Ilibs/nns/include
