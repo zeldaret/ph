@@ -383,4 +383,8 @@ ARM void ActorNaviBase::func_ov000_020bb0ac() {
     }
 }
 
-ARM void ActorNaviBase::func_ov000_020bb0e0() {}
+ARM void ActorNaviBase::func_ov000_020bb0e0() {
+    for (s32 i = 0; i < FairyId_COUNT; i++) {
+        gItemManager->GetFairy(i)->mUnk_290 = 0;
+    }
+}
