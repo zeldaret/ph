@@ -304,7 +304,10 @@ ARM void ActorNaviBase::vfunc_10(u32 param1) {
 }
 
 unk32 ActorNaviBase::func_ov000_020ba204(Vec3p *param1, Vec3p *param2, s32 param3) {}
-ARM unk32 func_ov000_020ba350(unk32 param1) {}
+ARM unk32 func_ov000_020ba350(unk32 param1) {
+    ((UnkStruct_ov000_020beba8 *) param1)->UnkStruct_ov000_020beba8::~UnkStruct_ov000_020beba8();
+    return param1;
+}
 ARM bool ActorNaviBase::vfunc_c0(Vec3p *param1) {
     mOffsetPos.x = param1->x;
     mOffsetPos.y = param1->y;
