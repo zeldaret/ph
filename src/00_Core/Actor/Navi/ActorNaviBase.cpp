@@ -94,7 +94,24 @@ ARM void ActorNaviBase::vfunc_80() {
     this->SetActive(8);
 }
 
-ARM void ActorNaviBase::vfunc_d0() {}
+ARM void ActorNaviBase::vfunc_d0() {
+    Vec3p linkPos;
+    GetLinkPos(&linkPos);
+    switch (mUnk_130) {
+        case 1:
+            mOffsetPos.x = linkPos.x;
+            mOffsetPos.y = linkPos.y;
+            mOffsetPos.z = linkPos.z;
+            mOffsetPos.y += 0x199a;
+            break;
+        case 6:
+            mOffsetPos.x = linkPos.x;
+            mOffsetPos.y = linkPos.y;
+            mOffsetPos.z = linkPos.z;
+            mOffsetPos.y += 0x800;
+            break;
+    }
+}
 
 ARM void ActorNaviBase::vfunc_d8() {}
 ARM void ActorNaviBase::vfunc_ec() {}
