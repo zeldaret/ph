@@ -1,46 +1,141 @@
 #include "Actor/Navi/ActorNaviBase.hpp"
 
-u16 ActorNaviBase::vfunc_c4() {}
-u16 ActorNaviBase::vfunc_c8() {}
-unk32 ActorNaviBase::vfunc_30() {}
-s32 ActorNaviBase::vfunc_b8() {}
-bool ActorNaviBase::vfunc_cc(unk32 *param1) {}
-void ActorNaviBase::GetOffsetPos(Vec3p *pos) {}
-unk32 ActorNaviBase::vfunc_38() {}
-void ActorNaviBase::vfunc_d0() {}
-void ActorNaviBase::func_ov000_020b8c50(unk32) {}
-void ActorNaviBase::func_ov000_020b8c98(unk32 param1, unk32 param2, unk32 param3) {}
-void ActorNaviBase::vfunc_d4() {}
-void ActorNaviBase::vfunc_d8() {}
-void ActorNaviBase::SetActive(unk32 active) {}
-void ActorNaviBase::TeleportAboveLink() {}
-void ActorNaviBase::vfunc_e0() {}
-void ActorNaviBase::vfunc_e4() {}
-void ActorNaviBase::func_ov000_020b9770(s32 param1) {}
-void ActorNaviBase::vfunc_e8() {}
-void ActorNaviBase::vfunc_14(u32 param1) {}
-void ActorNaviBase::vfunc_18(u32 param1) {}
-void ActorNaviBase::func_ov000_020b9fdc() {}
-void ActorNaviBase::func_ov000_020b9fe8() {}
-void ActorNaviBase::vfunc_20(bool param1) {}
-void ActorNaviBase::vfunc_10(u32 param1) {}
+#include "Physics/Cylinder.hpp"
+#include "DTCM/UnkStruct_027e0e58.hpp"
+#include "Item/ItemManager.hpp"
+#include "Map/MapManager.hpp"
+#include "Map/TilePos.hpp"
+#include "Player/PlayerBase.hpp"
+#include "Player/PlayerLinkBase.hpp"
+#include "Unknown/UnkStruct_020e9360.hpp"
+#include "Unknown/UnkStruct_ov000_020beba8.hpp"
+
+extern "C" u16 func_ov000_020b8790(s32);
+extern "C" u16 func_ov000_020b87cc(s32);
+extern bool func_ov000_02087e8c();
+extern "C" bool func_0202b2e8(Vec3p *dst, Vec3p *target, q20 speed);
+extern "C" bool Lerp(s32 *pValue, s32 dest, s32 factor, unk32 param4, u32 step);
+extern "C" void Vec3p_RotateY(u32 angle, Vec3p *v);
+extern "C" void func_ov000_020c0e24(UnkStruct_ov000_020c0c08 *self, s32 param2);
+extern "C" void func_ov000_0207c1f8(UnkStruct_027e0e58 *self, ActorNaviBase_Unk1 *ref, u32 modelId, Vec3p *pos, s32 param5);
+extern "C" void func_ov000_020b7e6c(ActorNaviBase_Unk1 *ref);
+extern "C" void *func_0201e544(void *self, const char *name);
+extern "C" void func_ov000_020c0cc8(UnkStruct_ov000_020c0c08 *self, void *param2, unk32 param3, unk32 param4);
+extern char *data_ov000_020e678c[];
+extern "C" void func_ov000_020b8830(ItemModel *model, u32 color1, u32 color2);
+extern "C" void func_02019534(void *model, unk32 materialIdx, unk32 color);
+extern "C" u32 func_ov000_020b3ec4(ActorNaviBase_Unk3 *unk);
+extern ItemModel *data_ov000_020ee1f8;
+extern Mat3p gDefaultMatrix;
+
+static const u32 sFairyModelIds[FairyId_COUNT] = {0x24f, 0x251, 0x250};
+
+struct ActorNaviBase_NameEntry {
+    char name[16];
+    u32 id;
+};
+static const ActorNaviBase_NameEntry sNaviNames[1] = {{"navi", 0}};
+
+extern Vec3p data_ov000_020dc83c;
+extern Vec3p data_ov000_020dc848;
+
+ARM u16 ActorNaviBase::vfunc_c4() {
+    if (mUnk_28d != 0) {
+        return 0x6318;
+    }
+    return func_ov000_020b8790(GetFairyId());
+}
+
+ARM u16 ActorNaviBase::vfunc_c8() {
+    if (mUnk_28d != 0) {
+        return 0x739c;
+    }
+    return func_ov000_020b87cc(GetFairyId());
+}
+
+ARM unk32 ActorNaviBase::vfunc_30() {
+    return 1;
+}
+
+ARM s32 ActorNaviBase::vfunc_b8() {
+    return -1;
+}
+
+ARM void ActorNaviBase::GetOffsetPos(Vec3p *pos) {
+    pos->x = mOffsetPos.x;
+    pos->y = mOffsetPos.y;
+    pos->z = mOffsetPos.z;
+}
+
+ARM unk32 ActorNaviBase::vfunc_38() {
+    if (func_ov000_02087e8c()) {
+        return 0x22;
+    }
+    return 0x20;
+}
+
+ARM void ActorNaviBase::vfunc_e4() {
+    this->vfunc_e0();
+}
+
+ARM void ActorNaviBase::vfunc_84() {
+    this->SetActive(5);
+}
+
+ARM void ActorNaviBase::func_ov000_020bad18() {
+    mUnk_164 = 0;
+    if (mUnk_130 == 7) {
+        this->SetActive(5);
+    }
+}
+
+ARM void ActorNaviBase::vfunc_80() {}
+
+ARM void ActorNaviBase::vfunc_d0() {}
+
+ARM void ActorNaviBase::vfunc_d8() {}
+ARM void ActorNaviBase::vfunc_ec() {}
+
+ARM bool ActorNaviBase::vfunc_cc(unk32 *param1) {}
+ARM void ActorNaviBase::func_ov000_020b8c50(unk32 param1) {}
+
+ARM void ActorNaviBase::func_ov000_020b8c98(unk32 param1, unk32 param2, unk32 param3) {}
+
+ARM void ActorNaviBase::vfunc_d4() {}
+ARM void ActorNaviBase::SetActive(unk32 active) {}
+ARM void ActorNaviBase::TeleportAboveLink() {}
+
+ARM void ActorNaviBase::vfunc_e0() {}
+ARM void ActorNaviBase::func_ov000_020b9770(s32 param1) {}
+ARM void ActorNaviBase::vfunc_e8() {}
+
+ARM void ActorNaviBase::vfunc_14(u32 param1) {}
+
+ARM void ActorNaviBase::vfunc_18(u32 param1) {}
+ARM void ActorNaviBase::func_ov000_020b9fdc() {}
+
+ARM void ActorNaviBase::func_ov000_020b9fe8() {}
+ARM void ActorNaviBase::vfunc_20(bool param1) {}
+ARM void ActorNaviBase::vfunc_10(u32 param1) {}
+
 unk32 ActorNaviBase::func_ov000_020ba204(Vec3p *param1, Vec3p *param2, s32 param3) {}
-unk32 func_ov000_020ba350(unk32 param1) {}
-bool ActorNaviBase::vfunc_c0(Vec3p *param1) {}
-unk32 ActorNaviBase::func_ov000_020ba3b4() {}
-void ActorNaviBase::func_ov000_020ba414(Vec3p *param1) {}
-bool ActorNaviBase::func_ov000_020ba458() {}
-void ActorNaviBase::func_ov000_020ba4e4() {}
-void ActorNaviBase::func_ov000_020ba53c() {}
-void ActorNaviBase::vfunc_80() {}
-void ActorNaviBase::vfunc_84() {}
+ARM unk32 func_ov000_020ba350(unk32 param1) {}
+ARM bool ActorNaviBase::vfunc_c0(Vec3p *param1) {}
+ARM unk32 ActorNaviBase::func_ov000_020ba3b4() {}
+
+ARM void ActorNaviBase::func_ov000_020ba414(Vec3p *param1) {}
+
+ARM bool ActorNaviBase::func_ov000_020ba458() {}
+
+ARM void ActorNaviBase::func_ov000_020ba4e4() {}
+
+ARM void ActorNaviBase::func_ov000_020ba53c() {}
 bool ActorNaviBase::vfunc_78() {}
-bool ActorNaviBase::vfunc_bc(unk32 param1, unk8 param2, s32 param3) {}
+ARM bool ActorNaviBase::vfunc_bc(unk32 param1, unk8 param2, s32 param3) {}
 void ActorNaviBase::vfunc_74() {}
-void ActorNaviBase::func_ov000_020baca8(Vec3p *param1, unk32 param2) {}
-void ActorNaviBase::func_ov000_020bad18() {}
+ARM void ActorNaviBase::func_ov000_020baca8(Vec3p *param1, unk32 param2) {}
 bool ActorNaviBase::vfunc_90() {}
 void ActorNaviBase::vfunc_94() {}
-void ActorNaviBase::func_ov000_020bb0ac() {}
-void ActorNaviBase::func_ov000_020bb0e0() {}
-void ActorNaviBase::vfunc_ec() {}
+ARM void ActorNaviBase::func_ov000_020bb0ac() {}
+
+ARM void ActorNaviBase::func_ov000_020bb0e0() {}
