@@ -316,7 +316,14 @@ ARM bool ActorNaviBase::vfunc_c0(Vec3p *param1) {
     }
     return false;
 }
-ARM unk32 ActorNaviBase::func_ov000_020ba3b4() {}
+ARM unk32 ActorNaviBase::func_ov000_020ba3b4() {
+    if (gItemManager->GetEquippedFairy() == GetFairyId()) {
+        this->SetActive(1);
+    } else {
+        this->SetActive(6);
+    }
+    return 1;
+}
 
 ARM void ActorNaviBase::func_ov000_020ba414(Vec3p *param1) {}
 
