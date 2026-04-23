@@ -262,7 +262,9 @@ ARM void ActorNaviBase::vfunc_e8() {
 ARM void ActorNaviBase::vfunc_14(u32 param1) {}
 
 ARM void ActorNaviBase::vfunc_18(u32 param1) {}
-ARM void ActorNaviBase::func_ov000_020b9fdc() {}
+ARM void ActorNaviBase::func_ov000_020b9fdc() {
+    this->func_ov000_020b9fe8();
+}
 
 ARM void ActorNaviBase::func_ov000_020b9fe8() {}
 ARM void ActorNaviBase::vfunc_20(bool param1) {}
