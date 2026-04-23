@@ -362,7 +362,19 @@ ARM void ActorNaviBase::func_ov000_020ba53c() {
 bool ActorNaviBase::vfunc_78() {}
 ARM bool ActorNaviBase::vfunc_bc(unk32 param1, unk8 param2, s32 param3) {}
 void ActorNaviBase::vfunc_74() {}
-ARM void ActorNaviBase::func_ov000_020baca8(Vec3p *param1, unk32 param2) {}
+ARM void ActorNaviBase::func_ov000_020baca8(Vec3p *param1, unk32 param2) {
+    if (*(u8 *) &mUnk_11c != 0 || mUnk_291 != 0) {
+        return;
+    }
+    if (gPlayerLink->GetCurrentCharacter() != 0) {
+        return;
+    }
+    mOffsetPos.x = param1->x;
+    mOffsetPos.y = param1->y;
+    mOffsetPos.z = param1->z;
+    mUnk_164     = param2;
+    this->SetActive(7);
+}
 bool ActorNaviBase::vfunc_90() {}
 void ActorNaviBase::vfunc_94() {}
 ARM void ActorNaviBase::func_ov000_020bb0ac() {}
