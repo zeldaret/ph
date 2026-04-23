@@ -305,7 +305,17 @@ ARM void ActorNaviBase::vfunc_10(u32 param1) {
 
 unk32 ActorNaviBase::func_ov000_020ba204(Vec3p *param1, Vec3p *param2, s32 param3) {}
 ARM unk32 func_ov000_020ba350(unk32 param1) {}
-ARM bool ActorNaviBase::vfunc_c0(Vec3p *param1) {}
+ARM bool ActorNaviBase::vfunc_c0(Vec3p *param1) {
+    mOffsetPos.x = param1->x;
+    mOffsetPos.y = param1->y;
+    mOffsetPos.z = param1->z;
+    if (mUnk_130 != 4) {
+        u32 oldState = mUnk_130;
+        this->SetActive(4);
+        return oldState != 5;
+    }
+    return false;
+}
 ARM unk32 ActorNaviBase::func_ov000_020ba3b4() {}
 
 ARM void ActorNaviBase::func_ov000_020ba414(Vec3p *param1) {}
