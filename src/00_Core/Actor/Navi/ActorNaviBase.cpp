@@ -123,7 +123,16 @@ ARM void ActorNaviBase::func_ov000_020b8c50(unk32 param1) {
     Vec3p_Sub(&tmp, &mPos, &mVel);
 }
 
-ARM void ActorNaviBase::func_ov000_020b8c98(unk32 param1, unk32 param2, unk32 param3) {}
+ARM void ActorNaviBase::func_ov000_020b8c98(unk32 param1, unk32 param2, unk32 param3) {
+    mVel.x    = 0;
+    mVel.y    = 0;
+    mVel.z    = 0;
+    Vec3p tmp = mPos;
+    Lerp(&tmp.x, mOffsetPos.x, param1, param2, param3);
+    Lerp(&tmp.y, mOffsetPos.y, 0x400, 0, 0x7FFFFFFF);
+    Lerp(&tmp.z, mOffsetPos.z, param1, param2, param3);
+    Vec3p_Sub(&tmp, &mPos, &mVel);
+}
 
 ARM void ActorNaviBase::vfunc_d4() {}
 ARM void ActorNaviBase::SetActive(unk32 active) {}
