@@ -377,6 +377,10 @@ ARM void ActorNaviBase::func_ov000_020baca8(Vec3p *param1, unk32 param2) {
 }
 bool ActorNaviBase::vfunc_90() {}
 void ActorNaviBase::vfunc_94() {}
-ARM void ActorNaviBase::func_ov000_020bb0ac() {}
+ARM void ActorNaviBase::func_ov000_020bb0ac() {
+    for (s32 i = 0; i < FairyId_COUNT; i++) {
+        gItemManager->GetFairy(i)->mUnk_290 = 1;
+    }
+}
 
 ARM void ActorNaviBase::func_ov000_020bb0e0() {}
