@@ -89,7 +89,10 @@ ARM void ActorNaviBase::func_ov000_020bad18() {
     }
 }
 
-ARM void ActorNaviBase::vfunc_80() {}
+ARM void ActorNaviBase::vfunc_80() {
+    this->func_ov000_020ba4e4();
+    this->SetActive(8);
+}
 
 ARM void ActorNaviBase::vfunc_d0() {}
 
