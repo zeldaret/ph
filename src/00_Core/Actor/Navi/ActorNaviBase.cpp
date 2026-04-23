@@ -292,7 +292,16 @@ ARM void ActorNaviBase::func_ov000_020b9fe8() {
     mUnk_168.SetTransform(&scale, &gDefaultMatrix, &pos);
 }
 ARM void ActorNaviBase::vfunc_20(bool param1) {}
-ARM void ActorNaviBase::vfunc_10(u32 param1) {}
+ARM void ActorNaviBase::vfunc_10(u32 param1) {
+    if (mUnk_130 == 0 && gItemManager->GetEquippedFairy() == GetFairyId()) {
+        this->SetActive(1);
+        return;
+    }
+    this->TeleportAboveLink();
+    if (this->vfunc_cc(NULL)) {
+        this->SetActive(0);
+    }
+}
 
 unk32 ActorNaviBase::func_ov000_020ba204(Vec3p *param1, Vec3p *param2, s32 param3) {}
 ARM unk32 func_ov000_020ba350(unk32 param1) {}
