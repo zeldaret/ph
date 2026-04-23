@@ -350,7 +350,15 @@ ARM void ActorNaviBase::func_ov000_020ba4e4() {
     func_ov000_020ba414(&tmp);
 }
 
-ARM void ActorNaviBase::func_ov000_020ba53c() {}
+ARM void ActorNaviBase::func_ov000_020ba53c() {
+    Vec3p tmp = data_ov000_020dc848;
+    s16 angle = *(s16 *) &gPlayerAngle;
+    if ((angle > 0 && angle < 0x4000) || angle < -0x4000) {
+        tmp.x = -tmp.x;
+    }
+    Vec3p_RotateY(angle, &tmp);
+    func_ov000_020ba414(&tmp);
+}
 bool ActorNaviBase::vfunc_78() {}
 ARM bool ActorNaviBase::vfunc_bc(unk32 param1, unk8 param2, s32 param3) {}
 void ActorNaviBase::vfunc_74() {}
