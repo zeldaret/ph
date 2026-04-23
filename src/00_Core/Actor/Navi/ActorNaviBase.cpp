@@ -205,7 +205,12 @@ ARM void ActorNaviBase::TeleportAboveLink() {
 }
 
 ARM void ActorNaviBase::vfunc_e0() {}
-ARM void ActorNaviBase::func_ov000_020b9770(s32 param1) {}
+ARM void ActorNaviBase::func_ov000_020b9770(s32 param1) {
+    void *resource = func_0201e544(data_ov000_020e678c[8], sNaviNames[param1].name);
+    func_ov000_020c0cc8(&mUnk_1d0, resource, 0, sNaviNames[param1].id);
+    mUnk_168.vfunc_28();
+    mUnk_168.vfunc_24(&mUnk_1d0);
+}
 ARM void ActorNaviBase::vfunc_e8() {}
 
 ARM void ActorNaviBase::vfunc_14(u32 param1) {}
