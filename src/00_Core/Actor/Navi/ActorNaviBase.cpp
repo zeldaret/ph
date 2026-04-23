@@ -135,7 +135,63 @@ ARM void ActorNaviBase::func_ov000_020b8c98(unk32 param1, unk32 param2, unk32 pa
 }
 
 ARM void ActorNaviBase::vfunc_d4() {}
-ARM void ActorNaviBase::SetActive(unk32 active) {}
+ARM void ActorNaviBase::SetActive(unk32 active) {
+    if (mUnk_130 == 0 && active != 0) {
+        u32 i;
+        UnkStruct_027e0e58 *inst;
+        ActorNaviBase_Unk1 *p;
+        mVisible = true;
+        mUnk_290 = 0;
+        i        = 0;
+        p        = &mUnk_218[0];
+        do {
+            if (p->mUnk_0 == 0) {
+                inst = data_027e0e58;
+                func_ov000_0207c1f8(inst, p, sFairyModelIds[GetFairyId()], &mPos, 2);
+            }
+            i++;
+            p++;
+        } while (i < 2);
+        TeleportAboveLink();
+    }
+    switch (active) {
+        case 0: {
+            ActorNaviBase_Unk1 *end;
+            ActorNaviBase_Unk1 *p;
+            mVisible = false;
+            p        = mUnk_218;
+            end      = mUnk_218 + 2;
+            if (p != end) {
+                do {
+                    func_ov000_020b7e6c(p);
+                    p++;
+                } while (p != end);
+            }
+            break;
+        }
+        case 1: {
+            mUnk_280        = -1;
+            mUnk_284        = -1;
+            TilePos tilePos = gMapManager->func_ov00_02083a1c(&mPos);
+            mUnk_288        = tilePos.x;
+            mUnk_289        = tilePos.y;
+            break;
+        }
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 9:
+            break;
+        case 8:
+            mUnk_28a = 0;
+            break;
+    }
+    mActiveFrames = 0;
+    mUnk_130      = active;
+}
 ARM void ActorNaviBase::TeleportAboveLink() {}
 
 ARM void ActorNaviBase::vfunc_e0() {}
