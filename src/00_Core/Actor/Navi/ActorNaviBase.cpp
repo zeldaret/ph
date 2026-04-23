@@ -192,7 +192,17 @@ ARM void ActorNaviBase::SetActive(unk32 active) {
     mActiveFrames = 0;
     mUnk_130      = active;
 }
-ARM void ActorNaviBase::TeleportAboveLink() {}
+ARM void ActorNaviBase::TeleportAboveLink() {
+    Vec3p linkPos;
+    GetLinkPos(&linkPos);
+    linkPos.y += 0x800;
+    mPos.x     = linkPos.x;
+    mPos.y     = linkPos.y;
+    mPos.z     = linkPos.z;
+    mPrevPos.x = linkPos.x;
+    mPrevPos.y = linkPos.y;
+    mPrevPos.z = linkPos.z;
+}
 
 ARM void ActorNaviBase::vfunc_e0() {}
 ARM void ActorNaviBase::func_ov000_020b9770(s32 param1) {}
