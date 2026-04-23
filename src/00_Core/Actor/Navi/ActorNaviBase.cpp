@@ -325,7 +325,11 @@ ARM unk32 ActorNaviBase::func_ov000_020ba3b4() {
     return 1;
 }
 
-ARM void ActorNaviBase::func_ov000_020ba414(Vec3p *param1) {}
+ARM void ActorNaviBase::func_ov000_020ba414(Vec3p *param1) {
+    Cylinder cyl;
+    gPlayer->vfunc_10(&cyl);
+    Vec3p_Add(param1, &cyl.pos, &mOffsetPos);
+}
 
 ARM bool ActorNaviBase::func_ov000_020ba458() {}
 
