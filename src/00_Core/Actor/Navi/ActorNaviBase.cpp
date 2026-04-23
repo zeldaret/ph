@@ -331,7 +331,14 @@ ARM void ActorNaviBase::func_ov000_020ba414(Vec3p *param1) {
     Vec3p_Add(param1, &cyl.pos, &mOffsetPos);
 }
 
-ARM bool ActorNaviBase::func_ov000_020ba458() {}
+ARM bool ActorNaviBase::func_ov000_020ba458() {
+    if (gItemManager->GetEquippedFairy() == GetFairyId() && !this->vfunc_cc(NULL) && mUnk_130 != 8 && mUnk_130 != 9) {
+        this->SetActive(5);
+        this->func_ov000_020ba53c();
+        return true;
+    }
+    return false;
+}
 
 ARM void ActorNaviBase::func_ov000_020ba4e4() {}
 
