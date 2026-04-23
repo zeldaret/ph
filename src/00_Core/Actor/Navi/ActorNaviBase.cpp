@@ -211,7 +211,53 @@ ARM void ActorNaviBase::func_ov000_020b9770(s32 param1) {
     mUnk_168.vfunc_28();
     mUnk_168.vfunc_24(&mUnk_1d0);
 }
-ARM void ActorNaviBase::vfunc_e8() {}
+ARM void ActorNaviBase::vfunc_e8() {
+    switch (mUnk_130) {
+        case 4:
+        case 7:
+            if (mUnk_130 == 7 && XzDistanceTo(&mOffsetPos) <= 0x20) {
+                mUnk_1d0.mUnk_0c.mUnk_04 = 0x1800;
+            } else {
+                s32 factor = CoDivide64By32(XzDistanceToLink(), 0x4000);
+                if (factor > 0x1000) {
+                    factor = 0x1000;
+                } else if (factor < 0) {
+                    factor = 0;
+                }
+                mUnk_1d0.mUnk_0c.mUnk_04 = MUL_Q20(factor, 0x800) + 0x1000;
+            }
+            break;
+        case 5:
+            break;
+        case 8:
+            switch (mUnk_28a) {
+                case 1:
+                    mUnk_1d0.mUnk_0c.mUnk_04 = 0x2000;
+                    break;
+                case 3: {
+                    u16 angle                = (u16) (mActiveFrames * 0xaab);
+                    mUnk_1d0.mUnk_0c.mUnk_04 = 0x1800 - MUL_Q20(SIN(angle), 0x800);
+                    break;
+                }
+                case 2:
+                    if ((s32) mVel.y >= 0) {
+                        mUnk_1d0.mUnk_0c.mUnk_04 = 0xb33;
+                    } else {
+                        func_ov000_020c0e24(&mUnk_1d0, 0);
+                        mUnk_1d0.mUnk_0c.mUnk_04 = 0;
+                    }
+                    break;
+                default:
+                    mUnk_1d0.mUnk_0c.mUnk_04 = 0x1000;
+                    break;
+            }
+            break;
+        default:
+            mUnk_1d0.mUnk_0c.mUnk_04 = 0x1000;
+            break;
+    }
+    mUnk_1d0.func_ov000_020c0e04();
+}
 
 ARM void ActorNaviBase::vfunc_14(u32 param1) {}
 
