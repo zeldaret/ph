@@ -117,7 +117,11 @@ ARM void ActorNaviBase::vfunc_d8() {}
 ARM void ActorNaviBase::vfunc_ec() {}
 
 ARM bool ActorNaviBase::vfunc_cc(unk32 *param1) {}
-ARM void ActorNaviBase::func_ov000_020b8c50(unk32 param1) {}
+ARM void ActorNaviBase::func_ov000_020b8c50(unk32 param1) {
+    Vec3p tmp = mPos;
+    func_0202b2e8(&tmp, &mOffsetPos, param1);
+    Vec3p_Sub(&tmp, &mPos, &mVel);
+}
 
 ARM void ActorNaviBase::func_ov000_020b8c98(unk32 param1, unk32 param2, unk32 param3) {}
 
