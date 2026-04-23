@@ -340,7 +340,15 @@ ARM bool ActorNaviBase::func_ov000_020ba458() {
     return false;
 }
 
-ARM void ActorNaviBase::func_ov000_020ba4e4() {}
+ARM void ActorNaviBase::func_ov000_020ba4e4() {
+    Vec3p tmp = data_ov000_020dc83c;
+    s16 angle = *(s16 *) &gPlayerAngle;
+    if (angle < 0) {
+        tmp.x = -tmp.x;
+    }
+    Vec3p_RotateY(angle, &tmp);
+    func_ov000_020ba414(&tmp);
+}
 
 ARM void ActorNaviBase::func_ov000_020ba53c() {}
 bool ActorNaviBase::vfunc_78() {}
