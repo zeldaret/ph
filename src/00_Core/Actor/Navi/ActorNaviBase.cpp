@@ -266,7 +266,31 @@ ARM void ActorNaviBase::func_ov000_020b9fdc() {
     this->func_ov000_020b9fe8();
 }
 
-ARM void ActorNaviBase::func_ov000_020b9fe8() {}
+ARM void ActorNaviBase::func_ov000_020b9fe8() {
+    u16 color1 = this->vfunc_c4();
+    u16 color2 = this->vfunc_c8();
+    func_ov000_020b8830(data_ov000_020ee1f8, color1, color2);
+
+    unk32 colorResult = data_ov000_020e9360.func_ov000_02079e68(2);
+    func_02019534(data_ov000_020ee1f8, 0, colorResult);
+
+    Vec3p pos;
+    Vec3p scale;
+    pos.x = mPos.x;
+    pos.y = mPos.y - func_ov000_020b3ec4(&mUnk_168);
+    pos.z = mPos.z;
+
+    if (mUnk_164 == 0) {
+        scale.x = 0xe66;
+        scale.y = 0xe66;
+        scale.z = 0xe66;
+    } else {
+        scale.x = 0x119a;
+        scale.y = 0x119a;
+        scale.z = 0x119a;
+    }
+    mUnk_168.SetTransform(&scale, &gDefaultMatrix, &pos);
+}
 ARM void ActorNaviBase::vfunc_20(bool param1) {}
 ARM void ActorNaviBase::vfunc_10(u32 param1) {}
 
