@@ -2699,8 +2699,8 @@ data_020577f0 kind:data(any) addr:0x020577a8
 data_020577f8 kind:data(any) addr:0x020577b0
 data_02057808 kind:data(any) addr:0x020577c0
 data_02057840 kind:data(any) addr:0x020577f8
-data_0205785c kind:data(any) addr:0x02057814
-data_02057878 kind:data(any) addr:0x02057830
+_ZTV13FileEntryFlag kind:data(any) addr:0x0205780c
+_ZTV9FileEntry kind:data(any) addr:0x02057828
 _ZTV8BhioBase kind:data(any) addr:0x0205784c
 data_020578d4 kind:data(any) addr:0x0205788c
 data_020578d8 kind:data(any) addr:0x02057890

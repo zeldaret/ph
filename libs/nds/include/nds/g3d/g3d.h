@@ -34,7 +34,7 @@ typedef struct G3d_BoneMtxStruct {
     /* 64 */
 } G3d_BoneMtxStruct;
 
-typedef enum {
+typedef enum G3d_AnimationBinds {
     G3D_ANIMBIND_UNK    = 0xff,
     G3D_ANIMBIND_EXISTS = 0x100,
     G3D_ANIMBIND_OFF    = 0x200
@@ -89,7 +89,7 @@ static inline G3d_NameList *G3d_GetMesh(const G3d_Model *mdl) {
     return (G3d_NameList *) ((u8 *) mdl + mdl->offMesh);
 }
 
-typedef enum {
+typedef enum G3d_RenderObjFlag {
     G3D_RENDEROBJ_FLAG_STORE            = 0x1, // stores results in local cache
     G3D_RENDEROBJ_FLAG_SKIP_CMD         = 0x2, // skips pushing geometry commands to the FIFO
     G3D_RENDEROBJ_FLAG_SKIP_SBC_DRAW    = 0x4, // skips the execution of rendering commands

@@ -8,3 +8,4 @@ CompileFlags:
   - -Ilibs/nds/include
   - -Ilibs/nitro/include
   - -Ilibs/nns/include
+  - -Wno-c99-designator

@@ -25,6 +25,15 @@ enum AdventureFlag_ {
     /* 0x0030 */ AdventureFlag_Cannon        = FLAG(1, 16),
     /* 0x0033 */ AdventureFlag_RegalNecklace = FLAG(1, 19),
 
+    /* 0x0067 */ AdventureFlag_Unk_103 = FLAG(3, 7),
+    /* 0x0068 */ AdventureFlag_Unk_104 = FLAG(3, 8),
+    /* 0x0069 */ AdventureFlag_Unk_105 = FLAG(3, 9),
+    /* 0x006A */ AdventureFlag_Unk_106 = FLAG(3, 10),
+    /* 0x006B */ AdventureFlag_Unk_107 = FLAG(3, 11),
+    /* 0x006C */ AdventureFlag_Unk_108 = FLAG(3, 12),
+    /* 0x006D */ AdventureFlag_Unk_109 = FLAG(3, 13),
+    /* 0x0071 */ AdventureFlag_Unk_113 = FLAG(3, 17),
+
     /* 0x007A */ AdventureFlag_CourageCrest = FLAG(3, 26),
     /* 0x007D */ AdventureFlag_Azurine      = FLAG(3, 29),
     /* 0x007E */ AdventureFlag_Crimsonine   = FLAG(3, 30),

@@ -697,7 +697,7 @@ from:0x02182fa0 kind:arm_call to:0x0217e0f0 module:overlay(40)
 from:0x02182fac kind:arm_call to:0x02182d88 module:overlay(40)
 from:0x02182fe4 kind:arm_call to:0x02182eec module:overlay(40)
 from:0x02183034 kind:arm_call to:0x0217df64 module:overlay(40)
-from:0x02183070 kind:load to:0x02057830 module:main
+from:0x02183070 kind:load to:0x02057828 add:0x8 module:main
 from:0x02183074 kind:load to:0x020577f8 module:main
 from:0x02183080 kind:arm_call to:0x02183120 module:overlay(40)
 from:0x02183088 kind:arm_call_thumb to:0x02030108 module:main

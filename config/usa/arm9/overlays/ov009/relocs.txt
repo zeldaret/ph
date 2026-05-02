@@ -1999,10 +1999,10 @@ from:0x0211e434 kind:load to:0x0211f4b0 module:overlay(9)
 from:0x0211e478 kind:arm_call to:0x0204f890 module:main
 from:0x0211e4b8 kind:arm_call to:0x0204f890 module:main
 from:0x0211e4f4 kind:arm_call to:0x0204f890 module:main
-from:0x0211e4fc kind:load to:0x02057830 module:main
+from:0x0211e4fc kind:load to:0x02057828 add:0x8 module:main
 from:0x0211e500 kind:load to:0x0211f4b8 module:overlay(9)
 from:0x0211e504 kind:load to:0x0211e9d0 module:overlay(9)
-from:0x0211e508 kind:load to:0x02057814 module:main
+from:0x0211e508 kind:load to:0x0205780c add:0x8 module:main
 from:0x0211e50c kind:load to:0x0211f4c4 module:overlay(9)
 from:0x0211e510 kind:load to:0x02030059 module:main
 from:0x0211e514 kind:load to:0x0211f4b8 module:overlay(9)

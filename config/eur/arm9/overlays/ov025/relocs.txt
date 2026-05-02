@@ -665,7 +665,7 @@ from:0x02173580 kind:load to:0x020e72e8 add:0x8 module:overlay(0)
 from:0x02173588 kind:load to:0x027e0fe4 module:dtcm
 from:0x021735a0 kind:arm_call to:0x0217345c module:overlay(25)
 from:0x02173600 kind:load to:0x027e10b4 module:dtcm
-from:0x02173604 kind:load to:0x02183f78 module:overlays(30,31)
+from:0x02173604 kind:load to:0x02183f78 module:overlay(30)
 from:0x021737b8 kind:arm_call to:0x020c37ec module:overlay(0)
 from:0x02173804 kind:arm_call to:0x020c3674 module:overlay(0)
 from:0x02173898 kind:arm_call to:0x020c3674 module:overlay(0)
