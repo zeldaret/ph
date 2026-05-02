@@ -239,7 +239,7 @@ ARM EquipItem *ItemManager::GetEquipItem(ItemFlag equipId) {
     }
 }
 
-ARM s16 ItemManager::GetAmmo(ItemFlag equipId) const {
+ARM u16 ItemManager::GetAmmo(ItemFlag equipId) const {
     return (*mAmmo)[equipId];
 }
 
@@ -346,7 +346,7 @@ THUMB void ItemManager::SetFishSize(u32 index, u16 value) {
 const u16 sQuiverSizes[]  = {20, 20, 30, 50};
 const u16 sBombBagSizes[] = {10, 20, 30, 0};
 
-THUMB s16 ItemManager::GetMaxAmmo(ItemFlag equipId) const {
+THUMB u16 ItemManager::GetMaxAmmo(ItemFlag equipId) const {
     switch (equipId) {
         case ItemFlag_Bow:
             return (sQuiverSizes + 1)[mQuiverSize];

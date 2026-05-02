@@ -146,9 +146,9 @@ public:
     void func_ov004_021076bc();
 
     // Ammo
-    s16 GetAmmo(ItemFlag equipId) const;
+    u16 GetAmmo(ItemFlag equipId) const;
     void GiveAmmo(ItemFlag equipId, u32 amount);
-    s16 GetMaxAmmo(ItemFlag equipId) const;
+    u16 GetMaxAmmo(ItemFlag equipId) const;
     void UpgradeQuiver();
     void UpgradeBombBag();
     void UpgradeBombchuBag();

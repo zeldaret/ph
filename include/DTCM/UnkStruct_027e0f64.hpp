@@ -16,6 +16,8 @@ struct UnkStruct_027e0f64_04 {
     /* 260 */ Vec3p mUnk_260;
     /* 26c */ Vec3p mUnk_26c;
     /* 278 */
+
+    bool func_01ffe468(Vec3p *param2, s32 *param3, s32 *param4, bool param5);
 };
 
 class UnkStruct_027e0f64 {
