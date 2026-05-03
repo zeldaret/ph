@@ -232,11 +232,11 @@ static ModelRender *sShip2Model;
 
 extern "C" s32 func_ov000_020bd728(FileEntry *, FileEntry *, unk32, unk32);
 extern "C" s32 *func_0201e24c(s32, const char *);
-// non-matching
 ARM static ModelRender *func_ov031_0217dfec(FileEntry *param_1, FileEntry *param_2, const char *param_3) {
-    s32 temp_r0 = func_ov000_020bd728(param_1, param_2, 1, 0);
-    s32 temp_r4 = *func_0201e24c(temp_r0 + 8, param_3);
-    return new(data_027e0ce0[1], 4) ModelRender((ItemModel *) (temp_r0 + temp_r4));
+    s32 temp_r0    = func_ov000_020bd728(param_1, param_2, 1, 0);
+    s32 temp_r4    = *func_0201e24c(temp_r0 + 8, param_3);
+    ItemModel *ptr = (ItemModel *) (temp_r0 + temp_r4);
+    return new(data_027e0ce0[1], 4) ModelRender(ptr);
 }
 
 ARM static void func_ov031_0217e040() {
