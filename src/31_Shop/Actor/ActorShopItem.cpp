@@ -846,178 +846,178 @@ struct UnkStruct_ov031_02183e84 {
     /* 474 */
 };
 extern UnkStruct_ov031_02183e84 *func_ov031_0217cf1c();
-ARM unk32 ActorShopItem::func_ov031_0217f868() {
+ARM unk32 ActorShopItem::GetSoldOutMessageId() {
     if (func_ov031_0217cf1c()->mUnk_470 == 2) {
-        return 0x140057;
+        return BMG_ID(BMG_FILE_INDEX_FIELD, 0x57);
     } else {
-        return 0x1100ff;
+        return BMG_ID(BMG_FILE_INDEX_SHIP, 0xff);
     }
 }
 
-ARM unk32 ActorShopItemDM::vfunc_bc() {
+ARM unk32 ActorShopItemDM::GetMessageId() {
     return 0;
 }
 
-ARM unk32 ActorShopItemSoldOut::vfunc_bc() {
-    return ActorShopItem::func_ov031_0217f868();
+ARM unk32 ActorShopItemSoldOut::GetMessageId() {
+    return ActorShopItem::GetSoldOutMessageId();
 }
 
-ARM unk32 ActorShopItemHeartContainer::vfunc_bc() {
+ARM unk32 ActorShopItemHeartContainer::GetMessageId() {
     if (func_ov031_0217cf1c()->mUnk_470 == 2) {
-        return 0x140044;
+        return BMG_ID(BMG_FILE_INDEX_FIELD, 0x44);
     } else {
-        return 0x11008e;
+        return BMG_ID(BMG_FILE_INDEX_SHIP, 0x8e);
     }
 }
 
-ARM unk32 ActorShopItemArrows::vfunc_bc() {
-    return 0x140047;
+ARM unk32 ActorShopItemArrows::GetMessageId() {
+    return BMG_ID(BMG_FILE_INDEX_FIELD, 0x47);
 }
 
-ARM unk32 ActorShopItemQuiver::vfunc_bc() {
-    return 0x140043;
+ARM unk32 ActorShopItemQuiver::GetMessageId() {
+    return BMG_ID(BMG_FILE_INDEX_FIELD, 0x43);
 }
 
-ARM unk32 ActorShopItemBombs::vfunc_bc() {
-    return 0x140042;
+ARM unk32 ActorShopItemBombs::GetMessageId() {
+    return BMG_ID(BMG_FILE_INDEX_FIELD, 0x42);
 }
 
-extern "C" bool func_ov031_0217ce90();
-ARM unk32 ActorShopItemBombBag::vfunc_bc() {
+extern "C" bool HasFreebieCard();
+ARM unk32 ActorShopItemBombBag::GetMessageId() {
     unk32 unk = func_ov031_0217cf1c()->mUnk_470;
     if (unk == 2) {
-        return 0x140048;
-    } else if (func_ov031_0217ce90()) {
-        return 0x11012d;
+        return BMG_ID(BMG_FILE_INDEX_FIELD, 0x48);
+    } else if (HasFreebieCard()) {
+        return BMG_ID(BMG_FILE_INDEX_SHIP, 0x12d);
     } else {
-        return 0x1100f8;
+        return BMG_ID(BMG_FILE_INDEX_SHIP, 0xf8);
     }
 }
 
-ARM unk32 ActorShopItemBombchus::vfunc_bc() {
-    return 0x140045;
+ARM unk32 ActorShopItemBombchus::GetMessageId() {
+    return BMG_ID(BMG_FILE_INDEX_FIELD, 0x45);
 }
 
-ARM unk32 ActorShopItemBombchuBag::vfunc_bc() {
+ARM unk32 ActorShopItemBombchuBag::GetMessageId() {
     switch (func_ov031_0217cf1c()->mUnk_470) {
         case 2:
-            return 0x140049;
+            return BMG_ID(BMG_FILE_INDEX_FIELD, 0x49);
         case 1:
-            return 0x11008e;
+            return BMG_ID(BMG_FILE_INDEX_SHIP, 0x8e);
         case 0:
         default:
-            return 0x1100f8;
+            return BMG_ID(BMG_FILE_INDEX_SHIP, 0xf8);
     }
 }
 
-ARM unk32 ActorShopItemShipPart::vfunc_bc() {
+ARM unk32 ActorShopItemShipPart::GetMessageId() {
     switch (func_ov031_0217cf1c()->mUnk_470) {
         case 2:
-            return 0x140046;
+            return BMG_ID(BMG_FILE_INDEX_FIELD, 0x46);
         case 0:
-            if (func_ov031_0217ce90()) {
+            if (HasFreebieCard()) {
                 if (mUnk_180 == 0) {
-                    return 0x11012e;
+                    return BMG_ID(BMG_FILE_INDEX_SHIP, 0x12e);
                 } else {
-                    return 0x11012f;
+                    return BMG_ID(BMG_FILE_INDEX_SHIP, 0x12f);
                 }
             } else if (mUnk_180 == 0) {
-                return 0x1100f9;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0xf9);
             } else {
-                return 0x1100fa;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0xfa);
             }
         case 1:
             if (mUnk_180 == 0) {
-                return 0x11008f;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0x8f);
             } else {
-                return 0x110090;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0x90);
             }
         default:
-            return 0x1100f9;
+            return BMG_ID(BMG_FILE_INDEX_SHIP, 0xf9);
     }
 }
 
-ARM unk32 ActorShopItemTreasure::vfunc_bc() {
+ARM unk32 ActorShopItemTreasure::GetMessageId() {
     switch (func_ov031_0217cf1c()->mUnk_470) {
         case 2:
-            return 0x14004a;
+            return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4a);
         case 0:
-            if (func_ov031_0217ce90()) {
+            if (HasFreebieCard()) {
                 if (mUnk_17c == 0) {
-                    return 0x110130;
+                    return BMG_ID(BMG_FILE_INDEX_SHIP, 0x130);
                 } else {
-                    return 0x110131;
+                    return BMG_ID(BMG_FILE_INDEX_SHIP, 0x131);
                 }
             } else if (mUnk_17c == 0) {
-                return 0x1100fb;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0xfb);
             } else {
-                return 0x1100fc;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0xfc);
             }
         case 1:
             if (mUnk_17c == 0) {
-                return 0x110091;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0x91);
             } else {
-                return 0x110092;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0x92);
             }
         default:
-            return 0x1100fb;
+            return BMG_ID(BMG_FILE_INDEX_SHIP, 0xfb);
     }
 }
 
-ARM unk32 ActorShopItemGem::vfunc_bc() {
+ARM unk32 ActorShopItemGem::GetMessageId() {
     switch (func_ov031_0217cf1c()->mUnk_470) {
         case 2:
-            return 0x14004b;
+            return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4b);
         case 0:
-            if (func_ov031_0217ce90()) {
-                return 0x110132;
+            if (HasFreebieCard()) {
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0x132);
             } else {
-                return 0x1100fd;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0xfd);
             }
         case 1:
-            return 0x110093;
+            return BMG_ID(BMG_FILE_INDEX_SHIP, 0x93);
         default:
-            return 0x1100fd;
+            return BMG_ID(BMG_FILE_INDEX_SHIP, 0xfd);
     }
 }
 
-ARM unk32 ActorShopItemShield::vfunc_bc() {
-    return 0x14004c;
+ARM unk32 ActorShopItemShield::GetMessageId() {
+    return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4c);
 }
 
-ARM unk32 ActorShopItemPotion::vfunc_bc() {
+ARM unk32 ActorShopItemPotion::GetMessageId() {
     int iVar1;
 
     if (func_ov031_0217cf1c()->mUnk_470 == 2) {
         switch (mShopItemId) {
             case ShopItem_RedPotion:
-                return 0x14004d;
+                return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4d);
             case ShopItem_PurplePotion:
-                return 0x14004e;
+                return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4e);
             case ShopItem_YellowPotion:
-                return 0x14004f;
+                return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4f);
         }
     } else {
-        if (func_ov031_0217ce90()) {
+        if (HasFreebieCard()) {
             switch (mShopItemId) {
                 case ShopItem_RedPotion:
-                    return 0x11010f;
+                    return BMG_ID(BMG_FILE_INDEX_SHIP, 0x10f);
                 case ShopItem_PurplePotion:
-                    return 0x110110;
+                    return BMG_ID(BMG_FILE_INDEX_SHIP, 0x110);
                 case ShopItem_YellowPotion:
-                    return 0x110111;
+                    return BMG_ID(BMG_FILE_INDEX_SHIP, 0x111);
             }
         }
         switch (mShopItemId) {
             case ShopItem_RedPotion:
-                return 0x11010c;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0x10c);
             case ShopItem_PurplePotion:
-                return 0x11010d;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0x10d);
             case ShopItem_YellowPotion:
-                return 0x11010e;
+                return BMG_ID(BMG_FILE_INDEX_SHIP, 0x10e);
         }
     }
-    return 0x14004d;
+    return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4d);
 }
 
 ARM s32 ActorShopItem::GetPrice() {

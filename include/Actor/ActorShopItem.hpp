@@ -79,7 +79,7 @@ public:
     /* 08 */ virtual bool Init() override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
-    /* bc */ virtual unk32 vfunc_bc() = 0;
+    /* bc */ virtual unk32 GetMessageId() = 0;
     /* c0 */ virtual unk32 vfunc_c0();
     /* c4 */ virtual void vfunc_c4();
     /* c8 */ virtual void vfunc_c8();
@@ -95,7 +95,7 @@ public:
 
     void func_ov031_0217f0b4();
     void func_ov031_0217f120();
-    unk32 func_ov031_0217f868();
+    unk32 GetSoldOutMessageId();
 };
 
 class ActorShopItemDM : public ActorShopItem {
@@ -108,7 +108,7 @@ public:
     /* 00 */ virtual ~ActorShopItemDM() override;
     /* 08 */ virtual bool Init() override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* d4 */ virtual void vfunc_d4() override;
     /* e4 */
@@ -125,7 +125,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemSoldOut() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* d4 */ virtual void vfunc_d4() override;
     /* e4 */
@@ -142,7 +142,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemHeartContainer() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* d4 */ virtual void vfunc_d4() override;
@@ -161,7 +161,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemArrows() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e4 */
@@ -178,7 +178,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemBombs() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e4 */
@@ -195,7 +195,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemBombchus() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e4 */
@@ -212,7 +212,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemQuiver() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e4 */
@@ -229,7 +229,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemBombBag() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e4 */
@@ -246,7 +246,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemBombchuBag() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e4 */
@@ -282,7 +282,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemTreasure() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* d4 */ virtual void vfunc_d4() override;
@@ -309,7 +309,7 @@ public:
     /* 08 */ virtual bool Init() override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* d4 */ virtual void vfunc_d4() override;
@@ -332,7 +332,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemGem() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e4 */
@@ -349,7 +349,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemShield() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e4 */
@@ -366,7 +366,7 @@ public:
 
     /* 00 */ virtual ~ActorShopItemPotion() override;
     /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 vfunc_bc() override;
+    /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
     /* e0 */ virtual s32 GetPrice() override;
