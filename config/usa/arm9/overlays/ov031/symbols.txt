@@ -290,14 +290,10 @@ func_ov031_0218186c kind:function(arm,size=0x1c) addr:0x021817cc
 func_ov031_02181888 kind:function(arm,size=0x14) addr:0x021817e8
 func_ov031_0218189c kind:function(arm,size=0x4) addr:0x021817fc
 data_ov031_021818a0 kind:data(any) addr:0x02181800
-data_ov031_021818e8 kind:data(any) addr:0x02181848
-@1265 kind:data(any) addr:0x02181858 local
-data_ov031_021819e8 kind:data(any) addr:0x02181948
-data_ov031_02181a08 kind:data(any) addr:0x02181968
-data_ov031_02181a18 kind:data(any) addr:0x02181978
-data_ov031_02181a28 kind:data(any) addr:0x02181988
-data_ov031_02181a38 kind:data(any) addr:0x02181998
-data_ov031_02181a48 kind:data(any) addr:0x021819a8
+sShopItemBaseNames kind:data(any) addr:0x02181848
+unk$1534 kind:data(any) addr:0x021819b8 local
+unk$1554 kind:data(any) addr:0x021819cc local
+@2460 kind:data(any) addr:0x021819e0 local
 data_ov031_02181a88 kind:data(any) addr:0x021819e8
 data_ov031_02181a94 kind:data(any) addr:0x021819f4
 data_ov031_02181abc kind:data(any) addr:0x02181a1c
@@ -332,14 +328,14 @@ data_ov031_0218213c kind:data(any) addr:0x0218209c
 data_ov031_02182140 kind:data(any) addr:0x021820a0
 data_ov031_02182144 kind:data(any) addr:0x021820a4
 data_ov031_02182170 kind:data(any) addr:0x021820d0
-data_ov031_02182290 kind:data(any) addr:0x021821f0
-data_ov031_02182294 kind:data(any) addr:0x021821f4
-data_ov031_02182298 kind:data(any) addr:0x021821f8
-data_ov031_0218229c kind:data(any) addr:0x021821fc
-data_ov031_021822a0 kind:data(any) addr:0x02182200
-data_ov031_021822a4 kind:data(any) addr:0x02182204
-data_ov031_021822a8 kind:data(any) addr:0x02182208
-data_ov031_021822ac kind:data(any) addr:0x0218220c
+@1183 kind:data(any) addr:0x021821f0 local
+@1184 kind:data(any) addr:0x021821f4 local
+@1185 kind:data(any) addr:0x021821f8 local
+@1186 kind:data(any) addr:0x021821fc local
+@1187 kind:data(any) addr:0x02182200 local
+@1188 kind:data(any) addr:0x02182204 local
+@1189 kind:data(any) addr:0x02182208 local
+@1190 kind:data(any) addr:0x0218220c local
 sShipTypes kind:data(any) addr:0x02182210 local
 sShopItemPrices kind:data(any) addr:0x02182230
 sShopItemModelPaths kind:data(any) addr:0x02182278
@@ -351,8 +347,8 @@ _ZTV16ActorShopItemUnk kind:data(any) addr:0x0218256c
 _ZTV19ActorShopItemPotion kind:data(any) addr:0x02182630
 _ZTV19ActorShopItemShield kind:data(any) addr:0x0218271c
 _ZTV16ActorShopItemGem kind:data(any) addr:0x02182808
-data_ov031_0218299c kind:data(any) addr:0x021828fc
-data_ov031_02182a88 kind:data(any) addr:0x021829e8
+_ZTV21ActorShopItemTreasure kind:data(any) addr:0x021828f4
+_ZTV21ActorShopItemShipPart kind:data(any) addr:0x021829e0
 _ZTV23ActorShopItemBombchuBag kind:data(any) addr:0x02182acc
 _ZTV21ActorShopItemBombchus kind:data(any) addr:0x02182bb8
 _ZTV20ActorShopItemBombBag kind:data(any) addr:0x02182ca4
@@ -364,48 +360,48 @@ _ZTV20ActorShopItemSoldOut kind:data(any) addr:0x02183140
 _ZTV15ActorShopItemDM kind:data(any) addr:0x0218322c
 _ZTV13ActorShopItem kind:data(any) addr:0x02183318
 _ZTV17ActorShopItemBase kind:data(any) addr:0x02183404
-data_ov031_02183568 kind:data(any) addr:0x021834c8
-data_ov031_02183584 kind:data(any) addr:0x021834e4
-data_ov031_021835a0 kind:data(any) addr:0x02183500
-data_ov031_021835bc kind:data(any) addr:0x0218351c
-data_ov031_021835dc kind:data(any) addr:0x0218353c
-data_ov031_021835f8 kind:data(any) addr:0x02183558
-data_ov031_02183618 kind:data(any) addr:0x02183578
-data_ov031_02183634 kind:data(any) addr:0x02183594
-data_ov031_02183654 kind:data(any) addr:0x021835b4
-data_ov031_02183670 kind:data(any) addr:0x021835d0
-data_ov031_0218368c kind:data(any) addr:0x021835ec
-data_ov031_021836a8 kind:data(any) addr:0x02183608
-data_ov031_021836c4 kind:data(any) addr:0x02183624
-data_ov031_021836e0 kind:data(any) addr:0x02183640
-data_ov031_021836fc kind:data(any) addr:0x0218365c
-data_ov031_02183714 kind:data(any) addr:0x02183674
-data_ov031_02183730 kind:data(any) addr:0x02183690
-data_ov031_02183750 kind:data(any) addr:0x021836b0
-data_ov031_02183770 kind:data(any) addr:0x021836d0
-data_ov031_0218378c kind:data(any) addr:0x021836ec
-data_ov031_021837ac kind:data(any) addr:0x0218370c
-data_ov031_021837c8 kind:data(any) addr:0x02183728
-data_ov031_021837e4 kind:data(any) addr:0x02183744
-data_ov031_02183800 kind:data(any) addr:0x02183760
-data_ov031_0218381c kind:data(any) addr:0x0218377c
-data_ov031_0218383c kind:data(any) addr:0x0218379c
-data_ov031_02183858 kind:data(any) addr:0x021837b8
-data_ov031_02183878 kind:data(any) addr:0x021837d8
-data_ov031_02183894 kind:data(any) addr:0x021837f4
-data_ov031_021838b4 kind:data(any) addr:0x02183814
-data_ov031_021838d0 kind:data(any) addr:0x02183830
-data_ov031_021838ec kind:data(any) addr:0x0218384c
-data_ov031_02183908 kind:data(any) addr:0x02183868
-data_ov031_02183924 kind:data(any) addr:0x02183884
-data_ov031_02183940 kind:data(any) addr:0x021838a0
-data_ov031_0218395c kind:data(any) addr:0x021838bc
-data_ov031_02183974 kind:data(any) addr:0x021838d4
-data_ov031_02183990 kind:data(any) addr:0x021838f0
-data_ov031_021839b0 kind:data(any) addr:0x02183910
-data_ov031_021839d0 kind:data(any) addr:0x02183930
-data_ov031_021839ec kind:data(any) addr:0x0218394c
-data_ov031_02183a0c kind:data(any) addr:0x0218396c
+@1266 kind:data(any) addr:0x021834c8 local
+@1267 kind:data(any) addr:0x021834e4 local
+@1268 kind:data(any) addr:0x02183500 local
+@1269 kind:data(any) addr:0x0218351c local
+@1270 kind:data(any) addr:0x0218353c local
+@1271 kind:data(any) addr:0x02183558 local
+@1272 kind:data(any) addr:0x02183578 local
+@1273 kind:data(any) addr:0x02183594 local
+@1274 kind:data(any) addr:0x021835b4 local
+@1275 kind:data(any) addr:0x021835d0 local
+@1276 kind:data(any) addr:0x021835ec local
+@1277 kind:data(any) addr:0x02183608 local
+@1278 kind:data(any) addr:0x02183624 local
+@1279 kind:data(any) addr:0x02183640 local
+@1280 kind:data(any) addr:0x0218365c local
+@1281 kind:data(any) addr:0x02183674 local
+@1282 kind:data(any) addr:0x02183690 local
+@1283 kind:data(any) addr:0x021836b0 local
+@1284 kind:data(any) addr:0x021836d0 local
+@1285 kind:data(any) addr:0x021836ec local
+@1286 kind:data(any) addr:0x0218370c local
+@1287 kind:data(any) addr:0x02183728 local
+@1288 kind:data(any) addr:0x02183744 local
+@1289 kind:data(any) addr:0x02183760 local
+@1290 kind:data(any) addr:0x0218377c local
+@1291 kind:data(any) addr:0x0218379c local
+@1292 kind:data(any) addr:0x021837b8 local
+@1293 kind:data(any) addr:0x021837d8 local
+@1294 kind:data(any) addr:0x021837f4 local
+@1295 kind:data(any) addr:0x02183814 local
+@1296 kind:data(any) addr:0x02183830 local
+@1297 kind:data(any) addr:0x0218384c local
+@1298 kind:data(any) addr:0x02183868 local
+@1299 kind:data(any) addr:0x02183884 local
+@1300 kind:data(any) addr:0x021838a0 local
+@1301 kind:data(any) addr:0x021838bc local
+@1302 kind:data(any) addr:0x021838d4 local
+@1303 kind:data(any) addr:0x021838f0 local
+@1304 kind:data(any) addr:0x02183910 local
+@1305 kind:data(any) addr:0x02183930 local
+@1306 kind:data(any) addr:0x0218394c local
+@1307 kind:data(any) addr:0x0218396c local
 @1261 kind:data(any) addr:0x02183988 local
 @1262 kind:data(any) addr:0x021839a4 local
 @1263 kind:data(any) addr:0x021839c0 local
@@ -467,8 +463,15 @@ _ZN15ActorShopItemBK5gTypeE kind:bss addr:0x02183fb4
 _ZN15ActorShopItemCC5gTypeE kind:bss addr:0x02183fd4
 @824 kind:bss addr:0x02183fe8
 _ZN15ActorShopItemBY5gTypeE kind:bss addr:0x02183ff4
-sShopItemModelFiles kind:bss addr:0x02184008
-sShopItemTextureFiles kind:bss addr:0x02184050
+sShopItemModelFiles kind:bss addr:0x02184008 local
+sShopItemTextureFiles kind:bss addr:0x02184050 local
+sShopItemShipModelFile kind:bss addr:0x02184098 local
+sShopItemShipTextureFile kind:bss addr:0x0218409c local
+sShopItemShip2ModelFile kind:bss addr:0x021840a0 local
+sShopItemShip2TextureFile kind:bss addr:0x021840a4 local
+sSoldOutModel kind:bss addr:0x021840a8 local
+sShipModel kind:bss addr:0x021840ac local
+sShip2Model kind:bss addr:0x021840b0 local
 data_ov031_02184154 kind:bss addr:0x021840b4
 data_ov031_02184160 kind:bss addr:0x021840c0
 data_ov031_02184174 kind:bss addr:0x021840d4

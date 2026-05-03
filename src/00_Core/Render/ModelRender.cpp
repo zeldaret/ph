@@ -9,7 +9,6 @@ extern "C" void UnkInit_ModelRender_Struct4_Params(G3d_RenderObject *unkStruct4,
 extern "C" void CopySingle288(Mat3p *src, Mat3p *dest);
 extern "C" void SetGeometryScale(Vec3p *scale);
 extern "C" void SetGeometryTranslation(Vec3p *translation);
-extern "C" void PushGeometryCommand(u32 command, void *data, s32 length);
 extern "C" void func_ov000_020c0d70(UnkStruct_ov000_020c0c08 *param1, G3d_RenderObject *param2);
 extern "C" void func_ov000_020b3ea8(void *param1);
 extern "C" unk32 func_0201e388(void *param1, const char *param2);
@@ -20,7 +19,6 @@ extern "C" Vec3p gGeomScale;
 extern "C" const Mat4x3p *data_027e03c8;
 extern "C" Vec3p gDefaultScale;
 extern "C" Mat3p gDefaultMatrix;
-extern "C" u32 *data_027e0ce0[];
 
 THUMB ModelRender::ModelRender(ItemModel *itemModel) {
     this->unkBoneMatrixArray2 = NULL;
@@ -34,7 +32,7 @@ THUMB ModelRender::~ModelRender() {
     func_ov000_020b3ea8(this);
 }
 
-ARM void *ModelRender::GetLcdcAddress() {
+ARM void *ModelRender::GetLcdcAddress() const {
     return renderObj.model;
 }
 

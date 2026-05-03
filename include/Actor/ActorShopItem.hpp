@@ -35,9 +35,9 @@ enum ShopItem_ {
     ShopItem_LargeQuiver         = 19,
     ShopItem_LargeBombchuBag     = 20,
     ShopItem_COUNT_WITH_UPGRADES = ShopItem_LargeBombchuBag + 1,
-    ShopItem_21                  = 21,
-    ShopItem_22                  = 22,
-    ShopItem_FULL_COUNT          = ShopItem_22 + 1,
+    ShopItem_Ship                = 21,
+    ShopItem_Ship2               = 22,
+    ShopItem_FULL_COUNT          = ShopItem_Ship2 + 1,
 };
 
 class ActorShopItemBase : public Actor {
@@ -145,7 +145,6 @@ public:
     /* bc */ virtual unk32 GetMessageId() override;
     /* c4 */ virtual void vfunc_c4() override;
     /* d0 */ virtual bool vfunc_d0() override;
-    /* d4 */ virtual void vfunc_d4() override;
     /* e0 */ virtual s32 GetPrice() override;
     /* e4 */
 
@@ -169,40 +168,6 @@ public:
     static ActorShopItemArrows *Create();
 };
 
-class ActorShopItemBombs : public ActorShopItem {
-public:
-    static ActorType gType;
-
-    /* 000 (base) */
-    /* 178 */
-
-    /* 00 */ virtual ~ActorShopItemBombs() override;
-    /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 GetMessageId() override;
-    /* c4 */ virtual void vfunc_c4() override;
-    /* d0 */ virtual bool vfunc_d0() override;
-    /* e4 */
-
-    static ActorShopItemBombs *Create();
-};
-
-class ActorShopItemBombchus : public ActorShopItem {
-public:
-    static ActorType gType;
-
-    /* 000 (base) */
-    /* 178 */
-
-    /* 00 */ virtual ~ActorShopItemBombchus() override;
-    /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 GetMessageId() override;
-    /* c4 */ virtual void vfunc_c4() override;
-    /* d0 */ virtual bool vfunc_d0() override;
-    /* e4 */
-
-    static ActorShopItemBombchus *Create();
-};
-
 class ActorShopItemQuiver : public ActorShopItem {
 public:
     static ActorType gType;
@@ -220,6 +185,23 @@ public:
     static ActorShopItemQuiver *Create();
 };
 
+class ActorShopItemBombs : public ActorShopItem {
+public:
+    static ActorType gType;
+
+    /* 000 (base) */
+    /* 178 */
+
+    /* 00 */ virtual ~ActorShopItemBombs() override;
+    /* 08 */ virtual bool Init() override;
+    /* bc */ virtual unk32 GetMessageId() override;
+    /* c4 */ virtual void vfunc_c4() override;
+    /* d0 */ virtual bool vfunc_d0() override;
+    /* e4 */
+
+    static ActorShopItemBombs *Create();
+};
+
 class ActorShopItemBombBag : public ActorShopItem {
 public:
     static ActorType gType;
@@ -235,6 +217,23 @@ public:
     /* e4 */
 
     static ActorShopItemBombBag *Create();
+};
+
+class ActorShopItemBombchus : public ActorShopItem {
+public:
+    static ActorType gType;
+
+    /* 000 (base) */
+    /* 178 */
+
+    /* 00 */ virtual ~ActorShopItemBombchus() override;
+    /* 08 */ virtual bool Init() override;
+    /* bc */ virtual unk32 GetMessageId() override;
+    /* c4 */ virtual void vfunc_c4() override;
+    /* d0 */ virtual bool vfunc_d0() override;
+    /* e4 */
+
+    static ActorShopItemBombchus *Create();
 };
 
 class ActorShopItemBombchuBag : public ActorShopItem {
@@ -269,30 +268,9 @@ struct ActorShopItemCollectable_Unk1 : public SysObject {
     /* 28 */
 
     ActorShopItemCollectable_Unk1();
-};
+    ~ActorShopItemCollectable_Unk1();
 
-class ActorShopItemTreasure : public ActorShopItem {
-public:
-    static ActorType gType;
-
-    /* 000 (base) */
-    /* 178 */ ActorShopItemCollectable_Unk1 *mUnk_178;
-    /* 17c */ unk32 mUnk_17c;
-    /* 180 */
-
-    /* 00 */ virtual ~ActorShopItemTreasure() override;
-    /* 08 */ virtual bool Init() override;
-    /* bc */ virtual unk32 GetMessageId() override;
-    /* c4 */ virtual void vfunc_c4() override;
-    /* d0 */ virtual bool vfunc_d0() override;
-    /* d4 */ virtual void vfunc_d4() override;
-    /* e0 */ virtual s32 GetPrice() override;
-    /* e4 */
-
-    static ActorShopItemTreasure *Create();
-    ActorShopItemTreasure();
-
-    unk32 func_ov031_02180278();
+    void func_ov000_02079f5c(unk32, unk32, unk32, unk32, u8, unk32);
 };
 
 class ActorShopItemShipPart : public ActorShopItem {
@@ -321,6 +299,30 @@ public:
 
     unk32 func_ov031_02180248();
     unk32 func_ov031_02180260();
+};
+
+class ActorShopItemTreasure : public ActorShopItem {
+public:
+    static ActorType gType;
+
+    /* 000 (base) */
+    /* 178 */ ActorShopItemCollectable_Unk1 *mUnk_178;
+    /* 17c */ unk32 mUnk_17c;
+    /* 180 */
+
+    /* 00 */ virtual ~ActorShopItemTreasure() override;
+    /* 08 */ virtual bool Init() override;
+    /* bc */ virtual unk32 GetMessageId() override;
+    /* c4 */ virtual void vfunc_c4() override;
+    /* d0 */ virtual bool vfunc_d0() override;
+    /* d4 */ virtual void vfunc_d4() override;
+    /* e0 */ virtual s32 GetPrice() override;
+    /* e4 */
+
+    static ActorShopItemTreasure *Create();
+    ActorShopItemTreasure();
+
+    unk32 func_ov031_02180278();
 };
 
 class ActorShopItemGem : public ActorShopItem {
@@ -385,7 +387,10 @@ public:
     /* 00 */ virtual ~ActorShopItemUnk();
     /* 08 */ virtual bool Init() override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
+    /* 1c */ virtual void vfunc_1c(u16 *param1) override = 0;
     /* 20 */ virtual void vfunc_20(bool param1) override;
+    /* b4 */ virtual bool vfunc_b4() override = 0;
+    /* b8 */ virtual bool vfunc_b8() override = 0;
     /* bc */
 
     ActorShopItemUnk();

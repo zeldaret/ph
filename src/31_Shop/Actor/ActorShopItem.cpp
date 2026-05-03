@@ -16,121 +16,6 @@
 #include "nds/math.h"
 #include "types.h"
 
-static char *sShipTypes[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
-
-ActorType ActorShopItemDM::gType = ActorType(ActorTypeId_ShopItemDM, (ActorCreateFunc) ActorShopItemDM::Create, NULL);
-ActorType ActorShopItemSoldOut::gType =
-    ActorType(ActorTypeId_ShopItemSoldOut, (ActorCreateFunc) ActorShopItemSoldOut::Create, NULL);
-ActorType ActorShopItemHeartContainer::gType =
-    ActorType(ActorTypeId_ShopItemHeartContainer, (ActorCreateFunc) ActorShopItemHeartContainer::Create, NULL);
-ActorType ActorShopItemArrows::gType =
-    ActorType(ActorTypeId_ShopItemArrows, (ActorCreateFunc) ActorShopItemArrows::Create, NULL);
-ActorType ActorShopItemBombs::gType = ActorType(ActorTypeId_ShopItemBombs, (ActorCreateFunc) ActorShopItemBombs::Create, NULL);
-ActorType ActorShopItemBombchus::gType =
-    ActorType(ActorTypeId_ShopItemBombchus, (ActorCreateFunc) ActorShopItemBombchus::Create, NULL);
-ActorType ActorShopItemQuiver::gType =
-    ActorType(ActorTypeId_ShopItemQuiver, (ActorCreateFunc) ActorShopItemQuiver::Create, NULL);
-ActorType ActorShopItemBombBag::gType =
-    ActorType(ActorTypeId_ShopItemBombBag, (ActorCreateFunc) ActorShopItemBombBag::Create, NULL);
-ActorType ActorShopItemBombchuBag::gType =
-    ActorType(ActorTypeId_ShopItemBombchuBag, (ActorCreateFunc) ActorShopItemBombchuBag::Create, NULL);
-ActorType ActorShopItemTreasure::gType =
-    ActorType(ActorTypeId_ShopItemTreasure, (ActorCreateFunc) ActorShopItemTreasure::Create, NULL);
-ActorType ActorShopItemShipPart::gType =
-    ActorType(ActorTypeId_ShopItemShipPart, (ActorCreateFunc) ActorShopItemShipPart::Create, NULL);
-ActorType ActorShopItemGem::gType = ActorType(ActorTypeId_ShopItemGem, (ActorCreateFunc) ActorShopItemGem::Create, NULL);
-ActorType ActorShopItemShield::gType =
-    ActorType(ActorTypeId_ShopItemShield, (ActorCreateFunc) ActorShopItemShield::Create, NULL);
-ActorType ActorShopItemPotion::gType =
-    ActorType(ActorTypeId_ShopItemPotion, (ActorCreateFunc) ActorShopItemPotion::Create, NULL);
-ActorType ActorShopItemBK::gType = ActorType(ActorTypeId_ShopItemBK, (ActorCreateFunc) ActorShopItemBK::Create, NULL);
-ActorType ActorShopItemCC::gType = ActorType(ActorTypeId_ShopItemCC, (ActorCreateFunc) ActorShopItemCC::Create, NULL);
-ActorType ActorShopItemBY::gType = ActorType(ActorTypeId_ShopItemBY, (ActorCreateFunc) ActorShopItemBY::Create, NULL);
-
-struct ShopItemPrice {
-    u32 price;
-    ShopItemPrice(u32 price) :
-        price(price) {}
-};
-static ShopItemPrice sShopItemPrices[ShopItem_BASE_COUNT] = {
-    ShopItemPrice(0),    // ShopItem_Test
-    ShopItemPrice(0),    // ShopItem_SoldOut
-    ShopItemPrice(50),   // ShopItem_Bombs
-    ShopItemPrice(50),   // ShopItem_Arrows
-    ShopItemPrice(50),   // ShopItem_Bombchus
-    ShopItemPrice(2000), // ShopItem_HeartContainer
-    ShopItemPrice(1000), // ShopItem_BombBag
-    ShopItemPrice(1000), // ShopItem_Quiver
-    ShopItemPrice(1000), // ShopItem_BombchuBag
-    ShopItemPrice(500),  // ShopItem_ShipPart
-    ShopItemPrice(500),  // ShopItem_Treasure
-    ShopItemPrice(500),  // ShopItem_PowerGem
-    ShopItemPrice(500),  // ShopItem_WisdomGem
-    ShopItemPrice(500),  // ShopItem_CourageGem
-    ShopItemPrice(80),   // ShopItem_Shield
-    ShopItemPrice(50),   // ShopItem_RedPotion
-    ShopItemPrice(150),  // ShopItem_PurplePotion
-    ShopItemPrice(150),  // ShopItem_YellowPotion
-};
-
-static const char *sShopItemModelPaths[ShopItem_COUNT_WITH_UPGRADES] = {
-    [ShopItem_Test]            = "Player/get/gd_test.nsbmd",
-    [ShopItem_SoldOut]         = "Player/get/soldboard.nsbmd",
-    [ShopItem_Bombs]           = "Player/get/gd_bmset.nsbmd",
-    [ShopItem_Arrows]          = "Player/get/gd_arrowset.nsbmd",
-    [ShopItem_Bombchus]        = "Player/get/gd_bomchu.nsbmd",
-    [ShopItem_HeartContainer]  = "Player/get/gd_heart_utu.nsbmd",
-    [ShopItem_BombBag]         = "Player/get/gd_bmbagM.nsbmd",
-    [ShopItem_Quiver]          = "Player/get/gd_arrowpod.nsbmd",
-    [ShopItem_BombchuBag]      = "Player/get/gd_bcbagM.nsbmd",
-    [ShopItem_ShipPart]        = "Player/get/gd_ship.nsbmd",
-    [ShopItem_Treasure]        = "Player/get/gd_test.nsbmd",
-    [ShopItem_PowerGem]        = "Player/get/gd_minaY.nsbmd",
-    [ShopItem_WisdomGem]       = "Player/get/gd_minaP.nsbmd",
-    [ShopItem_CourageGem]      = "Player/get/gd_minaC.nsbmd",
-    [ShopItem_Shield]          = "Player/get/gd_shA.nsbmd",
-    [ShopItem_RedPotion]       = "Player/get/gd_rev_bin.nsbmd",
-    [ShopItem_PurplePotion]    = "Player/get/gd_rev_binP.nsbmd",
-    [ShopItem_YellowPotion]    = "Player/get/gd_rev_binY.nsbmd",
-    [ShopItem_LargeBombBag]    = "Player/get/gd_bmbagL.nsbmd",
-    [ShopItem_LargeQuiver]     = "Player/get/gd_arrowpodL.nsbmd",
-    [ShopItem_LargeBombchuBag] = "Player/get/gd_bcbagL.nsbmd",
-};
-
-static const char *sShopItemTexturePaths[ShopItem_COUNT_WITH_UPGRADES] = {
-    [ShopItem_Test]            = "Player/get/gd_test.nsbtx",
-    [ShopItem_SoldOut]         = "Player/get/soldboard.nsbtx",
-    [ShopItem_Bombs]           = "Player/get/gd_bmset.nsbtx",
-    [ShopItem_Arrows]          = "Player/get/gd_arrowset.nsbtx",
-    [ShopItem_Bombchus]        = "Player/get/gd_bomchu.nsbtx",
-    [ShopItem_HeartContainer]  = "Player/get/gd_heart_utu.nsbtx",
-    [ShopItem_BombBag]         = "Player/get/gd_bmbagM.nsbtx",
-    [ShopItem_Quiver]          = "Player/get/gd_arrowpod.nsbtx",
-    [ShopItem_BombchuBag]      = "Player/get/gd_bcbagM.nsbtx",
-    [ShopItem_ShipPart]        = "Player/get/gd_ship.nsbtx",
-    [ShopItem_Treasure]        = "Player/get/gd_test.nsbtx",
-    [ShopItem_PowerGem]        = "Player/get/gd_minaY.nsbtx",
-    [ShopItem_WisdomGem]       = "Player/get/gd_minaP.nsbtx",
-    [ShopItem_CourageGem]      = "Player/get/gd_minaC.nsbtx",
-    [ShopItem_Shield]          = "Player/get/gd_shA.nsbtx",
-    [ShopItem_RedPotion]       = "Player/get/gd_rev_bin.nsbtx",
-    [ShopItem_PurplePotion]    = "Player/get/gd_rev_binP.nsbtx",
-    [ShopItem_YellowPotion]    = "Player/get/gd_rev_binY.nsbtx",
-    [ShopItem_LargeBombBag]    = "Player/get/gd_bmbagL.nsbtx",
-    [ShopItem_LargeQuiver]     = "Player/get/gd_arrowpodL.nsbtx",
-    [ShopItem_LargeBombchuBag] = "Player/get/gd_bcbagL.nsbtx",
-};
-
-static FileEntryFlag *sShopItemModelFiles[ShopItem_BASE_COUNT];
-static FileEntryFlag *sShopItemTextureFiles[ShopItem_BASE_COUNT];
-static FileEntryFlag *sShopItemShipModelFile;
-static FileEntryFlag *sShopItemShipTextureFile;
-static FileEntryFlag *sShopItemShip2ModelFile;
-static FileEntryFlag *sShopItemShip2TextureFile;
-static ModelRender *sSoldOutModel;
-static ModelRender *sShipModel;
-static ModelRender *sShip2Model;
-
 extern u32 **data_027e0fe0[];
 
 ARM ActorShopItemDM *ActorShopItemDM::Create() {
@@ -201,14 +86,156 @@ ARM ActorShopItemBY *ActorShopItemBY::Create() {
     return new(*data_027e0fe0[0], 4) ActorShopItemBY();
 }
 
+static const char *sShipTypes[8] = {
+    [7] = "brg", [6] = "fnl", [5] = "pdl", [4] = "dco", [3] = "can", [2] = "hul", [1] = "bow", [0] = "anc"};
+
+ActorType ActorShopItemDM::gType = ActorType(ActorTypeId_ShopItemDM, (ActorCreateFunc) ActorShopItemDM::Create, NULL);
+ActorType ActorShopItemSoldOut::gType =
+    ActorType(ActorTypeId_ShopItemSoldOut, (ActorCreateFunc) ActorShopItemSoldOut::Create, NULL);
+ActorType ActorShopItemHeartContainer::gType =
+    ActorType(ActorTypeId_ShopItemHeartContainer, (ActorCreateFunc) ActorShopItemHeartContainer::Create, NULL);
+ActorType ActorShopItemArrows::gType =
+    ActorType(ActorTypeId_ShopItemArrows, (ActorCreateFunc) ActorShopItemArrows::Create, NULL);
+ActorType ActorShopItemBombs::gType = ActorType(ActorTypeId_ShopItemBombs, (ActorCreateFunc) ActorShopItemBombs::Create, NULL);
+ActorType ActorShopItemBombchus::gType =
+    ActorType(ActorTypeId_ShopItemBombchus, (ActorCreateFunc) ActorShopItemBombchus::Create, NULL);
+ActorType ActorShopItemQuiver::gType =
+    ActorType(ActorTypeId_ShopItemQuiver, (ActorCreateFunc) ActorShopItemQuiver::Create, NULL);
+ActorType ActorShopItemBombBag::gType =
+    ActorType(ActorTypeId_ShopItemBombBag, (ActorCreateFunc) ActorShopItemBombBag::Create, NULL);
+ActorType ActorShopItemBombchuBag::gType =
+    ActorType(ActorTypeId_ShopItemBombchuBag, (ActorCreateFunc) ActorShopItemBombchuBag::Create, NULL);
+ActorType ActorShopItemTreasure::gType =
+    ActorType(ActorTypeId_ShopItemTreasure, (ActorCreateFunc) ActorShopItemTreasure::Create, NULL);
+ActorType ActorShopItemShipPart::gType =
+    ActorType(ActorTypeId_ShopItemShipPart, (ActorCreateFunc) ActorShopItemShipPart::Create, NULL);
+ActorType ActorShopItemGem::gType = ActorType(ActorTypeId_ShopItemGem, (ActorCreateFunc) ActorShopItemGem::Create, NULL);
+ActorType ActorShopItemShield::gType =
+    ActorType(ActorTypeId_ShopItemShield, (ActorCreateFunc) ActorShopItemShield::Create, NULL);
+ActorType ActorShopItemPotion::gType =
+    ActorType(ActorTypeId_ShopItemPotion, (ActorCreateFunc) ActorShopItemPotion::Create, NULL);
+ActorType ActorShopItemBK::gType = ActorType(ActorTypeId_ShopItemBK, (ActorCreateFunc) ActorShopItemBK::Create, NULL);
+ActorType ActorShopItemCC::gType = ActorType(ActorTypeId_ShopItemCC, (ActorCreateFunc) ActorShopItemCC::Create, NULL);
+ActorType ActorShopItemBY::gType = ActorType(ActorTypeId_ShopItemBY, (ActorCreateFunc) ActorShopItemBY::Create, NULL);
+
+struct ShopItemPrice {
+    u32 price;
+    ShopItemPrice(u32 price) :
+        price(price) {}
+};
+static const ShopItemPrice sShopItemPrices[ShopItem_BASE_COUNT] = {
+    ShopItemPrice(0),    // ShopItem_Test
+    ShopItemPrice(0),    // ShopItem_SoldOut
+    ShopItemPrice(50),   // ShopItem_Bombs
+    ShopItemPrice(50),   // ShopItem_Arrows
+    ShopItemPrice(50),   // ShopItem_Bombchus
+    ShopItemPrice(2000), // ShopItem_HeartContainer
+    ShopItemPrice(1000), // ShopItem_BombBag
+    ShopItemPrice(1000), // ShopItem_Quiver
+    ShopItemPrice(1000), // ShopItem_BombchuBag
+    ShopItemPrice(500),  // ShopItem_ShipPart
+    ShopItemPrice(500),  // ShopItem_Treasure
+    ShopItemPrice(500),  // ShopItem_PowerGem
+    ShopItemPrice(500),  // ShopItem_WisdomGem
+    ShopItemPrice(500),  // ShopItem_CourageGem
+    ShopItemPrice(80),   // ShopItem_Shield
+    ShopItemPrice(50),   // ShopItem_RedPotion
+    ShopItemPrice(150),  // ShopItem_PurplePotion
+    ShopItemPrice(150),  // ShopItem_YellowPotion
+};
+
+static const char *sShopItemModelPaths[ShopItem_COUNT_WITH_UPGRADES] = {
+    [ShopItem_Test]            = "Player/get/gd_test.nsbmd",
+    [ShopItem_SoldOut]         = "Player/get/soldboard.nsbmd",
+    [ShopItem_Bombs]           = "Player/get/gd_bmset.nsbmd",
+    [ShopItem_Arrows]          = "Player/get/gd_arrowset.nsbmd",
+    [ShopItem_Bombchus]        = "Player/get/gd_bomchu.nsbmd",
+    [ShopItem_HeartContainer]  = "Player/get/gd_heart_utu.nsbmd",
+    [ShopItem_BombBag]         = "Player/get/gd_bmbagM.nsbmd",
+    [ShopItem_Quiver]          = "Player/get/gd_arrowpod.nsbmd",
+    [ShopItem_BombchuBag]      = "Player/get/gd_bcbagM.nsbmd",
+    [ShopItem_ShipPart]        = "Player/get/gd_ship.nsbmd",
+    [ShopItem_Treasure]        = "Player/get/gd_test.nsbmd",
+    [ShopItem_PowerGem]        = "Player/get/gd_minaY.nsbmd",
+    [ShopItem_WisdomGem]       = "Player/get/gd_minaP.nsbmd",
+    [ShopItem_CourageGem]      = "Player/get/gd_minaC.nsbmd",
+    [ShopItem_Shield]          = "Player/get/gd_shA.nsbmd",
+    [ShopItem_RedPotion]       = "Player/get/gd_rev_bin.nsbmd",
+    [ShopItem_PurplePotion]    = "Player/get/gd_rev_binP.nsbmd",
+    [ShopItem_YellowPotion]    = "Player/get/gd_rev_binY.nsbmd",
+    [ShopItem_LargeBombBag]    = "Player/get/gd_bmbagL.nsbmd",
+    [ShopItem_LargeQuiver]     = "Player/get/gd_arrowpodL.nsbmd",
+    [ShopItem_LargeBombchuBag] = "Player/get/gd_bcbagL.nsbmd",
+};
+
+static const char *sShopItemTexturePaths[ShopItem_COUNT_WITH_UPGRADES] = {
+    [ShopItem_Test]            = "Player/get/gd_test.nsbtx",
+    [ShopItem_SoldOut]         = "Player/get/soldboard.nsbtx",
+    [ShopItem_Bombs]           = "Player/get/gd_bmset.nsbtx",
+    [ShopItem_Arrows]          = "Player/get/gd_arrowset.nsbtx",
+    [ShopItem_Bombchus]        = "Player/get/gd_bomchu.nsbtx",
+    [ShopItem_HeartContainer]  = "Player/get/gd_heart_utu.nsbtx",
+    [ShopItem_BombBag]         = "Player/get/gd_bmbagM.nsbtx",
+    [ShopItem_Quiver]          = "Player/get/gd_arrowpod.nsbtx",
+    [ShopItem_BombchuBag]      = "Player/get/gd_bcbagM.nsbtx",
+    [ShopItem_ShipPart]        = "Player/get/gd_ship.nsbtx",
+    [ShopItem_Treasure]        = "Player/get/gd_test.nsbtx",
+    [ShopItem_PowerGem]        = "Player/get/gd_minaY.nsbtx",
+    [ShopItem_WisdomGem]       = "Player/get/gd_minaP.nsbtx",
+    [ShopItem_CourageGem]      = "Player/get/gd_minaC.nsbtx",
+    [ShopItem_Shield]          = "Player/get/gd_shA.nsbtx",
+    [ShopItem_RedPotion]       = "Player/get/gd_rev_bin.nsbtx",
+    [ShopItem_PurplePotion]    = "Player/get/gd_rev_binP.nsbtx",
+    [ShopItem_YellowPotion]    = "Player/get/gd_rev_binY.nsbtx",
+    [ShopItem_LargeBombBag]    = "Player/get/gd_bmbagL.nsbtx",
+    [ShopItem_LargeQuiver]     = "Player/get/gd_arrowpodL.nsbtx",
+    [ShopItem_LargeBombchuBag] = "Player/get/gd_bcbagL.nsbtx",
+};
+
+// clang-format off
+static const char sShopItemBaseNames[ShopItem_FULL_COUNT][16] = {
+    [ShopItem_Test]            = "gd_test",
+    [ShopItem_SoldOut]         = "soldboard",
+    [ShopItem_Bombs]           = "gd_bmset",
+    [ShopItem_Arrows]          = "gd_arrowset",
+    [ShopItem_Bombchus]        = "gd_bomchu",
+    [ShopItem_HeartContainer]  = "gd_heart_utu",
+    [ShopItem_BombBag]         = "gd_bmbagM",
+    [ShopItem_Quiver]          = "gd_arrowpod",
+    [ShopItem_BombchuBag]      = "gd_bcbagM",
+    [ShopItem_ShipPart]        = "gd_ship",
+    [ShopItem_Treasure]        = "gd_test",
+    [ShopItem_CourageGem]      = "gd_minaY",
+    [ShopItem_PowerGem]        = "gd_minaP",
+    [ShopItem_WisdomGem]       = "gd_minaC",
+    [ShopItem_Shield]          = "gd_shA",
+    [ShopItem_RedPotion]       = "gd_rev_bin",
+    [ShopItem_PurplePotion]    = "gd_rev_binP",
+    [ShopItem_YellowPotion]    = "gd_rev_binY",
+    [ShopItem_LargeBombBag]    = "gd_bmbagL",
+    [ShopItem_LargeQuiver]     = "gd_arrowpodL",
+    [ShopItem_LargeBombchuBag] = "gd_bcbagL",
+    [ShopItem_Ship]            = "gd_ship",
+    [ShopItem_Ship2]           = "gd_ship02",
+};
+// clang-format on
+
+static FileEntryFlag *sShopItemModelFiles[ShopItem_BASE_COUNT];
+static FileEntryFlag *sShopItemTextureFiles[ShopItem_BASE_COUNT];
+static FileEntryFlag *sShopItemShipModelFile;
+static FileEntryFlag *sShopItemShipTextureFile;
+static FileEntryFlag *sShopItemShip2ModelFile;
+static FileEntryFlag *sShopItemShip2TextureFile;
+static ModelRender *sSoldOutModel;
+static ModelRender *sShipModel;
+static ModelRender *sShip2Model;
+
 extern "C" s32 func_ov000_020bd728(FileEntry *, FileEntry *, unk32, unk32);
 extern "C" s32 *func_0201e24c(s32, const char *);
+// non-matching
 ARM static ModelRender *func_ov031_0217dfec(FileEntry *param_1, FileEntry *param_2, const char *param_3) {
-    s32 temp_r0;
-    s32 temp_r4;
-
-    temp_r0 = func_ov000_020bd728(param_1, param_2, 1, 0);
-    temp_r4 = *func_0201e24c(temp_r0 + 8, param_3);
+    s32 temp_r0 = func_ov000_020bd728(param_1, param_2, 1, 0);
+    s32 temp_r4 = *func_0201e24c(temp_r0 + 8, param_3);
     return new(data_027e0ce0[1], 4) ModelRender((ItemModel *) (temp_r0 + temp_r4));
 }
 
@@ -240,8 +267,8 @@ ARM static void func_ov031_0217e040() {
     sShopItemShipTextureFile  = new(data_027e0ce0[1], 4) FileEntryFlag("Player/get/gd_ship.nsbtx");
     sShopItemShip2ModelFile   = new(data_027e0ce0[1], 4) FileEntryFlag("Player/get/gd_ship02.nsbmd");
     sShopItemShip2TextureFile = new(data_027e0ce0[1], 4) FileEntryFlag("Player/get/gd_ship02.nsbtx");
-    sSoldOutModel =
-        func_ov031_0217dfec(sShopItemModelFiles[ShopItem_SoldOut], sShopItemTextureFiles[ShopItem_SoldOut], "soldboard");
+    sSoldOutModel = func_ov031_0217dfec(sShopItemModelFiles[ShopItem_SoldOut], sShopItemTextureFiles[ShopItem_SoldOut],
+                                        sShopItemBaseNames[ShopItem_SoldOut]);
 }
 
 ARM static void func_ov031_0217e2b4() {
@@ -257,10 +284,10 @@ ARM static void func_ov031_0217e2b4() {
     }
     delete sShopItemShipModelFile;
     sShopItemShipModelFile = NULL;
-    delete sShopItemShipTextureFile;
-    sShopItemShipTextureFile = NULL;
     delete sShopItemShip2ModelFile;
     sShopItemShip2ModelFile = NULL;
+    delete sShopItemShipTextureFile;
+    sShopItemShipTextureFile = NULL;
     delete sShopItemShip2TextureFile;
     sShopItemShip2TextureFile = NULL;
     delete sSoldOutModel;
@@ -285,31 +312,33 @@ ARM ActorShopItem::ActorShopItem() :
     mUnk_174(0),
     mUnk_175(0) {}
 
-extern "C" void func_ov000_02079f3c(void *, unk32, unk32, unk32, unk32, u8, unk32);
+struct UnkStruct_ov031_0217e460 {
+    /* 00 */ unk32 mUnk_00;
+    /* 04 */ unk32 mUnk_04;
+    /* 08 */ unk32 mUnk_08;
+    /* 0c */ unk32 mUnk_0c;
+    /* 10 */ u8 mUnk_10;
+    /* 14 */
+};
+
 ARM ActorShopItemShipPart::ActorShopItemShipPart() :
     mUnk_17c(NULL),
     mUnk_180(-1) {
-    static unk32 unk1 = 0x4000;
-    static unk32 unk2 = 0x1000;
-    static unk32 unk3 = 0xc00;
-    static unk32 unk4 = 0x500;
-    static u8 unk5    = 0;
-    mUnk_17c          = new(data_027e0ce0[1], 4) ActorShopItemCollectable_Unk1();
-    func_ov000_02079f3c(mUnk_17c, unk1, unk2, unk3, unk4, unk5, 0);
+    static const UnkStruct_ov031_0217e460 unk = {0x4000, 0x1000, 0xc00, 0x500, 0};
+
+    mUnk_17c = new(data_027e0ce0[1], 4) ActorShopItemCollectable_Unk1();
+    mUnk_17c->func_ov000_02079f5c(unk.mUnk_00, unk.mUnk_04, unk.mUnk_08, unk.mUnk_0c, unk.mUnk_10, 0);
 }
 
-extern "C" void func_ov000_02079f5c(void *, unk32, unk32, unk32, unk32, u8, unk32);
 ARM ActorShopItemTreasure::ActorShopItemTreasure() :
     mUnk_178(NULL),
     mUnk_17c(-1) {
-    static unk32 unk1 = 0x4000;
-    static unk32 unk2 = 0x1000;
-    static unk32 unk3 = 0xc00;
-    static unk32 unk4 = 0x500;
-    static u8 unk5    = 0;
-    mUnk_178          = new(data_027e0ce0[1], 4) ActorShopItemCollectable_Unk1();
-    func_ov000_02079f5c(mUnk_178, unk1, unk2, unk3, unk4, unk5, 0);
+    static const UnkStruct_ov031_0217e460 unk = {0x4000, 0x1000, 0xc00, 0x500, 0};
+
+    mUnk_178 = new(data_027e0ce0[1], 4) ActorShopItemCollectable_Unk1();
+    mUnk_178->func_ov000_02079f5c(unk.mUnk_00, unk.mUnk_04, unk.mUnk_08, unk.mUnk_0c, unk.mUnk_10, 0);
 }
+
 ARM ActorShopItemUnk::ActorShopItemUnk() :
     mUnk_160(128),
     mUnk_164(0) {}
@@ -330,59 +359,29 @@ ARM ActorShopItemSoldOut::~ActorShopItemSoldOut() {
 }
 
 ARM ActorShopItemShipPart::~ActorShopItemShipPart() {
-    void **temp_r0;
-    void *temp_r5;
-
     delete mUnk_17c;
     mUnk_17c = NULL;
-    // delete mUnk_178; // virtual destructor call
-    // mUnk_178 = NULL;
-    // mModel   = NULL;
-    // if (AT_792.unk2C4 != NULL) {
-    //     if (AT_792.unk2C4 != NULL) {
-    //         (*AT_792.unk2C4)->unk4();
-    //     }
-    //     AT_792.unk2C4 = NULL;
-    // }
-    // if (AT_792.unk2C8 != NULL) {
-    //     if (AT_792.unk2C8 != NULL) {
-    //         (*AT_792.unk2C8)->unk4();
-    //     }
-    //     AT_792.unk2C8 = NULL;
-    // }
-    // _ZN13ActorShopItemD2Ev(arg0);
-    // return arg0;
+    if (mUnk_178 != NULL) {
+        delete mUnk_178;
+        mUnk_178 = NULL;
+    }
+    mModel = NULL;
+    if (sShipModel != NULL) {
+        delete sShipModel;
+        sShipModel = NULL;
+    }
+    if (sShip2Model != NULL) {
+        delete sShip2Model;
+        sShip2Model = NULL;
+    }
 }
 
-ARM ActorShopItemTreasure::~ActorShopItemTreasure() {}
+ARM ActorShopItemTreasure::~ActorShopItemTreasure() {
+    delete mUnk_178;
+    mUnk_178 = NULL;
+}
 
 ARM void ActorShopItem::vfunc_d4() {
-    static const char sShopItemBaseNames[ShopItem_FULL_COUNT][16] = {
-        [ShopItem_Test]            = "gd_test",
-        [ShopItem_SoldOut]         = "soldboard",
-        [ShopItem_Bombs]           = "gd_bmset",
-        [ShopItem_Arrows]          = "gd_arrowset",
-        [ShopItem_Bombchus]        = "gd_bomchu",
-        [ShopItem_HeartContainer]  = "gd_heart_utu",
-        [ShopItem_BombBag]         = "gd_bmbagM",
-        [ShopItem_Quiver]          = "gd_arrowpod",
-        [ShopItem_BombchuBag]      = "gd_bcbagM",
-        [ShopItem_ShipPart]        = "gd_ship",
-        [ShopItem_Treasure]        = "gd_test",
-        [ShopItem_PowerGem]        = "gd_minaY",
-        [ShopItem_WisdomGem]       = "gd_minaP",
-        [ShopItem_CourageGem]      = "gd_minaC",
-        [ShopItem_Shield]          = "gd_shA",
-        [ShopItem_RedPotion]       = "gd_rev_bin",
-        [ShopItem_PurplePotion]    = "gd_rev_binP",
-        [ShopItem_YellowPotion]    = "gd_rev_binY",
-        [ShopItem_LargeBombBag]    = "gd_bmbagL",
-        [ShopItem_LargeQuiver]     = "gd_arrowpodL",
-        [ShopItem_LargeBombchuBag] = "gd_bcbagL",
-        [ShopItem_21]              = "gd_ship",
-        [ShopItem_22]              = "gd_ship02",
-    };
-
     const char *baseName;
     ShopItem id = mShopItemId;
     if ((id == 6) && (gItemManager->mBombBagSize == 1)) {
@@ -417,11 +416,12 @@ ARM void ActorShopItemShipPart::vfunc_d4() {
     ItemModel *pIVar4 = func_ov009_0211c020(dVar1, uVar2, uVar3, 0, mUnk_17c);
     mUnk_178          = new(data_027e0ce0[1], 4) ModelRender(pIVar4);
     if (sShipModel == NULL) {
-        sShipModel = func_ov031_0217dfec(sShopItemShipModelFile, sShopItemShipTextureFile, "gd_ship");
+        sShipModel = func_ov031_0217dfec(sShopItemShipModelFile, sShopItemShip2ModelFile, sShopItemBaseNames[ShopItem_Ship]);
     }
     mModel = sShipModel;
     if (sShip2Model == NULL) {
-        sShip2Model = func_ov031_0217dfec(sShopItemShip2ModelFile, sShopItemShip2TextureFile, "gd_ship02");
+        sShip2Model =
+            func_ov031_0217dfec(sShopItemShipTextureFile, sShopItemShip2TextureFile, sShopItemBaseNames[ShopItem_Ship2]);
     }
 }
 
@@ -744,7 +744,6 @@ extern "C" void CopySingle288(void *src, void *dest);
 extern "C" void func_ov009_0211d090(Vec3p *, Vec3p *);
 extern "C" void func_ov009_0211d00c(Mat3p *, Vec3p *);
 ARM void ActorShopItemShipPart::vfunc_20(bool param1) {
-
     if (data_027e0c54.mUnk_0 && !param1) {
         return;
     }
@@ -1270,7 +1269,7 @@ ARM bool ActorShopItemHeartContainer::vfunc_d0() {
 
 ARM bool ActorShopItemArrows::vfunc_d0() {
     ItemManager *pItemManager = gItemManager;
-    return pItemManager->GetAmmo(ItemFlag_Bow) >= pItemManager->GetMaxAmmo(ItemFlag_Bow);
+    return (s32) pItemManager->GetAmmo(ItemFlag_Bow) >= pItemManager->GetMaxAmmo(ItemFlag_Bow);
 }
 
 ARM bool ActorShopItemQuiver::vfunc_d0() {
@@ -1279,7 +1278,7 @@ ARM bool ActorShopItemQuiver::vfunc_d0() {
 
 ARM bool ActorShopItemBombs::vfunc_d0() {
     ItemManager *pItemManager = gItemManager;
-    return pItemManager->GetAmmo(ItemFlag_BombBag) >= pItemManager->GetMaxAmmo(ItemFlag_BombBag);
+    return (s32) pItemManager->GetAmmo(ItemFlag_BombBag) >= pItemManager->GetMaxAmmo(ItemFlag_BombBag);
 }
 
 ARM bool ActorShopItemBombBag::vfunc_d0() {
@@ -1288,7 +1287,7 @@ ARM bool ActorShopItemBombBag::vfunc_d0() {
 
 ARM bool ActorShopItemBombchus::vfunc_d0() {
     ItemManager *pItemManager = gItemManager;
-    return pItemManager->GetAmmo(ItemFlag_BombchuBag) >= pItemManager->GetMaxAmmo(ItemFlag_BombchuBag);
+    return (s32) pItemManager->GetAmmo(ItemFlag_BombchuBag) >= pItemManager->GetMaxAmmo(ItemFlag_BombchuBag);
 }
 
 ARM bool ActorShopItemBombchuBag::vfunc_d0() {

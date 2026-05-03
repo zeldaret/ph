@@ -8,7 +8,8 @@ struct FileEntry_Unk8 {
     /* 00 */ unk8 mUnk_00[0x8];
     /* 08 */ u16 mUnk_08;
     /* 0a */ u16 mUnk_0a;
-    /* 0c */ // more fields, probably
+    /* 0c */ u16 mUnk_0c;
+    /* 10 */ // more fields, probably
 };
 
 class FileEntry : public SysObject {
