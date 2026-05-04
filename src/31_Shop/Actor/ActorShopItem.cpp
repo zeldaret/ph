@@ -223,8 +223,8 @@ static const char sShopItemBaseNames[ShopItem_FULL_COUNT][16] = {
 static FileEntryFlag *sShopItemModelFiles[ShopItem_BASE_COUNT];
 static FileEntryFlag *sShopItemTextureFiles[ShopItem_BASE_COUNT];
 static FileEntryFlag *sShopItemShipModelFile;
-static FileEntryFlag *sShopItemShipTextureFile;
 static FileEntryFlag *sShopItemShip2ModelFile;
+static FileEntryFlag *sShopItemShipTextureFile;
 static FileEntryFlag *sShopItemShip2TextureFile;
 static ModelRender *sSoldOutModel;
 static ModelRender *sShipModel;
@@ -240,11 +240,9 @@ ARM static ModelRender *func_ov031_0217dfec(FileEntry *param_1, FileEntry *param
 }
 
 ARM static void func_ov031_0217e040() {
-    s32 i;
-    const char *modelPath;
-    const char *texturePath;
-
-    for (i = 0; i < ShopItem_BASE_COUNT; ++i) {
+    for (s32 i = 0; i < ShopItem_BASE_COUNT; ++i) {
+        const char *modelPath;
+        const char *texturePath;
         if (i == ShopItem_BombBag && gItemManager->mBombBagSize == 1) {
             modelPath   = sShopItemModelPaths[ShopItem_LargeBombBag];
             texturePath = sShopItemTexturePaths[ShopItem_LargeBombBag];
@@ -284,10 +282,10 @@ ARM static void func_ov031_0217e2b4() {
     }
     delete sShopItemShipModelFile;
     sShopItemShipModelFile = NULL;
-    delete sShopItemShip2ModelFile;
-    sShopItemShip2ModelFile = NULL;
     delete sShopItemShipTextureFile;
     sShopItemShipTextureFile = NULL;
+    delete sShopItemShip2ModelFile;
+    sShopItemShip2ModelFile = NULL;
     delete sShopItemShip2TextureFile;
     sShopItemShip2TextureFile = NULL;
     delete sSoldOutModel;
@@ -416,12 +414,12 @@ ARM void ActorShopItemShipPart::vfunc_d4() {
     ItemModel *pIVar4 = func_ov009_0211c020(dVar1, uVar2, uVar3, 0, mUnk_17c);
     mUnk_178          = new(data_027e0ce0[1], 4) ModelRender(pIVar4);
     if (sShipModel == NULL) {
-        sShipModel = func_ov031_0217dfec(sShopItemShipModelFile, sShopItemShip2ModelFile, sShopItemBaseNames[ShopItem_Ship]);
+        sShipModel = func_ov031_0217dfec(sShopItemShipModelFile, sShopItemShipTextureFile, sShopItemBaseNames[ShopItem_Ship]);
     }
     mModel = sShipModel;
     if (sShip2Model == NULL) {
         sShip2Model =
-            func_ov031_0217dfec(sShopItemShipTextureFile, sShopItemShip2TextureFile, sShopItemBaseNames[ShopItem_Ship2]);
+            func_ov031_0217dfec(sShopItemShip2ModelFile, sShopItemShip2TextureFile, sShopItemBaseNames[ShopItem_Ship2]);
     }
 }
 

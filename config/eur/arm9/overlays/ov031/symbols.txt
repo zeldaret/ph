@@ -466,8 +466,8 @@ _ZN15ActorShopItemBY5gTypeE kind:bss addr:0x02184094
 sShopItemModelFiles kind:bss addr:0x021840a8 local
 sShopItemTextureFiles kind:bss addr:0x021840f0 local
 sShopItemShipModelFile kind:bss addr:0x02184138 local
-sShopItemShipTextureFile kind:bss addr:0x0218413c local
-sShopItemShip2ModelFile kind:bss addr:0x02184140 local
+sShopItemShip2ModelFile kind:bss addr:0x0218413c local
+sShopItemShipTextureFile kind:bss addr:0x02184140 local
 sShopItemShip2TextureFile kind:bss addr:0x02184144 local
 sSoldOutModel kind:bss addr:0x02184148 local
 sShipModel kind:bss addr:0x0218414c local
