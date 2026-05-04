@@ -32,7 +32,7 @@ THUMB ModelRender::~ModelRender() {
     func_ov000_020b3ea8(this);
 }
 
-ARM void *ModelRender::GetLcdcAddress() const {
+ARM void *ModelRender::GetLcdcAddress() {
     return renderObj.model;
 }
 

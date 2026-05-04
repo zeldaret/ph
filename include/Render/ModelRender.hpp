@@ -27,7 +27,7 @@ public:
     /* 5c */
 
     /* 00 */ virtual ~ModelRender();
-    /* 08 */ virtual void *GetLcdcAddress() const;
+    /* 08 */ virtual void *GetLcdcAddress();
     /* 0c */ virtual void Init_RenderObject(ItemModel *model);
     /* 10 */ virtual void SetTransform(Vec3p *scale, Mat3p *rotation, Vec3p *translation);
     /* 14 */ virtual void SetRotationTranslation(Mat3p *rotation, Vec3p *translation);
