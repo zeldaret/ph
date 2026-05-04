@@ -728,8 +728,6 @@ ARM bool PlayerControl::func_ov00_020b05e8(Vec3p *param1) {
     return false;
 }
 
-extern "C" bool func_01ffe468(unk32 param1, Vec3p *param2, s32 *param3, s32 *param4, bool param5);
-
 ARM bool PlayerControl::func_ov00_020b0778(Vec3p *param1, u32 angle, unk32 *param3) {
     Vec3p spC;
     *param3 = 0;
@@ -737,7 +735,7 @@ ARM bool PlayerControl::func_ov00_020b0778(Vec3p *param1, u32 angle, unk32 *para
 
     s32 sp8;
     s32 sp4;
-    bool var_r0 = !func_01ffe468(data_027e0f64->func_ov000_0208b180(), &spC, &sp8, &sp4, 0);
+    bool var_r0 = !data_027e0f64->func_ov000_0208b180()->func_01ffe468(&spC, &sp8, &sp4, 0);
     if (var_r0) {
         return 0;
     }

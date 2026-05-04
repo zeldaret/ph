@@ -3849,10 +3849,10 @@ from:0x02030034 kind:overlay_id to:7
 from:0x02030038 kind:load to:0x027e0ce0 module:dtcm
 from:0x02030044 kind:thumb_call_arm to:0x0202ea0c module:main
 from:0x0203006c kind:thumb_call to:0x0203004c module:main
-from:0x02030074 kind:load to:0x0205785c module:main
+from:0x02030074 kind:load to:0x02057854 add:0x8 module:main
 from:0x02030088 kind:thumb_call to:0x0203004c module:main
 from:0x0203008e kind:thumb_call_arm to:0x0202ea0c module:main
-from:0x02030098 kind:load to:0x0205785c module:main
+from:0x02030098 kind:load to:0x02057854 add:0x8 module:main
 from:0x020300ba kind:thumb_call to:0x0202d550 module:main
 from:0x020300c8 kind:load to:0x027e0ce0 module:dtcm
 from:0x020300d8 kind:thumb_call to:0x0202d590 module:main

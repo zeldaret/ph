@@ -413,7 +413,7 @@ ARM void UnkStruct_020397f8::vfunc_44(s32 touchLastX, s32 touchLastY) {
     if ((data_02056be4[data_027e077c.mUnk_0] & 2) == 0) {
         if ((gTouchControl.mFlags & 1) != 0) {
             if (this->mUnk_50 == 0 && data_027e0d38 != 0) {
-                if (func_ov000_02079e04() == 0 && data_027e0e28->func_ov000_0207bc48() == 0) {
+                if (func_ov000_02079e04() == 0 && data_027e0e28.func_ov000_0207bc48() == 0) {
                     if (gGame.mUnk_101 == 0 && data_027e103c->mUnk_24 == 0) {
                         return;
                     }

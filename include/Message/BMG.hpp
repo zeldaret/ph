@@ -10,6 +10,8 @@
 #define BMG_GET_MSG_ADDR(pGroups, flags)                                                              \
     ((u32) (pGroups)->entries[(flags) >> 0x10].pDAT1 + (BMG_GET_MSG_OFFSET((pGroups), (flags)) & ~1))
 
+#define BMG_ID(file, entry) (((file) << 0x10) | (entry))
+
 enum BMGTag {
     /* "INF1" */ BMG_TAG_INF1 = '1FNI',
     /* "FLW1" */ BMG_TAG_FLW1 = '1WLF',

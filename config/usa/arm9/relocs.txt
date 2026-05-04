@@ -3851,10 +3851,10 @@ from:0x02030030 kind:overlay_id to:7
 from:0x02030034 kind:load to:0x027e0ce0 module:dtcm
 from:0x02030040 kind:thumb_call_arm to:0x0202ea08 module:main
 from:0x02030068 kind:thumb_call to:0x02030048 module:main
-from:0x02030070 kind:load to:0x02057814 module:main
+from:0x02030070 kind:load to:0x0205780c add:0x8 module:main
 from:0x02030084 kind:thumb_call to:0x02030048 module:main
 from:0x0203008a kind:thumb_call_arm to:0x0202ea08 module:main
-from:0x02030094 kind:load to:0x02057814 module:main
+from:0x02030094 kind:load to:0x0205780c add:0x8 module:main
 from:0x020300b6 kind:thumb_call to:0x0202d54c module:main
 from:0x020300c4 kind:load to:0x027e0ce0 module:dtcm
 from:0x020300d4 kind:thumb_call to:0x0202d58c module:main

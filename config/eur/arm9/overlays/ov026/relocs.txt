@@ -414,7 +414,7 @@ from:0x0217076c kind:arm_call to:0x020c5774 module:overlay(0)
 from:0x0217078c kind:load to:0x027e0e60 module:dtcm
 from:0x02170790 kind:load to:0x027e0f94 module:dtcm
 from:0x021707a4 kind:load to:0x027e10b4 module:dtcm
-from:0x021707a8 kind:load to:0x02183f84 module:overlays(30,31,32)
+from:0x021707a8 kind:load to:0x02183f84 module:overlays(30,32)
 from:0x021707c0 kind:arm_call to:0x020c1bfc module:overlay(0)
 from:0x021707e4 kind:arm_call to:0x020cbee8 module:overlay(0)
 from:0x021707ec kind:arm_call to:0x020cc138 module:overlay(0)

@@ -3,7 +3,7 @@
 
 extern void PushGeometryCommand(u32 command, void *data, s32 length);
 
-typedef enum {
+typedef enum G3d_SBC_Commands {
     G3D_SBC_CMD_NOP = 0x0,
     G3D_SBC_CMD_END = 0x1,
     G3D_SBC_CMD_VIS = 0x2,
@@ -16,7 +16,7 @@ typedef enum {
     G3D_SBC_CMD_00D = 0xd
 } G3d_SBC_Commands;
 
-typedef enum {
+typedef enum G3d_RenderStateFlag {
     G3D_RENDERST_FLAG_BONE_VISIBLE     = 0x1,
     G3D_RENDERST_FLAG_MAT_TRANSPARENT  = 0x2,
     G3D_RENDERST_FLAG_VALID_NODE       = 0x4,
