@@ -12,3 +12,12 @@ src/31_Shop/Actor/ActorShopItem.cpp:
     .ctor       start:0x02181fe0 end:0x02181fe4
     .data       start:0x021821f0 end:0x021839f8
     .bss        start:0x02183de8 end:0x021840b4
+
+src/31_Shop/Actor/ActorItemSeller.cpp:
+    .text       start:0x02180668 end:0x021809e4
+
+src/31_Shop/Actor/ActorBeedle.cpp:
+    .text       start:0x021809e4 end:0x021813a8
+
+src/31_Shop/Actor/ActorTetra.cpp:
+    .text       start:0x021813a8 end:0x02181800
