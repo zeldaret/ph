@@ -5,14 +5,14 @@
 #define ARRAY_LEN(arr) (s32)(sizeof(arr) / sizeof(*arr))
 
 // Prevent the IDE from reporting errors that the compiler/linker won't report
-#ifdef __INTELLISENSE__
+#if defined(__INTELLISENSE__) || (__clang__)
+#else
+    // `override` was added in C++11 before the DS, so we only use the keyword to indicate overriden functions
+    #define override
 #endif
 
 #define ARM _Pragma("thumb off")
 #define THUMB _Pragma("thumb on")
-
-// `override` was added in C++11 before the DS, so we only use the keyword to indicate overriden functions
-#define override
 
 // Puts variables in the DTCM module by using #pragma section dtcm begin|end
 #pragma define_section dtcm ".dtcm" \
