@@ -20,3 +20,12 @@ src/14_Land/Actor/Player/ActorRefill.cpp:
     .ctor       start:0x021558ec end:0x021558f0
     .data       start:0x021578b0 end:0x02157d70
     .bss        start:0x0215af94 end:0x0215b034
+
+src/14_Land/Actor/Character/ActorCharacterBase.cpp:
+    .text       start:0x021447f8 end:0x02144d94
+
+src/14_Land/Actor/Character/ActorCharacter.cpp:
+    .text       start:0x02144d94 end:0x02145a74
+
+src/14_Land/Actor/Character/ActorGenericCharacter.cpp:
+    .text       start:0x021476d0 end:0x02148234
