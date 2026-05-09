@@ -4513,22 +4513,22 @@ from:0x021447e4 kind:arm_call_thumb to:0x020a95ec module:overlay(0)
 from:0x021447ec kind:arm_call to:0x0202ea0c module:main
 from:0x02144908 kind:arm_call to:0x020c1554 module:overlay(0)
 from:0x0214491c kind:arm_call to:0x020d18f4 module:overlay(0)
-from:0x02144948 kind:load to:0x021594c0 module:overlay(14)
+from:0x02144948 kind:load to:0x021594b8 module:overlay(14) add:0x8
 from:0x02144970 kind:arm_call to:0x02036d4c module:main
 from:0x02144978 kind:arm_call to:0x020d1980 module:overlay(0)
 from:0x02144980 kind:arm_call to:0x020c1730 module:overlay(0)
-from:0x0214498c kind:load to:0x021594c0 module:overlay(14)
+from:0x0214498c kind:load to:0x021594b8 module:overlay(14) add:0x8
 from:0x02144990 kind:load to:0x027e0c68 module:dtcm
 from:0x021449b8 kind:arm_call to:0x02036d4c module:main
 from:0x021449c0 kind:arm_call to:0x020d1980 module:overlay(0)
 from:0x021449c8 kind:arm_call to:0x020c1730 module:overlay(0)
 from:0x021449d0 kind:arm_call to:0x0202ea0c module:main
-from:0x021449dc kind:load to:0x021594c0 module:overlay(14)
+from:0x021449dc kind:load to:0x021594b8 module:overlay(14) add:0x8
 from:0x021449e0 kind:load to:0x027e0c68 module:dtcm
 from:0x02144a08 kind:arm_call to:0x02036d4c module:main
 from:0x02144a10 kind:arm_call to:0x020d1980 module:overlay(0)
 from:0x02144a18 kind:arm_call to:0x020c1730 module:overlay(0)
-from:0x02144a24 kind:load to:0x021594c0 module:overlay(14)
+from:0x02144a24 kind:load to:0x021594b8 module:overlay(14) add:0x8
 from:0x02144a28 kind:load to:0x027e0c68 module:dtcm
 from:0x02144a7c kind:load to:0x021447f8 module:overlay(14)
 from:0x02144a80 kind:load to:0x0214480c module:overlay(14)
@@ -4574,7 +4574,7 @@ from:0x02144f44 kind:arm_call_thumb to:0x020c0c08 module:overlay(0)
 from:0x02144f94 kind:arm_call to:0x020c66bc module:overlay(0)
 from:0x02144fd4 kind:arm_call to:0x020078f4 module:main
 from:0x02144fe8 kind:arm_call to:0x020078f4 module:main
-from:0x02144ff8 kind:load to:0x021595b4 module:overlay(14)
+from:0x02144ff8 kind:load to:0x021595ac module:overlay(14) add:0x8
 from:0x02144ffc kind:load to:0x021596cc module:overlay(14)
 from:0x02145000 kind:load to:0x020a9b6d module:overlay(0)
 from:0x02145004 kind:load to:0x02144eb0 module:overlay(14)

@@ -371,7 +371,7 @@ ARM void MessageManager::func_02036ca4(unk32 param_2) {
     }
 }
 
-ARM bool MessageManager::func_02036ce4(UnkStruct_020386d8 *param_2, unk32 param_3) {
+ARM bool MessageManager::func_02036ce4(UnkStruct_02037750 *param_2, unk32 param_3) {
     u32 uVar1;
 
     if (param_3 == 0) {

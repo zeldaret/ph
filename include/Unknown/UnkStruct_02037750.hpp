@@ -9,14 +9,14 @@
 
 class LinkStateInteract;
 class UnkStruct_020397f8;
-typedef unk32 (*UnkStruct_02037750_Callback1)(unk32);
+typedef unk32 (*UnkStruct_02037750_Callback1)(void *, unk32);
 
 // astruct_14
 class UnkStruct_02037750 : public SysObject {
 public:
     /* 00 (vtable) */
     /* 04 */ UnkStruct_02037750_Callback1 mUnk_04[0x4];
-    /* 14 */ unk32 mUnk_14;
+    /* 14 */ void *mUnk_14;
     /* 18 */ u32 mUnk_18;
     /* 1c */ u8 mUnk_1c;
     /* 1d */ u8 mUnk_1d;
@@ -37,7 +37,7 @@ public:
     /* 30 */ virtual bool vfunc_30();
     /* 34 */
 
-    UnkStruct_02037750(unk32 param1, unk32 param2);
+    UnkStruct_02037750(unk32 param1, void *param2);
     static LinkStateInteract *GetLinkStateInteract();
     unk32 func_020385d0(s32 param1, u8 *param2);
 };
