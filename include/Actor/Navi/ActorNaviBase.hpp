@@ -60,7 +60,7 @@ public:
     /* 214 */ unk16 mUnk_214;
     /* 216 */ unk8 mUnk_216[0x2];
     /* 218 */ ActorNaviBase_Unk1 mUnk_218[2];
-    /* 220 */ unk8 mUnk_220[0x2];
+    /* 220 */ s16 mUnk_220;
     /* 222 */ unk16 mUnk_222;
     /* 224 */ UnkStruct_ov000_020d18f4 mUnk_224;
     /* 280 */ unk32 mUnk_280;
@@ -68,12 +68,12 @@ public:
     /* 288 */ unk8 mUnk_288;
     /* 288 */ unk8 mUnk_289;
     /* 28a */ unk16 mUnk_28a;
-    /* 28c */ unk8 mUnk_28c;
-    /* 28d */ unk8 mUnk_28d;
-    /* 28e */ unk8 mUnk_28e;
-    /* 28e */ unk8 mUnk_28f;
-    /* 290 */ unk8 mUnk_290;
-    /* 291 */ unk8 mUnk_291;
+    /* 28c */ u8 mUnk_28c;
+    /* 28d */ u8 mUnk_28d;
+    /* 28e */ u8 mUnk_28e;
+    /* 28f */ u8 mUnk_28f;
+    /* 290 */ u8 mUnk_290;
+    /* 291 */ u8 mUnk_291;
     /* 294 */
 
     /* 00 */ virtual ~ActorNaviBase() override;
