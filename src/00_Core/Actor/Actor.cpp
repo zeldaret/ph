@@ -225,7 +225,7 @@ ARM bool Actor::vfunc_60() {
 
 ARM void Actor::vfunc_64() {}
 
-ARM void Actor::SetUnk_11c(unk8 value) {
+ARM void Actor::SetUnk_11c(bool value) {
     mUnk_11c = value;
 }
 

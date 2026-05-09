@@ -227,7 +227,7 @@ public:
 
     unk8 func_ov00_020c1788();
     void SetUnk_129(bool value);
-    void SetUnk_11c(unk8 value);
+    void SetUnk_11c(bool value);
     bool func_ov00_020c195c();
     bool func_ov00_020c198c();
     void KillPickupItemActors();
