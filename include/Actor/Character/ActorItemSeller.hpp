@@ -66,6 +66,7 @@ class ActorItemSeller : public ActorItemSellerBase {
 
     /* 000 */ virtual ~ActorItemSeller() override;
     /* 008 */ virtual bool Init() override;
+    /* 0d4 */ virtual unk32 vfunc_d4() override;
     /* 0f4 */ virtual void vfunc_f4() override;
     /* 0f8 */ virtual void vfunc_f8() override;
     /* 0fc */ virtual void vfunc_fc() override;

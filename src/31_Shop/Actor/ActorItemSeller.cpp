@@ -13,7 +13,7 @@ void ActorItemSeller::vfunc_100() {}
 void ActorItemSeller::vfunc_104() {}
 void ActorItemSeller::vfunc_118() {}
 
-unk32 ActorItemSellerBase::vfunc_d4() {}
+unk32 ActorItemSeller::vfunc_d4() {}
 
 void ActorItemSeller::vfunc_108() {}
 void ActorItemSeller::vfunc_10c() {}
