@@ -10,7 +10,7 @@ extern "C" ARM unk32 func_02037628(u8 *);
 extern u8 *data_027e0d54;
 extern unk32 *data_027e0cb4;
 
-ARM UnkStruct_02037750::UnkStruct_02037750(unk32 param1, unk32 param2) {
+ARM UnkStruct_02037750::UnkStruct_02037750(unk32 param1, void *param2) {
     s32 i;
 
     this->mUnk_14 = param2;
@@ -66,7 +66,7 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
         iVar9  = 0;
 
         if (pcVar8 != NULL) {
-            iVar9 = pcVar8(this->mUnk_14);
+            iVar9 = pcVar8(this->mUnk_14, param1);
         }
 
         return iVar9;

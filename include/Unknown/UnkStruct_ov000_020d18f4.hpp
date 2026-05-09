@@ -13,7 +13,7 @@ public:
     /* 28 */ unk8 mUnk_28[0x18];
     /* 40 */ void *mUnk_40;
     /* 44 */ unk32 mUnk_44;
-    /* 48 */ unk32 mUnk_48;
+    /* 48 */ void *mUnk_48;
     /* 4c */ unk32 mUnk_4c;
     /* 50 */ unk32 mUnk_50;
     /* 54 */ unk32 mUnk_54;

@@ -10,17 +10,25 @@
 #include "Unknown/UnkStruct_ov000_020c5c2c.hpp"
 #include "Unknown/UnkStruct_ov000_020d18f4.hpp"
 
+struct UnkStruct_ov014_021448f4 {
+    /* 00 */ unk32 mUnk_00;
+    /* 04 */
+
+    UnkStruct_ov014_021448f4() :
+        mUnk_00(0) {}
+};
+
 class ActorCharacterBase : public Actor {
 public:
     /* 000 (base) */
     /* 158 */ UnkStruct_ov000_020d18f4 mUnk_158;
     /* 1b4 */ unk32 mUnk_1b4;
-    /* 1b8 */ unk32 mUnk_1b8;
+    /* 1b8 */ unk32 (*mUnk_1b8)(unk32);
     /* 1bc */ unk32 mUnk_1bc;
-    /* 1c0 */ unk8 mUnk_1c0;
-    /* 1c1 */ unk8 mUnk_1c1;
+    /* 1c0 */ bool mUnk_1c0;
+    /* 1c1 */ bool mUnk_1c1;
     /* 1c2 */ unk8 mUnk_1c2;
-    /* 1c3 */ unk8 mUnk_1c3;
+    /* 1c3 */ bool mUnk_1c3;
     /* 1c4 */
 
     /* 00 */ virtual ~ActorCharacterBase() override;
@@ -39,11 +47,11 @@ public:
     /* cc */ virtual void vfunc_cc();
     /* d0 */ virtual void vfunc_d0();
     /* d4 */ virtual unk32 vfunc_d4();
-    /* d8 */ virtual unk32 vfunc_d8();
-    /* dc */ virtual unk32 vfunc_dc();
-    /* e0 */ virtual unk32 vfunc_e0();
-    /* e4 */ virtual unk32 vfunc_e4();
-    /* e8 */ virtual void vfunc_e8();
+    /* d8 */ virtual unk32 vfunc_d8(unk32 param1);
+    /* dc */ virtual unk32 vfunc_dc(unk32 param1);
+    /* e0 */ virtual unk32 vfunc_e0(unk32 param1);
+    /* e4 */ virtual unk32 vfunc_e4(unk32 param1);
+    /* e8 */ virtual UnkStruct_ov014_021448f4 vfunc_e8(u16 param2, u16 param3);
     /* ec */
 
     ActorCharacterBase();

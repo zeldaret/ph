@@ -152,7 +152,7 @@ public:
     /* 119 */ u8 mUnk_119;
     /* 11a */ bool mVisible;
     /* 11b */ bool mGrabbed;
-    /* 11c */ unk8 mUnk_11c;
+    /* 11c */ bool mUnk_11c;
     /* 11d */ bool mUnk_11d;
     /* 11e */ q4 mYOffset;
     /* 120 */ s16 mUnk_120;

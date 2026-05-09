@@ -1061,16 +1061,16 @@ func_ov014_02144750 kind:function(arm,size=0x38) addr:0x02144750
 func_ov014_02144788 kind:function(arm,size=0x38) addr:0x02144788
 func_ov014_021447c0 kind:function(arm,size=0x1c) addr:0x021447c0
 func_ov014_021447dc kind:function(arm,size=0x1c) addr:0x021447dc
-_Z19func_ov014_021447f8P18ActorCharacterBase kind:function(arm,size=0x14) addr:0x021447f8
-_Z19func_ov014_0214480cP18ActorCharacterBase kind:function(arm,size=0x14) addr:0x0214480c
-_Z19func_ov014_02144820P18ActorCharacterBase kind:function(arm,size=0x14) addr:0x02144820
-_Z19func_ov014_02144834P18ActorCharacterBase kind:function(arm,size=0x14) addr:0x02144834
-_Z19func_ov014_02144848PiiP18ActorCharacterBase kind:function(arm,size=0x8c) addr:0x02144848
-_ZN18ActorCharacterBase8vfunc_d8Ev kind:function(arm,size=0x8) addr:0x021448d4
-_ZN18ActorCharacterBase8vfunc_dcEv kind:function(arm,size=0x8) addr:0x021448dc
-_ZN18ActorCharacterBase8vfunc_e0Ev kind:function(arm,size=0x8) addr:0x021448e4
-_ZN18ActorCharacterBase8vfunc_e4Ev kind:function(arm,size=0x8) addr:0x021448ec
-_ZN18ActorCharacterBase8vfunc_e8Ev kind:function(arm,size=0xc) addr:0x021448f4
+_Z19func_ov014_021447f8Pvi kind:function(arm,size=0x14) addr:0x021447f8 local
+_Z19func_ov014_0214480cPvi kind:function(arm,size=0x14) addr:0x0214480c local
+_Z19func_ov014_02144820Pvi kind:function(arm,size=0x14) addr:0x02144820 local
+_Z19func_ov014_02144834Pvi kind:function(arm,size=0x14) addr:0x02144834 local
+_Z19func_ov014_0214484824UnkStruct_ov014_02144848P18ActorCharacterBase kind:function(arm,size=0x8c) addr:0x02144848 local
+_ZN18ActorCharacterBase8vfunc_d8Ei kind:function(arm,size=0x8) addr:0x021448d4
+_ZN18ActorCharacterBase8vfunc_dcEi kind:function(arm,size=0x8) addr:0x021448dc
+_ZN18ActorCharacterBase8vfunc_e0Ei kind:function(arm,size=0x8) addr:0x021448e4
+_ZN18ActorCharacterBase8vfunc_e4Ei kind:function(arm,size=0x8) addr:0x021448ec
+_ZN18ActorCharacterBase8vfunc_e8Ett kind:function(arm,size=0xc) addr:0x021448f4
 _ZN18ActorCharacterBaseC2Ev kind:function(arm,size=0x4c) addr:0x02144900
 _ZN18ActorCharacterBaseD1Ev kind:function(arm,size=0x48) addr:0x0214494c
 _ZN18ActorCharacterBaseD0Ev kind:function(arm,size=0x50) addr:0x02144994
@@ -2077,8 +2077,8 @@ data_ov014_021593d8 kind:data(any) addr:0x021593d8
 data_ov014_021593dc kind:data(any) addr:0x021593dc
 data_ov014_02159408 kind:data(any) addr:0x02159408
 data_ov014_02159478 kind:data(any) addr:0x02159478
-data_ov014_021594c0 kind:data(any) addr:0x021594c0
-data_ov014_021595b4 kind:data(any) addr:0x021595b4
+_ZTV18ActorCharacterBase kind:data(any) addr:0x021594b8
+_ZTV14ActorCharacter kind:data(any) addr:0x021595ac
 data_ov014_021596b0 kind:data(any) addr:0x021596b0
 data_ov014_021596b8 kind:data(any) addr:0x021596b8
 data_ov014_021596bc kind:data(any) addr:0x021596bc
