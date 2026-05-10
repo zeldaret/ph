@@ -160,6 +160,23 @@ public:
     bool func_ov014_02145f0c(unk32 param1);
 };
 
+struct ActorCharacter_420 {
+    /* 00 */ unk32 mUnk_00[2];
+    /* 08 */ unk32 mUnk_08;
+    /* 0c */ PAD(0x0c, 0x0e);
+    /* 0e */ unk8 mUnk_0e;
+    /* 0f */ unk8 mUnk_0f;
+    /* 10 */
+
+    inline ActorCharacter_420() {
+        mUnk_08    = 0;
+        mUnk_0e    = 1;
+        mUnk_0f    = 0;
+        mUnk_00[0] = -1;
+        mUnk_00[1] = -1;
+    }
+};
+
 class ActorCharacter : public ActorCharacterBase {
 public:
     /* 000 (base) */
@@ -174,11 +191,7 @@ public:
     /* 414 */ unk32 mUnk_414;
     /* 418 */ unk32 mUnk_418;
     /* 41c */ unk32 mUnk_41c;
-    /* 420 */ unk32 mUnk_420[2];
-    /* 428 */ unk32 mUnk_428;
-    /* 42c */ PAD(0x42c, 0x42e);
-    /* 42e */ unk8 mUnk_42e;
-    /* 42f */ unk8 mUnk_42f;
+    /* 420 */ ActorCharacter_420 mUnk_420;
     /* 430 */ ActorCharacter_430 mUnk_430;
     /* 448 */ unk32 mUnk_448;
     /* 44c */ unk32 mUnk_44c;

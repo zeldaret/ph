@@ -52,19 +52,14 @@ ARM ActorCharacter::ActorCharacter() :
     mUnk_410(0),
     mUnk_414(0),
     mUnk_418(0x1000),
-    mUnk_41c(0x11f),
-    mUnk_428(0),
-    mUnk_42e(1),
-    mUnk_42f(0) {
-    mUnk_420[0] = -1;
-    mUnk_420[1] = -1;
-    mUnk_448    = 3;
-    mUnk_454    = -1;
-    mUnk_458    = -1;
-    mUnk_460    = 0x153;
-    mUnk_464    = 0x71;
-    mUnk_468    = 0;
-    mUnk_469    = 0;
+    mUnk_41c(0x11f) {
+    mUnk_448 = 3;
+    mUnk_454 = -1;
+    mUnk_458 = -1;
+    mUnk_460 = 0x153;
+    mUnk_464 = 0x71;
+    mUnk_468 = 0;
+    mUnk_469 = 0;
     Fill32(0, mUnk_46c, 4);
     Fill32(0, mUnk_46c, 4);
 }
@@ -152,35 +147,30 @@ ARM unk32 ActorCharacter::func_ov014_021452b0() {
     return 0;
 }
 
-extern "C" void ApproachAngle_thunk(u16 *src, s16 dst, u32 param3);
+extern "C" void ApproachAngle_thunk(u16 *src, unk32 dst, s16 param3);
 ARM unk32 ActorCharacter::func_ov014_02145318() {
-    s16 iVar1;
-    int *piVar2;
-    int angle;
-    int iVar4;
-    unk32 extraout_r1;
-    s16 angleDiff;
     Vec3p offsetPos;
-
     mUnk_1d8.mActor->GetOffsetPos(&offsetPos);
-    angle = mUnk_1f8.func_ov014_0214aa0c(&offsetPos, mUnk_1d8.mActor->mAngle);
+    unk32 angle = mUnk_1f8.func_ov014_0214aa0c(&offsetPos, mUnk_1d8.mActor->mAngle);
+
     if (!mUnk_468) {
-        angleDiff = (angle - (s16) mAngle);
+        s16 angleDiff = angle - (s16) mAngle;
         if (angleDiff < -0x7fff) {
-            angleDiff = 0x7fff;
+            angleDiff = (u32) -0x7fff >> 0x11;
         } else if (angleDiff < 0) {
             angleDiff = -angleDiff;
         }
-        iVar4 = 0xaab;
-        iVar1 = angleDiff << 10 >> 0xc;
-        if (iVar1 < 0xaac) {
-            iVar4 = iVar1;
-            if (iVar1 < 0x16c) {
-                iVar4 = 0x16c;
-            }
+
+        unk32 speed = (angleDiff << 0xa) >> 0xc;
+        if (speed > FLOAT_TO_Q20(0.6667)) {
+            speed = FLOAT_TO_Q20(0.6667);
+        } else if (speed < FLOAT_TO_Q20(0.0888)) {
+            speed = FLOAT_TO_Q20(0.0888);
         }
-        ApproachAngle_thunk(&mAngle, angle, iVar4);
+
+        ApproachAngle_thunk(&this->mAngle, angle, speed);
     }
+
     mVel.x = 0;
     mVel.z = 0;
     this->ApplyGravity();
@@ -242,7 +232,7 @@ ARM void ActorCharacter::vfunc_80() {
     if (mUnk_469) {
         return;
     }
-    mUnk_44c = mUnk_420[mUnk_428];
+    mUnk_44c = mUnk_420.mUnk_00[mUnk_420.mUnk_08];
     mUnk_1d8.func_ov014_02145f0c(0);
 }
 
@@ -255,9 +245,10 @@ ARM void ActorCharacter::vfunc_84() {
     mUnk_1d8.func_ov014_02145f0c(mUnk_44c);
 }
 
+// non-matching
 ARM void ActorCharacter::vfunc_cc() {
     bool unk;
-    if (mUnk_454 == mUnk_420[mUnk_428] && mUnk_1d8.mUnk_04->mUnk_0c.func_0202e58c()) {
+    if (mUnk_454 == mUnk_420.mUnk_00[mUnk_420.mUnk_08] && mUnk_1d8.mUnk_10->mUnk_0c.func_0202e58c()) {
         unk = data_ov000_020e8b08 != NULL && mRef.id == data_ov000_020e8b08->mUnk_20[data_ov000_020e8b08->mUnk_55].id;
         this->vfunc_f0(unk, 1);
         mUnk_454 = -1;
@@ -280,7 +271,7 @@ ARM void ActorCharacter::vfunc_74(ActorRef *ref) {
 
     if (ref->id == mRef.id) {
         mUnk_1f8.mUnk_70.Reset();
-        if (mUnk_420[mUnk_428] == 2) {
+        if (mUnk_420.mUnk_00[mUnk_420.mUnk_08] == 2) {
             return;
         }
         if (mUnk_469) {
@@ -293,7 +284,7 @@ ARM void ActorCharacter::vfunc_74(ActorRef *ref) {
     } else {
         mUnk_1f8.mUnk_70.id    = ref->id;
         mUnk_1f8.mUnk_70.index = ref->index;
-        if (mUnk_420[mUnk_428] == 0) {
+        if (mUnk_420.mUnk_00[mUnk_420.mUnk_08] == 0) {
             return;
         }
         if (mUnk_469) {
@@ -315,6 +306,7 @@ ARM void ActorCharacter::vfunc_7c(ActorRef *ref) {
     }
 }
 
+// non-matching
 ARM bool ActorCharacter::vfunc_90(unk32 param1, unk32 param2) {
     u32 iVar1;
     u32 iVar2;
@@ -326,7 +318,7 @@ ARM bool ActorCharacter::vfunc_90(unk32 param1, unk32 param2) {
             mUnk_1b8 = func_ov014_02145520;
             mUnk_1bc = this;
         }
-        mUnk_450 = mUnk_420[mUnk_428];
+        mUnk_450 = mUnk_420.mUnk_00[mUnk_420.mUnk_08];
         iVar2    = mUnk_458;
         iVar1    = 1;
         if (iVar2 != -1) {
@@ -345,6 +337,7 @@ ARM bool ActorCharacter::vfunc_90(unk32 param1, unk32 param2) {
     return result;
 }
 
+// non-matching
 ARM void ActorCharacter::vfunc_94(unk32 param1, unk32 param2) {
     ActorCharacter_430_04 *unk1;
     ActorCharacter_430_04_04 *unk2;
@@ -370,7 +363,7 @@ ARM void ActorCharacter::vfunc_94(unk32 param1, unk32 param2) {
 
 ARM bool ActorCharacter::vfunc_98() {
     mUnk_1c3 = true;
-    mUnk_44c = mUnk_420[mUnk_428];
+    mUnk_44c = mUnk_420.mUnk_00[mUnk_420.mUnk_08];
     return mUnk_1d8.func_ov014_02145f0c(0);
 }
 
@@ -386,7 +379,7 @@ ARM bool ActorCharacter::vfunc_9c() {
 ARM void ActorCharacter::vfunc_ec(unk32 param1) {
     mUnk_1d8.func_ov014_02145f0c(param1);
     mUnk_46c[0] |= 1;
-    if (mUnk_1d8.mUnk_10->mUnk_0c == 1) {
+    if (mUnk_1d8.mUnk_10->mUnk_0c.mUnk_00 == 1) {
         mUnk_454 = param1;
     }
 }
@@ -402,23 +395,33 @@ ARM void ActorCharacter::func_ov014_0214591c() {
     }
 }
 
-ARM bool ActorCharacter::IsHitboxTouched(bool param1) {
-    Vec3p local_28;
-    int local_1c;
-    Vec3p local_18;
-    int local_c;
+struct UnkStruct_ov014_02145974 {
+    /* 00 */ PAD(0x00, 0x18);
+    /* 18 */ Cylinder mUnk_18;
+    /* 28 */ Cylinder mUnk_28;
+    /* 38 */
+};
 
-    local_c    = mYOffset * 3 >> 3;
-    local_18.z = mPos.z;
-    local_18.x = mPos.x;
-    local_18.y = mPos.y + (mYOffset >> 1);
-    local_1c   = 0x4cd;
-    local_28.z = mPos.z;
-    local_28.x = mPos.x;
-    local_28.y = mPos.y + mYOffset + 0x4cd;
+ARM bool ActorCharacter::IsHitboxTouched(bool param1) {
+    UnkStruct_ov014_02145974 sp_0;
+    {
+        sp_0.mUnk_28.size = (mYOffset + (mYOffset << 1)) >> 3;
+        Vec3p pos         = {mPos.x, mPos.y, mPos.z};
+        sp_0.mUnk_28.pos  = pos;
+        sp_0.mUnk_28.pos.y += mYOffset >> 1;
+    }
+    {
+        sp_0.mUnk_18.size = FLOAT_TO_Q20(0.3);
+        Vec3p pos         = {mPos.x, mPos.y, mPos.z};
+        sp_0.mUnk_18.pos  = pos;
+        sp_0.mUnk_18.pos.y += mYOffset + FLOAT_TO_Q20(0.3);
+    }
+
     if (param1) {
-        return TouchControl::func_0202b864(&local_18, local_c, 8) || TouchControl::func_0202b864(&local_28, local_1c, 8);
+        return TouchControl::func_0202b864(&sp_0.mUnk_28.pos, sp_0.mUnk_28.size, 8) ||
+               TouchControl::func_0202b864(&sp_0.mUnk_18.pos, sp_0.mUnk_18.size, 8);
     } else {
-        return TouchControl::func_0202b894(&local_18, local_c, 8) || TouchControl::func_0202b894(&local_28, local_1c, 8);
+        return TouchControl::func_0202b894(&sp_0.mUnk_28.pos, sp_0.mUnk_28.size, 8) ||
+               TouchControl::func_0202b894(&sp_0.mUnk_18.pos, sp_0.mUnk_18.size, 8);
     }
 }

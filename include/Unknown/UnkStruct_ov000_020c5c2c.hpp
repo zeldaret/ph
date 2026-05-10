@@ -9,23 +9,16 @@
 #include "Unknown/UnkStruct_0202e1a0.hpp"
 #include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 
-struct UnkStruct_ov000_020c5c2c_04 {
+struct UnkStruct_ov000_020c5c2c_10 {
     /* 00 */ PAD(0x00, 0x0c);
     /* 0c */ UnkStruct_0202e1a0 mUnk_0c;
     /* 24 */
 };
 
-struct UnkStruct_ov000_020c5c2c_10 {
-    /* 00 */ PAD(0x00, 0x0c);
-    /* 0c */ u16 mUnk_0c;
-    /* 0e */
-};
-
 class UnkStruct_ov000_020c5c2c : public SysObject {
 public:
     /* 00 (vtable) */
-    /* 04 */ UnkStruct_ov000_020c5c2c_04 *mUnk_04;
-    /* 04 */ PAD(0x08, 0x10);
+    /* 04 */ PAD(0x04, 0x10);
     /* 10 */ UnkStruct_ov000_020c5c2c_10 *mUnk_10;
     /* 14 */ PAD(0x14, 0x1c);
     /* 1c */ Actor *mActor;
