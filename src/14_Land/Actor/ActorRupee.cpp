@@ -20,19 +20,19 @@ extern u32 **data_027e0fe0[];
 
 ActorType ActorRupee::gType = ActorType(ActorTypeId_Rupee, (ActorCreateFunc) ActorRupee::Create, NULL);
 
-ActorRupee *ActorRupee::Create() {
+ARM ActorRupee *ActorRupee::Create() {
     ActorRupee *newRupee = new(*data_027e0fe0[0], 4) ActorRupee();
     return newRupee;
 }
 
 static const ActorType_UnkClass data_ov014_021589f4 = ActorType_UnkClass(FLOAT_TO_Q21(0.4662), FLOAT_TO_Q19(0.4661));
 
-ActorRupee::ActorRupee() {
+ARM ActorRupee::ActorRupee() {
     mRupeeId = 8;
     mUnk_15c = 0;
 }
 
-bool ActorRupee::Init() {
+ARM bool ActorRupee::Init() {
     RupeeId rupeeId        = (RupeeId) mUnk_020.mUnk_00[0];
     mRupeeId               = rupeeId;
     s32 iVar1              = (func_ov14_0213b70c(rupeeId) ? data_ov014_021589f4.mUnk_4 : 0xaa8) >> 1;
@@ -80,13 +80,13 @@ bool ActorRupee::Init() {
     return true;
 }
 
-bool ActorRupee::vfunc_60() {
+ARM bool ActorRupee::vfunc_60() {
     return func_ov14_0213b70c(mRupeeId);
 }
 
-void ActorRupee::vfunc_64() {}
+ARM void ActorRupee::vfunc_64() {}
 
-void ActorRupee::Move() {
+ARM void ActorRupee::Move() {
     s32 size;
 
     ApplyGravity();
@@ -107,7 +107,7 @@ void ActorRupee::Move() {
     }
 }
 
-ItemId ActorRupee::GetRupeeCutsceneItemId() {
+ARM ItemId ActorRupee::GetRupeeCutsceneItemId() {
     switch (mRupeeId) {
         case RupeeId_Green:
             return ItemId_None;
@@ -140,7 +140,7 @@ ItemId ActorRupee::GetRupeeCutsceneItemId() {
     return ItemId_None;
 }
 
-void ActorRupee::func_ov14_0213b204(unk32 param1) {
+ARM void ActorRupee::func_ov14_0213b204(unk32 param1) {
     switch (param1) {
         case 0:
             mVisible = true;
@@ -160,7 +160,7 @@ void ActorRupee::func_ov14_0213b204(unk32 param1) {
     mUnk_130      = param1;
 }
 
-void ActorRupee::Update(bool param1) {
+ARM void ActorRupee::Update(bool param1) {
     ItemId cutsceneItemId;
     s32 uVar3;
     Vec3p local_1c;
@@ -264,14 +264,14 @@ void ActorRupee::Update(bool param1) {
     KillInBounds();
 }
 
-void ActorRupee::vfunc_14(u32 param1) {
+ARM void ActorRupee::vfunc_14(u32 param1) {
     if (func_ov00_020c313c(param1)) {
         Update(false);
     }
     mUnk_0a4.func_ov000_0207a1c8(param1, &mPos);
 }
 
-void ActorRupee::vfunc_18(u32 param1) {
+ARM void ActorRupee::vfunc_18(u32 param1) {
     if (func_ov00_020c313c(param1)) {
         Update(true);
     }
@@ -279,13 +279,13 @@ void ActorRupee::vfunc_18(u32 param1) {
 }
 
 #define VFUNC20_COND (param1 ? mUnk_0a4.mUnk_01 : mUnk_0a4.mUnk_00)
-void ActorRupee::vfunc_20(bool param1) {
+ARM void ActorRupee::vfunc_20(bool param1) {
     if (VFUNC20_COND && !(mUnk_130 == 2 && mActiveFrames % 8 < 4) && VFUNC20_COND) {
         func_ov14_0213b5f4(mRupeeId, param1, &mPos, true);
     }
 }
 
-void ActorRupee::func_ov14_0213b5f4(RupeeId id, unk32 param2, Vec3p *param3, bool param4) {
+ARM void ActorRupee::func_ov14_0213b5f4(RupeeId id, unk32 param2, Vec3p *param3, bool param4) {
     Actor_UnkStruct_012 unk_class;
     static const u32 data_ov014_02153e28[] = {
         // sRupeePalettes
@@ -308,7 +308,7 @@ void ActorRupee::func_ov14_0213b5f4(RupeeId id, unk32 param2, Vec3p *param3, boo
     }
 }
 
-void ActorRupee::func_ov14_0213b6a4(RupeeId id, Actor_UnkStruct_012 *param2) {
+ARM void ActorRupee::func_ov14_0213b6a4(RupeeId id, Actor_UnkStruct_012 *param2) {
     param2->mUnk_04 = 3;
 
     if (func_ov14_0213b70c(id)) {
@@ -324,7 +324,7 @@ void ActorRupee::func_ov14_0213b6a4(RupeeId id, Actor_UnkStruct_012 *param2) {
     }
 }
 
-bool ActorRupee::func_ov14_0213b70c(RupeeId id) {
+ARM bool ActorRupee::func_ov14_0213b70c(RupeeId id) {
     switch (id) {
         case RupeeId_BigGreen:
         case RupeeId_BigRed:

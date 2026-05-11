@@ -5,7 +5,7 @@ ActorType ActorForceNavi::gType = ActorType(ActorTypeId_ForceNavi, (ActorCreateF
 #pragma section sbss end
 
 extern u32 **data_027e0fe0[];
-ActorForceNavi *ActorForceNavi::Create() {
+ARM ActorForceNavi *ActorForceNavi::Create() {
     return new(*data_027e0fe0[0], 4) ActorForceNavi();
 }
 

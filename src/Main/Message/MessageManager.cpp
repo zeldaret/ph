@@ -359,7 +359,7 @@ ARM void MessageManager::func_02036c50(u16 *param_2) {
     }
 }
 
-ARM void MessageManager::func_02036ca4(unk32 param_2) {
+ARM void MessageManager::func_02036ca4(u16 *param_2) {
     s32 i;
 
     for (i = 0; i < ARRAY_LEN(this->mUnk_28); i++) {
@@ -467,19 +467,19 @@ ARM UnkStruct_02038aa0 *MessageManager::func_02036da8(u32 param_2, s16 *param_3)
 // non-matching
 ARM void MessageManager::func_02036edc(u32 param_2, u8 param_3) {
     UnkStruct_020397f8 *pSVar1;
-    u8 auStack_28[24];
+    UnkStruct_02037628 auStack_28;
     u8 local_13;
 
-    func_02037628(auStack_28);
+    auStack_28.func_02037628();
     local_13 = 0;
 
     if ((data_02056be4[data_027e077c.mUnk_0] & 1) != 0 && (data_02056be4[data_027e077c.mUnk_0] & 2) == 0) {
         local_13 = 1;
     }
 
-    auStack_28[21] = local_13;
-    auStack_28[20] = param_3;
-    pSVar1         = this->func_02036f68(param_2, auStack_28);
+    auStack_28.mUnk_15 = local_13;
+    auStack_28.mUnk_14 = param_3;
+    pSVar1             = this->func_02036f68(param_2, &auStack_28, NULL);
 
     if (pSVar1 != NULL) {
         if (this->mUnk_04 == 0) {
@@ -489,7 +489,8 @@ ARM void MessageManager::func_02036edc(u32 param_2, u8 param_3) {
 }
 
 // non-matching
-ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, u8 *param_3) {
+ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, UnkStruct_02037628 *param_3,
+                                                      UnkStruct_ov000_020d18f4 *param_4) {
     EntryINF1 *pEVar1;
     UnkStruct_02038aa0 *pSVar2;
     EntryINF1 *pEVar3;
@@ -502,7 +503,7 @@ ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, u8 *param_3) 
         return NULL;
     }
 
-    if (param_3[21] != 0) {
+    if (param_3->mUnk_15 != 0) {
         pSVar5 = (UnkStruct_020397f8 *) this->mUnk_28[2];
         pSVar2 = this->mUnk_28[3];
     } else {
@@ -519,7 +520,7 @@ ARM UnkStruct_020397f8 *MessageManager::func_02036f68(u32 param_2, u8 *param_3) 
     if (data_ov000_020eec9c.func_ov000_020d7f18(0x19) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x18) == 0 &&
         data_ov000_020eec9c.func_ov000_020d7f18(0x34) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x35) == 0 &&
         data_ov000_020eec9c.func_ov000_020d7f18(0x1A) == 0 && data_ov000_020eec9c.func_ov000_020d7f18(0x1B) == 0 &&
-        (param_3[12]) != 7) {
+        (param_3->mUnk_0c) != 7) {
         data_ov000_020eec9c.func_ov000_020d77e4(0x1C);
     }
 

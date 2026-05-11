@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Unknown/UnkStruct_02037628.hpp"
+#include "Unknown/UnkStruct_ov000_020d18f4.hpp"
 #include "global.h"
 #include "types.h"
 
@@ -59,14 +61,14 @@ public:
     void func_0203690c(unk32 param_2);
     void func_02036bbc(void);
     void func_02036c50(u16 *param_2);
-    void func_02036ca4(unk32 param_2);
+    void func_02036ca4(u16 *param_2);
     bool func_02036ce4(UnkStruct_02037750 *param_2, unk32 param_3);
     bool func_02036d30(UnkStruct_02037750 *param_2);
     bool func_02036d4c(UnkStruct_02037750 *param_2);
     void func_02036d6c(void);
     UnkStruct_02038aa0 *func_02036da8(u32 param_2, s16 *param_3);
     void func_02036edc(u32 param_2, u8 param_3);
-    UnkStruct_020397f8 *func_02036f68(u32 param_2, u8 *param_3);
+    UnkStruct_020397f8 *func_02036f68(u32 param_2, UnkStruct_02037628 *param_3, UnkStruct_ov000_020d18f4 *param_4);
     UnkStruct_020386d8 *func_020370d0(unk32 param_2, unk32 param_3);
     UnkStruct_020386d8 *func_020370e8(unk32 param_2, unk16 param_3, unk16 param_4, unk32 param_5);
     void func_02037158(UnkSubClass1_02256FF8 *param_2);

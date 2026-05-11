@@ -6,7 +6,11 @@
     .bss        start:0x02183e80 end:0x02184200 kind:bss align:32
 
 src/31_Shop/Actor/ActorItemSellerBase.cpp:
-    .text       start:0x0217cf2c end:0x0217dbdc
+    complete
+    .text       start:0x0217cf1c end:0x0217dbdc
+    .rodata     start:0x021818a0 end:0x021818e8
+    .data       start:0x02182168 end:0x02182290
+    .bss        start:0x02183e84 end:0x02183e88
 
 src/31_Shop/Actor/ActorShopItem.cpp:
     .text       start:0x0217dbdc end:0x02180708

@@ -177,7 +177,7 @@ from:0x0217cf08 kind:arm_call_thumb to:0x02030294 module:main
 from:0x0217cf10 kind:arm_call to:0x0202ea0c module:main
 from:0x0217cf28 kind:load to:0x02183e84 module:overlay(31)
 from:0x0217cf34 kind:arm_call to:0x02144ed8 module:overlay(14)
-from:0x0217cf58 kind:load to:0x02182170 module:overlay(31)
+from:0x0217cf58 kind:load to:0x02182168 module:overlay(31) add:0x8
 from:0x0217cf5c kind:load to:0x02183e84 module:overlay(31)
 from:0x0217cf74 kind:arm_call to:0x021450a8 module:overlay(14)
 from:0x0217cf80 kind:load to:0x02183e84 module:overlay(31)

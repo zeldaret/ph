@@ -12,6 +12,7 @@
 #include "Physics/Transform.hpp"
 #include "Player/EquipBoomerang.hpp"
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_020397f8.hpp"
 #include "Unknown/UnkStruct_ov000_020beba8.hpp"
 
 struct Actor_UnkStruct_012 {
@@ -200,7 +201,7 @@ public:
     /* 5c */ virtual bool Drop(Vec3p *vel);
     /* 60 */ virtual bool vfunc_60();
     /* 64 */ virtual void vfunc_64();
-    /* 68 */ virtual void vfunc_68();
+    /* 68 */ virtual void vfunc_68(unk32 param1, UnkStruct_020397f8 *param2);
     /* 6c */ virtual bool vfunc_6c();
     /* 70 */ virtual bool vfunc_70();
     /* 74 */ virtual void vfunc_74(ActorRef *ref);

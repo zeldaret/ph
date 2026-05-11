@@ -52,7 +52,7 @@ public:
     /* 0x08 */
 
     UnkStruct_0203dae0_114();
-    /* 0x00 */ virtual ~UnkStruct_0203dae0_114() override;
+    /* 0x00 */ virtual ~UnkStruct_0203dae0_114();
     /* 0x08 */ virtual unk32 vfunc_08(void *);
     /* 0x08 */ virtual unk32 vfunc_0c(void);
     /* 0x0C */
@@ -78,9 +78,9 @@ struct func_02038f44_param4 {
 extern "C" u32 func_01ff9b4c(unk32, unk32);
 extern "C" unk32 func_0203c084(void);
 extern "C" unk32 func_ov000_02079e04(void);
-extern "C" unk32 func_02016fcc(unk32);
-extern "C" unk32 func_0202d5b4(char *, char *, unk32, unk32, unk32);
-extern unk32 data_020691a0;
+extern "C" unk32 func_02016fcc(unk32 *);
+extern "C" unk32 *func_0202d5b4(char *, char *, unk8 *, unk32, unk32);
+extern unk8 data_020691a0[];
 extern unk32 data_02056af0;
 extern unk32 *data_02056a00;
 extern char *data_02057f08; // "MSP"
@@ -124,6 +124,8 @@ class UnkClass_027e0e28 {
 public:
     unk32 func_ov000_0207bc48();
     void func_ov000_0207bc9c();
+
+    bool func_ov018_02160a64(unk32, unk32);
 };
 extern UnkClass_027e0e28 data_027e0e28;
 extern unk32 *data_ov009_0211f5b4;

@@ -1,5 +1,6 @@
 #include "Actor/ActorShopItem.hpp"
 #include "Actor/ActorTypeId.hpp"
+#include "Actor/Character/ActorItemSeller.hpp"
 #include "DTCM/UnkStruct_027e0c54.hpp"
 #include "DTCM/UnkStruct_027e0f64.hpp"
 #include "Item/Item.hpp"
@@ -566,8 +567,6 @@ ARM void ActorShopItemBase::vfunc_14(u32 param1) {
     mUnk_0a4.func_ov000_0207a1c8(param1, &mPos);
 }
 
-extern "C" UnkStruct_ov031_02183e80 *func_ov031_0217bdb8();
-
 ARM void ActorShopItem::vfunc_14(u32 param1) {
     Vec3p subroutine_arg0;
     Vec3p sp24;
@@ -575,7 +574,7 @@ ARM void ActorShopItem::vfunc_14(u32 param1) {
     Vec3p *temp_r0_2;
     UnkStruct_027e0f64_04 *temp_r3;
 
-    if ((this->func_ov00_020c313c(param1) != 0) && (func_ov031_0217bdb8()->mUnk_19a == 0)) {
+    if ((this->func_ov00_020c313c(param1) != 0) && (UnkStruct_ov031_02183e80::GetInstance()->mUnk_19a == 0)) {
         temp_r3 = data_027e0f64->mUnk_8;
         sp24    = temp_r3->mUnk_260;
         sp24.y  = FLOAT_TO_Q20(2.3);
@@ -603,7 +602,7 @@ ARM void ActorShopItem::vfunc_14(u32 param1) {
 }
 
 ARM void ActorShopItemShipPart::vfunc_14(u32 param1) {
-    if (func_ov031_0217bdb8()->mUnk_19a != 0 && mUnk_174 == true) {
+    if (UnkStruct_ov031_02183e80::GetInstance()->mUnk_19a != 0 && mUnk_174 == true) {
         mModel = mUnk_178;
         mPos.x = 0;
         mPos.y = FLOAT_TO_Q20(10.0);
@@ -736,8 +735,6 @@ ARM void ActorShopItem::vfunc_20(bool param1) {
     data_ov000_020e9c88.func_ov000_0207b89c(param1, &mPos, &func_ov031_0217f114, this);
 }
 
-extern "C" unk32 func_ov031_0217bda0();
-extern "C" unk32 func_ov031_0217bdac();
 extern "C" void CopySingle288(void *src, void *dest);
 extern "C" void func_ov009_0211d090(Vec3p *, Vec3p *);
 extern "C" void func_ov009_0211d00c(Mat3p *, Vec3p *);
@@ -746,17 +743,15 @@ ARM void ActorShopItemShipPart::vfunc_20(bool param1) {
         return;
     }
     if (mUnk_174 == true && mModel == mUnk_178) {
-        func_ov031_0217bdb8();
-        unk32 size                  = func_ov031_0217bda0();
+        unk32 size                  = UnkStruct_ov031_02183e80::GetInstance()->func_ov031_0217bda0();
         UnkStruct_027e0f64_04 *unk1 = data_027e0f64->func_ov000_0208b180();
         Mat4x3p MStack_44           = unk1->mUnk_01c;
         Mat3p tempMatrix;
         CopySingle288(&MStack_44, &tempMatrix);
         Mat3p rotation2;
         Mat3p_func_01ff83a0(&tempMatrix, &rotation2);
-        func_ov031_0217bdb8();
         Vec3p translation;
-        translation.z = -func_ov031_0217bdac();
+        translation.z = -UnkStruct_ov031_02183e80::GetInstance()->func_ov031_0217bdac();
         translation.x = 0;
         translation.y = 0;
         Mat3p_MultiplyVec(&translation, &rotation2, &translation);
@@ -767,7 +762,7 @@ ARM void ActorShopItemShipPart::vfunc_20(bool param1) {
         scale2.z = size;
         sShip2Model->SetTransform(&scale2, &rotation2, &translation);
 
-        Vec3p tempVec = func_ov031_0217bdb8()->mUnk_178;
+        Vec3p tempVec = UnkStruct_ov031_02183e80::GetInstance()->mUnk_178;
         translation   = tempVec;
         Vec3p_Add(&mPos, &translation, &translation);
         Vec3p scale;
@@ -837,14 +832,8 @@ ARM void ActorShopItemBY::vfunc_1c(u16 *param1) {
     }
 }
 
-struct UnkStruct_ov031_02183e84 {
-    /* 000 */ PAD(0x000, 0x470);
-    /* 470 */ unk32 mUnk_470;
-    /* 474 */
-};
-extern UnkStruct_ov031_02183e84 *func_ov031_0217cf1c();
 ARM unk32 ActorShopItem::GetSoldOutMessageId() {
-    if (func_ov031_0217cf1c()->mUnk_470 == 2) {
+    if (ActorItemSellerBase::GetCurrentSeller()->mUnk_470 == 2) {
         return BMG_ID(BMG_FILE_INDEX_FIELD, 0x57);
     } else {
         return BMG_ID(BMG_FILE_INDEX_SHIP, 0xff);
@@ -860,7 +849,7 @@ ARM unk32 ActorShopItemSoldOut::GetMessageId() {
 }
 
 ARM unk32 ActorShopItemHeartContainer::GetMessageId() {
-    if (func_ov031_0217cf1c()->mUnk_470 == 2) {
+    if (ActorItemSellerBase::GetCurrentSeller()->mUnk_470 == 2) {
         return BMG_ID(BMG_FILE_INDEX_FIELD, 0x44);
     } else {
         return BMG_ID(BMG_FILE_INDEX_SHIP, 0x8e);
@@ -881,7 +870,7 @@ ARM unk32 ActorShopItemBombs::GetMessageId() {
 
 extern "C" bool HasFreebieCard();
 ARM unk32 ActorShopItemBombBag::GetMessageId() {
-    unk32 unk = func_ov031_0217cf1c()->mUnk_470;
+    unk32 unk = ActorItemSellerBase::GetCurrentSeller()->mUnk_470;
     if (unk == 2) {
         return BMG_ID(BMG_FILE_INDEX_FIELD, 0x48);
     } else if (HasFreebieCard()) {
@@ -896,7 +885,7 @@ ARM unk32 ActorShopItemBombchus::GetMessageId() {
 }
 
 ARM unk32 ActorShopItemBombchuBag::GetMessageId() {
-    switch (func_ov031_0217cf1c()->mUnk_470) {
+    switch (ActorItemSellerBase::GetCurrentSeller()->mUnk_470) {
         case 2:
             return BMG_ID(BMG_FILE_INDEX_FIELD, 0x49);
         case 1:
@@ -908,7 +897,7 @@ ARM unk32 ActorShopItemBombchuBag::GetMessageId() {
 }
 
 ARM unk32 ActorShopItemShipPart::GetMessageId() {
-    switch (func_ov031_0217cf1c()->mUnk_470) {
+    switch (ActorItemSellerBase::GetCurrentSeller()->mUnk_470) {
         case 2:
             return BMG_ID(BMG_FILE_INDEX_FIELD, 0x46);
         case 0:
@@ -935,7 +924,7 @@ ARM unk32 ActorShopItemShipPart::GetMessageId() {
 }
 
 ARM unk32 ActorShopItemTreasure::GetMessageId() {
-    switch (func_ov031_0217cf1c()->mUnk_470) {
+    switch (ActorItemSellerBase::GetCurrentSeller()->mUnk_470) {
         case 2:
             return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4a);
         case 0:
@@ -962,7 +951,7 @@ ARM unk32 ActorShopItemTreasure::GetMessageId() {
 }
 
 ARM unk32 ActorShopItemGem::GetMessageId() {
-    switch (func_ov031_0217cf1c()->mUnk_470) {
+    switch (ActorItemSellerBase::GetCurrentSeller()->mUnk_470) {
         case 2:
             return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4b);
         case 0:
@@ -985,7 +974,7 @@ ARM unk32 ActorShopItemShield::GetMessageId() {
 ARM unk32 ActorShopItemPotion::GetMessageId() {
     int iVar1;
 
-    if (func_ov031_0217cf1c()->mUnk_470 == 2) {
+    if (ActorItemSellerBase::GetCurrentSeller()->mUnk_470 == 2) {
         switch (mShopItemId) {
             case ShopItem_RedPotion:
                 return BMG_ID(BMG_FILE_INDEX_FIELD, 0x4d);
@@ -1022,7 +1011,7 @@ ARM s32 ActorShopItem::GetPrice() {
 }
 
 ARM s32 ActorShopItemHeartContainer::GetPrice() {
-    if (func_ov031_0217cf1c()->mUnk_470 == 1) {
+    if (ActorItemSellerBase::GetCurrentSeller()->mUnk_470 == 1) {
         return 1500;
     } else {
         return 2000;
@@ -1030,7 +1019,7 @@ ARM s32 ActorShopItemHeartContainer::GetPrice() {
 }
 
 ARM s32 ActorShopItemPotion::GetPrice() {
-    if (func_ov031_0217cf1c()->mUnk_470 != 2) {
+    if (ActorItemSellerBase::GetCurrentSeller()->mUnk_470 != 2) {
         if (mShopItemId == ShopItem_RedPotion) {
             return 80;
         } else {
@@ -1055,14 +1044,12 @@ ARM s32 ActorShopItemShipPart::GetPrice() {
 
 ARM s32 ActorShopItemTreasure::GetPrice() {
     unk32 unk = mUnk_17c;
-    return func_ov031_0217bdb8()->mUnk_038[unk];
+    return UnkStruct_ov031_02183e80::GetInstance()->mUnk_038[unk];
 }
 
-extern "C" unk32 func_ov031_0217ce6c();
 ARM unk32 ActorShopItem::vfunc_c0() {
     s32 price = this->GetPrice();
-    func_ov031_0217bdb8();
-    unk32 unk = (price * (10 - func_ov031_0217ce6c()) / 10 + 5) / 10 * 10;
+    unk32 unk = (price * (10 - UnkStruct_ov031_02183e80::GetInstance()->func_ov031_0217ce6c()) / 10 + 5) / 10 * 10;
     if (unk < 10) {
         unk = 10;
     }
@@ -1073,13 +1060,13 @@ ARM void ActorShopItem::vfunc_c4() {
     if (mItemId == ItemId_None) {
         return;
     }
-    if (func_ov031_0217bdb8()->func_ov031_0217bd80()) {
+    if (UnkStruct_ov031_02183e80::GetInstance()->func_ov031_0217bd80()) {
         mUnk_175 = true;
     }
 }
 
 ARM void ActorShopItemHeartContainer::vfunc_c4() {
-    switch (func_ov031_0217cf1c()->mUnk_470) {
+    switch (ActorItemSellerBase::GetCurrentSeller()->mUnk_470) {
         case 2:
             gAdventureFlags->Set(AdventureFlag_Unk_103, true);
             break;
@@ -1130,7 +1117,7 @@ ARM void ActorShopItemShipPart::vfunc_c4() {
     ShipPart part = this->func_ov031_02180248();
     ShipType type = this->func_ov031_02180260();
     GiveShipPart(part, type);
-    if (func_ov031_0217bdb8()->func_ov031_0217bd80()) {
+    if (UnkStruct_ov031_02183e80::GetInstance()->func_ov031_0217bd80()) {
         data_027e0dbc.func_ov003_020f3d74(mUnk_180 + 8);
     }
     ActorShopItem::vfunc_c4();
@@ -1140,14 +1127,14 @@ extern "C" void func_ov009_0211cac0(u32);
 ARM void ActorShopItemTreasure::vfunc_c4() {
     unk32 unk = this->func_ov031_02180278();
     func_ov009_0211cac0(unk);
-    if (func_ov031_0217bdb8()->func_ov031_0217bd80()) {
+    if (UnkStruct_ov031_02183e80::GetInstance()->func_ov031_0217bd80()) {
         data_027e0dbc.func_ov003_020f3d74(mUnk_17c + 5);
     }
     ActorShopItem::vfunc_c4();
 }
 
 ARM void ActorShopItemGem::vfunc_c4() {
-    switch (func_ov031_0217cf1c()->mUnk_470) {
+    switch (ActorItemSellerBase::GetCurrentSeller()->mUnk_470) {
         case 2:
             gAdventureFlags->Set(AdventureFlag_Unk_105, true);
             break;
@@ -1240,17 +1227,17 @@ ARM bool ActorShopItemBY::vfunc_b8() {
 
 ARM unk32 ActorShopItemShipPart::func_ov031_02180248() {
     s32 unk = mUnk_180;
-    return func_ov031_0217bdb8()->mUnk_01c[unk];
+    return UnkStruct_ov031_02183e80::GetInstance()->mUnk_01c[unk];
 }
 
 ARM unk32 ActorShopItemShipPart::func_ov031_02180260() {
     s32 unk = mUnk_180;
-    return func_ov031_0217bdb8()->mUnk_024[unk];
+    return UnkStruct_ov031_02183e80::GetInstance()->mUnk_024[unk];
 }
 
 ARM unk32 ActorShopItemTreasure::func_ov031_02180278() {
     s32 unk = mUnk_17c;
-    return func_ov031_0217bdb8()->mUnk_02c[unk];
+    return UnkStruct_ov031_02183e80::GetInstance()->mUnk_02c[unk];
 }
 
 ARM bool ActorShopItemDM::vfunc_d0() {
@@ -1318,7 +1305,7 @@ ARM bool ActorShopItemPotion::vfunc_d0() {
 }
 
 void ActorShopItemUnk::func_ov031_02180418() {
-    if (func_ov031_0217bdb8()->func_ov031_0217cec0()) {
+    if (UnkStruct_ov031_02183e80::GetInstance()->func_ov031_0217cec0()) {
         return;
     }
     mUnk_164 = true;

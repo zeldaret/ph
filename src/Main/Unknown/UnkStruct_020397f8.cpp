@@ -748,12 +748,13 @@ ARM unk32 UnkStruct_020397f8::vfunc_1c(u16 *param1, UnkStruct_0203b264 *param2, 
     switch (this->mUnk_57a) {
         case 0:
             return this->func_0203905c(param1, param2, param3, param4);
-        case 1:
+        case 1: {
             UnknownMsgChoiceStruct *pChoiceData;
             s32 i       = this->func_0203a30c();
             pChoiceData = &this->mUnk_428[this->mUnk_528[i]];
             return this->mUnk_164->func_0203cb5c(
                 *param1, (((pChoiceData->mUnk_00->mUnk_0[3] << 0x10) | ((u16 *) pChoiceData->mUnk_00->mUnk_0)[2]) + ~0xFFFE));
+        }
         default:
             break;
     }
@@ -767,7 +768,8 @@ ARM void UnkStruct_020397f8::vfunc_60(func_0203b410_param1 *param1, unk32 param2
     unk16 uVar2;
     unk32 iVar3;
     unk32 iVar4;
-    unk32 uVar5;
+    unk32 *uVar5;
+    unk32 uVar5_1;
     u32 uVar6;
 
     uVar6 = 0;
@@ -820,12 +822,12 @@ ARM void UnkStruct_020397f8::vfunc_60(func_0203b410_param1 *param1, unk32 param2
         iVar3 = func_02016fcc(uVar5);
     } else {
         if (this->func_02032fa4() != 0) {
-            uVar5 = 0x33;
+            uVar5_1 = 0x33;
         } else {
-            uVar5 = 0x32;
+            uVar5_1 = 0x32;
         }
 
-        data_027e0cbc.func_0203d77c(uVar5, 1, 1);
+        data_027e0cbc.func_0203d77c(uVar5_1, 1, 1);
         iVar3 = data_027e0cbc.func_0203d77c(data_02056a00[uVar6 * 0x18] - 2, 1, 1);
     }
 

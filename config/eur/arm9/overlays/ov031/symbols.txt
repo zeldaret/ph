@@ -3,7 +3,7 @@ func_ov031_0217bd88 kind:function(arm,size=0x18) addr:0x0217bd88
 func_ov031_0217bda0 kind:function(arm,size=0xc) addr:0x0217bda0
 func_ov031_0217bdac kind:function(arm,size=0x8) addr:0x0217bdac
 func_ov031_0217bdb4 kind:function(arm,size=0x4) addr:0x0217bdb4
-func_ov031_0217bdb8 kind:function(arm,size=0x10) addr:0x0217bdb8
+_ZN24UnkStruct_ov031_02183e8011GetInstanceEv kind:function(arm,size=0x10) addr:0x0217bdb8
 func_ov031_0217bdc8 kind:function(arm,size=0x194) addr:0x0217bdc8
 func_ov031_0217bf5c kind:function(arm,size=0x14) addr:0x0217bf5c
 func_ov031_0217bf70 kind:function(arm,size=0x44) addr:0x0217bf70
@@ -27,14 +27,14 @@ func_ov031_0217ca10 kind:function(arm,size=0x160) addr:0x0217ca10
 func_ov031_0217cb70 kind:function(arm,size=0x1a0) addr:0x0217cb70
 func_ov031_0217cd10 kind:function(arm,size=0x74) addr:0x0217cd10
 func_ov031_0217cd84 kind:function(arm,size=0x54) addr:0x0217cd84
-func_ov031_0217cdd8 kind:function(arm,size=0x20) addr:0x0217cdd8
+_ZN24UnkStruct_ov031_02183e8019func_ov031_0217cdd8Ei kind:function(arm,size=0x20) addr:0x0217cdd8
 func_ov031_0217cdf8 kind:function(arm,size=0x20) addr:0x0217cdf8
-func_ov031_0217ce18 kind:function(arm,size=0x54) addr:0x0217ce18
+_ZN24UnkStruct_ov031_02183e8019func_ov031_0217ce18Ev kind:function(arm,size=0x54) addr:0x0217ce18
 func_ov031_0217ce6c kind:function(arm,size=0x24) addr:0x0217ce6c
 HasFreebieCard kind:function(arm,size=0x30) addr:0x0217ce90
 _ZN24UnkStruct_ov031_02183e8019func_ov031_0217cec0Ev kind:function(arm,size=0x40) addr:0x0217cec0
 func_ov031_0217cf00 kind:function(arm,size=0x1c) addr:0x0217cf00
-_Z19func_ov031_0217cf1cv kind:function(arm,size=0x10) addr:0x0217cf1c
+_ZN19ActorItemSellerBase16GetCurrentSellerEv kind:function(arm,size=0x10) addr:0x0217cf1c
 _ZN19ActorItemSellerBaseC2Ev kind:function(arm,size=0x34) addr:0x0217cf2c
 _ZN19ActorItemSellerBaseD1Ev kind:function(arm,size=0x24) addr:0x0217cf60
 _ZN19ActorItemSellerBaseD0Ev kind:function(arm,size=0x2c) addr:0x0217cf84
@@ -65,7 +65,7 @@ _ZN19ActorItemSellerBase19func_ov031_0217d974Ev kind:function(arm,size=0x14) add
 _ZN19ActorItemSellerBase8vfunc_d4Ev kind:function(arm,size=0xc) addr:0x0217d988
 _ZN19ActorItemSellerBase8vfunc_8cEv kind:function(arm,size=0x8c) addr:0x0217d994
 _ZN19ActorItemSellerBase19func_ov031_0217da20Ei kind:function(arm,size=0x60) addr:0x0217da20
-_ZN19ActorItemSellerBase8vfunc_68Ev kind:function(arm,size=0x38) addr:0x0217da80
+_ZN19ActorItemSellerBase8vfunc_68EiP18UnkStruct_020397f8 kind:function(arm,size=0x38) addr:0x0217da80
 _ZN19ActorItemSellerBase16CollidesWithLinkEv kind:function(arm,size=0x90) addr:0x0217dab8
 _ZN19ActorItemSellerBase9vfunc_11cEv kind:function(arm,size=0x8) addr:0x0217db48
 _ZN19ActorItemSellerBase15IsHitboxTouchedEb kind:function(arm,size=0x8c) addr:0x0217db50
@@ -289,7 +289,7 @@ _ZN14ActorTetra_4b019func_ov031_02181798Ev kind:function(arm,size=0xd4) addr:0x0
 _ZN10ActorTetraD1Ev kind:function(arm,size=0x1c) addr:0x0218186c
 _ZN10ActorTetraD0Ev kind:function(arm,size=0x14) addr:0x02181888
 _ZN10ActorTetra8vfunc_f8Ev kind:function(arm,size=0x4) addr:0x0218189c
-data_ov031_021818a0 kind:data(any) addr:0x021818a0
+sShopItemActorTypes kind:data(any) addr:0x021818a0 local
 sShopItemBaseNames kind:data(any) addr:0x021818e8 local
 unk$1534 kind:data(any) addr:0x02181a58 local
 unk$1554 kind:data(any) addr:0x02181a6c local
@@ -327,7 +327,7 @@ data_ov031_02182138 kind:data(any) addr:0x02182138
 data_ov031_0218213c kind:data(any) addr:0x0218213c
 data_ov031_02182140 kind:data(any) addr:0x02182140
 data_ov031_02182144 kind:data(any) addr:0x02182144
-data_ov031_02182170 kind:data(any) addr:0x02182170
+_ZTV19ActorItemSellerBase kind:data(any) addr:0x02182168
 @1183 kind:data(any) addr:0x02182290 local
 @1184 kind:data(any) addr:0x02182294 local
 @1185 kind:data(any) addr:0x02182298 local
@@ -428,7 +428,7 @@ data_ov031_02183d68 kind:data(any) addr:0x02183d68
 data_ov031_02183d6c kind:data(any) addr:0x02183d6c
 data_ov031_02183d7c kind:data(any) addr:0x02183d7c
 data_ov031_02183e80 kind:bss addr:0x02183e80
-data_ov031_02183e84 kind:bss addr:0x02183e84
+sCurrentSeller kind:bss addr:0x02183e84 local
 @792 kind:bss addr:0x02183e88 local
 _ZN15ActorShopItemDM5gTypeE kind:bss addr:0x02183e94
 @794 kind:bss addr:0x02183ea8 local

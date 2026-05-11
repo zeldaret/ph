@@ -10,32 +10,39 @@ class ActorItemSellerBase : public ActorCharacter {
 public:
     /* 000 (base) */
     /* 470 */ unk32 mUnk_470;
-    /* 474 */
+    /* 474 */ unk32 mUnk_474;
+    /* 478 */ unk32 mUnk_478;
+    /* 47c */ unk32 mUnk_47c;
+    /* 480 */ bool mUnk_480;
+    /* 481 */ PAD(0x481, 0x484);
+    /* 484 */
 
     /* 000 */ virtual ~ActorItemSellerBase() override;
     /* 008 */ virtual bool Init() override;
     /* 020 */ virtual void vfunc_20(bool param1) override;
     /* 03c */ virtual bool CollidesWithLink() override;
     /* 040 */ virtual bool IsHitboxTouched(bool param1) override;
-    /* 068 */ virtual void vfunc_68() override;
+    /* 068 */ virtual void vfunc_68(unk32 param1, UnkStruct_020397f8 *param2) override;
     /* 08c */ virtual bool vfunc_8c() override;
     /* 0c0 */ virtual bool vfunc_c0() override;
     /* 0c4 */ virtual void vfunc_c4() override;
     /* 0d4 */ virtual unk32 vfunc_d4() override;
-    /* 0f4 */ virtual void vfunc_f4()  = 0;
-    /* 0f8 */ virtual void vfunc_f8()  = 0;
-    /* 0fc */ virtual void vfunc_fc()  = 0;
-    /* 100 */ virtual void vfunc_100() = 0;
-    /* 104 */ virtual void vfunc_104() = 0;
-    /* 108 */ virtual void vfunc_108() = 0;
-    /* 10c */ virtual void vfunc_10c() = 0;
-    /* 110 */ virtual void vfunc_110() = 0;
-    /* 114 */ virtual void vfunc_114() = 0;
-    /* 118 */ virtual void vfunc_118() = 0;
-    /* 11c */ virtual void vfunc_11c();
+    /* 0f4 */ virtual void vfunc_f4()               = 0;
+    /* 0f8 */ virtual void vfunc_f8()               = 0;
+    /* 0fc */ virtual void vfunc_fc()               = 0;
+    /* 100 */ virtual void vfunc_100()              = 0;
+    /* 104 */ virtual void vfunc_104()              = 0;
+    /* 108 */ virtual void vfunc_108()              = 0;
+    /* 10c */ virtual void vfunc_10c()              = 0;
+    /* 110 */ virtual void vfunc_110()              = 0;
+    /* 114 */ virtual unk32 vfunc_114(unk32 param1) = 0;
+    /* 118 */ virtual void vfunc_118()              = 0;
+    /* 11c */ virtual bool vfunc_11c();
     /* 120 */
 
     ActorItemSellerBase();
+
+    static ActorItemSellerBase *GetCurrentSeller();
 
     void func_ov031_0217d588();
     void func_ov031_0217d5c0();
@@ -44,7 +51,7 @@ public:
     void func_ov031_0217d610();
     void func_ov031_0217d62c();
     void func_ov031_0217d638();
-    void func_ov031_0217d6ac();
+    bool func_ov031_0217d6ac();
     void func_ov031_0217d6d0();
     void func_ov031_0217d760();
     void func_ov031_0217d784();
@@ -62,7 +69,7 @@ public:
 
 class ActorItemSeller : public ActorItemSellerBase {
     /* 000 (base) */
-    /* 474 */
+    /* 484 */
 
     /* 000 */ virtual ~ActorItemSeller() override;
     /* 008 */ virtual bool Init() override;
@@ -75,7 +82,7 @@ class ActorItemSeller : public ActorItemSellerBase {
     /* 108 */ virtual void vfunc_108() override;
     /* 10c */ virtual void vfunc_10c() override;
     /* 110 */ virtual void vfunc_110() override;
-    /* 114 */ virtual void vfunc_114() override;
+    /* 114 */ virtual unk32 vfunc_114(unk32 param1) override;
     /* 118 */ virtual void vfunc_118() override;
     /* 120 */
 };
@@ -100,7 +107,7 @@ public:
     static ActorType gType;
 
     /* 000 (base) */
-    /* 474 */
+    /* 484 */
 
     /* 000 */ virtual ~ActorBeedle() override;
     /* 008 */ virtual bool Init() override;
@@ -108,9 +115,9 @@ public:
     /* 070 */ virtual bool vfunc_70() override;
     /* 0c4 */ virtual void vfunc_c4() override;
     /* 0d4 */ virtual unk32 vfunc_d4() override;
-    /* 0d8 */ virtual unk32 vfunc_d8() override;
-    /* 0dc */ virtual unk32 vfunc_dc() override;
-    /* 0e0 */ virtual unk32 vfunc_e0() override;
+    /* 0d8 */ virtual unk32 vfunc_d8(unk32 param1) override;
+    /* 0dc */ virtual unk32 vfunc_dc(unk32 param1) override;
+    /* 0e0 */ virtual unk32 vfunc_e0(unk32 param1) override;
     /* 0f4 */ virtual void vfunc_f4() override;
     /* 0f8 */ virtual void vfunc_f8() override;
     /* 0fc */ virtual void vfunc_fc() override;
@@ -119,9 +126,9 @@ public:
     /* 108 */ virtual void vfunc_108() override;
     /* 10c */ virtual void vfunc_10c() override;
     /* 110 */ virtual void vfunc_110() override;
-    /* 114 */ virtual void vfunc_114() override;
+    /* 114 */ virtual unk32 vfunc_114(unk32 param1) override;
     /* 118 */ virtual void vfunc_118() override;
-    /* 11c */ virtual void vfunc_11c() override;
+    /* 11c */ virtual bool vfunc_11c() override;
 
     static ActorBeedle *Create();
 

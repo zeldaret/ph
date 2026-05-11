@@ -36,7 +36,7 @@ public:
     /* 08 */ virtual bool Init() override;
     /* 14 */ virtual void vfunc_14(u32 param1) override;
     /* 18 */ virtual void vfunc_18(u32 param1) override;
-    /* 68 */ virtual void vfunc_68() override;
+    /* 68 */ virtual void vfunc_68(unk32 param1, UnkStruct_020397f8 *param2) override;
     /* 80 */ virtual void vfunc_80() override;
     /* 84 */ virtual void vfunc_84() override;
     /* b4 */ virtual void vfunc_b4();
@@ -82,13 +82,13 @@ public:
     /* 78 */ Vec3p mUnk_78;
     /* 84 */ unk32 mUnk_84;
     /* 88 */ unk32 mUnk_88;
-    /* 8c */ unk8 mUnk_8c;
+    /* 8c */ bool mUnk_8c;
     /* 8d */ unk8 mUnk_8d;
     /* 8e */ unk8 mUnk_8e;
-    /* 8f */ unk8 mUnk_8f;
+    /* 8f */ bool mUnk_8f;
     /* 90 */
 
-    /* 00 */ virtual ~ActorCharacterModel() override {}
+    /* 00 */ ARM virtual ~ActorCharacterModel() override {}
     /* 3c */ virtual void vfunc_3c(ModelRenderCommandsData *renderData) override;
     /* 40 */
 
@@ -187,6 +187,7 @@ public:
         mUnk_244(0x11f) {}
 
     void func_ov014_02145cac();
+    void func_ov014_02145e48(unk32 param1);
     bool func_ov014_02145f0c(unk32 param1);
 
     inline bool UnkFunc1(unk32 param1) {

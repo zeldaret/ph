@@ -9,6 +9,8 @@
 #include "Render/ModelRender.hpp"
 #include "System/SysNew.hpp"
 
+#define NUM_SHOP_ITEMS 5
+
 typedef u32 ShopItem;
 enum ShopItem_ {
     ShopItem_Unk                 = -1,
@@ -448,18 +450,34 @@ public:
 };
 
 struct UnkStruct_ov031_02183e80 {
-    /* 000 */ PAD(0x000, 0x01c);
+    /* 000 */ unk32 mUnk_000;
+    /* 004 */ PAD(0x004, 0x01c);
     /* 01c */ u32 mUnk_01c[2];
     /* 024 */ u32 mUnk_024[2];
     /* 02c */ u32 mUnk_02c[2];
-    /* 034 */ PAD(0x34, 0x38);
+    /* 034 */ PAD(0x034, 0x038);
     /* 038 */ u32 mUnk_038[1]; // at least 1, unclear how many
-    /* 03c */ PAD(0x03c, 0x178);
+    /* 03c */ PAD(0x03c, 0x070);
+    /* 070 */ ActorRef mShopItemRefs[NUM_SHOP_ITEMS];
+    /* 098 */ ActorRef mShopItemRefBK;
+    /* 0a0 */ ActorRef mShopItemRefCC;
+    /* 0a8 */ ActorRef mShopItemRefBY;
+    /* 0b0 */ PAD(0x0b0, 0x178);
     /* 178 */ Vec3p mUnk_178;
-    /* 184 */ PAD(0x184, 0x19a);
+    /* 184 */ PAD(0x184, 0x194);
+    /* 194 */ unk32 mUnk_194;
+    /* 198 */ bool mUnk_198;
+    /* 199 */ PAD(0x199, 0x19a);
     /* 19a */ u8 mUnk_19a;
     /* 19b */
 
+    static UnkStruct_ov031_02183e80 *GetInstance();
+
     bool func_ov031_0217bd80();
+    unk32 func_ov031_0217bda0();
+    unk32 func_ov031_0217bdac();
+    ActorShopItem *func_ov031_0217cdd8(unk32 param1);
+    bool func_ov031_0217ce18();
+    unk32 func_ov031_0217ce6c();
     bool func_ov031_0217cec0();
 };

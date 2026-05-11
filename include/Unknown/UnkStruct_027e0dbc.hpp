@@ -5,6 +5,12 @@
 
 #include "Game/GameMode.hpp"
 
+struct UnkStruct_027e0dbc_24 {
+    /* 00 */ PAD(0x00, 0x0b);
+    /* 0b */ u8 mUnk_0b;
+    /* 0c */
+};
+
 class UnkStruct_027e0dbc {
 public:
     /* 00 */ unk32 mUnk_00;
@@ -16,7 +22,7 @@ public:
     /* 18 */ unk32 mUnk_18;
     /* 1c */ unk32 mUnk_1c;
     /* 20 */ unk32 mUnk_20;
-    /* 24 */ unk32 mUnk_24;
+    /* 24 */ UnkStruct_027e0dbc_24 *mUnk_24;
     /* 28 */ unk32 mUnk_28;
     /* 2c */ unk32 mUnk_2c;
 
@@ -26,8 +32,9 @@ public:
     void func_ov000_0207b9dc();
     void func_ov000_0207b9c8();
     void func_ov000_0207b988(GameModeId modeId);
+    UnkStruct_027e0dbc_24 *GetUnk_24();
 
-    unk32 func_ov003_020f3d5c(unk32 param1);
+    bool func_ov003_020f3d5c(unk32 param1);
     void func_ov003_020f3d74(unk32 param1);
 };
 

@@ -191,7 +191,7 @@ ARM void ActorCharacterBase::vfunc_84() {
 ARM void ActorCharacterBase::vfunc_cc() {}
 ARM void ActorCharacterBase::vfunc_c8() {}
 ARM void ActorCharacterBase::vfunc_d0() {}
-ARM void ActorCharacterBase::vfunc_68() {}
+ARM void ActorCharacterBase::vfunc_68(unk32 param1, UnkStruct_020397f8 *param2) {}
 
 bool ActorCharacterBase::vfunc_bc() {
     return (mUnk_158.mUnk_18 & 0xffff0000) == 0x1000000;
