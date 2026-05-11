@@ -239,8 +239,8 @@ ARM bool Actor::vfunc_70() {
     return true;
 }
 
-ARM void Actor::vfunc_74() {}
-ARM void Actor::vfunc_7c() {}
+ARM void Actor::vfunc_74(ActorRef *ref) {}
+ARM void Actor::vfunc_7c(ActorRef *ref) {}
 
 ARM bool Actor::vfunc_78() {
     return true;
@@ -254,11 +254,11 @@ ARM bool Actor::vfunc_8c() {
     return true;
 }
 
-ARM bool Actor::vfunc_90() {
+ARM bool Actor::vfunc_90(unk32 param1, unk32 param2) {
     return true;
 }
 
-ARM void Actor::vfunc_94() {}
+ARM void Actor::vfunc_94(unk32 param1, unk32 param2) {}
 ARM bool Actor::vfunc_98() {}
 ARM bool Actor::vfunc_9c() {}
 

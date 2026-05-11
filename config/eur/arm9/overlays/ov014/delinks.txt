@@ -27,7 +27,9 @@ src/14_Land/Actor/Character/ActorCharacterBase.cpp:
     .data       start:0x021594b8 end:0x021595ac
 
 src/14_Land/Actor/Character/ActorCharacter.cpp:
+    complete
     .text       start:0x02144d94 end:0x02145a74
+    .data       start:0x021595ac end:0x021596a8
 
 src/14_Land/Actor/Character/ActorGenericCharacter.cpp:
     .text       start:0x021476d0 end:0x02148234
