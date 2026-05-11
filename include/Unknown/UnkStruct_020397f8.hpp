@@ -152,20 +152,21 @@ public:
     MsgProc_Type3(unk32 param_2, unk16 param_3, unk32 param_4);
     //! TODO: remove the function declarations that are not overridden
     /* 00 */ virtual ~MsgProc_Type3();
-    /* 08 */ virtual void vfunc_08(unk32 *param_2, unk32 *param_3) override;
-    /* 0c */ virtual void vfunc_0C(u8 param_2, u8 param_3, u8 param_4, unk32 param_5) override;
-    /* 10 */ virtual void vfunc_10(u8 param_2, u8 param_3) override; // func_0203e060?
+    //! TODO: Fix these overrides, they don't match base class
+    // /* 08 */ virtual void vfunc_08(unk32 *param_2, unk32 *param_3) override;
+    // /* 0c */ virtual void vfunc_0C(u8 param_2, u8 param_3, u8 param_4, unk32 param_5) override;
+    // /* 10 */ virtual void vfunc_10(u8 param_2, u8 param_3) override; // func_0203e060?
     /* 14 */ virtual bool vfunc_14(unk32 param_2, unk32 param_3) override;
-    /* 18 */ virtual unk32 vfunc_18(UnkStruct_0203b264 *param_2, unk32 param_3, unk32 param_4) override;
-    /* 1c */ virtual unk32 vfunc_1C(u16 *param_2, UnkStruct_0203b264 *param_3, unk8 param_4, unk32 param_5) override;
-    /* 20 */ virtual void vfunc_20(void) override;
-    /* 24 */ virtual void vfunc_24(void) override;
+    // /* 18 */ virtual unk32 vfunc_18(UnkStruct_0203b264 *param_2, unk32 param_3, unk32 param_4) override;
+    // /* 1c */ virtual unk32 vfunc_1C(u16 *param_2, UnkStruct_0203b264 *param_3, unk8 param_4, unk32 param_5) override;
+    // /* 20 */ virtual void vfunc_20(void) override;
+    // /* 24 */ virtual void vfunc_24(void) override;
     /* 28 */ virtual bool vfunc_28(void) override;
     /* 2c */ virtual void vfunc_2C(void) override;
     /* 30 */ virtual void vfunc_30(void) override;
     /* 34 */ virtual unk32 vfunc_34(unk32 param_2) override;
     /* 38 */ virtual bool vfunc_38(void) override;
-    /* 3c */ virtual void vfunc_3C(unk32 param_2) override;
+    /* 3c */ virtual void vfunc_3C(u16 *param_2) override;
     /* 40 */ virtual void vfunc_40(unk32 param_2, unk32 param_3) override;
     /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY) override;
     /* 48 */ virtual void vfunc_48(void) override;

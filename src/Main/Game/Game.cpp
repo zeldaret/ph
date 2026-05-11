@@ -377,7 +377,7 @@ ARM void Game::Run() {
             func_020363c8(local_28, &data_027e0c54);
             this->mUnk_0f0 = local_28[0];
             this->mMode->vfunc_10(&this->mUnk_0f0);
-            gMessageManager.func_02036ca4((unk32) & this->mUnk_0f0);
+            gMessageManager.func_02036ca4(&this->mUnk_0f0);
             if (this->mModeId == 2) {
                 data_027e103c->func_ov005_02103e58(&this->mUnk_0f0);
             }

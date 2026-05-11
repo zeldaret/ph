@@ -31,7 +31,7 @@ void func_02004730(unk32);
 unk32 *MountCompressedNarc(char *, char *, unk8 *, unk32, unk32);
 void func_02031e1c(u32 *, const char *);
 void func_02027ab4(unk32, u32 *, UNK_PTR, UNK_PTR, unk32, unk32, unk32, unk32);
-void func_02016fcc(unk32 *);
+unk32 func_02016fcc(unk32 *);
 void func_02004ba8();
 void func_02004b94();
 void func_02004c68();
@@ -39,7 +39,6 @@ void func_020425e0();
 void func_ov000_0207a654(unk32 *);
 }
 
-extern unk8 data_020691a0;
 extern unk32 data_ov000_020ec754;
 extern unk32 data_ov000_020d8795;
 extern u8 data_ov000_020d88b4[24];
@@ -75,7 +74,7 @@ ARM GameStart::GameStart(GameModeId modeId) :
     REG_DISPCNT_SUB &= ~0x1F00;
     REG_DISPCNT_SUB |= 0x0100;
 
-    uVar1 = MountCompressedNarc("NLG", "Menu/Bg/NintendoLogo.bin", &data_020691a0, 0xCC00, 1);
+    uVar1 = MountCompressedNarc("NLG", "Menu/Bg/NintendoLogo.bin", data_020691a0, 0xCC00, 1);
     func_02031e1c(&local_28, "NLG:nLogo");
     func_02031e1c(&local_1c, "NLG:rightTxt");
     func_02027ab4(0, &local_28, &local_24, &local_20, 0, 0, 0, 2);

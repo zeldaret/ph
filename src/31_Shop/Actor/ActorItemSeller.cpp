@@ -5,7 +5,7 @@ ActorItemSeller *ActorItemSeller2::Create() {}
 ActorItemSeller *ActorItemSeller3::Create() {}
 
 bool ActorItemSeller::Init() {}
-void ActorItemSeller::vfunc_114() {}
+unk32 ActorItemSeller::vfunc_114(unk32 param1) {}
 void ActorItemSeller::vfunc_f4() {}
 void ActorItemSeller::vfunc_f8() {}
 void ActorItemSeller::vfunc_fc() {}
