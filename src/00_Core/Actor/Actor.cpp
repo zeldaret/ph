@@ -30,7 +30,7 @@ const UnkStruct3 sUnkTable[] = {
     {4, 2},    {4, 2},    {4, 2},    {8, 2},    {4, 2},    {0xff, 2}, {20, 2}, {6, 2},  {6, 2},  {2, 2},
 };
 
-Actor_UnkStruct_020::Actor_UnkStruct_020() :
+ARM Actor_UnkStruct_020::Actor_UnkStruct_020() :
     mUnk_0c(-1),
     mUnk_0d(0),
     mUnk_0e(1),
