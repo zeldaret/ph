@@ -1096,8 +1096,8 @@ _ZN14ActorCharacter19func_ov014_02144e28Ev kind:function(arm,size=0x14) addr:0x0
 _ZN14ActorCharacter19func_ov014_02144e3cEv kind:function(arm,size=0x1c) addr:0x02144e3c
 _ZN14ActorCharacter19func_ov014_02144e58Ev kind:function(arm,size=0x1c) addr:0x02144e58
 _ZN14ActorCharacter19func_ov014_02144e74Ev kind:function(arm,size=0x28) addr:0x02144e74
-_ZN19ActorCharacterModelD0Ev kind:function(arm,size=0x14) addr:0x02144e9c
-_ZN18ActorCharacter_288C1Ev kind:function(arm,size=0x28) addr:0x02144eb0
+_ZN19ActorCharacterModelD1Ev kind:function(arm,size=0x14) addr:0x02144e9c
+_ZN21ActorCharacter_1d8_b0C1Ev kind:function(arm,size=0x28) addr:0x02144eb0
 _ZN14ActorCharacterC2Ev kind:function(arm,size=0x138) addr:0x02144ed8
 _ZN14ActorCharacterD1Ev kind:function(arm,size=0x48) addr:0x02145010
 _ZN14ActorCharacterD0Ev kind:function(arm,size=0x50) addr:0x02145058
@@ -1113,7 +1113,7 @@ _ZN14ActorCharacter19func_ov014_021453f4Ei kind:function(arm,size=0x20) addr:0x0
 _ZN14ActorCharacter19func_ov014_02145414Eii kind:function(arm,size=0x78) addr:0x02145414
 _ZN14ActorCharacter19func_ov014_0214548cEi kind:function(arm,size=0x7c) addr:0x0214548c
 _ZN14ActorCharacter19func_ov014_02145508Ev kind:function(arm,size=0x18) addr:0x02145508
-_Z19func_ov014_02145520P18ActorCharacterBase kind:function(arm,size=0xc) addr:0x02145520
+_ZN14ActorCharacter19func_ov014_02145520EP18ActorCharacterBase kind:function(arm,size=0xc) addr:0x02145520
 _ZN14ActorCharacter19func_ov014_0214552cEv kind:function(arm,size=0x4c) addr:0x0214552c
 _ZN14ActorCharacter8vfunc_80Ev kind:function(arm,size=0x38) addr:0x02145578
 _ZN14ActorCharacter8vfunc_84Ev kind:function(arm,size=0x34) addr:0x021455b0
@@ -1123,7 +1123,7 @@ _ZN14ActorCharacter8vfunc_78Ev kind:function(arm,size=0x8) addr:0x02145690
 _ZN14ActorCharacter8vfunc_74EP8ActorRef kind:function(arm,size=0xa4) addr:0x02145698
 _ZN14ActorCharacter8vfunc_7cEP8ActorRef kind:function(arm,size=0x24) addr:0x0214573c
 _ZN14ActorCharacter8vfunc_90Eii kind:function(arm,size=0xb4) addr:0x02145760
-_ZN14ActorCharacter8vfunc_94Ev kind:function(arm,size=0x60) addr:0x02145814
+_ZN14ActorCharacter8vfunc_94Eii kind:function(arm,size=0x60) addr:0x02145814
 _ZN14ActorCharacter8vfunc_98Ev kind:function(arm,size=0x2c) addr:0x02145874
 _ZN14ActorCharacter8vfunc_d0Ev kind:function(arm,size=0x10) addr:0x021458a0
 _ZN14ActorCharacter8vfunc_9cEv kind:function(arm,size=0x1c) addr:0x021458b0
@@ -2079,7 +2079,7 @@ data_ov014_02159408 kind:data(any) addr:0x02159408
 data_ov014_02159478 kind:data(any) addr:0x02159478
 _ZTV18ActorCharacterBase kind:data(any) addr:0x021594b8
 _ZTV14ActorCharacter kind:data(any) addr:0x021595ac
-_ZTV18ActorCharacter_288 kind:data(any) addr:0x021596a8
+_ZTV21ActorCharacter_1d8_b0 kind:data(any) addr:0x021596a8
 data_ov014_021596b8 kind:data(any) addr:0x021596b8
 data_ov014_021596bc kind:data(any) addr:0x021596bc
 _ZTV18ActorCharacter_1d8 kind:data(any) addr:0x021596c4

@@ -14,7 +14,7 @@ public:
     /* c */
 
     /* 00 */ virtual ~ActorRope_Unk_0219a3b0() override;
-    /* 08 */ virtual void vfunc_08(unk16 *param1) override;
+    /* 08 */ virtual bool vfunc_08(UnkStruct_ov000_020beba8_08 *param1) override;
     /* 10 */ virtual bool vfunc_10(s32 *param1) override;
     /* 1c */
 

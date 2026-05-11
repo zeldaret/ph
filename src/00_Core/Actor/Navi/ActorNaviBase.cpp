@@ -41,7 +41,7 @@ void ActorNaviBase::vfunc_74(ActorRef *ref) {}
 void ActorNaviBase::func_ov000_020baca8(Vec3p *param1, unk32 param2) {}
 void ActorNaviBase::func_ov000_020bad18() {}
 bool ActorNaviBase::vfunc_90(unk32 param1, unk32 param2) {}
-void ActorNaviBase::vfunc_94() {}
+void ActorNaviBase::vfunc_94(unk32 param1, unk32 param2) {}
 void ActorNaviBase::func_ov000_020bb0ac() {}
 void ActorNaviBase::func_ov000_020bb0e0() {}
 void ActorNaviBase::vfunc_ec() {}

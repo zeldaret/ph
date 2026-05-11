@@ -98,17 +98,17 @@ public:
     unk32 func_ov014_0214aa0c(Vec3p *param1, s16 angle);
 };
 
-class ActorCharacter_288 : public UnkStruct_ov000_020c0c08 {
+class ActorCharacter_1d8_b0 : public UnkStruct_ov000_020c0c08 {
 public:
     /* 00 (base) */
     /* 24 */ UnkStruct_ov000_020c0c08_04 mUnk_24;
     /* 44 */ PAD(0x44, 0x80);
     /* 80 */
 
-    /* 00 */ virtual ~ActorCharacter_288() override;
+    /* 00 */ virtual ~ActorCharacter_1d8_b0() override;
     /* 08 */
 
-    inline ActorCharacter_288();
+    inline ActorCharacter_1d8_b0();
 };
 
 struct ActorCharacter_430_04_04 {
@@ -142,25 +142,7 @@ struct ActorCharacter_430 {
     void func_ov000_020c6f08(Vec3p *vec);
 };
 
-class ActorCharacter_1d8 : public UnkStruct_ov000_020c5c2c {
-public:
-    /* 00 (base) */
-    /* 20 */
-
-    /* 00 */ virtual void vfunc_00(unk32 param1, unk32 *param2, unk32 *param3) override; // func_ov014_02145bcc
-    /* 04 */ virtual void vfunc_04() override; // func_ov014_02146194
-    /* 0c */
-
-    inline ActorCharacter_1d8(void *param1, ModelRender *param2, UnkStruct_ov000_020c0c08 *param3) :
-        UnkStruct_ov000_020c5c2c(param1, param2, param3) {}
-
-    void func_ov000_020c5f1c();
-
-    void func_ov014_02145cac();
-    bool func_ov014_02145f0c(unk32 param1);
-};
-
-struct ActorCharacter_420 {
+struct ActorCharacter_1d8_248 {
     /* 00 */ unk32 mUnk_00[2];
     /* 08 */ unk32 mUnk_08;
     /* 0c */ PAD(0x0c, 0x0e);
@@ -168,7 +150,7 @@ struct ActorCharacter_420 {
     /* 0f */ unk8 mUnk_0f;
     /* 10 */
 
-    inline ActorCharacter_420() {
+    inline ActorCharacter_1d8_248() {
         mUnk_08    = 0;
         mUnk_0e    = 1;
         mUnk_0f    = 0;
@@ -177,21 +159,46 @@ struct ActorCharacter_420 {
     }
 };
 
+class ActorCharacter_1d8 : public UnkStruct_ov000_020c5c2c {
+public:
+    /* 000 (base) */
+    /* 020 */ ActorCharacterModel mUnk_020;
+    /* 0b0 */ ActorCharacter_1d8_b0 mUnk_0b0[2];
+    /* 1b0 */ ActorCharacter_1d8_b0 mUnk_1b0;
+    /* 230 */ unk32 mUnk_230;
+    /* 234 */ unk32 mUnk_234;
+    /* 238 */ unk32 mUnk_238;
+    /* 23c */ unk32 mUnk_23c;
+    /* 240 */ unk32 mUnk_240;
+    /* 244 */ unk32 mUnk_244;
+    /* 248 */ ActorCharacter_1d8_248 mUnk_248;
+
+    /* 00 */ virtual void vfunc_00(unk32 param1, unk32 *param2, unk32 *param3) override; // func_ov014_02145bcc
+    /* 04 */ virtual void vfunc_04() override; // func_ov014_02146194
+    /* 0c */
+
+    inline ActorCharacter_1d8(void *param1) :
+        UnkStruct_ov000_020c5c2c(param1, &mUnk_020, &mUnk_0b0[0]),
+        mUnk_230(0),
+        mUnk_234(0),
+        mUnk_238(0),
+        mUnk_23c(0),
+        mUnk_240(0x1000),
+        mUnk_244(0x11f) {}
+
+    void func_ov014_02145cac();
+    bool func_ov014_02145f0c(unk32 param1);
+
+    inline bool UnkFunc1(unk32 param1) {
+        return param1 == mUnk_248.mUnk_00[mUnk_248.mUnk_08];
+    }
+};
+
 class ActorCharacter : public ActorCharacterBase {
 public:
     /* 000 (base) */
     /* 1c4 */ ActorCharacter_1c4 mUnk_1c4;
     /* 1d8 */ ActorCharacter_1d8 mUnk_1d8;
-    /* 1f8 */ ActorCharacterModel mUnk_1f8;
-    /* 288 */ ActorCharacter_288 mUnk_288[2];
-    /* 388 */ ActorCharacter_288 mUnk_388;
-    /* 408 */ unk32 mUnk_408;
-    /* 40c */ unk32 mUnk_40c;
-    /* 410 */ unk32 mUnk_410;
-    /* 414 */ unk32 mUnk_414;
-    /* 418 */ unk32 mUnk_418;
-    /* 41c */ unk32 mUnk_41c;
-    /* 420 */ ActorCharacter_420 mUnk_420;
     /* 430 */ ActorCharacter_430 mUnk_430;
     /* 448 */ unk32 mUnk_448;
     /* 44c */ unk32 mUnk_44c;
@@ -211,7 +218,6 @@ public:
     /* 08 */ virtual bool Init() override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
     /* 40 */ virtual bool IsHitboxTouched(bool param1) override;
-    /* 68 */ virtual void vfunc_68() override;
     /* 74 */ virtual void vfunc_74(ActorRef *ref) override;
     /* 78 */ virtual bool vfunc_78() override;
     /* 7c */ virtual void vfunc_7c(ActorRef *ref) override;
@@ -247,8 +253,18 @@ public:
     void func_ov014_02145414(unk32 param1, unk32 param2);
     void func_ov014_0214548c(unk32 param1);
     void func_ov014_02145508();
+    static bool func_ov014_02145520(ActorCharacterBase *actor);
     bool func_ov014_0214552c();
     void func_ov014_0214591c();
+
+    inline unk32 UnkInline1() {
+        unk32 ret = 1;
+        if (mUnk_458 != -1) {
+            ret      = mUnk_458;
+            mUnk_458 = -1;
+        }
+        return ret;
+    }
 };
 
 class ActorGenericCharacter : public ActorCharacter {

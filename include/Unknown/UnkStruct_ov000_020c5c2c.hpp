@@ -30,4 +30,6 @@ public:
     /* 0c*/
 
     UnkStruct_ov000_020c5c2c(void *param1, ModelRender *param2, UnkStruct_ov000_020c0c08 *param3);
+
+    void func_ov000_020c5f1c();
 };

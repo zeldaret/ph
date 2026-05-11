@@ -41,18 +41,12 @@ ARM bool ActorCharacter::func_ov014_02144e74() {
     return mInactive && this->func_ov014_02144e58();
 }
 
-ARM ActorCharacter_288::ActorCharacter_288() :
+ARM ActorCharacter_1d8_b0::ActorCharacter_1d8_b0() :
     UnkStruct_ov000_020c0c08(&mUnk_24, NULL) {}
 
 extern "C" void Fill32(unk32, unk32 *, unk32);
 ARM ActorCharacter::ActorCharacter() :
-    mUnk_1d8(this, &mUnk_1f8, mUnk_288),
-    mUnk_408(0),
-    mUnk_40c(0),
-    mUnk_410(0),
-    mUnk_414(0),
-    mUnk_418(0x1000),
-    mUnk_41c(0x11f) {
+    mUnk_1d8(this) {
     mUnk_448 = 3;
     mUnk_454 = -1;
     mUnk_458 = -1;
@@ -138,7 +132,7 @@ ARM void ActorCharacter::func_ov014_02145258() {
 ARM unk32 ActorCharacter::func_ov014_021452b0() {
     Vec3p offsetPos;
     mUnk_1d8.mActor->GetOffsetPos(&offsetPos);
-    mUnk_1f8.func_ov014_0214a92c(&offsetPos, &mUnk_1d8.mActor->mPos, mUnk_1d8.mActor->mAngle);
+    mUnk_1d8.mUnk_020.func_ov014_0214a92c(&offsetPos, &mUnk_1d8.mActor->mPos, mUnk_1d8.mActor->mAngle);
     mVel.x = 0;
     mVel.z = 0;
     this->ApplyGravity();
@@ -151,7 +145,7 @@ extern "C" void ApproachAngle_thunk(u16 *src, unk32 dst, s16 param3);
 ARM unk32 ActorCharacter::func_ov014_02145318() {
     Vec3p offsetPos;
     mUnk_1d8.mActor->GetOffsetPos(&offsetPos);
-    unk32 angle = mUnk_1f8.func_ov014_0214aa0c(&offsetPos, mUnk_1d8.mActor->mAngle);
+    unk32 angle = mUnk_1d8.mUnk_020.func_ov014_0214aa0c(&offsetPos, mUnk_1d8.mActor->mAngle);
 
     if (!mUnk_468) {
         s16 angleDiff = angle - (s16) mAngle;
@@ -187,7 +181,7 @@ ARM void ActorCharacter::func_ov014_02145414(unk32 param1, unk32 param2) {
     Vec3p offsetPos;
     mUnk_430.func_ov000_020c6838(&mPos, param1, mAngle, param2, &mVel, &mAngle);
     mUnk_1d8.mActor->GetOffsetPos(&offsetPos);
-    mUnk_1f8.func_ov014_0214a92c(&offsetPos, &mUnk_1d8.mActor->mPos, mUnk_1d8.mActor->mAngle);
+    mUnk_1d8.mUnk_020.func_ov014_0214a92c(&offsetPos, &mUnk_1d8.mActor->mPos, mUnk_1d8.mActor->mAngle);
     this->ApplyGravity();
     this->func_ov014_02145258();
 }
@@ -212,7 +206,7 @@ ARM void ActorCharacter::func_ov014_02145508() {
     mUnk_430.func_ov000_020c6f08(&mPos);
 }
 
-ARM static bool func_ov014_02145520(ActorCharacterBase *actor) {
+ARM bool ActorCharacter::func_ov014_02145520(ActorCharacterBase *actor) {
     return ((ActorCharacter *) actor)->func_ov014_0214552c();
 }
 
@@ -232,7 +226,7 @@ ARM void ActorCharacter::vfunc_80() {
     if (mUnk_469) {
         return;
     }
-    mUnk_44c = mUnk_420.mUnk_00[mUnk_420.mUnk_08];
+    mUnk_44c = mUnk_1d8.mUnk_248.mUnk_00[mUnk_1d8.mUnk_248.mUnk_08];
     mUnk_1d8.func_ov014_02145f0c(0);
 }
 
@@ -241,14 +235,15 @@ ARM void ActorCharacter::vfunc_84() {
     if (mUnk_469) {
         return;
     }
-    mUnk_1f8.mUnk_70.Reset();
+    mUnk_1d8.mUnk_020.mUnk_70.Reset();
     mUnk_1d8.func_ov014_02145f0c(mUnk_44c);
 }
 
 // non-matching
 ARM void ActorCharacter::vfunc_cc() {
     bool unk;
-    if (mUnk_454 == mUnk_420.mUnk_00[mUnk_420.mUnk_08] && mUnk_1d8.mUnk_10->mUnk_0c.func_0202e58c()) {
+    ActorCharacter_1d8 *pUnk_1d8 = &mUnk_1d8;
+    if (mUnk_454 == pUnk_1d8->mUnk_248.mUnk_00[pUnk_1d8->mUnk_248.mUnk_08] && mUnk_1d8.mUnk_10->mUnk_0c.func_0202e58c()) {
         unk = data_ov000_020e8b08 != NULL && mRef.id == data_ov000_020e8b08->mUnk_20[data_ov000_020e8b08->mUnk_55].id;
         this->vfunc_f0(unk, 1);
         mUnk_454 = -1;
@@ -270,8 +265,8 @@ ARM void ActorCharacter::vfunc_74(ActorRef *ref) {
     int iVar2;
 
     if (ref->id == mRef.id) {
-        mUnk_1f8.mUnk_70.Reset();
-        if (mUnk_420.mUnk_00[mUnk_420.mUnk_08] == 2) {
+        mUnk_1d8.mUnk_020.mUnk_70.Reset();
+        if (mUnk_1d8.mUnk_248.mUnk_00[mUnk_1d8.mUnk_248.mUnk_08] == 2) {
             return;
         }
         if (mUnk_469) {
@@ -282,9 +277,9 @@ ARM void ActorCharacter::vfunc_74(ActorRef *ref) {
         }
         mUnk_1d8.func_ov014_02145f0c(2);
     } else {
-        mUnk_1f8.mUnk_70.id    = ref->id;
-        mUnk_1f8.mUnk_70.index = ref->index;
-        if (mUnk_420.mUnk_00[mUnk_420.mUnk_08] == 0) {
+        mUnk_1d8.mUnk_020.mUnk_70.id    = ref->id;
+        mUnk_1d8.mUnk_020.mUnk_70.index = ref->index;
+        if (mUnk_1d8.mUnk_248.mUnk_00[mUnk_1d8.mUnk_248.mUnk_08] == 0) {
             return;
         }
         if (mUnk_469) {
@@ -299,10 +294,10 @@ ARM void ActorCharacter::vfunc_74(ActorRef *ref) {
 
 ARM void ActorCharacter::vfunc_7c(ActorRef *ref) {
     if (ref->id != mRef.id) {
-        mUnk_1f8.mUnk_70.id    = ref->id;
-        mUnk_1f8.mUnk_70.index = ref->index;
+        mUnk_1d8.mUnk_020.mUnk_70.id    = ref->id;
+        mUnk_1d8.mUnk_020.mUnk_70.index = ref->index;
     } else {
-        mUnk_1f8.mUnk_70.Reset();
+        mUnk_1d8.mUnk_020.mUnk_70.Reset();
     }
 }
 
@@ -318,14 +313,8 @@ ARM bool ActorCharacter::vfunc_90(unk32 param1, unk32 param2) {
             mUnk_1b8 = func_ov014_02145520;
             mUnk_1bc = this;
         }
-        mUnk_450 = mUnk_420.mUnk_00[mUnk_420.mUnk_08];
-        iVar2    = mUnk_458;
-        iVar1    = 1;
-        if (iVar2 != -1) {
-            mUnk_458 = -1;
-            iVar1    = iVar2;
-        }
-        mUnk_1d8.func_ov014_02145f0c(iVar1);
+        mUnk_450 = mUnk_1d8.mUnk_248.mUnk_00[mUnk_1d8.mUnk_248.mUnk_08];
+        mUnk_1d8.func_ov014_02145f0c(this->UnkInline1());
         mUnk_1c2 = true;
     }
 
@@ -337,7 +326,6 @@ ARM bool ActorCharacter::vfunc_90(unk32 param1, unk32 param2) {
     return result;
 }
 
-// non-matching
 ARM void ActorCharacter::vfunc_94(unk32 param1, unk32 param2) {
     ActorCharacter_430_04 *unk1;
     ActorCharacter_430_04_04 *unk2;
@@ -349,10 +337,11 @@ ARM void ActorCharacter::vfunc_94(unk32 param1, unk32 param2) {
     } else {
         unk2 = &unk1->mUnk_04[0];
     }
+
     Vec3p vec;
-    vec.x      = unk2->mUnk_04.x;
-    vec.y      = unk2->mUnk_04.y;
-    vec.z      = unk2->mUnk_04.z;
+    Vec3p_Set(&vec, unk2->mUnk_04.x, unk2->mUnk_04.y, unk2->mUnk_04.z);
+    vec.z = unk2->mUnk_04.z;
+
     mPos.x     = vec.x;
     mPos.y     = vec.y;
     mPos.z     = vec.z;
@@ -363,7 +352,7 @@ ARM void ActorCharacter::vfunc_94(unk32 param1, unk32 param2) {
 
 ARM bool ActorCharacter::vfunc_98() {
     mUnk_1c3 = true;
-    mUnk_44c = mUnk_420.mUnk_00[mUnk_420.mUnk_08];
+    mUnk_44c = mUnk_1d8.mUnk_248.mUnk_00[mUnk_1d8.mUnk_248.mUnk_08];
     return mUnk_1d8.func_ov014_02145f0c(0);
 }
 
