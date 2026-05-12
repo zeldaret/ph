@@ -159,13 +159,19 @@ struct ActorCharacter_1d8_248 {
     }
 };
 
+struct ActorCharacter_1d8_230 {
+    /* 00 */ char mUnk_00[16];
+    /* 10 */ unk32 mUnk_10;
+    /* 14 */
+};
+
 class ActorCharacter_1d8 : public UnkStruct_ov000_020c5c2c {
 public:
     /* 000 (base) */
     /* 020 */ ActorCharacterModel mUnk_020;
     /* 0b0 */ ActorCharacter_1d8_b0 mUnk_0b0[2];
     /* 1b0 */ ActorCharacter_1d8_b0 mUnk_1b0;
-    /* 230 */ unk32 mUnk_230;
+    /* 230 */ const ActorCharacter_1d8_230 *mUnk_230;
     /* 234 */ unk32 mUnk_234;
     /* 238 */ unk32 mUnk_238;
     /* 23c */ unk32 mUnk_23c;
@@ -186,6 +192,7 @@ public:
         mUnk_240(0x1000),
         mUnk_244(0x11f) {}
 
+    void func_ov014_02145a74(unk32 param1, unk32 param2);
     void func_ov014_02145cac();
     void func_ov014_02145e48(unk32 param1);
     bool func_ov014_02145f0c(unk32 param1);
@@ -232,7 +239,7 @@ public:
     /* cc */ virtual void vfunc_cc() override;
     /* d0 */ virtual void vfunc_d0() override;
     /* ec */ virtual void vfunc_ec(unk32 param1);
-    /* f0 */ virtual void vfunc_f0(unk32 param1, unk32 param2);
+    /* f0 */ virtual void vfunc_f0(bool param1, unk32 param2);
     /* f4 */
 
     ActorCharacter();
@@ -246,7 +253,7 @@ public:
     bool func_ov014_02144e74();
 
     void func_ov014_02145178();
-    void func_ov014_021451f0(unk32 *param1);
+    void func_ov014_021451f0(const unk32 *param1);
     void func_ov014_02145258();
     unk32 func_ov014_021452b0();
     unk32 func_ov014_02145318();
@@ -290,7 +297,7 @@ public:
 
     /* 00 */ virtual ~ActorGenericCharacter() override;
     /* 08 */ virtual bool Init() override;
-    /* 68 */ virtual void vfunc_68() override;
+    /* 68 */ virtual void vfunc_68(unk32 param1, UnkStruct_020397f8 *param2) override;
     /* 80 */ virtual void vfunc_80() override;
     /* 84 */ virtual void vfunc_84() override;
     /* c0 */ virtual bool vfunc_c0() override;

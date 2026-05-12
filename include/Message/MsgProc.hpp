@@ -125,6 +125,7 @@ public:
     unk32 func_ov000_0207bc48();
     void func_ov000_0207bc9c();
 
+    bool func_ov018_02160a54(unk32);
     bool func_ov018_02160a64(unk32, unk32);
 };
 extern UnkClass_027e0e28 data_027e0e28;

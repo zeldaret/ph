@@ -102,7 +102,7 @@ ARM void ActorCharacter::func_ov014_02145178() {
     func_ov005_021082e4(data_027e0ff8, &mRef, &mPos, &mPrevPos, &unk, mUnk_448, -1);
 }
 
-ARM void ActorCharacter::func_ov014_021451f0(unk32 *param1) {
+ARM void ActorCharacter::func_ov014_021451f0(const unk32 *param1) {
     unk32 iVar1            = param1[0];
     mHitbox.pos.x          = 0;
     mHitbox.pos.y          = iVar1;
@@ -373,7 +373,7 @@ ARM void ActorCharacter::vfunc_ec(unk32 param1) {
     }
 }
 
-ARM void ActorCharacter::vfunc_f0(unk32 param1, unk32 param2) {
+ARM void ActorCharacter::vfunc_f0(bool param1, unk32 param2) {
     mUnk_1d8.func_ov014_02145f0c(param1 ? 2 : 0);
 }
 

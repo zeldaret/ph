@@ -32,6 +32,10 @@ enum ActorTypeId_ {
     ActorTypeId_ShopItemGem            = 'ITSR',
     ActorTypeId_ShopItemTreasure       = 'ITTR',
 
+    ActorTypeId_ItemSeller1 = 'ITSN',
+    ActorTypeId_ItemSeller2 = 'ITS2',
+    ActorTypeId_ItemSeller3 = 'ITS3',
+
     ActorTypeId_RefillArrows   = 'FLAL',
     ActorTypeId_RefillBombs    = 'FLBM',
     ActorTypeId_RefillBombchus = 'FLBT',

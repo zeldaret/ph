@@ -4,7 +4,7 @@
 
 ActorGenericCharacter::ActorGenericCharacter() {}
 bool ActorGenericCharacter::Init() {}
-void ActorGenericCharacter::vfunc_68() {}
+void ActorGenericCharacter::vfunc_68(unk32 param1, UnkStruct_020397f8 *param2) {}
 bool ActorGenericCharacter::vfunc_c0() {}
 void ActorGenericCharacter::vfunc_c4() {}
 void ActorGenericCharacter::func_ov014_02147940() {}
