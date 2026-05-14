@@ -242,7 +242,7 @@ _ZN16ActorItemSeller16CreateEv kind:function(arm,size=0x44) addr:0x02180668
 _ZN16ActorItemSeller26CreateEv kind:function(arm,size=0x44) addr:0x021806ac
 _ZN16ActorItemSeller36CreateEv kind:function(arm,size=0x44) addr:0x021806f0
 _ZN15ActorItemSeller4InitEv kind:function(arm,size=0x84) addr:0x02180734
-_ZN15ActorItemSeller9vfunc_114Ei kind:function(arm,size=0x108) addr:0x021807b8
+_ZN15ActorItemSeller11GetShopItemEi kind:function(arm,size=0x108) addr:0x021807b8
 _ZN15ActorItemSeller16GetPromptMessageEv kind:function(arm,size=0xc) addr:0x021808c0
 _ZN15ActorItemSeller18GetPurchaseMessageEv kind:function(arm,size=0xc) addr:0x021808cc
 _ZN15ActorItemSeller24GetNotEnoughMoneyMessageEv kind:function(arm,size=0xc) addr:0x021808d8
@@ -479,7 +479,7 @@ _ZN16ActorItemSeller15gTypeE kind:bss addr:0x021840c0
 _ZN16ActorItemSeller25gTypeE kind:bss addr:0x021840e0
 @1237 kind:bss addr:0x021840f4 local
 _ZN16ActorItemSeller35gTypeE kind:bss addr:0x02184100
-@1125 kind:bss addr:0x02184114
+@1133 kind:bss addr:0x02184114
 _ZN11ActorBeedle5gTypeE kind:bss addr:0x02184120
 data_ov031_021841d4 kind:bss addr:0x02184134
 data_ov031_021841e0 kind:bss addr:0x02184140

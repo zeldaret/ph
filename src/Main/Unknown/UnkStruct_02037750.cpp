@@ -1,5 +1,6 @@
 #include "Unknown/UnkStruct_02037750.hpp"
 #include "Actor/ActorManager.hpp"
+#include "Actor/Character/ActorCharacter.hpp"
 #include "Item/ItemManager.hpp"
 #include "Message/MessageManager.hpp"
 #include "Player/LinkStateBase.hpp"
@@ -46,7 +47,7 @@ ARM bool UnkStruct_02037750::vfunc_24(unk32 param1) {
 }
 
 // non-matching
-ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
+ARM unk32 UnkStruct_02037750::vfunc_28(ActorCharacterBase_vfunc_d8 *param1) {
     u16 uVar1;
     s64 lVar2;
     char cVar4;
@@ -59,8 +60,7 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
     u32 uVar11;
     bool bVar12;
 
-    uVar7 = (u32) * (u16 *) (param1 + 0x2);
-
+    uVar7 = param1->mUnk_02;
     if (uVar7 >= 0xF && uVar7 <= 0x2E) {
         pcVar8 = this->mUnk_04[((uVar7 - 0xF) << 0x1E) >> 0x1C];
         iVar9  = 0;
@@ -92,7 +92,7 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
                     return -0x1;
                 }
 
-                uVar7 = (param1 + 0x1);
+                uVar7 = (unk32) param1 + 0x1;
 
                 if (ret_3->mUnk_576 < uVar7) {
                     return ret_3->mUnk_576;
@@ -120,13 +120,13 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
 
                 return uVar10;
             case 0x4:
-                return gAdventureFlags->Get(param1 + 0x4) != false;
+                return gAdventureFlags->Get((unk32) param1 + 0x4) != false;
             case 0x5:
                 return gActorManager->func_ov00_020c3b2c(NULL) != 0;
             case 0x6:
                 break;
             case 0x8:
-                return (((data_027e0cb4[(param1 + 0x4) >> 5]) & 1) << ((param1 + 0x4) & 0x1f)) == 0x0;
+                return (((data_027e0cb4[((unk32) param1 + 0x4) >> 5]) & 1) << (((unk32) param1 + 0x4) & 0x1f)) == 0x0;
             case 0x9:
                 break;
             case 0xa:
@@ -136,9 +136,9 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
                 uVar7  = lVar2;
                 uVar10 = gRandom.Next(0, uVar7);
 
-                return (int) (uVar10 * 0x64 >> 0x20) < (param1 + 0x4);
+                return (int) (uVar10 * 0x64 >> 0x20) < ((unk32) param1 + 0x4);
             case 0xc:
-                uVar7 = (param1 + 0x1);
+                uVar7 = ((unk32) param1 + 0x1);
                 if (uVar7 == 0x0) {
                     uVar10 = 0x0;
                 } else {
@@ -154,16 +154,16 @@ ARM unk32 UnkStruct_02037750::vfunc_28(s32 param1) {
             case 0xd:
                 return gItemManager->GetNumRupees() != 0;
             case 0xe:
-                return gItemManager->HasItem(param1 + 0x4) != 0;
+                return gItemManager->HasItem((unk32) param1 + 0x4) != 0;
             default:
                 if (uVar7 == 0x2f) {
-                    return gItemManager->HasItem((param1 + 0x4) + 0x60) != 0;
+                    return gItemManager->HasItem(((unk32) param1 + 0x4) + 0x60) != 0;
                 }
                 break;
         }
     }
 
-    uVar7 = (param1 + 0x1);
+    uVar7 = ((unk32) param1 + 0x1);
     if (uVar7 == 0x0) {
         uVar10 = 0x0;
     } else {
@@ -222,7 +222,7 @@ ARM bool UnkStruct_020386d8::vfunc_24(unk32 param1) {
     return this->func_020385d0(param1, &this->mUnk_24.mUnk_00) != 0;
 }
 
-ARM unk32 UnkStruct_020386d8::vfunc_28(s32 param1) {
+ARM unk32 UnkStruct_020386d8::vfunc_28(ActorCharacterBase_vfunc_d8 *param1) {
     this->mUnk_20 = this->UnkStruct_02037750::vfunc_28(param1);
     return this->mUnk_20;
 }

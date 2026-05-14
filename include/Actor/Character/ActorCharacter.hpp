@@ -57,7 +57,7 @@ public:
     /* d8 */ virtual unk8 vfunc_d8(ActorCharacterBase_vfunc_d8 *param1);
     /* dc */ virtual unk8 vfunc_dc(ActorCharacterBase_vfunc_d8 *param1);
     /* e0 */ virtual unk8 vfunc_e0(ActorCharacterBase_vfunc_d8 *param1);
-    /* e4 */ virtual unk32 vfunc_e4(unk32 param1);
+    /* e4 */ virtual unk8 vfunc_e4(ActorCharacterBase_vfunc_d8 *param1);
     /* e8 */ virtual UnkStruct_ov014_021448f4 vfunc_e8(u16 param2, u16 param3);
     /* ec */
 
