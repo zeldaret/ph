@@ -36,6 +36,10 @@ public:
 
     bool func_ov003_020f3d5c(unk32 param1);
     void func_ov003_020f3d74(unk32 param1);
+    void func_ov003_020f3d94(u8 param1);
+    unk32 func_ov003_020f3d9c();
+    void func_ov003_020f3da4();
+    void func_ov003_020f3db0();
 };
 
 extern UnkStruct_027e0dbc data_027e0dbc;

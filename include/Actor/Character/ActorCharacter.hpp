@@ -19,6 +19,12 @@ struct UnkStruct_ov014_021448f4 {
         mUnk_00(0) {}
 };
 
+struct ActorCharacterBase_vfunc_d8 {
+    /* 00 */ PAD(0x00, 0x02);
+    /* 02 */ u16 mUnk_02;
+    /* 04 */
+};
+
 class ActorCharacterBase : public Actor {
 public:
     /* 000 (base) */
@@ -48,9 +54,9 @@ public:
     /* cc */ virtual void vfunc_cc();
     /* d0 */ virtual void vfunc_d0();
     /* d4 */ virtual unk32 vfunc_d4();
-    /* d8 */ virtual unk32 vfunc_d8(unk32 param1);
-    /* dc */ virtual unk32 vfunc_dc(unk32 param1);
-    /* e0 */ virtual unk32 vfunc_e0(unk32 param1);
+    /* d8 */ virtual unk8 vfunc_d8(ActorCharacterBase_vfunc_d8 *param1);
+    /* dc */ virtual unk8 vfunc_dc(ActorCharacterBase_vfunc_d8 *param1);
+    /* e0 */ virtual unk8 vfunc_e0(ActorCharacterBase_vfunc_d8 *param1);
     /* e4 */ virtual unk32 vfunc_e4(unk32 param1);
     /* e8 */ virtual UnkStruct_ov014_021448f4 vfunc_e8(u16 param2, u16 param3);
     /* ec */

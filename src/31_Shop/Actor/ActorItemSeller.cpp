@@ -50,40 +50,40 @@ ARM bool ActorItemSeller::Init() {
     return ActorItemSellerBase::Init();
 }
 
-ARM unk32 ActorItemSeller::vfunc_114(unk32 param1) {
+ARM ShopItem ActorItemSeller::GetShopItem(s32 position) {
     u16 uVar1;
     int iVar2;
     unk32 uVar3;
 
     uVar1 = mUnk_020.mUnk_00[0];
-    switch (param1) {
+    switch (position) {
         case 0:
-            return uVar1 == 2 ? 0x4 : 0x2;
+            return uVar1 == 2 ? ShopItem_Bombchus : ShopItem_Bombs;
         case 1:
-            return uVar1 == 0 ? 0xa : 0x3;
+            return uVar1 == 0 ? ShopItem_Treasure : ShopItem_Arrows;
         case 2:
-            return uVar1 == 2 ? 0x11 : 0xf;
+            return uVar1 == 2 ? ShopItem_YellowPotion : ShopItem_RedPotion;
         case 3:
             if (!gAdventureFlags->Get(AdventureFlag_Unk_105)) {
-                return 0xc;
+                return ShopItem_PowerGem;
             }
             if (!gAdventureFlags->Get(AdventureFlag_Unk_107)) {
-                return 0x7;
+                return ShopItem_Quiver;
             }
             if (!gAdventureFlags->Get(AdventureFlag_Unk_108)) {
-                return 0x8;
+                return ShopItem_BombchuBag;
             }
             if (!gAdventureFlags->Get(AdventureFlag_Unk_103)) {
-                return 0x5;
+                return ShopItem_HeartContainer;
             }
-            return uVar1 == 2 ? 0xa : 0x1;
+            return uVar1 == 2 ? ShopItem_Treasure : ShopItem_SoldOut;
         case 4:
             if (gItemManager->HasItem(ItemFlag_WoodenShield)) {
-                return 0x10;
+                return ShopItem_PurplePotion;
             }
-            return 0xe;
+            return ShopItem_Shield;
         default:
-            return 0x1;
+            return ShopItem_SoldOut;
     }
 }
 

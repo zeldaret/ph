@@ -54,15 +54,15 @@ static UnkStruct_ov014_021448f4 func_ov014_02144848(UnkStruct_ov014_02144848 par
     }
 }
 
-ARM unk32 ActorCharacterBase::vfunc_d8(unk32 param1) {
+ARM unk8 ActorCharacterBase::vfunc_d8(ActorCharacterBase_vfunc_d8 *param1) {
     return 0;
 }
 
-ARM unk32 ActorCharacterBase::vfunc_dc(unk32 param1) {
+ARM unk8 ActorCharacterBase::vfunc_dc(ActorCharacterBase_vfunc_d8 *param1) {
     return 0;
 }
 
-ARM unk32 ActorCharacterBase::vfunc_e0(unk32 param1) {
+ARM unk8 ActorCharacterBase::vfunc_e0(ActorCharacterBase_vfunc_d8 *param1) {
     return 0;
 }
 
