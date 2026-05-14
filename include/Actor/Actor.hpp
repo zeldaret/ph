@@ -202,8 +202,8 @@ public:
     /* 60 */ virtual bool vfunc_60();
     /* 64 */ virtual void vfunc_64();
     /* 68 */ virtual void vfunc_68(unk32 param1, UnkStruct_020397f8 *param2);
-    /* 6c */ virtual bool vfunc_6c();
-    /* 70 */ virtual bool vfunc_70();
+    /* 6c */ virtual bool vfunc_6c(unk32 param1);
+    /* 70 */ virtual bool vfunc_70(unk32 param1);
     /* 74 */ virtual void vfunc_74(ActorRef *ref);
     /* 78 */ virtual bool vfunc_78();
     /* 7c */ virtual void vfunc_7c(ActorRef *ref);
