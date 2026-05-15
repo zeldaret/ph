@@ -105,31 +105,32 @@ public:
 class MapBase : public SysObject {
 public:
     /* 000 (vtable) */
-    /* 004 */ unk8 mUnk_004;
-    /* 005 */ unk8 mUnk_005;
-    /* 006 */ unk8 mUnk_006;
-    /* 007 */ unk8 mUnk_007;
-    /* 008 */ unk8 mUnk_008;
-    /* 009 */ unk8 mUnk_009;
-    /* 00a */ unk8 mUnk_00a;
-    /* 00b */ unk8 mUnk_00b;
-    /* 00c */ unk8 mUnk_00c;
-    /* 00d */ unk8 mUnk_00d;
-    /* 00e */ unk8 mUnk_00e;
-    /* 00f */ unk8 mUnk_00f;
-    /* 010 */ unk8 mUnk_010;
-    /* 011 */ unk8 mUnk_011;
-    /* 012 */ unk8 mUnk_012;
-    /* 013 */ unk8 mUnk_013;
-    /* 014 */ unk8 mUnk_014;
-    /* 015 */ unk8 mUnk_015;
+    /* 004 */ bool isVisible; // shows/hides entire map model
+    /* 005 */ bool mUnk_005; // has something to do with map objects rendering
+    /* 006 */ bool mUnk_006; // Set to TRUE when RoomActor RMTG (Oshus's house) or RMFT (Astrid's house) exists; and FALSE if
+                             // RMTG exists and RMTG Actor class base+0x1b6h attribute is FALSE
+    /* 007 */ bool mUnk_007;
+    /* 008 */ bool mUnk_008;
+    /* 009 */ bool mUnk_009;
+    /* 00a */ bool mUnk_00a;
+    /* 00b */ bool mUnk_00b;
+    /* 00c */ bool mUnk_00c;
+    /* 00d */ bool mUnk_00d;
+    /* 00e */ bool mUnk_00e;
+    /* 00f */ bool mUnk_00f;
+    /* 010 */ bool mUnk_010;
+    /* 011 */ bool mUnk_011;
+    /* 012 */ bool mUnk_012;
+    /* 013 */ bool mUnk_013;
+    /* 014 */ bool mUnk_014;
+    /* 015 */ bool mUnk_015;
     /* 016 */ unk8 mCurrViewpointId[2];
     /* 018 */ u8 mUnk_018[2];
-    /* 01a */ unk8 mUnk_01a;
-    /* 01b */ unk8 mUnk_01b;
-    /* 01c */ unk8 mUnk_01c;
-    /* 01d */ unk8 mUnk_01d;
-    /* 01e */ unk8 mUnk_01e;
+    /* 01a */ bool mUnk_01a;
+    /* 01b */ bool mUnk_01b;
+    /* 01c */ bool mUnk_01c;
+    /* 01d */ bool mUnk_01d;
+    /* 01e */ bool mUnk_01e;
     /* 01f */ unk8 mUnk_01f;
     /* 020 */ unk32 mUnk_020;
     /* 024 */ unk32 mUnk_024;
@@ -176,7 +177,8 @@ public:
     /* 08 */ virtual void vfunc_08(u32 param_2, u32 param_3, Course *param_4);
     /* 0c */ virtual void vfunc_0c(Course *param_2);
     /* 10 */ virtual void vfunc_10();
-    /* 14 */ virtual void vfunc_14();
+    /* 14 */ virtual void
+    vfunc_14(); // Runs when entering and exiting houses, specific houses are checked: Oshus's and Astrid's houses
     /* 18 */ virtual void vfunc_18();
     /* 1c */ virtual void vfunc_1c(bool param_2);
     /* 20 */ virtual void vfunc_20(s32 param_2);

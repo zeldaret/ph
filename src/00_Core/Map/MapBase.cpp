@@ -17,7 +17,6 @@
 #include "Render/ModelRender.hpp"
 #include "Unknown/UnkStruct_020ee0a0.hpp"
 #include "Unknown/UnkStruct_027e0f88.hpp"
-#include "cxxabi.h"
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
@@ -468,9 +467,9 @@ ARM unk32 MapBase::vfunc_68(Vec3p *param_2, bool param_3) {
 
     aVStack_98 = gMapManager->func_ov00_02083a1c(param_2);
     iVar1      = this->vfunc_54(&aVStack_98);
-    if (0x1e < iVar1) {
-        if (iVar1 < 0x36) {
-            if (0x34 < iVar1) {
+    if (iVar1 > 0x1e) { // over 0x1e
+        if (iVar1 < 0x36) { // 0x1f <-> 0x35
+            if (iVar1 > 0x34) { // 0x35
                 if (param_3 != 0) {
                     bVar7 = this->func_ov00_0207f104(param_2, &iStack_8c);
                     if (bVar7) {
@@ -483,44 +482,44 @@ ARM unk32 MapBase::vfunc_68(Vec3p *param_2, bool param_3) {
                 }
                 goto LAB_arm9_ov000__0207e724;
             }
-            if (iVar1 < 0x2a) {
-                if (-1 < iVar1 + -0x1f) {
+            if (iVar1 < 0x2a) { // 0x1f <-> 0x29
+                if (iVar1 + -0x1f > -1) {
                     // iVar1 = (*(code *) ((iVar1 + -0x1f) * 4 + 0x207e590))();
                     return iVar1;
                 }
-            } else if (iVar1 == 0x30) {
+            } else if (iVar1 == 0x30) { // 0x30
                 goto LAB_arm9_ov000__0207e724;
             }
-        } else if (iVar1 < 0x41) {
-            if (iVar1 == 0x40) {
+        } else if (iVar1 < 0x41) { // 0x1f <-> 0x40
+            if (iVar1 == 0x40) { // 0x40
                 goto LAB_arm9_ov000__0207e724;
             }
-        } else if (iVar1 == 0x50) {
+        } else if (iVar1 == 0x50) { // 0x50
             goto LAB_arm9_ov000__0207e724;
         }
         goto LAB_0207e518_caseD_a;
     }
-    if (0x1d < iVar1) {
+    if (iVar1 > 0x1d) { // 0x1e
         goto LAB_arm9_ov000__0207e724;
     }
-    if (0x17 < iVar1) {
-        if (iVar1 < 0x1a) {
-            if (iVar1 == 0x19) {
+    if (iVar1 > 0x17) {
+        if (iVar1 < 0x1a) { // 0x18 <-> 0x19
+            if (iVar1 == 0x19) { // 0x19
                 goto LAB_arm9_ov000__0207e724;
             }
-        } else if (iVar1 == 0x1d) {
+        } else if (iVar1 == 0x1d) { // 0x1d
             goto LAB_arm9_ov000__0207e724;
         }
-        goto LAB_0207e518_caseD_a;
+        goto LAB_0207e518_caseD_a; // 0x18
     }
-    if (0x16 < iVar1) {
-        goto LAB_arm9_ov000__0207e724;
+    if (iVar1 > 0x16) {
+        goto LAB_arm9_ov000__0207e724; // 0x17
     }
-    if (9 < iVar1) {
+    if (iVar1 > 9) {
         if (iVar1 == 0x16) {
-            goto LAB_arm9_ov000__0207e724;
+            goto LAB_arm9_ov000__0207e724; // 0x16
         }
-        goto LAB_0207e518_caseD_a;
+        goto LAB_0207e518_caseD_a; // 0xa <-> 0x15
     }
     switch (iVar1) {
         case 0:
@@ -2299,12 +2298,12 @@ LAB_arm9_ov000__02080ec8:
 
 ARM void MapBase::func_ov00_02080edc() {
     switch (data_027e0d38->mUnk_0c.func_ov000_020a5e9c()) {
-        case 0x2a:
-        case 0x2f:
-        case 0x30:
-            this->mUnk_005 = 0;
+        case CourseId_BossWind:
+        case CourseId_BossWisdom:
+        case CourseId_BossGhost:
+            this->mUnk_005 = false;
             return;
         default:
-            this->mUnk_005 = 1;
+            this->mUnk_005 = true;
     }
 }

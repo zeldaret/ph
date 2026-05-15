@@ -54,9 +54,9 @@ enum AdventureFlag_ {
 };
 
 struct UnkStruct_027e0d38_UnkC {
-    /* 00 */ unk32 mUnk_00;
+    /* 00 */ unk32 mUnk_00; // Contains Course ID?
 
-    s32 func_ov000_020a5e9c(void);
+    s32 func_ov000_020a5e9c(void); // Checks if Bremeur's Temple's seal is broken (Isle of Ruins)
 };
 
 class UnkStruct_02082348_04 {
