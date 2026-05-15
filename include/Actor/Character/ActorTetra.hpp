@@ -19,7 +19,7 @@ struct ActorTetra_4b0 {
     /* 10 */ ActorTetra_4cc *mUnk_10;
     /* 14 */ unk32 mUnk_14; // always sizeof(ActorTetra_4cc)?
     /* 18 */ unk32 mUnk_18;
-    /* 1c */
+    /* 1c */ PAD(0x1c, 0x38);
 
     inline ActorTetra_4b0(ActorTetra_4cc *unk_0c, ActorTetra_4cc *unk_10, unk32 size) :
         mUnk_00(0),
@@ -46,7 +46,7 @@ public:
     /* 00 */ virtual ~ActorTetra() override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
     /* c4 */ virtual void vfunc_c4() override;
-    /* f4 */ virtual void vfunc_f4() override;
+    /* f4 */ virtual bool vfunc_f4() override;
     /* f8 */ virtual void vfunc_f8() override;
     /* fc */
 

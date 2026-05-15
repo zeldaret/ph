@@ -193,9 +193,11 @@ public:
         mUnk_244(0x11f) {}
 
     void func_ov014_02145a74(unk32 param1, unk32 param2);
+    void func_ov014_02145ae8(unk32 param1, unk32 *param2, unk32 *param3);
     void func_ov014_02145cac();
     void func_ov014_02145e48(unk32 param1);
     bool func_ov014_02145f0c(unk32 param1);
+    void func_ov014_02146120(unk32 pra);
 
     inline bool UnkFunc1(unk32 param1) {
         return param1 == mUnk_248.mUnk_00[mUnk_248.mUnk_08];
@@ -302,7 +304,7 @@ public:
     /* 84 */ virtual void vfunc_84() override;
     /* c0 */ virtual bool vfunc_c0() override;
     /* c4 */ virtual void vfunc_c4() override;
-    /* f4 */ virtual void vfunc_f4() = 0;
+    /* f4 */ virtual bool vfunc_f4() = 0;
     /* f8 */ virtual void vfunc_f8();
     /* fc */
 

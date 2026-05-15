@@ -59,6 +59,8 @@ enum AdventureFlag_ {
     /* 0x013B */ AdventureFlag_FrogGlyph_IsleOfFrost  = FLAG(9, 27),
     /* 0x013C */ AdventureFlag_FrogGlyph_NorthEast    = FLAG(9, 28),
 
+    /* 0x0148 */ AdventureFlag_PlayedBellumTakesOverGhostShipCS = FLAG(10, 8),
+
     /* 0x0187 */ AdventureFlag_COUNT = FLAG(12, 7),
 };
 
