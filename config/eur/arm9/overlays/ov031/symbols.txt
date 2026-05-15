@@ -427,7 +427,7 @@ data_ov031_02183c1c kind:data(any) addr:0x02183c1c
 data_ov031_02183c48 kind:data(any) addr:0x02183c48
 data_ov031_02183d68 kind:data(any) addr:0x02183d68
 data_ov031_02183d6c kind:data(any) addr:0x02183d6c
-data_ov031_02183d7c kind:data(any) addr:0x02183d7c
+_ZTV10ActorTetra kind:data(any) addr:0x02183d74
 data_ov031_02183e80 kind:bss addr:0x02183e80
 sCurrentSeller kind:bss addr:0x02183e84 local
 @792 kind:bss addr:0x02183e88 local

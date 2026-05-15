@@ -1,6 +1,10 @@
 #include "Actor/Character/ActorTetra.hpp"
 
-ActorTetra *ActorTetra::Create() {}
+extern u32 **data_027e0fe0[];
+
+ActorTetra *ActorTetra::Create() {
+    return new(*data_027e0fe0[0], 4) ActorTetra();
+}
 void ActorTetra::vfunc_f4() {}
 void ActorTetra::vfunc_c4() {}
 void ActorTetra::vfunc_20(bool param1) {}
