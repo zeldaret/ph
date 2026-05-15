@@ -297,7 +297,7 @@ public:
     /* 49a */ PAD(0x49a, 0x49c);
     /* 49c */
 
-    /* 00 */ virtual ~ActorGenericCharacter() override;
+    /* 00 */ // virtual ~ActorGenericCharacter() override;
     /* 08 */ virtual bool Init() override;
     /* 68 */ virtual void vfunc_68(unk32 param1, UnkStruct_020397f8 *param2) override;
     /* 80 */ virtual void vfunc_80() override;

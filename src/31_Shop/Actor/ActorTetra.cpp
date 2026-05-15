@@ -54,6 +54,6 @@ void ActorTetra_4b0::func_ov031_02181610(unk32 param1, unk32 param2, unk32 param
 
 void ActorTetra_4b0::func_ov031_02181798() {}
 
-ActorTetra::~ActorTetra() {}
+// ActorTetra::~ActorTetra() {}
 
-void ActorTetra::vfunc_f8() {}
+// void ActorTetra::vfunc_f8() {}
