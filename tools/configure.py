@@ -6,7 +6,7 @@ from pathlib import Path
 import argparse
 import sys
 import subprocess
-from typing import Any
+from typing import Any, Generator
 
 import ninja_syntax
 from get_platform import Platform, get_platform
@@ -26,7 +26,7 @@ args = parser.parse_args()
 
 # Config
 GAME = "ph"
-DSD_VERSION = 'v0.10.1'
+DSD_VERSION = 'v0.11.0'
 WIBO_VERSION = '0.6.16'
 SJISWRAP_VERSION = 'v1.2.2'
 OBJDIFF_VERSION = 'v3.4.0'
@@ -165,9 +165,12 @@ class Project:
     def build_rom_config(self) -> Path:
         return self.game_build / "build" / "rom_config.yaml"
 
+    def source_files(self) -> Generator[Path, None, None]:
+        yield from get_c_cpp_files([src_path, libs_path])
+
     def source_object_files(self) -> list[str]:
         files: list[str] = []
-        for source_file in get_c_cpp_files([src_path, libs_path]):
+        for source_file in self.source_files():
             src_obj_path = self.game_build / source_file
             files.append(str(src_obj_path.with_suffix(".o")))
         return files
@@ -238,7 +241,7 @@ def main():
     project = Project(args.version, platform=platform, delinks_json=delinks_json)
 
 
-    with build_ninja_path.open("w") as file:
+    with build_ninja_path.open("w", encoding="utf-8") as file:
         n = ninja_syntax.Writer(file)
 
         n.rule(
@@ -360,6 +363,8 @@ def main():
             generator=True
         )
         n.newline()
+
+        create_compilation_database(project)
 
         add_download_tool_builds(n, project)
         add_configure_build(n, project)
@@ -733,6 +738,20 @@ def get_config_files(game_config: Path, name: str) -> list[str]:
         for file in files
         if file == name
     ]
+
+
+def create_compilation_database(project: Project):
+    db_path = root_path / "compile_commands.json"
+    db: list[dict] = []
+    abs_root_path = root_path.absolute()
+    for src_file in project.source_files():
+        db.append({
+            "directory": str(abs_root_path),
+            "arguments": ["#"], # clangd ignores entries with empty arguments
+            "file": str(src_file)
+        })
+    with db_path.open("w") as f:
+        f.write(json.dumps(db))
 
 
 if __name__ == "__main__":

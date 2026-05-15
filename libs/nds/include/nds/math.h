@@ -145,6 +145,12 @@ inline void Vec3p_Copy(Vec3p *vec, Vec3p *out) {
     out->z = vec->z;
 }
 
+inline void Vec3p_Set(Vec3p *vec, q20 x, q20 y, q20 z) {
+    vec->x = x;
+    vec->y = y;
+    vec->z = z;
+}
+
 void Mat2p_InitIdentity(Mat2p *m);
 void Mat2p_InitRotation(Mat2p *m, q20 sin, q20 cos);
 void Mat2p_Multiply(Mat2p *a, Mat2p *b, Mat2p *out);

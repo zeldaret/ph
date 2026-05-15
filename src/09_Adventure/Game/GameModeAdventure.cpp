@@ -142,7 +142,7 @@ ARM unk32 GameModeAdventure::vfunc_08(bool param1) {
 
             this->mUnk_00c->func_ov009_021135d0();
             this->mUnk_014->func_ov009_0211372c();
-            data_027e0e28->func_ov000_0207bc9c();
+            data_027e0e28.func_ov000_0207bc9c();
         }
     }
 

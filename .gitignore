@@ -19,3 +19,4 @@ build.ninja
 .ninja_deps
 /wibo
 /sjiswrap.exe
+/compile_commands.json

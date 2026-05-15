@@ -1074,7 +1074,7 @@ from:0x02185634 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x02185644 kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0218566c kind:arm_call to:0x01ffa9fc module:itcm
 from:0x0218567c kind:arm_call to:0x01ffa94c module:itcm
-from:0x02185688 kind:load to:0x027e03c8 module:dtcm
+from:0x02185688 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x0218568c kind:load to:0x021891e0 module:overlay(38)
 from:0x021856c4 kind:arm_call to:0x020c7508 module:overlay(0)
 from:0x021856e8 kind:arm_call to:0x0207c1b0 module:overlay(0)

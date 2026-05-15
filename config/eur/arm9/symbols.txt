@@ -45,7 +45,6 @@ func_02001fb0 kind:function(arm,size=0x5c) addr:0x02001fb0
 func_0200200c kind:function(arm,size=0x5c) addr:0x0200200c
 func_02002068 kind:function(arm,size=0x5c) addr:0x02002068
 func_020020d0 kind:function(arm,size=0x3b8) addr:0x020020d0
-.L_02002184 kind:data(byte[256]) addr:0x02002184
 func_02002488 kind:function(arm,size=0x84) addr:0x02002488
 func_0200250c kind:function(arm,size=0x34) addr:0x0200250c
 func_02002540 kind:function(arm,size=0x48) addr:0x02002540
@@ -60,7 +59,6 @@ _s32_div_f kind:function(arm,size=0x20c) addr:0x02002c14
 _u32_div_f kind:function(arm,size=0x1e4) addr:0x02002e20
 .L_02002e28 kind:label(arm) addr:0x02002e28
 _ddiv kind:function(arm,size=0x544) addr:0x0200301c
-.L_02003154 kind:data(byte[256]) addr:0x02003154
 func_02003560 kind:function(arm,size=0x4) addr:0x02003560
 func_02003564 kind:function(arm,size=0x40) addr:0x02003564
 func_020035a4 kind:function(arm,size=0x3c) addr:0x020035a4
@@ -802,7 +800,7 @@ func_02018ae8 kind:function(arm,size=0x68) addr:0x02018ae8
 func_02018b50 kind:function(arm,size=0x78) addr:0x02018b50
 func_02018bc8 kind:function(arm,size=0x74) addr:0x02018bc8
 func_02018c3c kind:function(arm,size=0x54) addr:0x02018c3c
-func_02018c90 kind:function(arm,size=0x14) addr:0x02018c90
+UnkInit_ModelRender_Struct4_Params kind:function(arm,size=0x14) addr:0x02018c90
 func_02018ca4 kind:function(arm,size=0x14) addr:0x02018ca4
 func_02018cb8 kind:function(arm,size=0x8) addr:0x02018cb8
 func_02018cc0 kind:function(arm,size=0xc) addr:0x02018cc0
@@ -844,20 +842,20 @@ func_020197bc kind:function(arm,size=0x40) addr:0x020197bc
 func_020197fc kind:function(arm,size=0x40) addr:0x020197fc
 func_0201983c kind:function(arm,size=0x40) addr:0x0201983c
 func_0201987c kind:function(arm,size=0x40) addr:0x0201987c
-func_020198bc kind:function(arm,size=0x48) addr:0x020198bc
-func_02019904 kind:function(arm,size=0x17c) addr:0x02019904
-func_02019a80 kind:function(arm,size=0x68) addr:0x02019a80
-func_02019ae8 kind:function(arm,size=0xdc) addr:0x02019ae8
-func_02019bc4 kind:function(arm,size=0x28) addr:0x02019bc4
-func_02019bec kind:function(arm,size=0x28) addr:0x02019bec
-func_02019c14 kind:function(arm,size=0x308) addr:0x02019c14
-func_02019f1c kind:function(arm,size=0x364) addr:0x02019f1c
-func_0201a280 kind:function(arm,size=0x75c) addr:0x0201a280
-func_0201a9dc kind:function(arm,size=0xdc) addr:0x0201a9dc
-func_0201aab8 kind:function(arm,size=0x70) addr:0x0201aab8
-func_0201ab28 kind:function(arm,size=0x314) addr:0x0201ab28
-func_0201ae3c kind:function(arm,size=0x380) addr:0x0201ae3c
-func_0201b1bc kind:function(arm,size=0x8c) addr:0x0201b1bc
+G3d_RenderSBCCommands kind:function(arm,size=0x48) addr:0x020198bc
+G3d_InitRenderState kind:function(arm,size=0x17c) addr:0x02019904
+G3d_SetRenderObjAnimationMap kind:function(arm,size=0x68) addr:0x02019a80
+G3d_Render kind:function(arm,size=0xdc) addr:0x02019ae8
+G3d_SBCRender_NOP kind:function(arm,size=0x28) addr:0x02019bc4
+G3d_SBCRender_END kind:function(arm,size=0x28) addr:0x02019bec
+G3d_SBCRender_007 kind:function(arm,size=0x308) addr:0x02019c14
+G3d_SBCRender_008 kind:function(arm,size=0x364) addr:0x02019f1c
+G3d_SBCRender_SKN kind:function(arm,size=0x75c) addr:0x0201a280
+G3d_SBCRender_00A kind:function(arm,size=0xdc) addr:0x0201a9dc
+G3d_SBCRender_SCL kind:function(arm,size=0x70) addr:0x0201aab8
+G3d_SBCRender_00C kind:function(arm,size=0x314) addr:0x0201ab28
+G3d_SBCRender_00D kind:function(arm,size=0x380) addr:0x0201ae3c
+G3d_GetCurrentMtx kind:function(arm,size=0x8c) addr:0x0201b1bc
 func_0201b248 kind:function(thumb,size=0x24) addr:0x0201b248
 func_0201b26c kind:function(arm,size=0x44) addr:0x0201b26c
 func_0201b2b0 kind:function(arm,size=0x48) addr:0x0201b2b0
@@ -1808,14 +1806,14 @@ _ZN14MessageManager13func_020368f4EP18UnkStruct_02037750 kind:function(arm,size=
 _ZN14MessageManager13func_0203690cEi kind:function(arm,size=0x2b0) addr:0x0203690c
 _ZN14MessageManager13func_02036bbcEv kind:function(arm,size=0x94) addr:0x02036bbc
 _ZN14MessageManager13func_02036c50EPt kind:function(arm,size=0x54) addr:0x02036c50
-_ZN14MessageManager13func_02036ca4Ei kind:function(arm,size=0x40) addr:0x02036ca4
-_ZN14MessageManager13func_02036ce4EP18UnkStruct_020386d8i kind:function(arm,size=0x4c) addr:0x02036ce4
+_ZN14MessageManager13func_02036ca4EPt kind:function(arm,size=0x40) addr:0x02036ca4
+_ZN14MessageManager13func_02036ce4EP18UnkStruct_02037750i kind:function(arm,size=0x4c) addr:0x02036ce4
 _ZN14MessageManager13func_02036d30EP18UnkStruct_02037750 kind:function(arm,size=0x1c) addr:0x02036d30
 _ZN14MessageManager13func_02036d4cEP18UnkStruct_02037750 kind:function(arm,size=0x20) addr:0x02036d4c
 _ZN14MessageManager13func_02036d6cEv kind:function(arm,size=0x3c) addr:0x02036d6c
 _ZN14MessageManager13func_02036da8EjPs kind:function(arm,size=0x134) addr:0x02036da8
 _ZN14MessageManager13func_02036edcEjh kind:function(arm,size=0x8c) addr:0x02036edc
-_ZN14MessageManager13func_02036f68EjPh kind:function(arm,size=0x168) addr:0x02036f68
+_ZN14MessageManager13func_02036f68EjP18UnkStruct_02037628P24UnkStruct_ov000_020d18f4 kind:function(arm,size=0x168) addr:0x02036f68
 _ZN14MessageManager13func_020370d0Eii kind:function(arm,size=0x18) addr:0x020370d0
 _ZN14MessageManager13func_020370e8Eissi kind:function(arm,size=0x70) addr:0x020370e8
 _ZN14MessageManager13func_02037158EP21UnkSubClass1_02256FF8 kind:function(arm,size=0x20) addr:0x02037158
@@ -1836,10 +1834,10 @@ func_020374b4 kind:function(arm,size=0x74) addr:0x020374b4
 func_02037528 kind:function(arm,size=0x74) addr:0x02037528
 func_0203759c kind:function(arm,size=0x68) addr:0x0203759c
 func_02037604 kind:function(arm,size=0x24) addr:0x02037604
-func_02037628 kind:function(arm,size=0x98) addr:0x02037628
-func_020376c0 kind:function(arm,size=0x64) addr:0x020376c0
+_ZN18UnkStruct_0203762813func_02037628Ev kind:function(arm,size=0x98) addr:0x02037628
+_ZN18UnkStruct_0203762813func_020376c0EP5Vec3p kind:function(arm,size=0x64) addr:0x020376c0
 func_02037724 kind:function(arm,size=0x2c) addr:0x02037724
-_ZN18UnkStruct_02037750C2Eii kind:function(arm,size=0x44) addr:0x02037750
+_ZN18UnkStruct_02037750C2EiPv kind:function(arm,size=0x44) addr:0x02037750
 _ZN18UnkStruct_02037750D1Ev kind:function(arm,size=0x38) addr:0x02037794
 _ZN18UnkStruct_02037750D0Ev kind:function(arm,size=0x40) addr:0x020377cc
 _ZN18UnkStruct_02037750D2Ev kind:function(arm,size=0x38) addr:0x0203780c
@@ -2634,19 +2632,11 @@ data_020572fc kind:data(any) addr:0x020572fc
 data_02057300 kind:data(any) addr:0x02057300
 data_02057304 kind:data(any) addr:0x02057304
 data_02057308 kind:data(any) addr:0x02057308
-data_02057354 kind:data(any) addr:0x02057354
-data_02057358 kind:data(any) addr:0x02057358
-data_02057360 kind:data(any) addr:0x02057360
-data_02057384 kind:data(any) addr:0x02057384
-data_02057390 kind:data(any) addr:0x02057390
-data_0205739c kind:data(any) addr:0x0205739c
-data_020573a0 kind:data(any) addr:0x020573a0
-data_020573a8 kind:data(any) addr:0x020573a8
-data_020573cc kind:data(any) addr:0x020573cc
-data_020573d8 kind:data(any) addr:0x020573d8
-data_020573e8 kind:data(any) addr:0x020573e8
-data_020573f0 kind:data(any) addr:0x020573f0
-data_020573f4 kind:data(any) addr:0x020573f4
+funcArgs$383 kind:data(any) addr:0x02057354 local
+funcArgs$481 kind:data(any) addr:0x0205739c local
+funcArgs$745 kind:data(any) addr:0x020573e4 local
+cmd$841 kind:data(any) addr:0x020573ec local
+mtx$855 kind:data(any) addr:0x020573f4 local
 data_02057434 kind:data(any) addr:0x02057434
 data_02057454 kind:data(any) addr:0x02057454
 data_02057458 kind:data(any) addr:0x02057458
@@ -2708,8 +2698,8 @@ data_020577f0 kind:data(any) addr:0x020577f0
 data_020577f8 kind:data(any) addr:0x020577f8
 data_02057808 kind:data(any) addr:0x02057808
 data_02057840 kind:data(any) addr:0x02057840
-data_0205785c kind:data(any) addr:0x0205785c
-data_02057878 kind:data(any) addr:0x02057878
+_ZTV13FileEntryFlag kind:data(any) addr:0x02057854
+_ZTV9FileEntry kind:data(any) addr:0x02057870
 _ZTV8BhioBase kind:data(any) addr:0x02057894
 data_020578d4 kind:data(any) addr:0x020578d4
 data_020578d8 kind:data(any) addr:0x020578d8
@@ -3028,11 +3018,6 @@ data_0205ade4 kind:bss addr:0x0205ade4
 data_0205ade8 kind:bss addr:0x0205ade8
 data_0205adf4 kind:bss addr:0x0205adf4
 data_0205ae08 kind:bss addr:0x0205ae08
-data_0205bc14 kind:bss addr:0x0205bc14
-data_0205bc18 kind:bss addr:0x0205bc18
-data_0205bc1c kind:bss addr:0x0205bc1c
-data_0205c208 kind:bss addr:0x0205c208
-data_0205c248 kind:bss addr:0x0205c248
 data_0205db08 kind:bss addr:0x0205db08
 data_0205db0c kind:bss addr:0x0205db0c
 data_0205db10 kind:bss addr:0x0205db10

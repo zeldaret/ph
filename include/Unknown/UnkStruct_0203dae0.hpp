@@ -105,7 +105,7 @@ public:
     //! TODO: fake?
     /* 34 */ virtual unk32 vfunc_34(unk32 param_2) override;
     /* 38 */ virtual bool vfunc_38(void) override;
-    /* 3c */ virtual void vfunc_3C(unk32 param_2) override;
+    /* 3c */ virtual void vfunc_3C(u16 *param_2) override;
     /* 40 */ virtual void vfunc_40(unk32 param_2, unk32 param_3) override;
     /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY) override;
     /* 48 */ virtual void vfunc_48(void) override;

@@ -33,8 +33,8 @@ extern void func_ov000_020792a0(s32 *param_1, s32 param_2, unk32 param_3, unk32 
 extern void func_ov000_02079898(unk32 *param_1, unk32 param_2, unk32 param_3);
 extern void func_ov000_020798bc(s32 *param_1, s32 param_2);
 extern void func_ov000_02088000(UnkStruct_027e0f64_04 *param_1, s32 param_2);
-extern void func_ov000_02088130(u8 *param_1, unk32 param_2);
-extern void func_ov000_02088144(u8 *param_1, unk32 param_2);
+extern void func_ov000_02088130(u8 *param_1, UnkStruct_027e0f64_04 *param_2);
+extern void func_ov000_02088144(u8 *param_1, UnkStruct_027e0f64_04 *param_2);
 
 extern s32 func_ov000_0208b73c(s32 param_1, unk32 param_2);
 extern s32 func_ov000_0208b7d0(s32 param_1, Vec3p *param_2);
@@ -2090,7 +2090,7 @@ unk32 MapManager::func_ov00_02084ebc(Vec3p *param_2) {
 
 s32 MapManager::func_ov00_02085108(Vec3p *param_2) {
     MapManager *puVar1;
-    unk32 uVar2;
+    UnkStruct_027e0f64_04 *uVar2;
     int *piVar3;
     int iVar4;
     u32 uVar5;
@@ -2148,7 +2148,7 @@ s32 MapManager::func_ov00_02085108(Vec3p *param_2) {
 s32 MapManager::func_ov00_0208527c(MapManager *param_1, unk32 param_2, Vec3p *param_3) {
     u32 uVar1;
     MapManager *puVar2;
-    unk32 uVar3;
+    UnkStruct_027e0f64_04 *uVar3;
     int iVar4;
     int iVar5;
     u32 uVar6;
@@ -2208,7 +2208,7 @@ s32 MapManager::func_ov00_0208527c(MapManager *param_1, unk32 param_2, Vec3p *pa
 
 s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *param_3) {
     u32 uVar1;
-    unk32 uVar2;
+    UnkStruct_027e0f64_04 *uVar2;
     int iVar3;
     int iVar4;
     int iVar5;

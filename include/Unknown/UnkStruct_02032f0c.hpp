@@ -36,20 +36,20 @@ public:
     /* 20 */
 
     UnkSubClass1_02256FF8();
-    /* 00 */ virtual ~UnkSubClass1_02256FF8() override;
-    /* 08 */ virtual void vfunc_08(void) override;
-    /* 0c */ virtual void vfunc_0c(void) override;
-    /* 10 */ virtual void vfunc_10(void) override;
-    /* 14 */ virtual void vfunc_14(void) override;
-    /* 18 */ virtual void vfunc_18(void) override;
-    /* 1c */ virtual void vfunc_1c(void) override;
-    /* 20 */ virtual void vfunc_20(void) override;
-    /* 24 */ virtual void vfunc_24(void) override;
-    /* 28 */ virtual void vfunc_28(void) override;
-    /* 2c */ virtual void vfunc_2c(void) override;
-    /* 30 */ virtual void vfunc_30(void) override;
-    /* 34 */ virtual void vfunc_34(void) override;
-    /* 38 */ virtual void vfunc_38(void) override;
+    /* 00 */ virtual ~UnkSubClass1_02256FF8();
+    /* 08 */ virtual void vfunc_08(void);
+    /* 0c */ virtual void vfunc_0c(void);
+    /* 10 */ virtual void vfunc_10(void);
+    /* 14 */ virtual void vfunc_14(void);
+    /* 18 */ virtual void vfunc_18(void);
+    /* 1c */ virtual void vfunc_1c(void);
+    /* 20 */ virtual void vfunc_20(void);
+    /* 24 */ virtual void vfunc_24(void);
+    /* 28 */ virtual void vfunc_28(void);
+    /* 2c */ virtual void vfunc_2c(void);
+    /* 30 */ virtual void vfunc_30(void);
+    /* 34 */ virtual void vfunc_34(void);
+    /* 38 */ virtual void vfunc_38(void);
     /* 3c */
 };
 
@@ -90,7 +90,7 @@ public:
     /* 2c */ UnkStruct_MsgProc_Base_unk_2C **mUnk_2c;
     /* 30 */ s32 mUnk_30;
     /* 34 */ s32 mUnk_34;
-    /* 38 */ unk32 mUnk_38;
+    /* 38 */ void *mUnk_38;
     /* 3c */ unk16 mUnk_3c;
     /* 3e */ unk16 mUnk_3e;
     /* 40 */ unk32 mUnk_40;
@@ -133,7 +133,7 @@ public:
     /* 30 */ virtual void vfunc_30(void);
     /* 34 */ virtual unk32 vfunc_34(unk32 param_2);
     /* 38 */ virtual bool vfunc_38(void);
-    /* 3c */ virtual void vfunc_3C(unk32 param_2);
+    /* 3c */ virtual void vfunc_3C(u16 *param_2);
     /* 40 */ virtual void vfunc_40(unk32 param_2, unk32 param_3);
     /* 44 */ virtual void vfunc_44(s32 touchLastX, s32 touchLastY);
     /* 48 */ virtual void vfunc_48(void);

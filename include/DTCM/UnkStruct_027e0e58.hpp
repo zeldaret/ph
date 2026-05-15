@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include <nds/math.h>
+
 struct UnkStruct_027e0e58 {
     /* 00 */ unk8 mUnk_00[0x22];
     /* 22 */ unk16 mUnk_22;

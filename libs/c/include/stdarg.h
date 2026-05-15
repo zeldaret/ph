@@ -1,7 +1,9 @@
 #ifndef _C_STDARG_H
 #define _C_STDARG_H
 
+#ifdef __cplusplus
 extern "C" {
+#endif
 typedef char *va_list;
 
 #define __std(ref) ::std::ref
@@ -11,7 +13,9 @@ typedef char *va_list;
 #define va_start(ap, parm) ((ap) = __va_start(parm))
 #define va_arg(ap, type) (*(type *) ((ap += __fourbytealign(sizeof(type))) - __fourbytealign(sizeof(type))))
 #define va_end(ap) ((void) 0)
-}
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #if defined(__cplusplus)
 namespace std {

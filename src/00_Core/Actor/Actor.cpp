@@ -30,7 +30,7 @@ const UnkStruct3 sUnkTable[] = {
     {4, 2},    {4, 2},    {4, 2},    {8, 2},    {4, 2},    {0xff, 2}, {20, 2}, {6, 2},  {6, 2},  {2, 2},
 };
 
-Actor_UnkStruct_020::Actor_UnkStruct_020() :
+ARM Actor_UnkStruct_020::Actor_UnkStruct_020() :
     mUnk_0c(-1),
     mUnk_0d(0),
     mUnk_0e(1),
@@ -152,28 +152,11 @@ ARM void Actor::vfunc_18(u32 param1) {
     func_ov00_0207a1c8(&mUnk_0a4, param1, &mPos);
 }
 
-struct UnkStruct1 {
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk8 mUnk_08;
-    /* 09 */ unk8 mUnk_09;
-    /* 0a */ unk8 mUnk_0a;
-    /* 0b */ unk8 mUnk_0b;
-    /* 0c */ unk32 mUnk_0c;
-    /* 10 */ unk32 mUnk_10;
-    /* 14 */ unk8 mUnk_14;
-    /* 15 */ unk8 mUnk_15;
-    /* 16 */ unk16 mUnk_16;
-    /* 18 */ unk32 mUnk_18;
-    /* 1c */ unk32 mUnk_1c;
-    /* 20 */
-};
 extern void *data_027e0d3c;
 extern unk32 data_02063e4c;
 extern "C" bool func_ov00_02079470(void *param1, Vec3p *param2, unk32 param3, unk32 param4, unk32 *param5, unk32 *param6,
                                    unk32 param7, unk32 param8);
-extern "C" void func_01ffbe34(UnkStruct1 *param1);
-extern "C" void func_020313c8(unk32 *param1, unk32 param2, unk32 param3, u32 param4, UnkStruct1 *param5);
+extern "C" void func_020313c8(unk32 *param1, unk32 param2, unk32 param3, u32 param4, UnkStruct_01ffbe34 *param5);
 ARM void Actor::vfunc_1c(u16 *param1) {
     u16 unk1 = mUnk_07a;
     if (mUnk_129) {
@@ -186,7 +169,7 @@ ARM void Actor::vfunc_1c(u16 *param1) {
         unk32 unk2;
         unk32 unk3;
         if (func_ov00_02079470(data_027e0d3c, &mPos, 0, 0, &unk2, &unk3, 0, 0)) {
-            UnkStruct1 unk4;
+            UnkStruct_01ffbe34 unk4;
             func_01ffbe34(&unk4);
             unk4.mUnk_04 = 1;
             func_020313c8(&data_02063e4c, unk2, unk3, unk1, &unk4);
@@ -225,11 +208,11 @@ ARM bool Actor::vfunc_60() {
 
 ARM void Actor::vfunc_64() {}
 
-ARM void Actor::SetUnk_11c(unk8 value) {
+ARM void Actor::SetUnk_11c(bool value) {
     mUnk_11c = value;
 }
 
-ARM void Actor::vfunc_68() {}
+ARM void Actor::vfunc_68(unk32 param1, UnkStruct_020397f8 *param2) {}
 
 ARM bool Actor::vfunc_6c() {
     return true;
@@ -239,8 +222,8 @@ ARM bool Actor::vfunc_70() {
     return true;
 }
 
-ARM void Actor::vfunc_74() {}
-ARM void Actor::vfunc_7c() {}
+ARM void Actor::vfunc_74(ActorRef *ref) {}
+ARM void Actor::vfunc_7c(ActorRef *ref) {}
 
 ARM bool Actor::vfunc_78() {
     return true;
@@ -254,11 +237,11 @@ ARM bool Actor::vfunc_8c() {
     return true;
 }
 
-ARM bool Actor::vfunc_90() {
+ARM bool Actor::vfunc_90(unk32 param1, unk32 param2) {
     return true;
 }
 
-ARM void Actor::vfunc_94() {}
+ARM void Actor::vfunc_94(unk32 param1, unk32 param2) {}
 ARM bool Actor::vfunc_98() {}
 ARM bool Actor::vfunc_9c() {}
 

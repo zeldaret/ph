@@ -1,4 +1,5 @@
 #include "Actor/Navi/ActorNaviBase.hpp"
+#include "Actor/ActorRef.hpp"
 
 u16 ActorNaviBase::vfunc_c4() {}
 u16 ActorNaviBase::vfunc_c8() {}
@@ -36,11 +37,11 @@ void ActorNaviBase::vfunc_80() {}
 void ActorNaviBase::vfunc_84() {}
 bool ActorNaviBase::vfunc_78() {}
 bool ActorNaviBase::vfunc_bc(unk32 param1, unk8 param2, s32 param3) {}
-void ActorNaviBase::vfunc_74() {}
+void ActorNaviBase::vfunc_74(ActorRef *ref) {}
 void ActorNaviBase::func_ov000_020baca8(Vec3p *param1, unk32 param2) {}
 void ActorNaviBase::func_ov000_020bad18() {}
-bool ActorNaviBase::vfunc_90() {}
-void ActorNaviBase::vfunc_94() {}
+bool ActorNaviBase::vfunc_90(unk32 param1, unk32 param2) {}
+void ActorNaviBase::vfunc_94(unk32 param1, unk32 param2) {}
 void ActorNaviBase::func_ov000_020bb0ac() {}
 void ActorNaviBase::func_ov000_020bb0e0() {}
 void ActorNaviBase::vfunc_ec() {}

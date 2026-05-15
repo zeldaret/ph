@@ -5,8 +5,7 @@
 
 #include <nds/math.h>
 
-struct UnkStruct_027e037c {
-public:
+typedef struct UnkStruct_027e037c_ {
     /* 000 */ unk32 mUnk_000;
     /* 004 */ unk32 mUnk_004;
     /* 008 */ Mat4p mUnk_008;
@@ -38,6 +37,6 @@ public:
     /* 160 */ Mat4x3p mUnk_160;
     /* 190 */ Mat4x3p mUnk_190;
     /* 1c0 */
-};
+} UnkStruct_027e037c;
 
 extern UnkStruct_027e037c data_027e037c;

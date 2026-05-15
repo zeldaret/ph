@@ -24,9 +24,14 @@ translations. Feel free to contribute to this list!
 -------|--------------|---------
 `ITAP` | Item Arrow Pod | Quiver
 `ITAR` | Item Arrows | 10 Arrows
+`ITB2` |
 `ITBB` | Item Bomb Bag
+`ITBK` |
 `ITBM` | Item Bombs | 10 Bombs
 `ITBT` | Item Bombchus | 10 Bombchus
+`ITBY` |
+`ITCC` |
+`ITDM` |
 `ITHU` | | Heart container
 `ITPB` | Item Potion Bottle
 `ITSL` | Item Shield
@@ -191,6 +196,7 @@ translations. Feel free to contribute to this list!
 `GRNE` | Goron Elder | Biggoron
 `GRNM` | Goron Man
 `ITS3` | Item Seller NPC 3 | Mi, item seller of Goron Island
+`ITS2` | Item Seller NPC 2
 `ITSN` | Item Seller NPC | Ai, item seller of Mercay Island
 `JUDG` | Judge | The treasure teller
 `LNBK` | Linebeck

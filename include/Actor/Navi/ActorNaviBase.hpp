@@ -43,7 +43,7 @@ public:
 class ActorNaviBase_Unk3 : public ModelRender {
 public:
     /* 00 */ virtual ~ActorNaviBase_Unk3() {}
-    /* 3c */ virtual void vfunc_3c() override;
+    /* 3c */ virtual void vfunc_3c(ModelRenderCommandsData *renderData) override;
     /* 40 */
 
     ActorNaviBase_Unk3(ItemModel *param1);
@@ -85,12 +85,12 @@ public:
     /* 30 */ virtual unk32 vfunc_30() override;
     /* 34 */ virtual void GetOffsetPos(Vec3p *pos) override;
     /* 38 */ virtual unk32 vfunc_38() override;
-    /* 74 */ virtual void vfunc_74() override;
+    /* 74 */ virtual void vfunc_74(ActorRef *) override;
     /* 78 */ virtual bool vfunc_78() override;
     /* 80 */ virtual void vfunc_80() override;
     /* 84 */ virtual void vfunc_84() override;
-    /* 90 */ virtual bool vfunc_90() override;
-    /* 94 */ virtual void vfunc_94() override;
+    /* 90 */ virtual bool vfunc_90(unk32 param1, unk32 param2) override;
+    /* 94 */ virtual void vfunc_94(unk32 param1, unk32 param2) override;
     /* b4 */ virtual FairyId GetFairyId() = 0;
     /* b8 */ virtual s32 vfunc_b8();
     /* bc */ virtual bool vfunc_bc(unk32 param1, unk8 param2, s32 param3);

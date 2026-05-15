@@ -1,5 +1,6 @@
 #pragma once
 
+#include "System/SysNew.hpp"
 #include "global.h"
 #include "types.h"
 
@@ -7,13 +8,14 @@ struct FileEntry_Unk8 {
     /* 00 */ unk8 mUnk_00[0x8];
     /* 08 */ u16 mUnk_08;
     /* 0a */ u16 mUnk_0a;
-    /* 0c */ // more fields, probably
+    /* 0c */ u16 mUnk_0c;
+    /* 10 */ // more fields, probably
 };
 
-class FileEntry {
+class FileEntry : public SysObject {
 public:
     /* 00 (vtable) */
-    /* 04 */ char *path;
+    /* 04 */ const char *path;
     /* 08 */ FileEntry_Unk8 *mUnk_08;
     /* 0c */ unk32 mUnk_0c;
     /* 10 */
@@ -23,6 +25,11 @@ public:
     /* 0c */ virtual void vfunc_0c()                        = 0;
     /* 10 */ virtual u32 vfunc_10(u32 param1)               = 0;
     /* 14 */
+
+    FileEntry(const char *path) :
+        path(path),
+        mUnk_08(NULL),
+        mUnk_0c(0) {}
 };
 
 class FileEntryFlag : public FileEntry {
@@ -36,4 +43,8 @@ public:
     /* 0c */ virtual void vfunc_0c() override;
     /* 10 */ virtual u32 vfunc_10(u32 param1) override;
     /* 14 */
+
+    FileEntryFlag(const char *path) :
+        FileEntry(path),
+        mUnk_10(0) {}
 };

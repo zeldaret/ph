@@ -75,7 +75,7 @@ from:0x021999fc kind:arm_call to:0x0207babc module:overlay(0)
 from:0x02199a10 kind:arm_call to:0x0207babc module:overlay(0)
 from:0x02199a1c kind:load to:0x0219a8f4 module:overlay(57)
 from:0x02199a20 kind:load to:0x02050f10 module:main
-from:0x02199a24 kind:load to:0x027e03c8 module:dtcm
+from:0x02199a24 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x02199a28 kind:load to:0x027e0f74 module:dtcm
 from:0x02199a2c kind:load to:0x027e0de4 module:dtcm
 from:0x02199a30 kind:load to:0x0219904c module:overlay(57)

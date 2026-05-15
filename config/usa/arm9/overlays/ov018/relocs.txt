@@ -127,7 +127,7 @@ from:0x0215c854 kind:arm_call_thumb to:0x02030058 module:main
 from:0x0215c85c kind:arm_call_thumb to:0x02030108 module:main
 from:0x0215c868 kind:load to:0x0216c020 module:overlay(18)
 from:0x0215c86c kind:load to:0x020577f8 module:main
-from:0x0215c870 kind:load to:0x02057814 module:main
+from:0x0215c870 kind:load to:0x0205780c add:0x8 module:main
 from:0x0215c874 kind:load to:0x027e0ce0 module:dtcm
 from:0x0215c878 kind:load to:0x0216b3bc module:overlay(18)
 from:0x0215c890 kind:arm_call_thumb to:0x020c0ba8 module:overlay(0)
