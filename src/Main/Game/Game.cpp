@@ -3,7 +3,7 @@
 #include <nds/gfx.h>
 #include <nds/irq.h>
 
-#include "DTCM/UnkStruct_027e037c.hpp"
+#include "DTCM/UnkStruct_027e037c.h"
 #include "DTCM/UnkStruct_027e05f8.hpp"
 #include "DTCM/UnkStruct_027e077c.hpp"
 #include "DTCM/UnkStruct_027e080c.hpp"
@@ -377,7 +377,7 @@ ARM void Game::Run() {
             func_020363c8(local_28, &data_027e0c54);
             this->mUnk_0f0 = local_28[0];
             this->mMode->vfunc_10(&this->mUnk_0f0);
-            gMessageManager.func_02036ca4((unk32) & this->mUnk_0f0);
+            gMessageManager.func_02036ca4(&this->mUnk_0f0);
             if (this->mModeId == 2) {
                 data_027e103c->func_ov005_02103e58(&this->mUnk_0f0);
             }

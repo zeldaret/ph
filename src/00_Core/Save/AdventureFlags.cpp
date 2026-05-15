@@ -75,7 +75,7 @@ ARM void AdventureFlags::Set(AdventureFlag flag, bool value) {
     }
 }
 
-ARM void AdventureFlags::func_ov00_02097810(s32 param1, astruct_23 *param2) {}
+ARM unk32 AdventureFlags::func_ov00_02097810(UnkStruct_ov000_0209a50c *param2) {}
 
 // non-matching
 ARM unk32 AdventureFlags::func_ov00_02097968(unk32 param1) {
@@ -83,7 +83,7 @@ ARM unk32 AdventureFlags::func_ov00_02097968(unk32 param1) {
         return -1;
     }
 
-    astruct_23 aStack_c0;
+    UnkStruct_ov000_0209a50c aStack_c0;
     aStack_c0.mUnk_16 = data_027e0db0.mUnk_04 > 0;
 
     FlagsUnk2 FStack_d8;
@@ -120,7 +120,7 @@ ARM bool AdventureFlags::func_ov00_02097bcc(s32 param1) {
     return this->mUnk_44->func_ov000_02098fa4(param1);
 }
 
-ARM bool AdventureFlags::func_ov00_02097bcc(astruct_23 *param1) {
+ARM bool AdventureFlags::func_ov00_02097bcc(UnkStruct_ov000_0209a50c *param1) {
     if (this->func_ov00_02097738()) {
         return this->mUnk_44->func_ov000_020990a4(param1);
     }

@@ -92,14 +92,14 @@ from:0x02189e90 kind:arm_call to:0x020c378c module:overlay(0)
 from:0x02189ec0 kind:arm_call to:0x020c3614 module:overlay(0)
 from:0x02189ed4 kind:arm_call to:0x02189de8 module:overlay(43)
 from:0x02189ef4 kind:load to:0x027e0fe4 module:dtcm
-from:0x02189ef8 kind:load to:0x020e7288 add:8 module:overlay(0)
+from:0x02189ef8 kind:load to:0x020e7288 add:0x8 module:overlay(0)
 from:0x02189f8c kind:arm_call to:0x020c378c module:overlay(0)
 from:0x02189fb8 kind:arm_call to:0x020c3614 module:overlay(0)
 from:0x0218a024 kind:arm_call to:0x020cea6c module:overlay(0)
 from:0x0218a038 kind:arm_call to:0x020cea6c module:overlay(0)
 from:0x0218a040 kind:arm_call to:0x020cc120 module:overlay(0)
 from:0x0218a04c kind:load to:0x027e0fe4 module:dtcm
-from:0x0218a050 kind:load to:0x020e7288 add:8 module:overlay(0)
+from:0x0218a050 kind:load to:0x020e7288 add:0x8 module:overlay(0)
 from:0x0218a058 kind:load to:0x027e0ffc module:dtcm
 from:0x0218a06c kind:arm_call to:0x020cae98 module:overlay(0)
 from:0x0218a0cc kind:arm_call to:0x0218a17c module:overlay(43)

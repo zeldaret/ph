@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include <nds/math.h>
+
 struct UnkStruct_ov000_020e9c88 {
     void func_ov000_0207b89c(s32 param2, Vec3p *param3, void (*param4)(void *), void *param5);
 };

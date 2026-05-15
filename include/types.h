@@ -36,5 +36,6 @@ typedef s32 bool;
 
 #define CEIL_DIV(a, b) (((a) + (b) - 1) / (b))
 #define UNK_PTR unk32 *
+#define PAD(start, end) unk8 pad_##start[end - start]
 
 #endif

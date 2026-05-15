@@ -12,6 +12,7 @@
 #include "Physics/Transform.hpp"
 #include "Player/EquipBoomerang.hpp"
 #include "System/SysNew.hpp"
+#include "Unknown/UnkStruct_020397f8.hpp"
 #include "Unknown/UnkStruct_ov000_020beba8.hpp"
 
 struct Actor_UnkStruct_012 {
@@ -152,7 +153,7 @@ public:
     /* 119 */ u8 mUnk_119;
     /* 11a */ bool mVisible;
     /* 11b */ bool mGrabbed;
-    /* 11c */ unk8 mUnk_11c;
+    /* 11c */ bool mUnk_11c;
     /* 11d */ bool mUnk_11d;
     /* 11e */ q4 mYOffset;
     /* 120 */ s16 mUnk_120;
@@ -200,18 +201,18 @@ public:
     /* 5c */ virtual bool Drop(Vec3p *vel);
     /* 60 */ virtual bool vfunc_60();
     /* 64 */ virtual void vfunc_64();
-    /* 68 */ virtual void vfunc_68();
+    /* 68 */ virtual void vfunc_68(unk32 param1, UnkStruct_020397f8 *param2);
     /* 6c */ virtual bool vfunc_6c();
     /* 70 */ virtual bool vfunc_70();
-    /* 74 */ virtual void vfunc_74();
+    /* 74 */ virtual void vfunc_74(ActorRef *ref);
     /* 78 */ virtual bool vfunc_78();
-    /* 7c */ virtual void vfunc_7c();
+    /* 7c */ virtual void vfunc_7c(ActorRef *ref);
     /* 80 */ virtual void vfunc_80();
     /* 84 */ virtual void vfunc_84();
     /* 88 */ virtual void vfunc_88();
     /* 8c */ virtual bool vfunc_8c();
-    /* 90 */ virtual bool vfunc_90();
-    /* 94 */ virtual void vfunc_94();
+    /* 90 */ virtual bool vfunc_90(unk32 param1, unk32 param2);
+    /* 94 */ virtual void vfunc_94(unk32 param1, unk32 param2);
     /* 98 */ virtual bool vfunc_98();
     /* 9c */ virtual bool vfunc_9c();
     /* a0 */ virtual bool TrySetTransform(Transform *transform);
@@ -227,7 +228,7 @@ public:
 
     unk8 func_ov00_020c1788();
     void SetUnk_129(bool value);
-    void SetUnk_11c(unk8 value);
+    void SetUnk_11c(bool value);
     bool func_ov00_020c195c();
     bool func_ov00_020c198c();
     void KillPickupItemActors();

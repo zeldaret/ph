@@ -1,7 +1,7 @@
     .text       start:0x0211f640 end:0x02153b50 kind:code align:32
     .rodata     start:0x02153b50 end:0x021541ec kind:rodata align:4
     .init       start:0x021541ec end:0x0215584c kind:code align:4
-    .ctor       start:0x0215584c end:0x0215598c kind:rodata align:4
+    .ctor       start:0x0215584c end:0x02155988 kind:rodata align:4
     .data       start:0x021559a0 end:0x0215abc0 kind:data align:32
     .bss        start:0x0215abc0 end:0x0215b4a0 kind:bss align:32
 
@@ -20,3 +20,16 @@ src/14_Land/Actor/Player/ActorRefill.cpp:
     .ctor       start:0x021558ec end:0x021558f0
     .data       start:0x021578b0 end:0x02157d70
     .bss        start:0x0215af94 end:0x0215b034
+
+src/14_Land/Actor/Character/ActorCharacterBase.cpp:
+    complete
+    .text       start:0x021447f8 end:0x02144d94
+    .data       start:0x021594b8 end:0x021595ac
+
+src/14_Land/Actor/Character/ActorCharacter.cpp:
+    complete
+    .text       start:0x02144d94 end:0x02145a74
+    .data       start:0x021595ac end:0x021596a8
+
+src/14_Land/Actor/Character/ActorGenericCharacter.cpp:
+    .text       start:0x021476d0 end:0x02148234

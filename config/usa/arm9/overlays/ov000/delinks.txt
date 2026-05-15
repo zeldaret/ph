@@ -1,7 +1,7 @@
     .text       start:0x02077360 end:0x020d8710 kind:code align:32
     .rodata     start:0x020d8710 end:0x020df2d8 kind:rodata align:4
     .init       start:0x020df2d8 end:0x020e1e28 kind:code align:4
-    .ctor       start:0x020e1e28 end:0x020e1f0c kind:rodata align:4
+    .ctor       start:0x020e1e28 end:0x020e1f08 kind:rodata align:4
     .data       start:0x020e1f20 end:0x020e92c0 kind:data align:32
     .bss        start:0x020e92c0 end:0x020ec718 kind:bss align:32
     .sbss       start:0x020ec718 end:0x020eece0 kind:bss align:4
@@ -111,7 +111,7 @@ src/00_Core/Player/LinkStateDamage.cpp:
 
 src/00_Core/Player/LinkStateFollow.cpp:
     .text       start:0x020a8f14 end:0x020a9244
-    .data       start:0x020e56fc end:0x020e5888
+    .data       start:0x020e56fc end:0x020e5790
 
 src/00_Core/Player/LinkStateInteract.cpp:
     .text       start:0x020aa2cc end:0x020abd18
@@ -141,10 +141,10 @@ src/00_Core/Player/PlayerControl.cpp:
     .data       start:0x020e60a4 end:0x020e60f0
     .sbss       start:0x020ee138 end:0x020ee140
 
-src/00_Core/Player/TouchControl.cpp:
+src/00_Core/Player/TouchControl_00.cpp:
     .text       start:0x0207abc4 end:0x0207af40
     .init       start:0x020df32c end:0x020df358
-    .ctor       start:0x020e1e30 end:0x020e1e34
+    .ctor       start:0x020e1e34 end:0x020e1e38
 
 src/00_Core/Save/AdventureFlags.cpp:
     .text       start:0x020975c8 end:0x02098094
@@ -153,3 +153,7 @@ src/00_Core/Save/AdventureFlags.cpp:
 
 src/00_Core/Game/GameModePlay.cpp:
     .text       start:0x02079cc8 end:0x02079d7c
+
+src/00_Core/Render/ModelRender.cpp:
+    .text       start:0x020a950c end:0x020a9980
+    .data       start:0x020e57b8 end:0x020e5800

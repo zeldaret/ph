@@ -757,11 +757,11 @@ from:0x0218e4c0 kind:arm_call to:0x02083a1c module:overlay(0)
 from:0x0218e4cc kind:arm_call to:0x020840c4 module:overlay(0)
 from:0x0218e570 kind:arm_call to:0x020c37ec module:overlay(0)
 from:0x0218e588 kind:load to:0x027e0e60 module:dtcm
-from:0x0218e58c kind:load to:0x020e72e8 add:8 module:overlay(0)
+from:0x0218e58c kind:load to:0x020e72e8 add:0x8 module:overlay(0)
 from:0x0218e594 kind:load to:0x027e0fe4 module:dtcm
 from:0x0218e624 kind:arm_call to:0x020c37ec module:overlay(0)
 from:0x0218e6a4 kind:load to:0x027e0fe4 module:dtcm
-from:0x0218e6a8 kind:load to:0x020e72e8 add:8 module:overlay(0)
+from:0x0218e6a8 kind:load to:0x020e72e8 add:0x8 module:overlay(0)
 from:0x0218e6b0 kind:load to:0x027e0764 module:dtcm
 from:0x0218e748 kind:arm_call to:0x01ff9e64 module:itcm
 from:0x0218e760 kind:arm_call_thumb to:0x020b3ea8 module:overlay(0)

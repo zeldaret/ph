@@ -25,6 +25,15 @@ enum AdventureFlag_ {
     /* 0x0030 */ AdventureFlag_Cannon        = FLAG(1, 16),
     /* 0x0033 */ AdventureFlag_RegalNecklace = FLAG(1, 19),
 
+    /* 0x0067 */ AdventureFlag_Unk_103 = FLAG(3, 7),
+    /* 0x0068 */ AdventureFlag_Unk_104 = FLAG(3, 8),
+    /* 0x0069 */ AdventureFlag_Unk_105 = FLAG(3, 9),
+    /* 0x006A */ AdventureFlag_Unk_106 = FLAG(3, 10),
+    /* 0x006B */ AdventureFlag_Unk_107 = FLAG(3, 11),
+    /* 0x006C */ AdventureFlag_Unk_108 = FLAG(3, 12),
+    /* 0x006D */ AdventureFlag_Unk_109 = FLAG(3, 13),
+    /* 0x0071 */ AdventureFlag_Unk_113 = FLAG(3, 17),
+
     /* 0x007A */ AdventureFlag_CourageCrest = FLAG(3, 26),
     /* 0x007D */ AdventureFlag_Azurine      = FLAG(3, 29),
     /* 0x007E */ AdventureFlag_Crimsonine   = FLAG(3, 30),
@@ -108,12 +117,21 @@ struct FlagsData {
     /* 40 */
 };
 
-struct astruct_23 {
+struct UnkStruct_ov000_0209a50c {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
-    /* 0c */ unk32 mUnk_0c;
-    /* 10 */ unk32 mUnk_10;
+    /* 08 */ unk8 mUnk_08;
+    /* 09 */ unk8 mUnk_09;
+    /* 0a */ unk8 mUnk_0a;
+    /* 0b */ unk8 mUnk_0b;
+    /* 0c */ unk8 mUnk_0c;
+    /* 0d */ unk8 mUnk_0d;
+    /* 0e */ unk8 mUnk_0e;
+    /* 0f */ unk8 mUnk_0f;
+    /* 10 */ unk8 mUnk_10;
+    /* 11 */ unk8 mUnk_11;
+    /* 12 */ unk8 mUnk_12;
+    /* 13 */ unk8 mUnk_13;
     /* 14 */ unk8 mUnk_14;
     /* 15 */ unk8 mUnk_15;
     /* 16 */ bool mUnk_16;
@@ -124,7 +142,12 @@ struct astruct_23 {
     /* 1c */ unk16 mUnk_1c;
     /* 1e */ unk8 mUnk_1e;
     /* 1f */ unk8 mUnk_1f;
-    /* 20 */ unk8 mUnk_20[0x94 - 0x20];
+    /* 20 */ unk32 mUnk_20;
+    /* 24 */ unk32 mUnk_24;
+    /* 28 */ unk32 mUnk_28;
+    /* 2c */ PAD(0x2c, 0x34);
+    /* 34 */ unk32 mUnk_34;
+    /* 38 */ PAD(0x38, 0x94);
     /* 94 */ unk32 mUnk_94;
     /* 98 */ unk16 mUnk_98;
     /* 9a */ unk16 mUnk_9a;
@@ -137,8 +160,8 @@ struct astruct_23 {
     /* ac */ unk32 mUnk_ac;
     /* b0 */
 
-    astruct_23();
-    ~astruct_23();
+    UnkStruct_ov000_0209a50c();
+    ~UnkStruct_ov000_0209a50c();
 };
 
 struct AdventureFlags_44 {
@@ -147,7 +170,7 @@ struct AdventureFlags_44 {
     bool func_ov000_02098c68();
     bool func_ov000_02098d20();
     bool func_ov000_02098fa4(s32 param1);
-    bool func_ov000_020990a4(astruct_23 *param1);
+    bool func_ov000_020990a4(UnkStruct_ov000_0209a50c *param1);
     s32 func_ov000_0209907c();
 };
 
@@ -169,14 +192,14 @@ public:
     bool func_ov00_02097750();
     bool Get(AdventureFlag flag);
     void Set(AdventureFlag flag, bool value);
-    void func_ov00_02097810(s32 param1, astruct_23 *param2);
+    unk32 func_ov00_02097810(UnkStruct_ov000_0209a50c *param2);
     unk32 func_ov00_02097968(unk32 param1);
     unk32 func_ov00_02097a44(unk32 param1, s32 param2);
     bool func_ov00_02097b9c(s32 param1);
     bool func_ov00_02097bac();
     bool func_ov00_02097bbc();
     bool func_ov00_02097bcc(s32 param1);
-    bool func_ov00_02097bcc(astruct_23 *param1);
+    bool func_ov00_02097bcc(UnkStruct_ov000_0209a50c *param1);
     s32 func_ov00_02097c08();
     bool Get_FlagsUnk_30_Flag(s32 index);
     u8 Get_FlagsUnk_49(s32 index);

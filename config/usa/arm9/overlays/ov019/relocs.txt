@@ -1032,7 +1032,7 @@ from:0x021748e4 kind:arm_call to:0x020c378c module:overlay(0)
 from:0x02174910 kind:arm_call to:0x020c3614 module:overlay(0)
 from:0x02174914 kind:arm_call to:0x02174840 module:overlay(19)
 from:0x02174948 kind:load to:0x027e0fe4 module:dtcm
-from:0x0217494c kind:load to:0x020e7288 add:8 module:overlay(0)
+from:0x0217494c kind:load to:0x020e7288 add:0x8 module:overlay(0)
 from:0x021749c4 kind:arm_call to:0x020c2978 module:overlay(0)
 from:0x021749d8 kind:arm_call to:0x020c5d14 module:overlay(0)
 from:0x02174a08 kind:arm_call to:0x0207c150 module:overlay(0)

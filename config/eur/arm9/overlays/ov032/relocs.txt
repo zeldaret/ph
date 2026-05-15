@@ -1087,7 +1087,7 @@ from:0x02184440 kind:arm_call to:0x020c1500 module:overlay(0)
 from:0x02184454 kind:arm_call to:0x020c3348 module:overlay(0)
 from:0x02184524 kind:arm_call to:0x020c4048 module:overlay(0)
 from:0x0218453c kind:load to:0x027e0fe4 module:dtcm
-from:0x02184540 kind:load to:0x020e72e8 add:8 module:overlay(0)
+from:0x02184540 kind:load to:0x020e72e8 add:0x8 module:overlay(0)
 from:0x02184548 kind:load to:0x02050f54 module:main
 from:0x02184550 kind:load to:0x027e0fe8 module:dtcm
 from:0x021845c0 kind:arm_call to:0x0218439c module:overlay(32)

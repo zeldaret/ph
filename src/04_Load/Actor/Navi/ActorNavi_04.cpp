@@ -50,7 +50,7 @@ THUMB bool ActorNaviBase::Init() {
 
 ActorNaviBase_Unk3::ActorNaviBase_Unk3(ItemModel *param1) :
     ModelRender(param1) {
-    this->func_ov000_020a9998(6, 3);
+    this->UnkInit_Struct4_Params(6, 3);
 }
 
 THUMB ActorNavi::ActorNavi() :
@@ -69,7 +69,7 @@ extern const ItemManager_Unk1 data_ov000_020dc7d0;
 THUMB bool ActorNavi::Init() {
     mUnk_2f0.func_ov000_020c0c44(gItemManager->func_ov00_020ad538(&data_ov000_020dc7d0));
     mUnk_2f0.func_ov000_020c0e5c(0);
-    mUnk_294.func_ov000_020a9960(&mUnk_35c);
+    mUnk_294.SetUnkBoneMatrixArray1(&unkBoneMatrixStruct);
     mUnk_294.vfunc_24(&mUnk_2f0);
     mUnk_3c4        = ActorNaviBase::vfunc_c4();
     mUnk_3c6        = ActorNaviBase::vfunc_c8();

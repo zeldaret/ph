@@ -654,7 +654,7 @@ from:0x020f35b8 kind:arm_call to:0x02005dcc module:main
 from:0x020f35d4 kind:load to:0x027e0384 module:dtcm
 from:0x020f35d8 kind:load to:0x02050f54 module:main
 from:0x020f35dc kind:load to:0x027e037c module:dtcm
-from:0x020f35e0 kind:load to:0x027e03c8 module:dtcm
+from:0x020f35e0 kind:load to:0x027e037c add:0x4c module:dtcm
 from:0x020f3640 kind:arm_call to:0x0202b66c module:main
 from:0x020f3660 kind:arm_call to:0x020f366c module:overlay(2)
 from:0x020f36bc kind:arm_call to:0x0202b66c module:main

@@ -1,7 +1,7 @@
     .text       start:0x02100a60 end:0x02112220 kind:code align:32
     .rodata     start:0x02112220 end:0x0211233c kind:rodata align:4
     .init       start:0x0211233c end:0x021123e4 kind:code align:4
-    .ctor       start:0x021123e4 end:0x021123f8 kind:rodata align:4
+    .ctor       start:0x021123e4 end:0x021123f4 kind:rodata align:4
     .data       start:0x02112400 end:0x02112ba0 kind:data align:32
     .bss        start:0x02112ba0 end:0x02112ba0 kind:bss align:32
 
@@ -10,4 +10,3 @@ src/05/Player/LinkStateMove_05.cpp:
     .text       start:0x02111350 end:0x02111b40
     .rodata     start:0x0211232c end:0x0211233c
     .data       start:0x02112b64 end:0x02112ba0
-
