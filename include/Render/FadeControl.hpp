@@ -22,7 +22,6 @@ struct FadeControl {
 
     void Register();
     void Unregister();
-    FadeControl();
     void func_0202aba8(s32 fadeLength, unk32 param2, unk32 newState);
     bool func_0202abdc(s32 fadeLength, unk32 param2);
     bool func_0202abf4(s32 fadeLength, unk32 param2);
