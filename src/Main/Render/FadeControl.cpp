@@ -1,5 +1,11 @@
 #include "Render/FadeControl.hpp"
 
+extern "C" void _ZN11FadeControlC2Ev(FadeControl *);
+
+FadeControl::FadeControl() {
+    _ZN11FadeControlC2Ev(this);
+}
+
 void FadeControl::Register() {}
 void FadeControl::Unregister() {}
 void FadeControl::func_0202aba8(s32 fadeLength, unk32 param2, unk32 newState) {}

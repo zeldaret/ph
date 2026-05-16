@@ -31,20 +31,16 @@ extern "C" void func_ov016_0211fab8(void *, void (*)(), void *, unk32);
 
 class Game_0c {
 public:
-    /* 00 */ unk8 pad[0xC0];
+    /* 00 */ PAD(0x00, 0xC0);
 
     Game_0c(UnkCallback callback, void *param2, u32 param3) {
-        func_ov016_0211fab8(pad, (void (*)()) callback, param2, param3);
+        func_ov016_0211fab8(this, (void (*)()) callback, param2, param3);
     }
 };
 
-extern "C" void _ZN11FadeControlC2Ev(FadeControl *);
-
 class FadeControl_Derived1 : public FadeControl {
 public:
-    FadeControl_Derived1() {
-        _ZN11FadeControlC2Ev(this);
-    }
+    FadeControl_Derived1() {}
 };
 
 class Game {

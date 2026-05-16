@@ -20,6 +20,8 @@ struct FadeControl {
     /* 23 */ unk8 mUnk_23;
     /* 24 */
 
+    FadeControl();
+
     void Register();
     void Unregister();
     void func_0202aba8(s32 fadeLength, unk32 param2, unk32 newState);

@@ -1,6 +1,8 @@
 #ifndef _NDS_SYSTEM_H
 #define _NDS_SYSTEM_H
 
+#include "types.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

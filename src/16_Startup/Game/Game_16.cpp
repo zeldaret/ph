@@ -37,5 +37,5 @@ ARM void Game::func_ov016_0211fd68() {
         mPrevModeId = 4;
         mModeId     = 3;
     }
-    func_0200d938(mUnk_00c.pad);
+    func_0200d938(mUnk_00c.pad_0x00);
 }
