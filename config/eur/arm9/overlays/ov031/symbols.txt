@@ -286,8 +286,8 @@ _ZN10ActorTetra8vfunc_c4Ev kind:function(arm,size=0x28) addr:0x021815b8
 _ZN10ActorTetra8vfunc_20Eb kind:function(arm,size=0x30) addr:0x021815e0
 _ZN14ActorTetra_4b019func_ov031_02181610Eiiiit kind:function(arm,size=0x188) addr:0x02181610
 _ZN14ActorTetra_4b019func_ov031_02181798Ev kind:function(arm,size=0xd4) addr:0x02181798
-_ZN10ActorTetraD1Ev kind:function(arm,size=0x1c) addr:0x0218186c
-_ZN10ActorTetraD0Ev kind:function(arm,size=0x14) addr:0x02181888
+_ZN10ActorTetraD0Ev kind:function(arm,size=0x1c) addr:0x0218186c
+_ZN10ActorTetraD1Ev kind:function(arm,size=0x14) addr:0x02181888
 _ZN10ActorTetra8vfunc_f8Ev kind:function(arm,size=0x4) addr:0x0218189c
 sShopItemActorTypes kind:data(any) addr:0x021818a0 local
 sShopItemBaseNames kind:data(any) addr:0x021818e8 local
@@ -427,7 +427,7 @@ data_ov031_02183c1c kind:data(any) addr:0x02183c1c
 data_ov031_02183c48 kind:data(any) addr:0x02183c48
 data_ov031_02183d68 kind:data(any) addr:0x02183d68
 data_ov031_02183d6c kind:data(any) addr:0x02183d6c
-data_ov031_02183d7c kind:data(any) addr:0x02183d7c
+_ZTV10ActorTetra kind:data(any) addr:0x02183d74
 data_ov031_02183e80 kind:bss addr:0x02183e80
 sCurrentSeller kind:bss addr:0x02183e84 local
 @792 kind:bss addr:0x02183e88 local
