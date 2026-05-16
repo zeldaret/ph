@@ -1,5 +1,7 @@
 #include "Game/Game.hpp"
 
+#include <nds/system.h>
+
 #include "GameStart/GameStart.hpp"
 #include "Render/FadeController.hpp"
 #include "System/OverlayManager.hpp"
@@ -31,7 +33,7 @@ ARM void Game::func_ov016_0211fd68() {
     mFadeControl.Register();
     mFadeControl.mUnk_20 = false;
     gFadeController.func_0202d77c(&mFadeControl);
-    if (*(s32 *) 0x027ffc20 == 2) {
+    if (HW_RESET_PARAMETER_BUF == 2) {
         gOverlayManager.LoadGameMode(1);
         GameStart::func_ov008_02112e88();
         gOverlayManager.UnloadGameMode();
