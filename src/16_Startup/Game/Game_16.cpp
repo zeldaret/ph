@@ -6,17 +6,14 @@
 #include "Render/FadeController.hpp"
 #include "System/OverlayManager.hpp"
 
-extern "C" void func_ov016_0211fab8(void *, void (*)(), void *, unk32);
 extern "C" void func_0200d938(void *);
-extern "C" void _ZN4Game13func_0202cf44Ev(Game *);
-extern "C" void _ZN11FadeControlC2Ev(FadeControl *);
 
-ARM Game::Game() {
-    mModeId     = 1;
-    mPrevModeId = 1;
-    mMode       = NULL;
-    func_ov016_0211fab8(mUnk_00c, (void (*)()) _ZN4Game13func_0202cf44Ev, this, 0);
-    _ZN11FadeControlC2Ev(&mFadeControl);
+ARM Game::Game() :
+    mModeId(1),
+    mPrevModeId(1),
+    mMode(NULL),
+    mUnk_00c(Game::func_0202cf44, this, 0),
+    mFadeControl() {
     mUnk_0f0 = 0;
     mUnk_0f2 = 1;
     mUnk_0f4 = 0;
@@ -40,5 +37,5 @@ ARM void Game::func_ov016_0211fd68() {
         mPrevModeId = 4;
         mModeId     = 3;
     }
-    func_0200d938(mUnk_00c);
+    func_0200d938(mUnk_00c.pad);
 }

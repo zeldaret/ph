@@ -7,6 +7,9 @@
 #include "Render/FadeControl.hpp"
 #include "System/OverlayManager.hpp"
 
+class Game;
+typedef void (*UnkCallback)(Game *);
+
 typedef GameMode *(*GameModeCreateFunc)(GameModeId modeId);
 
 struct GameModeData {
@@ -24,13 +27,33 @@ struct GameModeData {
 };
 extern const GameModeData gGameModes[];
 
+extern "C" void func_ov016_0211fab8(void *, void (*)(), void *, unk32);
+
+class Game_0c {
+public:
+    /* 00 */ unk8 pad[0xC0];
+
+    Game_0c(UnkCallback callback, void *param2, u32 param3) {
+        func_ov016_0211fab8(pad, (void (*)()) callback, param2, param3);
+    }
+};
+
+extern "C" void _ZN11FadeControlC2Ev(FadeControl *);
+
+class FadeControl_Derived1 : public FadeControl {
+public:
+    FadeControl_Derived1() {
+        _ZN11FadeControlC2Ev(this);
+    }
+};
+
 class Game {
 public:
     /* 000 */ GameModeId mModeId;
     /* 004 */ GameModeId mPrevModeId;
     /* 008 */ GameMode *mMode;
-    /* 00c */ unk8 mUnk_00c[0xc0];
-    /* 0cc */ FadeControl mFadeControl;
+    /* 00c */ Game_0c mUnk_00c;
+    /* 0cc */ FadeControl_Derived1 mFadeControl;
     /* 0f0 */ u16 mUnk_0f0;
     /* 0f2 */ vu16 mUnk_0f2;
     /* 0f4 */ s32 mUnk_0f4;
@@ -55,7 +78,7 @@ public:
     void Run();
     bool func_0202cec8(s32 param1, bool param2);
     void func_0202cf34();
-    void func_0202cf44();
+    static void func_0202cf44(Game *game);
 
     void func_ov016_0211fd68();
 };
