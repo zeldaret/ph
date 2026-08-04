@@ -73,7 +73,7 @@ ARM bool ActorItemSellerBase::Init() {
     numShipParts = 0;
     numTreasure  = 0;
     for (s32 i = 0; i < 5; ++i) {
-        ShopItem shopItem     = this->vfunc_114(i);
+        ShopItem shopItem     = this->GetShopItem(i);
         options.mUnk_24       = 0;
         ActorTypeId actorType = sShopItemActorTypes[shopItem];
         switch (actorType) {

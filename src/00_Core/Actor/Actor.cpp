@@ -214,11 +214,11 @@ ARM void Actor::SetUnk_11c(bool value) {
 
 ARM void Actor::vfunc_68(unk32 param1, UnkStruct_020397f8 *param2) {}
 
-ARM bool Actor::vfunc_6c() {
+ARM bool Actor::vfunc_6c(unk32 param1) {
     return true;
 }
 
-ARM bool Actor::vfunc_70() {
+ARM bool Actor::vfunc_70(unk32 param1) {
     return true;
 }
 
