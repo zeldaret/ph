@@ -81,17 +81,16 @@ ARM void ActorNavi::vfunc_d0() {
     ActorNaviBase::vfunc_d0();
 }
 
-extern void func_ov000_020b7e6c(s32 *param1);
 ARM void ActorNavi::SetActive(unk32 active) {
-    s32 temp_r4;
-    s32 var_r5;
-    var_r5  = (s32) mUnk_34c;
-    temp_r4 = (s32) (mUnk_34c + 4);
-    if (var_r5 != temp_r4) {
+    ActorNaviBase_Unk1 *end;
+    ActorNaviBase_Unk1 *p;
+    p   = mUnk_34c;
+    end = mUnk_34c + 4;
+    if (p != end) {
         do {
-            func_ov000_020b7e6c((s32 *) var_r5);
-            var_r5 += 4;
-        } while (var_r5 != temp_r4);
+            p->func_ov000_020b7e6c();
+            p++;
+        } while (p != end);
     }
     if (mHammer != NULL) {
         this->func_ov059_0219aba8(active);

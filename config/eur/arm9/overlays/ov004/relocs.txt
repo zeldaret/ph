@@ -1533,7 +1533,7 @@ from:0x02107878 kind:thumb_call_arm to:0x0204f614 module:main
 from:0x0210788e kind:thumb_call_arm to:0x020d18f4 module:overlay(0)
 from:0x021078f4 kind:load to:0x020e67dc add:0x8 module:overlay(0)
 from:0x021078f8 kind:load to:0x020ee1f8 module:overlay(0)
-from:0x021078fc kind:load to:0x020e67ac module:overlay(0)
+from:0x021078fc kind:load to:0x020e678c add:0x20 module:overlay(0)
 from:0x02107900 kind:load to:0x02110538 add:0x8 module:overlay(4)
 from:0x02107904 kind:load to:0x020b7d74 module:overlay(0)
 from:0x02107908 kind:load to:0x021079d5 module:overlay(4)

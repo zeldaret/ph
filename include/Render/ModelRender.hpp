@@ -50,5 +50,6 @@ public:
     void InitBoneMatrixArrays(u32 idLength);
     void SetUnkBoneMatrixArray1(G3d_BoneMtxStruct *boneMatrix);
     void UnkInit_Struct4_Params(u8 param1, u8 param2);
+    s32 func_ov000_020b3ec4();
     void func_ov000_020b413c(unk16 param1, Vec3p *param2);
 };

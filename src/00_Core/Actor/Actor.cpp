@@ -225,7 +225,7 @@ ARM bool Actor::vfunc_70() {
 ARM void Actor::vfunc_74(ActorRef *ref) {}
 ARM void Actor::vfunc_7c(ActorRef *ref) {}
 
-ARM bool Actor::vfunc_78() {
+ARM bool Actor::vfunc_78(s32 param1) {
     return true;
 }
 

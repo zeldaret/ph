@@ -65,7 +65,7 @@ public:
     void EquipItem_vfunc_28();
     void UpdateSwordShieldInUse();
     void func_ov00_020a81b8(unk32 param1, Vec3p *param2);
-    LinkStateItem *GetLinkItemState();
+    static LinkStateItem *GetLinkItemState();
     void LookAt(Vec3p *target);
     void func_ov00_020a81fc(Vec3p *param1, unk32 param2);
     void AddHealth(s16 amount);

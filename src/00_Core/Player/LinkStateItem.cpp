@@ -9,8 +9,6 @@
 #include "Player/PlayerControl.hpp"
 #include "Save/AdventureFlags.hpp"
 
-extern void func_ov000_020b7e6c(s32 *param1);
-
 THUMB void LinkStateItem::vfunc_00() {}
 
 ARM LinkStateId LinkStateItem::GetId() {
@@ -30,7 +28,6 @@ ARM void LinkStateItem::OnStateLeave(s32 param1) {
     EquipItem *pEVar1;
     LinkStateMove *pLVar2;
     s32 iVar3;
-    unk32 *puVar4;
 
     LinkStateBase::OnStateLeave(param1);
 
@@ -95,9 +92,8 @@ ARM void LinkStateItem::OnStateLeave(s32 param1) {
 
     this->mNextEquip = ItemFlag_None;
 
-    puVar4 = (unk32 *) this + 20;
-    for (; puVar4 != (unk32 *) this + 22; puVar4++) {
-        func_ov000_020b7e6c(puVar4);
+    for (UnkStruct_ov000_020b7d74 *handle = mUnk_50; handle != mUnk_50 + 2; handle++) {
+        handle->func_ov000_020b7e6c();
     }
     if (gPlayerControl->mUnk_80 != false) {
         gPlayerControl->StopFollowing();

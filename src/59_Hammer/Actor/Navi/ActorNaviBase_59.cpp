@@ -6,13 +6,11 @@
 #include "Player/LinkStateItem.hpp"
 #include "Player/PlayerBase.hpp"
 #include "Player/PlayerControl.hpp"
+#include "Unknown/UnkStruct_020e9370.hpp"
 
 extern const ItemManager_Unk1 data_ov000_020dc7d0;
 extern const ItemManager_Unk1 data_ov000_020dc7e4;
-extern u32 data_ov000_020e9370[];
 extern "C" void Vec3p_RotateY(u32, Vec3p *);
-extern "C" void func_ov005_02102c2c(u32 *param_1, int param_2, Vec3p *param_3, int param_4, int param_5, u32 param_6,
-                                    int param_7, char param_8, char param_9, char param_10);
 
 ARM bool ActorNavi::func_ov059_0219933c(u32 param1) {}
 ARM void ActorNavi::func_ov059_0219a0ac() {}
@@ -54,7 +52,7 @@ ARM void ActorNavi::func_ov059_0219aa08(bool param1) {
         uVar4       = lVar2;
         VStack_60.y = this->mUnk_334.mUnk_00.y + 0x800;
         uVar4       = ROUND_Q20(uVar4) | ((this->mUnk_344 >> 0x1F) * 0x333 + (lVar2 >> 0x20) + (~0x800 < uVar4)) * 0x100000;
-        func_ov005_02102c2c(&data_ov000_020e9370[0], 0, &VStack_60, uVar4, uVar4, 0, 0x10, 0, 0, 0);
+        data_ov000_020e9370.func_ov005_02102c2c(0, &VStack_60, uVar4, uVar4, 0, 0x10, 0, 0, 0);
     }
 }
 

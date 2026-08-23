@@ -227,7 +227,7 @@ public:
     /* 20 */ virtual void vfunc_20(bool param1) override;
     /* 40 */ virtual bool IsHitboxTouched(bool param1) override;
     /* 74 */ virtual void vfunc_74(ActorRef *ref) override;
-    /* 78 */ virtual bool vfunc_78() override;
+    /* 78 */ virtual bool vfunc_78(s32 param1) override;
     /* 7c */ virtual void vfunc_7c(ActorRef *ref) override;
     /* 80 */ virtual void vfunc_80() override;
     /* 84 */ virtual void vfunc_84() override;

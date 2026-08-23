@@ -205,7 +205,7 @@ public:
     /* 6c */ virtual bool vfunc_6c();
     /* 70 */ virtual bool vfunc_70();
     /* 74 */ virtual void vfunc_74(ActorRef *ref);
-    /* 78 */ virtual bool vfunc_78();
+    /* 78 */ virtual bool vfunc_78(s32 param1);
     /* 7c */ virtual void vfunc_7c(ActorRef *ref);
     /* 80 */ virtual void vfunc_80();
     /* 84 */ virtual void vfunc_84();

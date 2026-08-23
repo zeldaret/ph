@@ -18,6 +18,12 @@ enum FairyId_ {
     FairyId_COUNT   = 3,
 };
 
+u16 func_ov000_020b8790(FairyId fairy);
+u16 func_ov000_020b87cc(FairyId fairy);
+u16 func_ov000_020b8808(FairyId fairy);
+u16 func_ov000_020b881c(FairyId fairy);
+void func_ov000_020b8830(ItemModel *model, u32 color1, u32 color2);
+
 class ActorNaviBase_Unk1 : public UnkStruct_ov000_020b7d74 {
 public:
     ActorNaviBase_Unk1();
@@ -60,20 +66,20 @@ public:
     /* 214 */ unk16 mUnk_214;
     /* 216 */ unk8 mUnk_216[0x2];
     /* 218 */ ActorNaviBase_Unk1 mUnk_218[2];
-    /* 220 */ unk8 mUnk_220[0x2];
-    /* 222 */ unk16 mUnk_222;
+    /* 220 */ s16 mUnk_220;
+    /* 222 */ s16 mUnk_222;
     /* 224 */ UnkStruct_ov000_020d18f4 mUnk_224;
     /* 280 */ unk32 mUnk_280;
     /* 284 */ unk32 mUnk_284;
     /* 288 */ unk8 mUnk_288;
     /* 288 */ unk8 mUnk_289;
     /* 28a */ unk16 mUnk_28a;
-    /* 28c */ unk8 mUnk_28c;
-    /* 28d */ unk8 mUnk_28d;
-    /* 28e */ unk8 mUnk_28e;
-    /* 28e */ unk8 mUnk_28f;
-    /* 290 */ unk8 mUnk_290;
-    /* 291 */ unk8 mUnk_291;
+    /* 28c */ u8 mUnk_28c;
+    /* 28d */ u8 mUnk_28d;
+    /* 28e */ u8 mUnk_28e;
+    /* 28f */ u8 mUnk_28f;
+    /* 290 */ u8 mUnk_290;
+    /* 291 */ u8 mUnk_291;
     /* 294 */
 
     /* 00 */ virtual ~ActorNaviBase() override;
@@ -86,14 +92,14 @@ public:
     /* 34 */ virtual void GetOffsetPos(Vec3p *pos) override;
     /* 38 */ virtual unk32 vfunc_38() override;
     /* 74 */ virtual void vfunc_74(ActorRef *) override;
-    /* 78 */ virtual bool vfunc_78() override;
+    /* 78 */ virtual bool vfunc_78(s32 param1) override;
     /* 80 */ virtual void vfunc_80() override;
     /* 84 */ virtual void vfunc_84() override;
     /* 90 */ virtual bool vfunc_90(unk32 param1, unk32 param2) override;
     /* 94 */ virtual void vfunc_94(unk32 param1, unk32 param2) override;
     /* b4 */ virtual FairyId GetFairyId() = 0;
     /* b8 */ virtual s32 vfunc_b8();
-    /* bc */ virtual bool vfunc_bc(unk32 param1, unk8 param2, s32 param3);
+    /* bc */ virtual bool vfunc_bc(unk32 param1, unk8 param2, Vec3p *param3);
     /* c0 */ virtual bool vfunc_c0(Vec3p *param1);
     /* c4 */ virtual u16 vfunc_c4();
     /* c8 */ virtual u16 vfunc_c8();
@@ -112,7 +118,6 @@ public:
     void func_ov000_020b8c98(unk32 param1, unk32 param2, unk32 param3);
     void TeleportAboveLink();
     void func_ov000_020b9770(s32 param1);
-    void func_ov000_020b9fdc();
     void func_ov000_020b9fe8();
     unk32 func_ov000_020ba204(Vec3p *param1, Vec3p *param2, s32 param3);
     unk32 func_ov000_020ba3b4();

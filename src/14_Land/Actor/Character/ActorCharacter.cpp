@@ -2,6 +2,7 @@
 #include "Physics/Cylinder.hpp"
 #include "Player/TouchControl.hpp"
 #include "Save/AdventureFlags.hpp"
+#include "Unknown/UnkStruct_020e9370.hpp"
 #include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 #include "Unknown/UnkStruct_ov000_020e8b08.hpp"
 #include "nds/math.h"
@@ -65,13 +66,11 @@ ARM bool ActorCharacter::Init() {
     return true;
 }
 
-extern unk32 data_ov000_020e9370;
-extern "C" void func_ov005_02102c2c(unk32 *, unk32, Vec3p *, unk32, unk32, unk32, unk32, unk32, unk32, unk32);
 ARM void ActorCharacter::vfunc_20(bool param1) {
     if (param1 ? mUnk_0a4.mUnk_01 : mUnk_0a4.mUnk_00) {
         mUnk_1d8.func_ov000_020c5f1c();
         if (mUnk_45c > 0) {
-            func_ov005_02102c2c(&data_ov000_020e9370, 0, &mPos, mUnk_45c, mUnk_45c, 0, 0x1f, 1, 1, 1);
+            data_ov000_020e9370.func_ov005_02102c2c(0, &mPos, mUnk_45c, mUnk_45c, 0, 0x1f, 1, 1, 1);
         }
     }
 }
@@ -256,7 +255,7 @@ ARM void ActorCharacter::vfunc_c8() {
     mUnk_1d8.func_ov014_02145cac();
 }
 
-ARM bool ActorCharacter::vfunc_78() {
+ARM bool ActorCharacter::vfunc_78(s32 param1) {
     return true;
 }
 

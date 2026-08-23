@@ -60,6 +60,7 @@ typedef struct NsAnimation {
     /* 14 */ u16 trackOffsets[]; // u16[numTracks]
 } NsAnimation;
 
+void *func_0201e544(NsFile *file, const char *name);
 NsJntSection *FindJntSection(NsFile *file);
 NsAnimation *GetJntAnimation(NsJntSection *section, u32 index);
 

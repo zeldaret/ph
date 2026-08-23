@@ -70,7 +70,7 @@ public:
     /* 70 */ virtual void vfunc_70(s32 param1, Vec3p *param2, unk32 param3);
     /* 74 */ virtual void vfunc_74();
     /* 78 */ virtual unk32 vfunc_78();
-    /* 7c */ virtual void vfunc_7c();
+    /* 7c */ virtual void vfunc_7c(PlayerCharacter character, bool param2);
     /* 80 */ virtual void SetUnk_5e();
     /* 84 */ virtual void ResetUnk_5e();
     /* 88 */

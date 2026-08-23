@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Unknown/UnkStruct_ov000_020b7d74.hpp"
+
 #include "global.h"
 #include "types.h"
 
@@ -28,7 +30,7 @@ public:
     /* 44 */ unk32 mUnk_44;
     /* 48 */ void *mUnk_48;
     /* 4c */ unk32 mUnk_4c;
-    /* 50 */ unk32 mUnk_50[2];
+    /* 50 */ UnkStruct_ov000_020b7d74 mUnk_50[2];
     /* 58 */ unk32 mUnk_58;
     /* 5c */ s32 mUnk_5c;
     /* 60 */

@@ -6618,7 +6618,7 @@ from:0x020b9790 kind:arm_call to:0x0201e544 module:main
 from:0x020b97a8 kind:arm_call to:0x020c0cc8 module:overlay(0)
 from:0x020b97d4 kind:load to:0x020dc828 module:overlay(0)
 from:0x020b97d8 kind:load to:0x020e678c module:overlay(0)
-from:0x020b97dc kind:load to:0x020dc838 module:overlay(0)
+from:0x020b97dc kind:load to:0x020dc828 add:0x10 module:overlay(0)
 from:0x020b9828 kind:arm_call to:0x020c288c module:overlay(0)
 from:0x020b9840 kind:arm_call to:0x020c28ec module:overlay(0)
 from:0x020b9848 kind:arm_call to:0x01ff98e0 module:itcm

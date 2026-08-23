@@ -108,6 +108,7 @@ typedef struct {
 } Mat4p;
 
 extern const Vec3p gVec3p_ZERO;
+extern Mat3p gDefaultMatrix;
 
 void Vec3p_Add(Vec3p *a, Vec3p *b, Vec3p *out);
 void Vec3p_Sub(Vec3p *a, Vec3p *b, Vec3p *out);
@@ -122,6 +123,13 @@ q20 Vec3p_DistanceSquared(Vec3p *a, Vec3p *b);
 void Vec3p_Scale(Vec3p *vec, q20 scale);
 bool Vec3p_CalculateNormal(Vec3p *vec, Vec3p *a, Vec3p *b, Vec3p *c);
 void Vec3p_SetLength(Vec3p *vec, q20 len, Vec3p *out);
+void Vec3p_Lerp(Vec3p *vec, Vec3p *target, q20 factor);
+void Vec3p_RotateY(u32 angle, Vec3p *vec);
+bool func_0202b2e8(Vec3p *vec, Vec3p *target, q20 speed);
+bool func_0202b2f8(Vec3p *vec, Vec3p *target, q20 speed);
+void func_0202b4e4(Vec3p *vec, Vec3p *target, q20 speed, q20 param4, q20 limit);
+void func_0202d95c(Vec3p *vec, q20 param2);
+bool Lerp(s32 *pValue, s32 dest, s32 factor, unk32 param4, u32 step);
 
 inline void Vec3p_Rotate(Vec3p *vec, q20 sin, q20 cos, Vec3p *out) {
     out->x += MUL_Q20(vec->z, sin);

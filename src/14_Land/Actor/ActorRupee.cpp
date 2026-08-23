@@ -3,19 +3,17 @@
 #include "Map/MapManager.hpp"
 #include "Player/PlayerLinkBase.hpp"
 #include "System/Random.hpp"
+#include "Unknown/UnkStruct_020e9370.hpp"
 #include "Unknown/UnkStruct_020eec9c.hpp"
 
 extern "C" {
 void func_0202bc38(unk32 param_1, Vec3p *param_2, u32 param_3, Actor_UnkStruct_012 *param_4, bool);
-void func_ov005_02102c2c(u32 *param_1, int param_2, Vec3p *param_3, int param_4, int param_5, u32 param_6, int param_7,
-                         char param_8, char param_9, char param_10);
 }
 u16 GetRupeeValue(RupeeId id);
 
 static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
 extern u32 *data_ov014_021589d8;
-extern u32 data_ov000_020e9370[];
 extern u32 **data_027e0fe0[];
 
 ActorType ActorRupee::gType = ActorType(ActorTypeId_Rupee, (ActorCreateFunc) ActorRupee::Create, NULL);
@@ -304,7 +302,7 @@ ARM void ActorRupee::func_ov14_0213b5f4(RupeeId id, unk32 param2, Vec3p *param3,
 
     if (param4) {
         u32 var = func_ov14_0213b70c(id) ? 0x4cd : 0x400;
-        func_ov005_02102c2c(&data_ov000_020e9370[0], 0, param3, var, var, 0, 0x1f, 0, 1, 1);
+        data_ov000_020e9370.func_ov005_02102c2c(0, param3, var, var, 0, 0x1f, 0, 1, 1);
     }
 }
 

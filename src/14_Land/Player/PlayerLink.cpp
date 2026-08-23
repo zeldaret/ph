@@ -15,7 +15,7 @@ void PlayerLink::UpdatePos() {}
 void PlayerLink::func_ov014_0213f37c() {}
 void PlayerLink::vfunc_74() {}
 void PlayerLink::OnDeath(bool param1) {}
-void PlayerLink::vfunc_7c() {}
+void PlayerLink::vfunc_7c(PlayerCharacter character, bool param2) {}
 void PlayerLink::AddHealth(s16 amount) {}
 void PlayerLink::vfunc_68() {}
 LinkStateItem *PlayerLink::GetLinkStateItem() {}

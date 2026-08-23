@@ -43,6 +43,39 @@ struct MapManager_Unk3 {
         mUnk_0(unk0) {}
 };
 
+class UnkStruct_ov000_020853fc {
+public:
+    /* 00 (vtable) */
+    /* 04 */ unk8 mUnk_04[0xe];
+    /* 12 */ s8 mUnk_12;
+    /* 13 */ unk8 mUnk_13[0x5];
+    /* 18 */ Vec3p mUnk_18;
+    /* 24 */
+
+    /* 00 */ virtual ~UnkStruct_ov000_020853fc();
+    /* 08 */ virtual void vfunc_08();
+    /* 0c */ virtual void vfunc_0c();
+    /* 10 */ virtual void vfunc_10();
+    /* 14 */ virtual void vfunc_14();
+    /* 18 */ virtual void vfunc_18();
+    /* 1c */ virtual void vfunc_1c();
+    /* 20 */ virtual void vfunc_20();
+    /* 24 */ virtual void vfunc_24();
+    /* 28 */ virtual void vfunc_28();
+    /* 2c */ virtual void vfunc_2c();
+    /* 30 */ virtual void vfunc_30();
+    /* 34 */ virtual void vfunc_34();
+    /* 38 */ virtual void vfunc_38();
+    /* 3c */ virtual void vfunc_3c();
+    /* 40 */ virtual void vfunc_40();
+    /* 44 */ virtual void vfunc_44();
+    /* 48 */ virtual void vfunc_48();
+    /* 4c */ virtual void vfunc_4c();
+    /* 50 */ virtual void vfunc_50();
+    /* 54 */ virtual class UnkStruct_ov000_020e2f04 *vfunc_54();
+    /* 58 */
+};
+
 struct UnkStruct_0208210c_param3 {
     /* 000 */ unk32 mUnk_00;
     /* 004 */ unk8 mUnk_04;
@@ -339,7 +372,7 @@ public:
     unk32 func_ov00_02084ebc(Vec3p *param_2);
     s32 func_ov00_02085108(Vec3p *param_2);
     static unk32 func_ov00_0208527c(MapManager *param_1, unk32 param_2, Vec3p *param_3);
-    static s32 func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *param_3);
+    static UnkStruct_ov000_020853fc *func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *param_3);
     unk32 func_ov00_02085594(Vec3p *param_2);
     static unk32 func_ov00_0208583c(MapManager *param_1, Vec3p *param_2, unk32 param_3);
     static unk32 func_ov00_020858b0(MapManager *param_1, Vec3p *param_2, unk32 param_3);
@@ -364,3 +397,6 @@ public:
 };
 
 extern MapManager *gMapManager;
+
+unk32 func_ov000_02079e3c();
+bool func_ov000_02087e8c();
