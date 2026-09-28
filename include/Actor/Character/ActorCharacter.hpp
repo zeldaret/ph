@@ -320,7 +320,7 @@ public:
 
     void func_ov014_02147c98();
     void func_ov014_02147ce8(unk32 param1);
-    void func_ov014_02147d44(unk32 param1);
+    static void func_ov014_02147d44(void* param1, unk32 param2);
 
     void func_ov014_02147dfc();
     void func_ov014_02147e1c();
