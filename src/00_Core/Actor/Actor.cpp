@@ -311,7 +311,7 @@ ARM bool Actor::func_ov00_020c1bfc(s32 param1) {
 }
 
 ARM void Actor::func_ov00_020c1c20(s32 param1, unk32 param2) {
-    gMapManager->func_ov00_02084b38(this->mUnk_020.mUnk_0a[param1], this->mUnk_020.mUnk_08[param1], param2);
+    gMapManager->func_ov00_02084b38(mUnk_020.mUnk_0a[param1], mUnk_020.mUnk_08[param1], param2);
 }
 
 ARM bool Actor::vfunc_48(Knockback *param1) {
