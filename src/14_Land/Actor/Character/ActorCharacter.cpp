@@ -202,7 +202,7 @@ ARM void ActorCharacter::func_ov014_0214548c(unk32 param1) {
     mPrevPos.z = vec.z;
 }
 
-ARM void ActorCharacter::func_ov014_02145508() {
+ARM bool ActorCharacter::func_ov014_02145508() {
     mUnk_430.func_ov000_020c6f08(&mPos);
 }
 
