@@ -139,7 +139,7 @@ struct ActorCharacter_430 {
     bool func_ov000_020c6794(Vec3p *pos);
     void func_ov000_020c6838(Vec3p *pos, unk32 param2, s16 angle, unk32 param4, Vec3p *vel, u16 *pAngle);
     bool func_ov000_020c6e30(Vec3p *vec);
-    void func_ov000_020c6f08(Vec3p *vec);
+    bool func_ov000_020c6f08(Vec3p *vec);
 };
 
 struct ActorCharacter_1d8_248 {
@@ -260,7 +260,7 @@ public:
     void func_ov014_021453f4(unk32 param1);
     void func_ov014_02145414(unk32 param1, unk32 param2);
     void func_ov014_0214548c(unk32 param1);
-    void func_ov014_02145508();
+    bool func_ov014_02145508();
     static bool func_ov014_02145520(ActorCharacterBase *actor);
     bool func_ov014_0214552c();
     void func_ov014_0214591c();
