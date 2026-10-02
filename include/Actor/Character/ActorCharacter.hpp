@@ -282,7 +282,7 @@ public:
     /* 474 */ ActorGenericCharacter *mUnk_474;
     /* 478 */ void *mUnk_478;
     /* 47c */ unk32 mUnk_47c;
-    /* 480 */ PAD(0x480, 0x484);
+    /* 480 */ unk32 mUnk_480;
     /* 484 */ unk32 mUnk_484;
     /* 488 */ unk32 mUnk_488;
     /* 48c */ unk32 mUnk_48c;
