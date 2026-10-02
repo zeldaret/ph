@@ -1,9 +1,10 @@
 #include "Actor/Character/ActorCharacter.hpp"
 
-//    Renombrar cuando se pueda:
-//        mUnk_010 → mMapPosX
-//        mUnk_011 → mMapPosY
-//        mUnk_012 → mTargetAngle
+// TODO: pending review before renaming:
+//     mUnk_010  ->  mMapPosX
+//     mUnk_011  ->  mMapPosY
+//     mUnk_012  ->  mTargetAngle
+//     mUnk_020  ->  mSpawnParams
 
 extern "C" void func_ov005_02100ae0(void* param1, void* param2, u32 param3);
 extern "C" void func_ov014_021460b8(void* thisPtr);
@@ -14,9 +15,7 @@ extern "C" unk32 func_ov014_0214c948(unk32 p0, Vec3p* p1, u16* p2, unk32 p3, unk
 extern "C" unk32 data_ov014_02153ed4;
 extern "C" unk32 data_ov014_02159994;
 
-#define static
-
-//have to finish
+// TODO: match 90.83%. Load ordering differs from original; logic seems to be correct.
 ActorGenericCharacter::ActorGenericCharacter() {
     const unk32* ptrA = &data_ov014_02153ed4;
     unk32 valA = *ptrA;
@@ -36,7 +35,6 @@ ActorGenericCharacter::ActorGenericCharacter() {
     mUnk_498 = 0xa;
 }
 
-
 bool ActorGenericCharacter::Init() {
     ActorCharacter::Init();
 
@@ -55,9 +53,9 @@ bool ActorGenericCharacter::Init() {
         return false;
     }
 
-    ActorGenericCharacter::func_ov014_02147ce8(&mUnk_474, 0);
+    func_ov014_02147ce8(&mUnk_474, 0);
 
-    if (ActorCharacter::func_ov014_02144e58() || !ActorCharacter::func_ov014_02144e28()) {
+    if (func_ov014_02144e58() || !func_ov014_02144e28()) {
         func_ov014_02147950();
     }
 
@@ -65,7 +63,7 @@ bool ActorGenericCharacter::Init() {
 }
 
 void ActorGenericCharacter::vfunc_68(unk32, UnkStruct_020397f8*) {
-    ActorGenericCharacter::func_ov014_02147d44(&mUnk_474, 2);
+    func_ov014_02147d44(&mUnk_474, 2);
 }
 
 bool ActorGenericCharacter::vfunc_c0() {
@@ -73,12 +71,12 @@ bool ActorGenericCharacter::vfunc_c0() {
 }
 
 void ActorGenericCharacter::vfunc_c4() {
-    if (ActorCharacter::func_ov014_02144e28() && !ActorCharacter::func_ov014_02144e58()) {
-        ActorGenericCharacter::func_ov014_02147d44(&mUnk_474, 0);
+    if (func_ov014_02144e28() && !func_ov014_02144e58()) {
+        func_ov014_02147d44(&mUnk_474, 0);
     }
 
     if ((s32)mInactive >= 1) {
-        if (mUnk_46c[1] == 2 && mUnk_020.mUnk_00[2] == 0 && ActorCharacter::func_ov014_02144e3c()) {
+        if (mUnk_46c[1] == 2 && mUnk_020.mUnk_00[2] == 0 && func_ov014_02144e3c()) {
             mAlive = false;
             return;
         }
@@ -116,17 +114,17 @@ void ActorGenericCharacter::func_ov014_02147950() {
             break;
 
         case 1:
-            if (ActorCharacter::func_ov014_02144e3c()) { mAlive = false; return; }
+            if (func_ov014_02144e3c()) { mAlive = false; return; }
             func_ov014_02147ce8(&mUnk_474, 3);
             break;
 
         case 2:
-            if (ActorCharacter::func_ov014_02144e3c()) { mAlive = false; return; }
+            if (func_ov014_02144e3c()) { mAlive = false; return; }
             func_ov014_02147ce8(&mUnk_474, 1);
             break;
 
         case 3:
-            if (ActorCharacter::func_ov014_02144e3c()) {
+            if (func_ov014_02144e3c()) {
                 func_ov014_02147c00();
                 func_ov014_02147ce8(&mUnk_474, 6);
             } else {
@@ -135,7 +133,7 @@ void ActorGenericCharacter::func_ov014_02147950() {
             break;
 
         case 4:
-            if (ActorCharacter::func_ov014_02144e3c()) { mAlive = false; return; }
+            if (func_ov014_02144e3c()) { mAlive = false; return; }
             func_ov014_02147ce8(&mUnk_474, 1);
             break;
 
@@ -147,7 +145,7 @@ void ActorGenericCharacter::func_ov014_02147950() {
 
 void ActorGenericCharacter::vfunc_80() {
     if (mUnk_484 == 0 && 
-        (ActorCharacter::func_ov014_02144e58() || !ActorCharacter::func_ov014_02144e28())) {
+        (func_ov014_02144e58() || !func_ov014_02144e28())) {
         func_ov014_02147950();
     }
     ActorCharacter::vfunc_80();
@@ -156,11 +154,11 @@ void ActorGenericCharacter::vfunc_80() {
 void ActorGenericCharacter::vfunc_84() {
     ActorCharacter::vfunc_84();
 
-    if (!ActorCharacter::func_ov014_02144e28() || ActorCharacter::func_ov014_02144e58()) {
+    if (!func_ov014_02144e28() || func_ov014_02144e58()) {
         return;
     }
 
-    ActorGenericCharacter::func_ov014_02147d44(&mUnk_474, 0);
+    func_ov014_02147d44(&mUnk_474, 0);
 }
 
 void ActorGenericCharacter::func_ov014_02147ae8() {
@@ -203,16 +201,16 @@ bool ActorGenericCharacter::func_ov014_02147b18() {
 }
 
 void ActorGenericCharacter::func_ov014_02147ba0() {
-    ActorCharacter::func_ov014_021453f4(mUnk_020.mUnk_0c);
+    func_ov014_021453f4(mUnk_020.mUnk_0c);
 }
 
 bool ActorGenericCharacter::func_ov014_02147bb0() {
-    ActorCharacter::func_ov014_02145414(mUnk_460, 0xaab);
+    func_ov014_02145414(mUnk_460, 0xaab);
     return func_01fffd04(0);
 }
 
 unk32 ActorGenericCharacter::func_ov014_02147bd8() {
-    ActorCharacter::func_ov014_02145414(mUnk_460, 0xaab);
+    func_ov014_02145414(mUnk_460, 0xaab);
     func_ov00_020c3094();
     return 0;
 }
@@ -244,7 +242,7 @@ void ActorGenericCharacter::func_ov014_02147c98() {
     TargetStruct* base = (TargetStruct*)mType;
     TargetStruct& element = base[idx];
 
-    ActorGenericCharacter* self = *reinterpret_cast<ActorGenericCharacter**>(this);
+    ActorGenericCharacter* self = *(ActorGenericCharacter**)(this);
     (self->*element.memberFunc)();
 
     mRef.index++;
@@ -260,10 +258,10 @@ struct ActorGenericCharacterEntry {
 struct ActorContext {
     ActorGenericCharacter* self;              // 0x00
     ActorGenericCharacterEntry* entries;      // 0x04
-    unk32 unk_08;                             // 0x08  <-- Variable desconocida o pad
-    unk32 scratch;                            // 0x0C  <-- Colocado exactamente en 0x0C
-    unk32 index;                              // 0x10  <-- Exactamente en 0x10
-    unk32 mUnk_488;                           // 0x14  <-- Exactamente en 0x14
+    unk32 unk_08;                             // 0x08  <-- Unknown variable or padding
+    unk32 scratch;                            // 0x0C
+    unk32 index;                              // 0x10
+    unk32 mUnk_488;                           // 0x14
 };
 
 void ActorGenericCharacter::func_ov014_02147ce8(void* param1, unk32 param2) {
@@ -281,40 +279,36 @@ void ActorGenericCharacter::func_ov014_02147ce8(void* param1, unk32 param2) {
 
 struct ActorGenericCharacterStateEntry {
     void (ActorGenericCharacter::*onEnter)();   // 0x00-0x07
-    u8 pad[8];                                   // 0x08-0x0f
+    u8 pad[8];                                  // 0x08-0x0f
     void (ActorGenericCharacter::*onExit)();    // 0x10-0x17
 };
 void ActorGenericCharacter::func_ov014_02147d44(void* param1, unk32 param2) {
-    u8* sub = static_cast<u8*>(param1);
+    u8* sub = (u8*)param1;
 
-    const unk32 oldState = *reinterpret_cast<unk32*>(sub + 0x10);
+    const unk32 oldState = *(unk32*)(sub + 0x10);
     const unk32 newState = param2;
 
     if (oldState == newState) {
         return;
     }
 
-    ActorGenericCharacterStateEntry* table =
-        *reinterpret_cast<ActorGenericCharacterStateEntry**>(sub + 0x04);
+    ActorGenericCharacterStateEntry* table = *(ActorGenericCharacterStateEntry**)(sub + 0x04);
 
     if (table[oldState].onExit) {
-        ActorGenericCharacter* self =
-            *reinterpret_cast<ActorGenericCharacter**>(sub + 0x00);
+        ActorGenericCharacter* self = *(ActorGenericCharacter**)(sub + 0x00);
         (self->*table[oldState].onExit)();
     }
 
-    *reinterpret_cast<unk32*>(sub + 0x14) = *reinterpret_cast<unk32*>(sub + 0x10);
-    *reinterpret_cast<unk32*>(sub + 0x10) = newState;
+    *(unk32*)(sub + 0x14) = *(unk32*)(sub + 0x10);
+    *(unk32*)(sub + 0x10) = newState;
 
-    ActorGenericCharacterStateEntry* table2 =
-        *reinterpret_cast<ActorGenericCharacterStateEntry**>(sub + 0x04);
+    ActorGenericCharacterStateEntry* table2 = *(ActorGenericCharacterStateEntry**)(sub + 0x04);
 
     if (table2[newState].onEnter) {
-        ActorGenericCharacter* self =
-            *reinterpret_cast<ActorGenericCharacter**>(sub + 0x00);
+        ActorGenericCharacter* self = *(ActorGenericCharacter**)(sub + 0x00);
         (self->*table2[newState].onEnter)();
 
-        *reinterpret_cast<unk32*>(sub + 0x0c) = 0;
+        *(unk32*)(sub + 0x0c) = 0;
     }
 }
 
@@ -323,7 +317,7 @@ static void func_ov014_02147df0(ActorGenericCharacter *actor) {
 }
 
 void ActorGenericCharacter::func_ov014_02147dfc() {
-    if (ActorCharacter::func_ov014_02144e74()) {
+    if (func_ov014_02144e74()) {
         func_ov014_02147950();
     }
 }
@@ -344,8 +338,8 @@ void ActorGenericCharacter::func_ov014_02147e1c() {
 }
 
 void ActorGenericCharacter::func_ov014_02147e64() {
-    ActorCharacter::func_ov014_021452b0();
-    if (!ActorCharacter::func_ov014_02144e3c()) {
+    func_ov014_021452b0();
+    if (!func_ov014_02144e3c()) {
         return;
     }
 
@@ -381,10 +375,10 @@ extern void* gMapManager;
 extern void* data_027e0d38;
 
 typedef void (*FindExitFunc)(void* self, u32 mapId, ExitStruct* exit);
-extern "C" void MapManager_FindExit();   // solo para resolver el simbolo
+extern "C" void MapManager_FindExit();
 
 void ActorGenericCharacter::func_ov014_02147ee4() {
-    ActorCharacter::func_ov014_02145318();
+    func_ov014_02145318();
 
     if (!vfunc_bc()) {
         return;
@@ -394,7 +388,7 @@ void ActorGenericCharacter::func_ov014_02147ee4() {
         return;
     }
 
-    if (ActorCharacter::func_ov014_02144e3c()) {
+    if (func_ov014_02144e3c()) {
         if (mUnk_46c[1] == 5) {
             ExitStruct exit;
 
@@ -421,21 +415,12 @@ void ActorGenericCharacter::func_ov014_02147ee4() {
 }
 
 void ActorGenericCharacter::func_ov014_02147fbc() {
-    s32* fields = (s32*)((u8*)&mUnk_1d8.mUnk_020 + 0x248 - 0x1d8);
-    
-    fields[0] = -1;
-    fields[1] = -1;
+    mUnk_1d8.mUnk_020.mUnk_70.Reset();
 }
-
-// 1. Definimos el objeto generador con sus campos nativos de 64 bits
-struct RandomContext {
-    u64 seed;
-    u64 multiplier;
-    u64 increment;
-};
 
 extern u32 gRandom[6];
 
+// TODO(decomp): match 82.97%.
 void ActorGenericCharacter::func_ov014_02147fcc(){
     if ((u8)mUnk_490 != 0) {
         mUnk_1d8.func_ov014_02145e48(1);
@@ -459,7 +444,7 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
             subAnim->mUnk_10 = 0x1000;
         }
 
-        *(u32*)((u8*)this + 0x480) = 0;
+        mUnk_480 = 0;
 
         s32 start = (s16)mUnk_492;
         s32 end   = (s16)mUnk_494;
@@ -477,9 +462,9 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
             u32 incLow    = rnd[4];
             u32 incHigh   = rnd[5];
 
-            u64 prod = static_cast<u64>(multLow) * stateLow;
-            u32 prodLow  = static_cast<u32>(prod);
-            u32 prodHigh = static_cast<u32>(prod >> 32);
+            u64 prod = (u64)(multLow) * stateLow;
+            u32 prodLow  = (u32)(prod);
+            u32 prodHigh = (u32)(prod >> 32);
 
             prodHigh += multLow * stateHigh;
             prodHigh += multHigh * stateLow;
@@ -491,11 +476,10 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
             rnd[0] = newLow;
             rnd[1] = newHigh;
 
-            u32 randOffset = static_cast<u32>(
-                (static_cast<u64>(newHigh) * static_cast<u32>(count)) >> 32
-            );
+            u32 randOffset = (u32)(((s64)newHigh * (s64)count) >> 32);
 
-            result = static_cast<u32>(static_cast<s32>(start) + static_cast<s32>(randOffset));
+
+            result = (s32)(start) + randOffset;
         }
 
         mUnk_48c = result;
@@ -503,7 +487,6 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
 
     vfunc_b4();
 }
-
 
 void ActorGenericCharacter::func_ov014_021480dc() {
     if (*(u8*)&mUnk_490 != 0) {
@@ -514,9 +497,9 @@ void ActorGenericCharacter::func_ov014_021480dc() {
         return;
     }
 
-    ActorCharacter::func_ov014_021452b0();
+    func_ov014_021452b0();
 
-    if (*(unk32*)((u8*)this + 0x480) <= mUnk_48c) {
+    if (mUnk_480 <= mUnk_48c) {
         return;
     }
 
@@ -546,12 +529,11 @@ void ActorGenericCharacter::func_ov014_02148168() {
 void ActorGenericCharacter::func_ov014_02148198() {
     mUnk_1d8.func_ov014_02145e48(1);
 
-    // Forzamos el calculo estricto del byte 0x1e8 basándonos en la direccion de mUnk_1d8
     ActorCharacter_1d8_230* subStruct = *(ActorCharacter_1d8_230**)((u8*)&mUnk_1d8 + 0x10);
     subStruct->mUnk_10 = 0x1000;
 
     func_ov014_02147ba0();
-    ActorCharacter::func_ov014_02144d94();
+    func_ov014_02144d94();
 }
 
 void ActorGenericCharacter::func_ov014_021481cc() {
@@ -561,10 +543,9 @@ void ActorGenericCharacter::func_ov014_021481cc() {
         return;
     }
 
-    ActorCharacter::func_ov014_02144dec();
+    func_ov014_02144dec();
 
-    // Escritura de byte limpia en el offset 0x118 para imitar la instruccion strb
-    *(u8*)((u8*)this + 0x118) = 0;
+    mAlive = false;
 }
 
 void ActorGenericCharacter::func_ov014_021481fc() {
