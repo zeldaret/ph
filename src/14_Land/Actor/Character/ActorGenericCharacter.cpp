@@ -1,5 +1,9 @@
 #include "Actor/Character/ActorCharacter.hpp"
 
+// TODO(vtable): vtable mismatch (48.83%) due to toolchain differences:
+//   - mwccarm 2.0/sp1p5 emits an 8-byte RTTI header (offset_to_top + typeinfo)
+//     at the start of the vtable, but the original binary has no header.
+//   - Destructor order is inverted: original has D0, D1; mwccarm emits D1, D0.
 // TODO: pending review before renaming:
 //     mUnk_010  ->  mMapPosX
 //     mUnk_011  ->  mMapPosY
@@ -174,17 +178,13 @@ void ActorGenericCharacter::func_ov014_02147ae8() {
 bool ActorGenericCharacter::func_ov014_02147b18() {
     Vec3p tempVector;
 
-    typedef void (*AnimFunc)(void*, Vec3p*);
-    void* animPtr = *(void**)((u8*)this + 0x1f4);
-    unk32* vtable = *(unk32**)animPtr;
-    ((AnimFunc)vtable[13])(animPtr, &tempVector);
-
-    void* animPtr2 = *(void**)((u8*)this + 0x1f4);
+    Actor* actor = mUnk_1d8.mActor;
+    actor->GetOffsetPos(&tempVector);
 
     mUnk_1d8.mUnk_020.func_ov014_0214a92c(
         &tempVector,
-        (Vec3p*)((u8*)animPtr2 + 0x48),
-        *(s16*)((u8*)animPtr2 + 0x78)
+        &mUnk_1d8.mActor->mPos,
+        mUnk_1d8.mActor->mAngle
     );
 
     unk32 result = func_ov014_0214c948(
@@ -248,67 +248,59 @@ void ActorGenericCharacter::func_ov014_02147c98() {
     mRef.index++;
 }
 
-typedef void (ActorGenericCharacter::*ActorMemberFunc)();
-
 struct ActorGenericCharacterEntry {
-    ActorMemberFunc memberFunc;
-    u8 pad[0x10];
+    /* 00 */ void (ActorGenericCharacter::*onEnter)();
+    /* 08 */ u8 pad[0x08];
+    /* 10 */ void (ActorGenericCharacter::*onExit)();
+    /* 18 */
 };
 
 struct ActorContext {
-    ActorGenericCharacter* self;              // 0x00
-    ActorGenericCharacterEntry* entries;      // 0x04
-    unk32 unk_08;                             // 0x08  <-- Unknown variable or padding
-    unk32 scratch;                            // 0x0C
-    unk32 index;                              // 0x10
-    unk32 mUnk_488;                           // 0x14
+    /* 00 */ ActorGenericCharacter* self;
+    /* 04 */ ActorGenericCharacterEntry* entries;
+    /* 08 */ unk32 unk_08;
+    /* 0C */ unk32 scratch;
+    /* 10 */ unk32 index;
+    /* 14 */ unk32 mUnk_488;
 };
 
 void ActorGenericCharacter::func_ov014_02147ce8(void* param1, unk32 param2) {
     ActorContext* ctx = (ActorContext*)param1;
-
     ctx->index = param2;
     ctx->mUnk_488 = param2;
 
-    if (ctx->entries[ctx->index].memberFunc) {
-        (ctx->self->*ctx->entries[ctx->index].memberFunc)();
+    if (ctx->entries[ctx->index].onEnter) {
+        (ctx->self->*ctx->entries[ctx->index].onEnter)();
     }
-
+    
     ctx->scratch = 0;
 }
 
-struct ActorGenericCharacterStateEntry {
-    void (ActorGenericCharacter::*onEnter)();   // 0x00-0x07
-    u8 pad[8];                                  // 0x08-0x0f
-    void (ActorGenericCharacter::*onExit)();    // 0x10-0x17
-};
 void ActorGenericCharacter::func_ov014_02147d44(void* param1, unk32 param2) {
-    u8* sub = (u8*)param1;
+    ActorContext* ctx = (ActorContext*)param1;
 
-    const unk32 oldState = *(unk32*)(sub + 0x10);
+    const unk32 oldState = ctx->index;
     const unk32 newState = param2;
 
     if (oldState == newState) {
         return;
     }
 
-    ActorGenericCharacterStateEntry* table = *(ActorGenericCharacterStateEntry**)(sub + 0x04);
+    ActorGenericCharacterEntry* table = ctx->entries;
 
     if (table[oldState].onExit) {
-        ActorGenericCharacter* self = *(ActorGenericCharacter**)(sub + 0x00);
-        (self->*table[oldState].onExit)();
+        (ctx->self->*table[oldState].onExit)();
     }
 
-    *(unk32*)(sub + 0x14) = *(unk32*)(sub + 0x10);
-    *(unk32*)(sub + 0x10) = newState;
+    ctx->mUnk_488 = ctx->index;
+    ctx->index     = newState;
 
-    ActorGenericCharacterStateEntry* table2 = *(ActorGenericCharacterStateEntry**)(sub + 0x04);
+    ActorGenericCharacterEntry* table2 = ctx->entries;
 
     if (table2[newState].onEnter) {
-        ActorGenericCharacter* self = *(ActorGenericCharacter**)(sub + 0x00);
-        (self->*table2[newState].onEnter)();
+        (ctx->self->*table2[newState].onEnter)();
 
-        *(unk32*)(sub + 0x0c) = 0;
+        ctx->scratch = 0;
     }
 }
 
@@ -328,10 +320,8 @@ void ActorGenericCharacter::func_ov014_02147e1c() {
     } else {
         mUnk_1d8.func_ov014_02145e48(0);
         
-        u8* classBase = (u8*)this;
-        ActorCharacter_1d8_230* subStruct = *(ActorCharacter_1d8_230**)(classBase + 0x1e8);
-        
-        subStruct->mUnk_10 = 0x1000;
+        ActorCharacter_1d8_230* anim = (ActorCharacter_1d8_230*)mUnk_1d8.mUnk_10;
+        anim->mUnk_10 = 0x1000;
     }
 
     vfunc_b4();
@@ -425,8 +415,8 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
     if ((u8)mUnk_490 != 0) {
         mUnk_1d8.func_ov014_02145e48(1);
 
-        ActorCharacter_1d8_230* subStruct = *(ActorCharacter_1d8_230**)((u8*)this + 0x1e8);
-        subStruct->mUnk_10 = 0x1000;
+        ActorCharacter_1d8_230* anim = (ActorCharacter_1d8_230*)mUnk_1d8.mUnk_10;
+        anim->mUnk_10 = 0x1000;
 
         func_ov014_02147ae8();
     } else {
@@ -440,8 +430,8 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
         } else {
             d8->func_ov014_02145e48(0);
 
-            ActorCharacter_1d8_230* subAnim = *(ActorCharacter_1d8_230**)((u8*)d8 + 0x10);
-            subAnim->mUnk_10 = 0x1000;
+            ActorCharacter_1d8_230* anim = (ActorCharacter_1d8_230*)d8->mUnk_10;
+            anim->mUnk_10 = 0x1000;
         }
 
         mUnk_480 = 0;
@@ -514,8 +504,8 @@ void ActorGenericCharacter::func_ov014_02148130() {
 void ActorGenericCharacter::func_ov014_0214813c() {
     mUnk_1d8.func_ov014_02145e48(1);
 
-    ActorCharacter_1d8_230* subStruct = *(ActorCharacter_1d8_230**)((u8*)this + 0x1e8);
-    subStruct->mUnk_10 = 0x1000;
+    ActorCharacter_1d8_230* anim = (ActorCharacter_1d8_230*)mUnk_1d8.mUnk_10;
+    anim->mUnk_10 = 0x1000;
 
     func_ov014_02147ba0();
 }
@@ -529,8 +519,8 @@ void ActorGenericCharacter::func_ov014_02148168() {
 void ActorGenericCharacter::func_ov014_02148198() {
     mUnk_1d8.func_ov014_02145e48(1);
 
-    ActorCharacter_1d8_230* subStruct = *(ActorCharacter_1d8_230**)((u8*)&mUnk_1d8 + 0x10);
-    subStruct->mUnk_10 = 0x1000;
+    ActorCharacter_1d8_230* anim = (ActorCharacter_1d8_230*)mUnk_1d8.mUnk_10;
+    anim->mUnk_10 = 0x1000;
 
     func_ov014_02147ba0();
     func_ov014_02144d94();
@@ -551,8 +541,8 @@ void ActorGenericCharacter::func_ov014_021481cc() {
 void ActorGenericCharacter::func_ov014_021481fc() {
     mUnk_1d8.func_ov014_02145e48(0);
 
-    ActorCharacter_1d8_230* subStruct = *(ActorCharacter_1d8_230**)((u8*)&mUnk_1d8 + 0x10);
-    subStruct->mUnk_10 = 0x1000;
+    ActorCharacter_1d8_230* anim = (ActorCharacter_1d8_230*)mUnk_1d8.mUnk_10;
+    anim->mUnk_10 = 0x1000;
 
     func_ov014_02147c00();
 }
