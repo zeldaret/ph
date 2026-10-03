@@ -2094,7 +2094,7 @@ data_ov014_021596f4 kind:data(any) addr:0x021596f4
 data_ov014_02159720 kind:data(any) addr:0x02159720
 data_ov014_02159744 kind:data(any) addr:0x02159744
 data_ov014_02159800 kind:data(any) addr:0x02159800
-data_ov014_02159898 kind:data(any) addr:0x02159898
+_ZTV21ActorGenericCharacter kind:data(any) addr:0x02159898
 data_ov014_02159994 kind:data(any) addr:0x02159994
 data_ov014_02159a44 kind:data(any) addr:0x02159a44
 data_ov014_02159a50 kind:data(any) addr:0x02159a50
