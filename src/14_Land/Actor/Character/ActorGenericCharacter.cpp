@@ -16,17 +16,13 @@ extern "C" bool func_ov014_0214610c(void* thisPtr);
 extern "C" void func_ov014_0214c5c8(unk32 p0, unk32 p1, unk32 p2, unk32 p3, unk32 p4);
 extern "C" unk32 func_ov014_0214c948(unk32 p0, Vec3p* p1, u16* p2, unk32 p3, unk32 p4);
 
-extern "C" unk32 data_ov014_02153ed4;
-extern "C" unk32 data_ov014_02159994;
+extern "C" const unk32 data_ov014_02153ed4;
+extern "C" u32 data_ov014_02159994[];
 
-// TODO: match 90.83%. Load ordering differs from original; logic seems to be correct.
 ActorGenericCharacter::ActorGenericCharacter() {
-    const unk32* ptrA = &data_ov014_02153ed4;
-    unk32 valA = *ptrA;
-
     mUnk_474 = this;
-    mUnk_478 = &data_ov014_02159994;
-    mUnk_47c = valA;
+    mUnk_478 = data_ov014_02159994;
+    mUnk_47c = data_ov014_02153ed4;
 
     mUnk_484 = 0;
     mUnk_488 = 0;
@@ -410,7 +406,7 @@ void ActorGenericCharacter::func_ov014_02147fbc() {
 
 extern u32 gRandom[6];
 
-// TODO(decomp): match 82.97%.
+// TODO(decomp): match 85.14%.
 void ActorGenericCharacter::func_ov014_02147fcc(){
     if ((u8)mUnk_490 != 0) {
         mUnk_1d8.func_ov014_02145e48(1);
@@ -436,11 +432,11 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
 
         mUnk_480 = 0;
 
-        s32 start = (s16)mUnk_492;
+                s32 start = (s16)mUnk_492;
         s32 end   = (s16)mUnk_494;
         s32 count = (end - start) + 1;
-
-        u32 result = (u32)start;
+        
+        u32 randOffset = 0; 
 
         if (count > 0) {
             u32* rnd = gRandom;
@@ -459,20 +455,24 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
             prodHigh += multLow * stateHigh;
             prodHigh += multHigh * stateLow;
 
-            u32 newLow  = prodLow + incLow;
-            u32 carry   = (newLow < prodLow) ? 1 : 0;
-            u32 newHigh = prodHigh + incHigh + carry;
+            u32 newLow = incLow + prodLow; 
+            u32 newHigh = prodHigh + incHigh;
+
+            if (newLow < incLow) {
+                newHigh++;
+            }
 
             rnd[0] = newLow;
             rnd[1] = newHigh;
 
-            u32 randOffset = (u32)(((s64)newHigh * (s64)count) >> 32);
-
-
-            result = (s32)(start) + randOffset;
+            if (count == 0) {
+                randOffset = 0;
+            } else {
+                randOffset = (u32)(((s64)newHigh * (s64)count) >> 32);
+            }
         }
 
-        mUnk_48c = result;
+        mUnk_48c = (s32)start + randOffset;
     }
 
     vfunc_b4();
