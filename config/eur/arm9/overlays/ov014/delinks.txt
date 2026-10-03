@@ -33,3 +33,4 @@ src/14_Land/Actor/Character/ActorCharacter.cpp:
 
 src/14_Land/Actor/Character/ActorGenericCharacter.cpp:
     .text       start:0x021476d0 end:0x02148234
+    .data       start:0x02159898 end:0x02159994
