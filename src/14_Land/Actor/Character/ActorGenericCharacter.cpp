@@ -4,11 +4,6 @@
 //   - mwccarm 2.0/sp1p5 emits an 8-byte RTTI header (offset_to_top + typeinfo)
 //     at the start of the vtable, but the original binary has no header.
 //   - Destructor order is inverted: original has D0, D1; mwccarm emits D1, D0.
-// TODO: pending review before renaming:
-//     mUnk_010  ->  mMapPosX
-//     mUnk_011  ->  mMapPosY
-//     mUnk_012  ->  mTargetAngle
-//     mUnk_020  ->  mSpawnParams
 
 extern "C" void func_ov005_02100ae0(void* param1, void* param2, u32 param3);
 extern "C" void func_ov014_021460b8(void* thisPtr);
@@ -40,7 +35,7 @@ bool ActorGenericCharacter::Init() {
 
     mUnk_120 = u8(-1);
 
-    switch (mUnk_020.mUnk_00[0]) {
+    switch (mSpawnParams.mUnk_00[0]) {
         case 0: mUnk_46c[1] = 0; break;
         case 1: mUnk_46c[1] = 1; break;
         case 2: mUnk_46c[1] = 2; break;
@@ -76,13 +71,13 @@ void ActorGenericCharacter::vfunc_c4() {
     }
 
     if ((s32)mInactive >= 1) {
-        if (mUnk_46c[1] == 2 && mUnk_020.mUnk_00[2] == 0 && func_ov014_02144e3c()) {
+        if (mUnk_46c[1] == 2 && mSpawnParams.mUnk_00[2] == 0 && func_ov014_02144e3c()) {
             mAlive = false;
             return;
         }
 
         if (mUnk_484 != 0) {
-            mAngle = mUnk_012;
+            mAngle = mTargetAngle;
             mUnk_1d8.mUnk_020.mUnk_8d = 0; 
             return;
         }
@@ -165,7 +160,7 @@ void ActorGenericCharacter::func_ov014_02147ae8() {
     func_ov014_0214c5c8(
         (unk32)(this + 1),
         (unk32)this,
-        (u8)mUnk_020.mUnk_00[2],
+        (u8)mSpawnParams.mUnk_00[2],
         mUnk_496,
         mUnk_498
     );
@@ -197,7 +192,7 @@ bool ActorGenericCharacter::func_ov014_02147b18() {
 }
 
 void ActorGenericCharacter::func_ov014_02147ba0() {
-    func_ov014_021453f4(mUnk_020.mUnk_0c);
+    func_ov014_021453f4(mSpawnParams.mUnk_0c);
 }
 
 bool ActorGenericCharacter::func_ov014_02147bb0() {
@@ -212,7 +207,7 @@ unk32 ActorGenericCharacter::func_ov014_02147bd8() {
 }
 
 void ActorGenericCharacter::func_ov014_02147c00() {
-    if (!mUnk_430.func_ov000_020c66e4(&mPos, mAngle, mUnk_020.mUnk_0c)) {
+    if (!mUnk_430.func_ov000_020c66e4(&mPos, mAngle, mSpawnParams.mUnk_0c)) {
         return;
     }
 
@@ -233,7 +228,7 @@ void ActorGenericCharacter::func_ov014_02147c98() {
         u8 pad1[8];
     };
 
-    unk32 idx = *(unk32*)&mUnk_010;
+    unk32 idx = *(unk32*)&mMapPosX;
 
     TargetStruct* base = (TargetStruct*)mType;
     TargetStruct& element = base[idx];
@@ -389,7 +384,7 @@ void ActorGenericCharacter::func_ov014_02147ee4() {
             exit.val15   = 0;
 
             void* manager   = gMapManager;
-            const u32 mapId = mUnk_020.mUnk_00[2];
+            const u32 mapId = mSpawnParams.mUnk_00[2];
 
             ((FindExitFunc)MapManager_FindExit)(manager, mapId, &exit);
 

@@ -33,7 +33,7 @@ ARM ActorRupee::ActorRupee() {
 }
 
 ARM bool ActorRupee::Init() {
-    RupeeId rupeeId        = (RupeeId) mUnk_020.mUnk_00[0];
+    RupeeId rupeeId        = (RupeeId) mSpawnParams.mUnk_00[0];
     mRupeeId               = rupeeId;
     s32 iVar1              = (func_ov14_0213b70c(rupeeId) ? data_ov014_021589f4.mUnk_4 : 0xaa8) >> 1;
     mHitbox.pos.x          = 0;

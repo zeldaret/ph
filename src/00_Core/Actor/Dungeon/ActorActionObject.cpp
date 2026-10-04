@@ -35,9 +35,9 @@ ARM void ActorActionObject::vfunc_14(u32 param1) {
         return;
     }
 
-    u32 flag = mUnk_020.mUnk_00[2];
+    u32 flag = mSpawnParams.mUnk_00[2];
     bool bVar3;
-    switch (mUnk_020.mUnk_00[0]) {
+    switch (mSpawnParams.mUnk_00[0]) {
         case 0:
             bVar3 = true;
             break;
@@ -63,10 +63,10 @@ ARM void ActorActionObject::vfunc_14(u32 param1) {
     if (!bVar3) {
         return;
     }
-    if (!gMapManager->func_ov00_020836dc((u32) mUnk_020.mUnk_00[1], 0)) {
+    if (!gMapManager->func_ov00_020836dc((u32) mSpawnParams.mUnk_00[1], 0)) {
         return;
     }
-    if (mUnk_020.mUnk_0a[0] != 0 && !this->func_ov00_020c1bfc(0)) {
+    if (mSpawnParams.mUnk_0a[0] != 0 && !this->func_ov00_020c1bfc(0)) {
         return;
     }
     if (flag != 0 && !gAdventureFlags->Get(flag)) {
@@ -75,7 +75,7 @@ ARM void ActorActionObject::vfunc_14(u32 param1) {
 
     PlayerLinkBase *link = gPlayerLink;
     if (link != NULL && link->vfunc_18(7)) {
-        if (mUnk_020.mUnk_00[3] == 1) {
+        if (mSpawnParams.mUnk_00[3] == 1) {
             link->func_ov000_020bcf50(&mPos, 0x800);
         }
         this->func_ov00_020c1c20(1, 1);

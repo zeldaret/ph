@@ -22,19 +22,19 @@ ARM void ActorCharacter::func_ov014_02144dec() {
 }
 
 ARM bool ActorCharacter::func_ov014_02144e14() {
-    return mUnk_020.mUnk_00[1] != 0;
+    return mSpawnParams.mUnk_00[1] != 0;
 }
 
 ARM bool ActorCharacter::func_ov014_02144e28() {
-    return mUnk_020.mUnk_00[3] != 0;
+    return mSpawnParams.mUnk_00[3] != 0;
 }
 
 ARM bool ActorCharacter::func_ov014_02144e3c() {
-    return gAdventureFlags->Get(mUnk_020.mUnk_00[1]);
+    return gAdventureFlags->Get(mSpawnParams.mUnk_00[1]);
 }
 
 ARM bool ActorCharacter::func_ov014_02144e58() {
-    return gAdventureFlags->Get(mUnk_020.mUnk_00[3]);
+    return gAdventureFlags->Get(mSpawnParams.mUnk_00[3]);
 }
 
 ARM bool ActorCharacter::func_ov014_02144e74() {

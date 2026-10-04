@@ -106,11 +106,11 @@ public:
     /* 000 (vtable) */
     /* 004 */ ActorTypeId mType;
     /* 008 */ ActorRef mRef;
-    /* 010 */ u8 mUnk_010;
-    /* 011 */ u8 mUnk_011;
-    /* 012 */ unk16 mUnk_012;
+    /* 010 */ u8 mMapPosX;
+    /* 011 */ u8 mMapPosY;
+    /* 012 */ unk16 mTargetAngle;
     /* 014 */ Vec3p mUnk_014;
-    /* 020 */ Actor_UnkStruct_020 mUnk_020;
+    /* 020 */ Actor_UnkStruct_020 mSpawnParams;
     /* 034 */ ActorRef mUnk_034;
     /* 03c */ unk32 mUnk_03c;
     /* 040 */ ActorRef mUnk_040;

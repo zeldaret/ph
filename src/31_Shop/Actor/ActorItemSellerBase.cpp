@@ -164,7 +164,7 @@ ARM bool ActorItemSellerBase::vfunc_c0() {
 ARM void ActorItemSellerBase::vfunc_c4() {
     Vec3p offsetPos;
     if (mInactive) {
-        mAngle                    = mUnk_012;
+        mAngle                    = mTargetAngle;
         mUnk_1d8.mUnk_020.mUnk_8d = 0;
         return;
     }
