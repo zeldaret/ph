@@ -1,3 +1,4 @@
+#include "System/Random.hpp" 
 #include "Actor/Character/ActorCharacter.hpp"
 
 // TODO(vtable): vtable mismatch (48.83%) due to toolchain differences:
@@ -8,11 +9,37 @@
 extern "C" void func_ov005_02100ae0(void* param1, void* param2, u32 param3);
 extern "C" void func_ov014_021460b8(void* thisPtr);
 extern "C" bool func_ov014_0214610c(void* thisPtr);
-extern "C" void func_ov014_0214c5c8(unk32 p0, unk32 p1, unk32 p2, unk32 p3, unk32 p4);
+extern "C" void func_ov014_0214c5c8(void* dest, void* src, u8 mapId, u32 min, u32 max);
 extern "C" unk32 func_ov014_0214c948(unk32 p0, Vec3p* p1, u16* p2, unk32 p3, unk32 p4);
 
 extern "C" const unk32 data_ov014_02153ed4;
 extern "C" u32 data_ov014_02159994[];
+
+// Descriptor written right after this object (this + 1 == (u8*)this + sizeof(ActorGenericCharacter)).
+//
+// Confirmed layout via Ghidra decompilation of func_ov014_0214c5c8:
+//   0x00 Vec3p  mPos     - position copied from the actor
+//   0x0c Actor* mActor  - actor that requested it
+//   0x10 u8     mTimer  - countdown; when it reaches 0, the request is considered ready
+//   0x11 u8     mMapId  - map id for the request
+//
+// Lifecycle:
+//   func_ov014_0214c5c8 - initializes it (copies mPos, stores actor, sets timer = rand(min, max), stores mapId)
+//   func_ov014_0214c948 - updates it each frame (recomputes angle, forwards to processor)
+//   func_ov014_0214c678 - processes it (decrements timer, samples 4 directions around the actor,
+//                         queries MapManager triggers, returns 1 when the timer reaches 0)
+//
+// TODO: confirm the exact nature of the request (spawn, drop, child actor, ...).
+//       The mechanism is confirmed; only the semantic name is a working hypothesis.
+// NOTE: documentation-only. This struct is never used as a C++ member; the
+//       engine reserves the space after the object and accesses it via `this + 1`.
+struct SpawnRequest {
+    /* 00 */ Vec3p mPos;
+    /* 0c */ Actor* mActor;
+    /* 10 */ u8 mTimer;
+    /* 11 */ u8 mMapId;
+    /* 12 */ u8 pad[2];
+};
 
 ActorGenericCharacter::ActorGenericCharacter() {
     mUnk_474 = this;
@@ -78,7 +105,7 @@ void ActorGenericCharacter::vfunc_c4() {
 
         if (mUnk_484 != 0) {
             mAngle = mTargetAngle;
-            mUnk_1d8.mUnk_020.mUnk_8d = 0; 
+            mUnk_1d8.mUnk_020.mUnk_8d = 0;
             return;
         }
     }
@@ -158,8 +185,8 @@ void ActorGenericCharacter::vfunc_84() {
 
 void ActorGenericCharacter::func_ov014_02147ae8() {
     func_ov014_0214c5c8(
-        (unk32)(this + 1),
-        (unk32)this,
+        (void*)(this + 1),
+        (void*)this,
         (u8)mSpawnParams.mUnk_00[2],
         mUnk_496,
         mUnk_498
@@ -355,8 +382,7 @@ struct ExitStruct {
 extern void* gMapManager;
 extern void* data_027e0d38;
 
-typedef void (*FindExitFunc)(void* self, u32 mapId, ExitStruct* exit);
-extern "C" void MapManager_FindExit();
+extern "C" void MapManager_FindExit(void* self, u32 mapId, ExitStruct* exit);
 
 void ActorGenericCharacter::func_ov014_02147ee4() {
     func_ov014_02145318();
@@ -386,7 +412,7 @@ void ActorGenericCharacter::func_ov014_02147ee4() {
             void* manager   = gMapManager;
             const u32 mapId = mSpawnParams.mUnk_00[2];
 
-            ((FindExitFunc)MapManager_FindExit)(manager, mapId, &exit);
+            MapManager_FindExit(manager, mapId, &exit);
 
             func_ov005_02100ae0(data_027e0d38, &exit, 1);
         }
@@ -399,9 +425,6 @@ void ActorGenericCharacter::func_ov014_02147fbc() {
     mUnk_1d8.mUnk_020.mUnk_70.Reset();
 }
 
-extern u32 gRandom[6];
-
-// TODO(decomp): match 85.14%.
 void ActorGenericCharacter::func_ov014_02147fcc(){
     if ((u8)mUnk_490 != 0) {
         mUnk_1d8.func_ov014_02145e48(1);
@@ -427,46 +450,10 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
 
         mUnk_480 = 0;
 
-                s32 start = (s16)mUnk_492;
+        s32 start = (s16)mUnk_492;
         s32 end   = (s16)mUnk_494;
-        s32 count = (end - start) + 1;
-        
-        u32 randOffset = 0; 
-
-        if (count > 0) {
-            u32* rnd = gRandom;
-
-            u32 stateLow  = rnd[0];
-            u32 stateHigh = rnd[1];
-            u32 multLow   = rnd[2];
-            u32 multHigh  = rnd[3];
-            u32 incLow    = rnd[4];
-            u32 incHigh   = rnd[5];
-
-            u64 prod = (u64)(multLow) * stateLow;
-            u32 prodLow  = (u32)(prod);
-            u32 prodHigh = (u32)(prod >> 32);
-
-            prodHigh += multLow * stateHigh;
-            prodHigh += multHigh * stateLow;
-
-            u32 newLow = incLow + prodLow; 
-            u32 newHigh = prodHigh + incHigh;
-
-            if (newLow < incLow) {
-                newHigh++;
-            }
-
-            rnd[0] = newLow;
-            rnd[1] = newHigh;
-
-            if (count == 0) {
-                randOffset = 0;
-            } else {
-                randOffset = (u32)(((s64)newHigh * (s64)count) >> 32);
-            }
-        }
-
+        s32 count = ((s16)mUnk_494 - (s16)mUnk_492) + 1;
+        u32 randOffset = count > 0 ? gRandom.Next32(count) : 0;
         mUnk_48c = (s32)start + randOffset;
     }
 
@@ -474,7 +461,7 @@ void ActorGenericCharacter::func_ov014_02147fcc(){
 }
 
 void ActorGenericCharacter::func_ov014_021480dc() {
-    if (*(u8*)&mUnk_490 != 0) {
+    if ((u8)mUnk_490 != 0) {
         if (func_ov014_02147b18()) {
             mUnk_490 = 0;
             func_ov014_02147fcc();
