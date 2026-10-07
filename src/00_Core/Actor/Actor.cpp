@@ -474,7 +474,7 @@ ARM bool Actor::func_ov00_020c1fc8(PlayerCollide flags) {
 ARM bool Actor::CollidesWithShield(Cylinder *param1) {
     Vec3p vecFromPlayer;
     Vec3p_Sub(&mPos, &gPlayerPos, &vecFromPlayer);
-    s32 currAngle = gPlayerAngle;
+    s32 currAngle = (s16) gPlayerAngle;
     s32 angle     = FX_Atan2Idx(vecFromPlayer.x, vecFromPlayer.z);
     s32 angleDiff = (s16) angle - currAngle;
     if (angleDiff < 0) {
