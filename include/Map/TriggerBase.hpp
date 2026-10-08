@@ -25,7 +25,7 @@ struct TriggerParams {
 
 class UnkStruct_TriggerBase : public SysObject {
 public:
-    virtual unk32 vfunc_00(void *);
+    unk32 vfunc_00(void *);
 };
 
 class TriggerBase : public UnkStruct_TriggerBase {
