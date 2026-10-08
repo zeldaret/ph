@@ -25,6 +25,7 @@ typedef struct UnkStruct_02076830 {
     u32 unk18;
     u32 unk1c;
     u32 unk20;
+    u32 unk24;
 } UnkStruct_02076830;
 
 extern "C" UnkStruct_02076830 data_02076830;
@@ -35,6 +36,8 @@ extern "C" THUMB void func_02042768(void);
 extern "C" ARM u32 OS_DisableInterrupts_Irq(void);
 extern "C" ARM void OS_RestoreInterrupts(u32 state);
 extern "C" THUMB bool func_02042afc(void);
+extern "C" THUMB void func_02042acc(void);
+extern "C" ARM void func_02042ad8(void);
 
 extern "C" THUMB bool FS_LoadOverlay(Overlay *overlay, unk32 id) {
     OverlayLoadInfo info;
@@ -116,4 +119,16 @@ extern "C" THUMB s32 func_02042620(u32 param1, u32 param2, u32 param3) {
     }
 
     return 3;
+}
+
+extern "C" THUMB s32 func_02042668(u32 param) {
+    s32 result = func_02042620(param, (u32) func_02042acc, 0);
+
+    data_02076830.unk24 = result;
+
+    if (result == 0) {
+        func_02042ad8();
+    }
+
+    return data_02076830.unk24;
 }
