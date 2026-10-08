@@ -93,3 +93,6 @@ libs/nds/src/heap.c:
 
 libs/nds/src/overlay.cpp:
     .text       start:0x02042540 end:0x02042648
+
+libs/nds/src/overlay_wait.c:
+    .text       start:0x02042a94 end:0x02042aac

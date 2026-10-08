@@ -37,7 +37,7 @@ extern "C" ARM u32 OS_DisableInterrupts_Irq(void);
 extern "C" ARM void OS_RestoreInterrupts(u32 state);
 extern "C" THUMB bool func_02042afc(void);
 extern "C" THUMB void func_02042acc(void);
-extern "C" ARM void func_02042ad8(void);
+extern "C" ARM u32 func_02042ad8(void);
 
 extern "C" THUMB bool FS_LoadOverlay(Overlay *overlay, unk32 id) {
     OverlayLoadInfo info;
