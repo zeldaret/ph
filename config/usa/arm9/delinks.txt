@@ -92,4 +92,4 @@ libs/nds/src/heap.c:
     .bss        start:0x0205ad84 end:0x0205ad94
 
 libs/nds/src/overlay.cpp:
-    .text       start:0x02042540 end:0x020425dc
+    .text       start:0x02042540 end:0x02042624

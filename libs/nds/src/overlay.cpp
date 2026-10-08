@@ -32,6 +32,9 @@ extern "C" THUMB void func_02008a50(UnkStruct_02076830 *state);
 extern "C" ARM s32 func_02008b50(s32 param1, s32 param2);
 extern "C" ARM void func_02008b04(s32 param1, void (*callback)(void));
 extern "C" THUMB void func_02042768(void);
+extern "C" ARM u32 OS_DisableInterrupts_Irq(void);
+extern "C" ARM void OS_RestoreInterrupts(u32 state);
+extern "C" THUMB bool func_02042afc(void);
 
 extern "C" THUMB bool FS_LoadOverlay(Overlay *overlay, unk32 id) {
     OverlayLoadInfo info;
@@ -90,4 +93,27 @@ extern "C" THUMB void func_020425e0(void) {
     }
 
     func_02008b04(5, func_02042768);
+}
+
+extern "C" THUMB s32 func_02042620(u32 param1, u32 param2, u32 param3) {
+    u32 interruptState = OS_DisableInterrupts_Irq();
+
+    if (data_02076830.unk04 != 0) {
+        OS_RestoreInterrupts(interruptState);
+        return 1;
+    }
+
+    data_02076830.unk04 = 1;
+    OS_RestoreInterrupts(interruptState);
+    data_02076830.unk18 = 0;
+    data_02076830.unk1c = 0;
+    data_02076830.unk0c = param1;
+    data_02076830.unk08 = param2;
+    data_02076830.unk14 = param3;
+
+    if (func_02042afc()) {
+        return 0;
+    }
+
+    return 3;
 }
