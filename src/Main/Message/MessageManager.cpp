@@ -66,12 +66,12 @@ THUMB void MessageManager::func_02036490() {
     this->mUnk_18[0]->mUnk_39 = 0;
     this->mUnk_18[1]->mUnk_39 = 1;
 
-    if (gGame.mModeId == GameModeId_Adventure || gGame.mModeId == GameModeId_FileSelect ||
-        gGame.mModeId == GameModeId_Battle) {
+    GameModeId modeId = gGame.mModeId;
+    if (modeId == GameModeId_Adventure || modeId == GameModeId_FileSelect || modeId == GameModeId_Battle) {
         for (s32 i = 0; i < ARRAY_LEN(this->mUnk_28); i++) {
             switch (data_02056924[i + 1]) {
                 case 0:
-                    if (gGame.mModeId != GameModeId_Adventure) {
+                    if (modeId != GameModeId_Adventure) {
                         this->mUnk_28[i] = new(data_027e0ce0[1], 4) UnkStruct_020397f8();
                         this->mUnk_28[i]->func_0203dc74(0xE0, 0x40);
                         this->mUnk_28[i]->mUnk_2c = &data_02068e6c;
