@@ -419,7 +419,7 @@ ARM UnkStruct_027e0f88_04::UnkStruct_027e0f88_04(unk32 param_1, unk16 param_2, u
     this->mUnk_00 = param_1;
     this->mUnk_04 = param_5;
     this->mUnk_06 = param_2;
-    this->func_ov000_020a1b54(param_4, param_5);
+    this->func_ov000_020a1b54(param_3, param_4);
 }
 
 // --- data_ov000_020eed2c ---
