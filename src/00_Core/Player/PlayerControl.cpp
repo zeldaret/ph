@@ -638,7 +638,7 @@ static q20 data_ov000_020e6144 = FLOAT_TO_Q20(80.0);
 
 ARM u32 PlayerControl::func_ov00_020b034c() {
     if ((mTouchDuration >= 0) && (this->func_ov00_020af2d4(1, 1) != 0)) {
-        u64 temp_r0_r1 = func_01ff992c(data_ov000_020e6144); // 0x03333333
+        u64 temp_r0_r1 = CoReciprocal64(data_ov000_020e6144); // 0x03333333
         s32 temp_r3    = (temp_r0_r1 * mTouchDist + 0x80000000) >> 32;
         s32 temp_r1_r0 = MUL_Q20(temp_r3, temp_r3);
         if (mTouchDuration < 4) {
@@ -1043,7 +1043,7 @@ ARM bool PlayerControl::func_ov00_020b13c4() {
     if (!this->CheckTouching(1)) {
         return false;
     }
-    func_01ff992c(data_ov000_020e6144);
+    CoReciprocal64(data_ov000_020e6144);
     q20 touchDist = mTouchDist;
     s32 iVar2     = mTouchDuration;
     if (mTouchFastTime > 0 && mTouchFastTime < iVar2) {
