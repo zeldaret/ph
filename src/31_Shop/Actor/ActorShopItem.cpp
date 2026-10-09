@@ -1011,10 +1011,11 @@ ARM s32 ActorShopItem::GetPrice() {
 }
 
 ARM s32 ActorShopItemHeartContainer::GetPrice() {
-    if (ActorItemSellerBase::GetCurrentSeller()->mUnk_470 == 1) {
-        return 1500;
-    } else {
-        return 2000;
+    switch (ActorItemSellerBase::GetCurrentSeller()->mUnk_470) {
+        case 1:
+            return 1500;
+        default:
+            return 2000;
     }
 }
 

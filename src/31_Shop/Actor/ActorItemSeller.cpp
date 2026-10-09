@@ -55,7 +55,7 @@ ARM unk32 ActorItemSeller::vfunc_114(unk32 param1) {
     int iVar2;
     unk32 uVar3;
 
-    uVar1 = mUnk_020.mUnk_00[0];
+    uVar1 = mSpawnParams.mUnk_00[0];
     switch (param1) {
         case 0:
             return uVar1 == 2 ? 0x4 : 0x2;

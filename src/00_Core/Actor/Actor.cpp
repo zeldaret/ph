@@ -47,9 +47,9 @@ ARM Actor_UnkStruct_020::Actor_UnkStruct_020() :
 ARM Actor::Actor() :
     mType(ActorTypeId_Null),
     mRef(-1, -1),
-    mUnk_010(0),
-    mUnk_011(0),
-    mUnk_012(0),
+    mMapPosX(0),
+    mMapPosY(0),
+    mTargetAngle(0),
     mUnk_034(-1, -1),
     mUnk_03c(-1),
     mUnk_040(-1, -1),
@@ -134,7 +134,7 @@ ARM unk32 Actor::vfunc_38() {
 }
 
 ARM unk8 Actor::func_ov00_020c1788() {
-    return gMapManager->func_ov00_02083570(mUnk_010, mUnk_011);
+    return gMapManager->func_ov00_02083570(mMapPosX, mMapPosY);
 }
 
 ARM s32 Actor::vfunc_2c() {
@@ -307,11 +307,11 @@ ARM void Actor::SetTransform(Transform *transform) {
 ARM void Actor::vfunc_a8() {}
 
 ARM bool Actor::func_ov00_020c1bfc(s32 param1) {
-    return gMapManager->func_ov00_02084be0(mUnk_020.mUnk_0a[param1], mUnk_020.mUnk_08[param1]);
+    return gMapManager->func_ov00_02084be0(mSpawnParams.mUnk_0a[param1], mSpawnParams.mUnk_08[param1]);
 }
 
 ARM void Actor::func_ov00_020c1c20(s32 param1, unk32 param2) {
-    gMapManager->func_ov00_02084b38(mUnk_020.mUnk_0a[param1], mUnk_020.mUnk_08[param1], param2);
+    gMapManager->func_ov00_02084b38(mSpawnParams.mUnk_0a[param1], mSpawnParams.mUnk_08[param1], param2);
 }
 
 ARM bool Actor::vfunc_48(Knockback *param1) {
@@ -474,7 +474,7 @@ ARM bool Actor::func_ov00_020c1fc8(PlayerCollide flags) {
 ARM bool Actor::CollidesWithShield(Cylinder *param1) {
     Vec3p vecFromPlayer;
     Vec3p_Sub(&mPos, &gPlayerPos, &vecFromPlayer);
-    s32 currAngle = gPlayerAngle;
+    s32 currAngle = (s32)(s16)gPlayerAngle;
     s32 angle     = FX_Atan2Idx(vecFromPlayer.x, vecFromPlayer.z);
     s32 angleDiff = (s16) angle - currAngle;
     if (angleDiff < 0) {

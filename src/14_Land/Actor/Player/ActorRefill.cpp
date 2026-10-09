@@ -269,7 +269,7 @@ ARM bool ActorRefillTime::Init() {
     if (!ActorRefill::Init()) {
         return false;
     }
-    switch (mUnk_020.mUnk_00[0]) {
+    switch (mSpawnParams.mUnk_00[0]) {
         case 2:
             mUnk_158 = 5;
             break;
@@ -323,7 +323,7 @@ ARM bool ActorLSTM::Init() {
     if (!ActorRefill::Init()) {
         return false;
     }
-    switch (mUnk_020.mUnk_00[0]) {
+    switch (mSpawnParams.mUnk_00[0]) {
         case 2:
             mUnk_158 = -5;
             break;

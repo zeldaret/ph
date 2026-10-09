@@ -139,7 +139,7 @@ struct ActorCharacter_430 {
     bool func_ov000_020c6794(Vec3p *pos);
     void func_ov000_020c6838(Vec3p *pos, unk32 param2, s16 angle, unk32 param4, Vec3p *vel, u16 *pAngle);
     bool func_ov000_020c6e30(Vec3p *vec);
-    void func_ov000_020c6f08(Vec3p *vec);
+    bool func_ov000_020c6f08(Vec3p *vec);
 };
 
 struct ActorCharacter_1d8_248 {
@@ -260,7 +260,7 @@ public:
     void func_ov014_021453f4(unk32 param1);
     void func_ov014_02145414(unk32 param1, unk32 param2);
     void func_ov014_0214548c(unk32 param1);
-    void func_ov014_02145508();
+    bool func_ov014_02145508();
     static bool func_ov014_02145520(ActorCharacterBase *actor);
     bool func_ov014_0214552c();
     void func_ov014_0214591c();
@@ -282,7 +282,7 @@ public:
     /* 474 */ ActorGenericCharacter *mUnk_474;
     /* 478 */ void *mUnk_478;
     /* 47c */ unk32 mUnk_47c;
-    /* 480 */ PAD(0x480, 0x484);
+    /* 480 */ unk32 mUnk_480;
     /* 484 */ unk32 mUnk_484;
     /* 488 */ unk32 mUnk_488;
     /* 48c */ unk32 mUnk_48c;
@@ -302,7 +302,7 @@ public:
     /* 84 */ virtual void vfunc_84() override;
     /* c0 */ virtual bool vfunc_c0() override;
     /* c4 */ virtual void vfunc_c4() override;
-    /* f4 */ virtual void vfunc_f4() = 0;
+    /* f4 */ virtual bool vfunc_f4() = 0;
     /* f8 */ virtual void vfunc_f8();
     /* fc */
 
@@ -319,8 +319,8 @@ public:
     void func_ov014_02147c00();
 
     void func_ov014_02147c98();
-    void func_ov014_02147ce8(unk32 param1);
-    void func_ov014_02147d44(unk32 param1);
+    static void func_ov014_02147ce8(void* param1, unk32 param2);
+    static void func_ov014_02147d44(void* param1, unk32 param2);
 
     void func_ov014_02147dfc();
     void func_ov014_02147e1c();

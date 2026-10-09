@@ -108,11 +108,11 @@ ARM bool ActorSwitchObject::func_ov000_0208fc10(s32 param1) {
 }
 
 ARM void ActorSwitchObject::func_ov000_0208fc7c() {
-    this->mUnk_158 = this->mUnk_020.mUnk_00[1];
-    this->mUnk_15c = this->mUnk_020.mUnk_00[2];
-    this->mUnk_164 = this->mUnk_020.mUnk_0a[1];
-    this->mUnk_168 = this->mUnk_164 + this->mUnk_020.mUnk_00[0];
-    this->mUnk_16c = this->mUnk_020.mUnk_08[1];
+    this->mUnk_158 = this->mSpawnParams.mUnk_00[1];
+    this->mUnk_15c = this->mSpawnParams.mUnk_00[2];
+    this->mUnk_164 = this->mSpawnParams.mUnk_0a[1];
+    this->mUnk_168 = this->mUnk_164 + this->mSpawnParams.mUnk_00[0];
+    this->mUnk_16c = this->mSpawnParams.mUnk_08[1];
     this->mUnk_160 = this->mUnk_164;
 }
 
@@ -164,7 +164,7 @@ ARM unk32 ActorSwitchObject::func_ov000_0208fcb4() {
             }
             return 0;
         default:
-            for (s32 i = 0; i < mUnk_020.mUnk_00[0]; i++) {
+            for (s32 i = 0; i < mSpawnParams.mUnk_00[0]; i++) {
                 if (gMapManager->func_ov00_02084be0(mUnk_164 + i, mUnk_16c) == 0) {
                     return 0;
                 }
@@ -177,7 +177,7 @@ ARM void ActorSwitchObject::func_ov000_0208fef8() {
     if (mUnk_130 == 1) {
         return;
     }
-    switch (mUnk_020.mUnk_00[3]) {
+    switch (mSpawnParams.mUnk_00[3]) {
         case 1:
             data_ov000_020eec9c.func_ov000_020d77e4(0xb);
             return;

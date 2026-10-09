@@ -323,7 +323,7 @@ public:
     unk32 GetNumKeys();
     void SetBlueWarpOpen(bool state);
     bool GetBlueWarpOpen();
-    void func_ov00_02084b38(u32 param_2, unk32 param_3, bool param_4);
+    void func_ov00_02084b38(u32 param_2, unk32 param_3, unk32 param_4);
     bool func_ov00_02084be0(u32 param_2, unk32 param_3);
     void SetMapDataFlag1(unk32 param_2, bool param_3);
     bool GetMapDataFlag1(unk32 param_2);

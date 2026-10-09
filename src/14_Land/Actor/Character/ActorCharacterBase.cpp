@@ -169,7 +169,7 @@ ARM void ActorCharacterBase::vfunc_18(u32 param1) {
 }
 
 ARM unk32 ActorCharacterBase::vfunc_d4() {
-    return mUnk_020.mUnk_10;
+    return mSpawnParams.mUnk_10;
 }
 
 ARM void ActorCharacterBase::vfunc_b4() {
