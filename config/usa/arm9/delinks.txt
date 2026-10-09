@@ -90,3 +90,9 @@ libs/nds/src/heap.c:
     complete
     .text       start:0x02017034 end:0x020179ac
     .bss        start:0x0205ad84 end:0x0205ad94
+
+libs/nds/src/overlay.cpp:
+    .text       start:0x02042490 end:0x02042648
+
+libs/nds/src/overlay_wait.c:
+    .text       start:0x02042a94 end:0x02042aac
