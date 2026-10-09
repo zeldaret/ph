@@ -35,7 +35,7 @@ public:
     UnkStruct_027e0dbc_24 *GetUnk_24();
 
     bool func_ov003_020f3d5c(unk32 param1);
-    void func_ov003_020f3d74(unk32 param1);
+    unk32 func_ov003_020f3d74(unk32 param1);
 };
 
 extern UnkStruct_027e0dbc data_027e0dbc;

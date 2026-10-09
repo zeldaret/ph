@@ -46,7 +46,7 @@ public:
     /* 00 */ virtual ~ActorTetra() override;
     /* 20 */ virtual void vfunc_20(bool param1) override;
     /* c4 */ virtual void vfunc_c4() override;
-    /* f4 */ virtual void vfunc_f4() override;
+    /* f4 */ virtual bool vfunc_f4() override;
     /* f8 */ virtual void vfunc_f8() override;
     /* fc */
 
