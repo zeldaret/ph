@@ -59,13 +59,15 @@ enum AdventureFlag_ {
     /* 0x013B */ AdventureFlag_FrogGlyph_IsleOfFrost  = FLAG(9, 27),
     /* 0x013C */ AdventureFlag_FrogGlyph_NorthEast    = FLAG(9, 28),
 
+    /* 0x0148 */ AdventureFlag_PlayedBellumTakesOverGhostShipCS = FLAG(10, 8),
+
     /* 0x0187 */ AdventureFlag_COUNT = FLAG(12, 7),
 };
 
 struct UnkStruct_027e0d38_UnkC {
-    /* 00 */ unk32 mUnk_00;
+    /* 00 */ unk32 mUnk_00; // Contains Course ID?
 
-    s32 func_ov000_020a5e9c(void);
+    s32 func_ov000_020a5e9c(void); // Checks if Bremeur's Temple's seal is broken (Isle of Ruins)
 };
 
 class UnkStruct_02082348_04 {
