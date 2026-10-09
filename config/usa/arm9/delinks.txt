@@ -90,3 +90,59 @@ libs/nds/src/heap.c:
     complete
     .text       start:0x02017034 end:0x020179ac
     .bss        start:0x0205ad84 end:0x0205ad94
+
+libs/c/src/__memset_impl.cpp:
+    complete
+    .text       start:0x02043668 end:0x02043718
+
+libs/c/src/memchr.cpp:
+    complete
+    .text       start:0x020435d0 end:0x020435fc
+
+libs/c/src/memcmp.cpp:
+    complete
+    .text       start:0x02043628 end:0x02043668
+
+libs/c/src/memcpy.cpp:
+    complete
+    .text       start:0x02043550 end:0x02043570
+
+libs/c/src/memset.cpp:
+    complete
+    .text       start:0x020435bc end:0x020435d0
+
+libs/c/src/strcat.cpp:
+    complete
+    .text       start:0x020470f8 end:0x02047128
+
+libs/c/src/strchr.cpp:
+    complete
+    .text       start:0x02047270 end:0x020472ac
+
+libs/c/src/strcmp.cpp:
+    complete
+    .text       start:0x02047128 end:0x0204723c
+
+libs/c/src/strcpy.cpp:
+    complete
+    .text       start:0x02046fe0 end:0x020470a8
+
+libs/c/src/strlen.cpp:
+    complete
+    .text       start:0x02046fc4 end:0x02046fe0
+
+libs/c/src/strncmp.cpp:
+    complete
+    .text       start:0x0204723c end:0x02047270
+
+libs/c/src/strncpy.cpp:
+    complete
+    .text       start:0x020470a8 end:0x020470f8
+
+libs/cpp/src/CallStaticInitializers.cpp:
+    complete
+    .text       start:0x0204f448 end:0x0204f474
+
+libs/cpp/src/__destroy_global_chain.cpp:
+    complete
+    .text       start:0x0204f474 end:0x0204f4b8
