@@ -1,2 +1,47 @@
     .text       start:0x01ff8000 end:0x01ffff94 kind:code align:32
     .bss        start:0x01ffffa0 end:0x01ffffa0 kind:bss align:32
+
+libs/nds/src/itcm/Mat3p_InitIdentity.c:
+    .text       start:0x01ff80d4 end:0x01ff80f8
+
+libs/nds/src/itcm/Mat2p_InitIdentity.c:
+    .text       start:0x01ff8000 end:0x01ff8018
+
+libs/nds/src/itcm/Mat2p_InitRotation.c:
+    .text       start:0x01ff8018 end:0x01ff8024
+
+libs/nds/src/itcm/Mat3p_ScaleColumns.c:
+    .text       start:0x01ff8138 end:0x01ff81f8
+
+libs/nds/src/itcm/Mat3p_InitXRotation.c:
+    .text       start:0x01ff81f8 end:0x01ff8214
+
+libs/nds/src/itcm/Mat3p_InitYRotation.c:
+    .text       start:0x01ff8214 end:0x01ff8230
+
+libs/nds/src/itcm/Mat3p_InitZRotation.c:
+    .text       start:0x01ff8230 end:0x01ff8248
+
+libs/nds/src/itcm/Mat4x3p_InitIdentity.c:
+    .text       start:0x01ff892c end:0x01ff8954
+
+libs/nds/src/itcm/Mat4x3p_CopyToMat4p.c:
+    .text       start:0x01ff8954 end:0x01ff8988
+
+libs/nds/src/itcm/Mat4x3p_InitScale.c:
+    .text       start:0x01ff8a34 end:0x01ff8a4a
+
+libs/nds/src/itcm/Mat4x3p_ScaleColumns.c:
+    .text       start:0x01ff8a4c end:0x01ff8a80
+
+libs/nds/src/itcm/Mat4x3p_InitXRotation.c:
+    .text       start:0x01ff8a80 end:0x01ff8aa0
+
+libs/nds/src/itcm/Mat4x3p_InitYRotation.c:
+    .text       start:0x01ff8aa0 end:0x01ff8abc
+
+libs/nds/src/itcm/Mat4p_InitIdentity.c:
+    .text       start:0x01ff91f8 end:0x01ff9224
+
+libs/nds/src/itcm/Mat4p_CopyToMat4x3p.c:
+    .text       start:0x01ff9224 end:0x01ff9258
