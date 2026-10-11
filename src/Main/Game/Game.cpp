@@ -467,38 +467,38 @@ THUMB void Game::func_0202cf34() {
 }
 
 extern "C" void func_02017cd0();
-ARM void Game::func_0202cf44() {
+ARM void Game::func_0202cf44(Game *game) {
     while (true) {
-        if (mUnk_100) {
-            mUnk_0f4 += 1;
+        if (game->mUnk_100) {
+            game->mUnk_0f4 += 1;
             while (REG_GFX_RAM_COUNT_2 != 0) {
             }
             func_02005778();
             func_02017cd0();
-            if (mUnk_0fc != mUnk_0fe) {
-                this->func_0202c678();
+            if (game->mUnk_0fc != game->mUnk_0fe) {
+                game->func_0202c678();
             }
             if (data_027e080c.func_0202eef8()) {
                 data_027e08f8.mUnk_1 = true;
             } else {
-                data_027e0c54.func_02036240(&mUnk_0f0);
-                data_027e0c38.func_02033d84(&mUnk_0f0);
-                mMode->vfunc_0c(&mUnk_0f0);
-                gMessageManager.func_02036c50(&mUnk_0f0);
+                data_027e0c54.func_02036240(&game->mUnk_0f0);
+                data_027e0c38.func_02033d84(&game->mUnk_0f0);
+                game->mMode->vfunc_0c(&game->mUnk_0f0);
+                gMessageManager.func_02036c50(&game->mUnk_0f0);
                 if ((s32) (data_027e080c.mUnk_04 == 3 || data_027e080c.mUnk_08 == 3) == 0) {
-                    gFadeController.SetScreenBrightness(mUnk_103);
+                    gFadeController.SetScreenBrightness(game->mUnk_103);
                 }
-                data_027e0cbc.func_0203d67c(&mUnk_0f0);
+                data_027e0cbc.func_0203d67c(&game->mUnk_0f0);
                 if (gOverlayManager.mLoadedOverlays[0] != OverlayId_None) {
                     data_027e0db0.func_ov000_0207b43c();
                 }
-                if (mModeId == 2) {
+                if (game->mModeId == 2) {
                     data_027e077c.func_ov009_0211653c();
                 }
                 data_02068894.func_0203235c();
                 data_02075dac.func_0203f974();
             }
-            mUnk_100 = false;
+            game->mUnk_100 = false;
         }
         data_027e08e4.func_0202f2ac();
     }

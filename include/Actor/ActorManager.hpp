@@ -4,6 +4,7 @@
 #include "types.h"
 
 #include "lib/files.hpp"
+#include "nds/heap.h"
 
 #include "Actor/Actor.hpp"
 #include "Actor/ActorRef.hpp"
