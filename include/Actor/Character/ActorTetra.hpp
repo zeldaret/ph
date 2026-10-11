@@ -6,6 +6,11 @@
 #include "Actor/ActorType.hpp"
 #include "Actor/Character/ActorCharacter.hpp"
 
+struct ActorTetra_02181610_param2 {
+    /* 000 */ PAD(0x0, 0x38);
+    /* 038 */ unk32 mUnk_38;
+};
+
 struct ActorTetra_4cc {
     /* 000 */ PAD(0x000, 0x9c0);
     /* 9c0 */
@@ -14,7 +19,7 @@ struct ActorTetra_4cc {
 struct ActorTetra_4b0 {
     /* 00 */ unk32 mUnk_00;
     /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
+    /* 08 */ unk32 *mUnk_08;
     /* 0c */ ActorTetra_4cc *mUnk_0c;
     /* 10 */ ActorTetra_4cc *mUnk_10;
     /* 14 */ unk32 mUnk_14; // always sizeof(ActorTetra_4cc)?
@@ -28,7 +33,7 @@ struct ActorTetra_4b0 {
         mUnk_10(unk_10),
         mUnk_14(size) {}
 
-    void func_ov031_02181610(unk32 param1, unk32 param2, unk32 param3, unk32 param4, u16 param5);
+    void func_ov031_02181610(unk32 *param1, unk32 param2, unk32 param3, unk32 param4, u16 param5);
     void func_ov031_02181798();
 };
 
