@@ -4046,7 +4046,7 @@ data_ov000_020e1fe4 kind:data(any) addr:0x020e1fe4
 data_ov000_020e1fe8 kind:data(any) addr:0x020e1fe8
 data_ov000_020e1ff8 kind:data(any) addr:0x020e1ff8
 data_ov000_020e2008 kind:data(any) addr:0x020e2008
-data_ov000_020e2020 kind:data(any) addr:0x020e2020
+_ZTV12GameModePlay kind:data(any) addr:0x020e2018
 data_ov000_020e2044 kind:data(any) addr:0x020e2044
 data_ov000_020e2058 kind:data(any) addr:0x020e2058
 data_ov000_020e2070 kind:data(any) addr:0x020e2070
