@@ -18,6 +18,13 @@ enum CourseType_ {
     CourseType_Battle               = 4,
 };
 
+typedef unk32 CourseId;
+enum CourseId_ {
+    CourseId_BossWind   = 0x2a,
+    CourseId_BossWisdom = 0x2f,
+    CourseId_BossGhost  = 0x30,
+};
+
 struct CourseProgress {
     /* 0 */ unk32 flags;
     /* 4 */ s8 numKeys;
