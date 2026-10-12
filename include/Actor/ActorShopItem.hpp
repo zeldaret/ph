@@ -474,6 +474,7 @@ struct UnkStruct_ov031_02183e80 {
     static UnkStruct_ov031_02183e80 *GetInstance();
 
     bool func_ov031_0217bd80();
+    bool func_ov031_0217bd88();
     unk32 func_ov031_0217bda0();
     unk32 func_ov031_0217bdac();
     ActorShopItem *func_ov031_0217cdd8(unk32 param1);

@@ -1,5 +1,5 @@
 _ZN24UnkStruct_ov031_02183e8019func_ov031_0217bd80Ev kind:function(arm,size=0x8) addr:0x0217bce0
-func_ov031_0217bd88 kind:function(arm,size=0x18) addr:0x0217bce8
+_ZN24UnkStruct_ov031_02183e8019func_ov031_0217bd88Ev kind:function(arm,size=0x18) addr:0x0217bce8
 func_ov031_0217bda0 kind:function(arm,size=0xc) addr:0x0217bd00
 func_ov031_0217bdac kind:function(arm,size=0x8) addr:0x0217bd0c
 func_ov031_0217bdb4 kind:function(arm,size=0x4) addr:0x0217bd14
@@ -242,7 +242,7 @@ _ZN16ActorItemSeller16CreateEv kind:function(arm,size=0x44) addr:0x02180668
 _ZN16ActorItemSeller26CreateEv kind:function(arm,size=0x44) addr:0x021806ac
 _ZN16ActorItemSeller36CreateEv kind:function(arm,size=0x44) addr:0x021806f0
 _ZN15ActorItemSeller4InitEv kind:function(arm,size=0x84) addr:0x02180734
-_ZN15ActorItemSeller9vfunc_114Ei kind:function(arm,size=0x108) addr:0x021807b8
+_ZN15ActorItemSeller11GetShopItemEi kind:function(arm,size=0x108) addr:0x021807b8
 _ZN15ActorItemSeller16GetPromptMessageEv kind:function(arm,size=0xc) addr:0x021808c0
 _ZN15ActorItemSeller18GetPurchaseMessageEv kind:function(arm,size=0xc) addr:0x021808cc
 _ZN15ActorItemSeller24GetNotEnoughMoneyMessageEv kind:function(arm,size=0xc) addr:0x021808d8
@@ -258,28 +258,28 @@ _ZN15ActorItemSellerD1Ev kind:function(arm,size=0x14) addr:0x021809d0
 _ZN11ActorBeedle6CreateEv kind:function(arm,size=0x44) addr:0x021809e4
 _ZN11ActorBeedle4InitEv kind:function(arm,size=0x108) addr:0x02180a28
 _ZN11ActorBeedle8vfunc_c4Ev kind:function(arm,size=0x118) addr:0x02180b30
-_ZN11ActorBeedle9vfunc_114Ev kind:function(arm,size=0xf4) addr:0x02180c48
+_ZN11ActorBeedle11GetShopItemEi kind:function(arm,size=0xf4) addr:0x02180c48
 _ZN11ActorBeedle8vfunc_d4Ev kind:function(arm,size=0x68) addr:0x02180d3c
 _Z19func_ov031_02180e44ii kind:function(arm,size=0x8) addr:0x02180da4
-_ZN11ActorBeedle8vfunc_f4Ev kind:function(arm,size=0x4c) addr:0x02180dac
-_ZN11ActorBeedle8vfunc_f8Ev kind:function(arm,size=0x4c) addr:0x02180df8
-_ZN11ActorBeedle8vfunc_fcEv kind:function(arm,size=0x1c) addr:0x02180e44
-_ZN11ActorBeedle9vfunc_100Ev kind:function(arm,size=0x1c) addr:0x02180e60
-_ZN11ActorBeedle9vfunc_104Ev kind:function(arm,size=0x1c) addr:0x02180e7c
-_ZN11ActorBeedle8vfunc_d8Ev kind:function(arm,size=0x190) addr:0x02180e98
-_ZN11ActorBeedle8vfunc_dcEv kind:function(arm,size=0x2c) addr:0x02181028
-_ZN11ActorBeedle8vfunc_e0Ev kind:function(arm,size=0x38) addr:0x02181054
-_ZN11ActorBeedle8vfunc_70Ev kind:function(arm,size=0x74) addr:0x0218108c
-_ZN11ActorBeedle8vfunc_6cEv kind:function(arm,size=0xc8) addr:0x02181100
+_ZN11ActorBeedle16GetPromptMessageEv kind:function(arm,size=0x4c) addr:0x02180dac
+_ZN11ActorBeedle18GetPurchaseMessageEv kind:function(arm,size=0x4c) addr:0x02180df8
+_ZN11ActorBeedle24GetNotEnoughMoneyMessageEv kind:function(arm,size=0x1c) addr:0x02180e44
+_ZN11ActorBeedle17GetGoodbyeMessageEv kind:function(arm,size=0x1c) addr:0x02180e60
+_ZN11ActorBeedle23GetInventoryFullMessageEv kind:function(arm,size=0x1c) addr:0x02180e7c
+_ZN11ActorBeedle8vfunc_d8EP27ActorCharacterBase_vfunc_d8 kind:function(arm,size=0x190) addr:0x02180e98
+_ZN11ActorBeedle8vfunc_dcEP27ActorCharacterBase_vfunc_d8 kind:function(arm,size=0x2c) addr:0x02181028
+_ZN11ActorBeedle8vfunc_e0EP27ActorCharacterBase_vfunc_d8 kind:function(arm,size=0x38) addr:0x02181054
+_ZN11ActorBeedle8vfunc_70Ei kind:function(arm,size=0x74) addr:0x0218108c
+_ZN11ActorBeedle8vfunc_6cEi kind:function(arm,size=0xc8) addr:0x02181100
 _ZN11ActorBeedle9vfunc_108Ev kind:function(arm,size=0x18) addr:0x021811c8
-_ZN11ActorBeedle9vfunc_10cEv kind:function(arm,size=0x14) addr:0x021811e0
+_ZN11ActorBeedle9vfunc_10cEb kind:function(arm,size=0x14) addr:0x021811e0
 _ZN11ActorBeedle9vfunc_110Ev kind:function(arm,size=0x50) addr:0x021811f4
 _ZN11ActorBeedle19func_ov031_021812e4Ei kind:function(arm,size=0x48) addr:0x02181244
 _ZN11ActorBeedle19func_ov031_0218132cEi kind:function(arm,size=0x8c) addr:0x0218128c
 _ZN11ActorBeedle9vfunc_11cEv kind:function(arm,size=0x40) addr:0x02181318
 _ZN11ActorBeedle9vfunc_118Ev kind:function(arm,size=0x20) addr:0x02181358
-_ZN11ActorBeedleD1Ev kind:function(arm,size=0x1c) addr:0x02181378
-_ZN11ActorBeedleD0Ev kind:function(arm,size=0x14) addr:0x02181394
+_ZN11ActorBeedleD0Ev kind:function(arm,size=0x1c) addr:0x02181378
+_ZN11ActorBeedleD1Ev kind:function(arm,size=0x14) addr:0x02181394
 _ZN10ActorTetra6CreateEv kind:function(arm,size=0x70) addr:0x021813a8
 _ZN10ActorTetra8vfunc_f4Ev kind:function(arm,size=0x100) addr:0x02181418
 _ZN10ActorTetra8vfunc_c4Ev kind:function(arm,size=0x28) addr:0x02181518
@@ -296,19 +296,18 @@ unk$1554 kind:data(any) addr:0x021819cc local
 @2460 kind:data(any) addr:0x021819e0 local
 sUnk1$1294 kind:data(any) addr:0x021819e8 local
 sUnk2$1295 kind:data(any) addr:0x021819f4 local
-data_ov031_02181abc kind:data(any) addr:0x02181a1c
-data_ov031_02181ac8 kind:data(any) addr:0x02181a28
-data_ov031_02181ad4 kind:data(any) addr:0x02181a34
-data_ov031_02181b10 kind:data(any) addr:0x02181a70
+sUnk3$1040 kind:data(any) addr:0x02181a1c
+sUnk2$1033 kind:data(any) addr:0x02181a28
+sUnk1$1030 kind:data(any) addr:0x02181a34
 data_ov031_02181b24 kind:data(any) addr:0x02181a84
 data_ov031_02181b30 kind:data(any) addr:0x02181a90
 __sinit_ActorShopItem.cpp kind:function(arm,size=0x3ec) addr:0x02181acc local
 __sinit_ActorItemSeller.cpp kind:function(arm,size=0xa8) addr:0x02181eb8 local
-__sinit_ov031_02182000 kind:function(arm,size=0x40) addr:0x02181f60
+__sinit_ActorBeedle.cpp kind:function(arm,size=0x40) addr:0x02181f60
 __sinit_ov031_02182040 kind:function(arm,size=0x40) addr:0x02181fa0
 .p__sinit_ActorShopItem.cpp kind:data(word) addr:0x02181fe0 local
 .p__sinit_ActorItemSeller.cpp kind:data(word) addr:0x02181fe4 local
-.p__sinit_ov031_02182000 kind:data(word) addr:0x02181fe8
+.p__sinit_ActorBeedle.cpp kind:data(word) addr:0x02181fe8
 .p__sinit_ov031_02182040 kind:data(word) addr:0x02181fec
 data_ov031_021820a0 kind:data(any) addr:0x02182000
 data_ov031_021820a4 kind:data(any) addr:0x02182004
@@ -416,15 +415,16 @@ _ZTV17ActorShopItemBase kind:data(any) addr:0x02183404
 @1285 kind:data(any) addr:0x02183a14 local
 sShipTypes kind:data(any) addr:0x02183a18 local
 _ZTV15ActorItemSeller kind:data(any) addr:0x02183a38
-data_ov031_02183c00 kind:data(any) addr:0x02183b60
-data_ov031_02183c04 kind:data(any) addr:0x02183b64
-data_ov031_02183c08 kind:data(any) addr:0x02183b68
-data_ov031_02183c0c kind:data(any) addr:0x02183b6c
-data_ov031_02183c10 kind:data(any) addr:0x02183b70
-data_ov031_02183c14 kind:data(any) addr:0x02183b74
-data_ov031_02183c18 kind:data(any) addr:0x02183b78
-data_ov031_02183c1c kind:data(any) addr:0x02183b7c
-data_ov031_02183c48 kind:data(any) addr:0x02183ba8
+@1125 kind:data(any) addr:0x02183b60 local
+@1126 kind:data(any) addr:0x02183b64 local
+@1127 kind:data(any) addr:0x02183b68 local
+@1128 kind:data(any) addr:0x02183b6c local
+@1129 kind:data(any) addr:0x02183b70 local
+@1130 kind:data(any) addr:0x02183b74 local
+@1131 kind:data(any) addr:0x02183b78 local
+@1132 kind:data(any) addr:0x02183b7c local
+sShipTypes kind:data(any) addr:0x02183b80 local
+_ZTV11ActorBeedle kind:data(any) addr:0x02183ba0
 data_ov031_02183d68 kind:data(any) addr:0x02183cc8
 data_ov031_02183d6c kind:data(any) addr:0x02183ccc
 data_ov031_02183d7c kind:data(any) addr:0x02183cdc
@@ -479,7 +479,7 @@ _ZN16ActorItemSeller15gTypeE kind:bss addr:0x021840c0
 _ZN16ActorItemSeller25gTypeE kind:bss addr:0x021840e0
 @1237 kind:bss addr:0x021840f4 local
 _ZN16ActorItemSeller35gTypeE kind:bss addr:0x02184100
-data_ov031_021841b4 kind:bss addr:0x02184114
-data_ov031_021841c0 kind:bss addr:0x02184120
+@1133 kind:bss addr:0x02184114
+_ZN11ActorBeedle5gTypeE kind:bss addr:0x02184120
 data_ov031_021841d4 kind:bss addr:0x02184134
 data_ov031_021841e0 kind:bss addr:0x02184140

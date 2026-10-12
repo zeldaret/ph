@@ -2,19 +2,19 @@
 #include "Message/MessageManager.hpp"
 #include "Save/AdventureFlags.hpp"
 
-ARM static unk32 func_ov014_021447f8(void *actor, unk32 param2) {
+ARM static unk32 func_ov014_021447f8(void *actor, ActorCharacterBase_vfunc_d8 *param2) {
     return ((ActorCharacterBase *) actor)->vfunc_d8(param2);
 }
 
-ARM static unk32 func_ov014_0214480c(void *actor, unk32 param2) {
+ARM static unk32 func_ov014_0214480c(void *actor, ActorCharacterBase_vfunc_d8 *param2) {
     return ((ActorCharacterBase *) actor)->vfunc_dc(param2);
 }
 
-ARM static unk32 func_ov014_02144820(void *actor, unk32 param2) {
+ARM static unk32 func_ov014_02144820(void *actor, ActorCharacterBase_vfunc_d8 *param2) {
     return ((ActorCharacterBase *) actor)->vfunc_e0(param2);
 }
 
-ARM static unk32 func_ov014_02144834(void *actor, unk32 param2) {
+ARM static unk32 func_ov014_02144834(void *actor, ActorCharacterBase_vfunc_d8 *param2) {
     return ((ActorCharacterBase *) actor)->vfunc_e4(param2);
 }
 
@@ -54,19 +54,19 @@ static UnkStruct_ov014_021448f4 func_ov014_02144848(UnkStruct_ov014_02144848 par
     }
 }
 
-ARM unk32 ActorCharacterBase::vfunc_d8(unk32 param1) {
+ARM unk8 ActorCharacterBase::vfunc_d8(ActorCharacterBase_vfunc_d8 *param1) {
     return 0;
 }
 
-ARM unk32 ActorCharacterBase::vfunc_dc(unk32 param1) {
+ARM unk8 ActorCharacterBase::vfunc_dc(ActorCharacterBase_vfunc_d8 *param1) {
     return 0;
 }
 
-ARM unk32 ActorCharacterBase::vfunc_e0(unk32 param1) {
+ARM unk8 ActorCharacterBase::vfunc_e0(ActorCharacterBase_vfunc_d8 *param1) {
     return 0;
 }
 
-ARM unk32 ActorCharacterBase::vfunc_e4(unk32 param1) {
+ARM unk8 ActorCharacterBase::vfunc_e4(ActorCharacterBase_vfunc_d8 *param1) {
     return 0;
 }
 
