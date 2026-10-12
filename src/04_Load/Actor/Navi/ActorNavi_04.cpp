@@ -1,13 +1,13 @@
 #include "Actor/Navi/ActorNavi.hpp"
 #include "Item/ItemManager.hpp"
+#include "Unknown/UnkStruct_ov000_020e678c.hpp"
 
 extern ItemModel *data_ov000_020ee1f8;
-extern NsFile *data_ov000_020e67ac;
 
 THUMB ActorNaviBase::ActorNaviBase() :
     mUnk_164(0),
     mUnk_168(data_ov000_020ee1f8),
-    mUnk_1d0(GetJntAnimation(FindJntSection(data_ov000_020e67ac), 0), data_ov000_020ee1f8),
+    mUnk_1d0(GetJntAnimation(FindJntSection(data_ov000_020e678c.mFile), 0), data_ov000_020ee1f8),
     mUnk_214(0),
     mUnk_222(-1),
     mUnk_224(0x1000000),

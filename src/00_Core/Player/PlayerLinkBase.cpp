@@ -90,7 +90,7 @@ bool PlayerLinkBase::func_ov000_020bd268() {}
 bool PlayerLinkBase::func_ov000_020bd2bc() {}
 bool PlayerLinkBase::func_ov000_020bd304() {}
 bool PlayerLinkBase::func_ov000_020bd318() {}
-void PlayerLinkBase::vfunc_7c() {}
+void PlayerLinkBase::vfunc_7c(PlayerCharacter character, bool param2) {}
 void PlayerLinkBase::SetPlayerCharacter(PlayerCharacter character) {}
 bool PlayerLinkBase::func_ov000_020bd3b0(unk32 param1, unk32 param2, unk32 param3, unk16 param4) {}
 void PlayerLinkBase::SetPosition(Vec3p *position) {}

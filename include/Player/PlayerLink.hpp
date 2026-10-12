@@ -35,7 +35,7 @@ public:
     /* 6c */ virtual void vfunc_6c() override;
     /* 74 */ virtual void vfunc_74() override;
     /* 78 */ virtual unk32 vfunc_78() override;
-    /* 7c */ virtual void vfunc_7c() override;
+    /* 7c */ virtual void vfunc_7c(PlayerCharacter character, bool param2) override;
     /* 80 */ virtual void SetUnk_5e() override;
     /* 84 */ virtual void ResetUnk_5e() override;
     /* 88 */ virtual void OnDeath(bool param1);

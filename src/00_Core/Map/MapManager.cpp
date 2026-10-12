@@ -2206,14 +2206,14 @@ s32 MapManager::func_ov00_0208527c(MapManager *param_1, unk32 param_2, Vec3p *pa
     } while (true);
 }
 
-s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *param_3) {
+UnkStruct_ov000_020853fc *MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *param_3) {
     u32 uVar1;
     UnkStruct_027e0f64_04 *uVar2;
     int iVar3;
     int iVar4;
     int iVar5;
     u32 uVar6;
-    int iVar7;
+    UnkStruct_ov000_020853fc *iVar7;
     u32 local_50;
     u32 local_48;
     u8 local_3e;
@@ -2234,7 +2234,7 @@ s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *par
     uVar6    = local_3d;
     iVar3    = param_1->GetMapWidth();
     iVar4    = param_1->GetMapHeight();
-    iVar7    = 0;
+    iVar7    = NULL;
     local_2c = 0;
     if (local_48 == 0) {
         local_48 = 0;
@@ -2258,7 +2258,7 @@ s32 MapManager::func_ov00_020853fc(MapManager *param_1, Vec3p *param_2, s32 *par
                  (iVar4 = Vec3p_Distance((Vec3p *) (iVar3 + 0x18), param_2), iVar4 < *param_3)) &&
                 (iVar5 = func_ov000_0208b7d0(iVar3, param_2), iVar5 != 0)) {
                 *param_3 = iVar4;
-                iVar7    = iVar3;
+                iVar7    = (UnkStruct_ov000_020853fc *) iVar3;
             }
         }
     }

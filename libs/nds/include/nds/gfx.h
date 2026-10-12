@@ -8,6 +8,9 @@
 extern "C" {
 #endif
 
+// 15-bit BGR555 colour, each component 0-31
+#define GX_RGB(r, g, b) ((r) | ((g) << 5) | ((b) << 10))
+
 #define REG_GFX_FIFO (*(volatile u32 *) 0x04000400)
 #define GFX_FIFO_MTX_MODE (*(volatile u32 *) 0x04000440)
 #define GFX_FIFO_MTX_PUSH (*(volatile u32 *) 0x04000444)

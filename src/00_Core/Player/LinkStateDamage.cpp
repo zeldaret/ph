@@ -1,10 +1,10 @@
 #include "Player/LinkStateDamage.hpp"
 #include "Game/Game.hpp"
 #include "Unknown/UnkStruct_020e9360.hpp"
+#include "Unknown/UnkStruct_ov000_020c0c08.hpp"
 #include "Unknown/UnkStruct_ov000_020e9c88.hpp"
 
 extern "C" unk32 func_0201e388(void *param1, const char *param2);
-extern "C" void func_02019534(void *model, unk32 param1, unk32 param2);
 
 static char *gShipParts[8] = {"brg", "anc", "pdl", "hul", "can", "dco", "bow", "fnl"};
 
@@ -98,7 +98,7 @@ ARM void LinkStateDamage::SetLinkFrozenMaterial() {
     unk32 unkVar1       = func_0201e388(materialList, "link_ice1");
     unk32 unkVar2       = data_ov000_020e9360.func_ov000_02079e68(1);
     void *model2        = mUnk_3c.GetLcdcAddress();
-    func_02019534(model2, unkVar1, unkVar2);
+    ((ItemModel *) model2)->func_02019534(unkVar1, unkVar2);
 }
 #pragma readonly_strings reset
 

@@ -52,8 +52,8 @@ src/00_Core/Actor/Navi/ActorForceNavi.cpp:
     .sbss       start:0x020ee178 end:0x020ee198
 
 src/00_Core/Actor/Navi/ActorNaviBase.cpp:
-    .text       start:0x020b87fc end:0x020bb0b8
-    .rodata     start:0x020dc7bc end:0x020dc7f8
+    .text       start:0x020b8730 end:0x020bb0b8
+    .rodata     start:0x020dc7a0 end:0x020dc7f8
     .data       start:0x020e670c end:0x020e6874
     .sbss       start:0x020ee198 end:0x020ee19c
 

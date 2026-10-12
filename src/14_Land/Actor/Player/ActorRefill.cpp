@@ -4,6 +4,7 @@
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Item/ItemManager.hpp"
 #include "System/Random.hpp"
+#include "Unknown/UnkStruct_020e9370.hpp"
 #include "Unknown/UnkStruct_020eec9c.hpp"
 
 static char *sShipTypes[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
@@ -188,9 +189,6 @@ ARM bool ActorRefill::func_ov014_02135364(unk32 param1) {
 }
 
 extern "C" void func_0202bc38(bool param1, Vec3p *pos, unk32 param2, Actor_UnkStruct_012 *param3, unk32 param4);
-extern u32 data_ov000_020e9370[];
-extern "C" void func_ov005_02102c2c(u32 *param_1, int param_2, Vec3p *param_3, int param_4, int param_5, u32 param_6,
-                                    int param_7, char param_8, char param_9, char param_10);
 ARM void ActorRefill::vfunc_20(bool param1) {
     bool var_r0;
 
@@ -208,7 +206,7 @@ ARM void ActorRefill::vfunc_20(bool param1) {
         sp18.mUnk_18 = 0x1000;
         sp18.mUnk_02 = mUnk_164;
         func_0202bc38(param1, &mPos, mUnk_15c, &sp18, 0);
-        func_ov005_02102c2c(&data_ov000_020e9370[0], 0, &mPos, 0x400, 0x400, 0, mUnk_164, 0, 0, 1);
+        data_ov000_020e9370.func_ov005_02102c2c(0, &mPos, 0x400, 0x400, 0, mUnk_164, 0, 0, 1);
     }
 }
 
