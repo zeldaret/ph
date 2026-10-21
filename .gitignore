@@ -1,5 +1,6 @@
 build/
 .vscode/
+.cache/
 venv/
 ph_*/
 *.nds

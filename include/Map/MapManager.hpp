@@ -160,7 +160,7 @@ public:
     bool func_ov00_020823c4(unk32 *param_2, s32 param_3);
     s32 func_ov00_020823d4(s32 param_2);
     s32 func_ov00_020823e4(s32 param_2);
-    void MapData_vfunc_b4();
+    unk32 *MapData_vfunc_b4();
     void MapData_vfunc_9c();
     s32 func_ov00_02082424();
     bool func_ov00_02082454(Vec3p *param_2, Vec3p *param_3);
@@ -244,13 +244,13 @@ public:
     s32 GetTriggerBoundingBoxes(s32 param_2, AABB *param_3, s32 param_4);
     bool func_ov00_020836dc(u32 param_2, u32 actorId);
     bool IsTriggerTypeOverlapped(u32 param_2, Vec3p *param_3);
-    unk8 GetOverlappingTrigger(Vec3p *param_2);
+    u8 GetOverlappingTrigger(Vec3p *param_2);
     bool func_ov00_02083790(s32 param_2);
     bool func_ov00_02083840(s32 param_2);
     bool AddTrigger(TriggerBase *param_2);
     bool func_ov00_020838d8(TriggerBase *param_2);
     bool FindExit(u32 param_2, Exit *param_3);
-    char func_ov00_020838f8(Exit *param_2);
+    u8 func_ov00_020838f8(Exit *param_2);
     bool func_ov00_02083908(char param_2, CameraViewpoint *param_3);
     void func_ov00_02083918(s32 param_2, CameraViewpoint *param_3);
     void GetCurrentViewpoint(CameraViewpoint *param_2, s32 param_3);

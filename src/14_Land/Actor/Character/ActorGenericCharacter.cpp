@@ -19,7 +19,7 @@ bool ActorGenericCharacter::func_ov014_02147bb0() {}
 unk32 ActorGenericCharacter::func_ov014_02147bd8() {}
 void ActorGenericCharacter::func_ov014_02147c00() {}
 
-ActorGenericCharacter::~ActorGenericCharacter() {}
+// ActorGenericCharacter::~ActorGenericCharacter() {}
 void ActorGenericCharacter::vfunc_f8() {}
 
 void ActorGenericCharacter::func_ov014_02147c98() {}

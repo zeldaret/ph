@@ -284,7 +284,7 @@ _ZN10ActorTetra6CreateEv kind:function(arm,size=0x70) addr:0x021813a8
 _ZN10ActorTetra8vfunc_f4Ev kind:function(arm,size=0x100) addr:0x02181418
 _ZN10ActorTetra8vfunc_c4Ev kind:function(arm,size=0x28) addr:0x02181518
 _ZN10ActorTetra8vfunc_20Eb kind:function(arm,size=0x30) addr:0x02181540
-_ZN14ActorTetra_4b019func_ov031_02181610Eiiiit kind:function(arm,size=0x188) addr:0x02181570
+_ZN14ActorTetra_4b019func_ov031_02181610EPiiiit kind:function(arm,size=0x188) addr:0x02181570
 _ZN14ActorTetra_4b019func_ov031_02181798Ev kind:function(arm,size=0xd4) addr:0x021816f8
 _ZN10ActorTetraD1Ev kind:function(arm,size=0x1c) addr:0x021817cc
 _ZN10ActorTetraD0Ev kind:function(arm,size=0x14) addr:0x021817e8
@@ -300,8 +300,8 @@ data_ov031_02181abc kind:data(any) addr:0x02181a1c
 data_ov031_02181ac8 kind:data(any) addr:0x02181a28
 data_ov031_02181ad4 kind:data(any) addr:0x02181a34
 data_ov031_02181b10 kind:data(any) addr:0x02181a70
-data_ov031_02181b24 kind:data(any) addr:0x02181a84
-data_ov031_02181b30 kind:data(any) addr:0x02181a90
+sUnk1$1072 kind:data(any) addr:0x02181a84
+sUnk2$1073 kind:data(any) addr:0x02181a90
 __sinit_ActorShopItem.cpp kind:function(arm,size=0x3ec) addr:0x02181acc local
 __sinit_ActorItemSeller.cpp kind:function(arm,size=0xa8) addr:0x02181eb8 local
 __sinit_ov031_02182000 kind:function(arm,size=0x40) addr:0x02181f60
@@ -425,9 +425,9 @@ data_ov031_02183c14 kind:data(any) addr:0x02183b74
 data_ov031_02183c18 kind:data(any) addr:0x02183b78
 data_ov031_02183c1c kind:data(any) addr:0x02183b7c
 data_ov031_02183c48 kind:data(any) addr:0x02183ba8
-data_ov031_02183d68 kind:data(any) addr:0x02183cc8
-data_ov031_02183d6c kind:data(any) addr:0x02183ccc
-data_ov031_02183d7c kind:data(any) addr:0x02183cdc
+sUnk3$1074 kind:data(any) addr:0x02183cc8
+sUnk4$1075 kind:data(any) addr:0x02183ccc
+_ZTV10ActorTetra kind:data(any) addr:0x02183cd4
 data_ov031_02183e80 kind:bss addr:0x02183de0
 sCurrentSeller kind:bss addr:0x02183de4 local
 @792 kind:bss addr:0x02183de8

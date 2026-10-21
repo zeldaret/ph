@@ -822,7 +822,7 @@ from:0x0218139c kind:arm_call to:0x0217cf10 module:overlay(31)
 from:0x021813c0 kind:arm_call to:0x0202e9d8 module:main
 from:0x021813cc kind:arm_call to:0x0214762c module:overlay(14)
 from:0x0218140c kind:load to:0x027e0fe0 module:dtcm
-from:0x02181414 kind:load to:0x02183cdc module:overlay(31)
+from:0x02181414 kind:load to:0x02183cd4 module:overlay(31) add:0x8
 from:0x02181430 kind:arm_call to:0x02097700 module:overlay(0)
 from:0x02181450 kind:arm_call to:0x021459d0 module:overlay(14)
 from:0x02181464 kind:arm_call to:0x02145a44 module:overlay(14)

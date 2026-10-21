@@ -3,6 +3,7 @@
 #include <string.h>
 
 namespace std {
+
     template <class T> class vector {
     public:
         T *mElements;
