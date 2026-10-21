@@ -4,10 +4,10 @@
 
 extern u32 **data_027e0fe0[];
 extern UnkStruct_027e0fec *data_027e0fec;
-extern unk32 data_ov031_02181b24;
-extern unk32 data_ov031_02181b30;
-extern unk32 data_ov031_02183d68;
-extern unk32 data_ov031_02183d6c;
+extern unk32 data_ov031_02181b24; // Vec3p ? { 0x800, 0x4CD, 0x10CD };
+extern char data_ov031_02181b30; // char[8] "wait\0\0\0\0"
+extern char data_ov031_02183d68; // char[4] "TTR\0"
+extern char data_ov031_02183d6c; // char[8] "sekika\0\0"
 
 extern void CleanDataCacheLines(void *, unk32);
 extern bool func_02017d30(bool, unk32, ActorTetra_4cc *, unk32);
@@ -53,7 +53,9 @@ ARM void ActorTetra::vfunc_20(bool param1) {
     mUnk_4b0.func_ov031_02181798();
 }
 
-ARM void ActorTetra_4b0::func_ov031_02181610(unk32 *param1, unk32 param2, unk32 param3, unk32 param4, u16 param5) {
+ARM void ActorTetra_4b0::func_ov031_02181610(func_ov031_02181610_param1 *param1, unk32 param2, unk32 param3, unk32 param4,
+                                             u16 param5) {
+    func_ov031_02181610_stack s;
     s32 iVar1;
     s32 iVar2;
     u32 uVar3;
@@ -62,56 +64,60 @@ ARM void ActorTetra_4b0::func_ov031_02181610(unk32 *param1, unk32 param2, unk32 
     s32 iVar6;
     s32 iVar7;
     unk32 *puVar8;
-    ActorTetra_4cc *puVar9;
+
     u32 uVar10;
     u32 uVar11;
     s32 iVar12;
     s32 iVar13;
     u32 local_28;
 
-    this->mUnk_08 = (unk32 *) param1[0] + param1[0xe];
-    uVar10        = param5;
-    this->mUnk_18 = (u32) ((u32) param1[0xb] & 0xffff) << 3;
-    uVar4         = param1[0x12];
-    uVar5         = this->mUnk_14;
-    local_28      = uVar4 << 3;
-    if (uVar5 < uVar4 << 3) {
-        local_28 = uVar5;
+    s.sp0 = this;
+
+    this->mUnk_08 = (unk32 *) (param1->mUnk_00 + param1->mUnk_38);
+    this->mUnk_18 = (u32) ((u32) (param1->mUnk_2c << 0x10) >> 0xD);
+    u16 temp1     = param1->mUnk_30;
+    u32 temp2     = this->mUnk_14;
+
+    s.sp4 = param3;
+    s.sp8 = temp1 * 8;
+
+    if (temp2 < (u32) (temp1 * 8)) {
+        s.sp8 = temp2;
     }
-    if (local_28 < uVar5) {
-        this->mUnk_14 = local_28;
+    if (s.sp8 < temp2) {
+        s.sp0->mUnk_14 = s.sp8;
     }
-    iVar1  = (int) (uVar10 & 0x7c00) >> 10;
-    iVar2  = (int) (uVar10 & 0x3e0) >> 5;
-    puVar8 = this->mUnk_08;
-    puVar9 = this->mUnk_0c;
-    uVar4  = CoDivide64By32(0x1f000, ((uVar10 & 0x1f) + 0x1f) * 0x1000);
-    uVar5  = CoDivide64By32(0x1f000, (iVar2 + 0x1f) * 0x1000);
-    uVar3  = CoDivide64By32(0x1f000, (iVar1 + 0x1f) * 0x1000);
-    iVar6  = 0;
-    if (local_28 >> 1 != 0) {
-        /*do {
-            uVar11 = (u32) *puVar8;
-            iVar6  = iVar6 + 1;
-            puVar8 = puVar8 + 1;
-            iVar12 = ((int) uVar11 >> 10 & 0x1fU) + (uVar11 & 0x1f) + ((int) uVar11 >> 5 & 0x1fU);
-            iVar7  = (int) (iVar12 * ((int) (param_3 * uVar4 + 0x800) >> 0xc) + (uVar10 & 0x1f) * 0x1000) >> 0xc;
-            iVar13 = iVar12 * ((int) (param_4 * uVar5 + 0x800) >> 0xc) + iVar2 * 0x1000 >> 0xc;
-            if (0x1f < iVar7) {
-                iVar7 = 0x1f;
+
+    unk32 temp5  = (unk32) (param5 & 0x7c00) >> 0xa;
+    u32 temp9    = s.sp8 >> 1;
+    unk32 temp4  = (unk32) (param5 & 0x3e0) >> 5;
+    unk32 *var7  = s.sp0->mUnk_08;
+    unk32 *var8  = (unk32 *) s.sp0->mUnk_0c;
+    unk32 temp11 = (unk32) ((param2 * CoDivide64By32(0x1f000, ((param5 & 0x1f) + 0x1f) << 0xc)) + 0x800) >> 0xC;
+    unk32 temp6  = (unk32) ((s.sp4 * CoDivide64By32(0x1f000, (temp4 + 0x1f) << 0xc)) + 0x800) >> 0xc;
+    unk32 var2   = 0;
+    unk32 temp14 = (s32) ((param4 * CoDivide64By32(0x1f000, (temp5 + 0x1f) << 0xc)) + 0x800) >> 0xc;
+
+    if ((s32) temp9 > 0) {
+        do {
+            unk32 temp10 = *var7;
+            var2 += 1;
+            var7 += 2;
+            unk32 temp10_2 = (((unk32) temp10 >> 0xa) & 0x1f) + ((temp10 & 0x1f) + (((unk32) temp10 >> 5) & 0x1f));
+            unk32 var3     = (unk32) ((temp10_2 * temp11) + ((u32) (param5 << 0x1b) >> 0xf)) >> 0xc;
+            unk32 varip    = (unk32) ((temp10_2 * temp6) + (temp4 << 0xc)) >> 0xc;
+            if (varip > 0x1f) {
+                varip = 0x1f;
             }
-            if (0x1f < iVar13) {
-                iVar13 = 0x1f;
+            unk32 var0 = (unk32) ((temp10_2 * temp14) + (temp5 << 0xc)) >> 0xc;
+            if (var0 > 0x1f) {
+                var0 = 0x1f;
             }
-            iVar12 = iVar12 * ((int) (param_5 * uVar3 + 0x800) >> 0xc) + iVar1 * 0x1000 >> 0xc;
-            if (0x1f < iVar12) {
-                iVar12 = 0x1f;
-            }
-            *puVar9 = (ushort) iVar7 | (ushort) (iVar13 << 5) | (ushort) (iVar12 << 10);
-            puVar9  = puVar9 + 1;
-        } while (iVar6 < (int) (local_28 >> 1));
-    */}
-        CleanDataCacheLines(this->mUnk_0c, local_28);
+            *var8 = var3 | (varip << 5) | (var0 << 0xa);
+            var8 += 2;
+        } while (var2 < (unk32) temp9);
+    }
+    CleanDataCacheLines(s.sp0->mUnk_0c, s.sp8);
 }
 
 ARM void ActorTetra_4b0::func_ov031_02181798() {
