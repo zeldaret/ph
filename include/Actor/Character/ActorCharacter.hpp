@@ -193,7 +193,7 @@ public:
         mUnk_244(0x11f) {}
 
     void func_ov014_02145a74(unk32 param1, unk32 param2);
-    void func_ov014_02145ae8(unk32 param1, char *param2, char *param3);
+    void func_ov014_02145ae8(unk32 param1, const char *param2, const char *param3);
     void func_ov014_02145cac();
     void func_ov014_02145e48(unk32 param1);
     bool func_ov014_02145f0c(unk32 param1);

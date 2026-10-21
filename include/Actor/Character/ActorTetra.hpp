@@ -66,7 +66,7 @@ public:
 
 struct func_ov031_02181610_stack {
     /* 0x00 */ ActorTetra_4b0 *sp0;                           /* inferred */
-    /* 0x04 */ s32 sp4;                             /* inferred */
-    /* 0x08 */ u32 sp8;                             /* inferred */
+    /* 0x04 */ unk32 sp4;                             /* inferred */
+    /* 0x08 */ unk32 sp8;                             /* inferred */
     /* 0x0c */ char padC[0x24];
 };                                                  /* size = 0x30 */

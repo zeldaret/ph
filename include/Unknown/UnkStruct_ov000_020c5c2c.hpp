@@ -21,7 +21,7 @@ public:
     /* 04 */ PAD(0x04, 0x10);
     /* 10 */ UnkStruct_ov000_020c5c2c_10 *mUnk_10;
     /* 14 */ PAD(0x14, 0x18);
-    /* 18 */ char *mUnk_18;
+    /* 18 */ const char *mUnk_18;
     /* 1c */ Actor *mActor;
     /* 20 */
 

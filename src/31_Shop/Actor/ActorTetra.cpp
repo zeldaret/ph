@@ -4,10 +4,6 @@
 
 extern u32 **data_027e0fe0[];
 extern UnkStruct_027e0fec *data_027e0fec;
-extern unk32 data_ov031_02181b24; // Vec3p ? { 0x800, 0x4CD, 0x10CD };
-extern char data_ov031_02181b30; // char[8] "wait\0\0\0\0"
-extern char data_ov031_02183d68; // char[4] "TTR\0"
-extern char data_ov031_02183d6c; // char[8] "sekika\0\0"
 
 extern void CleanDataCacheLines(void *, unk32);
 extern bool func_02017d30(bool, unk32, ActorTetra_4cc *, unk32);
@@ -17,15 +13,20 @@ ARM ActorTetra *ActorTetra::Create() {
 }
 
 ARM bool ActorTetra::vfunc_f4() {
+    static const unk32 sUnk1[] = {0x800, 0x4cd, 0x10cd};
+    static const char sUnk2[8] = "wait";
+    static const char sUnk3[4] = "TTR";
+    static const char sUnk4[8] = "sekika";
+
     if (gAdventureFlags->Get(AdventureFlag_PlayedBellumTakesOverGhostShipCS)) {
         return false;
     }
     mUnk_1d8.func_ov014_02145a74(0x37, 0x37);
-    mUnk_1d8.func_ov014_02145ae8(0x37, &data_ov031_02183d68, &data_ov031_02183d6c);
-    func_ov014_021451f0(&data_ov031_02181b24);
+    mUnk_1d8.func_ov014_02145ae8(0x37, sUnk3, sUnk4);
+    func_ov014_021451f0(sUnk1);
     mUnk_448 = 4;
     if (mUnk_020.mUnk_00[0] == 0 && mUnk_020.mUnk_00[2] == 1) {
-        mUnk_1d8.mUnk_18          = &data_ov031_02181b30;
+        mUnk_1d8.mUnk_18          = sUnk2;
         mUnk_1d8.mUnk_020.mUnk_8e = true;
         mUnk_1d8.func_ov014_02146120(0);
         mUnk_469         = true;
@@ -53,29 +54,15 @@ ARM void ActorTetra::vfunc_20(bool param1) {
     mUnk_4b0.func_ov031_02181798();
 }
 
+/* UnkStruct_027e0fec mUnk_c10 type to change from func_ov031_02181610_param1 to correct type */
 ARM void ActorTetra_4b0::func_ov031_02181610(func_ov031_02181610_param1 *param1, unk32 param2, unk32 param3, unk32 param4,
                                              u16 param5) {
     func_ov031_02181610_stack s;
-    s32 iVar1;
-    s32 iVar2;
-    u32 uVar3;
-    u32 uVar4;
-    u32 uVar5;
-    s32 iVar6;
-    s32 iVar7;
-    unk32 *puVar8;
-
-    u32 uVar10;
-    u32 uVar11;
-    s32 iVar12;
-    s32 iVar13;
-    u32 local_28;
-
     s.sp0 = this;
 
-    this->mUnk_08 = (unk32 *) (param1->mUnk_00 + param1->mUnk_38);
-    this->mUnk_18 = (u32) ((u32) (param1->mUnk_2c << 0x10) >> 0xD);
-    u16 temp1     = param1->mUnk_30;
+    this->mUnk_08 = (unk32 *) ((unk32) param1 + param1->mUnk_38);
+    this->mUnk_18 = ((u32) (param1->mUnk_2c << 0x10) >> 0xD);
+    unk32 temp1   = param1->mUnk_30;
     u32 temp2     = this->mUnk_14;
 
     s.sp4 = param3;
@@ -88,15 +75,15 @@ ARM void ActorTetra_4b0::func_ov031_02181610(func_ov031_02181610_param1 *param1,
         s.sp0->mUnk_14 = s.sp8;
     }
 
-    unk32 temp5  = (unk32) (param5 & 0x7c00) >> 0xa;
+    unk32 temp5  = (param5 & 0x7c00) >> 0xa;
     u32 temp9    = s.sp8 >> 1;
-    unk32 temp4  = (unk32) (param5 & 0x3e0) >> 5;
+    unk32 temp4  = (param5 & 0x3e0) >> 5;
     unk32 *var7  = s.sp0->mUnk_08;
     unk32 *var8  = (unk32 *) s.sp0->mUnk_0c;
-    unk32 temp11 = (unk32) ((param2 * CoDivide64By32(0x1f000, ((param5 & 0x1f) + 0x1f) << 0xc)) + 0x800) >> 0xC;
-    unk32 temp6  = (unk32) ((s.sp4 * CoDivide64By32(0x1f000, (temp4 + 0x1f) << 0xc)) + 0x800) >> 0xc;
+    unk32 temp11 = (unk32) ((param2 * CoDivide64By32(0x1f000, ((param5 & 0x1f) + 0x1f) * 4096)) + 0x800) >> 0xc;
+    unk32 temp6  = (unk32) ((s.sp4 * CoDivide64By32(0x1f000, (temp4 + 0x1f) * 4096)) + 0x800) >> 0xc;
     unk32 var2   = 0;
-    unk32 temp14 = (s32) ((param4 * CoDivide64By32(0x1f000, (temp5 + 0x1f) << 0xc)) + 0x800) >> 0xc;
+    unk32 temp14 = (s32) ((param4 * CoDivide64By32(0x1f000, (temp5 + 0x1f) * 4096)) + 0x800) >> 0xc;
 
     if ((s32) temp9 > 0) {
         do {
